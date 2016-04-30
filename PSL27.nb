@@ -1,0 +1,802 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     31135,        793]
+NotebookOptionsPosition[     30403,        768]
+NotebookOutlinePosition[     30737,        783]
+CellTagsIndexPosition[     30694,        780]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"X", "[", 
+      RowBox[{"n_", ",", "m_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "ret", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ret", "=", 
+         RowBox[{"ConstantArray", "[", 
+          RowBox[{"0", ",", "n"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"ret", "[", 
+          RowBox[{"[", "m", "]"}], "]"}], "=", "1"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "ret", "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"X2", "[", 
+      RowBox[{"n1_", ",", "n2_", ",", "list_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"ret", ",", "i"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ret", "=", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", "list", "]"}]}], ",", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"ret", ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"X", "[", 
+               RowBox[{"n1", ",", 
+                RowBox[{"list", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"i", ",", "1"}], "]"}], "]"}]}], "]"}], ",", 
+              RowBox[{"X", "[", 
+               RowBox[{"n2", ",", 
+                RowBox[{"list", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"i", ",", "2"}], "]"}], "]"}]}], "]"}]}], "}"}]}], 
+           "]"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "ret", "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.6206102963182964`*^9, 3.6206103803218746`*^9}, {
+  3.6206104674462733`*^9, 3.6206106090800505`*^9}, {3.6206131475647535`*^9, 
+  3.6206131479307747`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"input33", "=", 
+     RowBox[{"X2", "[", 
+      RowBox[{"3", ",", "3", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "3"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input33", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<3b\>\"", ",", 
+      "\"\<3-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input33", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<3b\>\"", ",", 
+      "\"\<6+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Clear", "[", "input33", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6219879701149316`*^9, 3.6219880132849703`*^9}, {
+   3.622028862041494*^9, 3.622028868152218*^9}, {3.622028898966982*^9, 
+   3.622028925518889*^9}, 3.6220291088695517`*^9, {3.622029143486113*^9, 
+   3.622029156397386*^9}, {3.636630755237067*^9, 3.636630761280352*^9}, {
+   3.636646360017886*^9, 3.636646380426351*^9}, {3.666359815377784*^9, 
+   3.6663598207401114`*^9}, {3.6702544838893547`*^9, 3.670254489289028*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"input33", "=", 
+     RowBox[{"X2", "[", 
+      RowBox[{"3", ",", "3", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "3"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input33", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<3\>\"", ",", 
+      "\"\<3b-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input33", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<3\>\"", ",", 
+      "\"\<6+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input33", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<3b\>\"", ",", 
+      "\"\<1\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input33", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<3b\>\"", ",", 
+      "\"\<8\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Clear", "[", "input33", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6206125109008756`*^9, 3.620612585095586*^9}, {
+   3.6219817412371955`*^9, 3.621981746556204*^9}, 3.621981805910294*^9, {
+   3.6219819080675097`*^9, 3.621981909007511*^9}, {3.6219819556505823`*^9, 
+   3.6219820729467583`*^9}, {3.621982111563815*^9, 3.621982115867821*^9}, {
+   3.621983415283652*^9, 3.621983446474089*^9}, {3.6220292574518967`*^9, 
+   3.622029284624806*^9}, {3.636646371874063*^9, 3.636646383900223*^9}, {
+   3.666359706464239*^9, 3.66635972347939*^9}, 3.666359856815946*^9, {
+   3.670254492858268*^9, 3.6702544961688967`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"input36", "=", 
+     RowBox[{"X2", "[", 
+      RowBox[{"3", ",", "6", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3", ",", "4"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "5"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input36", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", 
+      "\"\<3b\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input36", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", 
+      "\"\<7\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input36", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", 
+      "\"\<8\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input36", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<6\>\"", ",", 
+      "\"\<3\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input36", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<6\>\"", ",", 
+      "\"\<7\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input36", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<6\>\"", ",", 
+      "\"\<8\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Clear", "[", "input36", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6206124422146487`*^9, 3.6206124873465924`*^9}, {
+  3.67025450073971*^9, 3.6702545037045717`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"input37", "=", 
+     RowBox[{"X2", "[", 
+      RowBox[{"3", ",", "7", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3", ",", "4"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "5"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input37", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<6\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input37", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<7\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input37", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<8\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input37", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<6\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input37", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<7\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input37", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<8\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Clear", "[", "input37", "]"}], "\[IndentingNewLine]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.620612350008066*^9, 3.620612409159207*^9}, {
+  3.670254506947497*^9, 3.670254510016406*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"input38", "=", 
+     RowBox[{"X2", "[", 
+      RowBox[{"3", ",", "8", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3", ",", "4"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "5"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input38", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<3\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input38", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<6\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input38", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<7\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input38", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<8\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input38", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<3b\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input38", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<6\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input38", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<7\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input38", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<8\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Clear", "[", "input38", "]"}], "\[IndentingNewLine]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.620611993445553*^9, 3.6206119948896356`*^9}, {
+  3.6206121278452673`*^9, 3.6206123266214046`*^9}, {3.6366311318399897`*^9, 
+  3.636631138715054*^9}, {3.636646347344511*^9, 3.636646347522305*^9}, {
+  3.670254512966303*^9, 3.670254516392222*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"input66", "=", 
+   RowBox[{"X2", "[", 
+    RowBox[{"6", ",", "6", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
+    "\"\<1+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
+    "\"\<6+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
+    "\"\<8+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
+    "\"\<7-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
+    "\"\<8-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", "input66", "]"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.620602097855836*^9, 3.620602140561775*^9}, {
+   3.6206021868626566`*^9, 3.6206022053018885`*^9}, {3.620610621901784*^9, 
+   3.6206107230880384`*^9}, {3.620610765677863*^9, 3.620610767596667*^9}, {
+   3.620611998532844*^9, 3.6206120398003273`*^9}, {3.621982980895561*^9, 
+   3.6219829902479887`*^9}, {3.6219830646184983`*^9, 3.6219830777921*^9}, {
+   3.622029358019023*^9, 3.62202936174741*^9}, {3.636630923140841*^9, 
+   3.636630928421206*^9}, 3.6366464459347353`*^9, {3.670254519562847*^9, 
+   3.670254524584161*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"input67", "=", 
+     RowBox[{"X2", "[", 
+      RowBox[{"6", ",", "7", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "4"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input67", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<3\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input67", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<3b\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input67", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<6\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input67", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<7\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input67", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
+      "\"\<8\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Clear", "[", "input67", "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.6227658610171957`*^9, 3.6227659515448713`*^9}, {
+  3.6227676896036763`*^9, 3.6227677110951567`*^9}, {3.6366324173510942`*^9, 
+  3.6366324241190567`*^9}, {3.6366463054151077`*^9, 3.6366463055895853`*^9}, {
+  3.670254527682351*^9, 3.670254530495914*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"input68", "=", 
+     RowBox[{"X2", "[", 
+      RowBox[{"6", ",", "8", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3", ",", "5"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"4", ",", "7"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"6", ",", "8"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<3\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<3b\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<6\>\"", ",", "OpA", ",", 
+      RowBox[{"UnfixedParameter", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", "3", "}"}], ",", 
+         RowBox[{"{", "14", "}"}]}], "}"}]}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<7\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<8\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Clear", "[", "input68", "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.62051909987006*^9, 3.6205191003360863`*^9}, {
+   3.6205191484418383`*^9, 3.6205192254042397`*^9}, 3.620519256808036*^9, {
+   3.6205192942851796`*^9, 3.620519311262151*^9}, {3.620519357417791*^9, 
+   3.620519391341731*^9}, {3.6205223584584403`*^9, 3.620522358644451*^9}, {
+   3.6205228707667427`*^9, 3.6205228781571655`*^9}, {3.6205230160380516`*^9, 
+   3.620523027596713*^9}, 3.6205660108013067`*^9, 3.620566420822625*^9, 
+   3.620566601930256*^9, {3.62056683906588*^9, 3.6205668409587917`*^9}, {
+   3.6205821882293673`*^9, 3.620582189894623*^9}, {3.620610784555015*^9, 
+   3.620610848298855*^9}, {3.620611017401723*^9, 3.6206110312990155`*^9}, {
+   3.62061118378627*^9, 3.62061120093241*^9}, {3.6206112382168407`*^9, 
+   3.6206112423508477`*^9}, {3.620611289258664*^9, 3.6206113733074665`*^9}, {
+   3.6206120695428333`*^9, 3.620612106560089*^9}, {3.6227610125482736`*^9, 
+   3.622761017767426*^9}, {3.622761234133666*^9, 3.622761240293973*^9}, {
+   3.622769809827339*^9, 3.6227698100003414`*^9}, {3.636641789371317*^9, 
+   3.636641811652906*^9}, {3.6702545332431498`*^9, 3.670254536040285*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"input77", "=", 
+   RowBox[{"X2", "[", 
+    RowBox[{"7", ",", "7", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
+    "\"\<1+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
+    "\"\<6+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
+    "\"\<7+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
+    "\"\<8+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
+    "\"\<3-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
+    "\"\<3b-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
+    "\"\<7-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
+    "\"\<8-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", "input77", "]"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.620582215530685*^9, 3.620582257642734*^9}, {
+   3.620601729101388*^9, 3.6206017571658373`*^9}, 3.6206017909710965`*^9, {
+   3.6206019491709747`*^9, 3.620602005892674*^9}, {3.620611395433564*^9, 
+   3.62061149517548*^9}, {3.6206115359558396`*^9, 3.62061153625224*^9}, {
+   3.6206115800310955`*^9, 3.6206115815931845`*^9}, {3.6206116282654667`*^9, 
+   3.620611653246455*^9}, {3.670254538925721*^9, 3.670254542032844*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"input78", "=", 
+   RowBox[{"X2", "[", 
+    RowBox[{"7", ",", "8", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
+    "\"\<3\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
+    "\"\<3b\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
+    "\"\<6\>\"", ",", "OpA", ",", 
+    RowBox[{"UnfixedParameter", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "1", "}"}], ",", 
+       RowBox[{"{", "9", "}"}]}], "}"}]}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
+    "\"\<7\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FindParameters", "[", 
+   RowBox[{
+   "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
+    "\"\<8\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", "input78", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6206022928024426`*^9, 3.6206023429253306`*^9}, 
+   3.6206023814573984`*^9, 3.6206035868091154`*^9, {3.620604367810948*^9, 
+   3.62060437467496*^9}, {3.6206072806874332`*^9, 3.620607351105957*^9}, 
+   3.620607624211013*^9, 3.6206094531919055`*^9, {3.6206116792173758`*^9, 
+   3.6206117938684597`*^9}, 3.620639007398486*^9, 3.620639559706668*^9, {
+   3.636642848205035*^9, 3.6366428511707897`*^9}, {3.636642921724592*^9, 
+   3.636642926792292*^9}, {3.6366464256703157`*^9, 3.636646425830484*^9}, {
+   3.670254544921865*^9, 3.670254547321014*^9}, {3.67025458251013*^9, 
+   3.6702545923964777`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"input88", "=", 
+     RowBox[{"X2", "[", 
+      RowBox[{"8", ",", "8", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "8"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5", ",", "6"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", "3"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3", ",", "4"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<1+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<6+\>\"", ",", "OpA", ",", 
+      RowBox[{"UnfixedParameter", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", "1", "}"}], ",", 
+         RowBox[{"{", "6", "}"}]}], "}"}]}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<7+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<8+\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<3-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<3b-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<7-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FindParameters", "[", 
+     RowBox[{
+     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
+      "\"\<8-\>\"", ",", "OpA"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Clear", "[", "input88", "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"PSL27CgGenerated", "=", "True"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.620609474595063*^9, 3.6206095375730114`*^9}, {
+   3.6206097487504163`*^9, 3.6206097818980455`*^9}, {3.6206098260783005`*^9, 
+   3.6206098622863216`*^9}, {3.6206099070482616`*^9, 3.620610025686832*^9}, {
+   3.6206118179682283`*^9, 3.6206119127421865`*^9}, {3.6206119580847464`*^9, 
+   3.6206119594728255`*^9}, {3.6206379365823097`*^9, 
+   3.6206379430847692`*^9}, {3.620637993908451*^9, 3.620637996349683*^9}, {
+   3.622767961005951*^9, 3.6227679887045135`*^9}, {3.636630813602766*^9, 
+   3.6366308195686407`*^9}, {3.636643141642931*^9, 3.6366431534609623`*^9}, {
+   3.63664640958034*^9, 3.6366464155195217`*^9}, {3.670254549838358*^9, 
+   3.670254553704041*^9}, {3.6706793232419863`*^9, 3.67067934678354*^9}, 
+   3.670679884152647*^9}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<3\>\"", ",", "\"\<3\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<3\>\"", ",", "\"\<3b\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<3\>\"", ",", "\"\<6\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<3b\>\"", ",", "\"\<6\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<3\>\"", ",", "\"\<7\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<3b\>\"", ",", "\"\<7\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<3\>\"", ",", "\"\<8\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<3b\>\"", ",", "\"\<8\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<6\>\"", ",", "\"\<6\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<6\>\"", ",", "\"\<7\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<6\>\"", ",", "\"\<8\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<7\>\"", ",", "\"\<7\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<7\>\"", ",", "\"\<8\>\""}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"PrintAllCG", "[", 
+     RowBox[{"\"\<8\>\"", ",", "\"\<8\>\""}], "]"}], ";"}], "*)"}]}]], "Input",\
+
+ CellChangeTimes->{{3.622768088227439*^9, 3.622768096942577*^9}, {
+   3.622768665541436*^9, 3.622768783134672*^9}, {3.6227690137571583`*^9, 
+   3.6227690545310564`*^9}, 3.6250647035541573`*^9, {3.63664428137691*^9, 
+   3.636644283171402*^9}, {3.6366464012791862`*^9, 3.636646401528296*^9}, 
+   3.636646689763981*^9, {3.6395247785326047`*^9, 3.6395247827908487`*^9}, {
+   3.639528353318071*^9, 3.639528353618088*^9}, {3.639536110896779*^9, 
+   3.6395361228164606`*^9}, 3.639568120912455*^9, {3.639568312400488*^9, 
+   3.6395683255036287`*^9}, {3.63957040538455*^9, 3.639570409710202*^9}, {
+   3.65046740821819*^9, 3.650467413678652*^9}}]
+},
+WindowSize->{1278, 944},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 2216, 57, 319, "Input"],
+Cell[2776, 79, 1448, 34, 121, "Input"],
+Cell[4227, 115, 1988, 46, 165, "Input"],
+Cell[6218, 163, 1958, 50, 209, "Input"],
+Cell[8179, 215, 1977, 51, 231, "Input"],
+Cell[10159, 268, 2547, 63, 275, "Input"],
+Cell[12709, 333, 2089, 51, 187, "Input"],
+Cell[14801, 386, 1922, 48, 187, "Input"],
+Cell[16726, 436, 2972, 66, 209, "Input"],
+Cell[19701, 504, 2588, 64, 253, "Input"],
+Cell[22292, 570, 2367, 59, 209, "Input"],
+Cell[24662, 631, 3357, 79, 275, "Input"],
+Cell[28022, 712, 2377, 54, 341, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
