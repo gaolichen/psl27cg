@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     51206,       1150]
-NotebookOptionsPosition[     50928,       1136]
-NotebookOutlinePosition[     51263,       1151]
-CellTagsIndexPosition[     51220,       1148]
+NotebookDataLength[     51962,       1164]
+NotebookOptionsPosition[     51685,       1150]
+NotebookOutlinePosition[     52019,       1165]
+CellTagsIndexPosition[     51976,       1162]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -726,12 +726,11 @@ Cell[BoxData[
            RowBox[{"os", ",", " ", 
             RowBox[{"Rep2TeX", "[", "to", "]"}], ",", "\"\<=\>\"", ",", 
             "exp"}], "]"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
    RowBox[{"(*", " ", 
     RowBox[{
     "Save", " ", "the", " ", "given", " ", "cg", " ", "for", " ", "r1", "*", 
-     "r2"}], " ", "*)"}], "\n", 
+     "r2"}], " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"SaveCG", "[", 
@@ -847,52 +846,55 @@ Cell[BoxData[
             RowBox[{"Multiplier", "[", 
              RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}]}], ";", 
            "\[IndentingNewLine]", 
-           RowBox[{"ch", "=", 
+           RowBox[{"(*", 
             RowBox[{
-             RowBox[{"ToCharacterCode", "[", "\"\<a\>\"", "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-           RowBox[{"rep", "=", 
-            RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-           RowBox[{"(*", " ", 
-            RowBox[{
-             RowBox[{
-              RowBox[{"For", " ", "6", "*", "6"}], "\[Rule]", 
+             RowBox[{"ch", "=", 
               RowBox[{
-               RowBox[{"6", "_", "1"}], " ", "+", " ", 
-               RowBox[{"6", "_", "2"}]}]}], ",", " ", 
-             RowBox[{
-             "because", " ", "of", " ", "the", " ", "historic", " ", 
-              "reason"}], ",", " ", "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{
-              "we", " ", "need", " ", "to", " ", "handle", " ", "it", " ", 
-               "as", " ", "a", " ", "special", " ", 
-               RowBox[{"case", ".", " ", "\[IndentingNewLine]", "We"}], " ", 
-               "want", " ", "6", "_", "1", " ", "comes", " ", "from", " ", 
-               "\[IndentingNewLine]", "angle", " ", "a"}], "=", 
+               RowBox[{"ToCharacterCode", "[", "\"\<a\>\"", "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"rep", "=", 
+              RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", 
               RowBox[{
                RowBox[{
-                RowBox[{"Pi", "/", "2"}], " ", "and", " ", "6", "_", "2", " ",
-                 "comes", " ", "from", " ", "angle", " ", "a"}], "=", 
-               "0."}]}]}], "\[IndentingNewLine]", "*)"}], 
-           "\[IndentingNewLine]", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{
-              RowBox[{"r1", "\[Equal]", " ", "\"\<6\>\""}], " ", "&&", " ", 
-              RowBox[{"r2", "\[Equal]", "\"\<6\>\""}], " ", "&&", " ", 
-              RowBox[{"r3", " ", "\[Equal]", " ", "\"\<6+\>\""}]}], ",", "  ",
-              "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"angle1", " ", "=", " ", 
-               RowBox[{"Pi", "/", "2"}]}], ";", " ", 
-              RowBox[{"angle2", " ", "=", " ", "0"}]}], ",", 
+                RowBox[{"For", " ", "6", "*", "6"}], "\[Rule]", 
+                RowBox[{
+                 RowBox[{"6", "_", "1"}], " ", "+", " ", 
+                 RowBox[{"6", "_", "2"}]}]}], ",", " ", 
+               RowBox[{
+               "because", " ", "of", " ", "the", " ", "historic", " ", 
+                "reason"}], ",", " ", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{
+                "we", " ", "need", " ", "to", " ", "handle", " ", "it", " ", 
+                 "as", " ", "a", " ", "special", " ", 
+                 RowBox[{"case", ".", " ", "\[IndentingNewLine]", "We"}], " ",
+                  "want", " ", "6", "_", "1", " ", "comes", " ", "from", " ", 
+                 "\[IndentingNewLine]", "angle", " ", "a"}], "=", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Pi", "/", "2"}], " ", "and", " ", "6", "_", "2", 
+                  " ", "comes", " ", "from", " ", "angle", " ", "a"}], "=", 
+                 "0."}]}]}], "\[IndentingNewLine]", "*)"}], 
              "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"angle1", " ", "=", " ", "0"}], ";", " ", 
-              RowBox[{"angle2", " ", "=", " ", 
-               RowBox[{"Pi", "/", "2"}]}], ";"}]}], "\[IndentingNewLine]", 
-            "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"r1", "\[Equal]", " ", "\"\<6\>\""}], " ", "&&", " ", 
+                RowBox[{"r2", "\[Equal]", "\"\<6\>\""}], " ", "&&", " ", 
+                RowBox[{"r3", " ", "\[Equal]", " ", "\"\<6+\>\""}]}], ",", 
+               "  ", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"angle1", " ", "=", " ", 
+                 RowBox[{"Pi", "/", "2"}]}], ";", " ", 
+                RowBox[{"angle2", " ", "=", " ", "0"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"angle1", " ", "=", " ", "0"}], ";", " ", 
+                RowBox[{"angle2", " ", "=", " ", 
+                 RowBox[{"Pi", "/", "2"}]}], ";"}]}], "\[IndentingNewLine]", 
+              "]"}], ";"}], "*)"}], "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
            RowBox[{"For", "[", 
             RowBox[{
              RowBox[{"j", "=", "1"}], ",", 
@@ -916,6 +918,17 @@ Cell[BoxData[
                "os", ",", " ", "\"\<\\\\item $\>\"", ",", " ", "eq", ",", 
                 " ", "\"\<$:\>\""}], "]"}], ";", "\[IndentingNewLine]", 
               RowBox[{"cg", "=", 
+               RowBox[{"GetCG", "[", 
+                RowBox[{"r1", ",", "r2", ",", 
+                 RowBox[{"AddMultiplier", "[", 
+                  RowBox[{"r3", ",", "j"}], "]"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"SaveCG", "[", 
+               RowBox[{"os", ",", " ", "cg", ",", "r1", ",", "r2"}], "]"}], 
+              ";"}]}], "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{"cg", "=", 
                RowBox[{
                 RowBox[{
                  RowBox[{"GetCG", "[", 
@@ -937,7 +950,7 @@ Cell[BoxData[
                  RowBox[{"ToExpression", "[", 
                   RowBox[{"FromCharacterCode", "[", 
                    RowBox[{"ch", "+", "j", "-", "1"}], "]"}], "]"}], 
-                 "\[Rule]", "angle2"}]}], "]"}], ";"}]}], 
+                 "\[Rule]", "angle2"}]}], "]"}], ";"}], "*)"}], 
             "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
          "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"MyWriteLine", "[", 
@@ -1121,22 +1134,23 @@ Cell[BoxData[
    3.650466792887038*^9}, {3.650466890476375*^9, 3.6504669411493883`*^9}, 
    3.6504669916385508`*^9, {3.650467745789406*^9, 3.6504679355452347`*^9}, {
    3.650468132002316*^9, 3.650468224768371*^9}, {3.650468759719242*^9, 
-   3.650469014107532*^9}}],
+   3.650469014107532*^9}, 3.6712147790136766`*^9, {3.671214821540203*^9, 
+   3.671214843822353*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-    RowBox[{"filepath", "=", "\"\<~/Dropbox/proj/PSL27/temp/cg.tex\>\""}], 
-    ";"}], "\[IndentingNewLine]", 
+    RowBox[{"filepath", "=", "\"\<~/gitroot/psl27cg/cg.tex\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{"SaveToTexFile", "[", "filepath", "]"}]}]}]], "Input",
  CellChangeTimes->{{3.6495497919512253`*^9, 3.649549792411252*^9}, {
   3.6495952517773314`*^9, 3.649595292102229*^9}, {3.6495955670427217`*^9, 
-  3.649595567593964*^9}}]
+  3.649595567593964*^9}, {3.67106001844228*^9, 3.671060045673604*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-FrontEndVersion->"8.0 for Linux x86 (64-bit) (November 7, 2010)",
+FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -1150,8 +1164,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 49948, 1103, 4718, "Input"],
-Cell[50508, 1125, 416, 9, 69, "Input"]
+Cell[557, 20, 50669, 1117, 5512, "Input"],
+Cell[51229, 1139, 452, 9, 77, "Input"]
 }
 ]
 *)
