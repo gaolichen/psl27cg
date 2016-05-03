@@ -1,0 +1,254 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      9223,        245]
+NotebookOptionsPosition[      8707,        223]
+NotebookOutlinePosition[      9051,        238]
+CellTagsIndexPosition[      9008,        235]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"find", " ", "the", " ", "relation", " ", "between", " ", 
+    RowBox[{"angles", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "AngleRelation", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Options", "[", "AngleRelation", "]"}], "=", 
+     RowBox[{"{", 
+      RowBox[{"MaxTry", "=", "50"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"AngleRelation", "[", 
+      RowBox[{"a1_", ",", "a2_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", "j", ",", "m", ",", 
+         RowBox[{"epsilon", " ", "=", " ", 
+          RowBox[{"10", "^", 
+           RowBox[{"-", "6"}]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", " ", "MaxTry"}], ",", " ", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"j", "=", "1"}], ",", 
+             RowBox[{"j", "\[LessEqual]", " ", "MaxTry"}], ",", 
+             RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"GCD", "[", 
+                   RowBox[{"i", ",", "j"}], "]"}], ">", "1"}], ",", " ", 
+                 RowBox[{"Continue", "[", "]"}]}], "]"}], ";"}], "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"m", "=", 
+               RowBox[{"N", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"j", "*", "a2"}], "-", 
+                   RowBox[{"i", "*", "a1"}]}], ")"}], "/", "Pi"}], "]"}]}], 
+              ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Abs", "[", 
+                  RowBox[{
+                   RowBox[{"Round", "[", "m", "]"}], "-", "m"}], "]"}], "<", 
+                 "epsilon"}], ",", " ", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"m", "=", 
+                  RowBox[{"Rationalize", "[", 
+                   RowBox[{"Round", "[", 
+                    RowBox[{"m", "+", "epsilon"}], "]"}], "]"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Print", "[", 
+                  RowBox[{"a2", ",", " ", "\"\<=\>\"", ",", " ", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"m", "/", "j"}], "*", "Pi"}], "+", " ", 
+                    RowBox[{
+                    RowBox[{"i", "/", "j"}], "*", "a1"}]}]}], "]"}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Return", "[", "]"}], ";"}]}], "\[IndentingNewLine]",
+                "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"m", "=", 
+               RowBox[{"N", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"j", "*", "a2"}], "+", 
+                   RowBox[{"i", "*", "a1"}]}], ")"}], "/", "Pi"}], "]"}]}], 
+              ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Abs", "[", 
+                  RowBox[{
+                   RowBox[{"Round", "[", "m", "]"}], "-", "m"}], "]"}], "<", 
+                 "epsilon"}], ",", " ", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"m", "=", 
+                  RowBox[{"Rationalize", "[", 
+                   RowBox[{"Round", "[", 
+                    RowBox[{"m", "+", "epsilon"}], "]"}], "]"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Print", "[", 
+                  RowBox[{"a2", ",", " ", "\"\<=\>\"", ",", " ", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"m", "/", "j"}], "*", "Pi"}], "-", 
+                    RowBox[{
+                    RowBox[{"i", "/", "j"}], "*", "a1"}]}]}], "]"}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Return", "[", "]"}], ";"}]}], "\[IndentingNewLine]",
+                "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Print", "[", "\"\<Failed to find relation.\>\"", "]"}], 
+        ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.6712605846617527`*^9, 3.6712607021810584`*^9}, {
+   3.6712607564563346`*^9, 3.6712607566903353`*^9}, {3.671260823348754*^9, 
+   3.6712608237699547`*^9}, {3.6712608670457845`*^9, 3.6712612724420605`*^9}, 
+   3.671261527209982*^9, {3.671261557571538*^9, 3.6712616234797106`*^9}, {
+   3.671261668081922*^9, 3.671261757128566*^9}, {3.671261799856391*^9, 
+   3.6712618204476337`*^9}, {3.671261918828869*^9, 3.6712619344000196`*^9}, {
+   3.6712620268365717`*^9, 3.671262026992572*^9}, {3.6712621041747384`*^9, 
+   3.6712621068599434`*^9}, {3.671262144207264*^9, 3.671262144410064*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"a1", "=", 
+     RowBox[{"ArcTan", "[", 
+      RowBox[{
+       RowBox[{"Sqrt", "[", "3", "]"}], "/", "2"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"a2", "=", 
+     RowBox[{"ArcTan", "[", 
+      RowBox[{"3", 
+       RowBox[{
+        RowBox[{"Sqrt", "[", "3", "]"}], "/", "13"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"b1", "=", 
+     RowBox[{"ArcTan", "[", 
+      RowBox[{"7", "/", 
+       RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"c1", "=", 
+     RowBox[{"ArcTan", "[", 
+      RowBox[{"Sqrt", "[", "6", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"AngleRelation", "[", 
+    RowBox[{"a1", ",", "c1"}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"AngleRelation", "[", 
+    RowBox[{"b1", ",", "c1"}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"AngleRelation", "[", 
+    RowBox[{"a1", ",", "b1"}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"AngleRelation", "[", 
+    RowBox[{"c1", ",", 
+     RowBox[{"ArcTan", "[", 
+      RowBox[{"1", "/", 
+       RowBox[{"Sqrt", "[", "6", "]"}]}], "]"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6712613250316243`*^9, 3.671261369602649*^9}, {
+  3.671261475665124*^9, 3.6712614819363346`*^9}, {3.6712618461512766`*^9, 
+  3.6712620009713078`*^9}, {3.671262083129758*^9, 3.6712621197758265`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Failed to find relation.\"\>"], "Print",
+ CellChangeTimes->{{3.6712619659598455`*^9, 3.67126200239091*^9}, 
+   3.671262032457582*^9, {3.671262096559925*^9, 3.671262120540228*^9}, 
+   3.671262151493973*^9}],
+
+Cell[BoxData["\<\"Failed to find relation.\"\>"], "Print",
+ CellChangeTimes->{{3.6712619659598455`*^9, 3.67126200239091*^9}, 
+   3.671262032457582*^9, {3.671262096559925*^9, 3.671262120540228*^9}, 
+   3.671262151571973*^9}],
+
+Cell[BoxData["\<\"Failed to find relation.\"\>"], "Print",
+ CellChangeTimes->{{3.6712619659598455`*^9, 3.67126200239091*^9}, 
+   3.671262032457582*^9, {3.671262096559925*^9, 3.671262120540228*^9}, 
+   3.671262151665573*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   RowBox[{"ArcTan", "[", 
+    FractionBox["1", 
+     SqrtBox["6"]], "]"}], "\[InvisibleSpace]", "\<\"=\"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    FractionBox["\[Pi]", "2"], "-", 
+    RowBox[{"ArcTan", "[", 
+     SqrtBox["6"], "]"}]}]}],
+  SequenceForm[
+   ArcTan[6^Rational[-1, 2]], "=", Rational[1, 2] Pi - ArcTan[
+   6^Rational[1, 2]]],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.6712619659598455`*^9, 3.67126200239091*^9}, 
+   3.671262032457582*^9, {3.671262096559925*^9, 3.671262120540228*^9}, 
+   3.6712621516811733`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1288, 673},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 5374, 120, 532, "Input"],
+Cell[CellGroupData[{
+Cell[5944, 144, 1446, 39, 192, "Input"],
+Cell[CellGroupData[{
+Cell[7415, 187, 223, 3, 23, "Print"],
+Cell[7641, 192, 223, 3, 23, "Print"],
+Cell[7867, 197, 223, 3, 23, "Print"],
+Cell[8093, 202, 586, 17, 43, "Print"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
