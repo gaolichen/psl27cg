@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    267109,       6415]
-NotebookOptionsPosition[    266639,       6397]
-NotebookOutlinePosition[    266973,       6412]
-CellTagsIndexPosition[    266930,       6409]
+NotebookDataLength[    259973,       6251]
+NotebookOptionsPosition[    259503,       6233]
+NotebookOutlinePosition[    259837,       6248]
+CellTagsIndexPosition[    259794,       6245]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -5384,199 +5384,33 @@ Cell[BoxData[
                ";", "\[IndentingNewLine]", 
               RowBox[{"ret", " ", "=", " ", 
                RowBox[{"ComplexSimplify", "[", 
-                RowBox[{"Ehalf", ".", "tmp", ".", "ret"}], "]"}]}], ";"}], 
-             "\[IndentingNewLine]", 
-             RowBox[{"(*", 
+                RowBox[{"Ehalf", ".", "tmp", ".", "ret"}], "]"}]}], ";"}]}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
               RowBox[{"Print", "[", 
                RowBox[{
                 RowBox[{"MatrixForm", "[", "Ehalf", "]"}], ",", " ", 
                 RowBox[{"MatrixForm", "[", "tmp", "]"}], ",", " ", 
-                RowBox[{"MatrixForm", "[", "ret", "]"}]}], "]"}], "*)"}], ",",
-              "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"(*", " ", 
-              RowBox[{
+                RowBox[{"MatrixForm", "[", "ret", "]"}]}], "]"}], ";"}], 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{"tmp", " ", "=", 
+               RowBox[{"ComplexSimplify", "[", 
+                RowBox[{
+                 RowBox[{"Conjugate", "[", "ret", "]"}], ".", 
+                 RowBox[{"Transpose", "[", "ret", "]"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"eign", "=", 
+               RowBox[{"ComplexSimplify", "[", 
+                RowBox[{"Eigensystem", "[", "tmp", "]"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Print", "[", 
                RowBox[{
-               "if", " ", "only", " ", "two", " ", "unknown", " ", 
-                "variables"}], ",", " ", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                 "there", " ", "is", " ", "a", " ", "special", " ", "case", 
-                  " ", "that", " ", "two", " ", "orthorgonal", " ", "real", 
-                  " ", "representations", " ", 
-                  RowBox[{"exists", ".", "\[IndentingNewLine]", "It"}], " ", 
-                  "corresponds", " ", "to", " ", "the", " ", "solution", " ", 
-                  "of", " ", "the", " ", "circle", " ", 
-                  RowBox[{"x", "^", "2"}]}], "+", 
-                 RowBox[{"y", "^", "2"}]}], "=", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"1", " ", "and", " ", "ellipse", " ", 
-                   RowBox[{
-                    RowBox[{"x", "^", "2"}], "/", 
-                    RowBox[{"a", "^", "2"}]}]}], " ", "+", " ", 
-                  RowBox[{
-                   RowBox[{"y", "^", "2"}], "/", 
-                   RowBox[{"b", "^", "2"}]}]}], "=", 
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{"1", " ", "with", " ", 
-                    RowBox[{"1", "/", 
-                    RowBox[{"a", "^", "2"}]}]}], "+", 
-                   RowBox[{"1", "/", 
-                    RowBox[{"b", "^", "2"}]}]}], "=", "2"}]}]}], ",", 
-               "\[IndentingNewLine]", "clearly", ",", " ", 
-               RowBox[{
-                RowBox[{"(", 
-                 RowBox[{"x", ",", "y"}], ")"}], "=", " ", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"(", 
-                   RowBox[{"1", ",", 
-                    RowBox[{"+", 
-                    RowBox[{"-", "1"}]}]}], ")"}], "/", 
-                  RowBox[{"Sqrt", "[", "2", "]"}]}], " ", "are", " ", "the", 
-                 " ", "solutions"}]}], ",", " ", 
-               RowBox[{"and", " ", "these", " ", "solutions", " ", "are", " ", 
-                RowBox[{"orthogonal", "."}]}]}], " ", "*)"}], 
-             "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"If", "[", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"Length", "[", 
-                   RowBox[{"eign", "[", 
-                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "\[Equal]", "2"}], 
-                 " ", "&&", " ", 
-                 RowBox[{
-                  RowBox[{"Chop", "[", 
-                   RowBox[{"N", "[", 
-                    RowBox[{
-                    RowBox[{"Total", "[", 
-                    RowBox[{"Abs", "[", 
-                    RowBox[{"eign", "[", 
-                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], "-", "2"}], 
-                    "]"}], "]"}], "\[Equal]", "0"}]}], ",", 
-                "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"Print", "[", 
-                  RowBox[{"\"\<special normalization case: \>\"", ",", " ", 
-                   RowBox[{"eign", "[", 
-                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ";", 
-                 "\[IndentingNewLine]", 
-                 RowBox[{"Ehalf", "=", 
-                  RowBox[{"DiagonalMatrix", "[", 
-                   RowBox[{"1", "/", 
-                    RowBox[{"Sqrt", "[", 
-                    RowBox[{"eign", "[", 
-                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "]"}]}], ";", 
-                 "\[IndentingNewLine]", 
-                 RowBox[{"ret", " ", "=", " ", 
-                  RowBox[{"Ehalf", ".", "tmp", ".", "ret"}]}], ";", 
-                 "\[IndentingNewLine]", 
-                 RowBox[{"ret", " ", "=", " ", 
-                  RowBox[{
-                   RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Sqrt", "[", 
-                    RowBox[{"eign", "[", 
-                    RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"Sqrt", "[", 
-                    RowBox[{"eign", "[", 
-                    RowBox[{"[", 
-                    RowBox[{"1", ",", "1"}], "]"}], "]"}], "]"}], ",", 
-                    RowBox[{"-", 
-                    RowBox[{"Sqrt", "[", 
-                    RowBox[{"eign", "[", 
-                    RowBox[{"[", 
-                    RowBox[{"1", ",", "2"}], "]"}], "]"}], "]"}]}]}], "}"}]}],
-                     "}"}], ".", "ret"}], "/", 
-                   RowBox[{"Sqrt", "[", "2", "]"}]}]}], ";"}]}], 
-               "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
-            "]"}], ";"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-         RowBox[{"(*", 
-          RowBox[{
-           RowBox[{"ret", " ", "=", " ", 
-            RowBox[{"Table", "[", 
-             RowBox[{
-              RowBox[{"ComplexSimplify", "[", 
-               RowBox[{"ret", "[", 
-                RowBox[{"[", 
-                 RowBox[{"i", ",", "j"}], "]"}], "]"}], "]"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"i", ",", "1", ",", 
-                RowBox[{"Length", "[", "ret", "]"}]}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{"j", ",", "1", ",", 
-                RowBox[{"Length", "[", 
-                 RowBox[{"ret", "[", 
-                  RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "}"}]}], "]"}]}], 
-           ";", "\[IndentingNewLine]", 
-           RowBox[{"Print", "[", 
-            RowBox[{"MatrixForm", "[", "ret", "]"}], "]"}]}], "*)"}], 
-         "\[IndentingNewLine]", "\[IndentingNewLine]", 
-         RowBox[{"(*", 
-          RowBox[{
-           RowBox[{"roots", "=", 
-            RowBox[{"Solve", "[", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"(", 
-                RowBox[{
-                 RowBox[{"analysis", "[", 
-                  RowBox[{"[", 
-                   RowBox[{"1", ",", "1"}], "]"}], "]"}], "\[Equal]", 
-                 RowBox[{"Conjugate", "[", "conj", "]"}]}], ")"}], "/.", 
-               "res"}], ",", " ", "unknownParams"}], "]"}]}], ";", 
-           "\[IndentingNewLine]", 
-           RowBox[{"(*", 
-            RowBox[{"else", " ", "is", " ", "real", " ", 
-             RowBox[{"representation", "."}]}], " ", "*)"}], 
-           "\[IndentingNewLine]", 
-           RowBox[{"Print", "[", 
-            RowBox[{
-             RowBox[{"analysis", "[", 
-              RowBox[{"[", 
-               RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", " ", 
-             "\"\< ==? \>\"", ",", " ", "conj"}], "]"}], ";", 
-           "\[IndentingNewLine]", 
-           RowBox[{"Print", "[", 
-            RowBox[{"\"\<roots:\>\"", ",", "roots"}], "]"}], ";", 
-           "\[IndentingNewLine]", 
-           RowBox[{"tmp", "=", 
-            RowBox[{"Simplify", "[", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"InnerProduct", "[", 
-                RowBox[{
-                 RowBox[{"analysis", "[", 
-                  RowBox[{"[", 
-                   RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", " ", 
-                 RowBox[{"analysis", "[", 
-                  RowBox[{"[", 
-                   RowBox[{"1", ",", "1"}], "]"}], "]"}]}], "]"}], "/.", 
-               "res"}], "/.", 
-              RowBox[{"roots", "[", 
-               RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ";", 
-           "\[IndentingNewLine]", 
-           RowBox[{"Print", "[", 
-            RowBox[{"Expand", "[", "tmp", "]"}], "]"}], ";", 
-           "\[IndentingNewLine]", 
-           RowBox[{"prod", "=", 
-            RowBox[{
-             RowBox[{
-              RowBox[{"analysis", "[", 
-               RowBox[{"[", 
-                RowBox[{"1", ",", "1"}], "]"}], "]"}], ".", "conj"}], "/.", 
-             "res"}]}], ";", "\[IndentingNewLine]", 
-           RowBox[{"ret", "=", 
-            RowBox[{"DoNormalize", "[", 
-             RowBox[{"params", ",", "list", ",", "prod"}], "]"}]}], ";"}], 
-          "*)"}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"MatrixForm", "[", "tmp", "]"}], ",", "eign"}], "]"}],
+               ";"}], "*)"}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
         "\[IndentingNewLine]", 
         RowBox[{"For", "[", 
          RowBox[{
@@ -6393,7 +6227,9 @@ Cell[BoxData[
    3.6712102351557693`*^9}, 3.671210501210167*^9, {3.6712105319815598`*^9, 
    3.6712105448188267`*^9}, {3.671210599274556*^9, 3.671210680203021*^9}, {
    3.671210736070157*^9, 3.6712107427192707`*^9}, {3.6712135127196302`*^9, 
-   3.671213573490715*^9}, {3.6712136371948*^9, 3.671213653444158*^9}}]
+   3.671213573490715*^9}, {3.6712136371948*^9, 3.671213653444158*^9}, {
+   3.671228232593253*^9, 3.671228323515298*^9}, {3.671229107980535*^9, 
+   3.671229118945919*^9}, {3.671231863554469*^9, 3.6712319073306723`*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -6416,7 +6252,7 @@ Cell[29366, 790, 62378, 1623, 6545, "Input"],
 Cell[91747, 2415, 39074, 944, 4158, "Input"],
 Cell[130824, 3361, 28939, 617, 2294, "Input"],
 Cell[159766, 3980, 31906, 700, 3179, "Input"],
-Cell[191675, 4682, 74960, 1713, 7216, "Input"]
+Cell[191675, 4682, 67824, 1549, 6798, "Input"]
 }
 ]
 *)
