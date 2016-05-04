@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     51962,       1164]
-NotebookOptionsPosition[     51685,       1150]
-NotebookOutlinePosition[     52019,       1165]
-CellTagsIndexPosition[     51976,       1162]
+NotebookDataLength[     53335,       1191]
+NotebookOptionsPosition[     53057,       1177]
+NotebookOutlinePosition[     53391,       1192]
+CellTagsIndexPosition[     53348,       1189]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -484,6 +484,25 @@ Cell[BoxData[
         RowBox[{"Return", "[", "exp", "]"}], ";"}]}], "\[IndentingNewLine]", 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"angleRep", "=", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"AngleReplacement", "[", 
+        RowBox[{"list1", ",", " ", "\[Alpha]"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"AngleReplacement", "[", 
+        RowBox[{"list3", ",", " ", "\[Beta]"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"AngleReplacement", "[", 
+        RowBox[{"list4", ",", " ", "\[Gamma]"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"AngleReplacement", "[", 
+        RowBox[{"list5", ",", " ", "\[Delta]"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"AngleReplacement", "[", 
+        RowBox[{"list6", ",", " ", "\[Sigma]"}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{
      RowBox[{"SaveAnalysisList", "[", 
       RowBox[{
@@ -518,131 +537,138 @@ Cell[BoxData[
                RowBox[{"[", "i", "]"}], "]"}], "\[Equal]", "0"}], ",", 
              RowBox[{"Continue", "[", "]"}]}], "]"}], ";", 
            "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{"val", "=", 
+              RowBox[{"Simplify", "[", 
+               RowBox[{
+                RowBox[{"params", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "/.", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "2"}], "]"}], 
+                   "\[Rule]", "\[Alpha]"}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"4", 
+                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
+                   RowBox[{"2", "\[Alpha]"}]}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"2", "/", 
+                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
+                   RowBox[{
+                    RowBox[{"Pi", "/", "2"}], "-", "\[Alpha]"}]}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcCot", "[", 
+                    RowBox[{"2", "/", 
+                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
+                   "\[Alpha]"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"3", 
+                    RowBox[{
+                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "5"}]}], "]"}], 
+                   "\[Rule]", " ", 
+                   RowBox[{"\[Beta]", "-", 
+                    RowBox[{"Pi", "/", "6"}]}]}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"7", "/", 
+                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", " ", 
+                   "\[Beta]"}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"7", 
+                    RowBox[{
+                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "23"}]}], "]"}], 
+                   "\[Rule]", " ", 
+                   RowBox[{"Pi", "-", 
+                    RowBox[{"2", "\[Beta]"}]}]}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "7"}], "]"}], 
+                   "\[Rule]", " ", 
+                   RowBox[{
+                    RowBox[{"Pi", "/", "2"}], "-", "\[Beta]"}]}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"3", 
+                    RowBox[{
+                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "13"}]}], "]"}], 
+                   "\[Rule]", " ", 
+                   RowBox[{
+                    RowBox[{"2", "\[Alpha]"}], "-", 
+                    RowBox[{"Pi", "/", "3"}]}]}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"5", "/", 
+                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "->", 
+                   RowBox[{"\[Alpha]", "+", 
+                    RowBox[{"Pi", "/", "6"}]}]}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcCot", "[", 
+                    RowBox[{"3", 
+                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", " ", 
+                   RowBox[{"\[Alpha]", "-", 
+                    RowBox[{"Pi", "/", "6"}]}]}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"5", 
+                    RowBox[{
+                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "11"}]}], "]"}], 
+                   "\[Rule]", " ", 
+                   RowBox[{
+                    RowBox[{"2", 
+                    RowBox[{"Pi", "/", "3"}]}], "-", 
+                    RowBox[{"2", "\[Alpha]"}]}]}], ",", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"ArcCot", "[", 
+                    RowBox[{"5", "/", 
+                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
+                   RowBox[{
+                    RowBox[{"Pi", "/", "3"}], "-", "\[Alpha]"}]}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{"3", 
+                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", " ", 
+                   RowBox[{
+                    RowBox[{"2", 
+                    RowBox[{"Pi", "/", "3"}]}], "-", "\[Alpha]"}]}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"ArcCot", "[", 
+                    RowBox[{"4", 
+                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
+                   RowBox[{
+                    RowBox[{"Pi", "/", "2"}], "-", 
+                    RowBox[{"2", "\[Alpha]"}]}]}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcTan", "[", 
+                    FractionBox["11", 
+                    RowBox[{"5", " ", 
+                    SqrtBox["3"]}]], "]"}], "\[Rule]", 
+                   RowBox[{
+                    RowBox[{"2", "\[Alpha]"}], "-", 
+                    RowBox[{"Pi", "/", "6"}]}]}], ",", 
+                  RowBox[{
+                   RowBox[{"ArcCot", "[", 
+                    RowBox[{"2", " ", 
+                    SqrtBox["3"]}], "]"}], "\[Rule]", 
+                   RowBox[{"\[Beta]", "-", 
+                    RowBox[{"Pi", "/", "3"}]}]}]}], "\[IndentingNewLine]", 
+                 "}"}]}], "]"}]}], ";"}], "*)"}], "\[IndentingNewLine]", 
            RowBox[{"val", "=", 
             RowBox[{"Simplify", "[", 
              RowBox[{
               RowBox[{"params", "[", 
-               RowBox[{"[", "i", "]"}], "]"}], "/.", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{
-                   RowBox[{"Sqrt", "[", "3", "]"}], "/", "2"}], "]"}], 
-                 "\[Rule]", "\[Alpha]"}], ",", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{"4", 
-                   RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
-                 RowBox[{"2", "\[Alpha]"}]}], ",", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{"2", "/", 
-                   RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
-                 RowBox[{
-                  RowBox[{"Pi", "/", "2"}], "-", "\[Alpha]"}]}], ",", 
-                RowBox[{
-                 RowBox[{"ArcCot", "[", 
-                  RowBox[{"2", "/", 
-                   RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
-                 "\[Alpha]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{"3", 
-                   RowBox[{
-                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "5"}]}], "]"}], 
-                 "\[Rule]", " ", 
-                 RowBox[{"\[Beta]", "-", 
-                  RowBox[{"Pi", "/", "6"}]}]}], ",", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{"7", "/", 
-                   RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", " ", 
-                 "\[Beta]"}], ",", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{"7", 
-                   RowBox[{
-                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "23"}]}], "]"}], 
-                 "\[Rule]", " ", 
-                 RowBox[{"Pi", "-", 
-                  RowBox[{"2", "\[Beta]"}]}]}], ",", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{
-                   RowBox[{"Sqrt", "[", "3", "]"}], "/", "7"}], "]"}], 
-                 "\[Rule]", " ", 
-                 RowBox[{
-                  RowBox[{"Pi", "/", "2"}], "-", "\[Beta]"}]}], ",", 
-                "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{"3", 
-                   RowBox[{
-                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "13"}]}], "]"}], 
-                 "\[Rule]", " ", 
-                 RowBox[{
-                  RowBox[{"2", "\[Alpha]"}], "-", 
-                  RowBox[{"Pi", "/", "3"}]}]}], ",", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{"5", "/", 
-                   RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "->", 
-                 RowBox[{"\[Alpha]", "+", 
-                  RowBox[{"Pi", "/", "6"}]}]}], ",", 
-                RowBox[{
-                 RowBox[{"ArcCot", "[", 
-                  RowBox[{"3", 
-                   RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", " ", 
-                 RowBox[{"\[Alpha]", "-", 
-                  RowBox[{"Pi", "/", "6"}]}]}], ",", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{"5", 
-                   RowBox[{
-                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "11"}]}], "]"}], 
-                 "\[Rule]", " ", 
-                 RowBox[{
-                  RowBox[{"2", 
-                   RowBox[{"Pi", "/", "3"}]}], "-", 
-                  RowBox[{"2", "\[Alpha]"}]}]}], ",", "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"ArcCot", "[", 
-                  RowBox[{"5", "/", 
-                   RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
-                 RowBox[{
-                  RowBox[{"Pi", "/", "3"}], "-", "\[Alpha]"}]}], ",", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  RowBox[{"3", 
-                   RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", " ", 
-                 RowBox[{
-                  RowBox[{"2", 
-                   RowBox[{"Pi", "/", "3"}]}], "-", "\[Alpha]"}]}], ",", 
-                "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"ArcCot", "[", 
-                  RowBox[{"4", 
-                   RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
-                 RowBox[{
-                  RowBox[{"Pi", "/", "2"}], "-", 
-                  RowBox[{"2", "\[Alpha]"}]}]}], ",", 
-                RowBox[{
-                 RowBox[{"ArcTan", "[", 
-                  FractionBox["11", 
-                   RowBox[{"5", " ", 
-                    SqrtBox["3"]}]], "]"}], "\[Rule]", 
-                 RowBox[{
-                  RowBox[{"2", "\[Alpha]"}], "-", 
-                  RowBox[{"Pi", "/", "6"}]}]}], ",", 
-                RowBox[{
-                 RowBox[{"ArcCot", "[", 
-                  RowBox[{"2", " ", 
-                   SqrtBox["3"]}], "]"}], "\[Rule]", 
-                 RowBox[{"\[Beta]", "-", 
-                  RowBox[{"Pi", "/", "3"}]}]}]}], "\[IndentingNewLine]", 
-               "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-           "\[IndentingNewLine]", 
+               RowBox[{"[", "i", "]"}], "]"}], "/.", "angleRep"}], "]"}]}], 
+           ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
            RowBox[{"If", "[", 
             RowBox[{
              RowBox[{
@@ -726,7 +752,7 @@ Cell[BoxData[
            RowBox[{"os", ",", " ", 
             RowBox[{"Rep2TeX", "[", "to", "]"}], ",", "\"\<=\>\"", ",", 
             "exp"}], "]"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
     "Save", " ", "the", " ", "given", " ", "cg", " ", "for", " ", "r1", "*", 
@@ -1135,18 +1161,19 @@ Cell[BoxData[
    3.6504669916385508`*^9, {3.650467745789406*^9, 3.6504679355452347`*^9}, {
    3.650468132002316*^9, 3.650468224768371*^9}, {3.650468759719242*^9, 
    3.650469014107532*^9}, 3.6712147790136766`*^9, {3.671214821540203*^9, 
-   3.671214843822353*^9}}],
+   3.671214843822353*^9}, {3.671319448291147*^9, 3.67131953075314*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-    RowBox[{"filepath", "=", "\"\<~/gitroot/psl27cg/cg.tex\>\""}], ";"}], 
+    RowBox[{"filepath", "=", "\"\<~/gitroot/psl27cg/cg2.tex\>\""}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"SaveToTexFile", "[", "filepath", "]"}]}]}]], "Input",
  CellChangeTimes->{{3.6495497919512253`*^9, 3.649549792411252*^9}, {
-  3.6495952517773314`*^9, 3.649595292102229*^9}, {3.6495955670427217`*^9, 
-  3.649595567593964*^9}, {3.67106001844228*^9, 3.671060045673604*^9}}]
+   3.6495952517773314`*^9, 3.649595292102229*^9}, {3.6495955670427217`*^9, 
+   3.649595567593964*^9}, {3.67106001844228*^9, 3.671060045673604*^9}, 
+   3.6713167716732187`*^9}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -1164,8 +1191,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 50669, 1117, 5512, "Input"],
-Cell[51229, 1139, 452, 9, 77, "Input"]
+Cell[557, 20, 52010, 1143, 5608, "Input"],
+Cell[52570, 1165, 483, 10, 77, "Input"]
 }
 ]
 *)
