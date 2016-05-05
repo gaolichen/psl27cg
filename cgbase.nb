@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    268467,       6432]
-NotebookOptionsPosition[    267997,       6414]
-NotebookOutlinePosition[    268331,       6429]
-CellTagsIndexPosition[    268288,       6426]
+NotebookDataLength[    269695,       6462]
+NotebookOptionsPosition[    269225,       6444]
+NotebookOutlinePosition[    269559,       6459]
+CellTagsIndexPosition[    269516,       6456]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2341,26 +2341,34 @@ Cell[BoxData[
         "\[IndentingNewLine]", 
         RowBox[{"ret", "=", 
          RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"m", " ", "=", " ", 
-         RowBox[{"ExtractMultiplier", "[", "r3", "]"}]}], ";", 
+        RowBox[{"analysis", "=", 
+         RowBox[{"GetCG", "[", 
+          RowBox[{"nr1", ",", "nr2", ",", "r3"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"m", " ", "=", " ", 
+           RowBox[{"ExtractMultiplier", "[", "r3", "]"}]}], ";"}], "*)"}], 
         "\[IndentingNewLine]", 
         RowBox[{"rr3", " ", "=", " ", 
          RowBox[{"RemoveMultiplier", "[", "r3", "]"}]}], ";", 
         "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
+        RowBox[{"(*", 
          RowBox[{
-          RowBox[{"m", ">", "0"}], ",", "\[IndentingNewLine]", 
-          RowBox[{"analysis", "=", 
+          RowBox[{"If", "[", 
            RowBox[{
-            RowBox[{"GetCG", "[", 
-             RowBox[{"nr1", ",", "nr2", ",", "rr3"}], "]"}], "/.", 
-            RowBox[{"GetAngleRep", "[", "m", "]"}]}]}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"analysis", "=", 
-           RowBox[{"GetCG", "[", 
-            RowBox[{"nr1", ",", "nr2", ",", "rr3"}], "]"}]}]}], 
-         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-        "\[IndentingNewLine]", 
+            RowBox[{"m", ">", "0"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"analysis", "=", 
+             RowBox[{
+              RowBox[{"GetCG", "[", 
+               RowBox[{"nr1", ",", "nr2", ",", "rr3"}], "]"}], "/.", 
+              RowBox[{"GetAngleRep", "[", "m", "]"}]}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"analysis", "=", 
+             RowBox[{"GetCG", "[", 
+              RowBox[{"nr1", ",", "nr2", ",", "rr3"}], "]"}]}]}], 
+           "\[IndentingNewLine]", "]"}], ";"}], "*)"}], "\[IndentingNewLine]",
+         "\[IndentingNewLine]", 
         RowBox[{"For", "[", 
          RowBox[{
           RowBox[{"i", "=", "1"}], ",", 
@@ -2403,14 +2411,15 @@ Cell[BoxData[
       "\[IndentingNewLine]", "]"}]}], ";"}], 
    "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->CompressedData["
-1:eJwdy9srQwEAx/G1WJGaVkqUW9aav2DluByrueSBtSUeGG0UudQk5BKGZaIU
-G5o8yK2T4mEhwhGRS6hFw9zKZWfZ2spcFs7vPPz6vPy+iRX1Sh2fx+PFsoOt
-P7dy25eL1G7O50KvVydsDrrIdfojCpqcilhoaOtMgGc7BjE8PZAQ0JJ0lAmV
-frMcUr4nNbwcc1ZyPa2pgc4TphYuDkTqIb/krwlWqYy98DBPMATjc7fvuZ+1
-6xHa9JSnOJwhFemOb3hFxKi74VwCp8+yKjEVMKTSfSOFKy+BETjVoZqAaXtv
-s3CtbJeCIrpoA/Yz7fvwhC87h9PmXzt8jy91wOetzwdIvGaIBlmDF1bO5TDN
-TEghQ+Z7hufhsdgjDGV1tdwlw4aIn2v46tYlC1hlRykKaKyOzobEBlUI7b1a
-NSyvC/TARqm7D6YuTi7A8LisJTie46dh8Hl0F/4DiMvpMg==
+1:eJwdy1srgwEAxvG1WJGaVkrIRtOaT7Ayh5eaQy5YW7ILRhtFDkVCDjFjIUox
+rMmFGC3FxUITtogcQi1rbE417F2mrQxbeJ9dPP1unn9abYtYSafRaCnUYHfI
+WWD69hCKXUMx/PhQMjvDHmLH8pkAx1yiZDjU08+BlwdDGfDimCeEs+mneVAc
+0BZAo/9ZCm9mXHWR3iJvhK5zsgmujca3QbrsrwPWSzRqeFLCmIDs4v2HyE8/
+8ARNbUZfZSxJiHIcP9AuTJIOwhVORP/sFm+sjCTE3js+3HwJTsGFPsk8zD58
+W4bb1VYjZFkqzHCE7D2C53TBFVzU/trgO7vKAd17X49Q+JrLGqcMX+sjbsTI
+l6LKSaLUN2mAZxk+ZjSlp+ueC1vjQrfw1avkMigFp5kiqGlILIRCs7Ec2tQK
+KaxpDqpgO987DLPWdKswNjV/Hc4VBSww7J62QoVKYp+WkUSHznkH/wFpQvJG
+
   "]],
 
 Cell[BoxData[
@@ -5609,24 +5618,44 @@ Cell[BoxData[
              RowBox[{"Print", "[", 
               RowBox[{"\"\<tmp rep=\>\"", ",", "tmp"}], "]"}], ";"}], "*)"}], 
            "\[IndentingNewLine]", 
-           RowBox[{"SetCG", "[", 
-            RowBox[{"r1", ",", "r2", ",", 
-             RowBox[{"AddMultiplier", "[", 
-              RowBox[{"r3", ",", "i"}], "]"}], ",", 
-             RowBox[{"analysis", "/.", "tmp"}]}], "]"}], ";", 
-           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Length", "[", "ret", "]"}], ">", "1"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"SetCG", "[", 
+              RowBox[{"r1", ",", "r2", ",", 
+               RowBox[{"AddMultiplier", "[", 
+                RowBox[{"r3", ",", "i"}], "]"}], ",", 
+               RowBox[{"analysis", "/.", "tmp"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"SetCG", "[", 
+              RowBox[{"r1", ",", "r2", ",", "r3", ",", 
+               RowBox[{"analysis", "/.", "tmp"}]}], "]"}]}], 
+            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
            RowBox[{"If", "[", 
             RowBox[{
              RowBox[{
               RowBox[{"OptionValue", "[", "PrintResult", "]"}], "\[Equal]", 
               "True"}], ",", "\[IndentingNewLine]", 
-             RowBox[{"PrintEquationAndCG", "[", 
-              RowBox[{"r1", ",", "r2", ",", 
-               RowBox[{"AddMultiplier", "[", 
-                RowBox[{"r3", ",", "i"}], "]"}]}], "]"}]}], 
-            "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
-         "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Length", "[", "ret", "]"}], ">", "1"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"PrintEquationAndCG", "[", 
+                 RowBox[{"r1", ",", "r2", ",", 
+                  RowBox[{"AddMultiplier", "[", 
+                   RowBox[{"r3", ",", "i"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"PrintEquationAndCG", "[", 
+                 RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}]}], 
+               "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+            "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "AllPSL27Reps", "]"}], ";"}], 
    "\[IndentingNewLine]", 
@@ -6410,7 +6439,8 @@ Cell[BoxData[
    3.671312008958767*^9, 3.671312032713483*^9}, {3.671312419046809*^9, 
    3.6713124215400877`*^9}, {3.671312509523945*^9, 3.671312563146982*^9}, {
    3.671313609343246*^9, 3.671313640361342*^9}, {3.671316286296727*^9, 
-   3.671316309014504*^9}, {3.671316459925931*^9, 3.671316467755224*^9}}]
+   3.671316309014504*^9}, {3.671316459925931*^9, 3.671316467755224*^9}, {
+   3.671372248463908*^9, 3.671372317476776*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -6429,11 +6459,11 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 28806, 768, 3707, "Input"],
-Cell[29366, 790, 62378, 1623, 6545, "Input"],
-Cell[91747, 2415, 39126, 945, 4125, "Input"],
-Cell[130876, 3362, 28939, 617, 2294, "Input"],
-Cell[159818, 3981, 36078, 789, 3773, "Input"],
-Cell[195899, 4772, 72094, 1640, 6963, "Input"]
+Cell[29366, 790, 62686, 1632, 6624, "Input"],
+Cell[92055, 2424, 39126, 945, 4125, "Input"],
+Cell[131184, 3371, 28939, 617, 2294, "Input"],
+Cell[160126, 3990, 36078, 789, 3773, "Input"],
+Cell[196207, 4781, 73014, 1661, 7095, "Input"]
 }
 ]
 *)
