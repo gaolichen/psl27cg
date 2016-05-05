@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    185994,       5004]
-NotebookOptionsPosition[    182779,       4916]
-NotebookOutlinePosition[    183113,       4931]
-CellTagsIndexPosition[    183070,       4928]
+NotebookDataLength[     79702,       1993]
+NotebookOptionsPosition[     78866,       1966]
+NotebookOutlinePosition[     79200,       1981]
+CellTagsIndexPosition[     79157,       1978]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26,7 +26,462 @@ Cell[BoxData[
     "cg", " ", 
     RowBox[{"coefficients", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
   "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"find", " ", "the", " ", "relation", " ", "between", " ", 
+    RowBox[{"angles", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
   RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "AngleRelation", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Options", "[", "AngleRelation", "]"}], "=", 
+     RowBox[{"{", 
+      RowBox[{"MaxTry", "=", "50"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"AngleRelation", "[", 
+      RowBox[{"a1_", ",", "a2_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", "j", ",", "m", ",", 
+         RowBox[{"epsilon", " ", "=", " ", 
+          RowBox[{"10", "^", 
+           RowBox[{"-", "6"}]}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", " ", "MaxTry"}], ",", " ", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"j", "=", "1"}], ",", 
+             RowBox[{"j", "\[LessEqual]", " ", "MaxTry"}], ",", 
+             RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"GCD", "[", 
+                   RowBox[{"i", ",", "j"}], "]"}], ">", "1"}], ",", " ", 
+                 RowBox[{"Continue", "[", "]"}]}], "]"}], ";"}], "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"m", "=", 
+               RowBox[{"N", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"j", "*", "a2"}], "-", 
+                   RowBox[{"i", "*", "a1"}]}], ")"}], "/", "Pi"}], "]"}]}], 
+              ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Abs", "[", 
+                  RowBox[{
+                   RowBox[{"Round", "[", "m", "]"}], "-", "m"}], "]"}], "<", 
+                 "epsilon"}], ",", " ", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"m", "=", 
+                  RowBox[{"Rationalize", "[", 
+                   RowBox[{"Round", "[", 
+                    RowBox[{"m", "+", "epsilon"}], "]"}], "]"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"(*", 
+                  RowBox[{
+                   RowBox[{"Print", "[", 
+                    RowBox[{"a2", ",", " ", "\"\<=\>\"", ",", " ", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"m", "/", "j"}], "*", "Pi"}], "+", " ", 
+                    RowBox[{
+                    RowBox[{"i", "/", "j"}], "*", "a1"}]}]}], "]"}], ";"}], 
+                  "*)"}], "\[IndentingNewLine]", 
+                 RowBox[{"Return", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"m", "/", "j"}], "*", "Pi"}], "+", " ", 
+                   RowBox[{
+                    RowBox[{"i", "/", "j"}], "*", "a1"}]}], "]"}], ";"}]}], 
+               "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+              "\[IndentingNewLine]", 
+              RowBox[{"m", "=", 
+               RowBox[{"N", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"j", "*", "a2"}], "+", 
+                   RowBox[{"i", "*", "a1"}]}], ")"}], "/", "Pi"}], "]"}]}], 
+              ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Abs", "[", 
+                  RowBox[{
+                   RowBox[{"Round", "[", "m", "]"}], "-", "m"}], "]"}], "<", 
+                 "epsilon"}], ",", " ", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"m", "=", 
+                  RowBox[{"Rationalize", "[", 
+                   RowBox[{"Round", "[", 
+                    RowBox[{"m", "+", "epsilon"}], "]"}], "]"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"(*", 
+                  RowBox[{
+                   RowBox[{"Print", "[", 
+                    RowBox[{"a2", ",", " ", "\"\<=\>\"", ",", " ", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"m", "/", "j"}], "*", "Pi"}], "-", 
+                    RowBox[{
+                    RowBox[{"i", "/", "j"}], "*", "a1"}]}]}], "]"}], ";"}], 
+                  "*)"}], "\[IndentingNewLine]", 
+                 RowBox[{"Return", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"m", "/", "j"}], "*", "Pi"}], "-", 
+                   RowBox[{
+                    RowBox[{"i", "/", "j"}], "*", "a1"}]}], "]"}], ";"}]}], 
+               "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+            "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "0", "]"}], ";"}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "CheckRelation", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"CheckRelation", "[", "a_", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", "angles"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"angles", " ", "=", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"ArcTan", "[", 
+            RowBox[{
+             RowBox[{"Sqrt", "[", "3", "]"}], "/", "2"}], "]"}], ",", 
+           RowBox[{"ArcTan", "[", 
+            RowBox[{"7", "/", 
+             RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", 
+           RowBox[{"ArcTan", "[", 
+            RowBox[{"Sqrt", "[", "6", "]"}], "]"}], ",", 
+           RowBox[{"ArcTan", "[", 
+            RowBox[{
+             RowBox[{"3", 
+              RowBox[{"Sqrt", "[", "3", "]"}]}], "+", 
+             RowBox[{"2", 
+              RowBox[{"Sqrt", "[", "6", "]"}]}]}], "]"}], ",", 
+           RowBox[{"ArcTan", "[", 
+            RowBox[{
+             RowBox[{"3", 
+              RowBox[{"Sqrt", "[", "3", "]"}]}], "-", 
+             RowBox[{"2", 
+              RowBox[{"Sqrt", "[", "6", "]"}]}]}], "]"}], ",", 
+           RowBox[{"ArcTan", "[", 
+            RowBox[{"16", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", "3", "]"}], "/", 
+              RowBox[{"(", 
+               RowBox[{"49", "+", 
+                RowBox[{"Sqrt", "[", "65", "]"}]}], ")"}]}]}], "]"}]}], 
+          "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", "angles", "]"}]}], ",", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"AngleRelation", "[", 
+               RowBox[{
+                RowBox[{"angles", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], ",", "a"}], "]"}], 
+              "\[NotEqual]", "0"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Print", "[", 
+               RowBox[{"a", ",", "\"\<=\>\"", ",", " ", 
+                RowBox[{"AngleRelation", "[", 
+                 RowBox[{
+                  RowBox[{"angles", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], ",", "a"}], "]"}]}], "]"}],
+               ";", "\[IndentingNewLine]", 
+              RowBox[{"Return", "[", "True", "]"}], ";"}]}], 
+            "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"Print", "[", "\"\<Failed to find relation.\>\"", "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "False", "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"list1", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"Sqrt", "[", "3", "]"}], "/", "2"}], "]"}], ",", " ", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"4", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"2", "/", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", 
+       RowBox[{"ArcCot", "[", 
+        RowBox[{"2", "/", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"3", 
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], "/", "13"}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"5", "/", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", 
+       RowBox[{"ArcCot", "[", 
+        RowBox[{"3", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"5", 
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], "/", "11"}]}], "]"}], ",", 
+       RowBox[{"ArcCot", "[", 
+        RowBox[{"5", "/", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"3", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", 
+       RowBox[{"ArcCot", "[", 
+        RowBox[{"4", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"11", "/", 
+         RowBox[{"(", 
+          RowBox[{"5", " ", 
+           RowBox[{"Sqrt", "[", "3", "]"}]}], ")"}]}], "]"}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"list2", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"7", "/", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", " ", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"7", 
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], "/", "23"}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"Sqrt", "[", "3", "]"}], "/", "7"}], "]"}], ",", 
+       RowBox[{"ArcCot", "[", 
+        RowBox[{"2", " ", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"list3", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"Sqrt", "[", "6", "]"}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"2", 
+         RowBox[{
+          RowBox[{"Sqrt", "[", "6", "]"}], "/", "5"}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"1", "/", 
+         RowBox[{"Sqrt", "[", "6", "]"}]}], "]"}], ",", 
+       RowBox[{"ArcCot", "[", 
+        RowBox[{"Sqrt", "[", "6", "]"}], "]"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"list4", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"3", 
+          RowBox[{"Sqrt", "[", "3", "]"}]}], "+", 
+         RowBox[{"2", 
+          RowBox[{"Sqrt", "[", "6", "]"}]}]}], "]"}], ",", 
+       RowBox[{"ArcCot", "[", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{"41", "/", "3"}], "+", 
+          RowBox[{"8", 
+           RowBox[{"Sqrt", "[", "2", "]"}]}]}], "]"}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", 
+            RowBox[{"Sqrt", "[", "2", "]"}]}], "-", "3"}], ")"}], "/", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"ArcTan", "[", 
+          RowBox[{
+           RowBox[{"1", "/", "23"}], " ", 
+           RowBox[{"Sqrt", "[", 
+            RowBox[{"123", "-", 
+             RowBox[{"72", " ", 
+              RowBox[{"Sqrt", "[", "2", "]"}]}]}], "]"}]}], "]"}], ","}], 
+        "*)"}], 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         FractionBox["1", "23"], " ", 
+         SqrtBox[
+          RowBox[{"123", "-", 
+           RowBox[{"72", " ", 
+            SqrtBox["2"]}]}]]}], "]"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"list5", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"3", 
+          RowBox[{"Sqrt", "[", "3", "]"}]}], "-", 
+         RowBox[{"2", 
+          RowBox[{"Sqrt", "[", "6", "]"}]}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{"51", "-", 
+          RowBox[{"36", 
+           RowBox[{"Sqrt", "[", "2", "]"}]}]}], "]"}], "]"}], ",", 
+       RowBox[{"ArcCot", "[", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{"41", "/", "3"}], "-", 
+          RowBox[{"8", 
+           RowBox[{"Sqrt", "[", "2", "]"}]}]}], "]"}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], "/", "23"}], 
+         RowBox[{"(", 
+          RowBox[{"3", "+", 
+           RowBox[{"4", 
+            RowBox[{"Sqrt", "[", "2", "]"}]}]}], ")"}]}], "]"}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"list6", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"7", "+", 
+           RowBox[{"Sqrt", "[", "65", "]"}]}], ")"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"2", 
+           RowBox[{"Sqrt", "[", "3", "]"}]}], ")"}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"16", 
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"49", "+", 
+            RowBox[{"Sqrt", "[", "65", "]"}]}], ")"}]}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"Sqrt", "[", 
+          RowBox[{
+           RowBox[{"3", "/", "2"}], 
+           RowBox[{"(", 
+            RowBox[{"1233", "-", 
+             RowBox[{"49", 
+              RowBox[{"Sqrt", "[", "65", "]"}]}]}], ")"}]}], "]"}], "/", 
+         "73"}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{"1", "/", "6"}], " ", 
+          RowBox[{"(", 
+           RowBox[{"57", "+", 
+            RowBox[{"7", " ", 
+             RowBox[{"Sqrt", "[", "65", "]"}]}]}], ")"}]}], "]"}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"57", "-", 
+            RowBox[{"7", 
+             RowBox[{"Sqrt", "[", "65", "]"}]}]}], ")"}], "/", "6"}], "]"}], 
+        "]"}], ",", 
+       RowBox[{"ArcCot", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], "/", "8"}], 
+         RowBox[{"(", 
+          RowBox[{"7", "+", 
+           RowBox[{"Sqrt", "[", "65", "]"}]}], ")"}]}], "]"}], ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         RowBox[{"1", "/", "73"}], " ", 
+         RowBox[{"Sqrt", "[", 
+          RowBox[{
+           RowBox[{"3", "/", "2"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"1233", "+", 
+             RowBox[{"49", " ", 
+              RowBox[{"Sqrt", "[", "65", "]"}]}]}], ")"}]}], "]"}]}], "]"}]}],
+       "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "AngleReplacement", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"AngleReplacement", "[", 
+      RowBox[{"list_", ",", " ", "var_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", " ", 
+         RowBox[{"ret", "=", 
+          RowBox[{"{", "}"}]}], ",", " ", "exp"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", "list", "]"}]}], ",", " ", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"exp", "=", 
+            RowBox[{"AngleRelation", "[", 
+             RowBox[{
+              RowBox[{"list", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+              RowBox[{"list", "[", 
+               RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"ret", ",", " ", 
+             RowBox[{
+              RowBox[{"list", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "\[Rule]", 
+              RowBox[{"(", 
+               RowBox[{"exp", "/.", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"list", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", "var"}], 
+                 "}"}]}], ")"}]}]}], "]"}], ";"}]}], "\[IndentingNewLine]", 
+         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "ret", "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"RepToLaTeX", "[", "r_", "]"}], ":=", 
@@ -206,6 +661,29 @@ Cell[BoxData[
       "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"angleRep", "=", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"AngleReplacement", "[", 
+        RowBox[{"list1", ",", " ", "\[Alpha]"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"AngleReplacement", "[", 
+         RowBox[{"list2", ",", " ", "\[Beta]"}], "]"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"AngleReplacement", "[", 
+        RowBox[{"list3", ",", " ", "\[Beta]"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"AngleReplacement", "[", 
+        RowBox[{"list4", ",", " ", "\[Gamma]"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"AngleReplacement", "[", 
+        RowBox[{"list5", ",", " ", "\[Delta]"}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"AngleReplacement", "[", 
+        RowBox[{"list6", ",", " ", "\[Sigma]"}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{"ToMatrixForm", "=", "False"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -283,128 +761,12 @@ Cell[BoxData[
                RowBox[{"Simplify", "[", 
                 RowBox[{
                  RowBox[{"params", "[", 
-                  RowBox[{"[", "i", "]"}], "]"}], "/.", 
-                 RowBox[{"{", 
-                  RowBox[{
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{
-                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "2"}], "]"}], 
-                    "\[Rule]", "\[Alpha]"}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{"4", 
-                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
-                    RowBox[{"2", "\[Alpha]"}]}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{"2", "/", 
-                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
-                    RowBox[{
-                    RowBox[{"Pi", "/", "2"}], "-", "\[Alpha]"}]}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcCot", "[", 
-                    RowBox[{"2", "/", 
-                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
-                    "\[Alpha]"}], ",", "\[IndentingNewLine]", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{"3", 
-                    RowBox[{
-                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "5"}]}], "]"}], 
-                    "\[Rule]", " ", 
-                    RowBox[{"\[Beta]", "-", 
-                    RowBox[{"Pi", "/", "6"}]}]}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{"7", "/", 
-                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", " ", 
-                    "\[Beta]"}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{"7", 
-                    RowBox[{
-                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "23"}]}], "]"}], 
-                    "\[Rule]", " ", 
-                    RowBox[{"Pi", "-", 
-                    RowBox[{"2", "\[Beta]"}]}]}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{
-                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "7"}], "]"}], 
-                    "\[Rule]", " ", 
-                    RowBox[{
-                    RowBox[{"Pi", "/", "2"}], "-", "\[Beta]"}]}], ",", 
-                   "\[IndentingNewLine]", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{"3", 
-                    RowBox[{
-                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "13"}]}], "]"}], 
-                    "\[Rule]", " ", 
-                    RowBox[{
-                    RowBox[{"2", "\[Alpha]"}], "-", 
-                    RowBox[{"Pi", "/", "3"}]}]}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{"5", "/", 
-                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "->", 
-                    RowBox[{"\[Alpha]", "+", 
-                    RowBox[{"Pi", "/", "6"}]}]}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcCot", "[", 
-                    RowBox[{"3", 
-                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", " ", 
-                    
-                    RowBox[{"\[Alpha]", "-", 
-                    RowBox[{"Pi", "/", "6"}]}]}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{"5", 
-                    RowBox[{
-                    RowBox[{"Sqrt", "[", "3", "]"}], "/", "11"}]}], "]"}], 
-                    "\[Rule]", " ", 
-                    RowBox[{
-                    RowBox[{"2", 
-                    RowBox[{"Pi", "/", "3"}]}], "-", 
-                    RowBox[{"2", "\[Alpha]"}]}]}], ",", "\[IndentingNewLine]", 
-                   RowBox[{
-                    RowBox[{"ArcCot", "[", 
-                    RowBox[{"5", "/", 
-                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
-                    RowBox[{
-                    RowBox[{"Pi", "/", "3"}], "-", "\[Alpha]"}]}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    RowBox[{"3", 
-                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", " ", 
-                    
-                    RowBox[{
-                    RowBox[{"2", 
-                    RowBox[{"Pi", "/", "3"}]}], "-", "\[Alpha]"}]}], ",", 
-                   "\[IndentingNewLine]", 
-                   RowBox[{
-                    RowBox[{"ArcCot", "[", 
-                    RowBox[{"4", 
-                    RowBox[{"Sqrt", "[", "3", "]"}]}], "]"}], "\[Rule]", 
-                    RowBox[{
-                    RowBox[{"Pi", "/", "2"}], "-", 
-                    RowBox[{"2", "\[Alpha]"}]}]}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcTan", "[", 
-                    FractionBox["11", 
-                    RowBox[{"5", " ", 
-                    SqrtBox["3"]}]], "]"}], "\[Rule]", 
-                    RowBox[{
-                    RowBox[{"2", "\[Alpha]"}], "-", 
-                    RowBox[{"Pi", "/", "6"}]}]}], ",", 
-                   RowBox[{
-                    RowBox[{"ArcCot", "[", 
-                    RowBox[{"2", " ", 
-                    SqrtBox["3"]}], "]"}], "\[Rule]", 
-                    RowBox[{"\[Beta]", "-", 
-                    RowBox[{"Pi", "/", "3"}]}]}]}], "\[IndentingNewLine]", 
-                  "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"[", "i", "]"}], "]"}], "/.", "angleRep"}], "]"}]}],
+               ";", "\[IndentingNewLine]", 
+              RowBox[{"val", " ", "=", " ", 
+               RowBox[{"Simplify", "[", 
+                RowBox[{"val", "/.", "angleRep"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
               RowBox[{"If", "[", 
                RowBox[{
                 RowBox[{
@@ -646,12 +1008,65 @@ Cell[BoxData[
         RowBox[{"Return", "[", "ret", "]"}]}]}], "\[IndentingNewLine]", 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"PrintRes", " ", "=", " ", "False"}], ";"}]}]}]], "Input",
+    RowBox[{"PrintRes", " ", "=", " ", "False"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "GeneratePSL27CG", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"GeneratePSL27CG", "[", 
+      RowBox[{"input_", ",", " ", "r1_", ",", "r2_", ",", "r3_", ",", " ", 
+       RowBox[{"opt", ":", 
+        RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", "m"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"FindParameters", "[", 
+         RowBox[{
+         "input", ",", " ", "DotPSL27", ",", "r1", ",", "r2", ",", "r3", ",", 
+          "OpA"}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"OptionValue", "[", "PrintResult", "]"}], "\[Equal]", 
+           "True"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"m", "=", " ", 
+            RowBox[{"GetMultiplier", "[", 
+             RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"m", "\[Equal]", "1"}], ",", " ", "\[IndentingNewLine]", 
+             
+             RowBox[{"PrintEquationAndCG", "[", 
+              RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"For", "[", 
+               RowBox[{
+                RowBox[{"i", "=", "1"}], ",", 
+                RowBox[{"i", "\[LessEqual]", " ", "m"}], ",", 
+                RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"PrintEquationAndCG", "[", 
+                 RowBox[{"r1", ",", "r2", ",", 
+                  RowBox[{"AddMultiplier", "[", 
+                   RowBox[{"r3", ",", "i"}], "]"}]}], "]"}]}], 
+               "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+            "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}]}]}]], "Input",
  CellChangeTimes->{{3.6206102963182964`*^9, 3.6206103803218746`*^9}, {
   3.6206104674462733`*^9, 3.6206106090800505`*^9}, {3.6206131475647535`*^9, 
   3.6206131479307747`*^9}, {3.671059503411128*^9, 3.671059529339451*^9}, {
   3.67119967665075*^9, 3.671199677921463*^9}, {3.671214529055889*^9, 
-  3.67121453104753*^9}, {3.6714564729516907`*^9, 3.67145650639028*^9}}],
+  3.67121453104753*^9}, {3.6714564729516907`*^9, 3.67145650639028*^9}, {
+  3.6714566580522223`*^9, 3.6714567425511*^9}, {3.671456875271946*^9, 
+  3.671457153171571*^9}, {3.67145725377672*^9, 3.671457272223543*^9}, {
+  3.6714591877527943`*^9, 3.671459204158222*^9}, {3.6714592854726*^9, 
+  3.6714592971221943`*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -672,17 +1087,17 @@ Cell[BoxData[
           RowBox[{"1", ",", "3"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input33", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<3b\>\"", ",", 
-      "\"\<3-\>\"", ",", "OpA", ",", 
+     "input33", ",", "\"\<3b\>\"", ",", "\"\<3b\>\"", ",", "\"\<3-\>\"", ",", 
+      
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input33", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<3b\>\"", ",", 
-      "\"\<6+\>\"", ",", "OpA", ",", 
+     "input33", ",", "\"\<3b\>\"", ",", "\"\<3b\>\"", ",", "\"\<6+\>\"", ",", 
+      
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"Clear", "[", "input33", "]"}]}]}]], "Input",
@@ -692,7 +1107,8 @@ Cell[BoxData[
    3.622029156397386*^9}, {3.636630755237067*^9, 3.636630761280352*^9}, {
    3.636646360017886*^9, 3.636646380426351*^9}, {3.666359815377784*^9, 
    3.6663598207401114`*^9}, {3.6702544838893547`*^9, 3.670254489289028*^9}, {
-   3.671059552670155*^9, 3.671059555706752*^9}}],
+   3.671059552670155*^9, 3.671059555706752*^9}, {3.6714572538178368`*^9, 
+   3.671457289764194*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -713,31 +1129,27 @@ Cell[BoxData[
           RowBox[{"1", ",", "3"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input33", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<3\>\"", ",", 
-      "\"\<3b-\>\"", ",", "OpA", ",", 
+     "input33", ",", "\"\<3\>\"", ",", "\"\<3\>\"", ",", "\"\<3b-\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input33", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<3\>\"", ",", 
-      "\"\<6+\>\"", ",", "OpA", ",", 
+     "input33", ",", "\"\<3\>\"", ",", "\"\<3\>\"", ",", "\"\<6+\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input33", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<3b\>\"", ",", 
-      "\"\<1\>\"", ",", "OpA", ",", 
+     "input33", ",", "\"\<3\>\"", ",", "\"\<3b\>\"", ",", "\"\<1\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input33", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<3b\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
+     "input33", ",", "\"\<3\>\"", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"Clear", "[", "input33", "]"}]}]}]], "Input",
@@ -749,7 +1161,8 @@ Cell[BoxData[
    3.622029284624806*^9}, {3.636646371874063*^9, 3.636646383900223*^9}, {
    3.666359706464239*^9, 3.66635972347939*^9}, 3.666359856815946*^9, {
    3.670254492858268*^9, 3.6702544961688967`*^9}, {3.671059558083973*^9, 
-   3.671059564338635*^9}}],
+   3.671059564338635*^9}, {3.671457253862945*^9, 3.6714572539069977`*^9}, {
+   3.671457292520543*^9, 3.671457320707424*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -770,51 +1183,46 @@ Cell[BoxData[
           RowBox[{"2", ",", "5"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input36", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", 
-      "\"\<3b\>\"", ",", "OpA", ",", 
+     "input36", ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", "\"\<3b\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input36", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", 
-      "\"\<7\>\"", ",", "OpA", ",", 
+     "input36", ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input36", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
+     "input36", ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input36", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<6\>\"", ",", 
-      "\"\<3\>\"", ",", "OpA", ",", 
+     "input36", ",", "\"\<3b\>\"", ",", "\"\<6\>\"", ",", "\"\<3\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input36", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<6\>\"", ",", 
-      "\"\<7\>\"", ",", "OpA", ",", 
+     "input36", ",", "\"\<3b\>\"", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input36", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<6\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
+     "input36", ",", "\"\<3b\>\"", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"Clear", "[", "input36", "]"}]}]}]], "Input",
  CellChangeTimes->{{3.6206124422146487`*^9, 3.6206124873465924`*^9}, {
   3.67025450073971*^9, 3.6702545037045717`*^9}, {3.6710595689577017`*^9, 
-  3.671059579929619*^9}}],
+  3.671059579929619*^9}, {3.671457253935842*^9, 3.671457253972883*^9}, {
+  3.671457323882375*^9, 3.671457350987767*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -835,52 +1243,47 @@ Cell[BoxData[
           RowBox[{"2", ",", "5"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input37", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<6\>\"", ",", "OpA", ",", 
+     "input37", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", "\"\<6\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input37", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<7\>\"", ",", "OpA", ",", 
+     "input37", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input37", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
+     "input37", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input37", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<6\>\"", ",", "OpA", ",", 
+     "input37", ",", "\"\<3b\>\"", ",", "\"\<7\>\"", ",", "\"\<6\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input37", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<7\>\"", ",", "OpA", ",", 
+     "input37", ",", "\"\<3b\>\"", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input37", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
+     "input37", ",", "\"\<3b\>\"", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"Clear", "[", "input37", "]"}], "\[IndentingNewLine]"}]}]], "Input",\
 
  CellChangeTimes->{{3.620612350008066*^9, 3.620612409159207*^9}, {
   3.670254506947497*^9, 3.670254510016406*^9}, {3.671059582309717*^9, 
-  3.671059592730763*^9}}],
+  3.671059592730763*^9}, {3.671457253983016*^9, 3.671457253998117*^9}, {
+  3.671457353937874*^9, 3.671457379899417*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -901,59 +1304,51 @@ Cell[BoxData[
           RowBox[{"1", ",", "5"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input38", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<3\>\"", ",", "OpA", ",", 
+     "input38", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", "\"\<3\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input38", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<6\>\"", ",", "OpA", ",", 
+     "input38", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", "\"\<6\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input38", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<7\>\"", ",", "OpA", ",", 
+     "input38", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", "\"\<7\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input38", ",", "DotPSL27", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
+     "input38", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input38", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<3b\>\"", ",", "OpA", ",", 
+     "input38", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", "\"\<3b\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input38", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<6\>\"", ",", "OpA", ",", 
+     "input38", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", "\"\<6\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input38", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<7\>\"", ",", "OpA", ",", 
+     "input38", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", "\"\<7\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input38", ",", "DotPSL27", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
+     "input38", ",", "\"\<3b\>\"", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"Clear", "[", "input38", "]"}], "\[IndentingNewLine]"}]}]], "Input",\
@@ -964,7 +1359,9 @@ Cell[BoxData[
   3.670254512966303*^9, 3.670254516392222*^9}, {3.671058374757814*^9, 
   3.671058418601305*^9}, {3.671059262516375*^9, 3.6710592730584593`*^9}, {
   3.671059471346932*^9, 3.671059478335452*^9}, {3.6710595366546507`*^9, 
-  3.6710595403635798`*^9}, {3.6710595959638357`*^9, 3.671059610411727*^9}}],
+  3.6710595403635798`*^9}, {3.6710595959638357`*^9, 3.671059610411727*^9}, {
+  3.671457254006145*^9, 3.671457254025004*^9}, {3.671457382779386*^9, 
+  3.6714574277159843`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -983,38 +1380,33 @@ Cell[BoxData[{
         RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
-    "\"\<1+\>\"", ",", "OpA", ",", 
+   "input66", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<1+\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
-    "\"\<6+\>\"", ",", "OpA", ",", 
+   "input66", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<6+\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
-    "\"\<8+\>\"", ",", "OpA", ",", 
+   "input66", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<8+\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
-    "\"\<7-\>\"", ",", "OpA", ",", 
+   "input66", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<7-\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
-    "\"\<8-\>\"", ",", "OpA", ",", 
+   "input66", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<8-\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -1030,7 +1422,9 @@ Cell[BoxData[{
    3.670254524584161*^9}, {3.6710596141894712`*^9, 3.67105962104503*^9}, {
    3.671060164758361*^9, 3.6710601737314653`*^9}, {3.671060212136278*^9, 
    3.671060221834197*^9}, 3.671060446328281*^9, {3.67111359816073*^9, 
-   3.6711135999817953`*^9}, {3.671199651537565*^9, 3.671199662077183*^9}}],
+   3.6711135999817953`*^9}, {3.671199651537565*^9, 3.671199662077183*^9}, {
+   3.671457254032943*^9, 3.671457254045452*^9}, {3.671457430771744*^9, 
+   3.671457453477428*^9}}],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.6711449233551073`*^9, 3.671144925650207*^9}}],
@@ -1054,38 +1448,33 @@ Cell[BoxData[
           RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input67", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<3\>\"", ",", "OpA", ",", 
+     "input67", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", "\"\<3\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input67", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<3b\>\"", ",", "OpA", ",", 
+     "input67", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", "\"\<3b\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input67", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<6\>\"", ",", "OpA", ",", 
+     "input67", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", "\"\<6\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input67", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<7\>\"", ",", "OpA", ",", 
+     "input67", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input67", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
+     "input67", ",", "\"\<6\>\"", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
@@ -1094,7 +1483,8 @@ Cell[BoxData[
   3.6227676896036763`*^9, 3.6227677110951567`*^9}, {3.6366324173510942`*^9, 
   3.6366324241190567`*^9}, {3.6366463054151077`*^9, 3.6366463055895853`*^9}, {
   3.670254527682351*^9, 3.670254530495914*^9}, {3.6710596249732*^9, 
-  3.6710596329018507`*^9}}],
+  3.6710596329018507`*^9}, {3.6714572540531178`*^9, 3.671457254065597*^9}, {
+  3.6714574565344152`*^9, 3.671457471934511*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -1115,24 +1505,21 @@ Cell[BoxData[
           RowBox[{"6", ",", "8"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<3\>\"", ",", "OpA", ",", 
+     "input68", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", "\"\<3\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<3b\>\"", ",", "OpA", ",", 
+     "input68", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", "\"\<3b\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<6\>\"", ",", "OpA", ",", 
+     "input68", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", "\"\<6\>\"", ",", 
       RowBox[{"UnfixedParameter", "\[Rule]", 
        RowBox[{"{", 
         RowBox[{
@@ -1141,17 +1528,15 @@ Cell[BoxData[
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<7\>\"", ",", "OpA", ",", 
+     "input68", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", "\"\<7\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
+     "input68", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
@@ -1179,7 +1564,8 @@ Cell[BoxData[
    3.6712061063328133`*^9, 3.671206108162456*^9}, {3.671208026567443*^9, 
    3.671208031464355*^9}, 3.671208217608992*^9, 3.671208358906054*^9, 
    3.6712086457700644`*^9, 3.671208846806129*^9, {3.671210255572278*^9, 
-   3.6712102594901648`*^9}}],
+   3.6712102594901648`*^9}, {3.671457254073409*^9, 3.671457254085743*^9}, {
+   3.671457477539174*^9, 3.671457493284544*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -1198,59 +1584,51 @@ Cell[BoxData[{
         RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
-    "\"\<1+\>\"", ",", "OpA", ",", 
+   "input77", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", "\"\<1+\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
-    "\"\<6+\>\"", ",", "OpA", ",", 
+   "input77", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", "\"\<6+\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
-    "\"\<7+\>\"", ",", "OpA", ",", 
+   "input77", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", "\"\<7+\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
-    "\"\<8+\>\"", ",", "OpA", ",", 
+   "input77", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", "\"\<8+\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
-    "\"\<3-\>\"", ",", "OpA", ",", 
+   "input77", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", "\"\<3-\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
-    "\"\<3b-\>\"", ",", "OpA", ",", 
+   "input77", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", "\"\<3b-\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
-    "\"\<7-\>\"", ",", "OpA", ",", 
+   "input77", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", "\"\<7-\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input77", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", 
-    "\"\<8-\>\"", ",", "OpA", ",", 
+   "input77", ",", "\"\<7\>\"", ",", "\"\<7\>\"", ",", "\"\<8-\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -1262,7 +1640,8 @@ Cell[BoxData[{
    3.62061149517548*^9}, {3.6206115359558396`*^9, 3.62061153625224*^9}, {
    3.6206115800310955`*^9, 3.6206115815931845`*^9}, {3.6206116282654667`*^9, 
    3.620611653246455*^9}, {3.670254538925721*^9, 3.670254542032844*^9}, {
-   3.67105964783888*^9, 3.6710596591853228`*^9}}],
+   3.67105964783888*^9, 3.6710596591853228`*^9}, {3.671457254093844*^9, 
+   3.67145725411292*^9}, {3.671457498018999*^9, 3.671457522149886*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -1281,24 +1660,21 @@ Cell[BoxData[{
         RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
-    "\"\<3\>\"", ",", "OpA", ",", 
+   "input78", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", "\"\<3\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
-    "\"\<3b\>\"", ",", "OpA", ",", 
+   "input78", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", "\"\<3b\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
-    "\"\<6\>\"", ",", "OpA", ",", 
+   "input78", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", "\"\<6\>\"", ",", 
     RowBox[{"UnfixedParameter", "\[Rule]", 
      RowBox[{"{", 
       RowBox[{
@@ -1307,17 +1683,15 @@ Cell[BoxData[{
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
-    "\"\<7\>\"", ",", "OpA", ",", 
+   "input78", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", "\"\<7\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"FindParameters", "[", 
+  RowBox[{"GeneratePSL27CG", "[", 
    RowBox[{
-   "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
-    "\"\<8\>\"", ",", "OpA", ",", 
+   "input78", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
     RowBox[{"PrintResult", "\[Rule]", "PrintRes"}], ",", 
     RowBox[{"NonReal", "\[Rule]", "True"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
@@ -1335,9 +1709,8 @@ Cell[BoxData[{
    3.670254544921865*^9, 3.670254547321014*^9}, {3.67025458251013*^9, 
    3.6702545923964777`*^9}, {3.671059661999052*^9, 3.671059669459083*^9}, 
    3.6712104768672867`*^9, {3.671213587389174*^9, 3.671213593442012*^9}, 
-   3.671213626328845*^9}],
-
-Cell[CellGroupData[{
+   3.671213626328845*^9, {3.671457254120761*^9, 3.6714572541331043`*^9}, {
+   3.6714575267602577`*^9, 3.671457540734931*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -1360,17 +1733,15 @@ Cell[BoxData[
           RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<1+\>\"", ",", "OpA", ",", 
-      RowBox[{"PrintResult", "\[Rule]", "True"}]}], "]"}], ";"}], 
+     "input88", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", "\"\<1+\>\"", ",", 
+      RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<6+\>\"", ",", "OpA", ",", 
+     "input88", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", "\"\<6+\>\"", ",", 
       RowBox[{"UnfixedParameter", "\[Rule]", 
        RowBox[{"{", 
         RowBox[{
@@ -1379,45 +1750,39 @@ Cell[BoxData[
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<7+\>\"", ",", "OpA", ",", 
+     "input88", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", "\"\<7+\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<8+\>\"", ",", "OpA", ",", 
-      RowBox[{"PrintResult", "\[Rule]", "True"}]}], "]"}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"FindParameters", "[", 
-     RowBox[{
-     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<3-\>\"", ",", "OpA", ",", 
+     "input88", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", "\"\<8+\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<3b-\>\"", ",", "OpA", ",", 
+     "input88", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", "\"\<3-\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<7-\>\"", ",", "OpA", ",", 
+     "input88", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", "\"\<3b-\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"FindParameters", "[", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<8-\>\"", ",", "OpA", ",", 
+     "input88", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", "\"\<7-\>\"", ",", 
+      RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"GeneratePSL27CG", "[", 
+     RowBox[{
+     "input88", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", "\"\<8-\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "PrintRes"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"Clear", "[", "input88", "]"}], "\[IndentingNewLine]", 
@@ -1435,554 +1800,9 @@ Cell[BoxData[
    3.670254553704041*^9}, {3.6706793232419863`*^9, 3.67067934678354*^9}, 
    3.670679884152647*^9, {3.671059672465417*^9, 3.671059684073833*^9}, {
    3.671371120773411*^9, 3.671371122273183*^9}, {3.671371888614029*^9, 
-   3.6713718903078747`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   RowBox[{
-    RowBox[{"8", "\[CircleTimes]", "8"}], "\[Rule]", "1"}], 
-   "\[InvisibleSpace]", 
-   SubscriptBox["\[Null]", "+"]}],
-  SequenceForm[CircleTimes[8, 8] -> 1, 
-   SubPlus[$CellContext`\[Null]]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.671372326553829*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"1", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{FractionBox["1", "2"],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",FractionBox[
-      SqrtBox["3"], "2"],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[1, "=", 
-   Row[{
-     Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[1, 
-        OverBar[1]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], "+", Rational[1, 2] 
-     3^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.6713723267708597`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   RowBox[{
-    RowBox[{"8", "\[CircleTimes]", "8"}], "\[Rule]", "8"}], 
-   "\[InvisibleSpace]", 
-   SubscriptBox["\[Null]", "+"]}],
-  SequenceForm[CircleTimes[8, 8] -> 8, 
-   SubPlus[$CellContext`\[Null]]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.6713723480531807`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"1", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"5", "/", "6"}]]}], " ", 
-       SqrtBox[
-        FractionBox["3", "5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"5", "/", "6"}]]}], " ", 
-       SqrtBox[
-        FractionBox["2", "5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[1, "=", 
-   Row[{-(-1)^Rational[5, 6] Rational[3, 5]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 
-        OverBar[1]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[5, 6] Rational[2, 5]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.671372348295259*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["1", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "6"}]], " ", 
-       SqrtBox[
-        FractionBox["3", "5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "1"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "6"}]], " ", 
-       SqrtBox[
-        FractionBox["2", "5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[1], "=", 
-   Row[{(-1)^Rational[1, 6] Rational[3, 5]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[1, 1], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[1, 6] Rational[2, 5]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.67137234853121*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       FractionBox["1", 
-        SqrtBox["15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",
-     RowBox[{"2", " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "6"}]], " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"5", "/", "6"}]]}], " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{-15^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], "+", 2 
-     Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[1, 6] Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[1, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[5, 6] Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -
-     Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.671372349057371*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"2", " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       FractionBox["1", 
-        SqrtBox["15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "6"}]], " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"5", "/", "6"}]]}], " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{2 Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -15^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[1, 6] Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[1, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[5, 6] Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -
-     Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.671372349505406*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   RowBox[{
-    RowBox[{"8", "\[CircleTimes]", "8"}], "\[Rule]", "8"}], 
-   "\[InvisibleSpace]", 
-   SubscriptBox["\[Null]", "+"]}],
-  SequenceForm[CircleTimes[8, 8] -> 8, 
-   SubPlus[$CellContext`\[Null]]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.671372409296398*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"1", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"2", "/", "3"}]]}], " ", 
-       SqrtBox[
-        FractionBox["2", "5"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Alpha]"}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"2", "/", "3"}]], " ", 
-       SqrtBox[
-        FractionBox["3", "5"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Alpha]"}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[1, "=", 
-   Row[{-(-1)^Rational[2, 3] Rational[2, 5]^Rational[1, 2] 
-     E^(Complex[0, -1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 
-        OverBar[1]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[2, 3] Rational[3, 5]^Rational[1, 2] 
-     E^(Complex[0, -1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.671372409575501*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["1", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "3"}]], " ", 
-       SqrtBox[
-        FractionBox["2", "5"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "1"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"1", "/", "3"}]]}], " ", 
-       SqrtBox[
-        FractionBox["3", "5"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[1], "=", 
-   Row[{(-1)^Rational[1, 3] Rational[2, 5]^Rational[1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[1, 1], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[1, 3] Rational[3, 5]^Rational[1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.671372409842544*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       SqrtBox[
-        FractionBox["6", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        FractionBox["3", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       FractionBox[
-        RowBox[{
-          SuperscriptBox[
-           RowBox[{"(", 
-             RowBox[{"-", "1"}], ")"}], 
-           RowBox[{"1", "/", "3"}]], " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-        SqrtBox["5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",FractionBox[
-      RowBox[{
-        SuperscriptBox[
-         RowBox[{"(", 
-           RowBox[{"-", "1"}], ")"}], 
-         RowBox[{"2", "/", "3"}]], " ", 
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{
-           RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Alpha]"}]]}], 
-      SqrtBox["5"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", "2"}], " ", 
-       SqrtBox[
-        FractionBox["3", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{-Rational[6, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -
-     Rational[3, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[1, 3] 5^Rational[-1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[1, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[2, 3] 5^Rational[-1, 2] 
-     E^(Complex[0, -1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], (-2) 
-     Rational[3, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.6713724103842993`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       SqrtBox[
-        FractionBox["3", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        FractionBox["6", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       FractionBox[
-        RowBox[{
-          SuperscriptBox[
-           RowBox[{"(", 
-             RowBox[{"-", "1"}], ")"}], 
-           RowBox[{"1", "/", "3"}]], " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-        SqrtBox["5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",FractionBox[
-      RowBox[{
-        SuperscriptBox[
-         RowBox[{"(", 
-           RowBox[{"-", "1"}], ")"}], 
-         RowBox[{"2", "/", "3"}]], " ", 
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{
-           RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Alpha]"}]]}], 
-      SqrtBox["5"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", "2"}], " ", 
-       SqrtBox[
-        FractionBox["3", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{-Rational[3, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -
-     Rational[6, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[1, 3] 5^Rational[-1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[1, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[2, 3] 5^Rational[-1, 2] 
-     E^(Complex[0, -1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], (-2) 
-     Rational[3, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671371146480846*^9, 3.671371590341346*^9, 
-  3.671371893810564*^9, 3.671372410885705*^9}]
-}, Open  ]]
-}, Open  ]],
+   3.6713718903078747`*^9}, {3.671457254145093*^9, 3.671457254161048*^9}, {
+   3.671457544524276*^9, 3.671457567746747*^9}, {3.6714593821131153`*^9, 
+   3.671459383291236*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -2040,11 +1860,9 @@ Cell[BoxData[
    3.6395683255036287`*^9}, {3.63957040538455*^9, 3.639570409710202*^9}, {
    3.65046740821819*^9, 3.650467413678652*^9}}],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
-  RowBox[{
+  RowBox[{"(*", 
    RowBox[{
     RowBox[{"input66", "=", 
      RowBox[{"X2", "[", 
@@ -2058,16 +1876,14 @@ Cell[BoxData[
          RowBox[{"{", 
           RowBox[{"2", ",", "4"}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"FindParameters", "[", 
+          RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input66", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", 
-      "\"\<6+\>\"", ",", "OpA", ",", 
-      RowBox[{"PrintResult", "\[Rule]", "True"}], ",", " ", 
-      RowBox[{"NonReal", "\[Rule]", "True"}]}], "]"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     "input66", ",", "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<6+\>\"", ",", 
+      RowBox[{"PrintResult", "\[Rule]", "True"}]}], "]"}], ";"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
    RowBox[{
     RowBox[{"input68", "=", 
      RowBox[{"X2", "[", 
@@ -2081,15 +1897,14 @@ Cell[BoxData[
          RowBox[{"{", 
           RowBox[{"4", ",", "7"}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"6", ",", "8"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"FindParameters", "[", 
+          RowBox[{"6", ",", "8"}], "}"}]}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input68", ",", "DotPSL27", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
-      RowBox[{"PrintResult", "\[Rule]", "True"}]}], "]"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     "input68", ",", "\"\<6\>\"", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
+      RowBox[{"PrintResult", "\[Rule]", "True"}]}], "]"}], ";"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
    RowBox[{
     RowBox[{"input88", "=", 
      RowBox[{"X2", "[", 
@@ -2105,15 +1920,14 @@ Cell[BoxData[
          RowBox[{"{", 
           RowBox[{"3", ",", "4"}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"FindParameters", "[", 
+          RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input88", ",", "DotPSL27", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<8+\>\"", ",", "OpA", ",", 
-      RowBox[{"PrintResult", "\[Rule]", "True"}]}], "]"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     "input88", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", "\"\<8+\>\"", ",", 
+      RowBox[{"PrintResult", "\[Rule]", "True"}]}], "]"}], ";"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
    RowBox[{
     RowBox[{"input78", "=", 
      RowBox[{"X2", "[", 
@@ -2127,15 +1941,14 @@ Cell[BoxData[
          RowBox[{"{", 
           RowBox[{"4", ",", "3"}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"FindParameters", "[", 
+          RowBox[{"5", ",", "6"}], "}"}]}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"GeneratePSL27CG", "[", 
      RowBox[{
-     "input78", ",", "DotPSL27", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", 
-      "\"\<8\>\"", ",", "OpA", ",", 
+     "input78", ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", "\"\<8\>\"", ",", 
       RowBox[{"PrintResult", "\[Rule]", "True"}], ",", 
-      RowBox[{"NonReal", "\[Rule]", "True"}]}], "]"}], ";"}]}]}]], "Input",
+      RowBox[{"NonReal", "\[Rule]", "True"}]}], "]"}], ";"}], 
+   "*)"}]}]], "Input",
  CellChangeTimes->{{3.671228381166852*^9, 3.6712283851291924`*^9}, {
    3.6712284298306427`*^9, 3.6712284615355473`*^9}, {3.671228546395858*^9, 
    3.6712285467585077`*^9}, {3.671228868953068*^9, 3.671228878759254*^9}, {
@@ -2146,2773 +1959,10 @@ Cell[BoxData[
    3.671315645016862*^9}, {3.6713163512940207`*^9, 3.671316371296669*^9}, {
    3.671319812536541*^9, 3.67131983288315*^9}, {3.671320007174327*^9, 
    3.671320014600233*^9}, 3.6713205161032963`*^9, {3.671408342324478*^9, 
-   3.6714083549719877`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   RowBox[{
-    RowBox[{"6", "\[CircleTimes]", "6"}], "\[Rule]", "6"}], 
-   "\[InvisibleSpace]", 
-   SubscriptBox["\[Null]", "+"]}],
-  SequenceForm[CircleTimes[6, 6] -> 6, 
-   SubPlus[$CellContext`\[Null]]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408366321281*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{SqrtBox[
-      RowBox[{
-        FractionBox["1", "14"], " ", 
-        RowBox[{"(", 
-          RowBox[{"3", "+", 
-            SqrtBox["2"]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "14"], " ", 
-          RowBox[{"(", 
-            RowBox[{"5", "-", 
-              RowBox[{"3", " ", 
-                SqrtBox["2"]}]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "7"], " ", 
-          RowBox[{"(", 
-            RowBox[{"3", "+", 
-              SqrtBox["2"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{(Rational[1, 14] (3 + 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(
-       Rational[1, 14] (5 - 3 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(
-       Rational[1, 7] (3 + 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.67140836659743*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{SqrtBox[
-      RowBox[{
-        FractionBox["1", "14"], " ", 
-        RowBox[{"(", 
-          RowBox[{"5", "-", 
-            RowBox[{"3", " ", 
-              SqrtBox["2"]}]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "14"], " ", 
-          RowBox[{"(", 
-            RowBox[{"3", "+", 
-              SqrtBox["2"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",SqrtBox[
-      RowBox[{
-        FractionBox["1", "7"], " ", 
-        RowBox[{"(", 
-          RowBox[{"3", "+", 
-            SqrtBox["2"]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{(Rational[1, 14] (5 - 3 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(
-       Rational[1, 14] (3 + 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (Rational[1, 7] (3 + 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408366878578*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   RowBox[{
-    RowBox[{"6", "\[CircleTimes]", "6"}], "\[Rule]", "6"}], 
-   "\[InvisibleSpace]", 
-   SubscriptBox["\[Null]", "+"]}],
-  SequenceForm[CircleTimes[6, 6] -> 6, 
-   SubPlus[$CellContext`\[Null]]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408367824902*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{SqrtBox[
-      RowBox[{
-        FractionBox["1", "14"], " ", 
-        RowBox[{"(", 
-          RowBox[{"3", "-", 
-            SqrtBox["2"]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "14"], " ", 
-          RowBox[{"(", 
-            RowBox[{"5", "+", 
-              RowBox[{"3", " ", 
-                SqrtBox["2"]}]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",SqrtBox[
-      RowBox[{
-        FractionBox["1", "7"], " ", 
-        RowBox[{"(", 
-          RowBox[{"3", "-", 
-            SqrtBox["2"]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{(Rational[1, 14] (3 - 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(
-       Rational[1, 14] (5 + 3 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (Rational[1, 7] (3 - 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408368140004*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "14"], " ", 
-          RowBox[{"(", 
-            RowBox[{"5", "+", 
-              RowBox[{"3", " ", 
-                SqrtBox["2"]}]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",SqrtBox[
-      RowBox[{
-        FractionBox["1", "14"], " ", 
-        RowBox[{"(", 
-          RowBox[{"3", "-", 
-            SqrtBox["2"]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",SqrtBox[
-      RowBox[{
-        FractionBox["1", "7"], " ", 
-        RowBox[{"(", 
-          RowBox[{"3", "-", 
-            SqrtBox["2"]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{-(Rational[1, 14] (5 + 3 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (Rational[1, 14] (3 - 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (Rational[1, 7] (3 - 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408368444284*^9}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"6", "\[CircleTimes]", "8"}], "\[Rule]", "8"}]], "Print",
- CellChangeTimes->{3.671408387344668*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"1", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcCot", "[", 
-           SqrtBox[
-            RowBox[{
-              FractionBox["41", "3"], "+", 
-              RowBox[{"8", " ", 
-                SqrtBox["2"]}]}]], "]"}]}]], 
-      SqrtBox["2"]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcCot", "[", 
-           SqrtBox[
-            RowBox[{
-              FractionBox["41", "3"], "+", 
-              RowBox[{"8", " ", 
-                SqrtBox["2"]}]}]], "]"}]}]], 
-      SqrtBox["2"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[1, "=", 
-   Row[{2^Rational[-1, 2] E^(Complex[0, 
-         Rational[1, 2]] 
-       ArcCot[(Rational[41, 3] + 8 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", 2^Rational[-1, 2] E^(Complex[0, 
-         Rational[1, 2]] 
-       ArcCot[(Rational[41, 3] + 8 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408387517335*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["1", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         RowBox[{"-", 
-           FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcTan", "[", 
-           RowBox[{
-             FractionBox["1", "23"], " ", 
-             SqrtBox[
-              RowBox[{"123", "-", 
-                RowBox[{"72", " ", 
-                  SqrtBox["2"]}]}]]}], "]"}]}]], 
-      SqrtBox["2"]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         RowBox[{"-", 
-           FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcTan", "[", 
-           RowBox[{
-             FractionBox["1", "23"], " ", 
-             SqrtBox[
-              RowBox[{"123", "-", 
-                RowBox[{"72", " ", 
-                  SqrtBox["2"]}]}]]}], "]"}]}]], 
-      SqrtBox["2"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[1], "=", 
-   Row[{2^Rational[-1, 2] E^(Complex[0, 
-         Rational[-1, 2]] 
-       ArcTan[Rational[1, 23] (123 - 72 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", 2^Rational[-1, 2] E^(Complex[0, 
-         Rational[-1, 2]] 
-       ArcTan[Rational[1, 23] (123 - 72 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408387677287*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         RowBox[{"-", 
-           FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcTan", "[", 
-           RowBox[{
-             FractionBox["1", "23"], " ", 
-             SqrtBox[
-              RowBox[{"123", "-", 
-                RowBox[{"72", " ", 
-                  SqrtBox["2"]}]}]]}], "]"}]}]], 
-      SqrtBox["6"]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "1"}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcCot", "[", 
-           SqrtBox[
-            RowBox[{
-              FractionBox["41", "3"], "+", 
-              RowBox[{"8", " ", 
-                SqrtBox["2"]}]}]], "]"}]}]], 
-      SqrtBox["6"]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],"\"+\"",SqrtBox[
-      RowBox[{
-        FractionBox["1", "42"], " ", 
-        RowBox[{"(", 
-          RowBox[{"5", "+", 
-            RowBox[{"3", " ", 
-              SqrtBox["2"]}]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["2", "21"], " ", 
-          RowBox[{"(", 
-            RowBox[{"3", "-", 
-              SqrtBox["2"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",SqrtBox[
-      RowBox[{
-        FractionBox["1", "42"], " ", 
-        RowBox[{"(", 
-          RowBox[{"5", "+", 
-            RowBox[{"3", " ", 
-              SqrtBox["2"]}]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "21"], " ", 
-          RowBox[{"(", 
-            RowBox[{"3", "-", 
-              SqrtBox["2"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{6^Rational[-1, 2] E^(Complex[0, 
-         Rational[-1, 2]] 
-       ArcTan[Rational[1, 23] (123 - 72 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 1], ")"}], "+", 6^Rational[-1, 2] E^(Complex[0, 
-         Rational[1, 2]] 
-       ArcCot[(Rational[41, 3] + 8 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[1]], ")"}], "+", (Rational[1, 42] (5 + 3 2^Rational[1, 2]))^
-     Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(
-       Rational[2, 21] (3 - 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", (Rational[1, 42] (5 + 3 2^Rational[1, 2]))^
-     Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}], -(Rational[1, 21] (3 - 2^Rational[1, 2]))^
-      Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408388118973*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "21"], " ", 
-          RowBox[{"(", 
-            RowBox[{"3", "-", 
-              SqrtBox["2"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",SqrtBox[
-      RowBox[{
-        FractionBox["1", "42"], " ", 
-        RowBox[{"(", 
-          RowBox[{"5", "+", 
-            RowBox[{"3", " ", 
-              SqrtBox["2"]}]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         RowBox[{"-", 
-           FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcTan", "[", 
-           RowBox[{
-             FractionBox["1", "23"], " ", 
-             SqrtBox[
-              RowBox[{"123", "-", 
-                RowBox[{"72", " ", 
-                  SqrtBox["2"]}]}]]}], "]"}]}]], 
-      SqrtBox["6"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "1"}], "\")\""}, 
-      "RowDefault"],"\"+\"",FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcCot", "[", 
-           SqrtBox[
-            RowBox[{
-              FractionBox["41", "3"], "+", 
-              RowBox[{"8", " ", 
-                SqrtBox["2"]}]}]], "]"}]}]], 
-      SqrtBox["6"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["2", "21"], " ", 
-          RowBox[{"(", 
-            RowBox[{"3", "-", 
-              SqrtBox["2"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"],"\"+\"",SqrtBox[
-      RowBox[{
-        FractionBox["1", "42"], " ", 
-        RowBox[{"(", 
-          RowBox[{"5", "+", 
-            RowBox[{"3", " ", 
-              SqrtBox["2"]}]}], ")"}]}]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{-(Rational[1, 21] (3 - 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (Rational[1, 42] (5 + 3 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", 6^Rational[-1, 2] E^(Complex[0, 
-         Rational[-1, 2]] 
-       ArcTan[Rational[1, 23] (123 - 72 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 1], ")"}], "+", 6^Rational[-1, 2] E^(Complex[0, 
-         Rational[1, 2]] 
-       ArcCot[(Rational[41, 3] + 8 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[1]], ")"}], -(Rational[2, 21] (3 - 2^Rational[1, 2]))^
-      Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}], 
-     "+", (Rational[1, 42] (5 + 3 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.6714083884812517`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"6", "\[CircleTimes]", "8"}], "\[Rule]", "8"}]], "Print",
- CellChangeTimes->{3.671408416108798*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"1", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       FractionBox[
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{
-           RowBox[{"-", 
-             FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
-           RowBox[{"ArcCot", "[", 
-             SqrtBox[
-              RowBox[{
-                FractionBox["41", "3"], "-", 
-                RowBox[{"8", " ", 
-                  SqrtBox["2"]}]}]], "]"}]}]], 
-        SqrtBox["2"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         RowBox[{"-", 
-           FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcCot", "[", 
-           SqrtBox[
-            RowBox[{
-              FractionBox["41", "3"], "-", 
-              RowBox[{"8", " ", 
-                SqrtBox["2"]}]}]], "]"}]}]], 
-      SqrtBox["2"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[1, "=", 
-   Row[{-2^Rational[-1, 2] E^(Complex[0, 
-         Rational[-1, 2]] 
-       ArcCot[(Rational[41, 3] - 8 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", 2^Rational[-1, 2] E^(Complex[0, 
-         Rational[-1, 2]] 
-       ArcCot[(Rational[41, 3] - 8 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408416457728*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["1", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcTan", "[", 
-           RowBox[{
-             FractionBox["1", "23"], " ", 
-             SqrtBox["3"], " ", 
-             RowBox[{"(", 
-               RowBox[{"3", "+", 
-                 RowBox[{"4", " ", 
-                   SqrtBox["2"]}]}], ")"}]}], "]"}]}]], 
-      SqrtBox["2"]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],RowBox[{"-", 
-       FractionBox[
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{
-           FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
-           RowBox[{"ArcTan", "[", 
-             RowBox[{
-               FractionBox["1", "23"], " ", 
-               SqrtBox["3"], " ", 
-               RowBox[{"(", 
-                 RowBox[{"3", "+", 
-                   RowBox[{"4", " ", 
-                    SqrtBox["2"]}]}], ")"}]}], "]"}]}]], 
-        SqrtBox["2"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[1], "=", 
-   Row[{2^Rational[-1, 2] E^(Complex[0, 
-         Rational[1, 2]] 
-       ArcTan[Rational[1, 23] 3^Rational[1, 2] (3 + 4 2^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], -2^Rational[-1, 2] E^(Complex[0, 
-         Rational[1, 2]] 
-       ArcTan[Rational[1, 23] 3^Rational[1, 2] (3 + 4 2^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.6714084166382627`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcTan", "[", 
-           RowBox[{
-             FractionBox["1", "23"], " ", 
-             SqrtBox["3"], " ", 
-             RowBox[{"(", 
-               RowBox[{"3", "+", 
-                 RowBox[{"4", " ", 
-                   SqrtBox["2"]}]}], ")"}]}], "]"}]}]], 
-      SqrtBox["6"]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "1"}], "\")\""}, "RowDefault"],
-     RowBox[{"-", 
-       FractionBox[
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{
-           RowBox[{"-", 
-             FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
-           RowBox[{"ArcCot", "[", 
-             SqrtBox[
-              RowBox[{
-                FractionBox["41", "3"], "-", 
-                RowBox[{"8", " ", 
-                  SqrtBox["2"]}]}]], "]"}]}]], 
-        SqrtBox["6"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],"\"+\"",
-     RowBox[{"\[ImaginaryI]", " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "42"], " ", 
-          RowBox[{"(", 
-            RowBox[{"5", "-", 
-              RowBox[{"3", " ", 
-                SqrtBox["2"]}]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",
-     RowBox[{"\[ImaginaryI]", " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["2", "21"], " ", 
-          RowBox[{"(", 
-            RowBox[{"3", "+", 
-              SqrtBox["2"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],RowBox[{
-       RowBox[{"-", "\[ImaginaryI]"}], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "42"], " ", 
-          RowBox[{"(", 
-            RowBox[{"5", "-", 
-              RowBox[{"3", " ", 
-                SqrtBox["2"]}]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"],RowBox[{
-       RowBox[{"-", "\[ImaginaryI]"}], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "21"], " ", 
-          RowBox[{"(", 
-            RowBox[{"3", "+", 
-              SqrtBox["2"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{6^Rational[-1, 2] E^(Complex[0, 
-         Rational[1, 2]] 
-       ArcTan[Rational[1, 23] 3^Rational[1, 2] (3 + 4 2^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[3, 1], ")"}], -6^Rational[-1, 2] E^(Complex[0, 
-         Rational[-1, 2]] 
-       ArcCot[(Rational[41, 3] - 8 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[1]], ")"}], "+", 
-     Complex[0, 1] (Rational[1, 42] (5 - 3 2^Rational[1, 2]))^Rational[1, 2], 
-     
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], "+", 
-     Complex[0, 1] (Rational[2, 21] (3 + 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], 
-     Complex[0, -1] (Rational[1, 42] (5 - 3 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}], 
-     Complex[0, -1] (Rational[1, 21] (3 + 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408417087833*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"\[ImaginaryI]", " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "21"], " ", 
-          RowBox[{"(", 
-            RowBox[{"3", "+", 
-              SqrtBox["2"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",
-     RowBox[{"\[ImaginaryI]", " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "42"], " ", 
-          RowBox[{"(", 
-            RowBox[{"5", "-", 
-              RowBox[{"3", " ", 
-                SqrtBox["2"]}]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],RowBox[{"-", 
-       FractionBox[
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{
-           FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
-           RowBox[{"ArcTan", "[", 
-             RowBox[{
-               FractionBox["1", "23"], " ", 
-               SqrtBox["3"], " ", 
-               RowBox[{"(", 
-                 RowBox[{"3", "+", 
-                   RowBox[{"4", " ", 
-                    SqrtBox["2"]}]}], ")"}]}], "]"}]}]], 
-        SqrtBox["6"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "1"}], "\")\""}, 
-      "RowDefault"],"\"+\"",FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{
-         RowBox[{"-", 
-           FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
-         RowBox[{"ArcCot", "[", 
-           SqrtBox[
-            RowBox[{
-              FractionBox["41", "3"], "-", 
-              RowBox[{"8", " ", 
-                SqrtBox["2"]}]}]], "]"}]}]], 
-      SqrtBox["6"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],RowBox[{
-       RowBox[{"-", "\[ImaginaryI]"}], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["2", "21"], " ", 
-          RowBox[{"(", 
-            RowBox[{"3", "+", 
-              SqrtBox["2"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"],RowBox[{
-       RowBox[{"-", "\[ImaginaryI]"}], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "42"], " ", 
-          RowBox[{"(", 
-            RowBox[{"5", "-", 
-              RowBox[{"3", " ", 
-                SqrtBox["2"]}]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{Complex[0, 1] (Rational[1, 21] (3 + 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], "+", 
-     Complex[0, 1] (Rational[1, 42] (5 - 3 2^Rational[1, 2]))^Rational[1, 2], 
-     
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], -6^Rational[-1, 2] E^(Complex[0, 
-         Rational[1, 2]] 
-       ArcTan[Rational[1, 23] 3^Rational[1, 2] (3 + 4 2^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 1], ")"}], "+", 6^Rational[-1, 2] E^(Complex[0, 
-         Rational[-1, 2]] 
-       ArcCot[(Rational[41, 3] - 8 2^Rational[1, 2])^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[1]], ")"}], 
-     Complex[0, -1] (Rational[2, 21] (3 + 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}], 
-     Complex[0, -1] (Rational[1, 42] (5 - 3 2^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408418397777*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   RowBox[{
-    RowBox[{"8", "\[CircleTimes]", "8"}], "\[Rule]", "8"}], 
-   "\[InvisibleSpace]", 
-   SubscriptBox["\[Null]", "+"]}],
-  SequenceForm[CircleTimes[8, 8] -> 8, 
-   SubPlus[$CellContext`\[Null]]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408424802443*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"1", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"5", "/", "6"}]]}], " ", 
-       SqrtBox[
-        FractionBox["3", "5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"5", "/", "6"}]]}], " ", 
-       SqrtBox[
-        FractionBox["2", "5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[1, "=", 
-   Row[{-(-1)^Rational[5, 6] Rational[3, 5]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 
-        OverBar[1]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[5, 6] Rational[2, 5]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408425225738*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["1", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "6"}]], " ", 
-       SqrtBox[
-        FractionBox["3", "5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "1"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "6"}]], " ", 
-       SqrtBox[
-        FractionBox["2", "5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[1], "=", 
-   Row[{(-1)^Rational[1, 6] Rational[3, 5]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[1, 1], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[1, 6] Rational[2, 5]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408426162572*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       FractionBox["1", 
-        SqrtBox["15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",
-     RowBox[{"2", " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "6"}]], " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"5", "/", "6"}]]}], " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{-15^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], "+", 2 
-     Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[1, 6] Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[1, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[5, 6] Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -
-     Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408426772335*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"2", " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       FractionBox["1", 
-        SqrtBox["15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "6"}]], " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"5", "/", "6"}]]}], " ", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        FractionBox["2", "15"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{2 Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -15^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[1, 6] Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[1, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[5, 6] Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -
-     Rational[2, 15]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.6714084271922817`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   RowBox[{
-    RowBox[{"8", "\[CircleTimes]", "8"}], "\[Rule]", "8"}], 
-   "\[InvisibleSpace]", 
-   SubscriptBox["\[Null]", "+"]}],
-  SequenceForm[CircleTimes[8, 8] -> 8, 
-   SubPlus[$CellContext`\[Null]]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408487104705*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"1", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"2", "/", "3"}]]}], " ", 
-       SqrtBox[
-        FractionBox["2", "5"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Alpha]"}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"2", "/", "3"}]], " ", 
-       SqrtBox[
-        FractionBox["3", "5"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Alpha]"}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[1, "=", 
-   Row[{-(-1)^Rational[2, 3] Rational[2, 5]^Rational[1, 2] 
-     E^(Complex[0, -1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 
-        OverBar[1]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[2, 3] Rational[3, 5]^Rational[1, 2] 
-     E^(Complex[0, -1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.6714084873533916`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["1", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "3"}]], " ", 
-       SqrtBox[
-        FractionBox["2", "5"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "1"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         SuperscriptBox[
-          RowBox[{"(", 
-            RowBox[{"-", "1"}], ")"}], 
-          RowBox[{"1", "/", "3"}]]}], " ", 
-       SqrtBox[
-        FractionBox["3", "5"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[1], "=", 
-   Row[{(-1)^Rational[1, 3] Rational[2, 5]^Rational[1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[1, 1], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[1, 3] Rational[3, 5]^Rational[1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408487580072*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       SqrtBox[
-        FractionBox["6", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        FractionBox["3", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       FractionBox[
-        RowBox[{
-          SuperscriptBox[
-           RowBox[{"(", 
-             RowBox[{"-", "1"}], ")"}], 
-           RowBox[{"1", "/", "3"}]], " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-        SqrtBox["5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",FractionBox[
-      RowBox[{
-        SuperscriptBox[
-         RowBox[{"(", 
-           RowBox[{"-", "1"}], ")"}], 
-         RowBox[{"2", "/", "3"}]], " ", 
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{
-           RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Alpha]"}]]}], 
-      SqrtBox["5"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", "2"}], " ", 
-       SqrtBox[
-        FractionBox["3", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{-Rational[6, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -
-     Rational[3, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[1, 3] 5^Rational[-1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[1, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[2, 3] 5^Rational[-1, 2] 
-     E^(Complex[0, -1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], (-2) 
-     Rational[3, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408488533801*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       SqrtBox[
-        FractionBox["3", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       SqrtBox[
-        FractionBox["6", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{"-", 
-       FractionBox[
-        RowBox[{
-          SuperscriptBox[
-           RowBox[{"(", 
-             RowBox[{"-", "1"}], ")"}], 
-           RowBox[{"1", "/", "3"}]], " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-        SqrtBox["5"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",FractionBox[
-      RowBox[{
-        SuperscriptBox[
-         RowBox[{"(", 
-           RowBox[{"-", "1"}], ")"}], 
-         RowBox[{"2", "/", "3"}]], " ", 
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{
-           RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Alpha]"}]]}], 
-      SqrtBox["5"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["1", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", "2"}], " ", 
-       SqrtBox[
-        FractionBox["3", "35"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{-Rational[3, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -
-     Rational[6, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], -(-1)^
-      Rational[1, 3] 5^Rational[-1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[1, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[2, 3] 5^Rational[-1, 2] 
-     E^(Complex[0, -1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[1], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], (-2) 
-     Rational[3, 35]^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408489033732*^9}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"7", "\[CircleTimes]", "8"}], "\[Rule]", "8"}]], "Print",
- CellChangeTimes->{3.671408503706684*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"1", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "130"], " ", 
-          RowBox[{"(", 
-            RowBox[{"65", "+", 
-              SqrtBox["65"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "1"}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox["4", 
-      SqrtBox[
-       RowBox[{"65", "+", 
-         SqrtBox["65"]}]]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox["4", 
-      SqrtBox[
-       RowBox[{"65", "+", 
-         SqrtBox["65"]}]]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[1, "=", 
-   Row[{-(Rational[1, 130] (65 + 65^Rational[1, 2]))^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[1, 1], ")"}], "+", 
-     4 (65 + 65^Rational[1, 2])^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", 4 (65 + 65^Rational[1, 2])^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408503921015*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["1", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "130"], " ", 
-          RowBox[{"(", 
-            RowBox[{"65", "+", 
-              SqrtBox["65"]}], ")"}]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"16", " ", 
-               SqrtBox["3"]}], 
-             RowBox[{"49", "+", 
-               SqrtBox["65"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],RowBox[{"-", 
-       FractionBox[
-        RowBox[{"4", " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{"\[ImaginaryI]", " ", 
-             RowBox[{"ArcTan", "[", 
-               RowBox[{
-                 FractionBox["1", "73"], " ", 
-                 SqrtBox[
-                  RowBox[{
-                    FractionBox["3", "2"], " ", 
-                    RowBox[{"(", 
-                    RowBox[{"1233", "-", 
-                    RowBox[{"49", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}], 
-        SqrtBox[
-         RowBox[{"65", "+", 
-           SqrtBox["65"]}]]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],RowBox[{"-", 
-       FractionBox[
-        RowBox[{"4", " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{"\[ImaginaryI]", " ", 
-             RowBox[{"ArcTan", "[", 
-               RowBox[{
-                 FractionBox["1", "73"], " ", 
-                 SqrtBox[
-                  RowBox[{
-                    FractionBox["3", "2"], " ", 
-                    RowBox[{"(", 
-                    RowBox[{"1233", "-", 
-                    RowBox[{"49", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}], 
-        SqrtBox[
-         RowBox[{"65", "+", 
-           SqrtBox["65"]}]]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[1], "=", 
-   Row[{(Rational[1, 130] (65 + 65^Rational[1, 2]))^Rational[1, 2] 
-     E^(Complex[0, 1] ArcTan[16 3^Rational[1, 2]/(49 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[1, 
-        OverBar[1]], ")"}], (-4) (65 + 65^Rational[1, 2])^Rational[-1, 2] 
-     E^(Complex[0, 1] 
-       ArcTan[Rational[1, 73] (Rational[3, 2] (1233 - 49 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], (-4) (65 + 65^Rational[1, 2])^Rational[-1, 2] 
-     E^(Complex[0, 1] 
-       ArcTan[Rational[1, 73] (Rational[3, 2] (1233 - 49 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.67140850420864*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "42"], "-", 
-          FractionBox["1", 
-           RowBox[{"6", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"7", "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "3"}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox[
-      RowBox[{"4", " ", 
-        SuperscriptBox[
-         RowBox[{"(", 
-           RowBox[{"-", "1"}], ")"}], 
-         RowBox[{"1", "/", "3"}]]}], 
-      SqrtBox[
-       RowBox[{"3", " ", 
-         RowBox[{"(", 
-           RowBox[{"65", "+", 
-             SqrtBox["65"]}], ")"}]}]]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "1"}], "\")\""}, "RowDefault"],
-     RowBox[{"-", 
-       FractionBox[
-        RowBox[{"4", " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-             RowBox[{"-", "\[ImaginaryI]"}], " ", 
-             RowBox[{"ArcTan", "[", 
-               RowBox[{
-                 FractionBox["1", "73"], " ", 
-                 SqrtBox[
-                  RowBox[{
-                    FractionBox["3", "2"], " ", 
-                    RowBox[{"(", 
-                    RowBox[{"1233", "+", 
-                    RowBox[{"49", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}], 
-        SqrtBox[
-         RowBox[{"3", " ", 
-           RowBox[{"(", 
-             RowBox[{"65", "+", 
-               SqrtBox["65"]}], ")"}]}]]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],RowBox[{
-       RowBox[{"-", "4"}], " ", 
-       SqrtBox[
-        FractionBox["13", 
-         RowBox[{"21", " ", 
-           RowBox[{"(", 
-             RowBox[{"65", "+", 
-               SqrtBox["65"]}], ")"}]}]]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"7", "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", "2"}], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "21"], "-", 
-          FractionBox["1", 
-           RowBox[{"3", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"7", "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["13", "84"], "+", 
-          FractionBox["83", 
-           RowBox[{"84", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            SqrtBox[
-             RowBox[{
-               FractionBox["1", "6"], " ", 
-               RowBox[{"(", 
-                 RowBox[{"57", "+", 
-                   RowBox[{"7", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["2", "21"], "-", 
-          FractionBox["2", 
-           RowBox[{"3", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"7", "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["3", "14"], "+", 
-          FractionBox["3", 
-           RowBox[{"2", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"7", "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "a"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{(Rational[1, 42] + Rational[-1, 6] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[1, 3], ")"}], "+", 
-     4 (-1)^Rational[1, 3] (3 (65 + 65^Rational[1, 2]))^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 1], ")"}], (-4) (3 (65 + 65^Rational[1, 2]))^
-      Rational[-1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 73] (Rational[3, 2] (1233 + 49 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[1]], ")"}], (-4) (Rational[13, 21]/(65 + 65^Rational[1, 2]))^
-      Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], (-2) (
-       Rational[1, 21] + Rational[-1, 3] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], 
-     "+", (Rational[13, 84] + Rational[83, 84] 65^Rational[-1, 2])^
-      Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[(Rational[1, 6] (57 + 7 65^Rational[1, 2]))^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}], 
-     "+", (Rational[2, 21] + Rational[-2, 3] 65^Rational[-1, 2])^
-      Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (Rational[3, 14] + Rational[3, 2] 65^Rational[-1, 2])^
-      Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`a]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.6714085055834703`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "42"], "-", 
-          FractionBox["1", 
-           RowBox[{"6", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"7", "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["2", "21"], "-", 
-          FractionBox["2", 
-           RowBox[{"3", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"7", "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["3", "14"], "+", 
-          FractionBox["3", 
-           RowBox[{"2", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"7", "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "a"]}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["13", "84"], "+", 
-          FractionBox["83", 
-           RowBox[{"84", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            SqrtBox[
-             RowBox[{
-               FractionBox["1", "6"], " ", 
-               RowBox[{"(", 
-                 RowBox[{"57", "+", 
-                   RowBox[{"7", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox[
-      RowBox[{"4", " ", 
-        SuperscriptBox[
-         RowBox[{"(", 
-           RowBox[{"-", "1"}], ")"}], 
-         RowBox[{"1", "/", "3"}]]}], 
-      SqrtBox[
-       RowBox[{"3", " ", 
-         RowBox[{"(", 
-           RowBox[{"65", "+", 
-             SqrtBox["65"]}], ")"}]}]]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "1"}], "\")\""}, 
-      "RowDefault"],RowBox[{"-", 
-       FractionBox[
-        RowBox[{"4", " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-             RowBox[{"-", "\[ImaginaryI]"}], " ", 
-             RowBox[{"ArcTan", "[", 
-               RowBox[{
-                 FractionBox["1", "73"], " ", 
-                 SqrtBox[
-                  RowBox[{
-                    FractionBox["3", "2"], " ", 
-                    RowBox[{"(", 
-                    RowBox[{"1233", "+", 
-                    RowBox[{"49", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}], 
-        SqrtBox[
-         RowBox[{"3", " ", 
-           RowBox[{"(", 
-             RowBox[{"65", "+", 
-               SqrtBox["65"]}], ")"}]}]]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],RowBox[{
-       RowBox[{"-", "2"}], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "21"], "-", 
-          FractionBox["1", 
-           RowBox[{"3", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"7", "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"],RowBox[{
-       RowBox[{"-", "4"}], " ", 
-       SqrtBox[
-        FractionBox["13", 
-         RowBox[{"21", " ", 
-           RowBox[{"(", 
-             RowBox[{"65", "+", 
-               SqrtBox["65"]}], ")"}]}]]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{"7", "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{(Rational[1, 42] + Rational[-1, 6] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[1, 
-        OverBar[3]], ")"}], 
-     "+", (Rational[2, 21] + Rational[-2, 3] 65^Rational[-1, 2])^
-      Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (Rational[3, 14] + Rational[3, 2] 65^Rational[-1, 2])^
-      Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`a]}], 
-     "+", (Rational[13, 84] + Rational[83, 84] 65^Rational[-1, 2])^
-      Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[(Rational[1, 6] (57 + 7 65^Rational[1, 2]))^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", 
-     4 (-1)^Rational[1, 3] (3 (65 + 65^Rational[1, 2]))^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 1], ")"}], (-4) (3 (65 + 65^Rational[1, 2]))^
-      Rational[-1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 73] (Rational[3, 2] (1233 + 49 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[1]], ")"}], (-2) (Rational[1, 21] + 
-       Rational[-1, 3] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}], (-4) (Rational[13, 21]/(65 + 
-       65^Rational[1, 2]))^Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.6714085061667337`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"7", "\[CircleTimes]", "8"}], "\[Rule]", "8"}]], "Print",
- CellChangeTimes->{3.671408506456662*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"1", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       FractionBox["1", 
-        SqrtBox["2"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox["1", 
-      SqrtBox["2"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[1, "=", 
-   Row[{-2^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", 2^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408507261572*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["1", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       FractionBox[
-        RowBox[{
-          SuperscriptBox[
-           RowBox[{"(", 
-             RowBox[{"-", "1"}], ")"}], 
-           RowBox[{"1", "/", "3"}]], " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-        SqrtBox["2"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox[
-      RowBox[{
-        SuperscriptBox[
-         RowBox[{"(", 
-           RowBox[{"-", "1"}], ")"}], 
-         RowBox[{"1", "/", "3"}]], " ", 
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-      SqrtBox["2"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[1], "=", 
-   Row[{-(-1)^Rational[1, 3] 2^Rational[-1, 2] 
-     E^(Complex[0, 2] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", (-1)^Rational[1, 3] 2^Rational[-1, 2] 
-     E^(Complex[0, 2] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.67140850737037*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{"-", 
-       FractionBox[
-        RowBox[{"2", " ", 
-          SuperscriptBox[
-           RowBox[{"(", 
-             RowBox[{"-", "1"}], ")"}], 
-           RowBox[{"1", "/", "6"}]], " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-        SqrtBox["21"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "3"}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox[
-      RowBox[{
-        SuperscriptBox[
-         RowBox[{"(", 
-           RowBox[{"-", "1"}], ")"}], 
-         RowBox[{"1", "/", "3"}]], " ", 
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-      SqrtBox["6"]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "1"}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox["1", 
-      SqrtBox["6"]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],"\"+\"",RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "6"}]], " ", 
-       SqrtBox[
-        FractionBox["3", "14"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "6"}]], " ", 
-       SqrtBox[
-        FractionBox["3", "14"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"],"\"+\"",FractionBox[
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"\[ImaginaryI]", " ", 
-         RowBox[{"(", 
-           RowBox[{
-             RowBox[{"-", 
-               FractionBox[
-                RowBox[{"5", " ", "\[Pi]"}], "6"]}], "+", "\[Alpha]"}], 
-           ")"}]}]], 
-      SqrtBox["21"]],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "a"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{(-2) (-1)^Rational[1, 6] 21^Rational[-1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[1, 3], ")"}], "+", (-1)^Rational[1, 3] 6^Rational[-1, 2] 
-     E^(Complex[0, 2] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[3, 1], ")"}], "+", 6^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[1]], ")"}], "+", (-1)^Rational[1, 6] 
-     Rational[3, 14]^Rational[1, 2] E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (-1)^Rational[1, 6] Rational[3, 14]^Rational[1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}], "+", 21^Rational[-1, 2] 
-     E^(Complex[0, 1] (Rational[-5, 6] Pi + $CellContext`\[Alpha])), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`a]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.6714085080999403`*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{FractionBox[
-      RowBox[{"2", " ", 
-        SuperscriptBox[
-         RowBox[{"(", 
-           RowBox[{"-", "1"}], ")"}], 
-         RowBox[{"1", "/", "6"}]], " ", 
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-      SqrtBox["21"]],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",
-     FractionBox[
-      RowBox[{
-        SuperscriptBox[
-         RowBox[{"(", 
-           RowBox[{"-", "1"}], ")"}], 
-         RowBox[{"1", "/", "6"}]], " ", 
-        SuperscriptBox["\[ExponentialE]", 
-         RowBox[{"\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-      SqrtBox["21"]],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "a"]}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        FractionBox["3", "14"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"(", 
-            RowBox[{
-              RowBox[{"-", 
-                FractionBox[
-                 RowBox[{"5", " ", "\[Pi]"}], "6"]}], "+", "\[Alpha]"}], 
-            ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],RowBox[{"-", 
-       FractionBox[
-        RowBox[{
-          SuperscriptBox[
-           RowBox[{"(", 
-             RowBox[{"-", "1"}], ")"}], 
-           RowBox[{"1", "/", "3"}]], " ", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[Alpha]"}]]}], 
-        SqrtBox["6"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "1"}], "\")\""}, 
-      "RowDefault"],RowBox[{"-", 
-       FractionBox["1", 
-        SqrtBox["6"]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        FractionBox["3", "14"]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"(", 
-            RowBox[{
-              RowBox[{"-", 
-                FractionBox[
-                 RowBox[{"5", " ", "\[Pi]"}], "6"]}], "+", "\[Alpha]"}], 
-            ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{2 (-1)^Rational[1, 6] 21^Rational[-1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[1, 
-        OverBar[3]], ")"}], "+", (-1)^Rational[1, 6] 21^Rational[-1, 2] 
-     E^(Complex[0, 1] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`a]}], "+", 
-     Rational[3, 14]^Rational[1, 2] 
-     E^(Complex[0, 1] (Rational[-5, 6] Pi + $CellContext`\[Alpha])), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], -(-1)^Rational[1, 3] 6^Rational[-1, 2] 
-     E^(Complex[0, 2] $CellContext`\[Alpha]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 1], ")"}], -6^Rational[-1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[1]], ")"}], "+", Rational[3, 14]^Rational[1, 2] 
-     E^(Complex[0, 1] (Rational[-5, 6] Pi + $CellContext`\[Alpha])), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408508495475*^9}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"7", "\[CircleTimes]", "8"}], "\[Rule]", "8"}]], "Print",
- CellChangeTimes->{3.671408519948093*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"1", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{SqrtBox[
-      RowBox[{
-        FractionBox["1", "2"], "-", 
-        FractionBox["1", 
-         RowBox[{"2", " ", 
-           SqrtBox["65"]}]]}]],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "1"}], "\")\""}, "RowDefault"],"\"+\"",
-     RowBox[{
-       FractionBox["1", "2"], " ", 
-       SqrtBox[
-        RowBox[{"1", "+", 
-          FractionBox["1", 
-           SqrtBox["65"]]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",RowBox[{
-       FractionBox["1", "2"], " ", 
-       SqrtBox[
-        RowBox[{"1", "+", 
-          FractionBox["1", 
-           SqrtBox["65"]]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[1, "=", 
-   Row[{(Rational[1, 2] + Rational[-1, 2] 65^Rational[-1, 2])^Rational[1, 2], 
-     
-     Row[{"(", 
-       CircleTimes[1, 1], ")"}], "+", 
-     Rational[1, 2] (1 + 65^Rational[-1, 2])^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", 
-     Rational[1, 2] (1 + 65^Rational[-1, 2])^Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408520188745*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["1", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "2"], "-", 
-          FractionBox["1", 
-           RowBox[{"2", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcTan", "[", 
-            RowBox[{
-              FractionBox["1", "73"], " ", 
-              SqrtBox[
-               RowBox[{
-                 FractionBox["3", "2"], " ", 
-                 RowBox[{"(", 
-                   RowBox[{"1233", "+", 
-                    RowBox[{"49", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],"\"+\"",RowBox[{
-       FractionBox["1", "2"], " ", 
-       SqrtBox[
-        RowBox[{"1", "+", 
-          FractionBox["1", 
-           SqrtBox["65"]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcTan", "[", 
-            RowBox[{
-              FractionBox["1", "73"], " ", 
-              SqrtBox[
-               RowBox[{
-                 FractionBox["3", "2"], " ", 
-                 RowBox[{"(", 
-                   RowBox[{"1233", "+", 
-                    RowBox[{"49", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",RowBox[{
-       FractionBox["1", "2"], " ", 
-       SqrtBox[
-        RowBox[{"1", "+", 
-          FractionBox["1", 
-           SqrtBox["65"]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcTan", "[", 
-            RowBox[{
-              FractionBox["1", "73"], " ", 
-              SqrtBox[
-               RowBox[{
-                 FractionBox["3", "2"], " ", 
-                 RowBox[{"(", 
-                   RowBox[{"1233", "+", 
-                    RowBox[{"49", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[1], "=", 
-   Row[{(Rational[1, 2] + Rational[-1, 2] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcTan[Rational[1, 73] (Rational[3, 2] (1233 + 49 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[1, 
-        OverBar[1]], ")"}], "+", 
-     Rational[1, 2] (1 + 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcTan[Rational[1, 73] (Rational[3, 2] (1233 + 49 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", 
-     Rational[1, 2] (1 + 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcTan[Rational[1, 73] (Rational[3, 2] (1233 + 49 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.67140852046025*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"3", "\[InvisibleSpace]", "\<\"=\"\>", "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       RowBox[{"-", 
-         SqrtBox[
-          RowBox[{
-            FractionBox["1", "42"], "+", 
-            FractionBox["1", 
-             RowBox[{"6", " ", 
-               SqrtBox["65"]}]]}]]}], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcCot", "[", 
-            RowBox[{
-              FractionBox["1", "8"], " ", 
-              SqrtBox["3"], " ", 
-              RowBox[{"(", 
-                RowBox[{"7", "+", 
-                  SqrtBox["65"]}], ")"}]}], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", "3"}], "\")\""}, "RowDefault"],"\"+\"",
-     RowBox[{
-       FractionBox["1", "2"], " ", 
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "3"}]], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "195"], " ", 
-          RowBox[{"(", 
-            RowBox[{"65", "+", 
-              SqrtBox["65"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "1"}], "\")\""}, "RowDefault"],"\"+\"",
-     RowBox[{
-       FractionBox["1", "2"], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "195"], " ", 
-          RowBox[{"(", 
-            RowBox[{"65", "+", 
-              SqrtBox["65"]}], ")"}]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            RowBox[{
-              FractionBox["1", "73"], " ", 
-              SqrtBox[
-               RowBox[{
-                 FractionBox["3", "2"], " ", 
-                 RowBox[{"(", 
-                   RowBox[{"1233", "-", 
-                    RowBox[{"49", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         FractionBox["1", "2"]}], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "105"], " ", 
-          RowBox[{"(", 
-            RowBox[{"65", "+", 
-              SqrtBox["65"]}], ")"}]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcTan", "[", 
-            SqrtBox[
-             RowBox[{
-               FractionBox["1", "6"], " ", 
-               RowBox[{"(", 
-                 RowBox[{"57", "-", 
-                   RowBox[{"7", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["4", "21"], "+", 
-          FractionBox["4", 
-           RowBox[{"3", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcCot", "[", 
-            RowBox[{
-              FractionBox["1", "8"], " ", 
-              SqrtBox["3"], " ", 
-              RowBox[{"(", 
-                RowBox[{"7", "+", 
-                  SqrtBox["65"]}], ")"}]}], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         FractionBox["1", "2"]}], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["13", "21"], "-", 
-          FractionBox["83", 
-           RowBox[{"21", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcCot", "[", 
-            RowBox[{
-              FractionBox["1", "4"], " ", 
-              SqrtBox[
-               RowBox[{
-                 FractionBox["3", "2"], " ", 
-                 RowBox[{"(", 
-                   RowBox[{"57", "+", 
-                    RowBox[{"7", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         SqrtBox[
-          RowBox[{
-            FractionBox["2", "21"], "+", 
-            FractionBox["2", 
-             RowBox[{"3", " ", 
-               SqrtBox["65"]}]]}]]}], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcCot", "[", 
-            RowBox[{
-              FractionBox["1", "8"], " ", 
-              SqrtBox["3"], " ", 
-              RowBox[{"(", 
-                RowBox[{"7", "+", 
-                  SqrtBox["65"]}], ")"}]}], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["3", "14"], "-", 
-          FractionBox["3", 
-           RowBox[{"2", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{
-               RowBox[{"-", "7"}], "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "a"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[3, "=", 
-   Row[{-(Rational[1, 42] + Rational[1, 6] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcCot[Rational[1, 8] 3^Rational[1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[1, 3], ")"}], "+", 
-     Rational[1, 2] (-1)^
-      Rational[1, 3] (Rational[1, 195] (65 + 65^Rational[1, 2]))^
-      Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[3, 1], ")"}], "+", 
-     Rational[1, 2] (Rational[1, 195] (65 + 65^Rational[1, 2]))^
-      Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 73] (Rational[3, 2] (1233 - 49 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[1]], ")"}], 
-     Rational[-1, 2] (Rational[1, 105] (65 + 65^Rational[1, 2]))^
-      Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcTan[(Rational[1, 6] (57 - 7 65^Rational[1, 2]))^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (Rational[4, 21] + Rational[4, 3] 65^Rational[-1, 2])^
-      Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcCot[Rational[1, 8] 3^Rational[1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], 
-     Rational[-1, 2] (Rational[13, 21] + 
-       Rational[-83, 21] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcCot[Rational[1, 4] (Rational[3, 2] (57 + 7 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}], -(Rational[2, 21] + 
-       Rational[2, 3] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcCot[Rational[1, 8] 3^Rational[1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (Rational[3, 14] + Rational[-3, 2] 65^Rational[-1, 2])^
-      Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (-7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`a]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408521629035*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   OverscriptBox["3", "_"], "\[InvisibleSpace]", "\<\"=\"\>", 
-   "\[InvisibleSpace]", 
-   TemplateBox[{RowBox[{
-       RowBox[{"-", 
-         SqrtBox[
-          RowBox[{
-            FractionBox["1", "42"], "+", 
-            FractionBox["1", 
-             RowBox[{"6", " ", 
-               SqrtBox["65"]}]]}]]}], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcCot", "[", 
-            RowBox[{
-              FractionBox["1", "8"], " ", 
-              SqrtBox["3"], " ", 
-              RowBox[{"(", 
-                RowBox[{"7", "+", 
-                  SqrtBox["65"]}], ")"}]}], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"1", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         SqrtBox[
-          RowBox[{
-            FractionBox["2", "21"], "+", 
-            FractionBox["2", 
-             RowBox[{"3", " ", 
-               SqrtBox["65"]}]]}]]}], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcCot", "[", 
-            RowBox[{
-              FractionBox["1", "8"], " ", 
-              SqrtBox["3"], " ", 
-              RowBox[{"(", 
-                RowBox[{"7", "+", 
-                  SqrtBox["65"]}], ")"}]}], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["3", "14"], "-", 
-          FractionBox["3", 
-           RowBox[{"2", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcTan", "[", 
-            FractionBox[
-             RowBox[{
-               RowBox[{"-", "7"}], "+", 
-               SqrtBox["65"]}], 
-             RowBox[{"2", " ", 
-               SqrtBox["3"]}]], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", "3"}], "\")\"", 
-       SubscriptBox["\[Null]", "a"]}, "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         FractionBox["1", "2"]}], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["13", "21"], "-", 
-          FractionBox["83", 
-           RowBox[{"21", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcCot", "[", 
-            RowBox[{
-              FractionBox["1", "4"], " ", 
-              SqrtBox[
-               RowBox[{
-                 FractionBox["3", "2"], " ", 
-                 RowBox[{"(", 
-                   RowBox[{"57", "+", 
-                    RowBox[{"7", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{"3", "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\""}, "RowDefault"],"\"+\"",RowBox[{
-       FractionBox["1", "2"], " ", 
-       SuperscriptBox[
-        RowBox[{"(", 
-          RowBox[{"-", "1"}], ")"}], 
-        RowBox[{"1", "/", "3"}]], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "195"], " ", 
-          RowBox[{"(", 
-            RowBox[{"65", "+", 
-              SqrtBox["65"]}], ")"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "1"}], "\")\""}, 
-      "RowDefault"],"\"+\"",RowBox[{
-       FractionBox["1", "2"], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "195"], " ", 
-          RowBox[{"(", 
-            RowBox[{"65", "+", 
-              SqrtBox["65"]}], ")"}]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{
-          RowBox[{"-", "\[ImaginaryI]"}], " ", 
-          RowBox[{"ArcTan", "[", 
-            RowBox[{
-              FractionBox["1", "73"], " ", 
-              SqrtBox[
-               RowBox[{
-                 FractionBox["3", "2"], " ", 
-                 RowBox[{"(", 
-                   RowBox[{"1233", "-", 
-                    RowBox[{"49", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]]}], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["1", "_"]}], "\")\""}, "RowDefault"],"\"+\"",RowBox[{
-       SqrtBox[
-        RowBox[{
-          FractionBox["4", "21"], "+", 
-          FractionBox["4", 
-           RowBox[{"3", " ", 
-             SqrtBox["65"]}]]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcCot", "[", 
-            RowBox[{
-              FractionBox["1", "8"], " ", 
-              SqrtBox["3"], " ", 
-              RowBox[{"(", 
-                RowBox[{"7", "+", 
-                  SqrtBox["65"]}], ")"}]}], "]"}]}]]}],TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", "3"}], "\")\""}, 
-      "RowDefault"],RowBox[{
-       RowBox[{"-", 
-         FractionBox["1", "2"]}], " ", 
-       SqrtBox[
-        RowBox[{
-          FractionBox["1", "105"], " ", 
-          RowBox[{"(", 
-            RowBox[{"65", "+", 
-              SqrtBox["65"]}], ")"}]}]], " ", 
-       SuperscriptBox["\[ExponentialE]", 
-        RowBox[{"\[ImaginaryI]", " ", 
-          RowBox[{"ArcTan", "[", 
-            SqrtBox[
-             RowBox[{
-               FractionBox["1", "6"], " ", 
-               RowBox[{"(", 
-                 RowBox[{"57", "-", 
-                   RowBox[{"7", " ", 
-                    SqrtBox["65"]}]}], ")"}]}]], "]"}]}]]}],
-     TemplateBox[{"\"(\"", 
-       RowBox[{
-         OverscriptBox["3", "_"], "\[CircleTimes]", 
-         OverscriptBox["3", "_"]}], "\")\"", 
-       SubscriptBox["\[Null]", "s"]}, "RowDefault"]},
-    "RowDefault"]}],
-  SequenceForm[
-   OverBar[3], "=", 
-   Row[{-(Rational[1, 42] + Rational[1, 6] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcCot[Rational[1, 8] 3^Rational[1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[1, 
-        OverBar[3]], ")"}], -(Rational[2, 21] + 
-       Rational[2, 3] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcCot[Rational[1, 8] 3^Rational[1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}], 
-     "+", (Rational[3, 14] + Rational[-3, 2] 65^Rational[-1, 2])^
-      Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcTan[Rational[1, 2] 3^Rational[-1, 2] (-7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[3, 3], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`a]}], 
-     Rational[-1, 2] (Rational[13, 21] + 
-       Rational[-83, 21] 65^Rational[-1, 2])^Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcCot[Rational[1, 4] (Rational[3, 2] (57 + 7 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[3, 
-        OverBar[3]], ")"}], "+", 
-     Rational[1, 2] (-1)^
-      Rational[1, 3] (Rational[1, 195] (65 + 65^Rational[1, 2]))^
-      Rational[1, 2], 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 1], ")"}], "+", 
-     Rational[1, 2] (Rational[1, 195] (65 + 65^Rational[1, 2]))^
-      Rational[1, 2] 
-     E^(Complex[0, -1] 
-       ArcTan[Rational[1, 73] (Rational[3, 2] (1233 - 49 65^Rational[1, 2]))^
-          Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[1]], ")"}], 
-     "+", (Rational[4, 21] + Rational[4, 3] 65^Rational[-1, 2])^
-      Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcCot[Rational[1, 8] 3^Rational[1, 2] (7 + 65^Rational[1, 2])]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 3], ")"}], 
-     Rational[-1, 2] (Rational[1, 105] (65 + 65^Rational[1, 2]))^
-      Rational[1, 2] 
-     E^(Complex[0, 1] 
-       ArcTan[(Rational[1, 6] (57 - 7 65^Rational[1, 2]))^Rational[1, 2]]), 
-     Row[{"(", 
-       CircleTimes[
-        OverBar[3], 
-        OverBar[3]], ")", 
-       Subscript[$CellContext`\[Null], $CellContext`s]}]}]],
-  Editable->False]], "Print",
- CellChangeTimes->{3.671408522195882*^9}]
-}, Open  ]]
-}, Open  ]]
+   3.6714083549719877`*^9}, {3.671457254179039*^9, 3.671457254187151*^9}, {
+   3.671457605567596*^9, 3.6714576287301683`*^9}, 3.671458094514558*^9, {
+   3.671458910590116*^9, 3.671458919009877*^9}, {3.671459084815991*^9, 
+   3.67145908772449*^9}, 3.671459411677568*^9}]
 },
 WindowSize->{1278, 944},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -4930,82 +1980,21 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 26507, 633, 3042, "Input"],
-Cell[27067, 655, 1626, 39, 121, "Input"],
-Cell[28696, 696, 2294, 55, 165, "Input"],
-Cell[30993, 753, 2393, 63, 209, "Input"],
-Cell[33389, 818, 2410, 64, 231, "Input"],
-Cell[35802, 884, 3306, 82, 275, "Input"],
-Cell[39111, 968, 2662, 64, 187, "Input"],
-Cell[41776, 1034, 94, 1, 32, "Input"],
-Cell[41873, 1037, 2291, 59, 187, "Input"],
-Cell[44167, 1098, 3833, 83, 209, "Input"],
-Cell[48003, 1183, 3127, 81, 253, "Input"],
-Cell[51133, 1266, 2865, 71, 209, "Input"],
-Cell[CellGroupData[{
-Cell[54023, 1341, 4005, 96, 275, "Input"],
-Cell[CellGroupData[{
-Cell[58053, 1441, 393, 11, 23, "Print"],
-Cell[58449, 1454, 1025, 26, 45, "Print"],
-Cell[59477, 1482, 395, 11, 23, "Print"],
-Cell[59875, 1495, 1472, 40, 50, "Print"],
-Cell[61350, 1537, 1364, 37, 50, "Print"],
-Cell[62717, 1576, 2538, 66, 52, "Print"],
-Cell[65258, 1644, 2650, 71, 52, "Print"],
-Cell[67911, 1717, 393, 11, 23, "Print"],
-Cell[68307, 1730, 1812, 49, 50, "Print"],
-Cell[70122, 1781, 1679, 44, 50, "Print"],
-Cell[71804, 1827, 2847, 73, 52, "Print"],
-Cell[74654, 1902, 2982, 80, 52, "Print"]
-}, Open  ]]
-}, Open  ]],
-Cell[77663, 1986, 2377, 54, 341, "Input"],
-Cell[CellGroupData[{
-Cell[80065, 2044, 4018, 104, 275, "Input"],
-Cell[CellGroupData[{
-Cell[84108, 2152, 324, 10, 23, "Print"],
-Cell[84435, 2164, 1846, 49, 50, "Print"],
-Cell[86284, 2215, 1863, 51, 50, "Print"],
-Cell[88150, 2268, 324, 10, 23, "Print"],
-Cell[88477, 2280, 1824, 48, 50, "Print"],
-Cell[90304, 2330, 1876, 51, 50, "Print"],
-Cell[92183, 2383, 133, 3, 23, "Print"],
-Cell[92319, 2388, 1610, 44, 70, "Print"],
-Cell[93932, 2434, 1801, 51, 62, "Print"],
-Cell[95736, 2487, 3610, 96, 122, "Print"],
-Cell[99349, 2585, 3761, 103, 122, "Print"],
-Cell[103113, 2690, 133, 3, 23, "Print"],
-Cell[103249, 2695, 1712, 47, 70, "Print"],
-Cell[104964, 2744, 1861, 51, 59, "Print"],
-Cell[106828, 2797, 3941, 105, 122, "Print"],
-Cell[110772, 2904, 4068, 110, 132, "Print"],
-Cell[114843, 3016, 324, 10, 23, "Print"],
-Cell[115170, 3028, 1403, 39, 50, "Print"],
-Cell[116576, 3069, 1296, 36, 50, "Print"],
-Cell[117875, 3107, 2469, 65, 52, "Print"],
-Cell[120347, 3174, 2583, 70, 52, "Print"],
-Cell[122933, 3246, 324, 10, 23, "Print"],
-Cell[123260, 3258, 1745, 48, 50, "Print"],
-Cell[125008, 3308, 1610, 43, 50, "Print"],
-Cell[126621, 3353, 2776, 72, 52, "Print"],
-Cell[129400, 3427, 2913, 79, 52, "Print"],
-Cell[132316, 3508, 133, 3, 23, "Print"],
-Cell[132452, 3513, 1332, 37, 59, "Print"],
-Cell[133787, 3552, 3054, 82, 77, "Print"],
-Cell[136844, 3636, 7508, 205, 239, "Print"],
-Cell[144355, 3843, 7599, 210, 256, "Print"],
-Cell[151957, 4055, 133, 3, 23, "Print"],
-Cell[152093, 4060, 796, 23, 45, "Print"],
-Cell[152892, 4085, 1476, 42, 49, "Print"],
-Cell[154371, 4129, 3576, 90, 59, "Print"],
-Cell[157950, 4221, 3846, 102, 52, "Print"],
-Cell[161799, 4325, 133, 3, 23, "Print"],
-Cell[161935, 4330, 1451, 41, 63, "Print"],
-Cell[163389, 4373, 3316, 93, 67, "Print"],
-Cell[166708, 4468, 7978, 219, 209, "Print"],
-Cell[174689, 4689, 8062, 223, 207, "Print"]
-}, Open  ]]
-}, Open  ]]
+Cell[557, 20, 41916, 1048, 4825, "Input"],
+Cell[42476, 1070, 1622, 40, 121, "Input"],
+Cell[44101, 1112, 2252, 52, 165, "Input"],
+Cell[46356, 1166, 2278, 58, 209, "Input"],
+Cell[48637, 1226, 2295, 59, 231, "Input"],
+Cell[50935, 1287, 3126, 76, 275, "Input"],
+Cell[54064, 1365, 2597, 61, 187, "Input"],
+Cell[56664, 1428, 94, 1, 32, "Input"],
+Cell[56761, 1431, 2215, 55, 187, "Input"],
+Cell[58979, 1488, 3754, 79, 209, "Input"],
+Cell[62736, 1569, 2958, 74, 253, "Input"],
+Cell[65697, 1645, 2800, 67, 209, "Input"],
+Cell[68500, 1714, 3881, 90, 275, "Input"],
+Cell[72384, 1806, 2377, 54, 341, "Input"],
+Cell[74764, 1862, 4098, 102, 275, "Input"]
 }
 ]
 *)

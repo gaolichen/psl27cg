@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    202419,       4827]
-NotebookOptionsPosition[    201953,       4809]
-NotebookOutlinePosition[    202287,       4824]
-CellTagsIndexPosition[    202244,       4821]
+NotebookDataLength[    201899,       4812]
+NotebookOptionsPosition[    201433,       4794]
+NotebookOutlinePosition[    201767,       4809]
+CellTagsIndexPosition[    201724,       4806]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -3287,7 +3287,9 @@ Cell[BoxData[{
    3.671313480516748*^9}, {3.671313860767943*^9, 3.671313918516922*^9}, {
    3.671314340649478*^9, 3.6713144064932528`*^9}, 3.671314447885537*^9, {
    3.671315585401011*^9, 3.671315617394528*^9}, {3.671316110648333*^9, 
-   3.67131613957358*^9}, {3.671407994243766*^9, 3.6714080474008493`*^9}}],
+   3.67131613957358*^9}, {3.671407994243766*^9, 3.6714080474008493`*^9}, {
+   3.67145862372225*^9, 3.671458627822753*^9}, {3.6714588574570208`*^9, 
+   3.671458861513669*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -3576,8 +3578,7 @@ Cell[BoxData[
       RowBox[{
        RowBox[{"UnfixedParameter", "\[Rule]", " ", 
         RowBox[{"{", "}"}]}], ",", 
-       RowBox[{"NonReal", "\[Rule]", "False"}], ",", 
-       RowBox[{"PrintResult", "\[Rule]", "False"}]}], "}"}]}], ";"}], 
+       RowBox[{"NonReal", "\[Rule]", "False"}]}], "}"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -3964,29 +3965,6 @@ Cell[BoxData[
                 "construct", " ", "orthoronal", " ", "real", " ", 
                 "representations"}]}], " ", "*)"}], "\[IndentingNewLine]", 
              RowBox[{
-              RowBox[{"Ehalf", "=", 
-               RowBox[{"FullSimplify", "[", 
-                RowBox[{"DiagonalMatrix", "[", 
-                 RowBox[{"1", "/", 
-                  RowBox[{"Sqrt", "[", 
-                   RowBox[{"eign", "[", 
-                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "]"}], "]"}]}], 
-              ";", "\[IndentingNewLine]", 
-              RowBox[{"(*", 
-               RowBox[{
-                RowBox[{"Ehalf", "=", 
-                 RowBox[{"DiagonalMatrix", "[", 
-                  RowBox[{"FullSimplify", "[", 
-                   RowBox[{"ExpToTrig", "[", 
-                    RowBox[{"Exp", "[", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"-", 
-                    RowBox[{"MyArg", "[", 
-                    RowBox[{"eign", "[", 
-                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "/", "2"}], "*", 
-                    "I"}], "]"}], "]"}], "]"}], "]"}]}], ";"}], "*)"}], 
-              "\[IndentingNewLine]", 
               RowBox[{"tmp", " ", "=", " ", 
                RowBox[{"Table", "[", 
                 RowBox[{
@@ -4026,11 +4004,35 @@ Cell[BoxData[
                RowBox[{
                 RowBox[{
                  RowBox[{"OptionValue", "[", "NonReal", "]"}], "\[Equal]", 
-                 "False"}], ",", 
-                RowBox[{"ret", " ", "=", " ", 
-                 RowBox[{"FullSimplify", "[", 
-                  RowBox[{"Ehalf", ".", "ret"}], "]"}]}]}], "]"}], ";"}]}], 
-            "\[IndentingNewLine]", 
+                 "False"}], ",", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"Ehalf", "=", 
+                  RowBox[{"FullSimplify", "[", 
+                   RowBox[{"DiagonalMatrix", "[", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"eign", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "]"}], "]"}]}], 
+                 ";", "\[IndentingNewLine]", 
+                 RowBox[{"(*", 
+                  RowBox[{
+                   RowBox[{"Ehalf", "=", 
+                    RowBox[{"DiagonalMatrix", "[", 
+                    RowBox[{"FullSimplify", "[", 
+                    RowBox[{"ExpToTrig", "[", 
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"MyArg", "[", 
+                    RowBox[{"eign", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "/", "2"}], "*", 
+                    "I"}], "]"}], "]"}], "]"}], "]"}]}], ";"}], "*)"}], 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ret", " ", "=", " ", 
+                  RowBox[{"FullSimplify", "[", 
+                   RowBox[{"Ehalf", ".", "ret"}], "]"}]}]}]}], 
+               "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
             RowBox[{"(*", 
              RowBox[{
               RowBox[{"Print", "[", 
@@ -4142,30 +4144,9 @@ Cell[BoxData[
              RowBox[{"SetCG", "[", 
               RowBox[{"r1", ",", "r2", ",", "r3", ",", 
                RowBox[{"analysis", "/.", "tmp"}]}], "]"}]}], 
-            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-           "\[IndentingNewLine]", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{
-              RowBox[{"OptionValue", "[", "PrintResult", "]"}], "\[Equal]", 
-              "True"}], ",", "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"If", "[", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"Length", "[", "ret", "]"}], ">", "1"}], ",", 
-                "\[IndentingNewLine]", 
-                RowBox[{"PrintEquationAndCG", "[", 
-                 RowBox[{"r1", ",", "r2", ",", 
-                  RowBox[{"AddMultiplier", "[", 
-                   RowBox[{"r3", ",", "i"}], "]"}]}], "]"}], ",", 
-                "\[IndentingNewLine]", 
-                RowBox[{"PrintEquationAndCG", "[", 
-                 RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}]}], 
-               "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
-            "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+         "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "AllPSL27Reps", "]"}], ";"}], 
    "\[IndentingNewLine]", 
@@ -4805,7 +4786,11 @@ Cell[BoxData[
    3.671313609343246*^9, 3.671313640361342*^9}, {3.671316286296727*^9, 
    3.671316309014504*^9}, {3.671316459925931*^9, 3.671316467755224*^9}, {
    3.671372248463908*^9, 3.671372317476776*^9}, {3.6714087059763117`*^9, 
-   3.671408709235276*^9}, {3.671408772534974*^9, 3.671408774946145*^9}}]
+   3.671408709235276*^9}, {3.671408772534974*^9, 3.671408774946145*^9}, {
+   3.671457181707357*^9, 3.6714571978869553`*^9}, {3.671458155029572*^9, 
+   3.671458170128006*^9}, {3.671458246342729*^9, 3.671458258088085*^9}, {
+   3.671458354674919*^9, 3.671458358471776*^9}, 3.6714584974969883`*^9, {
+   3.6714588720534554`*^9, 3.671458898693194*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -4827,8 +4812,8 @@ Cell[557, 20, 28806, 768, 3707, "Input"],
 Cell[29366, 790, 60375, 1571, 6237, "Input"],
 Cell[89744, 2363, 21917, 506, 2827, "Input"],
 Cell[111664, 2871, 6565, 88, 77, "Input"],
-Cell[118232, 2961, 16670, 328, 1265, "Input"],
-Cell[134905, 3291, 67044, 1516, 6303, "Input"]
+Cell[118232, 2961, 16771, 330, 1265, "Input"],
+Cell[135006, 3293, 66423, 1499, 6226, "Input"]
 }
 ]
 *)
