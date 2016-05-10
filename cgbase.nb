@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    203146,       4828]
-NotebookOptionsPosition[    202680,       4810]
-NotebookOutlinePosition[    203014,       4825]
-CellTagsIndexPosition[    202971,       4822]
+NotebookDataLength[    207638,       4927]
+NotebookOptionsPosition[    207172,       4909]
+NotebookOutlinePosition[    207506,       4924]
+CellTagsIndexPosition[    207463,       4921]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -3584,6 +3584,82 @@ Cell[BoxData[
         RowBox[{"Return", "[", "ret", "]"}], ";"}]}], "\[IndentingNewLine]", 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"ClearAll", "[", "FindParamFromAnalysis", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"FindParamFromAnalysis", "[", 
+      RowBox[{"ana_", ",", " ", "prod_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", "j", ",", "pos", ",", 
+         RowBox[{"ret", "=", 
+          RowBox[{"{", "}"}]}], ",", "tmp"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"j", "=", "1"}], ",", 
+          RowBox[{"j", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", "prod", "]"}]}], ",", 
+          RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"tmp", " ", "=", " ", 
+            RowBox[{"Join", "[", 
+             RowBox[{
+              RowBox[{"StringSplit", "[", 
+               RowBox[{
+                RowBox[{"prod", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}], ",", " ", "\"\<,\>\""}], 
+               "]"}], ",", " ", 
+              RowBox[{"{", "_", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"i", "=", "1"}], ",", 
+             RowBox[{"i", "\[LessEqual]", " ", 
+              RowBox[{"Length", "[", "ana", "]"}]}], ",", 
+             RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"pos", " ", "=", " ", 
+               RowBox[{"Position", "[", 
+                RowBox[{
+                 RowBox[{"ana", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"i", ",", "2"}], "]"}], "]"}], ",", "tmp"}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Length", "[", "pos", "]"}], ">", "0"}], ",", " ", 
+                "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ret", " ", "=", " ", 
+                  RowBox[{"Join", "[", 
+                   RowBox[{"ret", ",", " ", 
+                    RowBox[{"Extract", "[", 
+                    RowBox[{
+                    RowBox[{"ana", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", " ", "pos"}], 
+                    "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"Break", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
+               "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"i", ">", 
+                 RowBox[{"Length", "[", "ana", "]"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Print", "[", 
+                 RowBox[{"\"\<Failed to find parameters for \>\"", ",", " ", 
+                  RowBox[{"prod", "[", 
+                   RowBox[{"[", "j", "]"}], "]"}]}], "]"}]}], 
+               "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+            "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "ret", "]"}], ";"}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{"ClearAll", "[", "FindParameters", "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
@@ -3652,6 +3728,10 @@ Cell[BoxData[
          RowBox[{"GetCG", "[", 
           RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}]}], ";", 
         "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Print", "[", "analysis", "]"}], ";"}], "*)"}], 
+        "\[IndentingNewLine]", 
         RowBox[{"params", "=", 
          RowBox[{"Flatten", "[", 
           RowBox[{"analysis", "[", 
@@ -3669,16 +3749,27 @@ Cell[BoxData[
           "\[IndentingNewLine]", 
           RowBox[{
            RowBox[{"unfixedParameters", "=", 
-            RowBox[{"Extract", "[", 
-             RowBox[{"params", ",", "arr"}], "]"}]}], ";", 
+            RowBox[{"FindParamFromAnalysis", "[", 
+             RowBox[{"analysis", ",", "arr"}], "]"}]}], ";", 
            "\[IndentingNewLine]", 
            RowBox[{"params", "=", 
             RowBox[{"Join", "[", 
              RowBox[{
-              RowBox[{"Delete", "[", 
-               RowBox[{"params", ",", "arr"}], "]"}], ",", 
-              "unfixedParameters"}], "]"}]}]}]}], "\[IndentingNewLine]", 
-         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"Select", "[", 
+               RowBox[{"params", ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"MemberQ", "[", 
+                   RowBox[{"unfixedParameters", ",", "#"}], "]"}], "\[Equal]",
+                   "False"}], " ", "&"}]}], "]"}], ",", "unfixedParameters"}],
+              "]"}]}]}]}], "\[IndentingNewLine]", "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Print", "[", "unfixedParameters", "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Print", "[", "params", "]"}], ";"}], "*)"}], 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"arr", "=", 
          RowBox[{"EquationsIndependent", "[", 
           RowBox[{"diff", ",", "params"}], "]"}]}], ";", 
@@ -4806,7 +4897,15 @@ Cell[BoxData[
    3.671458170128006*^9}, {3.671458246342729*^9, 3.671458258088085*^9}, {
    3.671458354674919*^9, 3.671458358471776*^9}, 3.6714584974969883`*^9, {
    3.6714588720534554`*^9, 3.671458898693194*^9}, {3.671461004479733*^9, 
-   3.671461010150416*^9}, {3.671462783891361*^9, 3.671462787326635*^9}}]
+   3.671461010150416*^9}, {3.671462783891361*^9, 3.671462787326635*^9}, {
+   3.671834356947857*^9, 3.67183440247012*^9}, {3.671834636560523*^9, 
+   3.6718347112134113`*^9}, {3.6718347938519497`*^9, 3.671834874629426*^9}, {
+   3.67183515994083*^9, 3.671835219856887*^9}, {3.671835267498053*^9, 
+   3.671835415259634*^9}, {3.671835508607856*^9, 3.671835540259554*^9}, {
+   3.671837118322822*^9, 3.67183716652466*^9}, {3.671837743080851*^9, 
+   3.671837770138156*^9}, {3.671837842339026*^9, 3.671837889269747*^9}, {
+   3.671838254498106*^9, 3.671838270909505*^9}, {3.6718383822042723`*^9, 
+   3.67183838607858*^9}, {3.671838612921378*^9, 3.671838622767819*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -4829,7 +4928,7 @@ Cell[29366, 790, 60375, 1571, 6237, "Input"],
 Cell[89744, 2363, 21917, 506, 2827, "Input"],
 Cell[111664, 2871, 6565, 88, 77, "Input"],
 Cell[118232, 2961, 17922, 345, 1309, "Input"],
-Cell[136157, 3308, 66519, 1500, 6226, "Input"]
+Cell[136157, 3308, 71011, 1599, 6732, "Input"]
 }
 ]
 *)
