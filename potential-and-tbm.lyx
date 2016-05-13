@@ -1,0 +1,7033 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{babel}
+\allowdisplaybreaks
+%\newcommand{\um} {\mathcal{U}}
+\newcommand{\wrap}[1] {{#1}}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\group}{\mathcal{PSL}_2(7)} 
+\newcommand{\subgroup}{\mathcal{T}_7} 
+\newcommand{\rep}[1]{\mathbf{#1}} 
+\newcommand{\higu}{\mathcal{H}_u} 
+\newcommand{\higd}{\mathcal{H}_d} 
+\newcommand{\ket}[1]{\left|{#1}\right\rangle }
+\newcommand{\rket}[1]{\left|{#1}\right) }
+\newcommand{\cket}[1]{\left|{#1}\right\} }
+%% T7 covariant with only two parameters.
+\newcommand{\covt}[2]{\big\{ {#1}\big\}^{}_{\bf #2}}
+%% PSL27 covariant
+\newcommand{\covp}[2]{\big[ {#1}\big]^{}_{\bf #2}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Potential and TBM
+\end_layout
+
+\begin_layout Part*
+Potential and Vacuum Alignments
+\end_layout
+
+\begin_layout Standard
+One unsolved problem of the model in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+ is about the vaccum alignments of familon fields, 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+, which transform as 
+\begin_inset Formula $\bar{\mathbf{3}}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+.
+ In the model, we assumed the familon vacuum to be 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},\label{eq:Intro-vacuum-alignment}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\bar{\alpha}\bar{\alpha}^{\prime}=-\left(\bar{\alpha}+\bar{\alpha}^{\prime}\right)/2$
+\end_inset
+
+.
+ How to build a potential that can produce vacuum 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro-vacuum-alignment"
+
+\end_inset
+
+? One strategy is to build the potential perturbatively: find a potential
+ 
+\begin_inset Formula $V_{0}$
+\end_inset
+
+ to produce the leading order vacuum
+\begin_inset Formula 
+\begin{equation}
+\left\langle \bar{\varphi}\right\rangle =\begin{pmatrix}0\\
+0\\
+v
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\begin{pmatrix}0\\
+0\\
+v^{\prime}
+\end{pmatrix},\label{eq:Leading-vevs}
+\end{equation}
+
+\end_inset
+
+ then 
+\begin_inset Formula $V_{0}+V_{1}$
+\end_inset
+
+ for the 
+\begin_inset Formula $\lambda^{4}$
+\end_inset
+
+ order, and finally 
+\begin_inset Formula $V_{0}+V_{1}+V_{2}$
+\end_inset
+
+ for the 
+\begin_inset Formula $\lambda^{8}$
+\end_inset
+
+ order.
+\end_layout
+
+\begin_layout Standard
+In this note, we try to generate the leading order vacuum 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Leading-vevs"
+
+\end_inset
+
+ from a renormalizable potential.
+ As we shall show, with only two fields, it's impossible to produce vacuum
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Leading-vevs"
+
+\end_inset
+
+ with 
+\begin_inset Formula $\group$
+\end_inset
+
+-invariant potential.
+ In the rest of this note, 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ and its complex conjugate 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ are parameterized as 
+\begin_inset Formula 
+\begin{equation}
+\bar{\varphi}=\begin{pmatrix}\bar{\varphi}_{1}\\
+\bar{\varphi}_{2}\\
+\bar{\varphi}_{3}
+\end{pmatrix},\quad\varphi=\begin{pmatrix}\varphi_{1}\\
+\varphi_{2}\\
+\varphi_{3}
+\end{pmatrix},\label{eq:phi-parameterize}
+\end{equation}
+
+\end_inset
+
+ and similar parameterization for 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi^{\prime}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:PSL27-Invariant-Potential"
+
+\end_inset
+
+
+\begin_inset Formula $\group$
+\end_inset
+
+-Invariant Potential
+\end_layout
+
+\begin_layout Standard
+To build a 
+\begin_inset Formula $\group$
+\end_inset
+
+-invariant potential, we first list the possible 
+\begin_inset Formula $\group$
+\end_inset
+
+ invariants buit out of these two fields.
+ For simplicity, we assume the invariants and potential to be real.
+ 
+\end_layout
+
+\begin_layout Itemize
+There are two real quadratic invariants 
+\begin_inset Formula 
+\[
+\covp{\varphi\bar{\varphi}}{1},\quad\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\left[\cdots\right]$
+\end_inset
+
+ denotes 
+\begin_inset Formula $\group$
+\end_inset
+
+ covariant.
+ 
+\end_layout
+
+\begin_layout Itemize
+No cubic invariant can be built out of 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+ alone.
+ 
+\end_layout
+
+\begin_layout Itemize
+There are two types of manifestly real quartic invariants.
+ The first type invariants are comprised of only one field: 
+\begin_inset Formula 
+\[
+\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}}{1},\quad\covp{\varphi\bar{\varphi}}{8}\cdot\covp{\varphi\bar{\varphi}}{8},\quad\covp{\varphi\varphi}{6}\cdot\covp{\bar{\varphi}\bar{\varphi}}{6},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\cdot$
+\end_inset
+
+ indicates two convariants coupling as an invariant.
+ Replacing 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ with 
+\begin_inset Formula $\varphi^{\prime}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+, we obtain another three invariants.
+ The second type invariants mix up the two fields: 
+\begin_inset Formula 
+\[
+\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1},\quad\covp{\varphi\bar{\varphi}^{\prime}}{1}\cdot\covp{\varphi^{\prime}\bar{\varphi}}{1},\quad\covp{\varphi\varphi^{\prime}}{\bar{3}}\cdot\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{3},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\covp{\varphi\bar{\varphi}}{8}\cdot\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{8},\quad\covp{\varphi\bar{\varphi}^{\prime}}{8}\cdot\covp{\varphi^{\prime}\bar{\varphi}}{8},\quad\covp{\varphi\varphi^{\prime}}{6}\cdot\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{6}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Not all these quartic invariants are independen: all of them can be written
+ as liner combinations of 
+\begin_inset Formula 
+\[
+D\left(\bar{\varphi}\right)\equiv\bar{\varphi}_{1}\varphi_{1}+\bar{\varphi}_{2}\varphi_{2}+\bar{\varphi}_{3}\varphi_{3}=\sqrt{3}\covp{\varphi\bar{\varphi}}{1}
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+E\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)=\bar{\varphi}_{1}\varphi_{1}^{\prime}+\bar{\varphi}_{2}\varphi_{2}^{\prime}+\bar{\varphi}_{3}\varphi_{3}^{\prime}.
+\]
+
+\end_inset
+
+ Explicitly,
+\begin_inset Formula 
+\begin{eqnarray*}
+\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}}{1} & = & \frac{1}{3}\left[D\left(\bar{\varphi}\right)\right]^{2},\\
+\covp{\varphi\bar{\varphi}}{8}\cdot\covp{\varphi\bar{\varphi}}{8} & = & \frac{1}{3\sqrt{2}}\left[D\left(\bar{\varphi}\right)\right]^{2},\\
+\covp{\varphi\varphi}{6}\cdot\covp{\bar{\varphi}\bar{\varphi}}{6} & = & \frac{1}{\sqrt{6}}\left[D\left(\bar{\varphi}\right)\right]^{2},\\
+\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1} & = & \frac{1}{3}D\left(\bar{\varphi}\right)D\left(\bar{\varphi}^{\prime}\right),\\
+\covp{\varphi\bar{\varphi}^{\prime}}{1}\cdot\covp{\varphi^{\prime}\bar{\varphi}}{1} & = & \frac{1}{3}\left|E\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)\right|^{2},\\
+\covp{\varphi\varphi^{\prime}}{\bar{3}}\cdot\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{3} & = & \frac{1}{2\sqrt{3}}\left(D\left(\bar{\varphi}\right)D\left(\bar{\varphi}^{\prime}\right)-\left|E\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)\right|^{2}\right),\\
+\covp{\varphi\bar{\varphi}}{8}\cdot\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{8} & = & \frac{1}{\sqrt{2}}\left(2\left|E\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)\right|^{2}-D\left(\bar{\varphi}\right)D\left(\bar{\varphi}^{\prime}\right)\right),\\
+\covp{\varphi\bar{\varphi}^{\prime}}{8}\cdot\covp{\varphi^{\prime}\bar{\varphi}}{8} & = & \frac{1}{\sqrt{2}}\left(2D\left(\bar{\varphi}\right)D\left(\bar{\varphi}^{\prime}\right)-\left|E\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)\right|^{2}\right),\\
+\covp{\varphi\varphi^{\prime}}{6}\cdot\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{6} & = & \frac{1}{4\sqrt{6}}\left(D\left(\bar{\varphi}\right)D\left(\bar{\varphi}^{\prime}\right)+\left|E\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)\right|^{2}\right).
+\end{eqnarray*}
+
+\end_inset
+
+That being said, there exist only two independent one-field quartic invariants
+ and two independent two-field quartic invariants.
+ Without loss of generality, we can therefore choose 
+\begin_inset Formula $\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}}{1}$
+\end_inset
+
+, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}\cdot\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}$
+\end_inset
+
+, and 
+\begin_inset Formula $\covp{\varphi\varphi^{\prime}}{6}\cdot\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{6}$
+\end_inset
+
+ as a complete set of independent quartic invariants.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+Then the general form the potential reads
+\begin_inset Formula 
+\begin{eqnarray}
+V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right) & = & m^{2}\covp{\varphi\bar{\varphi}}{1}+m^{\prime2}\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}+\kappa\covp{\varphi\bar{\varphi}}{1}\covp{\varphi\bar{\varphi}}{1}\nonumber \\
+ &  & +\kappa^{\prime}\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}+\xi_{1}\covp{\varphi\bar{\varphi}}{1}\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}+\xi_{2}\covp{\varphi\varphi^{\prime}}{6}\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{6},\label{eq:PSL27-Potential}
+\end{eqnarray}
+
+\end_inset
+
+ where all the coefficients are real.
+ 
+\end_layout
+
+\begin_layout Standard
+The potential 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+ is invariant under continuous global 
+\begin_inset Formula $U\left(3\right)$
+\end_inset
+
+ symmetry.
+ If 
+\begin_inset Formula $\kappa_{3}$
+\end_inset
+
+ is zero, 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+ are comprised of 
+\begin_inset Formula $D\left(\bar{\varphi}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $D\left(\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+, and their products.
+ Since 
+\begin_inset Formula $D\left(\bar{\varphi}\right)$
+\end_inset
+
+ is invariant under 
+\begin_inset Formula $U\left(3\right)$
+\end_inset
+
+ transformation, 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+ would have 
+\begin_inset Formula $U\left(3\right)\times U\left(3\right)$
+\end_inset
+
+ symmetry.
+ If 
+\begin_inset Formula $\kappa_{3}$
+\end_inset
+
+ is nonzero, the symmetry is reduced to 
+\begin_inset Formula $U\left(3\right)$
+\end_inset
+
+ because the 
+\begin_inset Formula $\left|E\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)\right|^{2}$
+\end_inset
+
+ term has 
+\begin_inset Formula $U\left(3\right)$
+\end_inset
+
+ symmetry.
+ Such a symmetry make it impossible to single out the 
+\begin_inset Formula $\left(0,0,1\right)$
+\end_inset
+
+ direction, as one can always rotate 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ to any other direction by a 
+\begin_inset Formula $U\left(3\right)$
+\end_inset
+
+ transformation without changing the potential.
+\end_layout
+
+\begin_layout Standard
+Let's analyze the familon vacuum alignments generated by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:PSL27-Potential"
+
+\end_inset
+
+ in more details.
+ Since 
+\begin_inset Formula $D\left(\bar{\varphi}\right)$
+\end_inset
+
+ is invariant for any direction of 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+, without affecting the vacuum alignments, we can assume that 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+ is minimized at 
+\begin_inset Formula $D\left(\bar{\varphi}\right)=v^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $D\left(\bar{\varphi}^{\prime}\right)=v^{\prime2}$
+\end_inset
+
+.
+ Then the vacuum alignments are only determined by the 
+\begin_inset Formula $\xi_{2}$
+\end_inset
+
+ term.
+ There are three cases: 
+\end_layout
+
+\begin_layout Itemize
+When 
+\begin_inset Formula $\xi_{2}>0$
+\end_inset
+
+, the minimum of 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+ is along the direction that 
+\begin_inset Formula $E\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)=0$
+\end_inset
+
+ but doesn't force 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+ to be parallel.
+ It can be achieved, for example, when 
+\begin_inset Formula $\bar{\varphi}=v\left(0,0,1\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}^{\prime}=v^{\prime}\left(0,1,0\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+When 
+\begin_inset Formula $\xi_{2}<0$
+\end_inset
+
+, 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+ is minimized when 
+\begin_inset Formula $\left|E\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)\right|^{2}$
+\end_inset
+
+ is maximized, which occurs when 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+ are parallel.
+ That being said, the vacuum alignments can be in any direction as long
+ as they are parallel.
+\end_layout
+
+\begin_layout Itemize
+When 
+\begin_inset Formula $\xi_{2}=0$
+\end_inset
+
+, 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+ is invariant for all direction of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi^{\prime}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Unfortunately, none of the three cases singles out the desired vacuum alignments
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Leading-vevs"
+
+\end_inset
+
+.
+ To produce the desired vacuum, we need terms invariant under 
+\begin_inset Formula $\group$
+\end_inset
+
+ but not invariant under 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $\group$
+\end_inset
+
+-Invariant Potential with an Extra Field
+\end_layout
+
+\begin_layout Standard
+We now introduce an extra field to the potential.
+ In principle, we can choose the extra field to be any representation of
+ 
+\begin_inset Formula $\group$
+\end_inset
+
+.
+ Here, we focus on the case of 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+ representation and denote the extra field as 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+.
+ The decomposition of 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+ representation into the subgroup 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ is 
+\begin_inset Formula $\rep{7}=\rep{1}+\rep{3}+\rep{\bar{3}}$
+\end_inset
+
+.
+ Therefore, it's convenient to express 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ and its complex conjugate as 
+\begin_inset Formula 
+\[
+S_{7}=\begin{pmatrix}s\\
+\phi\\
+\bar{\chi}
+\end{pmatrix},\quad\bar{S}_{7}=\begin{pmatrix}\bar{s}\\
+\chi\\
+\bar{\phi}
+\end{pmatrix},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $s$
+\end_inset
+
+, 
+\begin_inset Formula $\phi$
+\end_inset
+
+, 
+\begin_inset Formula $\chi$
+\end_inset
+
+ transform as 
+\begin_inset Formula $\rep{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{3}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rep{3}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ and their complex conjugates, 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{\phi}$
+\end_inset
+
+, and 
+\begin_inset Formula $\bar{\chi}$
+\end_inset
+
+ transform as 
+\begin_inset Formula $\rep{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{\bar{3}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{\bar{3}}$
+\end_inset
+
+ respectively.
+ Note that, since 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+ is a real representation, both 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{S}_{7}$
+\end_inset
+
+ transform as 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+ in 
+\begin_inset Formula $\group$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+It is noteworthy that 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{S}_{7}$
+\end_inset
+
+ are identical if 
+\begin_inset Formula $\phi=\chi$
+\end_inset
+
+ and 
+\begin_inset Formula $s$
+\end_inset
+
+ is real.
+ In such case, 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ can be represented by seven real numbers and the group generators become
+ real matrices.
+ This is a feature of any real representation.
+ Unfortunately, we didn't find a potential with such real 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ that is capable of generating the desired familon vacuum.
+\end_layout
+
+\begin_layout Standard
+In the following subsections, we first discuss the potential built out of
+ one familon and one 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ field, then the case of two familons and one 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ field.
+ The results of the former will help us in the discussion of the later.
+\end_layout
+
+\begin_layout Subsection
+One Familon Field
+\end_layout
+
+\begin_layout Standard
+Let us first consider the invariants built out of 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ and one familon field 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+.
+ We will not list all the possible invariants.
+ For the sake of simplicity, we try to build the potential with as few invariant
+s as possible.
+ Particularly, only real invariants are considered, which implies that all
+ the cubic invariants are excluded.
+ 
+\end_layout
+
+\begin_layout Standard
+With only 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{S}_{7}$
+\end_inset
+
+, we can build one quardratic invariant, 
+\begin_inset Formula 
+\[
+\covp{S_{7}\bar{S}_{7}}{1}=\frac{1}{\sqrt{7}}\left(\bar{s}s+\bar{\phi}_{1}\phi_{1}+\bar{\phi}_{2}\phi_{2}+\bar{\phi}_{3}\phi_{3}+\bar{\chi}_{1}\chi_{1}+\bar{\chi}_{2}\chi_{2}+\bar{\chi}_{3}\chi_{3}\right),
+\]
+
+\end_inset
+
+ and seven independent real quartic invariants,
+\begin_inset Formula 
+\[
+\covp{S_{7}\bar{S}_{7}}{1}\cdot\covp{S_{7}\bar{S}_{7}}{1},\quad\covp{S_{7}\bar{S}_{7}}{6_{1}}\cdot\covp{S_{7}\bar{S}_{7}}{6_{1}},\quad\covp{S_{7}\bar{S}_{7}}{6_{2}}\cdot\covp{S_{7}\bar{S}_{7}}{6_{2}},\quad\quad\covp{S_{7}\bar{S}_{7}}{6_{1}}\cdot\covp{S_{7}\bar{S}_{7}}{6_{2}},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\covp{S_{7}\bar{S}_{7}}{7_{s}}\cdot\covp{S_{7}\bar{S}_{7}}{7_{s}}\quad\covp{S_{7}\bar{S}_{7}}{7_{a}}\cdot\covp{S_{7}\bar{S}_{7}}{7_{a}},\quad\covp{S_{7}\bar{S}_{7}}{7_{s}}\cdot\covp{S_{7}\bar{S}_{7}}{7_{a}}.
+\]
+
+\end_inset
+
+A most general potential should include all these quartic invariants.
+ But the potential we consider here only contains the first invariant, 
+\begin_inset Formula $\covp{S_{7}\bar{S}_{7}}{1}\cdot\covp{S_{7}\bar{S}_{7}}{1}$
+\end_inset
+
+.
+ For mixing couplings between 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ and the familon field, we have three independent real quartic invariants,
+ 
+\begin_inset Formula 
+\[
+\covp{\varphi\bar{\varphi}}{1}\cdot\covp{S_{7}\bar{S}_{7}}{1},\quad\covp{\varphi\bar{\varphi}}{8}\cdot\covp{S_{7}\bar{S}_{7}}{8_{s}},\quad\covp{\varphi\bar{\varphi}}{8}\cdot\covp{S_{7}\bar{S}_{7}}{8_{a}}.
+\]
+
+\end_inset
+
+Finally, for pure familon couplings, only one quardratic, 
+\begin_inset Formula $\covp{\varphi\bar{\varphi}}{1}$
+\end_inset
+
+, and one quartic invariant, 
+\begin_inset Formula $\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}}{1}$
+\end_inset
+
+, are involved.
+\end_layout
+
+\begin_layout Standard
+With invariants mentioned above, our one-familon potential reads
+\begin_inset Formula 
+\begin{multline}
+V\left(\bar{\varphi},S_{7}\right)=m^{2}\covp{\varphi\bar{\varphi}}{1}+m_{7}^{2}\covp{S_{7}\bar{S}_{7}}{1}+\kappa_{1}\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}}{1}+\zeta_{1}\covp{S_{7}\bar{S}_{7}}{1}\cdot\covp{S_{7}\bar{S}_{7}}{1}\\
++\eta_{1}\covp{\varphi\bar{\varphi}}{1}\cdot\covp{S_{7}\bar{S}_{7}}{1}+\eta_{2}\covp{\varphi\bar{\varphi}}{8}\cdot\covp{S_{7}\bar{S}_{7}}{8_{s}}+\eta_{3}\covp{\varphi\bar{\varphi}}{8}\cdot\covp{S_{7}\bar{S}_{7}}{8_{a}}\label{eq:S7-potential-one-field-V}
+\end{multline}
+
+\end_inset
+
+ where all the coefficients are real.
+ We require that the potential produce the vacuum expectation value 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \bar{\varphi}\right\rangle =\begin{pmatrix}0\\
+0\\
+v
+\end{pmatrix},\quad\left\langle S_{7}\right\rangle =\begin{pmatrix}s=0\\
+\phi=0\\
+\bar{\chi}
+\end{pmatrix},\quad\text{with }\bar{\chi}=\begin{pmatrix}v_{7}\\
+0\\
+0
+\end{pmatrix}.\label{eq:S7-potential-one-field-vev}
+\end{equation}
+
+\end_inset
+
+We choose such vev for 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ because it is the simplest case that works.
+ Of course, one can let 
+\begin_inset Formula $\phi_{1}$
+\end_inset
+
+ pick the vev as 
+\begin_inset Formula $\phi$
+\end_inset
+
+ and 
+\begin_inset Formula $\chi$
+\end_inset
+
+ are treated equally in potential 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ However, based on our calculation, it would not be able to produce the
+ vevs if any of other components of 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ acquires the vev.
+ Note that the potential 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-V"
+
+\end_inset
+
+ has 
+\begin_inset Formula $U\left(1\right)\times U\left(1\right)$
+\end_inset
+
+ symmetry: it's invariant under overall phase changes of 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ and 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+.
+ Consequently, we can choose 
+\begin_inset Formula $v$
+\end_inset
+
+, 
+\begin_inset Formula $v_{7}$
+\end_inset
+
+ to be real and positive without loss of generality.
+ 
+\end_layout
+
+\begin_layout Standard
+Now let us find the constraints on the coefficients of potential 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ First of all, there are two trivial constraints.
+ The potential need to be bounded from below and does not have local minimum
+ at the origin, from which it follows that 
+\begin_inset Formula 
+\begin{equation}
+\kappa_{1}>0,\quad\zeta_{1}>0,\quad m^{2}<0,\quad m_{7}^{2}<0.\label{eq:S7-potential-one-field-trivial-constr}
+\end{equation}
+
+\end_inset
+
+Note that constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-trivial-constr"
+
+\end_inset
+
+ is a necessary but insufficient condition for the potential to be bounded
+ from below.
+ While we do not consider the exact condition, it can be satisfied when
+ 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\zeta_{1}$
+\end_inset
+
+ are positive and large enough.
+\end_layout
+
+\begin_layout Standard
+We then find the critical point of the potential.
+ The first derivative of 
+\begin_inset Formula $V$
+\end_inset
+
+ with respect its variables at the desired vacuum yields
+\begin_inset Formula 
+\begin{eqnarray}
+\left\langle \frac{\partial V}{\partial\bar{\varphi}_{3}}\right\rangle  & = & \frac{v}{84}\left[56\kappa_{1}v^{2}+28\sqrt{3}m^{2}+\sqrt{21}v_{7}^{2}\left(4\eta_{1}-3\eta_{2}+\eta_{3}\right)\right],\label{eq:S7-potential-one-field-critical1}\\
+\left\langle \frac{\partial V}{\partial\bar{\chi}_{1}}\right\rangle  & = & \frac{v_{7}}{84}\left[24\zeta_{1}v_{7}^{2}+12\sqrt{7}m_{7}^{2}+\sqrt{21}v^{2}\left(4\eta_{1}-3\eta_{2}+\eta_{3}\right)\right],\label{eq:S7-potential-one-field-critical2}
+\end{eqnarray}
+
+\end_inset
+
+ and all the others vanish.
+ Here, we use 
+\begin_inset Formula $\left\langle \cdots\right\rangle $
+\end_inset
+
+ to indicate the expression being evaluated at the desired vacuum.
+ The vanishing of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-critical1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-critical2"
+
+\end_inset
+
+ implies 
+\begin_inset Formula 
+\begin{eqnarray}
+m^{2} & = & -\frac{2}{\sqrt{3}}\kappa_{1}v^{2}-\frac{1}{4\sqrt{7}}v_{7}^{2}\left(4\eta_{1}-3\eta_{2}+\eta_{3}\right),\label{eq:S7-potential-one-field-m2}\\
+m_{7}^{2} & = & -\frac{2}{\sqrt{7}}\zeta_{1}v_{7}^{2}-\frac{1}{4\sqrt{3}}v^{2}\left(4\eta_{1}-3\eta_{2}+\eta_{3}\right).\label{eq:S7-potential-one-filed-m72}
+\end{eqnarray}
+
+\end_inset
+
+It follows from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-trivial-constr"
+
+\end_inset
+
+ that 
+\begin_inset Formula 
+\begin{eqnarray}
+\kappa_{1} & > & -\frac{1}{8}\sqrt{\frac{3}{7}}\frac{v_{7}^{2}}{v^{2}}\left(4\eta_{1}-3\eta_{2}+\eta_{3}\right),\label{eq:S7-potential-one-field-sol4}\\
+\zeta_{1} & > & -\frac{1}{8}\sqrt{\frac{7}{3}}\frac{v^{2}}{v_{7}^{2}}\left(4\eta_{1}-3\eta_{2}+\eta_{3}\right).\label{eq:S7-potential-one-field-sol5}
+\end{eqnarray}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Now let us discuss the Hessian matrix at the desired vacuum.
+ The Hessian matrix is comprised of second order derivatives with respect
+ to real variables.
+ But we can also calculate it using derivatives with respect to complex
+ variables.
+ For a real-valued function with complex variables, 
+\begin_inset Formula 
+\[
+f\left(z_{1},\bar{z}_{1},\cdots,z_{n},\bar{z}_{n}\right),\quad z_{j}=x_{j}+iy_{j},
+\]
+
+\end_inset
+
+ the derivatives with respect 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{j}$
+\end_inset
+
+ are 
+\begin_inset Formula 
+\[
+\frac{\partial f}{\partial x_{j}}=\frac{\partial f}{\partial z_{j}}+\frac{\partial f}{\partial\bar{z}_{j}},\quad\frac{\partial f}{\partial y_{j}}=i\frac{\partial f}{\partial z_{j}}-i\frac{\partial f}{\partial\bar{z}_{j}}.
+\]
+
+\end_inset
+
+ It follows that the Hessian matrix can be expressed as
+\begin_inset Formula 
+\begin{eqnarray*}
+H\left(f\right) & = & \left(\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{n}},\frac{\partial}{\partial y_{1}},\cdots,\frac{\partial}{\partial y_{n}}\right)^{T}\left(\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{n}},\frac{\partial}{\partial y_{1}},\cdots,\frac{\partial}{\partial y_{n}}\right)f\\
+ & = & \begin{pmatrix}I & I\\
+iI & -iI
+\end{pmatrix}\begin{pmatrix}\frac{\partial^{2}f}{\partial z_{i}\partial\bar{z}_{j}} & \frac{\partial^{2}f}{\partial z_{i}\partial z_{j}}\\
+\frac{\partial^{2}f}{\partial\bar{z}_{i}\partial\bar{z}_{j}} & \frac{\partial^{2}f}{\partial\bar{z}_{i}\partial z_{j}}
+\end{pmatrix}\begin{pmatrix}I & -iI\\
+I & iI
+\end{pmatrix},
+\end{eqnarray*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $I$
+\end_inset
+
+ is the 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ identity matrix.
+ 
+\end_layout
+
+\begin_layout Standard
+Further more, if we group the variables of 
+\begin_inset Formula $V$
+\end_inset
+
+ into four sets as
+\begin_inset Formula 
+\[
+\left(\chi_{2},s,\bar{\chi}_{2},\bar{s}\right),\quad\left(\chi_{1},\varphi_{1},\bar{\chi}_{1},\bar{\varphi}_{1}\right),\quad\left(\chi_{3},\varphi_{1},\phi_{2},\bar{\chi}_{3},\bar{\varphi}_{1},\bar{\phi}_{2}\right),\quad\left(\phi_{1},\varphi_{2},\phi_{3},\bar{\phi}_{1},\bar{\varphi}_{2},\bar{\phi}_{3}\right),
+\]
+
+\end_inset
+
+ the Hessian matrix become block-diagonalized.
+ That being said, the second derivatives of 
+\begin_inset Formula $V$
+\end_inset
+
+ with respect to variables from any two different groups vanish.
+ Therefore, we can write the Hessian matrix as 
+\begin_inset Formula 
+\[
+\left\langle H\left(V\right)\right\rangle =\left\langle H_{1}\left(V\right)\right\rangle \oplus\left\langle H_{2}\left(V\right)\right\rangle \oplus\left\langle H_{3}\left(V\right)\right\rangle \oplus\left\langle H_{4}\left(V\right)\right\rangle ,
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\left\langle H_{i}\left(V\right)\right\rangle $
+\end_inset
+
+ is the Hessian matrix of 
+\begin_inset Formula $V$
+\end_inset
+
+ with respect to variables of the 
+\begin_inset Formula $i$
+\end_inset
+
+th set.
+ For convenience, we will denote 
+\begin_inset Formula $\left\langle H_{i}\left(V\right)\right\rangle $
+\end_inset
+
+ simply as 
+\begin_inset Formula $H_{i}$
+\end_inset
+
+ in the rest of the paper.
+ By calculation, we find these matrices are 
+\begin_inset Formula 
+\[
+H_{1}=\frac{v^{2}}{\sqrt{21}}\begin{pmatrix}\eta_{3}-\eta_{2} & 0 & 0 & 0\\
+0 & \frac{3\eta_{3}-\eta_{2}}{4} & 0 & 0\\
+0 & 0 & \eta_{3}-\eta_{2} & 0\\
+0 & 0 & 0 & \frac{3\eta_{3}-\eta_{2}}{4}
+\end{pmatrix},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{2}=\begin{pmatrix}\frac{8}{7}\zeta_{1}v_{7}^{2} & \frac{1}{\sqrt{21}}\left(4\eta_{1}+\eta_{2}-3\eta_{3}\right)vv_{7} & 0 & 0\\
+\frac{1}{\sqrt{21}}\left(4\eta_{1}+\eta_{2}-3\eta_{3}\right)vv_{7} & \frac{8}{3}\kappa_{1}v^{2} & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{pmatrix},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline*}
+H_{3}=\frac{v^{2}}{2\sqrt{21}}\begin{pmatrix}\eta_{2}+5\eta_{3} & \left(\eta_{2}-3\eta_{3}\right)\frac{v_{7}}{v} & 0\\
+\left(\eta_{2}-3\eta_{3}\right)\frac{v_{7}}{v} & \left(\eta_{2}+5\eta_{3}\right)\frac{v_{7}^{2}}{v^{2}} & \left(\eta_{3}-2\eta_{2}\right)\frac{v_{7}}{v}\\
+0 & \left(\eta_{3}-2\eta_{2}\right)\frac{v_{7}}{v} & \eta_{3}-2\eta_{2}
+\end{pmatrix}\\
+\oplus\frac{v^{2}}{2\sqrt{21}}\begin{pmatrix}\eta_{2}+5\eta_{3} & \left(3\eta_{3}-\eta_{2}\right)\frac{v_{7}}{v} & 0\\
+\left(3\eta_{3}-\eta_{2}\right)\frac{v_{7}}{v} & \left(\eta_{2}+5\eta_{3}\right)\frac{v_{7}^{2}}{v^{2}} & \left(\eta_{2}-2\eta_{3}\right)\frac{v_{7}}{v}\\
+0 & \left(\eta_{2}-2\eta_{3}\right)\frac{v_{7}}{v} & \eta_{3}-2\eta_{2}
+\end{pmatrix},
+\end{multline*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline*}
+H_{4}=\frac{v^{2}}{\sqrt{21}}\begin{pmatrix}3\xi_{3} & 2\xi_{2}\frac{v_{7}}{v} & 0\\
+2\xi_{2}\frac{v_{7}}{v} & 2\left(\xi_{3}-\xi_{2}\right)\frac{v_{7}^{2}}{v^{2}} & -\left(\xi_{2}+\xi_{3}\right)\frac{v_{7}}{v}\\
+0 & -\left(\xi_{2}+\xi_{3}\right)\frac{v_{7}}{v} & \xi_{2}+\xi_{3}
+\end{pmatrix}\\
+\oplus\frac{v^{2}}{\sqrt{21}}\begin{pmatrix}3\eta_{3} & -2\eta_{2}\frac{v_{7}}{v} & 0\\
+-2\eta_{2}\frac{v_{7}}{v} & 2\left(\eta_{3}-\eta_{2}\right)\frac{v_{7}^{2}}{v^{2}} & -\left(\eta_{2}+\eta_{3}\right)\frac{v_{7}}{v}\\
+0 & -\left(\eta_{2}+\eta_{3}\right)\frac{v_{7}}{v} & \eta_{2}+\eta_{3}
+\end{pmatrix}.
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The two zero eigenvalues of 
+\begin_inset Formula $H_{2}$
+\end_inset
+
+ are the consequence of that potential 
+\begin_inset Formula $V$
+\end_inset
+
+ has the extra 
+\begin_inset Formula $U\left(1\right)\times U\left(1\right)$
+\end_inset
+
+ symmetry.
+ To have local minimum at the desired vacuum, all other eigenvalues of 
+\begin_inset Formula $H_{i}$
+\end_inset
+
+ must be positive.
+ Demanding eigenvalues of 
+\begin_inset Formula $H_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{2}$
+\end_inset
+
+ to be positive yields 
+\begin_inset Formula 
+\begin{eqnarray}
+64\kappa_{1}\zeta_{1}-(4\eta_{1}+\eta_{2}-3\eta_{3})^{2} & > & 0,\label{eq:S7-potential-one-field-ineq1}\\
+3\eta_{3}-\eta_{2}>0,\quad\eta_{3}-\eta_{2} & > & 0.
+\end{eqnarray}
+
+\end_inset
+
+ 
+\begin_inset Formula $H_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{4}$
+\end_inset
+
+ are direct sums of two 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ matrices, whose eigenvalues are roots of cubic equations.
+ To find the constraints, we use the relation between roots and coefficients
+ of cubic equation.
+ If a cubic equation of 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+x^{3}+bx^{2}+cx+d=0,
+\]
+
+\end_inset
+
+ has three positive roots, we must have 
+\begin_inset Formula 
+\begin{eqnarray*}
+x_{1}+x_{2}+x_{3} & = & -b>0,\\
+x_{1}x_{2}+x_{2}x_{3}+x_{3}x_{1} & = & c>0,\\
+x_{1}x_{2}x_{3} & = & -d>0.
+\end{eqnarray*}
+
+\end_inset
+
+ Applying above constraints to the characteristic equation of 
+\begin_inset Formula $H_{3}$
+\end_inset
+
+, we obtain 
+\begin_inset Formula 
+\begin{eqnarray}
+v^{2}(7\eta_{3}-3\eta_{2})+v_{7}^{2}(\eta_{2}+5\eta_{3}) & > & 0,\\
+v^{2}\left(-2\eta_{2}^{2}-9\eta_{2}\eta_{3}+5\eta_{3}^{2}\right)+v_{7}^{2}\left(-4\xi_{2}^{2}+3\eta_{2}\eta_{3}+11\eta_{3}^{2}\right) & > & 0,\\
+\eta_{2}^{3}+19\eta_{2}^{2}\eta_{3}-\eta_{2}\eta_{3}^{2}-3\eta_{3}^{3} & < & 0.
+\end{eqnarray}
+
+\end_inset
+
+Likewise, for 
+\begin_inset Formula $H_{4}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{eqnarray}
+v^{2}(\eta_{2}+7\eta_{3})+4v_{7}^{2}(\eta_{3}-\eta_{2}) & > & 0,\\
+3v^{2}\eta_{3}(\eta_{2}+\eta_{3})-4v_{7}^{2}\left(3\eta_{2}^{2}+4\eta_{2}\eta_{3}-3\eta_{3}^{2}\right) & > & 0,\\
+\eta_{2}(\eta_{2}+\eta_{3})(\eta_{2}+3\eta_{3}) & < & 0.\label{eq:S7-potential-one-field-ineq2}
+\end{eqnarray}
+
+\end_inset
+
+ By a little algebra, inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-ineq1"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-ineq2"
+
+\end_inset
+
+ are reduced to
+\begin_inset Formula 
+\begin{eqnarray}
+\eta_{2}<0,\quad\eta_{3}+\eta_{2} & > & 0,\label{eq:S7-potential-one-field-sol1}\\
+3\eta_{3}^{3}+\eta_{2}\eta_{3}^{2}-19\eta_{2}^{2}\eta_{3}-\eta_{2}^{3} & > & 0,\label{eq:S7-potential-one-field-sol2}\\
+\kappa_{1}\zeta_{1}-\frac{1}{64}\left(4\eta_{1}+\eta_{2}-3\eta_{3}\right)^{2} & > & 0.\label{eq:S7-potential-one-field-sol3}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In summary, inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol1"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol3"
+
+\end_inset
+
+ together with 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol4"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol5"
+
+\end_inset
+
+ are the constraints for the potential 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-V"
+
+\end_inset
+
+ to produce vacuum 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-vev"
+
+\end_inset
+
+.
+ By numerical computation, we can combine constraints 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol2"
+
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{equation}
+\eta_{3}>-2.383\eta_{2}>0,\label{eq:S7-potential-one-field-sol6}
+\end{equation}
+
+\end_inset
+
+ which will be helpful in the discussion of two-familon case.
+ 
+\end_layout
+
+\begin_layout Standard
+Because of the 
+\begin_inset Formula $\group$
+\end_inset
+
+ symmetry, we can obtain others vevs by acting on the familon and 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ vevs with members of the group 
+\begin_inset Formula $\group$
+\end_inset
+
+.
+ That being said, the familon vev is not necessary along 
+\begin_inset Formula $\left(0,0,1\right)$
+\end_inset
+
+ direction.
+ A trivial 
+\begin_inset Formula $Z_{3}$
+\end_inset
+
+ transformation yields familon vev along 
+\begin_inset Formula $\left(0,1,0\right)$
+\end_inset
+
+ or 
+\begin_inset Formula $\left(1,0,0\right)$
+\end_inset
+
+ direction.
+ A nontrivial transformation gives a familon vev along 
+\begin_inset Formula 
+\[
+\frac{2}{\sqrt{7}}\begin{pmatrix}\cos\frac{\pi}{14}\\
+\cos\frac{3\pi}{14}\\
+\cos\frac{5\pi}{14}
+\end{pmatrix}
+\]
+
+\end_inset
+
+ direction up to phase differences on each component.
+ 
+\end_layout
+
+\begin_layout Subsection
+Two Familon Fields
+\end_layout
+
+\begin_layout Standard
+The two-familon potential can be obtained by combining two copies of the
+ one-familon potential plus mixing terms.
+ As we have seen from previous subsection, a one-familon potential could
+ produce multiple vevs along different directions.
+ The responsibility of the mixing terms is to make two familon vevs parallel.
+ The simplest mixing term satisfying such requirement is 
+\begin_inset Formula $\covp{\varphi\bar{\varphi}^{\prime}}{1}\cdot\covp{\varphi^{\prime}\bar{\varphi}}{1}$
+\end_inset
+
+.
+ For simplicity, we do not consider other mixing terms.
+ From the results of one-familon case, we see that the 
+\begin_inset Formula $\eta_{1}$
+\end_inset
+
+ can be zero and all other coefficients of the potential should be nonzero.
+ Therefore, we drop the 
+\begin_inset Formula $\eta_{1}$
+\end_inset
+
+ term in the two-familon potential.
+ we choose the two-familon potential as 
+\begin_inset Formula 
+\begin{multline}
+V\left(\bar{\varphi},\bar{\varphi}^{\prime},S_{7}\right)=m^{2}\covp{\varphi\bar{\varphi}}{1}+m^{\prime2}\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}+m_{7}^{2}\covp{S_{7}\bar{S}_{7}}{1}+\xi_{1}\covp{\varphi\bar{\varphi}^{\prime}}{1}\cdot\covp{\varphi^{\prime}\bar{\varphi}}{1}\\
++\kappa_{1}\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}}{1}+\kappa_{1}^{\prime}\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}\cdot\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}+\zeta_{1}\covp{S_{7}\bar{S}_{7}}{1}\cdot\covp{S_{7}\bar{S}_{7}}{1}\\
++\eta_{2}\covp{\varphi\bar{\varphi}}{8}\cdot\covp{S_{7}\bar{S}_{7}}{8_{s}}+\eta_{3}\covp{\varphi\bar{\varphi}}{8}\cdot\covp{S_{7}\bar{S}_{7}}{8_{a}}\\
++\eta_{2}^{\prime}\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{8}\cdot\covp{S_{7}\bar{S}_{7}}{8_{s}}+\eta_{3}^{\prime}\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{8}\cdot\covp{S_{7}\bar{S}_{7}}{8_{a}},\label{eq:S7-potential-two-field-V}
+\end{multline}
+
+\end_inset
+
+ where all coefficients are real.
+ We require the potential 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-V"
+
+\end_inset
+
+ to produce the vacuum 
+\begin_inset Formula 
+\begin{equation}
+\bar{\varphi}=\begin{pmatrix}0\\
+0\\
+v
+\end{pmatrix},\quad\bar{\varphi}^{\prime}=\begin{pmatrix}0\\
+0\\
+v^{\prime}
+\end{pmatrix},\quad\left\langle S_{7}\right\rangle =\begin{pmatrix}s=0\\
+\phi=0\\
+\bar{\chi}
+\end{pmatrix},\quad\text{with }\;\bar{\chi}=\begin{pmatrix}v_{7}\\
+0\\
+0
+\end{pmatrix}.\label{eq:S7-potential-two-field-vev}
+\end{equation}
+
+\end_inset
+
+Note that potential 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-V"
+
+\end_inset
+
+ is invariat under any overall phase changes of 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+, and 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+.
+ Without loss of generality, we can choose 
+\begin_inset Formula $v$
+\end_inset
+
+, 
+\begin_inset Formula $v^{\prime}$
+\end_inset
+
+, and 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ to be real and positive.
+\end_layout
+
+\begin_layout Standard
+We immediately have some trivial constraints.
+ As discussed in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:PSL27-Invariant-Potential"
+
+\end_inset
+
+, the 
+\begin_inset Formula $\xi_{1}$
+\end_inset
+
+ term is maximized when 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+ are parallel.
+ It follows that 
+\begin_inset Formula $\xi_{1}$
+\end_inset
+
+ must be negative for producing parallel familon vevs as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-vev"
+
+\end_inset
+
+.
+ Futher more, we have the constraints that 
+\begin_inset Formula $V$
+\end_inset
+
+ should be bounded from below and not have local minimum at origin.
+ To sum up, we have 
+\begin_inset Formula 
+\begin{eqnarray}
+\kappa_{1} & > & 0,\quad\kappa_{1}^{\prime}>0,\quad\zeta_{1}>0,\\
+m^{2} & < & 0,\quad m^{\prime2}<0,\quad m_{7}^{2}<0,\label{eq:S7-potential-two-field-ineq-m2}\\
+\xi_{1} & < & 0.
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now let us find the constraints of critical point.
+ The derivatives of 
+\begin_inset Formula $V$
+\end_inset
+
+ with respect its variables at the desired vacuum are
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\langle \frac{\partial V}{\partial\varphi_{3}}\right\rangle  & = & \frac{v}{84}\left(56\kappa_{1}v^{2}+28\xi_{1}v^{\prime2}+28\sqrt{3}m^{2}+\sqrt{21}v_{7}^{2}\eta_{2}-3\sqrt{21}v_{7}^{2}\eta_{3}\right),\\
+\left\langle \frac{\partial V}{\partial\varphi_{3}^{\prime}}\right\rangle  & = & \frac{v^{\prime}}{84}\left(56\kappa_{2}v^{\prime2}+28\xi_{1}v^{2}+28\sqrt{3}m^{\prime2}+\sqrt{21}v_{7}^{2}\eta_{2}^{\prime}-3\sqrt{21}v_{7}^{2}\eta_{3}^{\prime}\right),\\
+\left\langle \frac{\partial V}{\partial\bar{\chi}_{1}}\right\rangle  & = & \frac{v_{7}}{84}\left(24\zeta_{1}v_{7}^{2}+12\sqrt{7}m_{7}^{2}+\sqrt{21}(v^{2}(\eta_{2}-3\eta_{3})+v^{\prime2}(\eta_{2}^{\prime}-3\eta_{3}^{\prime}))\right),
+\end{eqnarray*}
+
+\end_inset
+
+ and all the others vanish.
+ It then follows
+\begin_inset Formula 
+\begin{eqnarray}
+m^{2} & = & -\frac{2}{\sqrt{3}}\kappa_{1}v^{2}-\frac{1}{\sqrt{3}}\xi_{1}v^{\prime2}+\frac{1}{4\sqrt{7}}\left(3\eta_{3}-\eta_{2}\right)v_{7}^{2},\label{eq:S7-potential-two-field-m2}\\
+m^{\prime2} & = & -\frac{2}{\sqrt{3}}\kappa_{1}^{\prime}v^{\prime2}-\frac{1}{\sqrt{3}}\xi_{1}v^{2}+\frac{1}{4\sqrt{7}}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)v_{7}^{2},\label{eq:S7-potential-two-field-mp2}\\
+m_{7}^{2} & = & -\frac{2}{\sqrt{7}}\zeta_{1}v_{7}^{2}+\frac{\sqrt{3}}{4}\left(\eta_{3}v^{2}+\eta_{3}^{\prime}v^{\prime2}\right)-\frac{\sqrt{3}}{12}\left(\eta_{2}v^{2}+\eta_{2}^{\prime}v^{\prime2}\right).\label{eq:S7-potential-two-field-m72}
+\end{eqnarray}
+
+\end_inset
+
+From 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-ineq-m2"
+
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{eqnarray}
+\kappa_{1} & > & -\frac{\xi_{1}}{2}\frac{v^{\prime2}}{v^{2}}+\frac{\sqrt{21}}{56}\frac{v_{7}^{2}}{v^{2}}\left(3\eta_{3}-\eta_{2}\right),\label{eq:S7-potential-two-field-k1}\\
+\kappa_{1}^{\prime} & > & -\frac{\xi_{1}}{2}\frac{v^{2}}{v^{\prime2}}+\frac{\sqrt{21}}{56}\frac{v_{7}^{2}}{v^{\prime2}}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right),\label{eq:S7-potential-two-field-kp1}\\
+\zeta_{1} & > & \frac{\sqrt{21}}{24}\frac{v^{2}}{v_{7}^{2}}\left(3\eta_{3}-\eta_{2}\right)+\frac{\sqrt{21}}{24}\frac{v^{\prime2}}{v_{7}^{2}}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right).\label{eq:S7-potential-two-field-zeta1}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Next, we consider the Hessian matrix at the desired vacuum.
+ Similar to the one-familon case, the Hessian matrix becomes block-diagonalized
+ if the variables are grouped into four sets as
+\begin_inset Formula 
+\[
+\left(\chi_{2},s,\bar{\chi}_{2},\bar{s}\right),\quad\left(\chi_{1},\varphi_{3}^{\prime},\varphi_{3}^{\prime},\bar{\chi}_{1},\bar{\varphi}_{3}^{\prime},\bar{\varphi}_{3}^{\prime}\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\chi_{3},\phi_{2},\varphi_{1},\varphi_{1}^{\prime},\bar{\chi}_{3},\bar{\phi}_{2},\bar{\varphi}_{1},\bar{\varphi}_{1}^{\prime}\right),\quad\left(\phi_{1},\phi_{3},\varphi_{1},\varphi_{2},\bar{\phi}_{1},\bar{\phi}_{3},\bar{\varphi}_{1},\bar{\varphi}_{2}\right).
+\]
+
+\end_inset
+
+ We then express the Hessian matrix as direct sum of four matrices
+\begin_inset Formula 
+\[
+H=H_{1}\oplus H_{2}\oplus H_{3}\oplus H_{4}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $H_{i}$
+\end_inset
+
+ is the Hessian matrix with respect to variables of the 
+\begin_inset Formula $i$
+\end_inset
+
+th set.
+ By a little algebra, we find 
+\begin_inset Formula 
+\begin{multline*}
+H_{1}=\frac{2}{\sqrt{21}}\mathrm{diag}\Big(\left(\eta_{3}-\eta_{2}\right)v^{2}+\left(\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)v^{\prime2},\frac{1}{4}\left(3\eta_{3}-\eta_{2}\right)v^{2}+\frac{1}{4}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)v^{\prime2}\\
+,\left(\eta_{3}-\eta_{2}\right)v^{2}+\left(\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)v^{\prime2},\frac{1}{4}\left(3\eta_{3}-\eta_{2}\right)v^{2}+\frac{1}{4}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)v^{\prime2}\Big),
+\end{multline*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{2}=\begin{pmatrix}\frac{8\zeta_{1}v_{7}^{2}}{7} & \frac{\left(\eta_{2}-3\eta_{3}\right)vv_{7}}{\sqrt{21}} & \frac{\left(\eta_{2}^{\prime}-3\eta_{3}^{\prime}\right)v^{\prime}v_{7}}{\sqrt{21}}\\
+\frac{\left(\eta_{2}-3\eta_{3}\right)vv_{7}}{\sqrt{21}} & \frac{8\kappa_{1}v^{2}}{3} & \frac{4\kappa_{1}vv^{\prime}}{3}\\
+\frac{\left(\eta_{2}^{\prime}-3\xi_{3}^{\prime}\right)v^{\prime}v_{7}}{\sqrt{21}} & \frac{4\kappa_{1}vv^{\prime}}{3} & \frac{8\kappa_{1}^{\prime}v^{\prime2}}{3}
+\end{pmatrix}\oplus\mathrm{diag}\left(0,0,0\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{3}=\left(H_{3}^{\left(D\right)}+H_{3}^{\left(O_{1}\right)}\right)\oplus\left(H_{3}^{\left(D\right)}+H_{3}^{\left(O_{2}\right)}\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{4}=\left(H_{4}^{\left(D\right)}+H_{4}^{\left(O_{1}\right)}\right)\oplus\left(H_{4}^{\left(D\right)}+H_{4}^{\left(O_{2}\right)}\right),
+\]
+
+\end_inset
+
+ where, for properly showing the matrices, we have decomposed 
+\begin_inset Formula $H_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{4}$
+\end_inset
+
+ into diagonal and off-diagonal parts, 
+\begin_inset Formula 
+\begin{multline*}
+H_{3}^{\left(D\right)}=\frac{1}{2\sqrt{21}}\mathrm{diag}\Big(\left(\eta_{2}+5\eta_{3}\right)v^{2}+v^{\prime2}\left(\eta_{2}^{\prime}+5\eta_{3}^{\prime}\right),2\left(\eta_{3}-2\eta_{2}\right)v^{2}+2\left(\eta_{3}^{\prime}-2\eta_{2}^{\prime}\right)v^{\prime2},\\
+v_{7}^{2}\left(\eta_{2}+5\eta_{3}\right)-4\sqrt{\frac{7}{3}}\xi_{1}v^{\prime2},v_{7}^{2}\left(\eta_{2}^{\prime}+5\eta_{3}^{\prime}\right)-4\sqrt{\frac{7}{3}}v^{2}\xi_{1}\Big),
+\end{multline*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{3}^{\left(O_{1}\right)}=\frac{1}{2\sqrt{21}}\begin{pmatrix}0 & 0 & vv_{7}\left(\eta_{2}-3\eta_{3}\right) & v_{7}v'\left(\eta_{2}^{\prime}-3\eta_{3}^{\prime}\right)\\
+0 & 0 & 2vv_{7}\left(\eta_{3}-\eta_{2}\right) & 2v_{7}v'\left(\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)\\
+vv_{7}\left(\eta_{2}-3\eta_{3}\right) & 2vv_{7}\left(\eta_{3}-\eta_{2}\right) & 0 & 4\sqrt{\frac{7}{3}}\xi_{1}vv'\\
+v_{7}v'\left(\eta_{2}^{\prime}-3\eta_{3}^{\prime}\right) & 2v_{7}v'\left(\eta_{3}^{\prime}-\eta_{2}^{\prime}\right) & 4\sqrt{\frac{7}{3}}\xi_{1}vv' & 0
+\end{pmatrix},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{3}^{\left(O_{2}\right)}=\frac{1}{2\sqrt{21}}\begin{pmatrix}0 & 0 & \left(3\eta_{3}-\eta_{2}\right)vv_{7} & v_{7}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)v'\\
+0 & 0 & 2\left(\eta_{2}-\eta_{3}\right)vv_{7} & 2v_{7}\left(\eta_{2}^{\prime}-\eta_{3}^{\prime}\right)v'\\
+\left(3\eta_{3}-\eta_{2}\right)vv_{7} & 2\left(\eta_{2}-\eta_{3}\right)vv_{7} & 0 & 4\sqrt{\frac{7}{3}}\xi_{1}vv'\\
+v_{7}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)v' & 2v_{7}\left(\eta_{2}^{\prime}-\eta_{3}^{\prime}\right)v' & 4\sqrt{\frac{7}{3}}\xi_{1}vv' & 0
+\end{pmatrix},
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{multline*}
+H_{4}^{\left(D\right)}=\frac{1}{2\sqrt{21}}\mathrm{diag}\Big(6\left(\eta_{3}v^{2}+v^{\prime2}\eta_{3}'\right),\left(\eta_{2}+\eta_{3}\right)v^{2}+v^{\prime2}\left(\eta_{2}^{\prime}+\eta_{3}^{\prime}\right),\\
+v_{7}^{2}\left(\eta_{3}-\eta_{2}\right)-\frac{4}{3\sqrt{21}}\xi_{1}v^{\prime2},v_{7}^{2}\left(\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)-\frac{4}{3\sqrt{21}}v^{2}\xi_{1}\Big),
+\end{multline*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{4}^{\left(O_{1}\right)}=\frac{1}{\sqrt{21}}\begin{pmatrix}0 & 0 & 2vv_{7}\eta_{2} & 2v_{7}v'\eta_{2}^{\prime}\\
+0 & 0 & -vv_{7}\left(\eta_{2}+\eta_{3}\right) & -v_{7}v'\left(\eta_{2}^{\prime}+\eta_{3}^{\prime}\right)\\
+2vv_{7}\eta_{2} & -vv_{7}\left(\eta_{2}+\eta_{3}\right) & 0 & 2\sqrt{\frac{7}{3}}v\xi_{1}v'\\
+2v_{7}v'\eta_{2}^{\prime} & -v_{7}v'\left(\eta_{2}^{\prime}+\eta_{3}^{\prime}\right) & 2\sqrt{\frac{7}{3}}v\xi_{1}v' & 0
+\end{pmatrix},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{4}^{\left(O_{2}\right)}=\frac{1}{\sqrt{21}}\begin{pmatrix}0 & 0 & -2vv_{7}\eta_{2} & -2v_{7}v'\eta_{2}^{\prime}\\
+0 & 0 & -vv_{7}\left(\eta_{2}+\eta_{3}\right) & -v_{7}v'\left(\eta_{2}^{\prime}+\eta_{3}^{\prime}\right)\\
+-2vv_{7}\eta_{2} & -vv_{7}\left(\eta_{2}+\eta_{3}\right) & 0 & 2\sqrt{\frac{7}{3}}v\xi_{1}v'\\
+-2v_{7}v'\eta_{2}^{\prime} & -v_{7}v'\left(\eta_{2}^{\prime}+\eta_{3}^{\prime}\right) & 2\sqrt{\frac{7}{3}}v\xi_{1}v' & 0
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similar to the one-familon case, the three zero eigenvalues of 
+\begin_inset Formula $H_{2}$
+\end_inset
+
+ reflect the fact that the potential has extra 
+\begin_inset Formula $U\left(1\right)\times U\left(1\right)\times U\left(1\right)$
+\end_inset
+
+ symmetry.
+ Let us first consider the constraints that 
+\begin_inset Formula $H_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{4}$
+\end_inset
+
+ are postive definite.
+ They can be obtained from the relation between roots and coefficients of
+ the characteristic equations of 
+\begin_inset Formula $H_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{4}$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $H_{3}$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{align}
+\left(\frac{7\eta_{3}-3\eta_{2}}{2\sqrt{21}}-\frac{2\xi_{1}}{3}\right)v^{2}+\frac{\eta_{2}+5\eta_{3}}{2\sqrt{21}}v_{7}^{2}+\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right) & >0,\label{eq:S7-potential-two-field-ineq1}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline}
+\left(\frac{3\eta_{2}-7\eta_{3}}{3\sqrt{21}}\xi_{1}-\frac{2\eta_{2}^{2}+9\eta_{3}\eta_{2}-5\eta_{3}^{2}}{42}\right)v^{4}\\
++\left(\frac{3\eta_{2}-7\eta_{3}}{3\sqrt{21}}\xi_{1}-\frac{2\eta_{2}\eta_{2}^{\prime}+9\eta_{2}\eta_{3}^{\prime}-5\eta_{3}\eta_{3}^{\prime}}{42}\right)v^{2}v^{\prime2}\\
++\frac{1}{84}\left[\eta_{3}\left(7\eta_{2}^{\prime}+35\eta_{3}^{\prime}+22\eta_{3}\right)-3\eta_{2}\left(\eta_{2}^{\prime}+5\eta_{3}^{\prime}-2\eta_{3}\right)-8\eta_{2}^{2}\right]v^{2}v_{7}^{2}\\
+-\frac{\eta_{2}+5\eta_{3}}{3\sqrt{21}}\xi_{1}v^{2}v_{7}^{2}+\frac{1}{168}\left(25\eta_{3}\eta_{3}^{\prime}+\eta_{2}\eta_{2}^{\prime}+10\eta_{2}\eta_{3}^{\prime}\right)v_{7}^{4}\\
++\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right)>0,
+\end{multline}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline}
+\frac{\xi_{1}}{63}\left(2\eta_{2}^{2}+9\eta_{3}\eta_{2}-5\eta_{3}^{2}\right)v^{6}+\frac{\xi_{1}}{63}\left(4\eta_{2}^{2}-3\eta_{3}\eta_{2}-11\eta_{3}^{2}\right)v^{4}v_{7}^{2}+\left(\frac{\eta_{2}^{3}}{882}+\frac{\eta_{3}^{3}}{14\sqrt{21}}\right)v^{4}v_{7}^{2}\\
++\frac{\xi_{1}}{63}\left[4\eta_{2}\eta_{2}^{\prime}+9\left(\eta_{2}\eta_{3}^{\prime}+\eta_{2}\eta_{3}+\eta_{3}\eta_{2}^{\prime}\right)-5\eta_{3}\left(2\eta_{3}^{\prime}+\eta_{3}\right)+2\eta_{2}^{2}\right]v^{4}v^{\prime2}\\
+-\frac{1}{84\sqrt{21}}\left[2\eta_{2}^{2}\left(\eta_{2}^{\prime}+5\eta_{3}^{\prime}+19\eta_{3}\right)+\eta_{3}\eta_{2}\left(9\eta_{2}^{\prime}+45\eta_{3}^{\prime}-2\eta_{3}\right)-5\eta_{3}^{2}\left(\eta_{2}^{\prime}+5\eta_{3}^{\prime}\right)\right]v^{4}v_{7}^{2}\\
+-\frac{1}{84\sqrt{21}}\left[4\eta_{2}^{2}\left(\eta_{2}^{\prime}+5\eta_{3}^{\prime}\right)-31\eta_{3}^{2}\eta_{3}^{\prime}+\eta_{2}\left(29\eta_{3}^{\prime2}+9\eta_{3}\eta_{3}^{\prime}+37\eta_{3}\eta_{2}^{\prime}\right)\right]v^{2}v^{\prime2}v_{7}^{2}\\
++\frac{\xi_{1}}{63}\left(4\eta_{2}\eta_{2}^{\prime}-3\eta_{2}\eta_{3}^{\prime}-11\eta_{3}\eta_{3}^{\prime}\right)v^{2}v^{\prime2}v_{7}^{2}-\frac{1}{84\sqrt{21}}\left(4\eta_{2}^{2}-3\eta_{3}\eta_{2}-11\eta_{3}^{2}\right)\left(\eta_{2}^{\prime}+5\eta_{3}^{\prime}\right)v^{2}v_{7}^{4}\\
++\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right)>0,
+\end{multline}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline}
+\frac{\xi_{1}}{63\sqrt{21}}\left(\eta_{2}^{3}+19\eta_{3}\eta_{2}^{2}-\eta_{3}^{2}\eta_{2}-3\eta_{3}^{3}\right)v^{6}v_{7}^{2}\\
++\frac{\xi_{1}}{63\sqrt{21}}\left[\eta_{2}^{2}\left(3\eta_{2}^{\prime}+19\eta_{3}^{\prime}\right)+\eta_{2}\left(38\eta_{3}\eta_{2}^{\prime}-2\eta_{3}\eta_{3}^{\prime}\right)-\eta_{3}^{2}\left(\eta_{2}^{\prime}+9\eta_{3}^{\prime}\right)\right]v^{4}v^{\prime2}v_{7}^{2}\\
++\frac{1}{1764}\left[8\eta_{2}\eta_{3}\eta_{3}^{\prime}\left(\eta_{3}^{\prime}-7\eta_{2}^{\prime}\right)+15\eta_{3}^{2}\eta_{3}^{\prime2}-\eta_{2}^{2}\left(\eta_{2}^{\prime2}+24\eta_{3}^{\prime}\eta_{2}^{\prime}+38\eta_{3}^{\prime2}\right)\right]v^{2}v^{\prime2}v_{7}^{4}\\
+-\frac{1}{1764}\left(\eta_{2}^{3}+19\eta_{3}\eta_{2}^{2}-\eta_{3}^{2}\eta_{2}-3\eta_{3}^{3}\right)\left(\eta_{2}^{\prime}+5\eta_{3}^{\prime}\right)v^{4}v_{7}^{4}\\
++\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right)>0.
+\end{multline}
+
+\end_inset
+
+ Similarly for 
+\begin_inset Formula $H_{4}$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{equation}
+\left(\frac{\eta_{2}+7\eta_{3}}{2\sqrt{21}}-\frac{2\xi_{1}}{3}\right)v^{2}+\frac{2\left(\eta_{3}-\eta_{2}\right)}{\sqrt{21}}v_{7}^{2}+\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right)>0,
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline}
+\frac{v^{2}\left(\eta_{2}+\eta_{3}\right)}{14}\left(\eta_{3}v^{2}+\eta_{3}^{\prime}v^{\prime2}\right)-\frac{v^{2}\left(\eta_{2}+7\eta_{3}\right)\xi_{1}}{3\sqrt{21}}\left(v^{2}+v^{\prime2}\right)\\
+-\frac{v^{2}v_{7}^{2}}{21}\eta_{2}\left(\eta_{2}^{\prime}-\eta_{3}^{\prime}+8\eta_{3}\right)-\frac{v^{2}v_{7}^{2}}{21}\eta_{3}\left(7\eta_{2}^{\prime}-7\eta_{3}^{\prime}-6\eta_{3}\right)\\
++v^{2}v_{7}^{2}\left[\frac{4\left(\eta_{2}-\eta_{3}\right)\xi_{1}}{3\sqrt{21}}-\frac{2\eta_{2}^{2}}{7}\right]+\frac{2v_{7}^{4}}{21}\left[\eta_{3}\eta_{3}^{\prime}+\eta_{2}\left(\eta_{2}^{\prime}-2\eta_{3}^{\prime}\right)\right]\\
++\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right)>0,
+\end{multline}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline}
+-\frac{\xi_{1}\eta_{3}}{21}\left(\eta_{2}+\eta_{3}\right)v^{6}-\frac{\xi_{1}}{21}\left[\eta_{2}\left(\eta_{3}^{\prime}+\eta_{3}\right)+\eta_{3}\left(\eta_{2}^{\prime}+2\eta_{3}^{\prime}+\eta_{3}\right)\right]v^{4}v^{\prime2}\\
++\left[\frac{4\xi_{1}}{63}\left(3\eta_{2}^{2}+4\eta_{3}\eta_{2}-3\eta_{3}^{2}\right)-\frac{\eta_{2}+\eta_{3}}{21\sqrt{21}}\left(3\eta_{3}\eta_{2}^{\prime}-\eta_{3}\eta_{3}^{\prime}+2\eta_{2}^{2}+6\eta_{3}\eta_{2}\right)\right]v^{4}v_{7}^{2}\\
++\frac{\sqrt{21}}{441}\left[3\eta_{3}^{2}\eta_{3}^{\prime}-2\eta_{2}^{2}\left(\eta_{2}^{\prime}+4\eta_{3}^{\prime}\right)-3\eta_{2}\left(3\eta_{3}\eta_{3}^{\prime}+\eta_{3}\eta_{2}^{\prime}-\eta_{3}^{\prime2}\right)\right]v^{2}v^{\prime2}v_{7}^{2}\\
++\frac{4\xi_{1}}{63}\left(3\eta_{2}\eta_{2}^{\prime}+4\eta_{2}\eta_{3}^{\prime}-3\eta_{3}\eta_{3}^{\prime}\right)v^{2}v^{\prime2}v_{7}^{2}+\frac{4\sqrt{21}}{441}\left(3\eta_{2}^{2}+4\eta_{3}\eta_{2}-3\eta_{3}^{2}\right)\left(\eta_{2}^{\prime}-\eta_{3}^{\prime}\right)v^{2}v_{7}^{4}\\
++\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right)>0,
+\end{multline}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{multline}
+\frac{4\xi_{1}\eta_{2}}{63\sqrt{21}}\left(\eta_{2}^{2}+4\eta_{3}\eta_{2}+3\eta_{3}^{2}\right)v^{6}v_{7}^{2}\\
++\frac{4\xi_{1}}{63\sqrt{21}}\left[\eta_{2}^{2}\left(3\eta_{2}^{\prime}+4\eta_{3}^{\prime}\right)+\eta_{2}\left(8\eta_{3}\eta_{2}^{\prime}+6\eta_{3}\eta_{3}^{\prime}\right)+3\eta_{3}^{2}\eta_{2}^{\prime}\right]v^{4}v^{\prime2}v_{7}^{2}\\
++\frac{4\eta_{2}}{441}\left(\eta_{2}^{2}+4\eta_{3}\eta_{2}+3\eta_{3}^{2}\right)\left(\eta_{2}^{\prime}-\eta_{3}^{\prime}\right)v^{4}v_{7}^{4}\\
++\frac{4\eta_{2}}{441}\left[\eta_{3}\eta_{3}^{\prime}\left(2\eta_{2}^{\prime}-3\eta_{3}^{\prime}\right)+\eta_{2}\left(\eta_{2}^{\prime2}+3\eta_{3}^{\prime}\eta_{2}^{\prime}-3\eta_{3}^{\prime2}\right)\right]v^{2}v^{\prime2}v_{7}^{4}\\
++\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right)>0.\label{eq:S7-potential-two-field-ineq2}
+\end{multline}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-ineq1"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-ineq2"
+
+\end_inset
+
+ are too complicated to solve exactly.
+ Fortunately, our goal is only to find sufficient conditions.
+ From the results of one-familon case, we guess that the constraints
+\begin_inset Formula 
+\begin{equation}
+\eta_{2}<0,\quad\eta_{2}^{\prime}<0,\quad\eta_{3}\geq-3\eta_{2},\quad\eta_{3}^{\prime}\geq-3\eta_{2}^{\prime},\label{eq:S7-potential-two-field-sol1}
+\end{equation}
+
+\end_inset
+
+ could satisfy inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-ineq1"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-ineq2"
+
+\end_inset
+
+.
+ We obtain 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-sol1"
+
+\end_inset
+
+ from the one-familon result 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol6"
+
+\end_inset
+
+ by loosing it a little bit for each familon field.
+ Using Mathematica, we verify that 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-sol1"
+
+\end_inset
+
+ does satisfy inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-ineq1"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-ineq2"
+
+\end_inset
+
+.
+ The verification procedures are as follows.
+ We first write 
+\begin_inset Formula $\eta_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta_{3}^{\prime}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+\eta_{3}=-a\eta_{2},\quad\eta_{3}^{\prime}=-b\eta_{2}^{\prime},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\begin_inset Formula $b$
+\end_inset
+
+ are positive.
+ Then the left hand side of each inequality can be considered as a function
+ of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+, denoted as 
+\begin_inset Formula $f\left(a,b\right)$
+\end_inset
+
+.
+ To show 
+\begin_inset Formula 
+\[
+f\left(a,b\right)>0,\quad\text{for any }a\geq3,\, b\geq3,
+\]
+
+\end_inset
+
+ we only need to show that 
+\begin_inset Formula 
+\[
+f\left(3,3\right)>0,\quad\text{and }\frac{\partial f\left(a_{0},b_{0}\right)}{\partial a}>0,\,\frac{\partial f\left(a_{0},b_{0}\right)}{\partial b}>0,\text{ for any }a_{0}\geq3,\, b_{0}\geq3.
+\]
+
+\end_inset
+
+ We expand 
+\begin_inset Formula $\frac{\partial f\left(a_{0},b_{0}\right)}{\partial a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\partial f\left(a_{0},b_{0}\right)}{\partial a}$
+\end_inset
+
+ as power series of 
+\begin_inset Formula $v$
+\end_inset
+
+ and find that they are positive at every order of 
+\begin_inset Formula $v$
+\end_inset
+
+.
+ Repeating the procedures, we find 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-sol1"
+
+\end_inset
+
+ satisfies all inequalities from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-ineq1"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-ineq2"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We then consider the constraints from 
+\begin_inset Formula $H_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{2}$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $H_{1}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{eqnarray}
+\left(3\eta_{3}-\eta_{2}\right)v^{2}-\left(\eta_{2}'-3\eta_{3}'\right)v^{\prime2} & > & 0,\label{eq:S7-potential-two-field-eq3}\\
+\eta_{2}v^{2}-\eta_{3}v^{2}+\eta_{2}^{\prime}v^{\prime2}-\eta_{3}'v^{\prime2} & < & 0.\label{eq:S7-potential-two-field-eq4}
+\end{eqnarray}
+
+\end_inset
+
+Easy to see that 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-eq3"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-eq4"
+
+\end_inset
+
+ are already satisified by condition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-sol1"
+
+\end_inset
+
+.
+ For 
+\begin_inset Formula $H_{2}$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{8}{21}\left(7\kappa_{1}v^{2}+7\kappa_{1}'v^{\prime2}+3\zeta_{1}v_{7}^{2}\right) & > & 0,\label{eq:S7-potential-two-field-eq5}\\
+3v_{7}^{2}\left[64\zeta_{1}\kappa_{1}'v^{\prime2}-\left(\eta_{2}-3\eta_{3}\right){}^{2}v^{2}-\left(\eta_{2}'-3\eta_{3}'\right){}^{2}v^{\prime2}\right]\nonumber \\
++64\kappa_{1}v^{2}\left(7\kappa_{1}'v^{\prime2}+3\zeta_{1}v_{7}^{2}\right)-112\xi_{1}^{2}v^{2}v^{\prime2} & > & 0,\label{eq:S7-potential-two-field-eq6}\\
+16\zeta_{1}\left(\xi_{1}^{2}-4\kappa_{1}\kappa_{1}'\right)+\left(\eta_{2}-3\eta_{3}\right){}^{2}\kappa_{1}'\nonumber \\
++\left(\eta_{2}'-3\eta_{3}'\right)\left(\kappa_{1}\eta_{2}'-3\kappa_{1}\eta_{3}'-\eta_{2}\xi_{1}+3\eta_{3}\xi_{1}\right) & < & 0.\label{eq:S7-potential-two-field-eq7}
+\end{eqnarray}
+
+\end_inset
+
+since 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa_{1}^{\prime}$
+\end_inset
+
+, and 
+\begin_inset Formula $\zeta_{1}$
+\end_inset
+
+ are positive, inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-eq5"
+
+\end_inset
+
+ already holds.
+ For 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-eq6"
+
+\end_inset
+
+, the left hand side is a monotonically increasing function of 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa_{1}^{\prime}$
+\end_inset
+
+, and 
+\begin_inset Formula $\zeta_{1}$
+\end_inset
+
+.
+ Therefore, it's sufficient to show that the inequality holds for the minimal
+ value of 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa_{1}^{\prime}$
+\end_inset
+
+, and 
+\begin_inset Formula $\zeta_{1}$
+\end_inset
+
+, which are given by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-k1"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-kp1"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-zeta1"
+
+\end_inset
+
+.
+ Substituting the minimal values of 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa_{1}^{\prime}$
+\end_inset
+
+, and 
+\begin_inset Formula $\zeta_{1}$
+\end_inset
+
+ into the left hand side of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-eq6"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{multline*}
+\frac{4\xi_{1}}{3\sqrt{21}}\left(v^{2}+v^{\prime2}+v_{7}^{2}\right)\left[v^{2}\left(\eta_{2}-3\eta_{3}\right)+v^{\prime2}\left(\eta_{2}^{\prime}-3\eta_{3}^{\prime}\right)\right]\\
++\frac{1}{21}v_{7}^{2}\left(v^{2}+v^{\prime2}+v_{7}^{2}\right)\left(\eta_{2}-3\eta_{3}\right)\left(\eta_{2}^{\prime}-3\eta_{3}^{\prime}\right),
+\end{multline*}
+
+\end_inset
+
+ which is clearly positive given 
+\begin_inset Formula $\xi_{1},\,\eta_{2},\,\eta_{2}^{\prime}<0$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta_{3},\,\eta_{3}^{\prime}>0$
+\end_inset
+
+.
+ Therefore, inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-eq6"
+
+\end_inset
+
+ is already satisfied.
+ 
+\end_layout
+
+\begin_layout Standard
+Finally, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-eq7"
+
+\end_inset
+
+ implies 
+\begin_inset Formula 
+\begin{equation}
+\zeta_{1}>\frac{\kappa_{1}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)^{2}+\kappa_{1}^{\prime}\left(3\eta_{3}-\eta_{2}\right)^{2}-\xi_{1}\left(3\eta_{3}-\eta_{2}\right)\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)}{16\left(4\kappa_{1}\kappa_{1}^{\prime}-\xi_{1}^{2}\right)}.\label{eq:P7-potential-two-field-zeta1-2}
+\end{equation}
+
+\end_inset
+
+ A little calculation shows that 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:P7-potential-two-field-zeta1-2"
+
+\end_inset
+
+ is satisfied by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-zeta1"
+
+\end_inset
+
+ and hence can be removed as well.
+ The caculation is performed as follows.
+ Denote the right hand side of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-zeta1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:P7-potential-two-field-zeta1-2"
+
+\end_inset
+
+ as 
+\begin_inset Formula $\zeta_{1}^{\left(a\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\zeta_{1}^{\left(b\right)}$
+\end_inset
+
+.
+ We need to show 
+\begin_inset Formula $\zeta_{1}^{\left(a\right)}\geq\zeta_{1}^{\left(b\right)}$
+\end_inset
+
+, which is equivalent to show 
+\begin_inset Formula 
+\[
+g\left(\kappa_{1},\kappa_{1}^{\prime}\right)\equiv\left(4\kappa_{1}\kappa_{1}^{\prime}-\xi_{1}^{2}\right)\left(\zeta_{1}^{\left(a\right)}-\zeta_{1}^{\left(b\right)}\right)\geq0,
+\]
+
+\end_inset
+
+ since it follows from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-k1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-kp1"
+
+\end_inset
+
+ that 
+\begin_inset Formula $4\kappa_{1}\kappa_{1}^{\prime}-\xi_{1}^{2}>0$
+\end_inset
+
+.
+ Denote right hand side of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-k1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-kp1"
+
+\end_inset
+
+ as 
+\begin_inset Formula $\kappa_{1}^{\left(min\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\kappa_{1}^{\prime\left(min\right)}$
+\end_inset
+
+.
+ We find that 
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{\partial g}{\partial\kappa_{1}} & > & 0,\text{ if }\kappa_{1}^{\prime}\geq\kappa_{1}^{\prime\left(min\right)},\label{eq:S7-potential-two-field-gk1}\\
+\frac{\partial g}{\partial\kappa_{1}^{\prime}} & > & 0,\text{ if }\kappa_{1}\geq\kappa_{1}^{\left(min\right)}.\label{eq:S7-potential-two-field-gk1p}
+\end{eqnarray}
+
+\end_inset
+
+ Further more, we have 
+\begin_inset Formula 
+\begin{equation}
+g\left(\kappa_{1}^{\left(min\right)},\kappa_{1}^{\prime\left(min\right)}\right)=0.\label{eq:S7-potential-two-field-gkmin}
+\end{equation}
+
+\end_inset
+
+ Condition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-gk1"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-gkmin"
+
+\end_inset
+
+ imply 
+\begin_inset Formula $g\left(\kappa_{1},\kappa_{1}^{\prime}\right)\geq0$
+\end_inset
+
+, 
+\shape italic
+i.e.
+\shape default
+, 
+\begin_inset Formula $\zeta_{1}^{\left(a\right)}>\zeta_{1}^{\left(b\right)}$
+\end_inset
+
+, always holds.
+\end_layout
+
+\begin_layout Standard
+In summary, the potential 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-V"
+
+\end_inset
+
+ can produce vacuum 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-vev"
+
+\end_inset
+
+ under the following constraints:
+\begin_inset Formula 
+\[
+\eta_{2}<0,\quad\eta_{2}^{\prime}<0,\quad\eta_{3}\geq-3\eta_{2},\quad\eta_{3}^{\prime}\geq-3\eta_{2}^{\prime},\quad\xi_{1}<0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\kappa_{1} & > & -\frac{\xi_{1}}{2}\frac{v^{\prime2}}{v^{2}}+\frac{\sqrt{21}}{56}\frac{v_{7}^{2}}{v^{2}}\left(3\eta_{3}-\eta_{2}\right),\\
+\kappa_{1}^{\prime} & > & -\frac{\xi_{1}}{2}\frac{v^{2}}{v^{\prime2}}+\frac{\sqrt{21}}{56}\frac{v_{7}^{2}}{v^{\prime2}}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right),\\
+\zeta_{1} & > & \frac{\sqrt{21}}{24}\left[\frac{v^{2}}{v_{7}^{2}}\left(3\eta_{3}-\eta_{2}\right)+\frac{v^{\prime2}}{v_{7}^{2}}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)\right],
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+m^{2} & = & -\frac{2}{\sqrt{3}}\kappa_{1}v^{2}-\frac{1}{\sqrt{3}}\xi_{1}v^{\prime2}+\frac{1}{4\sqrt{7}}\left(3\eta_{3}-\eta_{2}\right)v_{7}^{2},\\
+m^{\prime2} & = & -\frac{2}{\sqrt{3}}\kappa_{1}^{\prime}v^{\prime2}-\frac{1}{\sqrt{3}}\xi_{1}v^{2}+\frac{1}{4\sqrt{7}}\left(3\eta_{3}^{\prime}-\eta_{2}^{\prime}\right)v_{7}^{2},\\
+m_{7}^{2} & = & -\frac{2}{\sqrt{7}}\zeta_{1}v_{7}^{2}+\frac{\sqrt{3}}{4}\left(\eta_{3}v^{2}+\eta_{3}^{\prime}v^{\prime2}\right)-\frac{\sqrt{3}}{12}\left(\eta_{2}v^{2}+\eta_{2}^{\prime}v^{\prime2}\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+-Invariant Potential
+\end_layout
+
+\begin_layout Standard
+In this section, let's consider producing vevs 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Leading-vevs"
+
+\end_inset
+
+ with 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+-invariant potential.
+ A brief introduction to 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ group and its invariants is given in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:App-T7-Invariants"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Let's consider the renormalizable invariants of 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ built out of 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+There are two real quadratic invariants, 
+\begin_inset Formula $\covt{\varphi\bar{\varphi}}{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\covt{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}$
+\end_inset
+
+, where 
+\begin_inset Formula $\left\{ \cdots\right\} $
+\end_inset
+
+ denotes 
+\begin_inset Formula $\subgroup$
+\end_inset
+
+ covariants.
+\end_layout
+
+\begin_layout Itemize
+There is no real cubic invariants.
+\end_layout
+
+\begin_layout Itemize
+For one-field real quartic invariants, we have 
+\begin_inset Formula 
+\begin{eqnarray*}
+\covt{\varphi\varphi}{3}\cdot\covt{\bar{\varphi}\bar{\varphi}}{\bar{3}} & = & \frac{1}{\sqrt{3}}\left(x^{4}+y^{4}+z^{4}\right),\\
+\covt{\varphi\bar{\varphi}}{3}\cdot\covt{\varphi\bar{\varphi}}{\bar{3}} & = & \frac{1}{\sqrt{3}}\left(x^{2}z^{2}+y^{2}x^{2}+z^{2}y^{2}\right).
+\end{eqnarray*}
+
+\end_inset
+
+ Note that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\covt{\varphi\bar{\varphi}}{3}\cdot\covt{\varphi\bar{\varphi}}{\bar{3}}$
+\end_inset
+
+ can be expressed as
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\begin_inset Formula 
+\[
+\covt{\varphi\bar{\varphi}}{3}\cdot\covt{\varphi\bar{\varphi}}{\bar{3}}=\frac{1}{2}\left[\sqrt{3}\left(\covt{\varphi\bar{\varphi}}{1}\right)^{2}-\covt{\varphi^{\prime}\varphi^{\prime}}{3}\cdot\covt{\bar{\varphi}^{\prime}\bar{\varphi}^{\prime}}{\bar{3}}\right],
+\]
+
+\end_inset
+
+which means we can replace it by 
+\begin_inset Formula $\left(\covt{\varphi\bar{\varphi}}{1}\right)^{2}$
+\end_inset
+
+ in potential.
+ Similarly, there are also two one-field invariants for 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+.
+ There are three independent two-field real quartic invariants, 
+\begin_inset Formula 
+\begin{eqnarray*}
+\covt{\varphi\varphi^{\prime}}{3_{s}}\cdot\covt{\bar{\varphi}\bar{\varphi}^{\prime}}{\bar{3}_{s}} & = & \frac{1}{\sqrt{3}}\left(x^{2}x'^{2}+y^{2}y'^{2}+z^{2}z'^{2}\right),\\
+\covt{\varphi\bar{\varphi}^{\prime}}{3}\cdot\covt{\bar{\varphi}\varphi^{\prime}}{\bar{3}} & = & \frac{1}{\sqrt{3}}\left(y^{2}x'^{2}+x^{2}z'^{2}+z^{2}y'^{2}\right),\\
+\covt{\varphi\bar{\varphi}^{\prime}}{\bar{3}}\cdot\covt{\bar{\varphi}\varphi^{\prime}}{3} & = & \frac{1}{\sqrt{3}}\left(z^{2}x'^{2}+x^{2}y'^{2}+y^{2}z'^{2}\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Under the assumption that the potential contains only real invariants, we
+ can write down the general form of the potential as
+\begin_inset Formula 
+\begin{eqnarray}
+V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right) & = & m^{2}\covt{\varphi\bar{\varphi}}{1}+\kappa_{1}\covt{\varphi\varphi}{3}\cdot\covt{\bar{\varphi}\bar{\varphi}}{\bar{3}}+\kappa\left(\covt{\varphi\bar{\varphi}}{1}\right)^{2}\nonumber \\
+ &  & +m^{\prime2}\covt{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}+\kappa_{1}^{\prime}\covt{\varphi^{\prime}\varphi^{\prime}}{3}\cdot\covt{\bar{\varphi}^{\prime}\bar{\varphi}^{\prime}}{\bar{3}}+\kappa^{\prime}\left(\covt{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}\right)^{2}\nonumber \\
+ &  & +\xi_{1}\covt{\varphi\bar{\varphi}^{\prime}}{3}\cdot\covt{\bar{\varphi}\varphi^{\prime}}{\bar{3}}+\xi_{2}\covt{\varphi\bar{\varphi}^{\prime}}{\bar{3}}\cdot\covt{\bar{\varphi}\varphi^{\prime}}{3}\nonumber \\
+ &  & +\xi_{3}\covt{\varphi\varphi^{\prime}}{3_{s}}\cdot\covt{\bar{\varphi}\bar{\varphi}^{\prime}}{\bar{3}_{s}},\label{eq:T7-two-field-V}
+\end{eqnarray}
+
+\end_inset
+
+ where all the coefficients are real.
+ 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+ has much smaller symmetry than the one of Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:PSL27-Invariant-Potential"
+
+\end_inset
+
+.
+ By inspection, 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa_{1}^{\prime}$
+\end_inset
+
+, 
+\begin_inset Formula $\xi_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\xi_{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $\xi_{3}$
+\end_inset
+
+ terms are invariant under 
+\begin_inset Formula $U\left(1\right)\times\mathcal{T}_{7}$
+\end_inset
+
+ symmetry; the other terms have 
+\begin_inset Formula $U\left(3\right)$
+\end_inset
+
+ symmetry.
+ Consequently, the whole potential is invariant under 
+\begin_inset Formula $U\left(1\right)\times\mathcal{T}_{7}$
+\end_inset
+
+ symmetry.
+ 
+\end_layout
+
+\begin_layout Standard
+Let's find condition for 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+ producing vacuum 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Leading-vevs"
+
+\end_inset
+
+.
+ We first impose the constraint of critical point: the first derivatives
+ of 
+\begin_inset Formula $V$
+\end_inset
+
+ should vanish at the desired minimum.
+ We find that the derivatives with respect to 
+\begin_inset Formula $x,\, x^{\prime},\, y,\, y^{\prime}$
+\end_inset
+
+ are zero at vevs 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Leading-vevs"
+
+\end_inset
+
+.
+ For 
+\begin_inset Formula $z,\, z^{\prime}$
+\end_inset
+
+, we obtain
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\langle \frac{\partial V}{\partial z}\right\rangle  & = & \frac{2v}{\sqrt{3}}\left[2\left(\kappa_{1}+\frac{\kappa}{\sqrt{3}}\right)v^{2}+\xi_{3}v^{\prime2}+m^{2}\right]=0,\\
+\left\langle \frac{\partial V}{\partial z^{\prime}}\right\rangle  & = & \frac{2v^{\prime}}{\sqrt{3}}\left[2\left(\kappa_{1}^{\prime}+\frac{\kappa^{\prime}}{\sqrt{3}}\right)v^{\prime2}+\xi_{3}v^{2}+m^{\prime2}\right]=0,
+\end{eqnarray*}
+
+\end_inset
+
+from which it follows
+\begin_inset Formula 
+\[
+v^{2}=\frac{\xi_{3}m^{\prime2}-2\left(\kappa_{1}^{\prime}+\frac{\kappa^{\prime}}{\sqrt{3}}\right)m^{2}}{4\left(\kappa_{1}+\frac{\kappa}{\sqrt{3}}\right)\left(\kappa_{1}^{\prime}+\frac{\kappa^{\prime}}{\sqrt{3}}\right)-\xi_{3}^{2}},\quad v^{\prime2}=\frac{\xi_{3}m^{2}-2\left(\kappa_{1}+\frac{\kappa}{\sqrt{3}}\right)m^{\prime2}}{4\left(\kappa_{1}+\frac{\kappa}{\sqrt{3}}\right)\left(\kappa_{1}^{\prime}+\frac{\kappa^{\prime}}{\sqrt{3}}\right)-\xi_{3}^{2}},
+\]
+
+\end_inset
+
+ or 
+\begin_inset Formula 
+\[
+\kappa_{1}=-\frac{1}{2v^{2}}\left(m^{2}+\xi_{3}v^{\prime2}\right)-\frac{\kappa}{\sqrt{3}},\quad\kappa_{1}^{\prime}=-\frac{1}{2v^{\prime2}}\left(m^{\prime2}+\xi_{3}v^{2}\right)-\frac{\kappa^{\prime}}{\sqrt{3}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We then check whether the critical point is a local minimum, which can be
+ done by calculating the eigenvalues of the Hessian matrix at the critical
+ point.
+ The Hessian matrix is defined as
+\begin_inset Formula 
+\[
+H_{ij}=\frac{\partial^{2}f}{\partial x_{i}\partial x_{j}},
+\]
+
+\end_inset
+
+ for 
+\begin_inset Formula $f$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+.
+ A critical point is a local minimum if the Hessian matrix evaluated at
+ that point is positive definite, 
+\shape italic
+i.e
+\shape default
+, all the eigenvalues are positive.
+ The Hessian matrix of 
+\begin_inset Formula $V\left(\varphi,\varphi^{\prime}\right)$
+\end_inset
+
+ at the critical point is
+\begin_inset Formula 
+\begin{eqnarray*}
+\begin{pmatrix}\frac{4}{3}\kappa v^{2}+\frac{2}{\sqrt{3}}\left(\xi_{1}v^{\prime2}+m^{2}\right) & 0\\
+0 & \frac{4}{3}\kappa v^{2}+\frac{2}{\sqrt{3}}\left(\xi_{2}v^{\prime2}+m^{2}\right)
+\end{pmatrix}\\
+\oplus\begin{pmatrix}\frac{4}{3}\kappa^{\prime}v^{\prime2}+\frac{2}{\sqrt{3}}\left(\xi_{1}v^{2}+m^{\prime2}\right) & 0\\
+0 & \frac{4}{3}\kappa^{\prime}v^{\prime2}+\frac{2}{\sqrt{3}}\left(\xi_{2}v^{2}+m^{\prime2}\right)
+\end{pmatrix}\\
+\oplus\frac{4}{\sqrt{3}}\begin{pmatrix}-\xi_{3}v^{\prime2}-m^{2} & \xi_{3}vv^{\prime}\\
+\xi_{3}vv^{\prime} & -\xi_{3}v^{2}-m^{\prime2}
+\end{pmatrix}.
+\end{eqnarray*}
+
+\end_inset
+
+ Its six eigenvalues are
+\begin_inset Formula 
+\[
+h_{1,2}=\frac{4}{3}\kappa v^{2}+\frac{2}{\sqrt{3}}\left(\xi_{1,2}v^{\prime2}+m^{2}\right),\quad h_{3,4}=\frac{4}{3}\kappa^{\prime}v^{\prime2}+\frac{2}{\sqrt{3}}\left(\xi_{1,2}v^{2}+m^{\prime2}\right),\quad h_{5,}\quad h_{6}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $h_{5,6}$
+\end_inset
+
+ are roots of equation
+\begin_inset Formula 
+\[
+h^{2}+\frac{4}{\sqrt{3}}\left[m^{2}+m^{\prime2}+\xi_{3}\left(v^{2}+v^{\prime2}\right)\right]h+\frac{16}{3}\left(\xi_{3}m^{2}v^{2}+\xi_{3}m^{\prime2}v^{\prime2}+m^{2}m^{\prime2}\right)=0.
+\]
+
+\end_inset
+
+ To make the Hessian matrix positive definite, we must have
+\begin_inset Formula 
+\begin{eqnarray*}
+2\kappa v^{2}+\sqrt{3}m^{2}+\sqrt{3}\xi_{1}v^{\prime2} & > & 0,\\
+2\kappa v^{2}+\sqrt{3}m^{2}+\sqrt{3}\xi_{2}v^{\prime2} & > & 0,\\
+2\kappa^{\prime}v^{\prime2}+\sqrt{3}m^{\prime2}+\sqrt{3}\xi_{1}v^{2} & > & 0,\\
+2\kappa^{\prime}v^{\prime2}+\sqrt{3}m^{\prime2}+\sqrt{3}\xi_{2}v^{2} & > & 0,\\
+\xi_{3}m^{2}v^{2}+\xi_{3}m^{\prime2}v^{\prime2}+m^{2}m^{\prime2} & > & 0,\\
+m^{2}+m^{\prime2}+\xi_{3}\left(v^{2}+v^{\prime2}\right) & < & 0.
+\end{eqnarray*}
+
+\end_inset
+
+ The above inequalities can be satisfied if 
+\begin_inset Formula 
+\begin{eqnarray}
+m^{2} & < & 0,\quad m^{\prime2}<0,\quad\xi_{3}<-\frac{m^{2}m^{\prime2}}{m^{2}v^{2}+m^{\prime2}v^{\prime2}},\label{eq:T7-two-field-constraint1}\\
+\kappa & > & -\frac{\sqrt{3}}{2}\left[\frac{m^{2}}{v^{2}}+\min\left(\xi_{1},\xi_{2}\right)\left(\frac{v^{\prime}}{v}\right)^{2}\right],\label{eq:T7-two-field-constraint2}\\
+\kappa^{\prime} & > & -\frac{\sqrt{3}}{2}\left[\frac{m^{\prime2}}{v^{\prime2}}+\min\left(\xi_{1},\xi_{2}\right)\left(\frac{v}{v^{\prime}}\right)^{2}\right],\label{eq:T7-two-field-constraint3}
+\end{eqnarray}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\min\left(\xi_{1},\xi_{2}\right)$
+\end_inset
+
+ picks the samller value between 
+\begin_inset Formula $\xi_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\xi_{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Finally, the potential should be bounded from below.
+ We need to check the behavior of potential when the norms of the fields
+ are infinity, where quardratic terms can be neglected.
+ It's convenient to use the parameterization 
+\begin_inset Formula 
+\begin{eqnarray*}
+r & = & \sqrt{x^{2}+y^{2}+z^{2}},\quad x=r\sin a\cos b,\quad y=r\sin a\sin b,\quad z=r\cos a,\\
+r^{\prime} & = & \sqrt{x^{\prime2}+y^{\prime2}+z^{\prime2}},\quad x^{\prime}=r^{\prime}\sin a^{\prime}\cos b^{\prime},\quad y^{\prime}=r^{\prime}\sin a^{\prime}\sin b^{\prime},\quad z=r^{\prime}\cos a^{\prime},
+\end{eqnarray*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $0\leq a,\, b,\, a^{\prime},\, b^{\prime}\leq\pi/2$
+\end_inset
+
+.
+ In the limit of 
+\begin_inset Formula $r\to\infty$
+\end_inset
+
+ or 
+\begin_inset Formula $r^{\prime}\to\infty$
+\end_inset
+
+, the potential can be expressed as 
+\begin_inset Formula 
+\begin{equation}
+V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)_{\infty}=Ar^{4}+Br^{\prime4}+Cr^{2}r^{\prime2},\label{eq:T7-two-field-V-infinity}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula 
+\begin{eqnarray*}
+A & = & -\frac{\sqrt{3}m^{2}}{6v^{2}}\left(\sin^{4}a\sin^{4}b+\sin^{4}a\cos^{4}b+\cos^{4}a\right)\\
+ &  & -\frac{\sqrt{3}v^{\prime2}}{6v^{2}}\xi_{3}\left(\sin^{4}a\sin^{4}b+\sin^{4}a\cos^{4}b+\cos^{4}a\right)\\
+ &  & +\frac{\kappa}{6}\left(\sin^{2}2a+\sin^{4}a\sin^{2}2b\right),
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+B & = & -\frac{\sqrt{3}m^{\prime2}}{6v^{\prime2}}\left(\sin^{4}a^{\prime}\sin^{4}b^{\prime}+\sin^{4}a^{\prime}\cos^{4}b^{\prime}+\cos^{4}a^{\prime}\right)\\
+ &  & -\frac{\sqrt{3}v^{2}}{6v^{\prime2}}\xi_{3}\left(\sin^{4}a^{\prime}\sin^{4}b^{\prime}+\sin^{4}a^{\prime}\cos^{4}b^{\prime}+\cos^{4}a^{\prime}\right)\\
+ &  & +\frac{\kappa^{\prime}}{6}\left(\sin^{2}2a^{\prime}+\sin^{4}a^{\prime}\sin^{2}2b^{\prime}\right),
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+C & = & \frac{\xi_{1}}{\sqrt{3}}\left(\sin^{2}a\sin^{2}a^{\prime}\sin^{2}b\cos^{2}b^{\prime}+\sin^{2}a\cos^{2}a^{\prime}\cos^{2}b+\cos^{2}a\sin^{2}a^{\prime}\sin^{2}b^{\prime}\right)\\
+ &  & +\frac{\xi_{2}}{\sqrt{3}}\left(\sin^{2}a\sin^{2}a^{\prime}\cos^{2}b\sin^{2}b^{\prime}+\sin^{2}a\cos^{2}a^{\prime}\sin^{2}b+\cos^{2}a\sin^{2}a^{\prime}\cos^{2}b^{\prime}\right)\\
+ &  & +\frac{\xi_{3}}{\sqrt{3}}\left(\sin^{2}a\sin^{2}a^{\prime}\sin^{2}b\sin^{2}b^{\prime}+\sin^{2}a\sin^{2}a^{\prime}\cos^{2}b\cos^{2}b^{\prime}+\cos^{2}a\cos^{2}a^{\prime}\right).
+\end{eqnarray*}
+
+\end_inset
+
+For 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)_{\infty}$
+\end_inset
+
+ to be positive identically, it's sufficient to have 
+\begin_inset Formula 
+\[
+A>0,\quad B>0,\quad C\geq0
+\]
+
+\end_inset
+
+holds for all 
+\begin_inset Formula $0\leq a,\, b,\, a^{\prime},\, b^{\prime}\leq\pi/2$
+\end_inset
+
+.
+ Since
+\begin_inset Formula $A$
+\end_inset
+
+ is a bounded function of the angles, if 
+\begin_inset Formula $A$
+\end_inset
+
+ is positive at its boundary and critical points, then 
+\begin_inset Formula $A$
+\end_inset
+
+ is greater than zero identically.
+ By a little algebra, we obtain the constraints
+\begin_inset Formula 
+\[
+\xi_{3}<-\frac{m^{2}}{v^{\prime2}},\quad\kappa>\frac{\sqrt{3}}{4v^{2}}\left(m^{2}+\xi_{3}v^{\prime2}\right),
+\]
+
+\end_inset
+
+ where the first inequality is already satisfied by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:T7-two-field-constraint1"
+
+\end_inset
+
+.
+ Likewise, it follows from 
+\begin_inset Formula $B>0$
+\end_inset
+
+ that
+\begin_inset Formula 
+\[
+\kappa^{\prime}>\frac{\sqrt{3}}{4v^{\prime2}}\left(m^{\prime2}+\xi_{3}v^{2}\right).
+\]
+
+\end_inset
+
+For 
+\begin_inset Formula $C\geq0$
+\end_inset
+
+ identically, we have 
+\begin_inset Formula 
+\[
+\xi_{1}\geq0,\quad\xi_{2}\geq0,\quad\xi_{3}\geq0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In summary, the potential 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:T7-two-field-V"
+
+\end_inset
+
+ has vev 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Leading-vevs"
+
+\end_inset
+
+ when the following conditions are satisified
+\begin_inset Formula 
+\begin{eqnarray*}
+\kappa_{1} & = & -\frac{1}{2v^{2}}\left(m^{2}+\xi_{3}v^{\prime2}\right)-\frac{\kappa}{\sqrt{3}},\quad\kappa_{1}^{\prime}=-\frac{1}{2v^{\prime2}}\left(m^{\prime2}+\xi_{3}v^{2}\right)-\frac{\kappa^{\prime}}{\sqrt{3}},\\
+m^{2} & < & 0,\quad m^{\prime2}<0,\quad\xi_{1}\geq0,\quad\xi_{2}\geq0,\\
+0 & < & \xi_{3}<-\frac{m^{2}m^{\prime2}}{m^{2}v^{2}+m^{\prime2}v^{\prime2}},\\
+\kappa & > & -\frac{\sqrt{3}}{2}\left[\frac{m^{2}}{v^{2}}+\min\left(\xi_{1},\xi_{2}\right)\left(\frac{v^{\prime}}{v}\right)^{2}\right],\quad\kappa>\frac{\sqrt{3}}{4v^{2}}\left(m^{2}+\xi_{3}v^{\prime2}\right),\\
+\kappa^{\prime} & > & -\frac{\sqrt{3}}{2}\left[\frac{m^{\prime2}}{v^{\prime2}}+\min\left(\xi_{1},\xi_{2}\right)\left(\frac{v}{v^{\prime}}\right)^{2}\right],\quad\kappa^{\prime}>\frac{\sqrt{3}}{4v^{\prime2}}\left(m^{\prime2}+\xi_{3}v^{2}\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+TBM and Cabbibo Haze
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+ we proposed a model which uses the group 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ as the flavor symmetry of the Standard Model.
+ The model predicts light neutrino masses with normal hierachy, generates
+ a hierarchical 
+\begin_inset Formula $\mu$
+\end_inset
+
+-term of MSSM, and produces the top quark mass at tree level.
+ 
+\end_layout
+
+\begin_layout Standard
+The model is motivated by a special Majorana matrix 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}=\left(\begin{array}{ccc}
+r\lambda^{16} & r\lambda^{12} & r\lambda^{8}\\
+r\lambda^{12} & \lambda^{8} & -\lambda^{4}\\
+r\lambda^{8} & -\lambda^{4} & 1
+\end{array}\right),\label{eq:Intro-SMM-nophase}
+\end{equation}
+
+\end_inset
+
+ assuming that the seesaw mixing matrix is the tri-bimaximal (TBM) matrix,
+ 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{\mathrm{seesaw}}=\mathcal{U}_{\mathrm{TBM}}=\left(\begin{array}{ccc}
+\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{array}\right).\label{eq:Intro-TBM-nophase}
+\end{equation}
+
+\end_inset
+
+Note that the TBM matrix in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro-TBM-nophase"
+
+\end_inset
+
+ does not contain phases.
+ In this paper, we will consider a general TBM matrix, which can be expressed
+ as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\tilde{\mathcal{U}}_{\mathrm{TBM}}=\begin{pmatrix}1\\
+ & e^{i\alpha}\\
+ &  & e^{i\beta}
+\end{pmatrix}\mathcal{U}_{\mathrm{TBM}}\begin{pmatrix}1\\
+ & e^{i\gamma}\\
+ &  & e^{i\delta}
+\end{pmatrix}\label{eq:Intro-TBM-phase}
+\end{equation}
+
+\end_inset
+
+ up to an overall phase.
+ We will redo the model building of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+ with the general TBM matrix and show that the phases does not spoil the
+ 
+\begin_inset Formula $\group$
+\end_inset
+
+ symmetry provided the vacuum expectations of the familon fields are chosen
+ properly.
+ 
+\end_layout
+
+\begin_layout Standard
+We will also solve an unsolved problems of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+: producing the Pontecorvo–Maki–Nakagawa–Sakata (PMNS) matrix with the TBM
+ seesaw neutrino mixing.
+ The difficulty is due to the disagreement between the mixing angle 
+\begin_inset Formula $\theta_{13}$
+\end_inset
+
+ of PMNS matrix and its counterpart of TBM matrix, which we denote as 
+\begin_inset Formula $\eta_{13}$
+\end_inset
+
+.
+ While 
+\begin_inset Formula $\eta_{23}=\pi/4$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta_{12}=\arcsin\frac{1}{\sqrt{3}}$
+\end_inset
+
+ are close to 
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{12}$
+\end_inset
+
+ , 
+\begin_inset Formula $\eta_{13}=0$
+\end_inset
+
+ does not agree with 
+\begin_inset Formula $\theta_{13}\approx9\textdegree$
+\end_inset
+
+.
+ The disagreement can be compensated by 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+, the left-handed unitary matrix of charged lepton coupling matrix.
+ If one assume that 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{-1}=\left(\begin{array}{ccc}
+1\\
+ & 1\\
+ &  & 1
+\end{array}\right)+\mathcal{O}\left(\lambda\right),\label{eq:Intro-U-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda\approx0.23$
+\end_inset
+
+ is the Cabbibo angle, then the relation 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{\mathrm{PMNS}}=\mathcal{U}_{-1}^{\dagger}\mathcal{U}_{\mathrm{seesaw}},\label{eq:Intro-PMNS-definition}
+\end{equation}
+
+\end_inset
+
+ gives an 
+\begin_inset Formula $\mathcal{O}\left(\lambda\right)$
+\end_inset
+
+ correction to 
+\begin_inset Formula $\theta_{13}$
+\end_inset
+
+.
+ Given the fact that 
+\begin_inset Formula $\theta_{13}\approx\lambda/\sqrt{2}$
+\end_inset
+
+, we should be able to reproduce the PMNS matrix numerically.
+ In the following sections, we will show that such numerical proof does
+ exist.
+\end_layout
+
+\begin_layout Section
+TBM with Phases
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+ we obtained the special Majorana matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro-SMM-nophase"
+
+\end_inset
+
+ from 
+\begin_inset Formula $\mathcal{U}_{\mathrm{seesaw}}=\mathcal{U}_{\mathrm{TBM}}$
+\end_inset
+
+ and generated it by a linear combination of dimension-five 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+-invariants 
+\begin_inset Formula 
+\begin{equation}
+\covt{{\bar{N}}\,{\bar{N}}}{3}\covt{\bar{\varphi}\bar{\varphi}'}{\bar{3}}-\covt{\bar{N}\,\bar{N}}{\bar{3}_{s}}\covt{\bar{\varphi}\bar{\varphi}'}{3_{s}},\label{eq:TBMPhase-linear-combination}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\bar{N}\sim\rep{3}$
+\end_inset
+
+ is the right-handed neutrino field and 
+\begin_inset Formula $\bar{\varphi}^{\prime},\,\bar{\varphi}^{\prime}\sim\rep{\bar{3}}$
+\end_inset
+
+ are familon fields.
+ The linear combination 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-linear-combination"
+
+\end_inset
+
+ produces the special Majorana matrix if the familon fields pick vevs as
+ 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},\label{eq:TBMPhase-vev-nophase}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\bar{\alpha}\bar{\alpha}^{\prime}=-\left(\bar{\alpha}+\bar{\alpha}^{\prime}\right)/2=r=m_{3}/m_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{1,2,3}$
+\end_inset
+
+ are light neutrino masses.
+ 
+\end_layout
+
+\begin_layout Standard
+In this section, we repeat the calculation of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+ with 
+\begin_inset Formula $\tilde{\mathcal{U}}_{\mathrm{TBM}}$
+\end_inset
+
+ instead of 
+\begin_inset Formula $\mathcal{U}_{\mathrm{TBM}}$
+\end_inset
+
+.
+ It turns out that the linear combination 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-linear-combination"
+
+\end_inset
+
+ is able to generate an special Majorana matrix as 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}\sim\begin{pmatrix}e^{2i\left(\beta+\delta\right)}r\lambda^{16} & e^{i\left(2\beta+2\delta-\alpha\right)}r\lambda^{12} & e^{i\left(\beta+2\delta\right)}r\lambda^{8}\\
+e^{i\left(2\beta+2\delta-\alpha\right)}r\lambda^{12} & e^{2i\left(\beta-\alpha\right)}\lambda^{8} & -e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+e^{i\left(\beta+2\delta\right)}r\lambda^{8} & -e^{i\left(\beta-\alpha\right)}\lambda^{4} & 1
+\end{pmatrix}.\label{eq:TBMPhase-SMM}
+\end{equation}
+
+\end_inset
+
+provided the familon vevs are changed to 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix},\label{eq:TBMPhase-vev}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{\alpha}\bar{\alpha}^{\prime} & = & re^{2i\left(\beta+\delta\right)},\\
+\bar{\alpha}+\bar{\alpha}^{\prime} & = & -2re^{i\left(\beta+2\delta\right)}.
+\end{eqnarray*}
+
+\end_inset
+
+ Note that, if 
+\begin_inset Formula $\alpha=\beta=\delta=0$
+\end_inset
+
+, we obtain the familon vevs 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-vev-nophase"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now let's perform the calculation.
+ The seesaw mechanism predicts the relation of light neutrino mass matrix
+ 
+\begin_inset Formula $M_{\nu}$
+\end_inset
+
+ and Majorana matrix 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ to be 
+\begin_inset Formula 
+\begin{equation}
+M_{\nu}=Y^{\left(0\right)}\mathcal{M}^{-1}Y^{\left(0\right)T},\label{eq:TBMPhase-Mnu-1}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $Y^{\left(0\right)}$
+\end_inset
+
+ is the Dirac Yukawa matrix of the neutrinos.
+ In 
+\begin_inset Formula $SO\left(10\right)$
+\end_inset
+
+, 
+\begin_inset Formula $Y^{\left(0\right)}$
+\end_inset
+
+ is naturally related to 
+\begin_inset Formula $Y^{\left(-2/3\right)}$
+\end_inset
+
+, the Dirac Yukawa matrix of the up-type quarks.
+ Without loss of generality, we can choose the quark fields in a basis that
+ 
+\begin_inset Formula $Y^{\left(2/3\right)}$
+\end_inset
+
+ is diagonal.
+ It then follows
+\begin_inset Formula 
+\[
+Y^{\left(0\right)}\sim Y^{\left(2/3\right)}\sim\begin{pmatrix}\lambda^{8} & 0 & 0\\
+0 & \lambda^{4} & 0\\
+0 & 0 & 1
+\end{pmatrix}.
+\]
+
+\end_inset
+
+On the other hand, 
+\begin_inset Formula $M_{\nu}$
+\end_inset
+
+ can be diagonalize as
+\begin_inset Formula 
+\begin{equation}
+M_{\nu}=\mathcal{U}_{\mathrm{seesaw}}\mathcal{D}_{\nu}\mathcal{U}_{\mathrm{seesaw}}^{T},\label{eq:TBMPhase-Mnu-2}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\mathcal{D}_{\nu}=\mathrm{diag}\left(m_{1},m_{2},m_{3}\right)$
+\end_inset
+
+ is the diagonal neutrino masses.
+ It follows from Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-Mnu-1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-Mnu-2"
+
+\end_inset
+
+ that
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}=Y^{\left(0\right)}\mathcal{U}_{\mathrm{seesaw}}^{\dagger}\mathcal{D}_{\nu}^{-1}\mathcal{U}_{\mathrm{seesaw}}^{*}Y^{\left(0\right)}.\label{eq:TBMPhase-SMM-2}
+\end{equation}
+
+\end_inset
+
+Substituting 
+\begin_inset Formula $\mathcal{U}_{\mathrm{seesaw}}=\tilde{\mathcal{U}}_{\mathrm{TBM}}$
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-SMM-2"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}=\begin{pmatrix}a_{11}\lambda^{16} & a_{12}\lambda^{12} & a_{13}\lambda^{8}\\
+a_{12}\lambda^{12} & a_{22}\lambda^{8} & a_{23}\lambda^{4}\\
+a_{31}\lambda^{8} & a_{32}\lambda^{4} & a_{33}
+\end{pmatrix},\label{eq:TBMPhase-SMM-1}
+\end{equation}
+
+\end_inset
+
+ where the prefactors are 
+\begin_inset Formula 
+\begin{eqnarray*}
+a_{11} & = & \frac{2}{3m_{1}}+\frac{e^{-2i\gamma}}{3m_{2}},\quad a_{12}=\frac{e^{-i\alpha}}{3m_{1}}-\frac{e^{-i\left(\alpha+2\gamma\right)}}{3m_{2}},\quad a_{13}=\frac{e^{-i\beta}}{3m_{1}}-\frac{e^{-i\left(\beta+2\gamma\right)}}{3m_{2}}\\
+a_{22} & = & \frac{e^{-2i\alpha}}{6}\left(\frac{1}{m_{1}}+\frac{2e^{-2i\gamma}}{m_{2}}+\frac{3e^{-2i\delta}}{m_{3}}\right),\quad a_{23}=\frac{e^{-i\left(\alpha+\beta\right)}}{6}\left(\frac{1}{m_{1}}+\frac{2e^{-2i\gamma}}{m_{2}}-\frac{3e^{-2i\delta}}{m_{3}}\right)\\
+a_{33} & = & \frac{e^{-2i\beta}}{6}\left(\frac{1}{m_{1}}+\frac{2e^{-2i\gamma}}{m_{2}}+\frac{3e^{-2i\delta}}{m_{3}}\right).
+\end{eqnarray*}
+
+\end_inset
+
+The mass spectrum of the Majorana matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-SMM-1"
+
+\end_inset
+
+ displays a severe three-fold hierarchy, 
+\begin_inset Formula 
+\begin{eqnarray*}
+M_{1} & = & \frac{3e^{-2i\gamma}}{2e^{-2i\gamma}m_{1}+m_{2}}\lambda^{16}+\mathcal{O}\left(\lambda^{24}\right),\\
+M_{2} & = & \frac{2e^{-2i\left(\alpha+\delta\right)}\left(2e^{-2i\gamma}m_{1}+m_{2}\right)}{m_{1}\left(3e^{-2i\delta}m_{2}+2e^{-2i\gamma}m_{3}\right)+m_{2}m_{3}}\lambda^{8}+\mathcal{O}\left(\lambda^{16}\right),\\
+M_{3} & = & \frac{e^{-2i\beta}}{6}\left(\frac{1}{m_{1}}+\frac{2e^{-2i\gamma}}{m_{2}}+\frac{3e^{-2i\delta}}{m_{3}}\right)+\mathcal{O}\left(\lambda^{8}\right).
+\end{eqnarray*}
+
+\end_inset
+
+When 
+\begin_inset Formula $m_{2}=-2e^{-2i\gamma}m_{1}$
+\end_inset
+
+, the leading term of 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ blows up and the above expression are not valid.
+ It turns out that the eigenvalues become
+\begin_inset Formula 
+\begin{eqnarray*}
+M_{1} & = & -\frac{e^{-i\alpha}}{m_{1}}\lambda^{12}+\mathcal{O}\left(\lambda^{16}\right),\\
+M_{2} & = & \frac{e^{-i\alpha}}{m_{1}}\lambda^{12}+\mathcal{O}\left(\lambda^{16}\right),\\
+M_{3} & = & \frac{e^{-2i\left(\beta+\delta\right)}}{2m_{3}}+\mathcal{O}\left(\lambda^{8}\right).
+\end{eqnarray*}
+
+\end_inset
+
+In this special case, we see that 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ are nearly degenerate and the hierarchy between the lightest and heaviest
+ mass is less severe.
+ Substituting 
+\begin_inset Formula $m_{2}=-2e^{-2i\gamma}m_{1}$
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-SMM-1"
+
+\end_inset
+
+ and defining 
+\begin_inset Formula $r=m_{3}/m_{1}$
+\end_inset
+
+, we obtain the special Majorana matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-SMM"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Build-the-SMM"
+
+\end_inset
+
+, we show that the special Majorana matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-SMM"
+
+\end_inset
+
+ can be produced by the linear combination 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-linear-combination"
+
+\end_inset
+
+ if the familon fields picks vevs 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-vev"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Search for TBM with Cabbibo Haze
+\end_layout
+
+\begin_layout Standard
+In this section, we first talk about how to perform numerical search for
+ Cabbibo Haze, then provide the results of the search.
+ We shall show that, by assuming 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ to be identity matrix with an 
+\begin_inset Formula $\mathcal{O}\left(\lambda\right)$
+\end_inset
+
+ correction, the MNSP matrix can be generated by 
+\begin_inset Formula $\mathcal{U}_{\mathrm{seesaw}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Search Procedure
+\end_layout
+
+\begin_layout Standard
+The main idea of the search is that we scan all possible 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ matrices and then compare the mixing angles of PMNS matrices computed from
+ Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro-PMNS-definition"
+
+\end_inset
+
+ with the experimental data.
+ Besides the constraints from PMSN matrix, there are constraints from other
+ pieces of the Standard Model.
+ Therefore, instead of simply scanning 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+, we perform the search described as follows.
+\end_layout
+
+\begin_layout Standard
+Firstly, by 
+\begin_inset Formula $SU\left(5\right)$
+\end_inset
+
+ GUT 
+\begin_inset Formula $Y^{(-1/3)}$
+\end_inset
+
+ is related to 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+, which produces 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ by diagonalization process.
+ In minimal 
+\begin_inset Formula $SU\left(5\right)$
+\end_inset
+
+, the Yukawa coupling 
+\begin_inset Formula $\psi\chi H_{d}$
+\end_inset
+
+ to a 
+\begin_inset Formula $\bar{\mathbf{5}}$
+\end_inset
+
+ Higgs predicts 
+\begin_inset Formula 
+\begin{equation}
+Y^{\left(-1\right)}=Y^{\left(-1/3\right)T}.\label{eq:TBM-SU5-mass-relation}
+\end{equation}
+
+\end_inset
+
+It successfully yields the relation 
+\begin_inset Formula $m_{b}=m_{\tau}$
+\end_inset
+
+, but also leads to 
+\begin_inset Formula $m_{e}=m_{d}$
+\end_inset
+
+, 
+\begin_inset Formula $m_{\mu}=m_{s}$
+\end_inset
+
+ at unification.
+ The later relations do not agree with the result of renormalization group-runni
+ng, which favors
+\begin_inset Formula 
+\begin{equation}
+m_{e}=m_{d}/3,\quad m_{\mu}=3m_{s}.\label{eq:Pre-mass-relation-1}
+\end{equation}
+
+\end_inset
+
+The inconsistence can be nicely solved by Georgi-Jarlskog (GJ) mechanism.
+ In GJ mechanism, one introduces an addtional 
+\begin_inset Formula $\mathbf{45}$
+\end_inset
+
+ Higgs and assumes the Yukawa couplings of 
+\begin_inset Formula $\rep{\bar{5}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{45}$
+\end_inset
+
+ to be
+\begin_inset Formula 
+\[
+Y_{ij}^{\left(\bar{\mathbf{5}}\right)}\psi^{i}\chi^{j}H_{d},\quad Y_{ij}^{\left(\bar{\mathbf{5}}\right)}=\begin{pmatrix}0 & a^{\prime} & 0\\
+a & 0 & 0\\
+0 & 0 & c
+\end{pmatrix},\quad Y_{ij}^{\left(\mathbf{45}\right)}\psi^{i}\chi^{j}H_{\mathbf{45}},\quad Y_{ij}^{\left(\mathbf{45}\right)}=\begin{pmatrix}0 & 0 & 0\\
+0 & b & 0\\
+0 & 0 & 0
+\end{pmatrix},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $a\sim a^{\prime}\ll b\ll c$
+\end_inset
+
+.
+ Both couplings contribute to 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+, but the Clebsch-Gordan coefficients of 
+\begin_inset Formula $\mathbf{45}$
+\end_inset
+
+ coupling gives an extra factor of -3 to 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+, which gives rise to mass relation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Pre-mass-relation-1"
+
+\end_inset
+
+.
+ In general, the nonzero entries of 
+\begin_inset Formula $Y^{\left(\mathbf{45}\right)}$
+\end_inset
+
+ are not necessary to be 
+\begin_inset Formula $\left(22\right)$
+\end_inset
+
+ only.
+ We therefore generalize the GJ mechanism so that any entry of 
+\begin_inset Formula $Y_{ij}^{\left(\rep{45}\right)}$
+\end_inset
+
+ can be nonzero.
+ For example, if 
+\begin_inset Formula $\left(12\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(23\right)$
+\end_inset
+
+ entries of 
+\begin_inset Formula $Y^{\left(\mathbf{45}\right)}$
+\end_inset
+
+ are 
+\begin_inset Formula $G$
+\end_inset
+
+ and 
+\begin_inset Formula $J$
+\end_inset
+
+, it produces
+\begin_inset Formula 
+\[
+Y^{\left(-1/3\right)}\sim\begin{pmatrix} & G\\
+ &  & J\\
+\\
+\end{pmatrix},\quad Y^{\left(-1\right)}\sim\begin{pmatrix}\\
+-3G\\
+ & -3J
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Consequently, for a given 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+, we can obtain a series of 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+ matrices by taking transpose of the 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+ and assigining GJ factors to different entries of 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Secondly, 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+ matrix is related to the CKM and 
+\begin_inset Formula $Y^{\left(2/3\right)}$
+\end_inset
+
+ matrices, 
+\begin_inset Formula 
+\begin{eqnarray*}
+Y^{(2/3)} & = & \mathcal{U}_{2/3}\mathcal{D}_{u}\mathcal{V}_{2/3}^{\dagger},\\
+Y^{(-1/3)} & = & \mathcal{U}_{-1/3}\mathcal{D}_{d}\mathcal{V}_{-1/3}^{\dagger},\\
+\mathcal{U}_{\mathrm{CKM}} & = & \mathcal{U}_{2/3}^{\dagger}\mathcal{U}_{-1/3},
+\end{eqnarray*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $Y^{(-2/3)}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y^{(-1/3)}$
+\end_inset
+
+ are Dirac Yukawa couplings of charge 
+\begin_inset Formula $2/3$
+\end_inset
+
+ and 
+\begin_inset Formula $-1/3$
+\end_inset
+
+ sectors, 
+\begin_inset Formula $\mathcal{U}_{2/3,-1/3}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{V}_{2/3,-1/3}$
+\end_inset
+
+ are unitary matrices, and 
+\begin_inset Formula $\mathcal{D}_{u,d}$
+\end_inset
+
+ are diagonal mass matrices of up and down quarks.
+ In the basis that 
+\begin_inset Formula $Y^{(2/3)}$
+\end_inset
+
+ is diagonal, we have 
+\begin_inset Formula $\mathcal{U}_{-1/3}=\mathcal{U}_{\mathrm{CKM}}$
+\end_inset
+
+.
+ Since the CKM matrix and 
+\begin_inset Formula $\mathcal{D}_{d}$
+\end_inset
+
+ are measured, 
+\begin_inset Formula $Y^{(-1/3)}$
+\end_inset
+
+ is uniquely determined by 
+\begin_inset Formula $\mathcal{V}_{-1/3}$
+\end_inset
+
+.
+ For simplicity, we assume that there is no phase in 
+\begin_inset Formula $\mathcal{V}_{-1/3}$
+\end_inset
+
+ and parameterize it as 
+\begin_inset Formula 
+\[
+\mathcal{V}_{-1/3}=\begin{pmatrix}1 & 0 & 0\\
+0 & c_{23} & s_{23}\\
+0 & -s_{23} & c_{23}
+\end{pmatrix}\begin{pmatrix}c_{13} & 0 & s_{13}\\
+0 & 1 & 0\\
+-s_{13} & 0 & s_{13}
+\end{pmatrix}\begin{pmatrix}c_{12} & s_{12} & 0\\
+-s_{12} & c_{12} & 0\\
+0 & 0 & 1
+\end{pmatrix},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $c_{ij}=\cos\beta_{ij}$
+\end_inset
+
+, 
+\begin_inset Formula $s_{ij}=\sin\beta_{ij}$
+\end_inset
+
+.
+ Therefore, we can perform the search by scanning 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+.
+ For each set of 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+, we obtain 
+\begin_inset Formula $\mathcal{V}_{-1/3}$
+\end_inset
+
+ , 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+, then 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+, and finally the PMNS matrix.
+\end_layout
+
+\begin_layout Standard
+Several constraints need to be verified during the procedure.
+ Firstly, 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ should be in the form of 
+\begin_inset Formula $1+\mathcal{O}\left(\lambda\right)$
+\end_inset
+
+.
+ Secondly, 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+ should produce the correct charge lepton mass ratio, which is given by
+ 
+\begin_inset Formula 
+\[
+0.0046\leq\left|\frac{m_{e}}{m_{\mu}}\right|\leq0.0050,\quad0.048\leq\left|\frac{m_{\mu}}{m_{\tau}}\right|\leq0.06.
+\]
+
+\end_inset
+
+Finally, the PMNS mixing angles should fall within the 
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ range 
+\begin_inset Formula 
+\begin{equation}
+\theta_{23}=\wrap{45.8\textdegree}_{-3.2\textdegree}^{+3.2\textdegree},\quad\theta_{13}=\wrap{8.5\textdegree}_{-0.2\textdegree}^{+0.2\textdegree},\quad\theta_{12}=\wrap{33.5\textdegree}_{-0.9\textdegree}^{+0.8\textdegree}.\label{eq:Intro-one-sigma-angles}
+\end{equation}
+
+\end_inset
+
+ If all the three constraints are satisfied, we consider the search result
+ as a solution.
+ 
+\end_layout
+
+\begin_layout Standard
+In the search, we choose the CKM matrix to be
+\begin_inset Formula 
+\[
+\mathcal{U}_{\mathrm{CKM}}=\begin{pmatrix}1-\lambda^{2}/2 & \lambda & A\lambda^{3}\left(\rho-i\eta\right)\\
+-\lambda & 1-\lambda^{2}/2 & A\lambda^{2}\\
+A\lambda^{3}\left(1-\rho-i\eta\right) & -A\lambda^{2} & 1
+\end{pmatrix}+\mathcal{O}\left(\lambda^{4}\right),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda=0.225$
+\end_inset
+
+, 
+\begin_inset Formula $\rho=0.150$
+\end_inset
+
+, 
+\begin_inset Formula $\eta=0.354$
+\end_inset
+
+, 
+\begin_inset Formula $A=0.823$
+\end_inset
+
+, and the diagonal down-quark mass matrix to be 
+\begin_inset Formula 
+\[
+\mathcal{D}_{d}=m_{b}\begin{pmatrix}\frac{\lambda^{4}}{3}\\
+ & \frac{\lambda^{2}}{2}\\
+ &  & 1
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Results
+\end_layout
+
+\begin_layout Standard
+We category the results by the number of nonzero 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+.
+ First of all, there is no solution with one nonzero angle.
+ For two-angle soltuions, we list a few examples as follows.
+\end_layout
+
+\begin_layout Paragraph*
+Example I
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\beta_{23}=0^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{13}=-7.8^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{12}=168.4^{\circ}$
+\end_inset
+
+, with one GJ factor in 
+\begin_inset Formula $\left(22\right)$
+\end_inset
+
+ element of 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+ yields 
+\begin_inset Formula 
+\begin{eqnarray*}
+\theta_{23} & = & 45.1\textdegree,\quad\theta_{13}=8.4\textdegree,\quad\theta_{12}=32.7\textdegree,\\
+\frac{m_{e}}{m_{\mu}} & = & 0.0047,\quad\frac{m_{\mu}}{m_{\tau}}=0.049,
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{U}_{-1}=\begin{pmatrix}1\\
+ & 1\\
+ &  & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0526 & 0.319 & -0.602\\
+-0.320 & -0.0116 & 0.0120-0.0000579i\\
+0.601 & 0.0315-0.0000571i & -0.0411
+\end{pmatrix}.
+\]
+
+\end_inset
+
+This example is interesting because it use only the original realization
+ of GJ factor.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:App-T7-Invariants"
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ and Its Invariants
+\end_layout
+
+\begin_layout Standard
+The Frobenius group 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ is defined as
+\begin_inset Formula 
+\[
+\left\langle c,d\big|c^{7}=d^{3}=1,d^{-1}cd=c^{4}\right\rangle ,
+\]
+
+\end_inset
+
+ where in 3-dimensional representation 
+\begin_inset Formula $c,d$
+\end_inset
+
+ read 
+\begin_inset Formula 
+\begin{equation}
+c=\begin{pmatrix}e^{\frac{2i\pi}{7}} & 0 & 0\\
+0 & e^{\frac{4i\pi}{7}} & 0\\
+0 & 0 & e^{\frac{8i\pi}{7}}
+\end{pmatrix},\quad d=\begin{pmatrix}0 & 1 & 0\\
+0 & 0 & 1\\
+1 & 0 & 0
+\end{pmatrix}.\label{eq:App-T7-Generator}
+\end{equation}
+
+\end_inset
+
+ The irreducible representations of 
+\begin_inset Formula $\subgroup$
+\end_inset
+
+ are, a real singlet 
+\begin_inset Formula $\boldsymbol{1}$
+\end_inset
+
+, one complex triplet 
+\begin_inset Formula $\boldsymbol{3}$
+\end_inset
+
+, a complex singlet 
+\begin_inset Formula $\boldsymbol{1}'$
+\end_inset
+
+, and their inequivalent conjugates 
+\begin_inset Formula $\bar{\boldsymbol{3}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\boldsymbol{1}}'$
+\end_inset
+
+.
+ Their Kronecker products of all irreducible representations are: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\boldsymbol{1}'\otimes\boldsymbol{1}' & = & \bar{\boldsymbol{1}}',\quad\quad\quad\quad\quad\;\;\,\boldsymbol{1}'\otimes\bar{\boldsymbol{1}}'=\boldsymbol{1},\\
+\boldsymbol{3}\otimes\boldsymbol{1}' & = & \boldsymbol{3},\quad\quad\quad\quad\quad\quad\;\,\boldsymbol{3}\otimes\bar{\boldsymbol{1}}'=\rep{3}\\
+\boldsymbol{3}\otimes\boldsymbol{3} & = & \left(\boldsymbol{3}+\bar{\boldsymbol{3}}\right)_{s}+\bar{\boldsymbol{3}}_{a},\quad\boldsymbol{3}\otimes\bar{\boldsymbol{3}}=\boldsymbol{1}+\boldsymbol{1}'+\bar{\boldsymbol{1}}'+\boldsymbol{3}+\bar{\boldsymbol{3}}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Kronecker products of 
+\begin_inset Formula $\subgroup$
+\end_inset
+
+ enable us to read-off all the renormalizable invariants built out of 
+\begin_inset Formula $\rep{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{\bar{3}}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Luhn:2007sy"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\boldsymbol{3}\otimes\bar{\boldsymbol{3}}:\quad I^{\left(2\right)} & = & x\bar{x}+y\bar{y}+z\bar{z}\\
+\boldsymbol{3}\otimes\boldsymbol{3}'\otimes\boldsymbol{3}'':\quad I_{1}^{\left(3\right)} & = & xy'z''+yz'x''+zx'y''\\
+\boldsymbol{3}\otimes\boldsymbol{3}'\otimes\bar{\boldsymbol{3}}:\quad I_{2}^{\left(3\right)} & = & xx'\bar{y}+yy'\bar{z}+zz'\bar{x}\\
+\boldsymbol{3}\otimes\boldsymbol{3}'\otimes3''\otimes\boldsymbol{3}''':\quad I_{1}^{\left(4\right)} & = & xx'x''z'''+yy'y''x'''+zz'z''y'''\\
+\boldsymbol{3}\otimes\boldsymbol{3}'\otimes3''\otimes\bar{\boldsymbol{3}}:\quad I_{2}^{\left(4\right)} & = & xx'y''\bar{z}+yy'z''\bar{x}+zz'x''\bar{y}\\
+\boldsymbol{3}\otimes\boldsymbol{3}'\otimes\bar{3}\otimes\bar{\boldsymbol{3}}':\quad I_{3}^{\left(4\right)} & = & xx'\bar{x}\bar{x}'+yy'\bar{y}\bar{y}'+zz'\bar{z}\bar{z}'\\
+\boldsymbol{3}\otimes\boldsymbol{3}'\otimes\bar{3}\otimes\bar{\boldsymbol{3}}':\quad I_{4}^{\left(4\right)} & = & xz'\bar{x}\bar{z}'+yx'\bar{y}\bar{x}'+zy'\bar{z}\bar{y}',
+\end{eqnarray*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $x,y,z$
+\end_inset
+
+ are the three components of the triplets and 
+\begin_inset Formula $\bar{x},\bar{y},\bar{z}$
+\end_inset
+
+ are their complex conjugate respectively.
+ By redistributing primes among different fields, one can obtain other possible
+ invariants.
+ In one field case, the invariants read 
+\begin_inset Formula 
+\begin{eqnarray*}
+I^{\left(2\right)} & = & \frac{1}{\sqrt{3}}\left(xx^{\dagger}+yy^{\dagger}+zz^{\dagger}\right)=\covt{\varphi\bar{\varphi}}{1},\\
+I_{1}^{\left(3\right)} & = & \sqrt{6}xyz=\covt{\varphi\varphi}{\bar{3}_{s}}\cdot\varphi,\\
+I_{2}^{\left(3\right)} & = & \frac{1}{\sqrt{3}}\left(x^{2}y^{\dagger}+y^{2}z^{\dagger}+z^{2}x^{\dagger}\right)=\covt{\varphi\varphi}{3_{s}}\cdot\bar{\varphi},\\
+I_{1}^{\left(4\right)} & = & \sqrt{\frac{2}{3}}\left(x^{3}z+y^{3}x+z^{3}y\right)=\covt{\varphi\varphi}{3}\cdot\covt{\varphi\varphi}{\bar{3}_{s}},\\
+I_{2}^{\left(4\right)} & = & \frac{1}{\sqrt{3}}\left(x^{2}yz^{\dagger}+y^{2}zx^{\dagger}+z^{2}xy^{\dagger}\right)=\covt{\varphi\varphi}{3}\cdot\covt{\varphi\bar{\varphi}}{\bar{3}},\\
+I_{3}^{\left(4\right)} & = & \frac{1}{\sqrt{3}}\left(x^{2}x^{\dagger2}+y^{2}y^{\dagger2}+z^{2}z^{\dagger2}\right)=\covt{\varphi\varphi}{3}\cdot\covt{\bar{\varphi}\bar{\varphi}}{\bar{3}},\\
+I_{4}^{\left(4\right)} & = & \frac{1}{\sqrt{3}}\left(xzx^{\dagger}z^{\dagger}+yxy^{\dagger}x^{\dagger}+zyz^{\dagger}y^{\dagger}\right)=\covt{\varphi\bar{\varphi}}{3}\cdot\covt{\varphi\bar{\varphi}}{\bar{3}},
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Quartic 
+\begin_inset Formula $\group$
+\end_inset
+
+ Invariants with 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\covp{S_{7}\bar{S}_{7}}{1}\cdot\covp{S_{7}\bar{S}_{7}}{1},\quad\covp{S_{7}\bar{S}_{7}}{6_{1}}\cdot\covp{S_{7}\bar{S}_{7}}{6_{1}},\quad\covp{S_{7}\bar{S}_{7}}{6_{2}}\cdot\covp{S_{7}\bar{S}_{7}}{6_{2}},\quad\quad\covp{S_{7}\bar{S}_{7}}{6_{1}}\cdot\covp{S_{7}\bar{S}_{7}}{6_{2}},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\covp{S_{7}\bar{S}_{7}}{7_{s}}\cdot\covp{S_{7}\bar{S}_{7}}{7_{s}}\quad\covp{S_{7}\bar{S}_{7}}{7_{a}}\cdot\covp{S_{7}\bar{S}_{7}}{7_{a}},\quad\covp{S_{7}\bar{S}_{7}}{7_{s}}\cdot\covp{S_{7}\bar{S}_{7}}{7_{a}}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\covp{S_{7}\bar{S}_{7}}{1}\cdot\covp{S_{7}\bar{S}_{7}}{1}=\frac{1}{7}\left(\bar{s}s+\bar{\phi}_{1}\phi_{1}+\bar{\phi}_{2}\phi_{2}+\bar{\phi}_{3}\phi_{3}+\bar{\chi}_{1}\chi_{1}+\bar{\chi}_{2}\chi_{2}+\bar{\chi}_{3}\chi_{3}\right)^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\covp{S_{7}\bar{S}_{7}}{6_{1}}\cdot\covp{S_{7}\bar{S}_{7}}{6_{1}}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Build-the-SMM"
+
+\end_inset
+
+Build the Special Majorana Matrix
+\end_layout
+
+\begin_layout Standard
+In the Appendix of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+, we showed that the linear combination 
+\begin_inset Formula 
+\begin{equation}
+\covt{{\bar{N}}\,{\bar{N}}}{3}\covt{\bar{\varphi}\bar{\varphi}'}{\bar{3}}-\covt{\bar{N}\,\bar{N}}{\bar{3}_{s}}\covt{\bar{\varphi}\bar{\varphi}'}{3_{s}}\label{eq:App-SMM-t7-operator}
+\end{equation}
+
+\end_inset
+
+ is the simpliest dimension-five 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ operator that is capable of producing the special Majorana matrix without
+ phase.
+ In this section, we shall show that 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:App-SMM-t7-operator"
+
+\end_inset
+
+ can also produce the special Majorana matrix with phases, 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}=\begin{pmatrix}e^{2i\left(\beta+\delta\right)}r\lambda^{16} & e^{i\left(2\beta+2\delta-\alpha\right)}r\lambda^{12} & e^{i\left(\beta+2\delta\right)}r\lambda^{8}\\
+e^{i\left(2\beta+2\delta-\alpha\right)}r\lambda^{12} & e^{2i\left(\beta-\alpha\right)}\lambda^{8} & -e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+e^{i\left(\beta+2\delta\right)}r\lambda^{8} & -e^{i\left(\beta-\alpha\right)}\lambda^{4} & 1
+\end{pmatrix}.\label{eq:App-inv0-smm}
+\end{equation}
+
+\end_inset
+
+Here, the right-handed neutrinos are 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ triplets 
+\begin_inset Formula $\left(N\sim\rep{3}\right)$
+\end_inset
+
+ and the familon fields are either triplets 
+\begin_inset Formula $\left(\varphi,\varphi^{\prime}\sim\rep{3}\right)$
+\end_inset
+
+ or antitriplets 
+\begin_inset Formula $\left(\bar{\varphi},\bar{\varphi}^{\prime}\sim\rep{\bar{3}}\right)$
+\end_inset
+
+.
+ As pointed out by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+, there are three types of invariants 
+\begin_inset Formula $NN\varphi\varphi^{\prime}$
+\end_inset
+
+, 
+\begin_inset Formula $NN\varphi\bar{\varphi}$
+\end_inset
+
+, and 
+\begin_inset Formula $NN\bar{\varphi}\bar{\varphi}^{\prime}$
+\end_inset
+
+ and only the last one can form a desired operator independent of 
+\begin_inset Formula $r\equiv m_{3}/m_{1}$
+\end_inset
+
+.
+ Therefore, we only need to focus on the 
+\begin_inset Formula $NN\bar{\varphi}\bar{\varphi}^{\prime}$
+\end_inset
+
+ type here.
+ 
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $NN\bar{\varphi}\bar{\varphi}^{\prime}$
+\end_inset
+
+ type invariants contain two linearly independent invariants:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{K}_{1}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)} & = & \covt{{N}\,{N}}{3}\covt{\bar{\varphi}\bar{\varphi}^{\prime}}{\bar{3}}\longrightarrow\frac{1}{\sqrt{3}}\begin{pmatrix}\bar{\varphi}_{1}\bar{\varphi}_{1}^{\prime} & 0 & 0\\
+0 & \bar{\varphi}_{2}\bar{\varphi}_{2}^{\prime} & 0\\
+0 & 0 & \bar{\varphi}_{3}\bar{\varphi}_{3}^{\prime}
+\end{pmatrix},\\
+\mathcal{K}_{2}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)} & = & \covt{{N}\,{\bar{\varphi}}}{3}\covt{N\bar{\varphi}^{\prime}}{\bar{3}}\longrightarrow\frac{1}{2\sqrt{3}}\begin{pmatrix}0 & \bar{\varphi}_{1}\bar{\varphi}_{2}^{\prime} & \bar{\varphi}_{3}\bar{\varphi}_{1}^{\prime}\\
+\bar{\varphi}_{1}\bar{\varphi}_{2}^{\prime} & 0 & \bar{\varphi}_{2}\bar{\varphi}_{3}^{\prime}\\
+\bar{\varphi}_{3}\bar{\varphi}_{1}^{\prime} & \bar{\varphi}_{2}\bar{\varphi}_{3}^{\prime} & 0
+\end{pmatrix}.
+\end{eqnarray*}
+
+\end_inset
+
+Hence, the general form of 
+\begin_inset Formula $NN\bar{\varphi}\bar{\varphi}^{\prime}$
+\end_inset
+
+ invariant is
+\begin_inset Formula 
+\begin{equation}
+\mathcal{K}=\mathcal{K}_{1}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)}+a\mathcal{K}_{2}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)}+b\mathcal{K}_{2}^{\left(\bar{\varphi}^{\prime},\bar{\varphi}\right)}.\label{eq:App-Inv3-K1}
+\end{equation}
+
+\end_inset
+
+We parametrize the familon vevs as
+\begin_inset Formula 
+\[
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{m}\\
+\bar{\beta}\lambda^{n}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{m^{\prime}}\\
+\bar{\beta}^{\prime}\lambda^{n^{\prime}}\\
+1
+\end{pmatrix}.
+\]
+
+\end_inset
+
+To match the power of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ in the special Majorana matrix, it must have 
+\begin_inset Formula $m=m^{\prime}=8,n=n^{\prime}=4$
+\end_inset
+
+.
+ Feeding the familon vevs into 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ yields 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \mathcal{K}\right\rangle \sim\begin{pmatrix}\bar{\alpha}\bar{\alpha}'\lambda^{16} & \frac{1}{2}\left(b\bar{\alpha}'\bar{\beta}+a\bar{\alpha}\bar{\beta}'\right)\lambda^{12} & \frac{1}{2}\left(b\bar{\alpha}+a\bar{\alpha}'\right)\lambda^{8}\\
+\frac{1}{2}\left(b\bar{\alpha}'\bar{\beta}+a\bar{\alpha}\bar{\beta}'\right)\lambda^{12} & \bar{\beta}\bar{\beta}'\lambda^{8} & \frac{1}{2}\left(a\bar{\beta}+b\bar{\beta}'\right)\lambda^{4}\\
+\frac{1}{2}\left(b\bar{\alpha}+a\bar{\alpha}'\right)\lambda^{8} & \frac{1}{2}\left(a\bar{\beta}+b\bar{\beta}'\right)\lambda^{4} & 1
+\end{pmatrix}\label{eq:App-Inv3-K-vev}
+\end{equation}
+
+\end_inset
+
+Comparing the prefactors between 
+\begin_inset Formula $\left\langle \mathcal{K}\right\rangle $
+\end_inset
+
+ and the special Majorana matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:App-inv0-smm"
+
+\end_inset
+
+, we obtain the following equations
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\bar{\alpha}\bar{\alpha}' & =e^{2i\left(\beta+\delta\right)}r\\
+a\bar{\alpha}\bar{\beta}'+b\bar{\alpha}'\bar{\beta} & =2e^{i\left(2\beta+2\delta-\alpha\right)}r\\
+b\bar{\alpha}+a\bar{\alpha}' & =2e^{i\left(\beta+2\delta\right)}r\\
+\bar{\beta}\bar{\beta}' & =e^{2i\left(\beta-\alpha\right)}\\
+a\bar{\beta}+b\bar{\beta}' & =-2e^{i\left(\beta-\alpha\right)}
+\end{cases}\label{eq:App-Inv3-eqs1}
+\end{equation}
+
+\end_inset
+
+If considering them as equations about 
+\begin_inset Formula $\bar{\alpha},\bar{\alpha}^{\prime},\bar{\beta},\bar{\beta}^{\prime}$
+\end_inset
+
+, we have five equations with only four variables.
+ In general, there is no solution unless some of the equations are dependent.
+ The only way to make them solvable is to make the second and third equation
+ of Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:App-Inv3-eqs1"
+
+\end_inset
+
+ equivalent,
+\begin_inset Formula 
+\begin{eqnarray*}
+e^{i\left(\alpha-\beta\right)}a\bar{\beta}^{\prime}=b & \Rightarrow & \bar{\beta}^{\prime}=\frac{b}{a}e^{i\left(\beta-\alpha\right)},\\
+e^{i\left(\alpha-\beta\right)}b\bar{\beta}=a & \Rightarrow & \bar{\beta}=\frac{a}{b}e^{i\left(\beta-\alpha\right)}.
+\end{eqnarray*}
+
+\end_inset
+
+ Then the equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:App-Inv3-eqs1"
+
+\end_inset
+
+ become
+\begin_inset Formula 
+\[
+\begin{cases}
+\bar{\alpha}\bar{\alpha}' & =e^{2i\left(\beta+\delta\right)}r\\
+b\bar{\alpha}+a\bar{\alpha}^{\prime} & =2e^{i\left(\beta+2\delta\right)}r\\
+\frac{a^{2}}{b}+\frac{b^{2}}{a} & =-2
+\end{cases}
+\]
+
+\end_inset
+
+ These equations can be solved with a free parameter 
+\begin_inset Formula $k$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{equation}
+a=-\frac{2}{k^{2}+\frac{1}{k}},\quad b=-\frac{2k}{k^{2}+\frac{1}{k}},
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\bar{\alpha}\bar{\alpha}^{\prime}=re^{2i\left(\beta+\delta\right)},\quad k\bar{\alpha}+\bar{\alpha}^{\prime}=-r\left(k^{2}+\frac{1}{k}\right)e^{i\left(\beta+2\delta\right)}.
+\end{equation}
+
+\end_inset
+
+This solution gives the familon vevs
+\begin_inset Formula 
+\begin{equation}
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+\frac{1}{k}e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+ke^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix}.
+\end{equation}
+
+\end_inset
+
+For the special case of 
+\begin_inset Formula $k=1$
+\end_inset
+
+, we have 
+\begin_inset Formula $A=B=-1$
+\end_inset
+
+ and
+\begin_inset Formula 
+\begin{equation}
+\mathcal{K}=\mathcal{K}_{1}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)}-\mathcal{K}_{2}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)}-\mathcal{K}_{2}^{\left(\bar{\varphi}^{\prime},\bar{\varphi}\right)},\label{eq:App-Inv3-K2}
+\end{equation}
+
+\end_inset
+
+ which is just the matrix generated by the linear combination in the main
+ text
+\begin_inset Formula 
+\begin{equation}
+\covt{{\bar{N}}\,{\bar{N}}}{3}\covt{\bar{\varphi}\bar{\varphi}'}{\bar{3}}-\covt{\bar{N}\,\bar{N}}{\bar{3}_{s}}\covt{\bar{\varphi}\bar{\varphi}'}{3_{s}},\label{eq:App-Inv3-Linear-Comb}
+\end{equation}
+
+\end_inset
+
+ and the corresponding familon vevs are 
+\begin_inset Formula 
+\[
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix},
+\]
+
+\end_inset
+
+ with 
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{\alpha}\bar{\alpha}^{\prime} & = & re^{2i\left(\beta+\delta\right)},\\
+\bar{\alpha}+\bar{\alpha}^{\prime} & = & -2re^{i\left(\beta+2\delta\right)}.
+\end{eqnarray*}
+
+\end_inset
+
+If 
+\begin_inset Formula $\delta=0$
+\end_inset
+
+, 
+\begin_inset Formula $\beta=\alpha=\pi$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},
+\]
+
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\alpha}\bar{\alpha}^{\prime}=\frac{1}{2}\left(\bar{\alpha}+\bar{\alpha}^{\prime}\right)=r$
+\end_inset
+
+, from which it follows that 
+\begin_inset Formula $\bar{\alpha}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\alpha}^{\prime}$
+\end_inset
+
+ are positive.
+ 
+\end_layout
+
+\begin_layout Section
+Numerical study of 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section, we study possible form of 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ numerically.
+ It follows from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro-PMNS-definition"
+
+\end_inset
+
+ that
+\begin_inset Formula 
+\[
+\mathcal{U}_{-1}=\left(\mathcal{U}_{\mathrm{seesaw}}^{\dagger}\right)^{-1}\mathcal{U}_{\mathrm{PMNS}}^{\dagger}.
+\]
+
+\end_inset
+
+Given mixing angles of PMNS, 
+\begin_inset Formula $\theta_{ij}$
+\end_inset
+
+, in 
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ range, we can obtain the range of 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ matrix.
+ The global fit value of 
+\begin_inset Formula $\theta_{ij}$
+\end_inset
+
+ are 
+\begin_inset Formula 
+\begin{equation}
+\theta_{23}=40.7^{\circ},\quad\theta_{13}=8.8^{\circ},\quad\theta_{12}=33.7^{\circ}.\label{eq:global-fit-values}
+\end{equation}
+
+\end_inset
+
+But the quadrant of these angles are undetermined and difference settings
+ of quadrant amount to different 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+.
+ We want to obtain a 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ whose leading order is 
+\begin_inset Formula $\mathrm{diag}\left(1,1,1\right)$
+\end_inset
+
+.
+ There are two quadrant settings capable of producing such 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ in fourth quadrant, 
+\begin_inset Formula $\theta_{13}$
+\end_inset
+
+ in first quadrant, and 
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ in fourth quadrant, denoted as 
+\begin_inset Formula $\left(414\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ in fourth quadrant, 
+\begin_inset Formula $\theta_{13}$
+\end_inset
+
+ in fourth quadrant, and 
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ in fourth quadrant, denoted as 
+\begin_inset Formula $\left(444\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\left(414\right)$
+\end_inset
+
+ case with 
+\begin_inset Formula $\delta_{CP}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Parameterize 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{-1}=\mathrm{diag}\left(1,1,1\right)+\lambda\Delta U.\label{eq:Delta-U-Def}
+\end{equation}
+
+\end_inset
+
+Plugging the 0
+\begin_inset Formula $\sigma$
+\end_inset
+
+ global fit values of 
+\begin_inset Formula $\theta_{12}$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{13}$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ with 
+\begin_inset Formula $\left(414\right)$
+\end_inset
+
+ configuration and 
+\begin_inset Formula $\lambda=0.227$
+\end_inset
+
+, we find
+\begin_inset Formula 
+\[
+\Delta U_{0}=\begin{pmatrix}-0.0535 & 0.348 & -0.589\\
+-0.393 & -0.0287 & -0.313\\
+0.561 & 0.362 & -0.0508
+\end{pmatrix}.
+\]
+
+\end_inset
+
+ Approximately, 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta U & \approx & \Delta U_{0}+\Delta\theta_{23}\begin{pmatrix}0 & 0.0103 & 0.00608\\
+0 & 0.00547 & 0.0764\\
+0 & -0.076 & 0.00631
+\end{pmatrix}\\
+ &  & +\Delta\theta_{13}\begin{pmatrix}-0.0118 & 0.0495 & -0.0576\\
+-0.054 & -0.00447 & 0.00519\\
+0.0535 & 0.00638 & -0.00742
+\end{pmatrix}\\
+ &  & +\Delta\theta_{12}\begin{pmatrix}0.00207 & 0.0585 & 0.0499\\
+-0.0537 & -0.0043 & 0.00727\\
+-0.0537 & -0.0043 & 0.00727
+\end{pmatrix},
+\end{eqnarray*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\Delta\theta$
+\end_inset
+
+s are in units of degree.
+ In 
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ range
+\begin_inset Formula 
+\begin{eqnarray*}
+32.6 & < & \theta_{12}<34.8,\quad-1.1<\Delta\theta_{12}<1.1\\
+8.45 & < & \theta_{13}<9.21,\quad-0.38<\Delta\theta_{13}<0.38\\
+39.1 & < & \theta_{23}<42.4,\quad-1.65<\Delta\theta_{23}<1.65
+\end{eqnarray*}
+
+\end_inset
+
+ we obtain 
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}-0.0615 & 0.249 & -0.676\\
+-0.474 & -0.0462 & -0.445\\
+0.483 & 0.225 & -0.0746
+\end{pmatrix}<\Delta U<\begin{pmatrix}-0.048 & 0.449 & -0.502\\
+-0.315 & -0.0155 & -0.173\\
+0.642 & 0.49 & -0.0323
+\end{pmatrix}.\label{eq:DeltaU-1sigma-414}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset Formula $3\sigma$
+\end_inset
+
+ range,
+\begin_inset Formula 
+\begin{eqnarray*}
+30.6 & < & \theta_{12}<36.8\\
+7.65 & < & \theta_{13}<9.89\\
+37.7 & < & \theta_{23}<52.3
+\end{eqnarray*}
+
+\end_inset
+
+ we obtain 
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}-0.067 & 0.0726 & -0.816\\
+-0.617 & -0.0844 & -0.571\\
+0.33 & -0.547 & -0.0988
+\end{pmatrix}<\Delta U<\begin{pmatrix}-0.0389 & 0.671 & -0.264\\
+-0.162 & -0.00298 & 0.596\\
+0.785 & 0.607 & -0.0124
+\end{pmatrix}.\label{eq:DeltaU-3sigma-414}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\left(414\right)$
+\end_inset
+
+ case with 
+\begin_inset Formula $\delta_{CP}=\frac{3\pi}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta U_{0}=\begin{pmatrix}-0.0535 & -0.0912+0.439i & -0.0784-0.512i\\
+0.0840+0.477i & -0.0372+0.00848i & -0.303-0.00986i\\
+0.0840-0.477i & 0.353+0.00848i & -0.0410-0.00986i
+\end{pmatrix}.
+\]
+
+\end_inset
+
+ Approximately
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta U & \approx & \Delta U_{0}+\Delta\theta_{23}\begin{pmatrix}0 & 0.00137+0.00891i & -0.00159+0.00767i\\
+0 & 0.00529+0.000172i & 0.0762+0.000148i\\
+0 & -0.0762+0.000172i & 0.00617+0.000148i
+\end{pmatrix}\\
+ &  & +\Delta\theta_{13}\begin{pmatrix}-0.0118 & 0.0495i & -0.0576i\\
+-0.000227+0.0537i & -0.00542+0.000956i & 0.00631-0.00111i\\
+-0.000227-0.0537i & 0.00542+0.000956i & -0.00631-0.00111i
+\end{pmatrix}\\
+ &  & +\Delta\theta_{12}\begin{pmatrix}0.00207 & 0.0583+0.000209i & 0.0501-0.000243i\\
+-0.0537 & 0.00113-0.00542i & 0.000968+0.00630i\\
+-0.0537 & 0.00113-0.00542i & 0.000968+0.00630i
+\end{pmatrix}.
+\end{eqnarray*}
+
+\end_inset
+
+ In 
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ range,
+\begin_inset Formula 
+\[
+\begin{pmatrix}-0.0615 & -0.159 & -0.138\\
+0.0249 & -0.0513 & -0.429\\
+0.0249 & 0.220 & -0.0566
+\end{pmatrix}<\Re\left(\Delta U\right)<\begin{pmatrix}-0.0480 & -0.0264 & -0.0225\\
+0.143 & -0.0274 & -0.170\\
+0.143 & 0.478 & -0.0296
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{pmatrix}0 & 0.408 & -0.547\\
+0.458 & 0.00234 & -0.0180\\
+-0.499 & 0.00234 & -0.0180
+\end{pmatrix}<\Im\left(\Delta U\right)<\begin{pmatrix}0. & 0.475 & -0.478\\
+0.499 & 0.0156 & -0.00274\\
+-0.458 & 0.0156 & -0.00274
+\end{pmatrix}
+\]
+
+\end_inset
+
+ In 
+\begin_inset Formula $3\sigma$
+\end_inset
+
+ range,
+\begin_inset Formula 
+\[
+\begin{pmatrix}-0.0670 & -0.283 & -0.283\\
+-0.0827 & -0.0786 & -0.539\\
+-0.0827 & -0.544 & -0.0722
+\end{pmatrix}<\Re\left(\Delta U\right)<\begin{pmatrix}-0.0389 & 0.0934 & 0.0934\\
+0.251 & -0.0194 & 0.588\\
+0.251 & 0.588 & -0.0194
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{pmatrix}0. & 0.356041 & -0.599\\
+0.413 & -0.0113 & -0.0344\\
+-0.535 & -0.0113 & -0.0344
+\end{pmatrix}<\Im\left(\Delta U\right)<\begin{pmatrix}0. & 0.599 & -0.356\\
+0.535 & 0.0344 & 0.0113\\
+-0.413 & 0.0344 & 0.0113
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\left(444\right)$
+\end_inset
+
+ case with 
+\begin_inset Formula $\delta_{CP}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Likewise, for 
+\begin_inset Formula $\left(444\right)$
+\end_inset
+
+ case, we obtain 
+\begin_inset Formula 
+\[
+\Delta U_{0}=\begin{pmatrix}-0.0535 & -0.53 & 0.432\\
+0.561 & -0.0457 & -0.293\\
+-0.393 & 0.345 & -0.0311
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Approximately 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta U & \approx & \Delta U_{0}+\Delta\theta_{23}\begin{pmatrix}0 & -0.00755 & -0.00926\\
+0 & 0.00512 & 0.0761\\
+0 & -0.0763 & 0.00602
+\end{pmatrix}\\
+ &  & +\Delta\theta_{13}\begin{pmatrix}-0.0118 & -0.0495 & 0.0576\\
+0.0535 & -0.00638 & 0.00742\\
+-0.054 & 0.00447 & -0.00519
+\end{pmatrix}\\
+ &  & +\Delta\theta_{12}\begin{pmatrix}0.00207 & 0.0581 & 0.0504\\
+-0.0537 & 0.00655 & -0.00534\\
+-0.0537 & 0.00655 & -0.00534
+\end{pmatrix}.
+\end{eqnarray*}
+
+\end_inset
+
+ In 1
+\begin_inset Formula $\sigma$
+\end_inset
+
+ range, 
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}-0.0615 & -0.626 & 0.339\\
+0.483 & -0.0659 & -0.424\\
+-0.474 & 0.206 & -0.0514
+\end{pmatrix}<\Delta U<\begin{pmatrix}-0.048 & -0.436 & 0.525\\
+0.642 & -0.0299 & -0.155\\
+-0.315 & 0.476 & -0.0161
+\end{pmatrix}.\label{eq:DeltaU-1sigma-444}
+\end{equation}
+
+\end_inset
+
+ In 3
+\begin_inset Formula $\sigma$
+\end_inset
+
+ range, 
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}-0.067 & -0.816 & 0.0726\\
+0.33 & -0.113 & -0.547\\
+-0.617 & -0.571 & -0.0737
+\end{pmatrix}<\Delta U<\begin{pmatrix}-0.0389 & -0.264 & 0.671\\
+0.785 & -0.0124 & 0.607\\
+-0.162 & 0.596 & -0.00298
+\end{pmatrix}.\label{eq:DeltaU-3sigma-444}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\left(444\right)$
+\end_inset
+
+ case with 
+\begin_inset Formula $\delta_{CP}=\frac{3\pi}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta U_{0}=\begin{pmatrix}-0.05348 & -0.0912-0.439i & -0.0784+0.511i\\
+0.0840-0.477i & -0.0372-0.00848i & -0.303+0.00986i\\
+0.0840+0.477i & 0.353-0.00848i & -0.0410+0.00986i
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta U & \approx & \Delta U_{0}+\Delta\theta_{23}\begin{pmatrix}0 & 0.00137-0.00891i & -0.00159-0.00767i\\
+0 & 0.00529-0.000172i & 0.0762-0.000148i\\
+0 & -0.0762-0.000172i & 0.00617-0.000148i
+\end{pmatrix}\\
+ &  & +\Delta\theta_{13}\begin{pmatrix}-0.01176 & -0.0495i & 0.0576i\\
+-0.000227-0.0537i & -0.00542-0.000956i & 0.00631+0.00111i\\
+-0.000227+0.0537i & 0.00542-0.000956i & -0.00631+0.00111i
+\end{pmatrix}\\
+ &  & +\Delta\theta_{12}\begin{pmatrix}0.00207 & 0.0583-0.000209i & 0.0501+0.000243i\\
+-0.0537 & 0.00113+0.00542i & 0.000968-0.00630i\\
+-0.0537 & 0.00113+0.00542i & 0.000968-0.00630i
+\end{pmatrix}.
+\end{eqnarray*}
+
+\end_inset
+
+In 
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ range,
+\begin_inset Formula 
+\[
+\begin{pmatrix}-0.0615 & -0.159 & -0.138\\
+0.0249 & -0.0513 & -0.429\\
+0.0249 & 0.220 & -0.0566
+\end{pmatrix}<\Re\left(\Delta U\right)<\begin{pmatrix}-0.0478 & -0.0264 & -0.0225\\
+0.143 & -0.0274 & -0.170\\
+0.143 & 0.478 & -0.0296
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{pmatrix}0. & -0.475 & 0.478\\
+-0.499 & -0.0156 & 0.00274\\
+0.458 & -0.0156 & 0.00274
+\end{pmatrix}<\Im\left(\Delta U\right)<\begin{pmatrix}0. & -0.408 & 0.547158\\
+-0.458 & -0.00234 & 0.0180\\
+0.499 & -0.00234 & 0.0180
+\end{pmatrix}
+\]
+
+\end_inset
+
+ In 
+\begin_inset Formula $3\sigma$
+\end_inset
+
+ range,
+\begin_inset Formula 
+\[
+\begin{pmatrix}-0.0670 & -0.283 & -0.283\\
+-0.0827 & -0.0786 & -0.539\\
+-0.0827 & -0.5443 & -0.0722
+\end{pmatrix}<\Re\left(\Delta U\right)<\begin{pmatrix}-0.0389 & 0.0934 & 0.0934\\
+0.251 & -0.0194 & 0.588\\
+0.251 & 0.588 & -0.0194
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{pmatrix}0. & -0.598671 & 0.356\\
+-0.535 & -0.0344 & -0.0113\\
+0.413 & -0.0344 & -0.0113
+\end{pmatrix}<\Im\left(\Delta U\right)<\begin{pmatrix}0. & -0.356 & 0.599\\
+-0.413 & 0.0113 & 0.0344\\
+0.535 & 0.0113 & 0.0344
+\end{pmatrix}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection*
+1
+\begin_inset Formula $\sigma$
+\end_inset
+
+ Solution
+\end_layout
+
+\begin_layout Standard
+There are 1
+\begin_inset Formula $\sigma$
+\end_inset
+
+ solutions shown as follows.
+ In the following examples, we use 
+\begin_inset Formula $A=0.77$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+(seesaw) TBM mixing, 
+\begin_inset Formula $\left(++\right)$
+\end_inset
+
+, and 
+\begin_inset Formula $\beta_{12}=348.65^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{13}=351.83^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{23}=1.39^{\circ}$
+\end_inset
+
+, with two GJ factor in the (22) and (32) element of 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+, yields,
+\begin_inset Formula 
+\[
+\theta_{23}=40.8^{\circ},\quad\theta_{13}=8.5^{\circ},\quad\theta_{12}=32.6^{\circ},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{m_{e}}{m_{\mu}}=0.0048,\quad\frac{m_{\mu}}{m_{\tau}}=0.0491,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{U}_{-1}=\begin{pmatrix}0.988 & 0.0609 & -0.142\\
+-0.0717 & 0.995 & -0.072+0.0000119i\\
+0.137 & 0.0813+0.0000128i & 0.987
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta U=\begin{pmatrix}-0.0528 & 0.268+0.0000256i & -0.625\\
+-0.316+0.0000332i & -0.0228 & -0.317+0.0000522i\\
+0.602 & 0.358+0.0000564i & -0.056
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+(seesaw) TBM mixing, 
+\begin_inset Formula $\left(++\right)$
+\end_inset
+
+, and 
+\begin_inset Formula $\beta_{12}=169.7^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{13}=354.0^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{23}=176.5^{\circ}$
+\end_inset
+
+, with two GJ factor in the (21) and (22) element of 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+, yields,
+\begin_inset Formula 
+\[
+\theta_{23}=41.3^{\circ},\quad\theta_{13}=8.7^{\circ},\quad\theta_{12}=34.4^{\circ},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{m_{e}}{m_{\mu}}=0.00498,\quad\frac{m_{\mu}}{m_{\tau}}=0.0591,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{U}_{-1}=\begin{pmatrix}0.988 & -0.111 & 0.104\\
+0.117 & 0.991 & -0.058-0.0000119i\\
+-0.0971 & 0.0696-0.0000118i & 0.993
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta U=\begin{pmatrix}-0.0514 & -0.489 & 0.46\\
+0.517 & -0.0379 & -0.256-0.0000525i\\
+-0.428 & 0.307-0.0000521i & -0.0315
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+TBM with Quadrants
+\end_layout
+
+\begin_layout Standard
+The quandrants of angles in TBM matrix is not determined.
+ In this section, we show how the TBM with different quandrants are related
+ to each other.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{TBM}=\begin{pmatrix}1 & 0 & 0\\
+0 & c_{23} & -s_{23}\\
+0 & s_{23} & c_{23}
+\end{pmatrix}\begin{pmatrix}c_{13} & 0 & -s_{13}e^{-i\delta}\\
+0 & 1 & -s_{23}\\
+s_{13}e^{i\delta} & 0 & c_{13}
+\end{pmatrix}\begin{pmatrix}c_{12} & -s_{12} & 0\\
+s_{12} & c_{12} & 0\\
+0 & 0 & 1
+\end{pmatrix},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $s_{ij}=\sin\eta_{ij},\, c_{ij}=\cos\eta_{ij}$
+\end_inset
+
+, with 
+\begin_inset Formula $\eta_{23}=\pi/4$
+\end_inset
+
+, 
+\begin_inset Formula $\eta_{13}=0$
+\end_inset
+
+, and 
+\begin_inset Formula $\eta_{12}=\arcsin\frac{1}{\sqrt{3}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the following expressions, 
+\begin_inset Formula $\left(21\right)$
+\end_inset
+
+ denotes the quadrants of 
+\begin_inset Formula $\left(\eta_{23}\eta_{12}\right)$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\left(33\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(23\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(43\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(13\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(42\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(12\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(32\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(22\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(34\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(24\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(44\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(14\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(41\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(11\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(31\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(21\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Quadrants of 
+\begin_inset Formula $\theta_{ij}$
+\end_inset
+
+ and leading term of 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we show how the leading term of 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ changes as quadrants of 
+\begin_inset Formula $\theta_{ij}$
+\end_inset
+
+ change.
+ We define 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+\mathcal{U}_{-1}=\left(\mathcal{U}_{\mathrm{seesaw}}^{\dagger}\right)^{-1}\mathcal{U}_{\mathrm{MNSP}}^{\dagger}
+\]
+
+\end_inset
+
+ where
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{U}_{\mathrm{seesaw}} & = & \mathcal{U}_{\mathrm{TBM}}=\begin{pmatrix}\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix},\\
+\mathcal{U}_{\mathrm{MNSP}} & = & \begin{pmatrix}1 & 0 & 0\\
+0 & c_{23} & -s_{23}\\
+0 & s_{23} & c_{23}
+\end{pmatrix}\begin{pmatrix}c_{13} & 0 & -s_{13}e^{-i\delta}\\
+0 & 1 & -s_{23}\\
+s_{13}e^{i\delta} & 0 & c_{13}
+\end{pmatrix}\begin{pmatrix}c_{12} & -s_{12} & 0\\
+s_{12} & c_{12} & 0\\
+0 & 0 & 1
+\end{pmatrix},
+\end{eqnarray*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $s_{ij}=\sin\eta_{ij},\, c_{ij}=\cos\eta_{ij}$
+\end_inset
+
+.
+ In 
+\begin_inset Formula $0\sigma$
+\end_inset
+
+ level, 
+\begin_inset Formula $\theta_{23}=45.8\textdegree$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{13}=8.5\textdegree$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{12}=33.5\textdegree$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\theta_{ij}$
+\end_inset
+
+ in different quadrants, 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ is different.
+ In the following expressions, we choose 
+\begin_inset Formula $\lambda=0.225$
+\end_inset
+
+ and denote the quadrants of 
+\begin_inset Formula $\left(\theta_{23}\theta_{13}\theta_{12}\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $\left(n_{23}n_{13}n_{12}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $n_{ij}$
+\end_inset
+
+ are numbers from 1 to 4 representing first quadrant to fourth quadrant
+ respectively.
+ The 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ matrices for different quadrants setting are as follow.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(112\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.565 & 0.359\\
+-0.559 & 0.0364 & 0.0948\\
+0.368 & 0.0485 & -0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(114\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & -1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.565 & -0.359\\
+-0.368 & -0.0485 & 0.0156\\
+0.559 & -0.0364 & -0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(122\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & 1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.565 & 0.359\\
+-0.368 & 0.0485 & -0.0156\\
+0.559 & 0.0364 & 0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(124\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.565 & -0.359\\
+-0.559 & -0.0364 & -0.0948\\
+0.368 & -0.0485 & 0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(132\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & 1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.375 & -0.555\\
+0.559 & 0.028 & -0.0355\\
+-0.368 & 0.0159 & 0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(134\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.375 & 0.555\\
+0.368 & -0.0159 & -0.0749\\
+-0.559 & -0.028 & 0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(142\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.375 & -0.555\\
+0.368 & 0.0159 & 0.0749\\
+-0.559 & 0.028 & -0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(144\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & -1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.375 & 0.555\\
+0.559 & -0.028 & 0.0355\\
+-0.368 & -0.0159 & -0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(212\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.375 & -0.555\\
+-0.559 & -0.028 & -0.0355\\
+0.368 & -0.0159 & 0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(214\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.375 & 0.555\\
+-0.368 & 0.0159 & -0.0749\\
+0.559 & 0.028 & 0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(222\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.375 & -0.555\\
+-0.368 & -0.0159 & 0.0749\\
+0.559 & -0.028 & -0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(224\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & -1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.375 & 0.555\\
+-0.559 & 0.028 & 0.0355\\
+0.368 & 0.0159 & -0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(232\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.565 & 0.359\\
+0.559 & -0.0364 & 0.0948\\
+-0.368 & -0.0485 & -0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(234\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & -1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.565 & -0.359\\
+0.368 & 0.0485 & 0.0156\\
+-0.559 & 0.0364 & -0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(242\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.565 & 0.359\\
+0.368 & -0.0485 & -0.0156\\
+-0.559 & -0.0364 & 0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(244\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.565 & -0.359\\
+0.559 & 0.0364 & -0.0948\\
+-0.368 & 0.0485 & 0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(312\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.565 & -0.359\\
+-0.559 & -0.0364 & -0.0948\\
+0.368 & -0.0485 & 0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(314\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & 1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.565 & 0.359\\
+-0.368 & 0.0485 & -0.0156\\
+0.559 & 0.0364 & 0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(322\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & -1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.565 & -0.359\\
+-0.368 & -0.0485 & 0.0156\\
+0.559 & -0.0364 & -0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(324\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.565 & 0.359\\
+-0.559 & 0.0364 & 0.0948\\
+0.368 & 0.0485 & -0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(332\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & -1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.375 & 0.555\\
+0.559 & -0.028 & 0.0355\\
+-0.368 & -0.0159 & -0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(334\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.375 & -0.555\\
+0.368 & 0.0159 & 0.0749\\
+-0.559 & 0.028 & -0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(342\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.375 & 0.555\\
+0.368 & -0.0159 & -0.0749\\
+-0.559 & -0.028 & 0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(344\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & 1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.375 & -0.555\\
+0.559 & 0.028 & -0.0355\\
+-0.368 & 0.0159 & 0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(412\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & -1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.375 & 0.555\\
+-0.559 & 0.028 & 0.0355\\
+0.368 & 0.0159 & -0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(414\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.375 & -0.555\\
+-0.368 & -0.0159 & 0.0749\\
+0.559 & -0.028 & -0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(422\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.375 & 0.555\\
+-0.368 & 0.0159 & -0.0749\\
+0.559 & 0.028 & 0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(424\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.375 & -0.555\\
+-0.559 & -0.028 & -0.0355\\
+0.368 & -0.0159 & 0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(432\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.565 & -0.359\\
+0.559 & 0.0364 & -0.0948\\
+-0.368 & 0.0485 & 0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(434\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.565 & 0.359\\
+0.368 & -0.0485 & -0.0156\\
+-0.559 & -0.0364 & 0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(442\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & -1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.565 & -0.359\\
+0.368 & 0.0485 & 0.0156\\
+-0.559 & 0.0364 & -0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(444\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.565 & 0.359\\
+0.559 & -0.0364 & 0.0948\\
+-0.368 & -0.0485 & -0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The rest quadrant configurations: 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(111\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & 2\\
+2 & -1 & -2\\
+2 & 2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.0956 & -0.159\\
+-0.529 & -0.263 & -0.321\\
+0.398 & -0.251 & -0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(113\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & -2\\
+-2 & -2 & -1\\
+-2 & 1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.0956 & 0.159\\
+-0.398 & 0.251 & 0.432\\
+0.529 & 0.263 & 0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(121\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & 2\\
+-2 & 2 & 1\\
+-2 & -1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.0956 & -0.159\\
+-0.398 & -0.251 & -0.432\\
+0.529 & -0.263 & -0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(123\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & -2\\
+2 & 1 & 2\\
+2 & -2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.0956 & 0.159\\
+-0.529 & 0.263 & 0.321\\
+0.398 & 0.251 & 0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(131\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & 2\\
+-2 & 2 & 1\\
+-2 & -1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.245 & 0.173\\
+0.529 & 0.369 & 0.171\\
+-0.398 & 0.357 & 0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(133\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & -2\\
+2 & 1 & 2\\
+2 & -2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.245 & -0.173\\
+0.398 & -0.357 & -0.281\\
+-0.529 & -0.369 & -0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(141\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & 2\\
+2 & -1 & -2\\
+2 & 2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.245 & 0.173\\
+0.398 & 0.357 & 0.281\\
+-0.529 & 0.369 & 0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(143\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & -2\\
+-2 & -2 & -1\\
+-2 & 1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.245 & -0.173\\
+0.529 & -0.369 & -0.171\\
+-0.398 & -0.357 & -0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(211\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & 2\\
+2 & -2 & 1\\
+2 & 1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.245 & 0.173\\
+-0.529 & -0.369 & 0.171\\
+0.398 & -0.357 & 0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(213\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & -2\\
+-2 & -1 & 2\\
+-2 & 2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.245 & -0.173\\
+-0.398 & 0.357 & -0.281\\
+0.529 & 0.369 & -0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(221\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & 2\\
+-2 & 1 & -2\\
+-2 & -2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.245 & 0.173\\
+-0.398 & -0.357 & 0.281\\
+0.529 & -0.369 & 0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(223\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & -2\\
+2 & 2 & -1\\
+2 & -1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.245 & -0.173\\
+-0.529 & 0.369 & -0.171\\
+0.398 & 0.357 & -0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(231\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & 2\\
+-2 & 1 & -2\\
+-2 & -2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.0956 & -0.159\\
+0.529 & 0.263 & -0.321\\
+-0.398 & 0.251 & -0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(233\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & -2\\
+2 & 2 & -1\\
+2 & -1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.0956 & 0.159\\
+0.398 & -0.251 & 0.432\\
+-0.529 & -0.263 & 0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(241\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & 2\\
+2 & -2 & 1\\
+2 & 1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.0956 & -0.159\\
+0.398 & 0.251 & -0.432\\
+-0.529 & 0.263 & -0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(243\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & -2\\
+-2 & -1 & 2\\
+-2 & 2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.0956 & 0.159\\
+0.529 & -0.263 & 0.321\\
+-0.398 & -0.251 & 0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(311\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & -2\\
+2 & 1 & 2\\
+2 & -2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.0956 & 0.159\\
+-0.529 & 0.263 & 0.321\\
+0.398 & 0.251 & 0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(313\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & 2\\
+-2 & 2 & 1\\
+-2 & -1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.0956 & -0.159\\
+-0.398 & -0.251 & -0.432\\
+0.529 & -0.263 & -0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(321\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & -2\\
+-2 & -2 & -1\\
+-2 & 1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.0956 & 0.159\\
+-0.398 & 0.251 & 0.432\\
+0.529 & 0.263 & 0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(323\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & 2\\
+2 & -1 & -2\\
+2 & 2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.0956 & -0.159\\
+-0.529 & -0.263 & -0.321\\
+0.398 & -0.251 & -0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(331\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & -2\\
+-2 & -2 & -1\\
+-2 & 1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.245 & -0.173\\
+0.529 & -0.369 & -0.171\\
+-0.398 & -0.357 & -0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(333\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & 2\\
+2 & -1 & -2\\
+2 & 2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.245 & 0.173\\
+0.398 & 0.357 & 0.281\\
+-0.529 & 0.369 & 0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(341\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & -2\\
+2 & 1 & 2\\
+2 & -2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.245 & -0.173\\
+0.398 & -0.357 & -0.281\\
+-0.529 & -0.369 & -0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(343\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & 2\\
+-2 & 2 & 1\\
+-2 & -1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.245 & 0.173\\
+0.529 & 0.369 & 0.171\\
+-0.398 & 0.357 & 0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(411\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & -2\\
+2 & 2 & -1\\
+2 & -1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.245 & -0.173\\
+-0.529 & 0.369 & -0.171\\
+0.398 & 0.357 & -0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(413\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & 2\\
+-2 & 1 & -2\\
+-2 & -2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.245 & 0.173\\
+-0.398 & -0.357 & 0.281\\
+0.529 & -0.369 & 0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(421\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & -2\\
+-2 & -1 & 2\\
+-2 & 2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.245 & -0.173\\
+-0.398 & 0.357 & -0.281\\
+0.529 & 0.369 & -0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(423\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & 2\\
+2 & -2 & 1\\
+2 & 1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.245 & 0.173\\
+-0.529 & -0.369 & 0.171\\
+0.398 & -0.357 & 0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(431\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & -2\\
+-2 & -1 & 2\\
+-2 & 2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.0956 & 0.159\\
+0.529 & -0.263 & 0.321\\
+-0.398 & -0.251 & 0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(433\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & 2\\
+2 & -2 & 1\\
+2 & 1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.0956 & -0.159\\
+0.398 & 0.251 & -0.432\\
+-0.529 & 0.263 & -0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(441\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & -2\\
+2 & 2 & -1\\
+2 & -1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.0956 & 0.159\\
+0.398 & -0.251 & 0.432\\
+-0.529 & -0.263 & 0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(443\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & 2\\
+-2 & 1 & -2\\
+-2 & -2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.0956 & -0.159\\
+0.529 & 0.263 & -0.321\\
+-0.398 & 0.251 & -0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "tbm"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
