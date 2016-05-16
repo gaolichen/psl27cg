@@ -1105,17 +1105,139 @@ reference "eq:S7-potential-one-field-trivial-constr"
 
 \end_inset
 
- By numerical computation, we can combine constraints 
+
+\end_layout
+
+\begin_layout Standard
+We then check whether the critical point is a local minimum, which requires
+ the Hessian matrix of the potential at the critical point to be positive
+ definite.
+ The Hessian matrix is a matrix of second order derivatives with respect
+ to real variables.
+ For a real-valued function of complex variables, 
+\begin_inset Formula 
+\[
+f\left(z_{1},\bar{z}_{1},\cdots,z_{n},\bar{z}_{n}\right),\quad z_{j}=x_{j}+iy_{j},
+\]
+
+\end_inset
+
+its Hessian matrix can be calculated as follows.
+ The derivatives of 
+\begin_inset Formula $f$
+\end_inset
+
+ with respect 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{j}$
+\end_inset
+
+ are 
+\begin_inset Formula 
+\[
+\frac{\partial f}{\partial x_{j}}=\frac{\partial f}{\partial z_{j}}+\frac{\partial f}{\partial\bar{z}_{j}},\quad\frac{\partial f}{\partial y_{j}}=i\frac{\partial f}{\partial z_{j}}-i\frac{\partial f}{\partial\bar{z}_{j}}.
+\]
+
+\end_inset
+
+ It follows that the Hessian matrix can be expressed as
+\begin_inset Formula 
+\begin{eqnarray*}
+H\left(f\right) & = & \left(\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{n}},\frac{\partial}{\partial y_{1}},\cdots,\frac{\partial}{\partial y_{n}}\right)^{T}\left(\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{n}},\frac{\partial}{\partial y_{1}},\cdots,\frac{\partial}{\partial y_{n}}\right)f\\
+ & = & \begin{pmatrix}I & I\\
+iI & -iI
+\end{pmatrix}\begin{pmatrix}\frac{\partial^{2}f}{\partial z_{i}\partial\bar{z}_{j}} & \frac{\partial^{2}f}{\partial z_{i}\partial z_{j}}\\
+\frac{\partial^{2}f}{\partial\bar{z}_{i}\partial\bar{z}_{j}} & \frac{\partial^{2}f}{\partial\bar{z}_{i}\partial z_{j}}
+\end{pmatrix}\begin{pmatrix}I & -iI\\
+I & iI
+\end{pmatrix},
+\end{eqnarray*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $I$
+\end_inset
+
+ is the 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ identity matrix.
+ TWe find that, the Hessian matrix of 
+\begin_inset Formula $V$
+\end_inset
+
+ at the critical point is positive definite if
+\begin_inset Formula 
+\begin{eqnarray}
+\eta_{2}<0,\quad\eta_{3}+\eta_{2} & > & 0,\label{eq:S7-potential-one-field-sol1-1}\\
+3\eta_{3}^{3}+\eta_{2}\eta_{3}^{2}-19\eta_{2}^{2}\eta_{3}-\eta_{2}^{3} & > & 0,\label{eq:S7-potential-one-field-sol2-1}\\
+\kappa_{1}\zeta_{1}-\frac{1}{64}\left(4\eta_{1}+\eta_{2}-3\eta_{3}\right)^{2} & > & 0.\label{eq:S7-potential-one-field-sol3-1}
+\end{eqnarray}
+
+\end_inset
+
+The details of the calculation is in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:app-one-field-hessian"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In conclusion, Eqs.
+ 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:S7-potential-one-field-sol1"
+reference "eq:S7-potential-one-field-sol4"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol5"
 
 \end_inset
 
  and 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:S7-potential-one-field-sol2"
+reference "eq:S7-potential-one-field-sol1-1"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol3-1"
+
+\end_inset
+
+ are the constraints for 
+\begin_inset Formula $V$
+\end_inset
+
+ generating the desired vevs.
+ By numerical computation, we can combine constraints 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol1-1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol2-1"
 
 \end_inset
 
@@ -1616,7 +1738,12 @@ reference "eq:S7-potential-two-field-ineq-m2"
 
 \end_inset
 
+ 
+\end_layout
 
+\begin_layout Standard
+The requirement of potisive definite Hessian matrix yields.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1716,6 +1843,12 @@ m_{7}^{2} & = & -\frac{2}{\sqrt{7}}\zeta_{1}v_{7}^{2}+\frac{\sqrt{3}}{4}\left(\e
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:app-one-field-hessian"
+
+\end_inset
+
 Reduce the Hessian matrix constraints for one field potential
 \end_layout
 
@@ -2058,6 +2191,12 @@ reference "eq:S7-potential-one-field-vev"
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:app-two-field-hessian"
+
+\end_inset
+
 Hessian matrix of two-field case
 \end_layout
 
