@@ -80,11 +80,10 @@
 \begin_body
 
 \begin_layout Title
-Potential and TBM
-\end_layout
+\begin_inset Formula $\group$
+\end_inset
 
-\begin_layout Part*
-Potential and Vacuum Alignments
+-invariant Potential
 \end_layout
 
 \begin_layout Standard
@@ -184,8 +183,13 @@ reference "eq:Leading-vevs"
 
 \end_inset
 
- from a renormalizable potential.
- As we shall show, with only two familon fields, it's impossible to produce
+ from a renormalizable 
+\begin_inset Formula $\group$
+\end_inset
+
+-invariant potential.
+ We first try to build the potential with only two familon fields.
+ As we shall show, with the potential we built is not able to produce the
  vacuum 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -193,11 +197,17 @@ reference "eq:Leading-vevs"
 
 \end_inset
 
- with 
+.
+ We then introduce an extra field to the potential.
+ It turns out that, if the extra field transforms as 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+ of 
 \begin_inset Formula $\group$
 \end_inset
 
--invariant potential.
+, there exists such a potential.
  
 \end_layout
 
@@ -233,7 +243,6 @@ In the rest of this note,
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Section
@@ -247,7 +256,7 @@ name "sec:PSL27-Invariant-Potential"
 \begin_inset Formula $\group$
 \end_inset
 
--Invariant Potential with only Familons
+-Invariant Potential with only Familon fields
 \end_layout
 
 \begin_layout Standard
@@ -953,11 +962,15 @@ We choose such vev for
 \end_inset
 
  because it is the simplest case that works.
- Of course, one can let 
+ Equivalently, one can also choose the vev of 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ in 
 \begin_inset Formula $\phi_{1}$
 \end_inset
 
- pick the vev as 
+ direction since 
 \begin_inset Formula $\phi$
 \end_inset
 
@@ -965,18 +978,22 @@ We choose such vev for
 \begin_inset Formula $\chi$
 \end_inset
 
- are treated equally in potential 
-\begin_inset Formula $V$
-\end_inset
-
-.
- However, based on our calculation, it would not be able to produce the
- vevs if any of other components of 
+ are treated equally in the potential.
+ Based on our calculation, it would not be able to produce the desired familon
+ vevs if any one component of 
 \begin_inset Formula $S_{7}$
 \end_inset
 
+ other than 
+\begin_inset Formula $\chi_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi_{1}$
+\end_inset
+
  acquires the vev.
- Note that the potential 
+ The potential 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-one-field-V"
@@ -1089,14 +1106,29 @@ m_{7}^{2} & = & -\frac{2}{\sqrt{7}}\zeta_{1}v_{7}^{2}-\frac{1}{4\sqrt{3}}v^{2}\l
 
 \end_inset
 
-It follows from 
+Substituting Eqs.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-m2"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-filed-m72"
+
+\end_inset
+
+ into last two inequalities of 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-one-field-trivial-constr"
 
 \end_inset
 
- that 
+ yields 
 \begin_inset Formula 
 \begin{eqnarray}
 \kappa_{1} & > & -\frac{1}{8}\sqrt{\frac{3}{7}}\frac{v_{7}^{2}}{v^{2}}\left(4\eta_{1}-3\eta_{2}+\eta_{3}\right),\label{eq:S7-potential-one-field-sol4}\\
@@ -1109,69 +1141,30 @@ reference "eq:S7-potential-one-field-trivial-constr"
 \end_layout
 
 \begin_layout Standard
-We then check whether the critical point is a local minimum, which requires
- the Hessian matrix of the potential at the critical point to be positive
- definite.
+The critical point is a local minimum only if the Hessian matrix of the
+ potential at the critical point is positive definite, i.e., all the eigenvalues
+ of the matrix is positive.
  The Hessian matrix is a matrix of second order derivatives with respect
  to real variables.
- For a real-valued function of complex variables, 
-\begin_inset Formula 
-\[
-f\left(z_{1},\bar{z}_{1},\cdots,z_{n},\bar{z}_{n}\right),\quad z_{j}=x_{j}+iy_{j},
-\]
-
-\end_inset
-
-its Hessian matrix can be calculated as follows.
- The derivatives of 
-\begin_inset Formula $f$
-\end_inset
-
- with respect 
-\begin_inset Formula $x_{j}$
-\end_inset
-
- and 
-\begin_inset Formula $y_{j}$
-\end_inset
-
- are 
-\begin_inset Formula 
-\[
-\frac{\partial f}{\partial x_{j}}=\frac{\partial f}{\partial z_{j}}+\frac{\partial f}{\partial\bar{z}_{j}},\quad\frac{\partial f}{\partial y_{j}}=i\frac{\partial f}{\partial z_{j}}-i\frac{\partial f}{\partial\bar{z}_{j}}.
-\]
-
-\end_inset
-
- It follows that the Hessian matrix can be expressed as
-\begin_inset Formula 
-\begin{eqnarray*}
-H\left(f\right) & = & \left(\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{n}},\frac{\partial}{\partial y_{1}},\cdots,\frac{\partial}{\partial y_{n}}\right)^{T}\left(\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{n}},\frac{\partial}{\partial y_{1}},\cdots,\frac{\partial}{\partial y_{n}}\right)f\\
- & = & \begin{pmatrix}I & I\\
-iI & -iI
-\end{pmatrix}\begin{pmatrix}\frac{\partial^{2}f}{\partial z_{i}\partial\bar{z}_{j}} & \frac{\partial^{2}f}{\partial z_{i}\partial z_{j}}\\
-\frac{\partial^{2}f}{\partial\bar{z}_{i}\partial\bar{z}_{j}} & \frac{\partial^{2}f}{\partial\bar{z}_{i}\partial z_{j}}
-\end{pmatrix}\begin{pmatrix}I & -iI\\
-I & iI
-\end{pmatrix},
-\end{eqnarray*}
-
-\end_inset
-
- where 
-\begin_inset Formula $I$
-\end_inset
-
- is the 
-\begin_inset Formula $n\times n$
-\end_inset
-
- identity matrix.
- TWe find that, the Hessian matrix of 
+ A tedious calculation show that, the Hessian matrix of 
 \begin_inset Formula $V$
 \end_inset
 
- at the critical point is positive definite if
+ at the critical point determined by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-m2"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-filed-m72"
+
+\end_inset
+
+ is positive definite under the following constraints:
 \begin_inset Formula 
 \begin{eqnarray}
 \eta_{2}<0,\quad\eta_{3}+\eta_{2} & > & 0,\label{eq:S7-potential-one-field-sol1-1}\\
@@ -1181,7 +1174,7 @@ I & iI
 
 \end_inset
 
-The details of the calculation is in Appendix 
+The details of the calculation is shown in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:app-one-field-hessian"
@@ -1222,12 +1215,12 @@ reference "eq:S7-potential-one-field-sol3-1"
 
 \end_inset
 
- are the constraints for 
+ are the constraints for the potential 
 \begin_inset Formula $V$
 \end_inset
 
  generating the desired vevs.
- By numerical computation, we can combine constraints 
+ By numerical computation, we can write constraints 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-one-field-sol1-1"
@@ -1249,7 +1242,7 @@ reference "eq:S7-potential-one-field-sol2-1"
 
 \end_inset
 
- which will be helpful in the discussion of two-familon case.
+ which will be helpful in the discussion of the two-familon case.
  
 \end_layout
 
@@ -1258,7 +1251,7 @@ Because of the
 \begin_inset Formula $\group$
 \end_inset
 
- symmetry, we can obtain others vevs by acting on the familon and 
+ symmetry, we can obtain other vevs by acting on the familon and 
 \begin_inset Formula $S_{7}$
 \end_inset
 
@@ -1285,7 +1278,7 @@ Because of the
 \end_inset
 
  direction.
- A nontrivial transformation gives a familon vev along 
+ A nontrivial transformation produces a familon vev along 
 \begin_inset Formula 
 \[
 \frac{2}{\sqrt{7}}\begin{pmatrix}\cos\frac{\pi}{14}\\
@@ -1296,19 +1289,38 @@ Because of the
 
 \end_inset
 
- direction up to phase differences on each component.
+ direction up to a phase difference on each component.
  
 \end_layout
 
 \begin_layout Standard
-It is noteworthy that we tried the extra field to be other representations.
- 
+We performed the similar calculation in other cases when the extra field
+ transforms as 
+\begin_inset Formula $\rep{3}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+, or 
+\begin_inset Formula $\rep{8}$
+\end_inset
+
+.
+ It turns out that none of these representations leads to the desired familon
+ vacuum.
+ The results are summarized as follows: 
 \end_layout
 
 \begin_layout Itemize
-The extra field is triplet or antitriplet.
- To build real invariant, we need 
+The extra field is 
 \begin_inset Formula $\phi\sim\rep{3}$
+\end_inset
+
+.
+ To build real invariants, we need both 
+\begin_inset Formula $\phi$
 \end_inset
 
  and its complex conjugate 
@@ -1316,7 +1328,8 @@ The extra field is triplet or antitriplet.
 \end_inset
 
 .
- Then the potential is the same as 
+ Then the renormalisable potential consists of real invariants is the same
+ as potential 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:PSL27-Potential"
@@ -1340,11 +1353,11 @@ reference "eq:PSL27-Potential"
 \end_inset
 
 .
- So the potential has 
+ As we showed, the potential has 
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
 
- symmetry cannot cannot single out 
+ symmetry and cannot single out the 
 \begin_inset Formula $\left(0,0,1\right)$
 \end_inset
 
@@ -1357,7 +1370,15 @@ The extra field transforms is
 \end_inset
 
 .
- In this case, 
+ 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ and its complex conjugate 
+\begin_inset Formula $\bar{\Sigma}$
+\end_inset
+
+ can be written as 
 \begin_inset Formula 
 \[
 \Sigma=\begin{pmatrix}\phi\\
@@ -1386,15 +1407,44 @@ The extra field transforms is
 \end_inset
 
 .
- There exist three independent real mixing invariant built out of 
-\begin_inset Formula $\bar{\varphi}$
+ To build the potential, we use the same familon couplings as the potential
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-V"
+
 \end_inset
 
- and 
+.
+ The 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ couplings of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-V"
+
+\end_inset
+
+ are replaced by similar couplings of 
 \begin_inset Formula $\Sigma$
 \end_inset
 
-, 
+: 
+\begin_inset Formula 
+\[
+m_{7}^{2}\covp{S_{7}\bar{S}_{7}}{1}\to m_{6}^{2}\covp{\Sigma\bar{\Sigma}}{1},\quad\zeta_{1}\covp{S_{7}\bar{S}_{7}}{1}\cdot\covp{S_{7}\bar{S}_{7}}{1}\to\zeta_{1}\covp{\Sigma\bar{\Sigma}}{1}\cdot\covp{\Sigma\bar{\Sigma}}{1}.
+\]
+
+\end_inset
+
+For the mixing couplings between the familon and 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ fields, we again consider only real invariants.
+ It turns out that there exist only three independent such invariants: 
 \begin_inset Formula 
 \[
 \covp{\varphi\bar{\varphi}}{1}\cdot\covp{\Sigma\bar{\Sigma}}{1},\quad\covp{\varphi\bar{\varphi}}{8}\cdot\covp{\Sigma\bar{\Sigma}}{8_{s}},\quad\covp{\varphi\bar{\varphi}}{8}\cdot\covp{\Sigma\bar{\Sigma}}{8_{a}}.
@@ -1402,7 +1452,7 @@ The extra field transforms is
 
 \end_inset
 
-So the potential we explored is 
+With invariants mentioned above, we build a potential as 
 \begin_inset Formula 
 \begin{multline*}
 V\left(\bar{\varphi},\Sigma\right)=m^{2}\covp{\varphi\bar{\varphi}}{1}+m_{6}^{2}\covp{\Sigma\bar{\Sigma}}{1}+\kappa_{1}\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}}{1}+\zeta_{1}\covp{\Sigma\bar{\Sigma}}{1}\cdot\covp{\Sigma\bar{\Sigma}}{1}\\
