@@ -1,0 +1,3816 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{babel}
+\allowdisplaybreaks
+%\newcommand{\um} {\mathcal{U}}
+\newcommand{\wrap}[1] {{#1}}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\group}{\mathcal{PSL}_2(7)} 
+\newcommand{\subgroup}{\mathcal{T}_7} 
+\newcommand{\rep}[1]{\mathbf{#1}} 
+\newcommand{\higu}{\mathcal{H}_u} 
+\newcommand{\higd}{\mathcal{H}_d} 
+\newcommand{\ket}[1]{\left|{#1}\right\rangle }
+\newcommand{\rket}[1]{\left|{#1}\right) }
+\newcommand{\cket}[1]{\left|{#1}\right\} }
+%% T7 covariant with only two parameters.
+\newcommand{\covt}[2]{\big\{ {#1}\big\}^{}_{\bf #2}}
+%% PSL27 covariant
+\newcommand{\covp}[2]{\big[ {#1}\big]^{}_{\bf #2}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+TBM and Cabbibo Haze
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+ we proposed a model which uses the group 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ as the flavor symmetry of the Standard Model.
+ The model predicts light neutrino masses with normal hierachy, generates
+ a hierarchical 
+\begin_inset Formula $\mu$
+\end_inset
+
+-term of MSSM, and produces the top quark mass at tree level.
+ 
+\end_layout
+
+\begin_layout Standard
+The model is motivated by a special Majorana matrix 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}=\left(\begin{array}{ccc}
+r\lambda^{16} & r\lambda^{12} & r\lambda^{8}\\
+r\lambda^{12} & \lambda^{8} & -\lambda^{4}\\
+r\lambda^{8} & -\lambda^{4} & 1
+\end{array}\right),\label{eq:Intro-SMM-nophase}
+\end{equation}
+
+\end_inset
+
+ assuming that the seesaw mixing matrix is the tri-bimaximal (TBM) matrix,
+ 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{\mathrm{seesaw}}=\mathcal{U}_{\mathrm{TBM}}=\left(\begin{array}{ccc}
+\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{array}\right).\label{eq:Intro-TBM-nophase}
+\end{equation}
+
+\end_inset
+
+Note that the TBM matrix in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro-TBM-nophase"
+
+\end_inset
+
+ does not contain phases.
+ In this paper, we will consider a general TBM matrix, which can be expressed
+ as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\tilde{\mathcal{U}}_{\mathrm{TBM}}=\begin{pmatrix}1\\
+ & e^{i\alpha}\\
+ &  & e^{i\beta}
+\end{pmatrix}\mathcal{U}_{\mathrm{TBM}}\begin{pmatrix}1\\
+ & e^{i\gamma}\\
+ &  & e^{i\delta}
+\end{pmatrix}\label{eq:Intro-TBM-phase}
+\end{equation}
+
+\end_inset
+
+ up to an overall phase.
+ We will redo the model building of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+ with the general TBM matrix and show that the phases does not spoil the
+ 
+\begin_inset Formula $\group$
+\end_inset
+
+ symmetry provided the vacuum expectations of the familon fields are chosen
+ properly.
+ 
+\end_layout
+
+\begin_layout Standard
+We will also solve an unsolved problems of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+: producing the Pontecorvo–Maki–Nakagawa–Sakata (PMNS) matrix with the TBM
+ seesaw neutrino mixing.
+ The difficulty is due to the disagreement between the mixing angle 
+\begin_inset Formula $\theta_{13}$
+\end_inset
+
+ of PMNS matrix and its counterpart of TBM matrix, which we denote as 
+\begin_inset Formula $\eta_{13}$
+\end_inset
+
+.
+ While 
+\begin_inset Formula $\eta_{23}=\pi/4$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta_{12}=\arcsin\frac{1}{\sqrt{3}}$
+\end_inset
+
+ are close to 
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{12}$
+\end_inset
+
+ , 
+\begin_inset Formula $\eta_{13}=0$
+\end_inset
+
+ does not agree with 
+\begin_inset Formula $\theta_{13}\approx9\textdegree$
+\end_inset
+
+.
+ The disagreement can be compensated by 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+, the left-handed unitary matrix of charged lepton coupling matrix.
+ If one assume that 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{-1}=\left(\begin{array}{ccc}
+1\\
+ & 1\\
+ &  & 1
+\end{array}\right)+\mathcal{O}\left(\lambda\right),\label{eq:Intro-U-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda\approx0.23$
+\end_inset
+
+ is the Cabbibo angle, then the relation 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{\mathrm{PMNS}}=\mathcal{U}_{-1}^{\dagger}\mathcal{U}_{\mathrm{seesaw}},\label{eq:Intro-PMNS-definition}
+\end{equation}
+
+\end_inset
+
+ gives an 
+\begin_inset Formula $\mathcal{O}\left(\lambda\right)$
+\end_inset
+
+ correction to 
+\begin_inset Formula $\theta_{13}$
+\end_inset
+
+.
+ Given the fact that 
+\begin_inset Formula $\theta_{13}\approx\lambda/\sqrt{2}$
+\end_inset
+
+, we should be able to reproduce the PMNS matrix numerically.
+ In the following sections, we will show that such numerical proof does
+ exist.
+\end_layout
+
+\begin_layout Section
+TBM with Phases
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+ we obtained the special Majorana matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro-SMM-nophase"
+
+\end_inset
+
+ from 
+\begin_inset Formula $\mathcal{U}_{\mathrm{seesaw}}=\mathcal{U}_{\mathrm{TBM}}$
+\end_inset
+
+ and generated it by a linear combination of dimension-five 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+-invariants 
+\begin_inset Formula 
+\begin{equation}
+\covt{{\bar{N}}\,{\bar{N}}}{3}\covt{\bar{\varphi}\bar{\varphi}'}{\bar{3}}-\covt{\bar{N}\,\bar{N}}{\bar{3}_{s}}\covt{\bar{\varphi}\bar{\varphi}'}{3_{s}},\label{eq:TBMPhase-linear-combination}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\bar{N}\sim\rep{3}$
+\end_inset
+
+ is the right-handed neutrino field and 
+\begin_inset Formula $\bar{\varphi}^{\prime},\,\bar{\varphi}^{\prime}\sim\rep{\bar{3}}$
+\end_inset
+
+ are familon fields.
+ The linear combination 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-linear-combination"
+
+\end_inset
+
+ produces the special Majorana matrix if the familon fields pick vevs as
+ 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},\label{eq:TBMPhase-vev-nophase}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\bar{\alpha}\bar{\alpha}^{\prime}=-\left(\bar{\alpha}+\bar{\alpha}^{\prime}\right)/2=r=m_{3}/m_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{1,2,3}$
+\end_inset
+
+ are light neutrino masses.
+ 
+\end_layout
+
+\begin_layout Standard
+In this section, we repeat the calculation of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+ with 
+\begin_inset Formula $\tilde{\mathcal{U}}_{\mathrm{TBM}}$
+\end_inset
+
+ instead of 
+\begin_inset Formula $\mathcal{U}_{\mathrm{TBM}}$
+\end_inset
+
+.
+ It turns out that the linear combination 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-linear-combination"
+
+\end_inset
+
+ is able to generate an special Majorana matrix as 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}\sim\begin{pmatrix}e^{2i\left(\beta+\delta\right)}r\lambda^{16} & e^{i\left(2\beta+2\delta-\alpha\right)}r\lambda^{12} & e^{i\left(\beta+2\delta\right)}r\lambda^{8}\\
+e^{i\left(2\beta+2\delta-\alpha\right)}r\lambda^{12} & e^{2i\left(\beta-\alpha\right)}\lambda^{8} & -e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+e^{i\left(\beta+2\delta\right)}r\lambda^{8} & -e^{i\left(\beta-\alpha\right)}\lambda^{4} & 1
+\end{pmatrix}.\label{eq:TBMPhase-SMM}
+\end{equation}
+
+\end_inset
+
+provided the familon vevs are changed to 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix},\label{eq:TBMPhase-vev}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{\alpha}\bar{\alpha}^{\prime} & = & re^{2i\left(\beta+\delta\right)},\\
+\bar{\alpha}+\bar{\alpha}^{\prime} & = & -2re^{i\left(\beta+2\delta\right)}.
+\end{eqnarray*}
+
+\end_inset
+
+ Note that, if 
+\begin_inset Formula $\alpha=\beta=\delta=0$
+\end_inset
+
+, we obtain the familon vevs 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-vev-nophase"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now let's perform the calculation.
+ The seesaw mechanism predicts the relation of light neutrino mass matrix
+ 
+\begin_inset Formula $M_{\nu}$
+\end_inset
+
+ and Majorana matrix 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ to be 
+\begin_inset Formula 
+\begin{equation}
+M_{\nu}=Y^{\left(0\right)}\mathcal{M}^{-1}Y^{\left(0\right)T},\label{eq:TBMPhase-Mnu-1}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $Y^{\left(0\right)}$
+\end_inset
+
+ is the Dirac Yukawa matrix of the neutrinos.
+ In 
+\begin_inset Formula $SO\left(10\right)$
+\end_inset
+
+, 
+\begin_inset Formula $Y^{\left(0\right)}$
+\end_inset
+
+ is naturally related to 
+\begin_inset Formula $Y^{\left(-2/3\right)}$
+\end_inset
+
+, the Dirac Yukawa matrix of the up-type quarks.
+ Without loss of generality, we can choose the quark fields in a basis that
+ 
+\begin_inset Formula $Y^{\left(2/3\right)}$
+\end_inset
+
+ is diagonal.
+ It then follows
+\begin_inset Formula 
+\[
+Y^{\left(0\right)}\sim Y^{\left(2/3\right)}\sim\begin{pmatrix}\lambda^{8} & 0 & 0\\
+0 & \lambda^{4} & 0\\
+0 & 0 & 1
+\end{pmatrix}.
+\]
+
+\end_inset
+
+On the other hand, 
+\begin_inset Formula $M_{\nu}$
+\end_inset
+
+ can be diagonalize as
+\begin_inset Formula 
+\begin{equation}
+M_{\nu}=\mathcal{U}_{\mathrm{seesaw}}\mathcal{D}_{\nu}\mathcal{U}_{\mathrm{seesaw}}^{T},\label{eq:TBMPhase-Mnu-2}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\mathcal{D}_{\nu}=\mathrm{diag}\left(m_{1},m_{2},m_{3}\right)$
+\end_inset
+
+ is the diagonal neutrino masses.
+ It follows from Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-Mnu-1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-Mnu-2"
+
+\end_inset
+
+ that
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}=Y^{\left(0\right)}\mathcal{U}_{\mathrm{seesaw}}^{\dagger}\mathcal{D}_{\nu}^{-1}\mathcal{U}_{\mathrm{seesaw}}^{*}Y^{\left(0\right)}.\label{eq:TBMPhase-SMM-2}
+\end{equation}
+
+\end_inset
+
+Substituting 
+\begin_inset Formula $\mathcal{U}_{\mathrm{seesaw}}=\tilde{\mathcal{U}}_{\mathrm{TBM}}$
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-SMM-2"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}=\begin{pmatrix}a_{11}\lambda^{16} & a_{12}\lambda^{12} & a_{13}\lambda^{8}\\
+a_{12}\lambda^{12} & a_{22}\lambda^{8} & a_{23}\lambda^{4}\\
+a_{31}\lambda^{8} & a_{32}\lambda^{4} & a_{33}
+\end{pmatrix},\label{eq:TBMPhase-SMM-1}
+\end{equation}
+
+\end_inset
+
+ where the prefactors are 
+\begin_inset Formula 
+\begin{eqnarray*}
+a_{11} & = & \frac{2}{3m_{1}}+\frac{e^{-2i\gamma}}{3m_{2}},\quad a_{12}=\frac{e^{-i\alpha}}{3m_{1}}-\frac{e^{-i\left(\alpha+2\gamma\right)}}{3m_{2}},\quad a_{13}=\frac{e^{-i\beta}}{3m_{1}}-\frac{e^{-i\left(\beta+2\gamma\right)}}{3m_{2}}\\
+a_{22} & = & \frac{e^{-2i\alpha}}{6}\left(\frac{1}{m_{1}}+\frac{2e^{-2i\gamma}}{m_{2}}+\frac{3e^{-2i\delta}}{m_{3}}\right),\quad a_{23}=\frac{e^{-i\left(\alpha+\beta\right)}}{6}\left(\frac{1}{m_{1}}+\frac{2e^{-2i\gamma}}{m_{2}}-\frac{3e^{-2i\delta}}{m_{3}}\right)\\
+a_{33} & = & \frac{e^{-2i\beta}}{6}\left(\frac{1}{m_{1}}+\frac{2e^{-2i\gamma}}{m_{2}}+\frac{3e^{-2i\delta}}{m_{3}}\right).
+\end{eqnarray*}
+
+\end_inset
+
+The mass spectrum of the Majorana matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-SMM-1"
+
+\end_inset
+
+ displays a severe three-fold hierarchy, 
+\begin_inset Formula 
+\begin{eqnarray*}
+M_{1} & = & \frac{3e^{-2i\gamma}}{2e^{-2i\gamma}m_{1}+m_{2}}\lambda^{16}+\mathcal{O}\left(\lambda^{24}\right),\\
+M_{2} & = & \frac{2e^{-2i\left(\alpha+\delta\right)}\left(2e^{-2i\gamma}m_{1}+m_{2}\right)}{m_{1}\left(3e^{-2i\delta}m_{2}+2e^{-2i\gamma}m_{3}\right)+m_{2}m_{3}}\lambda^{8}+\mathcal{O}\left(\lambda^{16}\right),\\
+M_{3} & = & \frac{e^{-2i\beta}}{6}\left(\frac{1}{m_{1}}+\frac{2e^{-2i\gamma}}{m_{2}}+\frac{3e^{-2i\delta}}{m_{3}}\right)+\mathcal{O}\left(\lambda^{8}\right).
+\end{eqnarray*}
+
+\end_inset
+
+When 
+\begin_inset Formula $m_{2}=-2e^{-2i\gamma}m_{1}$
+\end_inset
+
+, the leading term of 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ blows up and the above expression are not valid.
+ It turns out that the eigenvalues become
+\begin_inset Formula 
+\begin{eqnarray*}
+M_{1} & = & -\frac{e^{-i\alpha}}{m_{1}}\lambda^{12}+\mathcal{O}\left(\lambda^{16}\right),\\
+M_{2} & = & \frac{e^{-i\alpha}}{m_{1}}\lambda^{12}+\mathcal{O}\left(\lambda^{16}\right),\\
+M_{3} & = & \frac{e^{-2i\left(\beta+\delta\right)}}{2m_{3}}+\mathcal{O}\left(\lambda^{8}\right).
+\end{eqnarray*}
+
+\end_inset
+
+In this special case, we see that 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ are nearly degenerate and the hierarchy between the lightest and heaviest
+ mass is less severe.
+ Substituting 
+\begin_inset Formula $m_{2}=-2e^{-2i\gamma}m_{1}$
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-SMM-1"
+
+\end_inset
+
+ and defining 
+\begin_inset Formula $r=m_{3}/m_{1}$
+\end_inset
+
+, we obtain the special Majorana matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-SMM"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Build-the-SMM"
+
+\end_inset
+
+, we show that the special Majorana matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-SMM"
+
+\end_inset
+
+ can be produced by the linear combination 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-linear-combination"
+
+\end_inset
+
+ if the familon fields picks vevs 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TBMPhase-vev"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Search for TBM with Cabbibo Haze
+\end_layout
+
+\begin_layout Standard
+In this section, we first talk about how to perform numerical search for
+ Cabbibo Haze, then provide the results of the search.
+ We shall show that, by assuming 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ to be identity matrix with an 
+\begin_inset Formula $\mathcal{O}\left(\lambda\right)$
+\end_inset
+
+ correction, the MNSP matrix can be generated by 
+\begin_inset Formula $\mathcal{U}_{\mathrm{seesaw}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Search Procedure
+\end_layout
+
+\begin_layout Standard
+The main idea of the search is that we scan all possible 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ matrices and then compare the mixing angles of PMNS matrices computed from
+ Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro-PMNS-definition"
+
+\end_inset
+
+ with the experimental data.
+ Besides the constraints from PMSN matrix, there are constraints from other
+ pieces of the Standard Model.
+ Therefore, instead of simply scanning 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+, we perform the search described as follows.
+\end_layout
+
+\begin_layout Standard
+Firstly, by 
+\begin_inset Formula $SU\left(5\right)$
+\end_inset
+
+ GUT 
+\begin_inset Formula $Y^{(-1/3)}$
+\end_inset
+
+ is related to 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+, which produces 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ by diagonalization process.
+ In minimal 
+\begin_inset Formula $SU\left(5\right)$
+\end_inset
+
+, the Yukawa coupling 
+\begin_inset Formula $\psi\chi H_{d}$
+\end_inset
+
+ to a 
+\begin_inset Formula $\bar{\mathbf{5}}$
+\end_inset
+
+ Higgs predicts 
+\begin_inset Formula 
+\begin{equation}
+Y^{\left(-1\right)}=Y^{\left(-1/3\right)T}.\label{eq:TBM-SU5-mass-relation}
+\end{equation}
+
+\end_inset
+
+It successfully yields the relation 
+\begin_inset Formula $m_{b}=m_{\tau}$
+\end_inset
+
+, but also leads to 
+\begin_inset Formula $m_{e}=m_{d}$
+\end_inset
+
+, 
+\begin_inset Formula $m_{\mu}=m_{s}$
+\end_inset
+
+ at unification.
+ The later relations do not agree with the result of renormalization group-runni
+ng, which favors
+\begin_inset Formula 
+\begin{equation}
+m_{e}=m_{d}/3,\quad m_{\mu}=3m_{s}.\label{eq:Pre-mass-relation-1}
+\end{equation}
+
+\end_inset
+
+The inconsistence can be nicely solved by Georgi-Jarlskog (GJ) mechanism.
+ In GJ mechanism, one introduces an addtional 
+\begin_inset Formula $\mathbf{45}$
+\end_inset
+
+ Higgs and assumes the Yukawa couplings of 
+\begin_inset Formula $\rep{\bar{5}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{45}$
+\end_inset
+
+ to be
+\begin_inset Formula 
+\[
+Y_{ij}^{\left(\bar{\mathbf{5}}\right)}\psi^{i}\chi^{j}H_{d},\quad Y_{ij}^{\left(\bar{\mathbf{5}}\right)}=\begin{pmatrix}0 & a^{\prime} & 0\\
+a & 0 & 0\\
+0 & 0 & c
+\end{pmatrix},\quad Y_{ij}^{\left(\mathbf{45}\right)}\psi^{i}\chi^{j}H_{\mathbf{45}},\quad Y_{ij}^{\left(\mathbf{45}\right)}=\begin{pmatrix}0 & 0 & 0\\
+0 & b & 0\\
+0 & 0 & 0
+\end{pmatrix},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $a\sim a^{\prime}\ll b\ll c$
+\end_inset
+
+.
+ Both couplings contribute to 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+, but the Clebsch-Gordan coefficients of 
+\begin_inset Formula $\mathbf{45}$
+\end_inset
+
+ coupling gives an extra factor of -3 to 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+, which gives rise to mass relation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Pre-mass-relation-1"
+
+\end_inset
+
+.
+ In general, the nonzero entries of 
+\begin_inset Formula $Y^{\left(\mathbf{45}\right)}$
+\end_inset
+
+ are not necessary to be 
+\begin_inset Formula $\left(22\right)$
+\end_inset
+
+ only.
+ We therefore generalize the GJ mechanism so that any entry of 
+\begin_inset Formula $Y_{ij}^{\left(\rep{45}\right)}$
+\end_inset
+
+ can be nonzero.
+ For example, if 
+\begin_inset Formula $\left(12\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(23\right)$
+\end_inset
+
+ entries of 
+\begin_inset Formula $Y^{\left(\mathbf{45}\right)}$
+\end_inset
+
+ are 
+\begin_inset Formula $G$
+\end_inset
+
+ and 
+\begin_inset Formula $J$
+\end_inset
+
+, it produces
+\begin_inset Formula 
+\[
+Y^{\left(-1/3\right)}\sim\begin{pmatrix} & G\\
+ &  & J\\
+\\
+\end{pmatrix},\quad Y^{\left(-1\right)}\sim\begin{pmatrix}\\
+-3G\\
+ & -3J
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Consequently, for a given 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+, we can obtain a series of 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+ matrices by taking transpose of the 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+ and assigining GJ factors to different entries of 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Secondly, 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+ matrix is related to the CKM and 
+\begin_inset Formula $Y^{\left(2/3\right)}$
+\end_inset
+
+ matrices, 
+\begin_inset Formula 
+\begin{eqnarray*}
+Y^{(2/3)} & = & \mathcal{U}_{2/3}\mathcal{D}_{u}\mathcal{V}_{2/3}^{\dagger},\\
+Y^{(-1/3)} & = & \mathcal{U}_{-1/3}\mathcal{D}_{d}\mathcal{V}_{-1/3}^{\dagger},\\
+\mathcal{U}_{\mathrm{CKM}} & = & \mathcal{U}_{2/3}^{\dagger}\mathcal{U}_{-1/3},
+\end{eqnarray*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $Y^{(-2/3)}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y^{(-1/3)}$
+\end_inset
+
+ are Dirac Yukawa couplings of charge 
+\begin_inset Formula $2/3$
+\end_inset
+
+ and 
+\begin_inset Formula $-1/3$
+\end_inset
+
+ sectors, 
+\begin_inset Formula $\mathcal{U}_{2/3,-1/3}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{V}_{2/3,-1/3}$
+\end_inset
+
+ are unitary matrices, and 
+\begin_inset Formula $\mathcal{D}_{u,d}$
+\end_inset
+
+ are diagonal mass matrices of up and down quarks.
+ In the basis that 
+\begin_inset Formula $Y^{(2/3)}$
+\end_inset
+
+ is diagonal, we have 
+\begin_inset Formula $\mathcal{U}_{-1/3}=\mathcal{U}_{\mathrm{CKM}}$
+\end_inset
+
+.
+ Since the CKM matrix and 
+\begin_inset Formula $\mathcal{D}_{d}$
+\end_inset
+
+ are measured, 
+\begin_inset Formula $Y^{(-1/3)}$
+\end_inset
+
+ is uniquely determined by 
+\begin_inset Formula $\mathcal{V}_{-1/3}$
+\end_inset
+
+.
+ For simplicity, we assume that there is no phase in 
+\begin_inset Formula $\mathcal{V}_{-1/3}$
+\end_inset
+
+ and parameterize it as 
+\begin_inset Formula 
+\[
+\mathcal{V}_{-1/3}=\begin{pmatrix}1 & 0 & 0\\
+0 & c_{23} & s_{23}\\
+0 & -s_{23} & c_{23}
+\end{pmatrix}\begin{pmatrix}c_{13} & 0 & s_{13}\\
+0 & 1 & 0\\
+-s_{13} & 0 & s_{13}
+\end{pmatrix}\begin{pmatrix}c_{12} & s_{12} & 0\\
+-s_{12} & c_{12} & 0\\
+0 & 0 & 1
+\end{pmatrix},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $c_{ij}=\cos\beta_{ij}$
+\end_inset
+
+, 
+\begin_inset Formula $s_{ij}=\sin\beta_{ij}$
+\end_inset
+
+.
+ Therefore, we can perform the search by scanning 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+.
+ For each set of 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+, we obtain 
+\begin_inset Formula $\mathcal{V}_{-1/3}$
+\end_inset
+
+ , 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+, then 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+, and finally the PMNS matrix.
+\end_layout
+
+\begin_layout Standard
+Several constraints need to be verified during the procedure.
+ Firstly, 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ should be in the form of 
+\begin_inset Formula $1+\mathcal{O}\left(\lambda\right)$
+\end_inset
+
+.
+ Secondly, 
+\begin_inset Formula $Y^{\left(-1\right)}$
+\end_inset
+
+ should produce the correct charge lepton mass ratio, which is given by
+ 
+\begin_inset Formula 
+\[
+0.0046\leq\left|\frac{m_{e}}{m_{\mu}}\right|\leq0.0050,\quad0.048\leq\left|\frac{m_{\mu}}{m_{\tau}}\right|\leq0.06.
+\]
+
+\end_inset
+
+Finally, the PMNS mixing angles should fall within the 
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ range 
+\begin_inset Formula 
+\begin{equation}
+\theta_{23}=\wrap{45.8\textdegree}_{-3.2\textdegree}^{+3.2\textdegree},\quad\theta_{13}=\wrap{8.5\textdegree}_{-0.2\textdegree}^{+0.2\textdegree},\quad\theta_{12}=\wrap{33.5\textdegree}_{-0.9\textdegree}^{+0.8\textdegree}.\label{eq:Intro-one-sigma-angles}
+\end{equation}
+
+\end_inset
+
+ If all the three constraints are satisfied, we consider the search result
+ as a solution.
+ 
+\end_layout
+
+\begin_layout Standard
+In the search, we choose the CKM matrix to be
+\begin_inset Formula 
+\[
+\mathcal{U}_{\mathrm{CKM}}=\begin{pmatrix}1-\lambda^{2}/2 & \lambda & A\lambda^{3}\left(\rho-i\eta\right)\\
+-\lambda & 1-\lambda^{2}/2 & A\lambda^{2}\\
+A\lambda^{3}\left(1-\rho-i\eta\right) & -A\lambda^{2} & 1
+\end{pmatrix}+\mathcal{O}\left(\lambda^{4}\right),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda=0.225$
+\end_inset
+
+, 
+\begin_inset Formula $\rho=0.150$
+\end_inset
+
+, 
+\begin_inset Formula $\eta=0.354$
+\end_inset
+
+, 
+\begin_inset Formula $A=0.823$
+\end_inset
+
+, and the diagonal down-quark mass matrix to be 
+\begin_inset Formula 
+\[
+\mathcal{D}_{d}=m_{b}\begin{pmatrix}\frac{\lambda^{4}}{3}\\
+ & \frac{\lambda^{2}}{2}\\
+ &  & 1
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Results
+\end_layout
+
+\begin_layout Standard
+We category the results by the number of nonzero 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+.
+ First of all, there is no solution with one nonzero angle.
+ For two-angle soltuions, we list a few examples as follows.
+\end_layout
+
+\begin_layout Paragraph*
+Example I
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\beta_{23}=0^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{13}=-7.8^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{12}=168.4^{\circ}$
+\end_inset
+
+, with one GJ factor in 
+\begin_inset Formula $\left(22\right)$
+\end_inset
+
+ element of 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+ yields 
+\begin_inset Formula 
+\begin{eqnarray*}
+\theta_{23} & = & 45.1\textdegree,\quad\theta_{13}=8.4\textdegree,\quad\theta_{12}=32.7\textdegree,\\
+\frac{m_{e}}{m_{\mu}} & = & 0.0047,\quad\frac{m_{\mu}}{m_{\tau}}=0.049,
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{U}_{-1}=\begin{pmatrix}1\\
+ & 1\\
+ &  & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0526 & 0.319 & -0.602\\
+-0.320 & -0.0116 & 0.0120-0.0000579i\\
+0.601 & 0.0315-0.0000571i & -0.0411
+\end{pmatrix}.
+\]
+
+\end_inset
+
+This example is interesting because it use only the original realization
+ of GJ factor.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Build-the-SMM"
+
+\end_inset
+
+Build the Special Majorana Matrix
+\end_layout
+
+\begin_layout Standard
+In the Appendix of 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+, we showed that the linear combination 
+\begin_inset Formula 
+\begin{equation}
+\covt{{\bar{N}}\,{\bar{N}}}{3}\covt{\bar{\varphi}\bar{\varphi}'}{\bar{3}}-\covt{\bar{N}\,\bar{N}}{\bar{3}_{s}}\covt{\bar{\varphi}\bar{\varphi}'}{3_{s}}\label{eq:App-SMM-t7-operator}
+\end{equation}
+
+\end_inset
+
+ is the simpliest dimension-five 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ operator that is capable of producing the special Majorana matrix without
+ phase.
+ In this section, we shall show that 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:App-SMM-t7-operator"
+
+\end_inset
+
+ can also produce the special Majorana matrix with phases, 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{M}=\begin{pmatrix}e^{2i\left(\beta+\delta\right)}r\lambda^{16} & e^{i\left(2\beta+2\delta-\alpha\right)}r\lambda^{12} & e^{i\left(\beta+2\delta\right)}r\lambda^{8}\\
+e^{i\left(2\beta+2\delta-\alpha\right)}r\lambda^{12} & e^{2i\left(\beta-\alpha\right)}\lambda^{8} & -e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+e^{i\left(\beta+2\delta\right)}r\lambda^{8} & -e^{i\left(\beta-\alpha\right)}\lambda^{4} & 1
+\end{pmatrix}.\label{eq:App-inv0-smm}
+\end{equation}
+
+\end_inset
+
+Here, the right-handed neutrinos are 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ triplets 
+\begin_inset Formula $\left(N\sim\rep{3}\right)$
+\end_inset
+
+ and the familon fields are either triplets 
+\begin_inset Formula $\left(\varphi,\varphi^{\prime}\sim\rep{3}\right)$
+\end_inset
+
+ or antitriplets 
+\begin_inset Formula $\left(\bar{\varphi},\bar{\varphi}^{\prime}\sim\rep{\bar{3}}\right)$
+\end_inset
+
+.
+ As pointed out by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+, there are three types of invariants 
+\begin_inset Formula $NN\varphi\varphi^{\prime}$
+\end_inset
+
+, 
+\begin_inset Formula $NN\varphi\bar{\varphi}$
+\end_inset
+
+, and 
+\begin_inset Formula $NN\bar{\varphi}\bar{\varphi}^{\prime}$
+\end_inset
+
+ and only the last one can form a desired operator independent of 
+\begin_inset Formula $r\equiv m_{3}/m_{1}$
+\end_inset
+
+.
+ Therefore, we only need to focus on the 
+\begin_inset Formula $NN\bar{\varphi}\bar{\varphi}^{\prime}$
+\end_inset
+
+ type here.
+ 
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $NN\bar{\varphi}\bar{\varphi}^{\prime}$
+\end_inset
+
+ type invariants contain two linearly independent invariants:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{K}_{1}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)} & = & \covt{{N}\,{N}}{3}\covt{\bar{\varphi}\bar{\varphi}^{\prime}}{\bar{3}}\longrightarrow\frac{1}{\sqrt{3}}\begin{pmatrix}\bar{\varphi}_{1}\bar{\varphi}_{1}^{\prime} & 0 & 0\\
+0 & \bar{\varphi}_{2}\bar{\varphi}_{2}^{\prime} & 0\\
+0 & 0 & \bar{\varphi}_{3}\bar{\varphi}_{3}^{\prime}
+\end{pmatrix},\\
+\mathcal{K}_{2}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)} & = & \covt{{N}\,{\bar{\varphi}}}{3}\covt{N\bar{\varphi}^{\prime}}{\bar{3}}\longrightarrow\frac{1}{2\sqrt{3}}\begin{pmatrix}0 & \bar{\varphi}_{1}\bar{\varphi}_{2}^{\prime} & \bar{\varphi}_{3}\bar{\varphi}_{1}^{\prime}\\
+\bar{\varphi}_{1}\bar{\varphi}_{2}^{\prime} & 0 & \bar{\varphi}_{2}\bar{\varphi}_{3}^{\prime}\\
+\bar{\varphi}_{3}\bar{\varphi}_{1}^{\prime} & \bar{\varphi}_{2}\bar{\varphi}_{3}^{\prime} & 0
+\end{pmatrix}.
+\end{eqnarray*}
+
+\end_inset
+
+Hence, the general form of 
+\begin_inset Formula $NN\bar{\varphi}\bar{\varphi}^{\prime}$
+\end_inset
+
+ invariant is
+\begin_inset Formula 
+\begin{equation}
+\mathcal{K}=\mathcal{K}_{1}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)}+a\mathcal{K}_{2}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)}+b\mathcal{K}_{2}^{\left(\bar{\varphi}^{\prime},\bar{\varphi}\right)}.\label{eq:App-Inv3-K1}
+\end{equation}
+
+\end_inset
+
+We parametrize the familon vevs as
+\begin_inset Formula 
+\[
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{m}\\
+\bar{\beta}\lambda^{n}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{m^{\prime}}\\
+\bar{\beta}^{\prime}\lambda^{n^{\prime}}\\
+1
+\end{pmatrix}.
+\]
+
+\end_inset
+
+To match the power of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ in the special Majorana matrix, it must have 
+\begin_inset Formula $m=m^{\prime}=8,n=n^{\prime}=4$
+\end_inset
+
+.
+ Feeding the familon vevs into 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ yields 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \mathcal{K}\right\rangle \sim\begin{pmatrix}\bar{\alpha}\bar{\alpha}'\lambda^{16} & \frac{1}{2}\left(b\bar{\alpha}'\bar{\beta}+a\bar{\alpha}\bar{\beta}'\right)\lambda^{12} & \frac{1}{2}\left(b\bar{\alpha}+a\bar{\alpha}'\right)\lambda^{8}\\
+\frac{1}{2}\left(b\bar{\alpha}'\bar{\beta}+a\bar{\alpha}\bar{\beta}'\right)\lambda^{12} & \bar{\beta}\bar{\beta}'\lambda^{8} & \frac{1}{2}\left(a\bar{\beta}+b\bar{\beta}'\right)\lambda^{4}\\
+\frac{1}{2}\left(b\bar{\alpha}+a\bar{\alpha}'\right)\lambda^{8} & \frac{1}{2}\left(a\bar{\beta}+b\bar{\beta}'\right)\lambda^{4} & 1
+\end{pmatrix}\label{eq:App-Inv3-K-vev}
+\end{equation}
+
+\end_inset
+
+Comparing the prefactors between 
+\begin_inset Formula $\left\langle \mathcal{K}\right\rangle $
+\end_inset
+
+ and the special Majorana matrix 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:App-inv0-smm"
+
+\end_inset
+
+, we obtain the following equations
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\bar{\alpha}\bar{\alpha}' & =e^{2i\left(\beta+\delta\right)}r\\
+a\bar{\alpha}\bar{\beta}'+b\bar{\alpha}'\bar{\beta} & =2e^{i\left(2\beta+2\delta-\alpha\right)}r\\
+b\bar{\alpha}+a\bar{\alpha}' & =2e^{i\left(\beta+2\delta\right)}r\\
+\bar{\beta}\bar{\beta}' & =e^{2i\left(\beta-\alpha\right)}\\
+a\bar{\beta}+b\bar{\beta}' & =-2e^{i\left(\beta-\alpha\right)}
+\end{cases}\label{eq:App-Inv3-eqs1}
+\end{equation}
+
+\end_inset
+
+If considering them as equations about 
+\begin_inset Formula $\bar{\alpha},\bar{\alpha}^{\prime},\bar{\beta},\bar{\beta}^{\prime}$
+\end_inset
+
+, we have five equations with only four variables.
+ In general, there is no solution unless some of the equations are dependent.
+ The only way to make them solvable is to make the second and third equation
+ of Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:App-Inv3-eqs1"
+
+\end_inset
+
+ equivalent,
+\begin_inset Formula 
+\begin{eqnarray*}
+e^{i\left(\alpha-\beta\right)}a\bar{\beta}^{\prime}=b & \Rightarrow & \bar{\beta}^{\prime}=\frac{b}{a}e^{i\left(\beta-\alpha\right)},\\
+e^{i\left(\alpha-\beta\right)}b\bar{\beta}=a & \Rightarrow & \bar{\beta}=\frac{a}{b}e^{i\left(\beta-\alpha\right)}.
+\end{eqnarray*}
+
+\end_inset
+
+ Then the equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:App-Inv3-eqs1"
+
+\end_inset
+
+ become
+\begin_inset Formula 
+\[
+\begin{cases}
+\bar{\alpha}\bar{\alpha}' & =e^{2i\left(\beta+\delta\right)}r\\
+b\bar{\alpha}+a\bar{\alpha}^{\prime} & =2e^{i\left(\beta+2\delta\right)}r\\
+\frac{a^{2}}{b}+\frac{b^{2}}{a} & =-2
+\end{cases}
+\]
+
+\end_inset
+
+ These equations can be solved with a free parameter 
+\begin_inset Formula $k$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{equation}
+a=-\frac{2}{k^{2}+\frac{1}{k}},\quad b=-\frac{2k}{k^{2}+\frac{1}{k}},
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\bar{\alpha}\bar{\alpha}^{\prime}=re^{2i\left(\beta+\delta\right)},\quad k\bar{\alpha}+\bar{\alpha}^{\prime}=-r\left(k^{2}+\frac{1}{k}\right)e^{i\left(\beta+2\delta\right)}.
+\end{equation}
+
+\end_inset
+
+This solution gives the familon vevs
+\begin_inset Formula 
+\begin{equation}
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+\frac{1}{k}e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+ke^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix}.
+\end{equation}
+
+\end_inset
+
+For the special case of 
+\begin_inset Formula $k=1$
+\end_inset
+
+, we have 
+\begin_inset Formula $A=B=-1$
+\end_inset
+
+ and
+\begin_inset Formula 
+\begin{equation}
+\mathcal{K}=\mathcal{K}_{1}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)}-\mathcal{K}_{2}^{\left(\bar{\varphi},\bar{\varphi}^{\prime}\right)}-\mathcal{K}_{2}^{\left(\bar{\varphi}^{\prime},\bar{\varphi}\right)},\label{eq:App-Inv3-K2}
+\end{equation}
+
+\end_inset
+
+ which is just the matrix generated by the linear combination in the main
+ text
+\begin_inset Formula 
+\begin{equation}
+\covt{{\bar{N}}\,{\bar{N}}}{3}\covt{\bar{\varphi}\bar{\varphi}'}{\bar{3}}-\covt{\bar{N}\,\bar{N}}{\bar{3}_{s}}\covt{\bar{\varphi}\bar{\varphi}'}{3_{s}},\label{eq:App-Inv3-Linear-Comb}
+\end{equation}
+
+\end_inset
+
+ and the corresponding familon vevs are 
+\begin_inset Formula 
+\[
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+e^{i\left(\beta-\alpha\right)}\lambda^{4}\\
+1
+\end{pmatrix},
+\]
+
+\end_inset
+
+ with 
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{\alpha}\bar{\alpha}^{\prime} & = & re^{2i\left(\beta+\delta\right)},\\
+\bar{\alpha}+\bar{\alpha}^{\prime} & = & -2re^{i\left(\beta+2\delta\right)}.
+\end{eqnarray*}
+
+\end_inset
+
+If 
+\begin_inset Formula $\delta=0$
+\end_inset
+
+, 
+\begin_inset Formula $\beta=\alpha=\pi$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},
+\]
+
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\alpha}\bar{\alpha}^{\prime}=\frac{1}{2}\left(\bar{\alpha}+\bar{\alpha}^{\prime}\right)=r$
+\end_inset
+
+, from which it follows that 
+\begin_inset Formula $\bar{\alpha}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\alpha}^{\prime}$
+\end_inset
+
+ are positive.
+ 
+\end_layout
+
+\begin_layout Section
+Numerical study of 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section, we study possible form of 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ numerically.
+ It follows from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro-PMNS-definition"
+
+\end_inset
+
+ that
+\begin_inset Formula 
+\[
+\mathcal{U}_{-1}=\left(\mathcal{U}_{\mathrm{seesaw}}^{\dagger}\right)^{-1}\mathcal{U}_{\mathrm{PMNS}}^{\dagger}.
+\]
+
+\end_inset
+
+Given mixing angles of PMNS, 
+\begin_inset Formula $\theta_{ij}$
+\end_inset
+
+, in 
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ range, we can obtain the range of 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ matrix.
+ The global fit value of 
+\begin_inset Formula $\theta_{ij}$
+\end_inset
+
+ are 
+\begin_inset Formula 
+\begin{equation}
+\theta_{23}=40.7^{\circ},\quad\theta_{13}=8.8^{\circ},\quad\theta_{12}=33.7^{\circ}.\label{eq:global-fit-values}
+\end{equation}
+
+\end_inset
+
+But the quadrant of these angles are undetermined and difference settings
+ of quadrant amount to different 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+.
+ We want to obtain a 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ whose leading order is 
+\begin_inset Formula $\mathrm{diag}\left(1,1,1\right)$
+\end_inset
+
+.
+ There are two quadrant settings capable of producing such 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ in fourth quadrant, 
+\begin_inset Formula $\theta_{13}$
+\end_inset
+
+ in first quadrant, and 
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ in fourth quadrant, denoted as 
+\begin_inset Formula $\left(414\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ in fourth quadrant, 
+\begin_inset Formula $\theta_{13}$
+\end_inset
+
+ in fourth quadrant, and 
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ in fourth quadrant, denoted as 
+\begin_inset Formula $\left(444\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\left(414\right)$
+\end_inset
+
+ case with 
+\begin_inset Formula $\delta_{CP}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Parameterize 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{U}_{-1}=\mathrm{diag}\left(1,1,1\right)+\lambda\Delta U.\label{eq:Delta-U-Def}
+\end{equation}
+
+\end_inset
+
+Plugging the 0
+\begin_inset Formula $\sigma$
+\end_inset
+
+ global fit values of 
+\begin_inset Formula $\theta_{12}$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{13}$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{23}$
+\end_inset
+
+ with 
+\begin_inset Formula $\left(414\right)$
+\end_inset
+
+ configuration and 
+\begin_inset Formula $\lambda=0.227$
+\end_inset
+
+, we find
+\begin_inset Formula 
+\[
+\Delta U_{0}=\begin{pmatrix}-0.0535 & 0.348 & -0.589\\
+-0.393 & -0.0287 & -0.313\\
+0.561 & 0.362 & -0.0508
+\end{pmatrix}.
+\]
+
+\end_inset
+
+ Approximately, 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta U & \approx & \Delta U_{0}+\Delta\theta_{23}\begin{pmatrix}0 & 0.0103 & 0.00608\\
+0 & 0.00547 & 0.0764\\
+0 & -0.076 & 0.00631
+\end{pmatrix}\\
+ &  & +\Delta\theta_{13}\begin{pmatrix}-0.0118 & 0.0495 & -0.0576\\
+-0.054 & -0.00447 & 0.00519\\
+0.0535 & 0.00638 & -0.00742
+\end{pmatrix}\\
+ &  & +\Delta\theta_{12}\begin{pmatrix}0.00207 & 0.0585 & 0.0499\\
+-0.0537 & -0.0043 & 0.00727\\
+-0.0537 & -0.0043 & 0.00727
+\end{pmatrix},
+\end{eqnarray*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\Delta\theta$
+\end_inset
+
+s are in units of degree.
+ In 
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ range
+\begin_inset Formula 
+\begin{eqnarray*}
+32.6 & < & \theta_{12}<34.8,\quad-1.1<\Delta\theta_{12}<1.1\\
+8.45 & < & \theta_{13}<9.21,\quad-0.38<\Delta\theta_{13}<0.38\\
+39.1 & < & \theta_{23}<42.4,\quad-1.65<\Delta\theta_{23}<1.65
+\end{eqnarray*}
+
+\end_inset
+
+ we obtain 
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}-0.0615 & 0.249 & -0.676\\
+-0.474 & -0.0462 & -0.445\\
+0.483 & 0.225 & -0.0746
+\end{pmatrix}<\Delta U<\begin{pmatrix}-0.048 & 0.449 & -0.502\\
+-0.315 & -0.0155 & -0.173\\
+0.642 & 0.49 & -0.0323
+\end{pmatrix}.\label{eq:DeltaU-1sigma-414}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset Formula $3\sigma$
+\end_inset
+
+ range,
+\begin_inset Formula 
+\begin{eqnarray*}
+30.6 & < & \theta_{12}<36.8\\
+7.65 & < & \theta_{13}<9.89\\
+37.7 & < & \theta_{23}<52.3
+\end{eqnarray*}
+
+\end_inset
+
+ we obtain 
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}-0.067 & 0.0726 & -0.816\\
+-0.617 & -0.0844 & -0.571\\
+0.33 & -0.547 & -0.0988
+\end{pmatrix}<\Delta U<\begin{pmatrix}-0.0389 & 0.671 & -0.264\\
+-0.162 & -0.00298 & 0.596\\
+0.785 & 0.607 & -0.0124
+\end{pmatrix}.\label{eq:DeltaU-3sigma-414}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\left(414\right)$
+\end_inset
+
+ case with 
+\begin_inset Formula $\delta_{CP}=\frac{3\pi}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta U_{0}=\begin{pmatrix}-0.0535 & -0.0912+0.439i & -0.0784-0.512i\\
+0.0840+0.477i & -0.0372+0.00848i & -0.303-0.00986i\\
+0.0840-0.477i & 0.353+0.00848i & -0.0410-0.00986i
+\end{pmatrix}.
+\]
+
+\end_inset
+
+ Approximately
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta U & \approx & \Delta U_{0}+\Delta\theta_{23}\begin{pmatrix}0 & 0.00137+0.00891i & -0.00159+0.00767i\\
+0 & 0.00529+0.000172i & 0.0762+0.000148i\\
+0 & -0.0762+0.000172i & 0.00617+0.000148i
+\end{pmatrix}\\
+ &  & +\Delta\theta_{13}\begin{pmatrix}-0.0118 & 0.0495i & -0.0576i\\
+-0.000227+0.0537i & -0.00542+0.000956i & 0.00631-0.00111i\\
+-0.000227-0.0537i & 0.00542+0.000956i & -0.00631-0.00111i
+\end{pmatrix}\\
+ &  & +\Delta\theta_{12}\begin{pmatrix}0.00207 & 0.0583+0.000209i & 0.0501-0.000243i\\
+-0.0537 & 0.00113-0.00542i & 0.000968+0.00630i\\
+-0.0537 & 0.00113-0.00542i & 0.000968+0.00630i
+\end{pmatrix}.
+\end{eqnarray*}
+
+\end_inset
+
+ In 
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ range,
+\begin_inset Formula 
+\[
+\begin{pmatrix}-0.0615 & -0.159 & -0.138\\
+0.0249 & -0.0513 & -0.429\\
+0.0249 & 0.220 & -0.0566
+\end{pmatrix}<\Re\left(\Delta U\right)<\begin{pmatrix}-0.0480 & -0.0264 & -0.0225\\
+0.143 & -0.0274 & -0.170\\
+0.143 & 0.478 & -0.0296
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{pmatrix}0 & 0.408 & -0.547\\
+0.458 & 0.00234 & -0.0180\\
+-0.499 & 0.00234 & -0.0180
+\end{pmatrix}<\Im\left(\Delta U\right)<\begin{pmatrix}0. & 0.475 & -0.478\\
+0.499 & 0.0156 & -0.00274\\
+-0.458 & 0.0156 & -0.00274
+\end{pmatrix}
+\]
+
+\end_inset
+
+ In 
+\begin_inset Formula $3\sigma$
+\end_inset
+
+ range,
+\begin_inset Formula 
+\[
+\begin{pmatrix}-0.0670 & -0.283 & -0.283\\
+-0.0827 & -0.0786 & -0.539\\
+-0.0827 & -0.544 & -0.0722
+\end{pmatrix}<\Re\left(\Delta U\right)<\begin{pmatrix}-0.0389 & 0.0934 & 0.0934\\
+0.251 & -0.0194 & 0.588\\
+0.251 & 0.588 & -0.0194
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{pmatrix}0. & 0.356041 & -0.599\\
+0.413 & -0.0113 & -0.0344\\
+-0.535 & -0.0113 & -0.0344
+\end{pmatrix}<\Im\left(\Delta U\right)<\begin{pmatrix}0. & 0.599 & -0.356\\
+0.535 & 0.0344 & 0.0113\\
+-0.413 & 0.0344 & 0.0113
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\left(444\right)$
+\end_inset
+
+ case with 
+\begin_inset Formula $\delta_{CP}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Likewise, for 
+\begin_inset Formula $\left(444\right)$
+\end_inset
+
+ case, we obtain 
+\begin_inset Formula 
+\[
+\Delta U_{0}=\begin{pmatrix}-0.0535 & -0.53 & 0.432\\
+0.561 & -0.0457 & -0.293\\
+-0.393 & 0.345 & -0.0311
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Approximately 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta U & \approx & \Delta U_{0}+\Delta\theta_{23}\begin{pmatrix}0 & -0.00755 & -0.00926\\
+0 & 0.00512 & 0.0761\\
+0 & -0.0763 & 0.00602
+\end{pmatrix}\\
+ &  & +\Delta\theta_{13}\begin{pmatrix}-0.0118 & -0.0495 & 0.0576\\
+0.0535 & -0.00638 & 0.00742\\
+-0.054 & 0.00447 & -0.00519
+\end{pmatrix}\\
+ &  & +\Delta\theta_{12}\begin{pmatrix}0.00207 & 0.0581 & 0.0504\\
+-0.0537 & 0.00655 & -0.00534\\
+-0.0537 & 0.00655 & -0.00534
+\end{pmatrix}.
+\end{eqnarray*}
+
+\end_inset
+
+ In 1
+\begin_inset Formula $\sigma$
+\end_inset
+
+ range, 
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}-0.0615 & -0.626 & 0.339\\
+0.483 & -0.0659 & -0.424\\
+-0.474 & 0.206 & -0.0514
+\end{pmatrix}<\Delta U<\begin{pmatrix}-0.048 & -0.436 & 0.525\\
+0.642 & -0.0299 & -0.155\\
+-0.315 & 0.476 & -0.0161
+\end{pmatrix}.\label{eq:DeltaU-1sigma-444}
+\end{equation}
+
+\end_inset
+
+ In 3
+\begin_inset Formula $\sigma$
+\end_inset
+
+ range, 
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}-0.067 & -0.816 & 0.0726\\
+0.33 & -0.113 & -0.547\\
+-0.617 & -0.571 & -0.0737
+\end{pmatrix}<\Delta U<\begin{pmatrix}-0.0389 & -0.264 & 0.671\\
+0.785 & -0.0124 & 0.607\\
+-0.162 & 0.596 & -0.00298
+\end{pmatrix}.\label{eq:DeltaU-3sigma-444}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\left(444\right)$
+\end_inset
+
+ case with 
+\begin_inset Formula $\delta_{CP}=\frac{3\pi}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta U_{0}=\begin{pmatrix}-0.05348 & -0.0912-0.439i & -0.0784+0.511i\\
+0.0840-0.477i & -0.0372-0.00848i & -0.303+0.00986i\\
+0.0840+0.477i & 0.353-0.00848i & -0.0410+0.00986i
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta U & \approx & \Delta U_{0}+\Delta\theta_{23}\begin{pmatrix}0 & 0.00137-0.00891i & -0.00159-0.00767i\\
+0 & 0.00529-0.000172i & 0.0762-0.000148i\\
+0 & -0.0762-0.000172i & 0.00617-0.000148i
+\end{pmatrix}\\
+ &  & +\Delta\theta_{13}\begin{pmatrix}-0.01176 & -0.0495i & 0.0576i\\
+-0.000227-0.0537i & -0.00542-0.000956i & 0.00631+0.00111i\\
+-0.000227+0.0537i & 0.00542-0.000956i & -0.00631+0.00111i
+\end{pmatrix}\\
+ &  & +\Delta\theta_{12}\begin{pmatrix}0.00207 & 0.0583-0.000209i & 0.0501+0.000243i\\
+-0.0537 & 0.00113+0.00542i & 0.000968-0.00630i\\
+-0.0537 & 0.00113+0.00542i & 0.000968-0.00630i
+\end{pmatrix}.
+\end{eqnarray*}
+
+\end_inset
+
+In 
+\begin_inset Formula $1\sigma$
+\end_inset
+
+ range,
+\begin_inset Formula 
+\[
+\begin{pmatrix}-0.0615 & -0.159 & -0.138\\
+0.0249 & -0.0513 & -0.429\\
+0.0249 & 0.220 & -0.0566
+\end{pmatrix}<\Re\left(\Delta U\right)<\begin{pmatrix}-0.0478 & -0.0264 & -0.0225\\
+0.143 & -0.0274 & -0.170\\
+0.143 & 0.478 & -0.0296
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{pmatrix}0. & -0.475 & 0.478\\
+-0.499 & -0.0156 & 0.00274\\
+0.458 & -0.0156 & 0.00274
+\end{pmatrix}<\Im\left(\Delta U\right)<\begin{pmatrix}0. & -0.408 & 0.547158\\
+-0.458 & -0.00234 & 0.0180\\
+0.499 & -0.00234 & 0.0180
+\end{pmatrix}
+\]
+
+\end_inset
+
+ In 
+\begin_inset Formula $3\sigma$
+\end_inset
+
+ range,
+\begin_inset Formula 
+\[
+\begin{pmatrix}-0.0670 & -0.283 & -0.283\\
+-0.0827 & -0.0786 & -0.539\\
+-0.0827 & -0.5443 & -0.0722
+\end{pmatrix}<\Re\left(\Delta U\right)<\begin{pmatrix}-0.0389 & 0.0934 & 0.0934\\
+0.251 & -0.0194 & 0.588\\
+0.251 & 0.588 & -0.0194
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{pmatrix}0. & -0.598671 & 0.356\\
+-0.535 & -0.0344 & -0.0113\\
+0.413 & -0.0344 & -0.0113
+\end{pmatrix}<\Im\left(\Delta U\right)<\begin{pmatrix}0. & -0.356 & 0.599\\
+-0.413 & 0.0113 & 0.0344\\
+0.535 & 0.0113 & 0.0344
+\end{pmatrix}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection*
+1
+\begin_inset Formula $\sigma$
+\end_inset
+
+ Solution
+\end_layout
+
+\begin_layout Standard
+There are 1
+\begin_inset Formula $\sigma$
+\end_inset
+
+ solutions shown as follows.
+ In the following examples, we use 
+\begin_inset Formula $A=0.77$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+(seesaw) TBM mixing, 
+\begin_inset Formula $\left(++\right)$
+\end_inset
+
+, and 
+\begin_inset Formula $\beta_{12}=348.65^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{13}=351.83^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{23}=1.39^{\circ}$
+\end_inset
+
+, with two GJ factor in the (22) and (32) element of 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+, yields,
+\begin_inset Formula 
+\[
+\theta_{23}=40.8^{\circ},\quad\theta_{13}=8.5^{\circ},\quad\theta_{12}=32.6^{\circ},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{m_{e}}{m_{\mu}}=0.0048,\quad\frac{m_{\mu}}{m_{\tau}}=0.0491,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{U}_{-1}=\begin{pmatrix}0.988 & 0.0609 & -0.142\\
+-0.0717 & 0.995 & -0.072+0.0000119i\\
+0.137 & 0.0813+0.0000128i & 0.987
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta U=\begin{pmatrix}-0.0528 & 0.268+0.0000256i & -0.625\\
+-0.316+0.0000332i & -0.0228 & -0.317+0.0000522i\\
+0.602 & 0.358+0.0000564i & -0.056
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+(seesaw) TBM mixing, 
+\begin_inset Formula $\left(++\right)$
+\end_inset
+
+, and 
+\begin_inset Formula $\beta_{12}=169.7^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{13}=354.0^{\circ}$
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{23}=176.5^{\circ}$
+\end_inset
+
+, with two GJ factor in the (21) and (22) element of 
+\begin_inset Formula $Y^{\left(-1/3\right)}$
+\end_inset
+
+, yields,
+\begin_inset Formula 
+\[
+\theta_{23}=41.3^{\circ},\quad\theta_{13}=8.7^{\circ},\quad\theta_{12}=34.4^{\circ},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{m_{e}}{m_{\mu}}=0.00498,\quad\frac{m_{\mu}}{m_{\tau}}=0.0591,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{U}_{-1}=\begin{pmatrix}0.988 & -0.111 & 0.104\\
+0.117 & 0.991 & -0.058-0.0000119i\\
+-0.0971 & 0.0696-0.0000118i & 0.993
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta U=\begin{pmatrix}-0.0514 & -0.489 & 0.46\\
+0.517 & -0.0379 & -0.256-0.0000525i\\
+-0.428 & 0.307-0.0000521i & -0.0315
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+TBM with Quadrants
+\end_layout
+
+\begin_layout Standard
+The quandrants of angles in TBM matrix is not determined.
+ In this section, we show how the TBM with different quandrants are related
+ to each other.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{TBM}=\begin{pmatrix}1 & 0 & 0\\
+0 & c_{23} & -s_{23}\\
+0 & s_{23} & c_{23}
+\end{pmatrix}\begin{pmatrix}c_{13} & 0 & -s_{13}e^{-i\delta}\\
+0 & 1 & -s_{23}\\
+s_{13}e^{i\delta} & 0 & c_{13}
+\end{pmatrix}\begin{pmatrix}c_{12} & -s_{12} & 0\\
+s_{12} & c_{12} & 0\\
+0 & 0 & 1
+\end{pmatrix},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $s_{ij}=\sin\eta_{ij},\, c_{ij}=\cos\eta_{ij}$
+\end_inset
+
+, with 
+\begin_inset Formula $\eta_{23}=\pi/4$
+\end_inset
+
+, 
+\begin_inset Formula $\eta_{13}=0$
+\end_inset
+
+, and 
+\begin_inset Formula $\eta_{12}=\arcsin\frac{1}{\sqrt{3}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the following expressions, 
+\begin_inset Formula $\left(21\right)$
+\end_inset
+
+ denotes the quadrants of 
+\begin_inset Formula $\left(\eta_{23}\eta_{12}\right)$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\left(33\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(23\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(43\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(13\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(42\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(12\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(32\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(22\right)\to\begin{pmatrix}-\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(34\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(24\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(44\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(14\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(41\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(11\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(31\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(21\right)\to\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}\sqrt{\frac{2}{3}} & \frac{1}{\sqrt{3}} & 0\\
+-\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Quadrants of 
+\begin_inset Formula $\theta_{ij}$
+\end_inset
+
+ and leading term of 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we show how the leading term of 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ changes as quadrants of 
+\begin_inset Formula $\theta_{ij}$
+\end_inset
+
+ change.
+ We define 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+\mathcal{U}_{-1}=\left(\mathcal{U}_{\mathrm{seesaw}}^{\dagger}\right)^{-1}\mathcal{U}_{\mathrm{MNSP}}^{\dagger}
+\]
+
+\end_inset
+
+ where
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{U}_{\mathrm{seesaw}} & = & \mathcal{U}_{\mathrm{TBM}}=\begin{pmatrix}\sqrt{\frac{2}{3}} & -\frac{1}{\sqrt{3}} & 0\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{2}}
+\end{pmatrix},\\
+\mathcal{U}_{\mathrm{MNSP}} & = & \begin{pmatrix}1 & 0 & 0\\
+0 & c_{23} & -s_{23}\\
+0 & s_{23} & c_{23}
+\end{pmatrix}\begin{pmatrix}c_{13} & 0 & -s_{13}e^{-i\delta}\\
+0 & 1 & -s_{23}\\
+s_{13}e^{i\delta} & 0 & c_{13}
+\end{pmatrix}\begin{pmatrix}c_{12} & -s_{12} & 0\\
+s_{12} & c_{12} & 0\\
+0 & 0 & 1
+\end{pmatrix},
+\end{eqnarray*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $s_{ij}=\sin\eta_{ij},\, c_{ij}=\cos\eta_{ij}$
+\end_inset
+
+.
+ In 
+\begin_inset Formula $0\sigma$
+\end_inset
+
+ level, 
+\begin_inset Formula $\theta_{23}=45.8\textdegree$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{13}=8.5\textdegree$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{12}=33.5\textdegree$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\theta_{ij}$
+\end_inset
+
+ in different quadrants, 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ is different.
+ In the following expressions, we choose 
+\begin_inset Formula $\lambda=0.225$
+\end_inset
+
+ and denote the quadrants of 
+\begin_inset Formula $\left(\theta_{23}\theta_{13}\theta_{12}\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $\left(n_{23}n_{13}n_{12}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $n_{ij}$
+\end_inset
+
+ are numbers from 1 to 4 representing first quadrant to fourth quadrant
+ respectively.
+ The 
+\begin_inset Formula $\mathcal{U}_{-1}$
+\end_inset
+
+ matrices for different quadrants setting are as follow.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(112\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.565 & 0.359\\
+-0.559 & 0.0364 & 0.0948\\
+0.368 & 0.0485 & -0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(114\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & -1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.565 & -0.359\\
+-0.368 & -0.0485 & 0.0156\\
+0.559 & -0.0364 & -0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(122\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & 1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.565 & 0.359\\
+-0.368 & 0.0485 & -0.0156\\
+0.559 & 0.0364 & 0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(124\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.565 & -0.359\\
+-0.559 & -0.0364 & -0.0948\\
+0.368 & -0.0485 & 0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(132\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & 1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.375 & -0.555\\
+0.559 & 0.028 & -0.0355\\
+-0.368 & 0.0159 & 0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(134\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.375 & 0.555\\
+0.368 & -0.0159 & -0.0749\\
+-0.559 & -0.028 & 0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(142\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.375 & -0.555\\
+0.368 & 0.0159 & 0.0749\\
+-0.559 & 0.028 & -0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(144\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & -1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.375 & 0.555\\
+0.559 & -0.028 & 0.0355\\
+-0.368 & -0.0159 & -0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(212\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.375 & -0.555\\
+-0.559 & -0.028 & -0.0355\\
+0.368 & -0.0159 & 0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(214\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.375 & 0.555\\
+-0.368 & 0.0159 & -0.0749\\
+0.559 & 0.028 & 0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(222\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.375 & -0.555\\
+-0.368 & -0.0159 & 0.0749\\
+0.559 & -0.028 & -0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(224\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & -1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.375 & 0.555\\
+-0.559 & 0.028 & 0.0355\\
+0.368 & 0.0159 & -0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(232\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.565 & 0.359\\
+0.559 & -0.0364 & 0.0948\\
+-0.368 & -0.0485 & -0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(234\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & -1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.565 & -0.359\\
+0.368 & 0.0485 & 0.0156\\
+-0.559 & 0.0364 & -0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(242\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.565 & 0.359\\
+0.368 & -0.0485 & -0.0156\\
+-0.559 & -0.0364 & 0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(244\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.565 & -0.359\\
+0.559 & 0.0364 & -0.0948\\
+-0.368 & 0.0485 & 0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(312\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.565 & -0.359\\
+-0.559 & -0.0364 & -0.0948\\
+0.368 & -0.0485 & 0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(314\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & 1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.565 & 0.359\\
+-0.368 & 0.0485 & -0.0156\\
+0.559 & 0.0364 & 0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(322\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & -1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.565 & -0.359\\
+-0.368 & -0.0485 & 0.0156\\
+0.559 & -0.0364 & -0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(324\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.565 & 0.359\\
+-0.559 & 0.0364 & 0.0948\\
+0.368 & 0.0485 & -0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(332\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & -1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.375 & 0.555\\
+0.559 & -0.028 & 0.0355\\
+-0.368 & -0.0159 & -0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(334\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.375 & -0.555\\
+0.368 & 0.0159 & 0.0749\\
+-0.559 & 0.028 & -0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(342\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.375 & 0.555\\
+0.368 & -0.0159 & -0.0749\\
+-0.559 & -0.028 & 0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(344\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & 1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.375 & -0.555\\
+0.559 & 0.028 & -0.0355\\
+-0.368 & 0.0159 & 0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(412\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & -1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.375 & 0.555\\
+-0.559 & 0.028 & 0.0355\\
+0.368 & 0.0159 & -0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(414\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.375 & -0.555\\
+-0.368 & -0.0159 & 0.0749\\
+0.559 & -0.028 & -0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(422\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.375 & 0.555\\
+-0.368 & 0.0159 & -0.0749\\
+0.559 & 0.028 & 0.0355
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(424\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.375 & -0.555\\
+-0.559 & -0.028 & -0.0355\\
+0.368 & -0.0159 & 0.0749
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(432\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & 0.565 & -0.359\\
+0.559 & 0.0364 & -0.0948\\
+-0.368 & 0.0485 & 0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(434\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & -0.565 & 0.359\\
+0.368 & -0.0485 & -0.0156\\
+-0.559 & -0.0364 & 0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(442\right)\to\mathcal{U}_{-1}=\begin{pmatrix}-1 & 0 & 0\\
+0 & 0 & -1\\
+0 & -1 & 0
+\end{pmatrix}+\lambda\begin{pmatrix}0.0508 & 0.565 & -0.359\\
+0.368 & 0.0485 & 0.0156\\
+-0.559 & 0.0364 & -0.0948
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(444\right)\to\mathcal{U}_{-1}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.0508 & -0.565 & 0.359\\
+0.559 & -0.0364 & 0.0948\\
+-0.368 & -0.0485 & -0.0156
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The rest quadrant configurations: 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(111\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & 2\\
+2 & -1 & -2\\
+2 & 2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.0956 & -0.159\\
+-0.529 & -0.263 & -0.321\\
+0.398 & -0.251 & -0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(113\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & -2\\
+-2 & -2 & -1\\
+-2 & 1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.0956 & 0.159\\
+-0.398 & 0.251 & 0.432\\
+0.529 & 0.263 & 0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(121\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & 2\\
+-2 & 2 & 1\\
+-2 & -1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.0956 & -0.159\\
+-0.398 & -0.251 & -0.432\\
+0.529 & -0.263 & -0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(123\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & -2\\
+2 & 1 & 2\\
+2 & -2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.0956 & 0.159\\
+-0.529 & 0.263 & 0.321\\
+0.398 & 0.251 & 0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(131\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & 2\\
+-2 & 2 & 1\\
+-2 & -1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.245 & 0.173\\
+0.529 & 0.369 & 0.171\\
+-0.398 & 0.357 & 0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(133\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & -2\\
+2 & 1 & 2\\
+2 & -2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.245 & -0.173\\
+0.398 & -0.357 & -0.281\\
+-0.529 & -0.369 & -0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(141\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & 2\\
+2 & -1 & -2\\
+2 & 2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.245 & 0.173\\
+0.398 & 0.357 & 0.281\\
+-0.529 & 0.369 & 0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(143\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & -2\\
+-2 & -2 & -1\\
+-2 & 1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.245 & -0.173\\
+0.529 & -0.369 & -0.171\\
+-0.398 & -0.357 & -0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(211\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & 2\\
+2 & -2 & 1\\
+2 & 1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.245 & 0.173\\
+-0.529 & -0.369 & 0.171\\
+0.398 & -0.357 & 0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(213\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & -2\\
+-2 & -1 & 2\\
+-2 & 2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.245 & -0.173\\
+-0.398 & 0.357 & -0.281\\
+0.529 & 0.369 & -0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(221\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & 2\\
+-2 & 1 & -2\\
+-2 & -2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.245 & 0.173\\
+-0.398 & -0.357 & 0.281\\
+0.529 & -0.369 & 0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(223\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & -2\\
+2 & 2 & -1\\
+2 & -1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.245 & -0.173\\
+-0.529 & 0.369 & -0.171\\
+0.398 & 0.357 & -0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(231\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & 2\\
+-2 & 1 & -2\\
+-2 & -2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.0956 & -0.159\\
+0.529 & 0.263 & -0.321\\
+-0.398 & 0.251 & -0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(233\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & -2\\
+2 & 2 & -1\\
+2 & -1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.0956 & 0.159\\
+0.398 & -0.251 & 0.432\\
+-0.529 & -0.263 & 0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(241\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & 2\\
+2 & -2 & 1\\
+2 & 1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.0956 & -0.159\\
+0.398 & 0.251 & -0.432\\
+-0.529 & 0.263 & -0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(243\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & -2\\
+-2 & -1 & 2\\
+-2 & 2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.0956 & 0.159\\
+0.529 & -0.263 & 0.321\\
+-0.398 & -0.251 & 0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(311\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & -2\\
+2 & 1 & 2\\
+2 & -2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.0956 & 0.159\\
+-0.529 & 0.263 & 0.321\\
+0.398 & 0.251 & 0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(313\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & 2\\
+-2 & 2 & 1\\
+-2 & -1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.0956 & -0.159\\
+-0.398 & -0.251 & -0.432\\
+0.529 & -0.263 & -0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(321\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & -2\\
+-2 & -2 & -1\\
+-2 & 1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.0956 & 0.159\\
+-0.398 & 0.251 & 0.432\\
+0.529 & 0.263 & 0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(323\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & 2\\
+2 & -1 & -2\\
+2 & 2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.0956 & -0.159\\
+-0.529 & -0.263 & -0.321\\
+0.398 & -0.251 & -0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(331\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & -2\\
+-2 & -2 & -1\\
+-2 & 1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.245 & -0.173\\
+0.529 & -0.369 & -0.171\\
+-0.398 & -0.357 & -0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(333\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & 2\\
+2 & -1 & -2\\
+2 & 2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.245 & 0.173\\
+0.398 & 0.357 & 0.281\\
+-0.529 & 0.369 & 0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(341\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & -2\\
+2 & 1 & 2\\
+2 & -2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.245 & -0.173\\
+0.398 & -0.357 & -0.281\\
+-0.529 & -0.369 & -0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(343\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & 2\\
+-2 & 2 & 1\\
+-2 & -1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.245 & 0.173\\
+0.529 & 0.369 & 0.171\\
+-0.398 & 0.357 & 0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(411\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & -2\\
+2 & 2 & -1\\
+2 & -1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.245 & -0.173\\
+-0.529 & 0.369 & -0.171\\
+0.398 & 0.357 & -0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(413\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & 2\\
+-2 & 1 & -2\\
+-2 & -2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.245 & 0.173\\
+-0.398 & -0.357 & 0.281\\
+0.529 & -0.369 & 0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(421\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & -2\\
+-2 & -1 & 2\\
+-2 & 2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.245 & -0.173\\
+-0.398 & 0.357 & -0.281\\
+0.529 & 0.369 & -0.171
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(423\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & 2\\
+2 & -2 & 1\\
+2 & 1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.245 & 0.173\\
+-0.529 & -0.369 & 0.171\\
+0.398 & -0.357 & 0.281
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(431\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & -2 & -2\\
+-2 & -1 & 2\\
+-2 & 2 & -1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & -0.0956 & 0.159\\
+0.529 & -0.263 & 0.321\\
+-0.398 & -0.251 & 0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(433\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & 2 & 2\\
+2 & -2 & 1\\
+2 & 1 & -2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & 0.0956 & -0.159\\
+0.398 & 0.251 & -0.432\\
+-0.529 & 0.263 & -0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(441\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}1 & -2 & -2\\
+2 & 2 & -1\\
+2 & -1 & 2
+\end{pmatrix}+\lambda\begin{pmatrix}0.11 & -0.0956 & 0.159\\
+0.398 & -0.251 & 0.432\\
+-0.529 & -0.263 & 0.321
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+\left(443\right)\to\mathcal{U}_{-1}=\frac{1}{3}\begin{pmatrix}-1 & 2 & 2\\
+-2 & 1 & -2\\
+-2 & -2 & 1
+\end{pmatrix}+\lambda\begin{pmatrix}-0.11 & 0.0956 & -0.159\\
+0.529 & 0.263 & -0.321\\
+-0.398 & 0.251 & -0.432
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
