@@ -1149,9 +1149,9 @@ The critical point is a local minimum only if the Hessian matrix of the
  at the critical point is positive definite under the following constraints:
 \begin_inset Formula 
 \begin{eqnarray}
-\eta_{2}<0,\quad\eta_{3}+\eta_{2} & > & 0,\label{eq:S7-potential-one-field-sol1-1}\\
-3\eta_{3}^{3}+\eta_{2}\eta_{3}^{2}-19\eta_{2}^{2}\eta_{3}-\eta_{2}^{3} & > & 0,\label{eq:S7-potential-one-field-sol2-1}\\
-\kappa_{1}\zeta_{1}-\frac{1}{64}\left(4\eta_{1}+\eta_{2}-3\eta_{3}\right)^{2} & > & 0.\label{eq:S7-potential-one-field-sol3-1}
+\eta_{2}<0,\quad\eta_{3}+\eta_{2} & > & 0,\label{eq:S7-potential-one-field-sol1}\\
+3\eta_{3}^{3}+\eta_{2}\eta_{3}^{2}-19\eta_{2}^{2}\eta_{3}-\eta_{2}^{3} & > & 0,\label{eq:S7-potential-one-field-sol2}\\
+\kappa_{1}\zeta_{1}-\frac{1}{64}\left(4\eta_{1}+\eta_{2}-3\eta_{3}\right)^{2} & > & 0.\label{eq:S7-potential-one-field-sol3}
 \end{eqnarray}
 
 \end_inset
@@ -1179,7 +1179,7 @@ reference "eq:S7-potential-one-field-sol4"
 -
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:S7-potential-one-field-sol3-1"
+reference "eq:S7-potential-one-field-sol3"
 
 \end_inset
 
@@ -1191,14 +1191,14 @@ reference "eq:S7-potential-one-field-sol3-1"
  By numerical computation, we can write constraints 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:S7-potential-one-field-sol1-1"
+reference "eq:S7-potential-one-field-sol1"
 
 \end_inset
 
  and 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:S7-potential-one-field-sol2-1"
+reference "eq:S7-potential-one-field-sol2"
 
 \end_inset
 
@@ -2069,7 +2069,11 @@ name "sec:app-one-field-hessian"
 
 \end_inset
 
-Reduce the Hessian matrix constraints for one field potential
+Hessian matrix of 
+\begin_inset Formula $V\left(\bar{\varphi},S_{7}\right)$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2112,16 +2116,16 @@ f\left(z_{1},\bar{z}_{1},\cdots,z_{n},\bar{z}_{n}\right),\quad z_{j}=x_{j}+iy_{j
 
  It follows that the Hessian matrix can be expressed as
 \begin_inset Formula 
-\begin{eqnarray*}
-H\left(f\right) & = & \left(\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{n}},\frac{\partial}{\partial y_{1}},\cdots,\frac{\partial}{\partial y_{n}}\right)^{T}\left(\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{n}},\frac{\partial}{\partial y_{1}},\cdots,\frac{\partial}{\partial y_{n}}\right)f\\
- & = & \begin{pmatrix}I & I\\
+\begin{multline}
+H\left(f\right)=\left(\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{n}},\frac{\partial}{\partial y_{1}},\cdots,\frac{\partial}{\partial y_{n}}\right)^{T}\left(\frac{\partial}{\partial x_{1}},\cdots,\frac{\partial}{\partial x_{n}},\frac{\partial}{\partial y_{1}},\cdots,\frac{\partial}{\partial y_{n}}\right)f\\
+=\begin{pmatrix}I & I\\
 iI & -iI
 \end{pmatrix}\begin{pmatrix}\frac{\partial^{2}f}{\partial z_{i}\partial\bar{z}_{j}} & \frac{\partial^{2}f}{\partial z_{i}\partial z_{j}}\\
 \frac{\partial^{2}f}{\partial\bar{z}_{i}\partial\bar{z}_{j}} & \frac{\partial^{2}f}{\partial\bar{z}_{i}\partial z_{j}}
 \end{pmatrix}\begin{pmatrix}I & -iI\\
 I & iI
-\end{pmatrix},
-\end{eqnarray*}
+\end{pmatrix},\label{eq:S7-potential-one-field-H}
+\end{multline}
 
 \end_inset
 
@@ -2154,7 +2158,7 @@ Now we group the variables of
 \begin_inset Formula $V\left(\bar{\varphi},S_{7}\right)$
 \end_inset
 
- become block-diagonalized when the variable is ordered as 
+ becomes block-diagonalized when the variable is ordered as 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-one-field-variables"
@@ -2162,12 +2166,7 @@ reference "eq:S7-potential-one-field-variables"
 \end_inset
 
 .
- That being said, the second derivatives of 
-\begin_inset Formula $V$
-\end_inset
-
- with respect to variables from any two different groups vanish.
- Therefore, we can write the Hessian matrix as 
+ It means we can write the Hessian matrix as 
 \begin_inset Formula 
 \[
 \left\langle H\left(V\right)\right\rangle =\left\langle H_{1}\left(V\right)\right\rangle \oplus\left\langle H_{2}\left(V\right)\right\rangle \oplus\left\langle H_{3}\left(V\right)\right\rangle \oplus\left\langle H_{4}\left(V\right)\right\rangle ,
@@ -2180,10 +2179,10 @@ reference "eq:S7-potential-one-field-variables"
 \end_inset
 
  is the Hessian matrix of 
-\begin_inset Formula $V$
+\begin_inset Formula $V\left(\bar{\varphi},S_{7}\right)$
 \end_inset
 
- with respect to variables of the 
+ with respect to the variables of the 
 \begin_inset Formula $i$
 \end_inset
 
@@ -2197,7 +2196,7 @@ th set.
 \end_inset
 
  in the rest of the paper.
- By calculation, we find these matrices are 
+ By calculation, we find that these matrices are 
 \begin_inset Formula 
 \[
 H_{1}=\frac{v^{2}}{\sqrt{21}}\begin{pmatrix}\eta_{3}-\eta_{2} & 0 & 0 & 0\\
@@ -2260,7 +2259,7 @@ The two zero eigenvalues of
 \end_inset
 
  are the consequence of that potential 
-\begin_inset Formula $V$
+\begin_inset Formula $V\left(\bar{\varphi},S_{7}\right)$
 \end_inset
 
  has the extra 
@@ -2268,7 +2267,8 @@ The two zero eigenvalues of
 \end_inset
 
  symmetry.
- To have local minimum at the desired vacuum, all other eigenvalues of 
+ To have local minimum at the desired vacuum, all the other eigenvalues
+ of 
 \begin_inset Formula $H_{i}$
 \end_inset
 
@@ -2302,9 +2302,9 @@ The two zero eigenvalues of
 \begin_inset Formula $3\times3$
 \end_inset
 
- matrices, whose eigenvalues are roots of cubic equations.
+ matrices, of which the eigenvalues are roots of cubic equations.
  To find the constraints, we use the relation between roots and coefficients
- of cubic equation.
+ of a cubic equation.
  If a cubic equation of 
 \begin_inset Formula $x$
 \end_inset
@@ -2317,7 +2317,7 @@ x^{3}+bx^{2}+cx+d=0,
 
 \end_inset
 
- has three positive roots, we must have 
+ has three positive roots, we have 
 \begin_inset Formula 
 \begin{eqnarray*}
 x_{1}+x_{2}+x_{3} & = & -b>0,\\
@@ -2362,66 +2362,24 @@ reference "eq:S7-potential-one-field-ineq1"
 
 \end_inset
 
- to 
+-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-one-field-ineq2"
 
 \end_inset
 
- are reduced to
-\begin_inset Formula 
-\begin{eqnarray}
-\eta_{2}<0,\quad\eta_{3}+\eta_{2} & > & 0,\label{eq:S7-potential-one-field-sol1}\\
-3\eta_{3}^{3}+\eta_{2}\eta_{3}^{2}-19\eta_{2}^{2}\eta_{3}-\eta_{2}^{3} & > & 0,\label{eq:S7-potential-one-field-sol2}\\
-\kappa_{1}\zeta_{1}-\frac{1}{64}\left(4\eta_{1}+\eta_{2}-3\eta_{3}\right)^{2} & > & 0.\label{eq:S7-potential-one-field-sol3}
-\end{eqnarray}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In summary, inequality 
+ are reduced to 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-one-field-sol1"
 
 \end_inset
 
- to 
+-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-one-field-sol3"
-
-\end_inset
-
- together with 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:S7-potential-one-field-sol4"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:S7-potential-one-field-sol5"
-
-\end_inset
-
- are the constraints for the potential 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:S7-potential-one-field-V"
-
-\end_inset
-
- to produce vacuum 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:S7-potential-one-field-vev"
 
 \end_inset
 
@@ -2436,7 +2394,11 @@ name "sec:app-two-field-hessian"
 
 \end_inset
 
-Hessian matrix of two-field case
+Hessian matrix of 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime},S_{7}\right)$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2449,6 +2411,14 @@ reference "eq:S7-potential-two-field-V"
 \end_inset
 
 .
+ We use the formula 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-H"
+
+\end_inset
+
+ to calculate the Hessian matrix.
  Similar to the one-familon case, the Hessian matrix becomes block-diagonalized
  if the variables are grouped into four sets as
 \begin_inset Formula 
@@ -2466,10 +2436,10 @@ reference "eq:S7-potential-two-field-V"
 
 \end_inset
 
-Therefore, we can express the Hessian matrix as a direct sum of four matrices
+We can therefore express the Hessian matrix as a direct sum of four matrices
 \begin_inset Formula 
 \[
-H=H_{1}\oplus H_{2}\oplus H_{3}\oplus H_{4}
+H=H_{1}\oplus H_{2}\oplus H_{3}\oplus H_{4},
 \]
 
 \end_inset
@@ -2478,7 +2448,7 @@ H=H_{1}\oplus H_{2}\oplus H_{3}\oplus H_{4}
 \begin_inset Formula $H_{i}$
 \end_inset
 
- is the Hessian matrix with respect to variables of the 
+ is the Hessian matrix with respect to the variables of the 
 \begin_inset Formula $i$
 \end_inset
 
@@ -2519,7 +2489,7 @@ H_{4}=\left(H_{4}^{\left(D\right)}+H_{4}^{\left(O_{1}\right)}\right)\oplus\left(
 
 \end_inset
 
- where, for properly showing the matrices, we have decomposed 
+ where we have decomposed 
 \begin_inset Formula $H_{3}$
 \end_inset
 
@@ -2527,7 +2497,8 @@ H_{4}=\left(H_{4}^{\left(D\right)}+H_{4}^{\left(O_{1}\right)}\right)\oplus\left(
 \begin_inset Formula $H_{4}$
 \end_inset
 
- into diagonal and off-diagonal parts, 
+ into diagonal and off-diagonal parts.
+ They read 
 \begin_inset Formula 
 \begin{multline*}
 H_{3}^{\left(D\right)}=\frac{1}{2\sqrt{21}}\mathrm{diag}\Big(\left(\eta_{2}+5\eta_{3}\right)v^{2}+v^{\prime2}\left(\eta_{2}^{\prime}+5\eta_{3}^{\prime}\right),2\left(\eta_{3}-2\eta_{2}\right)v^{2}+2\left(\eta_{3}^{\prime}-2\eta_{2}^{\prime}\right)v^{\prime2},\\
@@ -2615,8 +2586,8 @@ Similar to the one-familon case, the three zero eigenvalues of
 \end_inset
 
  are postive definite.
- They can be obtained from the relation between roots and coefficients of
- the characteristic equations of 
+ The constraints can be obtained from the relation between roots and coefficient
+s of the characteristic equations of 
 \begin_inset Formula $H_{3}$
 \end_inset
 
@@ -2669,16 +2640,16 @@ Similar to the one-familon case, the three zero eigenvalues of
 +\frac{\xi_{1}}{63\sqrt{21}}\left[\eta_{2}^{2}\left(3\eta_{2}^{\prime}+19\eta_{3}^{\prime}\right)+\eta_{2}\left(38\eta_{3}\eta_{2}^{\prime}-2\eta_{3}\eta_{3}^{\prime}\right)-\eta_{3}^{2}\left(\eta_{2}^{\prime}+9\eta_{3}^{\prime}\right)\right]v^{4}v^{\prime2}v_{7}^{2}\\
 +\frac{1}{1764}\left[8\eta_{2}\eta_{3}\eta_{3}^{\prime}\left(\eta_{3}^{\prime}-7\eta_{2}^{\prime}\right)+15\eta_{3}^{2}\eta_{3}^{\prime2}-\eta_{2}^{2}\left(\eta_{2}^{\prime2}+24\eta_{3}^{\prime}\eta_{2}^{\prime}+38\eta_{3}^{\prime2}\right)\right]v^{2}v^{\prime2}v_{7}^{4}\\
 -\frac{1}{1764}\left(\eta_{2}^{3}+19\eta_{3}\eta_{2}^{2}-\eta_{3}^{2}\eta_{2}-3\eta_{3}^{3}\right)\left(\eta_{2}^{\prime}+5\eta_{3}^{\prime}\right)v^{4}v_{7}^{4}\\
-+\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right)>0.
++\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right)>0,
 \end{multline}
 
 \end_inset
 
- Similarly for 
+ and for 
 \begin_inset Formula $H_{4}$
 \end_inset
 
-, we have 
+, 
 \begin_inset Formula 
 \begin{equation}
 \left(\frac{\eta_{2}+7\eta_{3}}{2\sqrt{21}}-\frac{2\xi_{1}}{3}\right)v^{2}+\frac{2\left(\eta_{3}-\eta_{2}\right)}{\sqrt{21}}v_{7}^{2}+\left(v\leftrightarrow v^{\prime},\eta_{2}\leftrightarrow\eta_{2}^{\prime},\eta_{3}\leftrightarrow\eta_{3}^{\prime}\right)>0,
@@ -2732,7 +2703,7 @@ reference "eq:S7-potential-two-field-ineq1"
 
 \end_inset
 
- to 
+-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-ineq2"
@@ -2741,7 +2712,14 @@ reference "eq:S7-potential-two-field-ineq2"
 
  are too complicated to solve exactly.
  Fortunately, our goal is only to find sufficient conditions.
- From the results of one-familon case, we guess that the constraints
+ From the result 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-one-field-sol6"
+
+\end_inset
+
+ of one-familon case, we guess that the constraints
 \begin_inset Formula 
 \begin{equation}
 \eta_{2}<0,\quad\eta_{2}^{\prime}<0,\quad\eta_{3}\geq-3\eta_{2},\quad\eta_{3}^{\prime}\geq-3\eta_{2}^{\prime},\label{eq:S7-potential-two-field-sol1}
@@ -2756,7 +2734,7 @@ reference "eq:S7-potential-two-field-ineq1"
 
 \end_inset
 
- to 
+-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-ineq2"
@@ -2764,21 +2742,6 @@ reference "eq:S7-potential-two-field-ineq2"
 \end_inset
 
 .
- We obtain 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:S7-potential-two-field-sol1"
-
-\end_inset
-
- from the one-familon result 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:S7-potential-one-field-sol6"
-
-\end_inset
-
- by loosing it a little bit for each familon field.
  Using Mathematica, we verify that 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -2786,14 +2749,14 @@ reference "eq:S7-potential-two-field-sol1"
 
 \end_inset
 
- does satisfy inequality 
+ does satisfy inequalities 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-ineq1"
 
 \end_inset
 
- to 
+-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-ineq2"
@@ -2827,7 +2790,7 @@ reference "eq:S7-potential-two-field-ineq2"
 \end_inset
 
  are positive.
- Then the left hand side of each inequality can be considered as a function
+ Then the left-hand side of each inequality can be considered as a function
  of 
 \begin_inset Formula $a$
 \end_inset
@@ -2841,7 +2804,7 @@ reference "eq:S7-potential-two-field-ineq2"
 \end_inset
 
 .
- To show 
+ So we need to show 
 \begin_inset Formula 
 \[
 f\left(a,b\right)>0,\quad\text{for any }a\geq3,\, b\geq3,
@@ -2849,7 +2812,7 @@ f\left(a,b\right)>0,\quad\text{for any }a\geq3,\, b\geq3,
 
 \end_inset
 
- we only need to show that 
+which is equivalent to show that 
 \begin_inset Formula 
 \[
 f\left(3,3\right)>0,\quad\text{and }\frac{\partial f}{\partial a}\Big|_{\left(a_{0},b_{0}\right)}>0,\,\frac{\partial f}{\partial b}\Big|_{\left(a_{0},b_{0}\right)}>0,\text{ for any }a_{0}\geq3,\, b_{0}\geq3.
@@ -2857,7 +2820,7 @@ f\left(3,3\right)>0,\quad\text{and }\frac{\partial f}{\partial a}\Big|_{\left(a_
 
 \end_inset
 
- We expand 
+ We Tayler expand 
 \begin_inset Formula $\frac{\partial f}{\partial a}\Big|_{\left(a_{0},b_{0}\right)}$
 \end_inset
 
@@ -2865,8 +2828,12 @@ f\left(3,3\right)>0,\quad\text{and }\frac{\partial f}{\partial a}\Big|_{\left(a_
 \begin_inset Formula $\frac{\partial f}{\partial b}\Big|_{\left(a_{0},b_{0}\right)}$
 \end_inset
 
- as power series of 
+ in terms of 
 \begin_inset Formula $v$
+\end_inset
+
+ at 
+\begin_inset Formula $v=0$
 \end_inset
 
  and find that they are positive at every order of 
@@ -2888,7 +2855,7 @@ reference "eq:S7-potential-two-field-ineq1"
 
 \end_inset
 
- to 
+-
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-ineq2"
@@ -2921,7 +2888,7 @@ We then consider the constraints from
 
 \end_inset
 
-Easy to see that 
+It is easy to see that 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-eq3"
@@ -2986,7 +2953,7 @@ reference "eq:S7-potential-two-field-eq6"
 
 \end_inset
 
-, the left hand side is a monotonically increasing function of 
+, the left-hand side is a monotonically increasing function of 
 \begin_inset Formula $\kappa_{1}$
 \end_inset
 
@@ -2999,7 +2966,7 @@ reference "eq:S7-potential-two-field-eq6"
 \end_inset
 
 .
- Therefore, it's sufficient to show that the inequality holds for the minimal
+ Therefore, it is sufficient to show that the inequality holds for the minimal
  value of 
 \begin_inset Formula $\kappa_{1}$
 \end_inset
@@ -3012,7 +2979,8 @@ reference "eq:S7-potential-two-field-eq6"
 \begin_inset Formula $\zeta_{1}$
 \end_inset
 
-, which are given by 
+.
+ The minimum values are given by right-hand sides of inequalities 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-k1"
@@ -3046,7 +3014,7 @@ reference "eq:S7-potential-two-field-zeta1"
 \begin_inset Formula $\zeta_{1}$
 \end_inset
 
- into the left hand side of 
+ into the left-hand side of 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-eq6"
@@ -3062,7 +3030,7 @@ reference "eq:S7-potential-two-field-eq6"
 
 \end_inset
 
- which is clearly positive given 
+ which is clearly positive given that 
 \begin_inset Formula $\xi_{1},\,\eta_{2},\,\eta_{2}^{\prime}<0$
 \end_inset
 
@@ -3083,7 +3051,7 @@ reference "eq:S7-potential-two-field-eq6"
 \end_layout
 
 \begin_layout Standard
-Finally, 
+Finally, inequality 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-eq7"
@@ -3098,7 +3066,7 @@ reference "eq:S7-potential-two-field-eq7"
 
 \end_inset
 
- A little calculation shows that 
+ 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:P7-potential-two-field-zeta1-2"
@@ -3112,9 +3080,8 @@ reference "eq:S7-potential-two-field-zeta1"
 
 \end_inset
 
- and hence can be removed as well.
- The caculation is performed as follows.
- Denote the right hand side of 
+, which can be shown as follows.
+ Denote the right-hand sides of 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-zeta1"
@@ -3137,19 +3104,19 @@ reference "eq:P7-potential-two-field-zeta1-2"
 \end_inset
 
 .
- We need to show 
+ We need to show that 
 \begin_inset Formula $\zeta_{1}^{\left(a\right)}\geq\zeta_{1}^{\left(b\right)}$
 \end_inset
 
-, which is equivalent to show 
+, which is equivalent to show that 
 \begin_inset Formula 
 \[
-g\left(\kappa_{1},\kappa_{1}^{\prime}\right)\equiv\left(4\kappa_{1}\kappa_{1}^{\prime}-\xi_{1}^{2}\right)\left(\zeta_{1}^{\left(a\right)}-\zeta_{1}^{\left(b\right)}\right)\geq0,
+g\left(\kappa_{1},\kappa_{1}^{\prime}\right)\equiv\left(4\kappa_{1}\kappa_{1}^{\prime}-\xi_{1}^{2}\right)\left(\zeta_{1}^{\left(a\right)}-\zeta_{1}^{\left(b\right)}\right)\geq0
 \]
 
 \end_inset
 
- since it follows from 
+ as 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-k1"
@@ -3163,12 +3130,12 @@ reference "eq:S7-potential-two-field-kp1"
 
 \end_inset
 
- that 
+ imply 
 \begin_inset Formula $4\kappa_{1}\kappa_{1}^{\prime}-\xi_{1}^{2}>0$
 \end_inset
 
 .
- Denote right hand side of 
+ Denote the right-hand sides of 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S7-potential-two-field-k1"
@@ -3222,7 +3189,7 @@ reference "eq:S7-potential-two-field-gkmin"
 
 \end_inset
 
- imply 
+ imply that 
 \begin_inset Formula $g\left(\kappa_{1},\kappa_{1}^{\prime}\right)\geq0$
 \end_inset
 
@@ -3235,6 +3202,24 @@ i.e.
 \end_inset
 
 , always holds.
+\end_layout
+
+\begin_layout Standard
+In conclusion, the constraints 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-sol1"
+
+\end_inset
+
+ lead to a positive definite Hessian matrix at the desired vacuum 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-potential-two-field-vev"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
