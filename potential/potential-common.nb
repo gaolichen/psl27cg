@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     50780,       1255]
-NotebookOptionsPosition[     50464,       1240]
-NotebookOutlinePosition[     50798,       1255]
-CellTagsIndexPosition[     50755,       1252]
+NotebookDataLength[     51993,       1281]
+NotebookOptionsPosition[     51677,       1266]
+NotebookOutlinePosition[     52011,       1281]
+CellTagsIndexPosition[     51968,       1278]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -259,17 +259,31 @@ Cell[BoxData[
           RowBox[{"s", ",", 
            RowBox[{"ToExpression", "[", 
             RowBox[{"\"\<\\\\bar{s}\>\"", ",", "TeXForm"}], "]"}], ",", 
+           "\[IndentingNewLine]", 
            RowBox[{"ToExpression", "[", 
-            RowBox[{"\"\<s^{\\\\prime}\>\"", ",", "TeXForm"}], "]"}], ",", 
+            RowBox[{"\"\<s_1\>\"", ",", "TeXForm"}], "]"}], ",", 
            RowBox[{"ToExpression", "[", 
-            RowBox[{"\"\<\\\\bar{s}^{\\\\prime}\>\"", ",", "TeXForm"}], "]"}],
-            ",", 
+            RowBox[{"\"\<\\\\bar{s}_1\>\"", ",", "TeXForm"}], "]"}], ",", 
+           "\[IndentingNewLine]", 
            RowBox[{"ToExpression", "[", 
-            RowBox[{"\"\<t^{\\\\prime}\>\"", ",", "TeXForm"}], "]"}], ",", 
+            RowBox[{"\"\<s_2\>\"", ",", "TeXForm"}], "]"}], ",", 
            RowBox[{"ToExpression", "[", 
-            RowBox[{"\"\<\\\\bar{t}^{\\\\prime}\>\"", ",", "TeXForm"}], 
-            "]"}]}], "}"}]}], "}"}]}], "\[IndentingNewLine]", "}"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"\"\<\\\\bar{s}_2\>\"", ",", "TeXForm"}], "]"}]}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{"ToExpression", "[", 
+             RowBox[{"\"\<s^{\\\\prime}\>\"", ",", "TeXForm"}], "]"}], ",", 
+            RowBox[{"ToExpression", "[", 
+             RowBox[{"\"\<\\\\bar{s}^{\\\\prime}\>\"", ",", "TeXForm"}], 
+             "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"ToExpression", "[", 
+             RowBox[{"\"\<t^{\\\\prime}\>\"", ",", "TeXForm"}], "]"}], ",", 
+            RowBox[{"ToExpression", "[", 
+             RowBox[{"\"\<\\\\bar{t}^{\\\\prime}\>\"", ",", "TeXForm"}], 
+             "]"}]}], "*)"}], "\[IndentingNewLine]", "}"}]}], 
+        "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", "}"}]}], ";"}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "BuildToLatexRep", "]"}], ";"}], 
    "\[IndentingNewLine]", 
@@ -404,6 +418,13 @@ Cell[BoxData[
       RowBox[{
        RowBox[{"{", 
         RowBox[{"sb", ",", "tmpphi4", ",", "tmpphi3b"}], "}"}], ",", 
+       "\"\<7\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"S7r", "=", 
+     RowBox[{"Z7Z3ToPsl", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"s", ",", "tmpphi3", ",", "tmpphi3b"}], "}"}], ",", 
        "\"\<7\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"S8", "=", 
@@ -543,7 +564,9 @@ Cell[BoxData[
   3.671547915479742*^9}, {3.6715488961351643`*^9, 3.671548913295306*^9}, {
   3.671550293132003*^9, 3.671550340541025*^9}, {3.671550550042775*^9, 
   3.671550551616349*^9}, {3.6728434834306717`*^9, 3.672843695729278*^9}, {
-  3.672843735129595*^9, 3.672843755297846*^9}}],
+  3.672843735129595*^9, 3.672843755297846*^9}, {3.672857002638678*^9, 
+  3.672857073169922*^9}, {3.673015712626892*^9, 3.673015714628256*^9}, {
+  3.673015762073658*^9, 3.673015762289002*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -728,13 +751,14 @@ Cell[BoxData[
              RowBox[{"SameQ", "[", 
               RowBox[{"var", ",", " ", "1"}], "]"}], ",", " ", 
              "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"Print", "[", 
-               RowBox[{"\"\<invalid var: \>\"", ",", 
-                RowBox[{"list", "[", 
-                 RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ";", 
-              RowBox[{"Continue", "[", "]"}]}]}], "\[IndentingNewLine]", 
-            "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{
+               RowBox[{"Print", "[", 
+                RowBox[{"\"\<invalid var: \>\"", ",", 
+                 RowBox[{"list", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ";"}], "*)"}], 
+             RowBox[{"Continue", "[", "]"}]}], "\[IndentingNewLine]", "]"}], 
+           ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
            RowBox[{"c", "=", 
             RowBox[{"FullSimplify", "[", 
              RowBox[{"Coefficient", "[", 
@@ -793,9 +817,10 @@ Cell[BoxData[
                  RowBox[{"Factor", "[", "term", "]"}]}]}]}], ";", 
               "\[IndentingNewLine]", 
               RowBox[{"c", "=", 
-               RowBox[{"coef", "[", 
-                RowBox[{"[", 
-                 RowBox[{"i", ",", "1"}], "]"}], "]"}]}], ";", 
+               RowBox[{"ToRadicals", "[", 
+                RowBox[{"coef", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"i", ",", "1"}], "]"}], "]"}], "]"}]}], ";", 
               "\[IndentingNewLine]", 
               RowBox[{"term", " ", "=", "  ", 
                RowBox[{"coef", "[", 
@@ -1236,7 +1261,8 @@ Cell[BoxData[
    3.672841050800384*^9}, {3.672841082327903*^9, 3.6728410887984743`*^9}, {
    3.672841243642119*^9, 3.672841296533966*^9}, {3.672841340171658*^9, 
    3.672841372355977*^9}, 3.67284140368312*^9, {3.6728415329286957`*^9, 
-   3.672841553437894*^9}, {3.672855651793827*^9, 3.672855714480751*^9}}]
+   3.672841553437894*^9}, {3.672855651793827*^9, 3.672855714480751*^9}, {
+   3.672856925805304*^9, 3.6728569552957277`*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -1255,8 +1281,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 337, 7, 55, "Input"],
-Cell[898, 29, 21031, 516, 3029, "Input"],
-Cell[21932, 547, 28528, 691, 3894, "Input"]
+Cell[898, 29, 22100, 539, 3172, "Input"],
+Cell[23001, 570, 28672, 694, 3861, "Input"]
 }
 ]
 *)
