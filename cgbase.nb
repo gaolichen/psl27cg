@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    207688,       4928]
-NotebookOptionsPosition[    207222,       4910]
-NotebookOutlinePosition[    207556,       4925]
-CellTagsIndexPosition[    207513,       4922]
+NotebookDataLength[    207102,       4898]
+NotebookOptionsPosition[    206636,       4880]
+NotebookOutlinePosition[    206970,       4895]
+CellTagsIndexPosition[    206927,       4892]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2175,77 +2175,7 @@ Cell[BoxData[
         "\[IndentingNewLine]", 
         RowBox[{"ret", "=", 
          RowBox[{"PslCgCache", "[", "key", "]"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"Length", "[", "ret", "]"}], "\[Equal]", "0"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{"ret", "=", 
-            RowBox[{"DoAnalyzeAll", "[", 
-             RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}]}], ";", 
-           "\[IndentingNewLine]", 
-           RowBox[{"SetCG", "[", 
-            RowBox[{"r1", ",", "r2", ",", "r3", ",", "ret"}], "]"}], ";"}]}], 
-         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-        RowBox[{"(*", 
-         RowBox[{
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"Length", "[", "ret", "]"}], "\[Equal]", "0"}], ",", 
-            "\[IndentingNewLine]", 
-            RowBox[{"(*", " ", 
-             RowBox[{
-              RowBox[{"if", " ", "no", " ", "cached", " ", "GC"}], ",", " ", 
-              RowBox[{
-              "try", " ", "to", " ", "find", " ", "the", " ", "conjugated", 
-               " ", 
-               RowBox[{"version", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"key", "=", 
-              RowBox[{"GetKey", "[", 
-               RowBox[{
-                RowBox[{"ToConjugatePSL27", "[", "r1", "]"}], ",", 
-                RowBox[{"ToConjugatePSL27", "[", "r2", "]"}], ",", 
-                RowBox[{"ToConjugatePSL27", "[", "r3", "]"}]}], "]"}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"ret", " ", "=", " ", 
-              RowBox[{"PslCgCache", "[", "key", "]"}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Print", "[", 
-              RowBox[{
-              "\"\<key=\>\"", ",", "key", ",", " ", "\"\< ret=\>\"", ",", " ",
-                "ret"}], "]"}], ";", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{
-                RowBox[{"Length", "[", "ret", "]"}], "\[Equal]", "0"}], ",", 
-               "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"ret", "=", 
-                 RowBox[{"DoAnalyzeAll", "[", 
-                  RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}]}], ";", 
-                "\[IndentingNewLine]", 
-                RowBox[{"SetCG", "[", 
-                 RowBox[{"r1", ",", "r2", ",", "r3", ",", "ret"}], "]"}]}], 
-               ",", "\[IndentingNewLine]", 
-               RowBox[{"(*", " ", 
-                RowBox[{
-                 RowBox[{
-                 "If", " ", "conjugated", " ", "version", " ", "founded"}], 
-                 ",", " ", 
-                 RowBox[{
-                 "we", " ", "need", " ", "to", " ", "convert", " ", "all", 
-                  " ", "the", " ", "reps", " ", "in", " ", "CG", " ", "to", 
-                  " ", "their", " ", "conjugates"}]}], " ", "*)"}], 
-               "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"ret", "=", 
-                 RowBox[{"ConjugateCG", "[", "ret", "]"}]}], ";"}]}], 
-              "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
-           "]"}], ";"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"Return", "[", "ret", "]"}]}]}], "\[IndentingNewLine]", 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
@@ -2262,9 +2192,18 @@ Cell[BoxData[
         RowBox[{"{", "}"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"ClearAll", "[", "DotPSL27", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"DotPSL27", "::", "NoCgFound"}], "=", 
+     "\"\<No Clebsch Gordan Coefficient is found for the Kronecker product \
+`1`*`2` -> `3`.\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{
      RowBox[{"DotPSL27", "[", 
-      RowBox[{"r1_", ",", "r2_", ",", "r3_", ",", "x_", ",", "y_"}], "]"}], ":=", 
+      RowBox[{"r1_", ",", "r2_", ",", "r3_", ",", "x_", ",", "y_", ",", 
+       RowBox[{"opt", ":", 
+        RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
      RowBox[{"Module", "[", 
       RowBox[{
        RowBox[{"{", 
@@ -2304,7 +2243,19 @@ Cell[BoxData[
         RowBox[{"analysis", "=", 
          RowBox[{"GetCG", "[", 
           RowBox[{"nr1", ",", "nr2", ",", "r3"}], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Length", "[", "analysis", "]"}], "\[Equal]", "0"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Message", "[", 
+            RowBox[{
+             RowBox[{"DotPSL27", "::", "NoCgFound"}], ",", " ", "r1", ",", 
+             " ", "r2", ",", " ", "r3"}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Return", "[", "]"}]}]}], "\[IndentingNewLine]", "]"}], 
+        ";", "\[IndentingNewLine]", 
         RowBox[{"rr3", " ", "=", " ", 
          RowBox[{"RemoveMultiplier", "[", "r3", "]"}]}], ";", 
         "\[IndentingNewLine]", "\[IndentingNewLine]", 
@@ -2349,17 +2300,31 @@ Cell[BoxData[
           RowBox[{"ret", ",", "rr3"}], "]"}], "]"}]}]}], 
       "\[IndentingNewLine]", "]"}]}], ";"}], 
    "\[IndentingNewLine]"}]}]], "Input",
- CellChangeTimes->CompressedData["
-1:eJwdy1soQwEAxvG1WJEiJaIMWYs8eFTmcraMyQNrSzy4tVHkUpOQS+4yUQpj
-TR7EaCmUkOuWoZmQRcPcamZnmSjXhfOdh6/fy/ePLKkWy5kMBiOcGmz8uRYs
-fzkJ2YZWBF9e5P71Hiexpn8PgkqbMAx2NrVGwOOdTg482ufyoCrKlArFb6MC
-qHt9kMLzEVsp3euLKqDNTFbCub4ABWTm/9XBMklvFzzIZA1Atmj7lv5p2u7h
-skLnzvMlCWGy9Rte8EKl7XAmgvZVtcJVZpOE2HUVAxcfP4bgRItkHCbtPk3D
-1UKDDgbqc9dhD9lshGZmwgmcHP21wGd2gRXatz7vIM+REthP6TnV0C74FE15
-5ZBElntQCw85bn9vSmfDTTSs8fu5hA6XPJpFmWCKFcLe8pB0yFvX5UBLl0wK
-i6s+OmBtjKsbJs6pZ6FvOH8ejmW86aHHPmyAsg7JxXA+SdSpr69g8OqScYZy
-kzzbg9mxnDgtZXwan/Yf1tECSA==
-  "]],
+ CellChangeTimes->{{3.620581918936948*^9, 3.620581965273119*^9}, {
+   3.6220273871856613`*^9, 3.6220274397112703`*^9}, {3.622027482214666*^9, 
+   3.6220275239839497`*^9}, {3.6220275641486588`*^9, 
+   3.6220277452432623`*^9}, {3.622027782347973*^9, 3.622027804748452*^9}, {
+   3.622027951123373*^9, 3.622028086955913*^9}, {3.622028123023748*^9, 
+   3.6220281433688803`*^9}, {3.622028184516927*^9, 3.6220282159797373`*^9}, {
+   3.622028332260303*^9, 3.622028400196629*^9}, {3.622029062008926*^9, 
+   3.622029076050496*^9}, {3.629305725389125*^9, 3.6293058148201017`*^9}, {
+   3.629388456819927*^9, 3.6293884570204887`*^9}, {3.66610668576867*^9, 
+   3.6661067029038477`*^9}, {3.666107543747033*^9, 3.666107602640456*^9}, {
+   3.666107703305327*^9, 3.666107750105435*^9}, {3.66610787474244*^9, 
+   3.666107955935001*^9}, {3.666108041750342*^9, 3.666108079956009*^9}, {
+   3.6661081149413977`*^9, 3.666108175773425*^9}, {3.666108561997099*^9, 
+   3.666108564932005*^9}, {3.666355491001183*^9, 3.666355524497961*^9}, {
+   3.666356351473364*^9, 3.666356518983632*^9}, {3.6663579838452682`*^9, 
+   3.666358563185169*^9}, {3.666358833337307*^9, 3.6663588407630043`*^9}, {
+   3.666358925397978*^9, 3.666358955141337*^9}, {3.666359327732224*^9, 
+   3.66635935138006*^9}, {3.66635962886453*^9, 3.666359666066167*^9}, {
+   3.666359831602612*^9, 3.6663598366844463`*^9}, {3.671371458641039*^9, 
+   3.671371494925227*^9}, {3.671408181616344*^9, 3.671408190653777*^9}, {
+   3.671408993161415*^9, 3.6714089940709457`*^9}, 3.673101896269312*^9, {
+   3.6731019484996*^9, 3.673101952154161*^9}, {3.673101987440858*^9, 
+   3.67310218107355*^9}, {3.673102462678563*^9, 3.673102477605577*^9}, {
+   3.673102509453864*^9, 3.67310262767078*^9}, {3.673102695960238*^9, 
+   3.673102723677084*^9}, {3.673102971806946*^9, 3.673103013448488*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -3319,8 +3284,8 @@ Cell[BoxData[
     RowBox[{
      RowBox[{"GetDifference", "[", 
       RowBox[{
-      "x_", ",", "y_", ",", "fun_", ",", "r1_", ",", "r2_", ",", "r3_", ",", 
-       "op_"}], "]"}], ":=", 
+      "x_", ",", "y_", ",", "r1_", ",", "r2_", ",", "r3_", ",", "op_"}], 
+      "]"}], ":=", 
      RowBox[{"Module", "[", 
       RowBox[{
        RowBox[{"{", 
@@ -3338,14 +3303,14 @@ Cell[BoxData[
            RowBox[{"op", "[", "r2", "]"}], ".", "y"}], "]"}]}], ";", 
         "\[IndentingNewLine]", 
         RowBox[{"a", "=", 
-         RowBox[{"fun", "[", 
+         RowBox[{"DotPSL27", "[", 
           RowBox[{"r1", ",", "r2", ",", "r3", ",", "xp", ",", "yp"}], "]"}]}],
          ";", "\[IndentingNewLine]", 
         RowBox[{"b", "=", 
          RowBox[{
           RowBox[{"op", "[", 
            RowBox[{"RemoveSymmetry", "[", "r3", "]"}], "]"}], ".", 
-          RowBox[{"fun", "[", 
+          RowBox[{"DotPSL27", "[", 
            RowBox[{"r1", ",", "r2", ",", "r3", ",", "x", ",", "y"}], 
            "]"}]}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"Return", "[", 
@@ -3674,9 +3639,7 @@ Cell[BoxData[
    RowBox[{
     RowBox[{
      RowBox[{"FindParameters", "[", 
-      RowBox[{
-      "inputs_", ",", "fun_", ",", "r1_", ",", "r2_", ",", "r3_", ",", "op_", 
-       ",", 
+      RowBox[{"inputs_", ",", "r1_", ",", "r2_", ",", "r3_", ",", "op_", ",", 
        RowBox[{"opts", ":", 
         RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
      RowBox[{"Module", "[", "\[IndentingNewLine]", 
@@ -3697,6 +3660,17 @@ Cell[BoxData[
          RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"ClearCG", "[", 
          RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"analysis", "=", 
+         RowBox[{"DoAnalyzeAll", "[", 
+          RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Print", "[", "analysis", "]"}], ";"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"SetCG", "[", 
+         RowBox[{"r1", ",", "r2", ",", "r3", ",", "analysis"}], "]"}], ";", 
         "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"For", "[", 
          RowBox[{
@@ -3717,20 +3691,14 @@ Cell[BoxData[
                  RowBox[{"input", "[", 
                   RowBox[{"[", "1", "]"}], "]"}], ",", 
                  RowBox[{"input", "[", 
-                  RowBox[{"[", "2", "]"}], "]"}], ",", "fun", ",", "r1", ",", 
-                 "r2", ",", "r3", ",", "op"}], "]"}], "]"}]}], "]"}]}], 
-           ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-        "\[IndentingNewLine]", 
+                  RowBox[{"[", "2", "]"}], "]"}], ",", "r1", ",", "r2", ",", 
+                 "r3", ",", "op"}], "]"}], "]"}]}], "]"}]}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"ClearCG", "[", 
+         RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"arr", "=", 
          RowBox[{"OptionValue", "[", "UnfixedParameter", "]"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"analysis", "=", 
-         RowBox[{"GetCG", "[", 
-          RowBox[{"r1", ",", "r2", ",", "r3"}], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"(*", 
-         RowBox[{
-          RowBox[{"Print", "[", "analysis", "]"}], ";"}], "*)"}], 
         "\[IndentingNewLine]", 
         RowBox[{"params", "=", 
          RowBox[{"Flatten", "[", 
@@ -4906,7 +4874,9 @@ Cell[BoxData[
    3.671837770138156*^9}, {3.671837842339026*^9, 3.671837889269747*^9}, {
    3.671838254498106*^9, 3.671838270909505*^9}, {3.6718383822042723`*^9, 
    3.67183838607858*^9}, {3.671838612921378*^9, 3.671838622767819*^9}, {
-   3.671882196840189*^9, 3.671882205095483*^9}}]
+   3.671882196840189*^9, 3.671882205095483*^9}, {3.6731029532348223`*^9, 
+   3.673102957202384*^9}, {3.673103707933441*^9, 3.673103752405661*^9}, {
+   3.673103796400648*^9, 3.673103864739441*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -4925,11 +4895,11 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 28806, 768, 3707, "Input"],
-Cell[29366, 790, 60375, 1571, 6237, "Input"],
-Cell[89744, 2363, 21917, 506, 2827, "Input"],
-Cell[111664, 2871, 6565, 88, 77, "Input"],
-Cell[118232, 2961, 17922, 345, 1309, "Input"],
-Cell[136157, 3308, 71061, 1600, 6732, "Input"]
+Cell[29366, 790, 59424, 1536, 6039, "Input"],
+Cell[88793, 2328, 21917, 506, 2827, "Input"],
+Cell[110713, 2836, 6565, 88, 77, "Input"],
+Cell[117281, 2926, 17922, 345, 1309, "Input"],
+Cell[135206, 3273, 71426, 1605, 6776, "Input"]
 }
 ]
 *)
