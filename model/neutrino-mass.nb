@@ -10,16 +10,290 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     39662,       1096]
-NotebookOptionsPosition[     38438,       1050]
-NotebookOutlinePosition[     38835,       1067]
-CellTagsIndexPosition[     38792,       1064]
+NotebookDataLength[     48666,       1383]
+NotebookOptionsPosition[     47124,       1327]
+NotebookOutlinePosition[     47520,       1344]
+CellTagsIndexPosition[     47477,       1341]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "This", " ", "notebooks", " ", "calculate", " ", "Majorano", " ", 
+     "matrix", " ", "and", " ", "neutrino", " ", "masses"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"it", " ", "depends", " ", "on", " ", "muterm"}], "-", 
+     RowBox[{"qmass", ".", "nb"}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Y0", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x", "^", "2"}], ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "x", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"GenerateSMM", "[", "vev_", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a6", ",", "b6", ",", "N", ",", "poly", ",", "ret"}], "}"}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"N", "=", 
+         RowBox[{"{", 
+          RowBox[{"N1", ",", "N2", ",", "N3"}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"a6", "=", 
+         RowBox[{"DotPSL27", "[", 
+          RowBox[{
+          "\"\<3b\>\"", ",", "\"\<3b\>\"", ",", "\"\<6+\>\"", ",", "phib", 
+           ",", "psib"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"b6", "=", 
+         RowBox[{"DotPSL27", "[", 
+          RowBox[{
+          "\"\<3\>\"", ",", "\"\<3\>\"", ",", "\"\<6+\>\"", ",", "N", ",", 
+           "N"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"poly", "=", 
+         RowBox[{
+          RowBox[{"-", "I"}], "*", 
+          RowBox[{
+           RowBox[{"DotPSL27", "[", 
+            RowBox[{
+            "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<7-\>\"", ",", "a6", ",", 
+             "b6"}], "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"ret", "=", 
+         RowBox[{"Simplify", "[", 
+          RowBox[{
+           RowBox[{"ExtractMatrix", "[", 
+            RowBox[{"poly", ",", " ", "N"}], "]"}], "/.", "vev"}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"ret", "=", 
+         RowBox[{"ret", "/.", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"alp", "*", "beta"}], "\[Rule]", "r"}], "}"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"ret", "=", 
+         RowBox[{"Simplify", "[", 
+          RowBox[{"ret", "/.", 
+           RowBox[{"{", 
+            RowBox[{"beta", "\[Rule]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "2"}], "*", "r"}], "-", "alp"}]}], "}"}]}], 
+          "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "ret", "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"CalcNeutrinoMass", "[", 
+      RowBox[{"y0_", ",", " ", "smm_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "mat", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"mat", " ", "=", " ", 
+         RowBox[{
+          RowBox[{"Transpose", "[", "Y0", "]"}], ".", 
+          RowBox[{"Inverse", "[", "smm", "]"}], ".", "Y0"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", 
+         RowBox[{"Eigenvalues", "[", "mat", "]"}], "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"smm", "=", 
+    RowBox[{"GenerateSMM", "[", "vacuum", "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"CalcNeutrinoMass", "[", 
+    RowBox[{"Y0", ",", "smm"}], "]"}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.6731123442829447`*^9, 3.673112400723507*^9}, {
+  3.6731124351264668`*^9, 3.673112673182132*^9}, {3.673112924312161*^9, 
+  3.6731129525234222`*^9}, {3.673112988171617*^9, 3.6731130814101152`*^9}, {
+  3.673113136139801*^9, 3.673113136453796*^9}, {3.6731140091249933`*^9, 
+  3.673114043201734*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"r", " ", 
+        SuperscriptBox["x", "4"]}], 
+       SqrtBox["6"]]}], ",", 
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"r", " ", 
+        SuperscriptBox["x", "3"]}], 
+       SqrtBox["6"]]}], ",", 
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"r", " ", 
+        SuperscriptBox["x", "2"]}], 
+       SqrtBox["6"]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"r", " ", 
+        SuperscriptBox["x", "3"]}], 
+       SqrtBox["6"]]}], ",", 
+     RowBox[{"-", 
+      FractionBox[
+       SuperscriptBox["x", "2"], 
+       SqrtBox["6"]]}], ",", 
+     FractionBox["x", 
+      SqrtBox["6"]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"r", " ", 
+        SuperscriptBox["x", "2"]}], 
+       SqrtBox["6"]]}], ",", 
+     FractionBox["x", 
+      SqrtBox["6"]], ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       SqrtBox["6"]]}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.673112620847619*^9, 3.673112666111228*^9, 
+  3.673113081938889*^9, 3.673113138208768*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox[
+    SqrtBox["6"], "r"], ",", 
+   RowBox[{"-", 
+    FractionBox[
+     SqrtBox[
+      FractionBox["3", "2"]], "r"]}], ",", 
+   RowBox[{"-", 
+    SqrtBox[
+     FractionBox["3", "2"]]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.673112620847619*^9, 3.673112666111228*^9, 
+  3.673113081938889*^9, 3.6731131382561007`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "If", " ", "we", " ", "change", " ", "the", " ", "familon", " ", "vev", 
+     " ", "to", " ", 
+     RowBox[{"(", 
+      RowBox[{"0", ",", "1", ",", "0"}], ")"}], " ", "direction"}], ",", " ", 
+    
+    RowBox[{"and", " ", "change", " ", "Y0", " ", "to", " ", "diag", 
+     RowBox[{"(", 
+      RowBox[{"0", ",", "1", ",", "0"}], ")"}], " ", "direction", " ", "as", 
+     " ", "well"}], ",", " ", 
+    RowBox[{"the", " ", "neutrino", " ", "masses", " ", "do", " ", "not", " ", 
+     RowBox[{"change", "."}]}]}], "  ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Y02", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", 
+         RowBox[{"x", "^", "2"}]}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"smm2", "=", 
+    RowBox[{"GenerateSMM", "[", "vacuum2", "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"CalcNeutrinoMass", "[", 
+    RowBox[{"Y02", ",", "smm"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.673113224849886*^9, 3.673113255936328*^9}, {
+  3.67311329559166*^9, 3.673113314577177*^9}, {3.673113918163927*^9, 
+  3.673113977802602*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       SuperscriptBox["x", "2"], 
+       SqrtBox["6"]]}], ",", 
+     FractionBox["x", 
+      SqrtBox["6"]], ",", 
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"r", " ", 
+        SuperscriptBox["x", "3"]}], 
+       SqrtBox["6"]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["x", 
+      SqrtBox["6"]], ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       SqrtBox["6"]]}], ",", 
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"r", " ", 
+        SuperscriptBox["x", "2"]}], 
+       SqrtBox["6"]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"r", " ", 
+        SuperscriptBox["x", "3"]}], 
+       SqrtBox["6"]]}], ",", 
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"r", " ", 
+        SuperscriptBox["x", "2"]}], 
+       SqrtBox["6"]]}], ",", 
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{"r", " ", 
+        SuperscriptBox["x", "4"]}], 
+       SqrtBox["6"]]}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.673113316696658*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox[
+    SqrtBox["6"], "r"], ",", 
+   RowBox[{"-", 
+    FractionBox[
+     SqrtBox[
+      FractionBox["3", "2"]], "r"]}], ",", 
+   RowBox[{"-", 
+    SqrtBox[
+     FractionBox["3", "2"]]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.673113316762182*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{
@@ -245,11 +519,11 @@ Cell[BoxData[
    MatrixForm[{{
      0, Rational[1, 2]/$CellContext`r, Rational[1, 2]/$CellContext`r}, {
      Rational[1, 2]/$CellContext`r, 
-      Rational[1, 4] (-1 + $CellContext`r)/$CellContext`r, 
-      Rational[-1, 4] $CellContext`r^(-1) (1 + $CellContext`r)}, {
-     Rational[1, 2]/$CellContext`r, 
-      Rational[-1, 4] $CellContext`r^(-1) (1 + $CellContext`r), 
-      Rational[1, 4] (-1 + $CellContext`r)/$CellContext`r}}]],
+      Rational[1, 4] ((-1 + $CellContext`r)/$CellContext`r), (
+       Rational[-1, 4]/$CellContext`r) (1 + $CellContext`r)}, {
+     Rational[1, 2]/$CellContext`r, (Rational[-1, 4]/$CellContext`r) (
+       1 + $CellContext`r), 
+      Rational[1, 4] ((-1 + $CellContext`r)/$CellContext`r)}}]],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.6242349605391455`*^9, {3.624235101796926*^9, 3.624235138406992*^9}, {
@@ -387,10 +661,11 @@ Cell[BoxData[
      MatrixForm[BoxForm`e$]]]}],
   SequenceForm["The new ", 
    Subscript[$CellContext`Y, $CellContext`\[Nu]], " obtained from mu-term = ", 
-   MatrixForm[{{($CellContext`r - 2 $CellContext`r^2) $CellContext`x^4, 
-      3 $CellContext`r $CellContext`x^3, -$CellContext`r $CellContext`x^2}, {
-     3 $CellContext`r $CellContext`x^3, -$CellContext`x^2, $CellContext`x}, \
-{-$CellContext`r $CellContext`x^2, $CellContext`x, -1}}]],
+   MatrixForm[{{($CellContext`r - 2 $CellContext`r^2) $CellContext`x^4, (
+       3 $CellContext`r) $CellContext`x^3, (-$CellContext`r) \
+$CellContext`x^2}, {(
+       3 $CellContext`r) $CellContext`x^3, -$CellContext`x^2, \
+$CellContext`x}, {(-$CellContext`r) $CellContext`x^2, $CellContext`x, -1}}]],
   Editable->False]], "Print",
  CellChangeTimes->{{3.624235507532997*^9, 3.6242355339151697`*^9}, {
    3.6242355812835865`*^9, 3.6242356192544284`*^9}, 3.624236172984763*^9, 
@@ -488,11 +763,13 @@ Cell[BoxData[
          SuperscriptBox["r", "2"]}], ")"}], " ", 
        SuperscriptBox["x", "4"]}]}]}], "}"}]}],
   SequenceForm[
-  "Eigenvalues of above matrix to x^4 order are: ", {(-2) $CellContext`r \
-$CellContext`x^3 + 
-    Rational[-1, 2] (-1 + $CellContext`r) $CellContext`r $CellContext`x^4, 
-    2 $CellContext`r $CellContext`x^3 + 
-    Rational[-1, 2] (-1 + $CellContext`r) $CellContext`r $CellContext`x^4, 
+  "Eigenvalues of above matrix to x^4 order are: ", {((-2) $CellContext`r) \
+$CellContext`x^3 + ((
+       Rational[-1, 
+         2] (-1 + $CellContext`r)) $CellContext`r) $CellContext`x^4, (
+      2 $CellContext`r) $CellContext`x^3 + ((
+       Rational[-1, 
+         2] (-1 + $CellContext`r)) $CellContext`r) $CellContext`x^4, 
     1 - $CellContext`x^2 + (1 - $CellContext`r^2) $CellContext`x^4}],
   Editable->False]], "Print",
  CellChangeTimes->{{3.624235507532997*^9, 3.6242355339151697`*^9}, {
@@ -642,10 +919,11 @@ Cell[BoxData[
   SequenceForm["The new ", 
    Subscript[$CellContext`Y, $CellContext`\[Nu]], 
    " after restoring old hierachy = ", 
-   MatrixForm[{{-$CellContext`x^2, 
-      3 $CellContext`r $CellContext`x^3, -$CellContext`r $CellContext`x^2}, {
-     3 $CellContext`r $CellContext`x^3, -$CellContext`x, $CellContext`x}, \
-{-$CellContext`r $CellContext`x^2, $CellContext`x, -1}}]],
+   MatrixForm[{{-$CellContext`x^2, (
+       3 $CellContext`r) $CellContext`x^3, (-$CellContext`r) \
+$CellContext`x^2}, {(
+       3 $CellContext`r) $CellContext`x^3, -$CellContext`x, $CellContext`x}, \
+{(-$CellContext`r) $CellContext`x^2, $CellContext`x, -1}}]],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.6242358256607823`*^9, {3.6242358751117234`*^9, 3.62423589737129*^9}, 
@@ -705,7 +983,7 @@ Cell[BoxData[
       Rational[1, 2]/$CellContext`r, $CellContext`r $CellContext`x^2}, {
      Rational[1, 2]/$CellContext`r, 
       Rational[1, 
-        4] (-1 + $CellContext`r)/$CellContext`r, -$CellContext`x}, \
+        4] ((-1 + $CellContext`r)/$CellContext`r), -$CellContext`x}, \
 {$CellContext`r $CellContext`x^2, -$CellContext`x, 1}}]],
   Editable->False]], "Print",
  CellChangeTimes->{
@@ -809,27 +1087,26 @@ Cell[BoxData[
               SuperscriptBox["r", "2"]}]]}]}], ")"}]}]}]]}]}], "}"}]}],
   SequenceForm[
   "Eigenvalues of above matrix to x order are: ", {
-   1, Rational[-1, 8] $CellContext`r^(-1) (
+   1, (Rational[-1, 8]/$CellContext`r) (
       1 - $CellContext`r + (17 - 2 $CellContext`r + $CellContext`r^2)^
-       Rational[1, 2]) - 
-    2 (9 - 3 $CellContext`r^2 + (17 - 2 $CellContext`r + $CellContext`r^2)^
-      Rational[1, 2] + $CellContext`r (2 + 
-       3 (17 - 2 $CellContext`r + $CellContext`r^2)^Rational[1, 2])) (
-      17 + $CellContext`r^2 + (17 - 2 $CellContext`r + $CellContext`r^2)^
-       Rational[1, 2] + $CellContext`r (-2 + 
-        7 (17 - 2 $CellContext`r + $CellContext`r^2)^
-          Rational[1, 2]))^(-1) $CellContext`x, 
-    Rational[1, 
-       8] $CellContext`r^(-1) (-1 + $CellContext`r + (17 - 
-        2 $CellContext`r + $CellContext`r^2)^Rational[1, 2]) - 
-    2 (-9 + 3 $CellContext`r^2 + (17 - 2 $CellContext`r + $CellContext`r^2)^
+       Rational[1, 2]) - ((
+      2 (9 - 3 $CellContext`r^2 + (17 - 2 $CellContext`r + $CellContext`r^2)^
+        Rational[1, 2] + $CellContext`r (2 + 
+         3 (17 - 2 $CellContext`r + $CellContext`r^2)^Rational[1, 2])))/(
+     17 + $CellContext`r^2 + (17 - 2 $CellContext`r + $CellContext`r^2)^
       Rational[1, 2] + $CellContext`r (-2 + 
-       3 (17 - 2 $CellContext`r + $CellContext`r^2)^
-         Rational[1, 2])) (-17 - $CellContext`r^2 + (17 - 
-        2 $CellContext`r + $CellContext`r^2)^
-       Rational[1, 2] + $CellContext`r (2 + 
-        7 (17 - 2 $CellContext`r + $CellContext`r^2)^
-          Rational[1, 2]))^(-1) $CellContext`x}],
+       7 (17 - 2 $CellContext`r + $CellContext`r^2)^
+         Rational[1, 2]))) $CellContext`x, (
+      Rational[1, 8]/$CellContext`r) (-1 + $CellContext`r + (17 - 
+        2 $CellContext`r + $CellContext`r^2)^Rational[1, 2]) - ((
+      2 (-9 + 3 $CellContext`r^2 + (17 - 2 $CellContext`r + $CellContext`r^2)^
+        Rational[1, 2] + $CellContext`r (-2 + 
+         3 (17 - 2 $CellContext`r + $CellContext`r^2)^
+           Rational[1, 2])))/(-17 - $CellContext`r^2 + (17 - 
+       2 $CellContext`r + $CellContext`r^2)^
+      Rational[1, 2] + $CellContext`r (2 + 
+       7 (17 - 2 $CellContext`r + $CellContext`r^2)^
+         Rational[1, 2]))) $CellContext`x}],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.6242358256607823`*^9, {3.6242358751117234`*^9, 3.62423589737129*^9}, 
@@ -1048,11 +1325,11 @@ Cell[BoxData[
  CellChangeTimes->{3.6250652924663486`*^9}]
 }, Open  ]]
 },
-WindowSize->{1280, 949},
+WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 PrintingCopies->1,
 PrintingPageRange->{Automatic, Automatic},
-FrontEndVersion->"8.0 for Linux x86 (64-bit) (November 7, 2010)",
+FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -1067,36 +1344,46 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 3072, 81, 221, "Input"],
+Cell[579, 22, 4133, 105, 539, "Input"],
+Cell[4715, 129, 1211, 46, 58, "Output"],
+Cell[5929, 177, 371, 13, 81, "Output"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[3676, 107, 1434, 34, 55, "Print"],
-Cell[5113, 143, 1805, 45, 59, "Print"],
-Cell[6921, 190, 2597, 68, 80, "Print"],
-Cell[9521, 260, 846, 18, 40, "Print"]
+Cell[6337, 195, 1383, 35, 143, "Input"],
+Cell[7723, 232, 1142, 45, 58, "Output"],
+Cell[8868, 279, 300, 12, 81, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9205, 296, 3072, 81, 253, "Input"],
+Cell[CellGroupData[{
+Cell[12302, 381, 1434, 34, 56, "Print"],
+Cell[13739, 417, 1805, 45, 62, "Print"],
+Cell[15547, 464, 2597, 68, 89, "Print"],
+Cell[18147, 534, 846, 18, 41, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10416, 284, 2494, 56, 145, "Input"],
+Cell[19042, 558, 2494, 56, 165, "Input"],
 Cell[CellGroupData[{
-Cell[12935, 344, 2178, 54, 63, "Print"],
-Cell[15116, 400, 2312, 55, 59, "Print"],
-Cell[17431, 457, 1720, 44, 40, "Print"]
+Cell[21561, 618, 2191, 55, 66, "Print"],
+Cell[23755, 675, 2312, 55, 62, "Print"],
+Cell[26070, 732, 1760, 46, 41, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19200, 507, 3538, 92, 202, "Input"],
+Cell[27879, 784, 3538, 92, 253, "Input"],
 Cell[CellGroupData[{
-Cell[22763, 603, 2039, 51, 59, "Print"],
-Cell[24805, 656, 2265, 59, 73, "Print"],
-Cell[27073, 717, 4582, 121, 130, "Print"],
-Cell[31658, 840, 1049, 21, 23, "Print"],
-Cell[32710, 863, 837, 17, 23, "Print"]
+Cell[31442, 880, 2052, 52, 62, "Print"],
+Cell[33497, 934, 2267, 59, 80, "Print"],
+Cell[35767, 995, 4574, 120, 163, "Print"],
+Cell[40344, 1117, 1049, 21, 23, "Print"],
+Cell[41396, 1140, 837, 17, 23, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[33596, 886, 738, 21, 69, "Input"],
-Cell[34337, 909, 3324, 109, 77, "Output"],
-Cell[37664, 1020, 758, 27, 33, "Output"]
+Cell[42282, 1163, 738, 21, 77, "Input"],
+Cell[43023, 1186, 3324, 109, 87, "Output"],
+Cell[46350, 1297, 758, 27, 33, "Output"]
 }, Open  ]]
 }
 ]
