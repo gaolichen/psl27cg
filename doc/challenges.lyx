@@ -3,6 +3,25 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage{babel}
+\allowdisplaybreaks
+%\newcommand{\um} {\mathcal{U}}
+\newcommand{\wrap}[1] {{#1}}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\group}{\mathcal{PSL}_2(7)} 
+\newcommand{\subgroup}{\mathcal{T}_7} 
+\newcommand{\rep}[1]{\mathbf{#1}} 
+\newcommand{\higu}{\mathcal{H}_u} 
+\newcommand{\higd}{\mathcal{H}_d} 
+\newcommand{\ket}[1]{\left|{#1}\right\rangle }
+\newcommand{\rket}[1]{\left|{#1}\right) }
+\newcommand{\cket}[1]{\left|{#1}\right\} }
+%% T7 covariant with only two parameters.
+\newcommand{\covt}[2]{\big\{ {#1}\big\}^{}_{\bf #2}}
+%% PSL27 covariant
+\newcommand{\covp}[2]{\big[ {#1}\big]^{}_{\bf #2}}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -25,6 +44,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -64,7 +84,500 @@ Challenges of the Potential
 \end_layout
 
 \begin_layout Standard
+This note discusses the challenges of the potential problem of the 
+\begin_inset Formula $\group$
+\end_inset
 
+-invariant theory.
+ 
+\end_layout
+
+\begin_layout Standard
+Let us breifly review the 
+\begin_inset Formula $\group$
+\end_inset
+
+-invariant model.
+ The superpotentials of the model are
+\begin_inset Formula 
+\[
+\mathcal{W}_{Y}=\covp{Q\bar{u}}{6}\higu+\covp{LN}{6}\higu+\covp{Q\bar{d}}{6}\higd+\Phi\Phi S_{7},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{W}_{Fam}=\left(\covp{NN}{6}+f\covp{\higu\higd}{6_{1}}\right)\Phi+\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{6}\bar{\Phi}+\Phi\bar{\Phi}S_{7},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $f$
+\end_inset
+
+ is an arbitrary parameter.
+ 
+\begin_inset Formula $Q$
+\end_inset
+
+, 
+\begin_inset Formula $L$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{u}$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{d}$
+\end_inset
+
+ are the Standard Model fields transforming as 
+\begin_inset Formula $\rep{3}$
+\end_inset
+
+ in 
+\begin_inset Formula $\group$
+\end_inset
+
+.
+ 
+\begin_inset Formula $N$
+\end_inset
+
+ is the right-handed neutrino and also transforms as 
+\begin_inset Formula $\rep{3}$
+\end_inset
+
+.
+ The Higgs fields 
+\begin_inset Formula $\higu$
+\end_inset
+
+ and 
+\begin_inset Formula $\higd$
+\end_inset
+
+ transform as 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+.
+ The familons 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+ are of 
+\begin_inset Formula $\rep{\bar{3}}$
+\end_inset
+
+ representation.
+ 
+\begin_inset Formula $\Phi$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{\Phi}$
+\end_inset
+
+, and 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ are 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+ respectively.
+ 
+\end_layout
+
+\begin_layout Standard
+We assume that 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ field acquire a vev at its 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ singlet component, 
+\begin_inset Formula 
+\begin{equation}
+\left\langle S_{7}\right\rangle =\begin{pmatrix}\rep{1}=M_{\Phi}\\
+\rep{3}=0\\
+\rep{\bar{3}}=0
+\end{pmatrix},\label{eq:S7-vev}
+\end{equation}
+
+\end_inset
+
+ then 
+\begin_inset Formula $\Phi\bar{\Phi}S_{7}$
+\end_inset
+
+ coupling become a mass 
+\begin_inset Formula $M_{\Phi}\Phi\bar{\Phi}$
+\end_inset
+
+.
+ Assuming 
+\begin_inset Formula $M_{\Phi}$
+\end_inset
+
+ is very large, we can integer over 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\Phi}$
+\end_inset
+
+.
+ It the leads to two dimension-five terms
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{M_{\Phi}}\left\{ \covp{\covp{NN}{6}\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{6}}{7}\right\} _{1}\label{eq:M-term}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{M_{\Phi}}\left\{ \covp{\covp{\higu\higd}{6}\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{6}}{7}\right\} _{1}.\label{eq:mu-term}
+\end{equation}
+
+\end_inset
+
+ When the familon 
+\begin_inset Formula $\bar{\varphi}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\varphi}^{\prime}$
+\end_inset
+
+ obtain vevs 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \bar{\varphi}\right\rangle =\left\langle \bar{\varphi}_{3}\right\rangle \begin{pmatrix}\bar{\alpha}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle =\left\langle \bar{\varphi}_{3}^{\prime}\right\rangle \begin{pmatrix}\bar{\alpha}^{\prime}\lambda^{8}\\
+\lambda^{4}\\
+1
+\end{pmatrix},\label{eq:familon-vev}
+\end{equation}
+
+\end_inset
+
+we obtain the Majorana matrix and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ matrix from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:M-term"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:mu-term"
+
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\frac{1}{M_{\Phi}}\left\{ \covp{\covp{NN}{6}\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{6}}{7}\right\} _{1}\to N^{T}\mathcal{M}N,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{M_{\Phi}}\left\{ \covp{\covp{\higu\higd}{6}\covp{\bar{\varphi}\bar{\varphi}^{\prime}}{6}}{7}\right\} _{1}\to\higu\mathcal{\mu}\higd.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now there is a quetion: how to generate vevs 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:familon-vev"
+
+\end_inset
+
+? The vevs should come from a 
+\begin_inset Formula $\group$
+\end_inset
+
+-invariant potential 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime},X\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $X$
+\end_inset
+
+ denotes any other fields in the potential.
+ After 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ obtain the vev 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S7-vev"
+
+\end_inset
+
+, there are two cases for the residual symmetry of 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime},X\right)$
+\end_inset
+
+: 1) it still has the 
+\begin_inset Formula $\group$
+\end_inset
+
+ symmetry; 2) its symmetry becomes 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+.
+ Let us discuss these two cases separately.
+ We denote 
+\begin_inset Formula $V\left(\bar{\varphi},\bar{\varphi}^{\prime},X\right)$
+\end_inset
+
+ of first case as 
+\begin_inset Formula $V^{\left(P\right)}\left(\bar{\varphi},\bar{\varphi}^{\prime},X\right)$
+\end_inset
+
+ and the one of second case as 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $V^{\left(T\right)}\left(\bar{\varphi},\bar{\varphi}^{\prime},X\right)$
+\end_inset
+
+ for convenience.
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $V^{\left(P\right)}\left(\bar{\varphi},\bar{\varphi}^{\prime},X\right)$
+\end_inset
+
+ case
+\end_layout
+
+\begin_layout Standard
+Because of the 
+\begin_inset Formula $\group$
+\end_inset
+
+ symmetry, 
+\begin_inset Formula $V^{\left(P\right)}$
+\end_inset
+
+ is invariant under the transformation
+\begin_inset Formula 
+\[
+\bar{\varphi}\to g\bar{\varphi},\quad\bar{\varphi}^{\prime}\to g\bar{\varphi}^{\prime},\quad X\to gX,
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $g$
+\end_inset
+
+ is any member of the 
+\begin_inset Formula $\group$
+\end_inset
+
+ group.
+ It implies that, if 
+\begin_inset Formula $\left\langle \bar{\varphi}\right\rangle $
+\end_inset
+
+, 
+\begin_inset Formula $\left\langle \bar{\varphi}^{\prime}\right\rangle $
+\end_inset
+
+ , and 
+\begin_inset Formula $\left\langle X\right\rangle $
+\end_inset
+
+ are vevs of 
+\begin_inset Formula $V^{\left(P\right)}$
+\end_inset
+
+, 
+\begin_inset Formula $g\left\langle \bar{\varphi}\right\rangle $
+\end_inset
+
+, 
+\begin_inset Formula $g\left\langle \bar{\varphi}^{\prime}\right\rangle $
+\end_inset
+
+ , and 
+\begin_inset Formula $g\left\langle X\right\rangle $
+\end_inset
+
+ are also vevs of 
+\begin_inset Formula $V^{\left(P\right)}$
+\end_inset
+
+.
+ However, since 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:M-term"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:mu-term"
+
+\end_inset
+
+ have 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ symmetry but not 
+\begin_inset Formula $\group$
+\end_inset
+
+ symmetry, the 
+\begin_inset Formula $\mu$
+\end_inset
+
+-matrix and Majorana matrix would be changed if 
+\begin_inset Formula $g$
+\end_inset
+
+ is not the member of 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ subgroup.
+ Particularly, for the leading order vev of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:familon-vev"
+
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\left\langle \bar{\varphi}\right\rangle \sim\begin{pmatrix}0\\
+0\\
+1
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle \sim\begin{pmatrix}0\\
+0\\
+1
+\end{pmatrix},
+\]
+
+\end_inset
+
+ there exists a non 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ transformation producing the vacuum 
+\begin_inset Formula 
+\[
+\left\langle \bar{\varphi}\right\rangle \sim\begin{pmatrix}\sin\frac{\pi}{7}\\
+-\cos\frac{\pi}{14}\\
+-\cos\frac{3\pi}{14}
+\end{pmatrix},\quad\left\langle \bar{\varphi}^{\prime}\right\rangle \sim\begin{pmatrix}\sin\frac{\pi}{7}\\
+-\cos\frac{\pi}{14}\\
+-\cos\frac{3\pi}{14}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+ Based on numerical calculation, when 
+\begin_inset Formula $r=10$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda=.23$
+\end_inset
+
+, such vevs lead to the eigenvalues of 
+\begin_inset Formula $\mu$
+\end_inset
+
+-matrix as 
+\begin_inset Formula 
+\[
+\left\{ -1.07302,0.905958,-0.899693,-0.354736,0.254421,0.167059\right\} .
+\]
+
+\end_inset
+
+ All the eigenvalues are of order one, which is not the hierarchy we requre.
+ 
+\end_layout
+
+\begin_layout Standard
+In conclusion, the potential after 
+\begin_inset Formula $S_{7}$
+\end_inset
+
+ obtain vev should not be 
+\begin_inset Formula $\group$
+\end_inset
+
+-invariant.
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $V^{\left(T\right)}\left(\bar{\varphi},\bar{\varphi}^{\prime},X\right)$
+\end_inset
+
+ case
 \end_layout
 
 \end_body
