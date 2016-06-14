@@ -256,9 +256,12 @@ Potential with
 \end_layout
 
 \begin_layout Standard
-We first consider the simplest case that the potential is built out of only
- one familon field 
-\begin_inset Formula $\bar{\varphi}\sim\rep{3}$
+We first consider the simplest case that the potential is built out of 
+\begin_inset Formula $\bar{\varphi}\sim\rep{\bar{3}}$
+\end_inset
+
+ and its complex conjugate 
+\begin_inset Formula $\varphi\sim\rep{3}$
 \end_inset
 
 .
@@ -266,11 +269,11 @@ We first consider the simplest case that the potential is built out of only
 \begin_inset Formula $\bar{\varphi}$
 \end_inset
 
- and its complex conjugate 
+ and 
 \begin_inset Formula $\varphi$
 \end_inset
 
-, one can only write down two independent real invariants
+, we have two independent real invariants
 \begin_inset Formula 
 \[
 \covp{\varphi\bar{\varphi}}{1},\quad\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}}{1},
@@ -290,7 +293,7 @@ We first consider the simplest case that the potential is built out of only
  The general potential therefore has the form
 \begin_inset Formula 
 \[
-V\left(\bar{\varphi}\right)=m^{2}\covp{\varphi\bar{\varphi}}{1}+\kappa_{1}\left(\covp{\varphi\varphi}{6}\cdot\covp{\varphi\varphi}{6}+\covp{\bar{\varphi}\bar{\varphi}}{6}\cdot\covp{\bar{\varphi}\bar{\varphi}}{6}\right)+\kappa\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}}{1},
+V\left(\bar{\varphi}\right)=m^{2}\covp{\varphi\bar{\varphi}}{1}-\left(\kappa_{1}\covp{\varphi\varphi}{6}\cdot\covp{\varphi\varphi}{6}+\kappa_{1}^{*}\covp{\bar{\varphi}\bar{\varphi}}{6}\cdot\covp{\bar{\varphi}\bar{\varphi}}{6}\right)+\kappa\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}}{1},
 \]
 
 \end_inset
@@ -299,15 +302,15 @@ V\left(\bar{\varphi}\right)=m^{2}\covp{\varphi\bar{\varphi}}{1}+\kappa_{1}\left(
 \begin_inset Formula $m^{2}$
 \end_inset
 
-, 
+, and 
 \begin_inset Formula $\kappa$
 \end_inset
 
-, and 
+ are real, 
 \begin_inset Formula $\kappa_{1}$
 \end_inset
 
- are real.
+ is complex.
  
 \end_layout
 
@@ -321,7 +324,7 @@ Both
 \end_inset
 
  are invariant under an 
-\begin_inset Formula $SU\left(3\right)$
+\begin_inset Formula $U\left(3\right)$
 \end_inset
 
  transformation on 
@@ -338,7 +341,161 @@ Both
 \end_inset
 
  terms.
+ For any nonzero 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+, one can always absorb the phase of 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+ into the field without changing the value of 
+\begin_inset Formula $V\left(\bar{\varphi}\right)$
+\end_inset
+
+ by the 
+\begin_inset Formula $U\left(1\right)$
+\end_inset
+
+ transformation
+\begin_inset Formula 
+\[
+\varphi\to e^{i\frac{\arg\kappa_{1}}{4}}\varphi,\quad\bar{\varphi}\to e^{-i\frac{\arg\kappa_{1}}{4}}\bar{\varphi},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\arg\kappa_{1}$
+\end_inset
+
+ is the phase of 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+.
+ Without loss of generality, one can therefore assume that 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+ is real and positive, i.e., 
+\begin_inset Formula 
+\[
+\kappa_{1}>0.
+\]
+
+\end_inset
+
+It follows that the vev alignment of 
+\begin_inset Formula $V\left(\bar{\varphi}\right)$
+\end_inset
+
+, if exists, is in the direction where the real part of 
+\begin_inset Formula $\covp{\varphi\varphi}{6}\cdot\covp{\varphi\varphi}{6}$
+\end_inset
+
+ is maximized.
+ From the expression
+\begin_inset Formula 
+\[
+\covp{\varphi\varphi}{6}\cdot\covp{\varphi\varphi}{6}=\frac{2}{\sqrt{3}}\left(\varphi_{1}\varphi_{2}^{3}+\varphi_{2}\varphi_{3}^{3}+\varphi_{3}\varphi_{1}^{3}\right),
+\]
+
+\end_inset
+
+ we see that, if each 
+\begin_inset Formula $\left|\varphi_{i}\right|$
+\end_inset
+
+ is fixed, the real part of 
+\begin_inset Formula $\covp{\varphi\varphi}{6}\cdot\covp{\varphi\varphi}{6}$
+\end_inset
+
+ is maximized when all 
+\begin_inset Formula $\varphi_{i}$
+\end_inset
+
+ are real and have the same sign.
+ It implies that we only need to consider the real positive 
+\begin_inset Formula $\varphi_{i}$
+\end_inset
+
+ case to find the vev alignments.
+ The problem becomes finding the maximum of the real function 
+\begin_inset Formula 
+\begin{equation}
+f\left(\varphi,\lambda\right)=\varphi_{1}\varphi_{2}^{3}+\varphi_{2}\varphi_{3}^{3}+\varphi_{3}\varphi_{1}^{3}+\lambda\left(\varphi_{1}^{2}+\varphi_{2}^{2}+\varphi_{3}^{2}-1\right),\label{eq:one-varphi-lagrange-multiplier}
+\end{equation}
+
+\end_inset
+
+where the 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ term amount to the constraint 
+\begin_inset Formula $\varphi_{1}^{2}+\varphi_{2}^{2}+\varphi_{3}^{2}=1$
+\end_inset
+
+.
+ The maxima of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:one-varphi-lagrange-multiplier"
+
+\end_inset
+
+ are located at 
+\begin_inset Formula 
+\[
+\varphi=\frac{1}{\sqrt{3}}\begin{pmatrix}1\\
+1\\
+1
+\end{pmatrix},\quad\varphi=\frac{4}{\sqrt{21}}\begin{pmatrix}\sin^{2}\frac{\pi}{7}\\
+\sin^{2}\frac{2\pi}{7}\\
+\sin^{2}\frac{3\pi}{7}
+\end{pmatrix},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\varphi=\frac{4}{\sqrt{21}}\begin{pmatrix}\sin^{2}\frac{2\pi}{7}\\
+\sin^{2}\frac{3\pi}{7}\\
+\sin^{2}\frac{\pi}{7}
+\end{pmatrix},\quad\varphi=\frac{4}{\sqrt{21}}\begin{pmatrix}\sin^{2}\frac{3\pi}{7}\\
+\sin^{2}\frac{\pi}{7}\\
+\sin^{2}\frac{2\pi}{7}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+It follows that the maximum of 
+\begin_inset Formula $f\left(\varphi,\lambda\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $\frac{1}{3}$
+\end_inset
+
+.
+ The constraint that 
+\begin_inset Formula $V\left(\bar{\varphi}\right)$
+\end_inset
+
+ should be bounded from below and that no local minimum at origin yields,
  
+\begin_inset Formula 
+\[
+m^{2}<0,\quad\kappa>\frac{4}{\sqrt{3}}\left|\kappa_{1}\right|.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -820,11 +977,11 @@ reference "sec:app-psl27-invariants"
 \begin_inset Formula $\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi\bar{\varphi}^{\prime}}{1}$
 \end_inset
 
- and 
-\begin_inset Formula $\covp{\varphi\bar{\varphi}}{1}\cdot\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}$
+ , 
+\begin_inset Formula $\covp{\varphi^{\prime}\bar{\varphi}^{\prime}}{1}\cdot\covp{\varphi\bar{\varphi}^{\prime}}{1}$
 \end_inset
 
- have the same 
+ and their complex conjugates have the same 
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
 
@@ -837,7 +994,7 @@ reference "sec:app-psl27-invariants"
 \end_inset
 
  direction.
- For 
+ 
 \begin_inset Formula $\covp{\varphi\varphi}{6}\cdot\covp{\varphi\varphi}{6}$
 \end_inset
 
@@ -849,11 +1006,11 @@ reference "sec:app-psl27-invariants"
 \begin_inset Formula $\covp{\varphi\varphi}{6}\cdot\covp{\varphi^{\prime}\varphi^{\prime}}{6}$
 \end_inset
 
-, they are not 
+ are not 
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
 
- invariant but all vanishes at 
+ invariant but all vanish at 
 \begin_inset Formula $\left(0,0,1\right)$
 \end_inset
 
