@@ -1,0 +1,236 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7956,        227]
+NotebookOptionsPosition[      7687,        213]
+NotebookOutlinePosition[      8021,        228]
+CellTagsIndexPosition[      7978,        225]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "This", " ", "notebook", " ", "calculates", " ", "the", " ", "vev", " ", 
+    "of", " ", "the", " ", "potential", " ", "with", " ", "two", " ", 
+    "triplets"}], " ", "*)"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.680273393061651*^9, 3.6802734238458157`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"list", " ", "all", " ", "the", " ", 
+    RowBox[{"invariants", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Quardratic", " ", 
+    RowBox[{"invariants", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"term1", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"DotPSL27", "[", 
+      RowBox[{
+      "\"\<3\>\"", ",", "\"\<3b\>\"", ",", "\"\<1\>\"", ",", " ", "phi1", ",",
+        "phi1b"}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"term2", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"DotPSL27", "[", 
+      RowBox[{
+      "\"\<3\>\"", ",", "\"\<3b\>\"", ",", "\"\<1\>\"", ",", " ", "phi2", ",",
+        "phi2b"}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"term3", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"DotPSL27", "[", 
+      RowBox[{
+      "\"\<3\>\"", ",", "\"\<3b\>\"", ",", "\"\<1\>\"", ",", " ", "phi1", ",",
+        "phi2b"}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"term3b", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"DotPSL27", "[", 
+      RowBox[{
+      "\"\<3\>\"", ",", "\"\<3b\>\"", ",", "\"\<1\>\"", ",", " ", "phi2", ",",
+        "phi1b"}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Quartic", " ", "invariants"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term5", "=", 
+     RowBox[{"term1", "*", "term1"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term6", "=", 
+     RowBox[{"term2", "*", "term2"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term7", "=", 
+     RowBox[{"term1", "*", "term3"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term7b", "=", 
+     RowBox[{"term1", "*", "term3b"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term8", "=", 
+     RowBox[{"term2", "*", "term3"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term8b", "=", 
+     RowBox[{"term2", "*", "term3b"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term9", " ", "=", " ", 
+     RowBox[{"term1", " ", "*", " ", "term2"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tmp1", "=", 
+     RowBox[{"DotPSL27", "[", 
+      RowBox[{
+      "\"\<3\>\"", ",", "\"\<3\>\"", ",", "\"\<6+\>\"", ",", " ", "phi1", ",",
+        "phi2"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tmp2", "=", 
+     RowBox[{"DotPSL27", "[", 
+      RowBox[{
+      "\"\<3b\>\"", ",", "\"\<3b\>\"", ",", "\"\<6+\>\"", ",", " ", "phi1b", 
+       ",", "phi2b"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term10", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"DotPSL27", "[", 
+       RowBox[{
+       "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<1+\>\"", ",", "tmp1", ",", 
+        "tmp2"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tmp3", "=", 
+     RowBox[{"DotPSL27", "[", 
+      RowBox[{
+      "\"\<3\>\"", ",", "\"\<3\>\"", ",", "\"\<6+\>\"", ",", " ", "phi1", ",",
+        "phi1"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tmp3b", "=", 
+     RowBox[{"DotPSL27", "[", 
+      RowBox[{
+      "\"\<3b\>\"", ",", "\"\<3b\>\"", ",", "\"\<6+\>\"", ",", " ", "phi1b", 
+       ",", "phi1b"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tmp4", "=", 
+     RowBox[{"DotPSL27", "[", 
+      RowBox[{
+      "\"\<3\>\"", ",", "\"\<3\>\"", ",", "\"\<6+\>\"", ",", " ", "phi2", ",",
+        "phi2"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tmp4b", "=", 
+     RowBox[{"DotPSL27", "[", 
+      RowBox[{
+      "\"\<3b\>\"", ",", "\"\<3b\>\"", ",", "\"\<6+\>\"", ",", " ", "phi2b", 
+       ",", "phi2b"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term11", "=", 
+     RowBox[{
+      RowBox[{"DotPSL27", "[", 
+       RowBox[{
+       "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<1+\>\"", ",", "tmp3", ",", 
+        "tmp3"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term11b", "=", 
+     RowBox[{
+      RowBox[{"DotPSL27", "[", 
+       RowBox[{
+       "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<1+\>\"", ",", "tmp3b", ",", 
+        "tmp3b"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term12", "=", 
+     RowBox[{
+      RowBox[{"DotPSL27", "[", 
+       RowBox[{
+       "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<1+\>\"", ",", "tmp4", ",", 
+        "tmp4"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term12b", "=", 
+     RowBox[{
+      RowBox[{"DotPSL27", "[", 
+       RowBox[{
+       "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<1+\>\"", ",", "tmp4b", ",", 
+        "tmp4b"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term13", "=", 
+     RowBox[{
+      RowBox[{"DotPSL27", "[", 
+       RowBox[{
+       "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<1+\>\"", ",", "tmp3", ",", 
+        "tmp1"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term13b", "=", 
+     RowBox[{
+      RowBox[{"DotPSL27", "[", 
+       RowBox[{
+       "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<1+\>\"", ",", "tmp3b", ",", 
+        "tmp2"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term14", "=", 
+     RowBox[{
+      RowBox[{"DotPSL27", "[", 
+       RowBox[{
+       "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<1+\>\"", ",", "tmp4", ",", 
+        "tmp1"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"term14b", "=", 
+     RowBox[{
+      RowBox[{"DotPSL27", "[", 
+       RowBox[{
+       "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<1+\>\"", ",", "tmp4b", ",", 
+        "tmp2"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.680273432749579*^9, 3.680273586966591*^9}, {
+   3.680274505760475*^9, 3.680274518982877*^9}, {3.680274971712973*^9, 
+   3.680275023400703*^9}, {3.680275065371396*^9, 3.68027508203266*^9}, {
+   3.6802751180807877`*^9, 3.6802753053601513`*^9}, 3.680275637909869*^9, {
+   3.680286815031665*^9, 3.680287177980641*^9}}]
+},
+WindowSize->{1278, 947},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 357, 7, 77, "Input"],
+Cell[918, 29, 6765, 182, 891, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
