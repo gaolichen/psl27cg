@@ -5,7 +5,7 @@
 \textclass article
 \begin_preamble
 \usepackage{babel}
-\allowdisplaybreaks
+%\allowdisplaybreaks
 %\newcommand{\um} {\mathcal{U}}
 \newcommand{\wrap}[1] {{#1}}
 \newcommand{\bs}{\boldsymbol}
@@ -131,12 +131,29 @@ Let
 
 \end_inset
 
- Clearly, 
-\begin_inset Formula 
-\[
-\covp{\Sigma\bar{\Sigma}}{1}=\frac{1}{\sqrt{6}}\left(\psi_{1}\bar{\psi}_{1}+\psi_{2}\bar{\psi}_{2}+\psi_{3}\bar{\psi}_{3}+\sigma_{1}\bar{\sigma}_{1}+\sigma_{2}\bar{\sigma}_{2}+\sigma_{2}\bar{\sigma}_{2}\right)
-\]
+ The relation between 
+\begin_inset Formula $\Sigma$
+\end_inset
 
+ and 
+\begin_inset Formula $\bar{\Sigma}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\begin{equation}
+\bar{\Sigma}=\begin{pmatrix} & \gamma\\
+\gamma
+\end{pmatrix}\Sigma^{*}\equiv\Gamma\Sigma^{*},\quad\gamma=\begin{pmatrix}0 & 1 & 0\\
+1 & 0 & 0\\
+0 & 0 & 1
+\end{pmatrix}.\label{eq:Gamma_Matrix}
+\end{equation}
+
+\end_inset
+
+ Clearly, 
+\begin_inset Formula $\covp{\Sigma\bar{\Sigma}}{1}=\frac{1}{\sqrt{6}}\left(\psi_{1}\bar{\psi}_{1}+\psi_{2}\bar{\psi}_{2}+\psi_{3}\bar{\psi}_{3}+\sigma_{1}\bar{\sigma}_{1}+\sigma_{2}\bar{\sigma}_{2}+\sigma_{2}\bar{\sigma}_{2}\right)$
 \end_inset
 
  is real.
@@ -170,15 +187,7 @@ If the CG coefficient of
 \frac{2\psi_{3}\bar{\sigma}_{1}}{\sqrt{3}}-\sqrt{\frac{2}{3}}\psi_{1}\psi_{2}\\
 \frac{2\psi_{2}\bar{\sigma}_{3}}{\sqrt{3}}-\sqrt{\frac{2}{3}}\psi_{1}\psi_{3}\\
 \frac{2\psi_{1}\bar{\sigma}_{2}}{\sqrt{3}}-\sqrt{\frac{2}{3}}\psi_{2}\psi_{3}
-\end{pmatrix},
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\covp{\bar{\Sigma}\bar{\Sigma}}{6_{1}}=\left(\begin{array}{c}
+\end{pmatrix},\quad\covp{\bar{\Sigma}\bar{\Sigma}}{6_{1}}=\left(\begin{array}{c}
 \frac{\sigma_{1}^{2}}{\sqrt{3}}-\frac{2\bar{\psi}_{1}\bar{\psi}_{3}}{\sqrt{3}}\\
 \frac{\sigma_{2}^{2}}{\sqrt{3}}-\frac{2\bar{\psi}_{1}\bar{\psi}_{2}}{\sqrt{3}}\\
 \frac{\sigma_{3}^{2}}{\sqrt{3}}-\frac{2\bar{\psi}_{2}\bar{\psi}_{3}}{\sqrt{3}}\\
@@ -200,12 +209,120 @@ If the CG coefficient of
 \covp{\Sigma\Sigma}{6_{1}}\covp{\bar{\Sigma}\bar{\Sigma}}{6_{1}}=-\frac{1}{3\sqrt{3}}\left(\sigma_{1}^{2}\psi_{1}\psi_{3}+\sigma_{3}\sigma_{1}\psi_{1}^{2}+\sigma_{2}\sigma_{1}\psi_{2}^{2}+\sigma_{2}\sigma_{3}\psi_{3}^{2}+\sigma_{2}^{2}\psi_{1}\psi_{2}+\sigma_{3}^{2}\psi_{2}\psi_{3}\right)\\
 +\frac{1}{3}\sqrt{\frac{2}{3}}\left(\sigma_{1}^{2}\psi_{2}\bar{\sigma}_{3}+\sigma_{1}\psi_{3}^{2}\bar{\psi}_{2}+\sigma_{2}^{2}\psi_{3}\bar{\sigma}_{1}+\sigma_{3}^{2}\psi_{1}\bar{\sigma}_{2}+\sigma_{3}\psi_{2}^{2}\bar{\psi}_{1}+\sigma_{2}\psi_{1}^{2}\bar{\psi}_{3}\right)\\
 +\frac{2}{3\sqrt{3}}\left(\sigma_{1}\sigma_{2}\bar{\sigma}_{1}\bar{\sigma}_{2}+\sigma_{2}\sigma_{3}\bar{\sigma}_{3}\bar{\sigma}_{2}+\sigma_{1}\sigma_{3}\bar{\sigma}_{1}\bar{\sigma}_{3}+\psi_{1}\psi_{2}\bar{\psi}_{1}\bar{\psi}_{2}+\psi_{1}\psi_{3}\bar{\psi}_{1}\bar{\psi}_{3}+\psi_{2}\psi_{3}\bar{\psi}_{2}\bar{\psi}_{3}\right)\\
--\frac{2}{3}\sqrt{\frac{2}{3}}\left(\sigma_{3}\bar{\sigma}_{1}\bar{\sigma}_{2}\bar{\psi}_{1}+\psi_{3}\bar{\sigma}_{1}\bar{\psi}_{2}\bar{\psi}_{1}+\psi_{2}\bar{\sigma}_{3}\bar{\psi}_{3}\bar{\psi}_{1}+\sigma_{1}\bar{\sigma}_{2}\bar{\sigma}_{3}\bar{\psi}_{2}+\sigma_{2}\bar{\sigma}_{1}\bar{\sigma}_{3}\bar{\psi}_{3}+\psi_{1}\bar{\sigma}_{2}\bar{\psi}_{2}\bar{\psi}_{3}\right)
+-\frac{2}{3}\sqrt{\frac{2}{3}}\left(\sigma_{3}\bar{\sigma}_{1}\bar{\sigma}_{2}\bar{\psi}_{1}+\psi_{3}\bar{\sigma}_{1}\bar{\psi}_{2}\bar{\psi}_{1}+\psi_{2}\bar{\sigma}_{3}\bar{\psi}_{3}\bar{\psi}_{1}+\sigma_{1}\bar{\sigma}_{2}\bar{\sigma}_{3}\bar{\psi}_{2}+\sigma_{2}\bar{\sigma}_{1}\bar{\sigma}_{3}\bar{\psi}_{3}+\psi_{1}\bar{\sigma}_{2}\bar{\psi}_{2}\bar{\psi}_{3}\right).
 \end{multline*}
 
 \end_inset
 
+ To form a real invariant in the form of 
+\begin_inset Formula $\covp{\cdot}{6_{1}}\covp{\cdot}{6_{1}}$
+\end_inset
 
+, we need to use the 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ matrix defined in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Gamma_Matrix"
+
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{multline*}
+\covp{\Sigma\Sigma}{6_{1}}\cdot\Gamma\covp{\Sigma^{*}\Sigma^{*}}{6_{1}}=\frac{2}{3}\sqrt{\frac{2}{3}}\left(\sigma_{2}\psi_{1}\bar{\sigma}_{2}\bar{\psi}_{1}+\sigma_{3}\psi_{2}\bar{\sigma}_{3}\bar{\psi}_{2}+\sigma_{1}\psi_{3}\bar{\sigma}_{1}\bar{\psi}_{3}+\sigma_{1}\sigma_{2}\bar{\sigma}_{1}\bar{\sigma}_{2}+\sigma_{2}\sigma_{3}\bar{\sigma}_{3}\bar{\sigma}_{2}+\sigma_{1}\sigma_{3}\bar{\sigma}_{1}\bar{\sigma}_{3}\right)\\
++\frac{1}{3}\sqrt{\frac{2}{3}}\left(\psi_{1}\psi_{2}\bar{\psi}_{1}\bar{\psi}_{2}+\psi_{2}\psi_{3}\bar{\psi}_{3}\bar{\psi}_{2}+\psi_{1}\psi_{3}\bar{\psi}_{1}\bar{\psi}_{3}\right)+\frac{1}{3\sqrt{6}}\left(\psi_{1}^{2}\bar{\psi}_{1}^{2}+\psi_{2}^{2}\bar{\psi}_{2}^{2}+\psi_{3}^{2}\bar{\psi}_{3}^{2}\right)\\
+-\frac{2}{3\sqrt{3}}\left(\sigma_{2}\psi_{2}\psi_{3}\bar{\psi}_{1}+\psi_{3}\bar{\sigma}_{1}\bar{\psi}_{2}\bar{\psi}_{1}+\psi_{2}\bar{\sigma}_{3}\bar{\psi}_{3}\bar{\psi}_{1}+\sigma_{3}\psi_{1}\psi_{3}\bar{\psi}_{2}+\sigma_{1}\psi_{1}\psi_{2}\bar{\psi}_{3}+\psi_{1}\bar{\sigma}_{2}\bar{\psi}_{2}\bar{\psi}_{3}\right)\\
+-\frac{1}{3}\sqrt{\frac{2}{3}}\left(\bar{\sigma}_{1}\bar{\sigma}_{3}\bar{\psi}_{1}^{2}+\bar{\sigma}_{1}\bar{\sigma}_{2}\bar{\psi}_{2}^{2}+\bar{\sigma}_{2}\bar{\sigma}_{3}\bar{\psi}_{3}^{2}+\sigma_{1}\sigma_{3}\psi_{1}^{2}+\sigma_{1}\sigma_{2}\psi_{2}^{2}+\sigma_{2}\sigma_{3}\psi_{3}^{2}\right).
+\end{multline*}
+
+\end_inset
+
+ Likewise, another real invariant 
+\begin_inset Formula $\covp{\Sigma\Sigma}{6_{2}}\cdot\Gamma\covp{\Sigma^{*}\Sigma^{*}}{6_{2}}$
+\end_inset
+
+ is expanded as
+\begin_inset Formula 
+\begin{multline*}
+\covp{\Sigma\Sigma}{6_{2}}\cdot\Gamma\covp{\Sigma^{*}\Sigma^{*}}{6_{2}}=\frac{1}{7}\sqrt{\frac{3}{2}}\left(\sigma_{1}^{2}\bar{\sigma}_{1}^{2}+\sigma_{2}^{2}\bar{\sigma}_{2}^{2}+\sigma_{3}^{2}\bar{\sigma}_{3}^{2}\right)+\frac{4}{21}\sqrt{\frac{2}{3}}\left(\sigma_{2}\psi_{1}\bar{\sigma}_{2}\bar{\psi}_{1}+\sigma_{3}\psi_{2}\bar{\sigma}_{3}\bar{\psi}_{2}+\sigma_{1}\psi_{3}\bar{\sigma}_{1}\bar{\psi}_{3}\right)\\
++\frac{2}{7}\sqrt{6}\left(\sigma_{3}\psi_{1}\bar{\sigma}_{3}\bar{\psi}_{1}+\sigma_{1}\psi_{2}\bar{\sigma}_{1}\bar{\psi}_{2}+\sigma_{2}\psi_{3}\bar{\sigma}_{2}\bar{\psi}_{3}\right)+\frac{8}{21}\sqrt{\frac{2}{3}}\left(\psi_{1}\psi_{2}\bar{\psi}_{1}\bar{\psi}_{2}+\psi_{2}\psi_{3}\bar{\psi}_{3}\bar{\psi}_{2}+\psi_{1}\psi_{3}\bar{\psi}_{1}\bar{\psi}_{3}\right)\\
++\frac{8}{21\sqrt{3}}\left(\sigma_{2}\psi_{2}\psi_{3}\bar{\psi}_{1}+\psi_{3}\bar{\sigma}_{1}\bar{\psi}_{2}\bar{\psi}_{1}+\psi_{2}\bar{\sigma}_{3}\bar{\psi}_{3}\bar{\psi}_{1}+\sigma_{3}\psi_{1}\psi_{3}\bar{\psi}_{2}+\sigma_{1}\psi_{1}\psi_{2}\bar{\psi}_{3}+\psi_{1}\bar{\sigma}_{2}\bar{\psi}_{2}\bar{\psi}_{3}\right)\\
++\frac{1}{21}\sqrt{\frac{2}{3}}\left(\sigma_{1}\sigma_{2}\bar{\sigma}_{1}\bar{\sigma}_{2}+\sigma_{1}\sigma_{3}\bar{\sigma}_{1}\bar{\sigma}_{3}+\sigma_{2}\sigma_{3}\bar{\sigma}_{2}\bar{\sigma}_{3}+\psi_{1}^{2}\bar{\psi}_{1}^{2}+\psi_{2}^{2}\bar{\psi}_{2}^{2}+\psi_{3}^{2}\bar{\psi}_{3}^{2}\right)\\
++\frac{1}{21}\sqrt{\frac{2}{3}}\left(\sigma_{1}\sigma_{3}\psi_{1}^{2}+\sigma_{1}\sigma_{2}\psi_{2}^{2}+\sigma_{2}\sigma_{3}\psi_{3}^{2}+\mathrm{c.c.}\right)-\frac{2}{7}\sqrt{\frac{2}{3}}\left(\sigma_{1}^{2}\psi_{1}\psi_{3}+\sigma_{2}^{2}\psi_{1}\psi_{2}+\sigma_{3}^{2}\psi_{2}\psi_{3}+\mathrm{c.c.}\right)\\
+-\frac{2}{7\sqrt{3}}\left(\sigma_{1}^{2}\psi_{2}\bar{\sigma}_{3}+\sigma_{3}\sigma_{1}\psi_{3}\bar{\sigma}_{2}+\sigma_{2}\sigma_{1}\psi_{1}\bar{\sigma}_{3}+\sigma_{1}\psi_{3}^{2}\bar{\psi}_{2}+\sigma_{2}\sigma_{3}\psi_{2}\bar{\sigma}_{1}+\sigma_{2}^{2}\psi_{3}\bar{\sigma}_{1}+\sigma_{3}^{2}\psi_{1}\bar{\sigma}_{2}+\sigma_{3}\psi_{2}^{2}\bar{\psi}_{1}+\sigma_{2}\psi_{1}^{2}\bar{\psi}_{3}+\mathrm{c.c.}\right)
+\end{multline*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Values of 
+\begin_inset Formula $\covp{\Sigma\Sigma}{6_{1}}\cdot\Gamma\covp{\Sigma^{*}\Sigma^{*}}{6_{1}}$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Itemize
+When 
+\begin_inset Formula $\Sigma=\frac{1}{\sqrt{6}}\left(1,1,1,1,1,1\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\covp{\Sigma\Sigma}{6_{1}}\cdot\Gamma\covp{\Sigma^{*}\Sigma^{*}}{6_{1}}=\frac{7\sqrt{2}-8}{72\sqrt{3}}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+When 
+\begin_inset Formula $\Sigma=\left(0,0,0,0,0,1\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\covp{\Sigma\Sigma}{6_{1}}\cdot\Gamma\covp{\Sigma^{*}\Sigma^{*}}{6_{1}}=0$
+\end_inset
+
+.
+ It yields the same result if 
+\begin_inset Formula $\Sigma=\left(0,0,0,0,1,0\right)$
+\end_inset
+
+ or 
+\begin_inset Formula $\Sigma=\left(0,0,0,1,0,0\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+When 
+\begin_inset Formula $\Sigma=\left(0,0,1,0,0,0\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\covp{\Sigma\Sigma}{6_{1}}\cdot\Gamma\covp{\Sigma^{*}\Sigma^{*}}{6_{1}}=\frac{1}{3\sqrt{6}}$
+\end_inset
+
+.
+ It yields the same result if 
+\begin_inset Formula $\Sigma=\left(0,1,0,0,0,0\right)$
+\end_inset
+
+ or 
+\begin_inset Formula $\Sigma=\left(1,0,0,0,0,0\right)$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -280,6 +397,44 @@ If the CG coefficient of
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Values of 
+\begin_inset Formula $\covp{\Sigma\Sigma}{6_{1}}\covp{\bar{\Sigma}\bar{\Sigma}}{6_{1}}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+When 
+\begin_inset Formula $\Sigma=\frac{1}{\sqrt{6}}\left(1,1,1,1,1,1\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\covp{\Sigma\Sigma}{6_{1}}\covp{\bar{\Sigma}\bar{\Sigma}}{6_{1}}=\frac{3-\sqrt{2}}{12\sqrt{6}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+When 
+\begin_inset Formula $\Sigma=\left(0,0,0,0,0,1\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\covp{\Sigma\Sigma}{6_{1}}\covp{\bar{\Sigma}\bar{\Sigma}}{6_{1}}=\frac{3+\sqrt{2}}{14\sqrt{6}}$
+\end_inset
+
+.
+ It yields the same result if 
+\begin_inset Formula $1$
+\end_inset
+
+ is at any other component.
+ 
 \end_layout
 
 \end_body
