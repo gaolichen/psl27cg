@@ -4,6 +4,12 @@
 \begin_header
 \textclass beamer
 \begin_preamble
+\newcommand{\rep}[1]{\boldsymbol{#1}} 
+\newcommand{\group}{\mathcal{PSL}_2(7)} 
+\newcommand{\subgroup}{\mathcal{T}_7} 
+\newcommand{\higu}{\mathcal{H}_u} 
+\newcommand{\higd}{\mathcal{H}_d}
+
 \setbeamercolor{background canvas}{bg=}
 \setbeamertemplate{background}{\includegraphics[width=1.0\paperwidth,height=1.0\paperheight]{Vintage.png}}
 \end_preamble
@@ -124,7 +130,16 @@ Why
 \end_layout
 
 \begin_layout BeginFrame
-The Standard Model
+What is Flavor Physics
+\end_layout
+
+\begin_layout Itemize
+Flavor refers to a species of an elementary particle.
+\end_layout
+
+\begin_layout Itemize
+Flavor quantum numbers: Charge, weak isospin, lepton number, baryon number.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -143,7 +158,7 @@ The Standard Model
 \end_layout
 
 \begin_layout BeginFrame
-Parameters of the Standard Model
+What is Flavor Physics - Parameters
 \end_layout
 
 \begin_layout ColumnsCenterAligned
@@ -274,7 +289,7 @@ status open
 
 \end_inset
 
-3 quark mixing angles, 1 phase
+4 quark mixing angles
 \end_layout
 
 \begin_layout Itemize
@@ -288,7 +303,7 @@ status open
 
 \end_inset
 
-3 (3+) lepton masses
+6 lepton masses
 \end_layout
 
 \begin_layout Itemize
@@ -302,7 +317,7 @@ status open
 
 \end_inset
 
-(3 lepton mixing angles + 1 phase)
+4 lepton mixing angles
 \end_layout
 
 \end_inset
@@ -329,29 +344,9 @@ textwidth
 \end_deeper
 \begin_layout ColumnsCenterAligned
 \begin_inset Graphics
-	filename flavorimg/cernmug.jpg
+	filename flavorimg/smlagrangianmug.png
 	width 100col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout EndFrame
-
-\end_layout
-
-\begin_layout BeginFrame
-What is Flavor Physics
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename flavorimg/Flavor.jpg
-	width 100col%
-	BoundingBox 120bp 50bp 830bp 580bp
-	clip
+	BoundingBox 20bp 0bp 600bp 421bp
 
 \end_inset
 
@@ -367,19 +362,57 @@ Flavor Puzzles
 \end_layout
 
 \begin_layout Itemize
-Why are there three generations / families of each quark and leptons
+Why are there three generations / families of quarks and leptons?
 \end_layout
 
 \begin_layout Itemize
-Why are there flavor symmetries
+Why charged fermion masses exhibit a strong hierarchical structure? 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $m_{u}:m_{c}:m_{t}=\lambda^{8}:\lambda^{4}:1$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda=0.23$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
-What breaks the flavor symmetries.
+\begin_inset Formula $m_{d}:m_{s}:m_{b}=\lambda^{4}:\lambda^{2}:1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Why neutrino masses so much smaller than the charge fermion masses.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $m_{\nu}\sim10^{-2}\mathrm{eV}$
+\end_inset
+
+, mass of electron 
+\begin_inset Formula $\sim500\mathrm{keV}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What is origin of CP (charge parity) violation?
 \end_layout
 
 \begin_layout Itemize
-What cause matter-antimatter asymmetry
+What cause matter-antimatter asymmetry?
 \end_layout
 
 \begin_layout EndFrame
@@ -401,7 +434,7 @@ status open
 
 \begin_layout Plain Layout
 
-.5
+.4
 \backslash
 textwidth
 \end_layout
@@ -411,25 +444,51 @@ textwidth
 
 \end_layout
 
-\end_deeper
-\begin_layout ColumnsTopAligned
-\begin_inset Graphics
-	filename flavorimg/family-symmetry.png
-	width 100col%
+\begin_layout Itemize
+Grand Unified Theories: 
+\begin_inset Formula $SU\left(5\right)$
+\end_inset
 
+, 
+\begin_inset Formula $SO\left(10\right)$
 \end_inset
 
 
 \end_layout
 
+\begin_layout Itemize
+Family symmetry
+\end_layout
+
 \begin_deeper
+\begin_layout Itemize
+Finite non-Abelian groups with triplet representation
+\end_layout
+
+\begin_layout Itemize
+Examples: 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta\left(27\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Column
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-.5
+.4
 \backslash
 textwidth
 \end_layout
@@ -439,7 +498,6 @@ textwidth
 
 \end_layout
 
-\end_deeper
 \begin_layout ColumnsTopAligned
 \begin_inset Graphics
 	filename flavorimg/family-symmetry2.png
@@ -450,11 +508,137 @@ textwidth
 
 \end_layout
 
+\end_deeper
 \begin_layout ColumnsTopAligned
 
 \end_layout
 
-\begin_layout Pause
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Family Symmetry - how it works
+\end_layout
+
+\begin_layout Itemize
+Assume family symmetry exist in high energy scale
+\end_layout
+
+\begin_layout Itemize
+Assign elementary particles to representations of the group.
+\end_layout
+
+\begin_layout Itemize
+Sponteneous symmetry breaking in low energy scale
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Finite subgroup of SU(3) with 168 elements
+\end_layout
+
+\begin_layout Itemize
+Projective Special Linear group of (2 × 2) matrices over F7 (Galois field
+ of seven elements)
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+-Invariant Theory
+\end_layout
+
+\begin_layout Itemize
+Fields: the Standard Model fields 
+\begin_inset Formula $Q,\,\bar{u},\, L,\,\bar{d},\,\bar{e}\sim3$
+\end_inset
+
+.
+ Right-handed neutrino 
+\begin_inset Formula $\bar{N}\sim3$
+\end_inset
+
+.
+ Familon 
+\begin_inset Formula $\bar{\varphi},\,\bar{\varphi}^{\prime}\sim\bar{3}$
+\end_inset
+
+, Higgs fields 
+\begin_inset Formula $\mathcal{H}_{u},\,\mathcal{H}_{d}\sim\rep{6}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Superpotential
+\begin_inset Formula 
+\[
+\mathcal{W}_{\mathrm{Yukawa}}=\left[Q\bar{u}\right]_{6}\mathcal{H}_{u}+\left[L\bar{N}\right]_{6}\mathcal{H}_{u}+\left[Q\bar{d}\right]_{6}\mathcal{H}_{d}+\left[L\bar{e}\right]_{6}\mathcal{H}_{d}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{W}_{\mathrm{Family}}=\left(\left[\bar{N}\bar{N}\right]_{6}+f\left[\mathcal{H}_{u}\mathcal{H}_{d}\right]_{6}\right)\Phi+\left[\bar{\varphi}\bar{\varphi}^{\prime}\right]_{6}\bar{\Phi}+\Phi\bar{\Phi}S_{7}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Results
+\end_layout
+
+\begin_layout Itemize
+Neutrino masses
+\begin_inset Formula 
+\[
+m_{1}=0.005\mathrm{eV},\, m_{2}=0.01\mathrm{eV},\; m_{3}=0.05\mathrm{eV}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Quark masses
+\end_layout
+
+\begin_layout Itemize
+Only top quark obtain mass at tree level
+\begin_inset Formula 
+\[
+2r\lambda^{12}m_{t},\quad-2r\lambda^{12}m_{t},\quad m_{t}
+\]
+
+\end_inset
+
 
 \end_layout
 
