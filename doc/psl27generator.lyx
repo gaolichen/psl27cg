@@ -3,6 +3,26 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage{babel}
+\allowdisplaybreaks
+%\newcommand{\um} {\mathcal{U}}
+\newcommand{\wrap}[1] {{#1}}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\group}{\mathcal{PSL}_2(7)} 
+\newcommand{\subgroup}{\mathcal{T}_7} 
+\newcommand{\rep}[1]{\mathbf{#1}} 
+\newcommand{\higu}{\mathcal{H}_u} 
+\newcommand{\higd}{\mathcal{H}_d} 
+\newcommand{\ket}[1]{\left|{#1}\right\rangle }
+\newcommand{\rket}[1]{\left|{#1}\right) }
+\newcommand{\cket}[1]{\left|{#1}\right\} }
+%% T7 covariant with only two parameters.
+\newcommand{\covt}[2]{\big\{ {#1}\big\}^{}_{\bf #2}}
+%% PSL27 covariant
+\newcommand{\covp}[2]{\big[ {#1}\big]^{}_{\bf #2}}
+\newcommand{\subcg}[3]{\big\{ {#1}\otimes{#2}\big\}^{}_{#3}}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -25,6 +45,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -60,15 +81,27 @@
 \begin_body
 
 \begin_layout Title
-Relation between 
-\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+Generators and CG coefficients of 
+\begin_inset Formula $\group$
 \end_inset
 
- generators 
+ and 
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
 
- generators
+
+\end_layout
+
+\begin_layout Section
+Relation between generators of 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -245,6 +278,632 @@ A=\exp\Bigg\{-\frac{\pi}{2\sqrt{3}}\sqrt{\frac{2\sin\frac{\alpha}{2}}{\sqrt{7}}+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ Clebsch-Gordan Coefficients
+\end_layout
+
+\begin_layout Standard
+Let us first consider the relation between Gellmann matrices of 
+\begin_inset Formula $\rep{r}$
+\end_inset
+
+ representation and its conjugate representation 
+\begin_inset Formula $\rep{\bar{r}}$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{A}$
+\end_inset
+
+ are two column vectors in 
+\begin_inset Formula $\rep{r}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{\bar{r}}$
+\end_inset
+
+ representations respectively.
+ Then 
+\begin_inset Formula $\bar{A}^{T}A$
+\end_inset
+
+ is an invariant in 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+.
+ Now we perform a 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ transformation on 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{A}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+A\to\exp\left(i\alpha_{a}\lambda_{a}\right)A,\quad\bar{A}\to\exp\left(i\alpha_{a}\bar{\lambda}_{a}\right)\bar{A}.
+\]
+
+\end_inset
+
+ It follows that 
+\begin_inset Formula 
+\[
+\bar{A}^{T}\exp\left(i\alpha_{a}\bar{\lambda}_{a}^{T}\right)\exp\left(i\alpha_{a}\lambda_{a}\right)A=\bar{A}^{T}A\Rightarrow\bar{\lambda}_{a}=-\lambda_{a}^{T}=-\lambda_{a}^{*},
+\]
+
+\end_inset
+
+ where in the last step we used the property that 
+\begin_inset Formula $\lambda_{a}$
+\end_inset
+
+ is hermitian.
+ So in 
+\begin_inset Formula $\rep{\bar{3}}$
+\end_inset
+
+ representation, 
+\begin_inset Formula $\lambda_{2,5,7}$
+\end_inset
+
+ are the same as the ones of 
+\begin_inset Formula $\rep{3}$
+\end_inset
+
+ representation while the others are different by an overall minus sign.
+ 
+\end_layout
+
+\begin_layout Standard
+Now we can determine the CG coeffcients of 
+\begin_inset Formula $\rep{3}\otimes\rep{3}\to\rep{\bar{3}}$
+\end_inset
+
+.
+ The results are
+\begin_inset Formula 
+\begin{eqnarray*}
+\ket{\bar{\chi}_{1}} & = & \frac{1}{\sqrt{2}}\left(\ket{2}\ket{3^{\prime}}-\ket{3}\ket{2^{\prime}}\right),\\
+\ket{\bar{\chi}_{2}} & = & \frac{1}{\sqrt{2}}\left(\ket{3}\ket{1^{\prime}}-\ket{1}\ket{3^{\prime}}\right),\\
+\ket{\bar{\chi}_{3}} & = & \frac{1}{\sqrt{2}}\left(\ket{1}\ket{2^{\prime}}-\ket{2}\ket{1^{\prime}}\right).
+\end{eqnarray*}
+
+\end_inset
+
+ The CG coefficients can be verified as follows.
+ For any 
+\begin_inset Formula $\lambda_{a}$
+\end_inset
+
+ matrix, we perform an infinitestimal transformation on 
+\begin_inset Formula $\ket{i}$
+\end_inset
+
+, 
+\begin_inset Formula $\ket{i^{\prime}}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\ket{i}=\ket{i}+i\epsilon_{a}\lambda_{a}\ket{i},\quad\ket{i^{\prime}}=\ket{i^{\prime}}+i\epsilon_{a}\lambda_{a}\ket{i^{\prime}}.
+\]
+
+\end_inset
+
+ Then given the CG coefficients above, we can extract the generator 
+\begin_inset Formula $\bar{\lambda}_{a}$
+\end_inset
+
+ of 
+\begin_inset Formula $\rep{\bar{3}}$
+\end_inset
+
+ and check whether or not they satisfy 
+\begin_inset Formula $\bar{\lambda}=-\lambda_{a}^{*}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The CG coefficients of 
+\begin_inset Formula $\rep{3}\otimes\rep{3^{\prime}}\to\rep{6}$
+\end_inset
+
+ are
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(1,\frac{1}{\sqrt{3}}\right)\quad\ket{\chi_{1}} & = & \ket{1}\ket{1^{\prime}}\\
+\left(\frac{1}{2},\frac{1}{2\sqrt{3}}\right)\quad\ket{\chi_{2}} & = & \frac{1}{\sqrt{2}}\left(\ket{1}\ket{2^{\prime}}+\ket{2}\ket{1^{\prime}}\right)\\
+\left(-\frac{1}{2},\frac{1}{2\sqrt{3}}\right)\quad\ket{\chi_{3}} & = & \ket{2}\ket{2^{\prime}}\\
+\left(1,-\frac{1}{\sqrt{3}}\right)\quad\ket{\chi_{4}} & = & \frac{1}{\sqrt{2}}\left(\ket{1}\ket{3^{\prime}}+\ket{3}\ket{1^{\prime}}\right)\\
+\left(0,-\frac{1}{\sqrt{3}}\right)\quad\ket{\chi_{5}} & = & \frac{1}{\sqrt{2}}\left(\ket{2}\ket{3^{\prime}}+\ket{3}\ket{2^{\prime}}\right)\\
+\left(-1,-\frac{1}{\sqrt{3}}\right)\quad\ket{\chi_{6}} & = & \ket{3}\ket{3^{\prime}}.
+\end{eqnarray*}
+
+\end_inset
+
+From the CG coefficients, we can extract the generators of 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ representation:
+\begin_inset Formula 
+\[
+\lambda_{1}^{[6]}=\left(\begin{array}{cccccc}
+0 & \sqrt{2} & 0 & 0 & 0 & 0\\
+\sqrt{2} & 0 & \sqrt{2} & 0 & 0 & 0\\
+0 & \sqrt{2} & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}\right),\quad\lambda_{2}^{[6]}=\left(\begin{array}{cccccc}
+0 & -i\sqrt{2} & 0 & 0 & 0 & 0\\
+i\sqrt{2} & 0 & -i\sqrt{2} & 0 & 0 & 0\\
+0 & i\sqrt{2} & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & -i & 0\\
+0 & 0 & 0 & i & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda_{3}^{[6]}=\left(\begin{array}{cccccc}
+2 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & -2 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 0 & -1 & 0\\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}\right),\quad\lambda_{4}^{[6]}=\left(\begin{array}{cccccc}
+0 & 0 & 0 & \sqrt{2} & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+\sqrt{2} & 0 & 0 & 0 & 0 & \sqrt{2}\\
+0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & \sqrt{2} & 0 & 0
+\end{array}\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda_{5}^{[6]}=\left(\begin{array}{cccccc}
+0 & 0 & 0 & -i\sqrt{2} & 0 & 0\\
+0 & 0 & 0 & 0 & -i & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+i\sqrt{2} & 0 & 0 & 0 & 0 & -i\sqrt{2}\\
+0 & i & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & i\sqrt{2} & 0 & 0
+\end{array}\right),\quad\lambda_{6}^{[6]}=\left(\begin{array}{cccccc}
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 0 & \sqrt{2} & 0\\
+0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & \sqrt{2} & 0 & 0 & \sqrt{2}\\
+0 & 0 & 0 & 0 & \sqrt{2} & 0
+\end{array}\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda_{7}^{[6]}=\left(\begin{array}{cccccc}
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & -i & 0 & 0\\
+0 & 0 & 0 & 0 & -i\sqrt{2} & 0\\
+0 & i & 0 & 0 & 0 & 0\\
+0 & 0 & i\sqrt{2} & 0 & 0 & -i\sqrt{2}\\
+0 & 0 & 0 & 0 & i\sqrt{2} & 0
+\end{array}\right),\quad\lambda_{8}^{[6]}=\left(\begin{array}{cccccc}
+\frac{2}{\sqrt{3}} & 0 & 0 & 0 & 0 & 0\\
+0 & \frac{2}{\sqrt{3}} & 0 & 0 & 0 & 0\\
+0 & 0 & \frac{2}{\sqrt{3}} & 0 & 0 & 0\\
+0 & 0 & 0 & -\frac{1}{\sqrt{3}} & 0 & 0\\
+0 & 0 & 0 & 0 & -\frac{1}{\sqrt{3}} & 0\\
+0 & 0 & 0 & 0 & 0 & -\frac{4}{\sqrt{3}}
+\end{array}\right).
+\]
+
+\end_inset
+
+ The 
+\begin_inset Formula $\rep{\bar{6}}$
+\end_inset
+
+ generators are simply 
+\begin_inset Formula $\lambda_{i}^{[\bar{6}]}=-\left(\lambda_{i}^{[6]}\right)^{*}$
+\end_inset
+
+.
+ With generators of 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{\bar{6}}$
+\end_inset
+
+, we can calculate the CG coefficients of 
+\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{\bar{6}}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(-1,-\frac{1}{\sqrt{3}}\right)\quad\ket{\bar{\chi}_{1}} & = & \frac{1}{\sqrt{3}}\left(\ket{\chi_{3}}\ket{\chi_{6}}+\ket{\chi_{6}}\ket{\chi_{3}}-\ket{\chi_{5}}\ket{\chi_{5}}\right)\\
+\left(-\frac{1}{2},-\frac{1}{2\sqrt{3}}\right)\quad\ket{\bar{\chi}_{2}} & = & \frac{1}{\sqrt{6}}\left(\ket{\chi_{4}}\ket{\chi_{5}}+\ket{\chi_{5}}\ket{\chi_{4}}\right)-\frac{1}{\sqrt{3}}\left(\ket{\chi_{2}}\ket{\chi_{6}}+\ket{\chi_{6}}\ket{\chi_{2}}\right)\\
+\left(\frac{1}{2},-\frac{1}{2\sqrt{3}}\right)\quad\ket{\bar{\chi}_{3}} & = & \frac{1}{\sqrt{3}}\left(\ket{\chi_{1}}\ket{\chi_{6}}+\ket{\chi_{6}}\ket{\chi_{1}}-\ket{\chi_{4}}\ket{\chi_{4}}\right)\\
+\left(-1,\frac{1}{\sqrt{3}}\right)\quad\ket{\bar{\chi}_{4}} & = & \frac{1}{\sqrt{6}}\left(\ket{\chi_{2}}\ket{\chi_{5}}+\ket{\chi_{5}}\ket{\chi_{2}}\right)-\frac{1}{\sqrt{3}}\left(\ket{\chi_{3}}\ket{\chi_{4}}+\ket{\chi_{4}}\ket{\chi_{3}}\right)\\
+\left(0,\frac{1}{\sqrt{3}}\right)\quad\ket{\bar{\chi}_{5}} & = & \frac{1}{\sqrt{6}}\left(\ket{\chi_{2}}\ket{\chi_{4}}+\ket{\chi_{4}}\ket{\chi_{2}}\right)-\frac{1}{\sqrt{3}}\left(\ket{\chi_{1}}\ket{\chi_{5}}+\ket{\chi_{5}}\ket{\chi_{1}}\right)\\
+\left(1,\frac{1}{\sqrt{3}}\right)\quad\ket{\bar{\chi}_{6}} & = & \frac{1}{\sqrt{3}}\left(\ket{\chi_{1}}\ket{\chi_{3}}+\ket{\chi_{3}}\ket{\chi_{1}}-\ket{\chi_{2}}\ket{\chi_{2}}\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ CG coefficients
+\end_layout
+
+\begin_layout Standard
+The embedding of 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\rep{3}=\rep{3},\quad\rep{\bar{3}}=\rep{\bar{3}},\quad\rep{6}=\rep{6},\quad\rep{\bar{6}}=\rep{6}.
+\]
+
+\end_inset
+
+ So the 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ can be considered as either 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ or 
+\begin_inset Formula $\rep{\bar{6}}$
+\end_inset
+
+ of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+.
+ If we identify 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ of 
+\begin_inset Formula $\group$
+\end_inset
+
+ and 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+, we can extract another set of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ generators from the 
+\begin_inset Formula $\group$
+\end_inset
+
+ CG coefficients of 
+\begin_inset Formula $\rep{3}\otimes\rep{3}\to\rep{6}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\rep{3} & = & \covt{\rep{3}\otimes\rep{3}}{\rep{3}}\\
+\rep{\bar{{3}}} & = & \covt{\rep{3}\otimes\rep{3}}{\rep{\bar{3}}}.
+\end{eqnarray*}
+
+\end_inset
+
+The new set of generators are
+\begin_inset Formula 
+\[
+\tau_{1}^{[6]}=\left(\begin{array}{cccccc}
+0 & 0 & 0 & \sqrt{2} & 0 & 0\\
+0 & 0 & 0 & \sqrt{2} & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+\sqrt{2} & \sqrt{2} & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0 & 1 & 0
+\end{array}\right),\quad\tau_{2}^{[6]}=\left(\begin{array}{cccccc}
+0 & 0 & 0 & -i\sqrt{2} & 0 & 0\\
+0 & 0 & 0 & i\sqrt{2} & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+i\sqrt{2} & -i\sqrt{2} & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & -i\\
+0 & 0 & 0 & 0 & i & 0
+\end{array}\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tau_{3}^{[6]}=\left(\begin{array}{cccccc}
+2 & 0 & 0 & 0 & 0 & 0\\
+0 & -2 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0 & -1
+\end{array}\right),\quad\tau_{4}^{[6]}=\left(\begin{array}{cccccc}
+0 & 0 & 0 & 0 & \sqrt{2} & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & \sqrt{2} & 0\\
+0 & 0 & 0 & 0 & 0 & 1\\
+\sqrt{2} & 0 & \sqrt{2} & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0 & 0
+\end{array}\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tau_{5}^{[6]}=\left(\begin{array}{cccccc}
+0 & 0 & 0 & 0 & -i\sqrt{2} & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & i\sqrt{2} & 0\\
+0 & 0 & 0 & 0 & 0 & -i\\
+i\sqrt{2} & 0 & -i\sqrt{2} & 0 & 0 & 0\\
+0 & 0 & 0 & i & 0 & 0
+\end{array}\right),\quad\tau_{6}^{[6]}=\left(\begin{array}{cccccc}
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & \sqrt{2}\\
+0 & 0 & 0 & 0 & 0 & \sqrt{2}\\
+0 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1 & 0 & 0\\
+0 & \sqrt{2} & \sqrt{2} & 0 & 0 & 0
+\end{array}\right),
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tau_{7}^{[6]}=\left(\begin{array}{cccccc}
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & -i\sqrt{2}\\
+0 & 0 & 0 & 0 & 0 & i\sqrt{2}\\
+0 & 0 & 0 & 0 & -i & 0\\
+0 & 0 & 0 & i & 0 & 0\\
+0 & i\sqrt{2} & -i\sqrt{2} & 0 & 0 & 0
+\end{array}\right),\quad\tau_{8}^{[6]}=\left(\begin{array}{cccccc}
+\frac{2}{\sqrt{3}} & 0 & 0 & 0 & 0 & 0\\
+0 & \frac{2}{\sqrt{3}} & 0 & 0 & 0 & 0\\
+0 & 0 & -\frac{4}{\sqrt{3}} & 0 & 0 & 0\\
+0 & 0 & 0 & \frac{2}{\sqrt{3}} & 0 & 0\\
+0 & 0 & 0 & 0 & -\frac{1}{\sqrt{3}} & 0\\
+0 & 0 & 0 & 0 & 0 & -\frac{1}{\sqrt{3}}
+\end{array}\right).
+\]
+
+\end_inset
+
+ Note that 
+\begin_inset Formula $\tau_{i}$
+\end_inset
+
+ also satisify the same relation as Gell-mann matrices.
+ We see that 
+\begin_inset Formula $\tau_{i}$
+\end_inset
+
+ can be obtained by a similarity transformation on 
+\begin_inset Formula $\lambda_{i}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\tau_{i}^{[6]}=U\lambda_{i}^{[6]}U^{-1},\quad U=\begin{pmatrix}1 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 1\\
+0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0
+\end{pmatrix},\quad U^{T}U=I.
+\]
+
+\end_inset
+
+ It simplies that, in the vector space, 
+\begin_inset Formula $\rep{6}_{PSL_{2}\left(7\right)}=U\rep{6}_{SU\left(3\right)}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Now let us consider the CG coefficients 
+\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6_{1}}:$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\rep{3} & = & \frac{1}{\sqrt{3}}\subcg{\rep{3}_{\rep{6}}}{\rep{3}_{\rep{6^{\prime}}}}{\rep{3}}-\sqrt{\frac{2}{3}}\subcg{\rep{\bar{3}}_{\rep{6}}}{\rep{\bar{3}}_{\rep{6^{\prime}}}}{\rep{3}_{s}}\\
+\rep{\bar{3}} & = & -\frac{1}{\sqrt{3}}\subcg{\rep{3}_{\rep{6}}}{\rep{3}_{\rep{6^{\prime}}}}{\rep{\bar{3}}_{s}}+\frac{1}{\sqrt{3}}\left(\subcg{\rep{3}_{\rep{6}}}{\rep{\bar{3}}_{\rep{6^{\prime}}}}{\rep{\bar{3}}}+\subcg{\rep{\bar{3}}_{\rep{6}}}{\rep{3}_{\rep{6^{\prime}}}}{\rep{\bar{3}}}\right).
+\end{eqnarray*}
+
+\end_inset
+
+ Is 
+\begin_inset Formula $\rep{6_{1}}$
+\end_inset
+
+ the same as 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+? Not exactly.
+ It turns out that 
+\begin_inset Formula $\rep{6}_{SU(3)}$
+\end_inset
+
+ can be obtained by a permutation on components of 
+\begin_inset Formula $\rep{6_{1}}$
+\end_inset
+
+.
+ If we write 
+\begin_inset Formula $\rep{6_{1}}$
+\end_inset
+
+ as 
+\begin_inset Formula $S_{6}=\begin{pmatrix}\psi_{2}, & \psi_{3}, & \psi_{1}, & \bar{\sigma}_{3}, & \bar{\sigma}_{2}, & \bar{\sigma}_{1}\end{pmatrix}^{T},$
+\end_inset
+
+then 
+\begin_inset Formula 
+\[
+\Gamma S_{6}\equiv\begin{pmatrix} &  &  & 0 & 1 & 0\\
+ &  &  & 1 & 0 & 0\\
+ &  &  & 0 & 0 & 1\\
+0 & 1 & 0\\
+1 & 0 & 0\\
+0 & 1 & 0
+\end{pmatrix}\begin{pmatrix}\psi_{2}\\
+\psi_{3}\\
+\psi_{1}\\
+\bar{\sigma}_{3}\\
+\bar{\sigma}_{2}\\
+\bar{\sigma}_{1}
+\end{pmatrix}=\begin{pmatrix}\bar{\sigma}_{2}\\
+\bar{\sigma}_{3}\\
+\bar{\sigma}_{1}\\
+\psi_{3}\\
+\psi_{2}\\
+\psi_{1}
+\end{pmatrix}
+\]
+
+\end_inset
+
+ is a 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Can we identify 
+\begin_inset Formula $\rep{6_{1}}$
+\end_inset
+
+ as 
+\begin_inset Formula $\rep{\bar{6}}$
+\end_inset
+
+ of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+? The answer is no.
+ But there exists another set of CG coefficients 
+\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6_{3}}$
+\end_inset
+
+ in 
+\begin_inset Formula $\group$
+\end_inset
+
+ so that 
+\begin_inset Formula $\Gamma\rep{6_{3}}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\rep{\bar{6}}$
+\end_inset
+
+ of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+.
+ The CG coefficients are 
+\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6_{3}}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\rep{3} & = & -\frac{1}{\sqrt{3}}\subcg{\rep{\bar{3}}_{\rep{6}}}{\rep{\bar{3}}_{\rep{6^{\prime}}}}{\rep{3}_{s}}+\frac{1}{\sqrt{3}}\left(\subcg{\rep{3}_{\rep{6}}}{\rep{\bar{3}}_{\rep{6^{\prime}}}}{\rep{3}}+\subcg{\rep{\bar{3}}_{\rep{6}}}{\rep{3}_{\rep{6^{\prime}}}}{\rep{3}}\right)\\
+\rep{\bar{3}} & = & -\sqrt{\frac{2}{3}}\subcg{\rep{3}_{\rep{6}}}{\rep{3}_{\rep{6^{\prime}}}}{\rep{\bar{3}}_{s}}+\frac{1}{\sqrt{3}}\subcg{\rep{\bar{3}}_{\rep{6}}}{\rep{\bar{3}}_{\rep{6^{\prime}}}}{\rep{\bar{3}}}.
+\end{eqnarray*}
+
+\end_inset
+
+ 
 \end_layout
 
 \end_body
