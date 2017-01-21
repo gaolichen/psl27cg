@@ -1,0 +1,166 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5778,        157]
+NotebookOptionsPosition[      5512,        143]
+NotebookOutlinePosition[      5879,        159]
+CellTagsIndexPosition[      5836,        156]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "GAPToMathematica", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"GAPToMathematica", "[", "pstr_", "]"}], ":=", 
+     RowBox[{"StringReplace", "[", 
+      RowBox[{"pstr", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\"\<[\>\"", "->", "\"\<{\>\""}], ",", 
+         RowBox[{"\"\<]\>\"", "->", "\"\<}\>\""}], ",", 
+         RowBox[{
+          RowBox[{
+          "RegularExpression", "[", "\"\<E\\\\((\\\\d+)\\\\)\>\"", "]"}], 
+          "->", "\"\<Exp[2*Pi*I/$1]\>\""}]}], " ", "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Clear", "[", "ReadGAP", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ReadGAP", "[", "fname_", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"f", ",", "str"}], "}"}], ",", "\n", "\t", 
+       RowBox[{
+        RowBox[{"f", "=", 
+         RowBox[{"OpenRead", "[", "fname", "]"}]}], ";", "\n", "\t", 
+        RowBox[{"str", "=", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"StringJoin", "[", 
+              RowBox[{
+               RowBox[{"GAPToMathematica", "[", "#", "]"}], ",", 
+               "\"\<\\n\>\""}], "]"}], "&"}], ",", 
+            RowBox[{"ReadList", "[", 
+             RowBox[{"f", ",", "String"}], "]"}]}], "]"}], "]"}]}], ";", "\n",
+         "\t", 
+        RowBox[{"Close", "[", "f", "]"}], ";", "\n", "\t", 
+        RowBox[{"Return", "[", "str", "]"}], ";"}]}], "\n", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "ReadGAPDataFromFile", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ReadGAPDataFromFile", "[", "fname_", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "f", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"f", "=", 
+         RowBox[{"StringToStream", "[", 
+          RowBox[{"ReadGAP", "[", "fname", "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", 
+         RowBox[{"Read", "[", 
+          RowBox[{"f", ",", " ", "Expression"}], "]"}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "LoadGroupFromFile", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"LoadGroupFromFile", "[", 
+      RowBox[{"filename_", ",", " ", 
+       RowBox[{"opts", ":", 
+        RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"f", ",", " ", "ret", ",", " ", "name", ",", " ", "value"}], 
+        "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"f", "=", 
+         RowBox[{"StringToStream", "[", 
+          RowBox[{"ReadGAP", "[", "filename", "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"While", "[", 
+         RowBox[{"True", ",", " ", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"name", " ", "=", " ", 
+            RowBox[{"Read", "[", 
+             RowBox[{"f", ",", " ", "Expression"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"name", " ", "\[Equal]", " ", "EndOfFile"}], ",", " ", 
+             RowBox[{"Break", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"ret", "[", "name", "]"}], "=", 
+            RowBox[{"Read", "[", 
+             RowBox[{"f", ",", "Expression"}], "]"}]}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "ret", "]"}], ";"}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"Save", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+      "\"\</extractGroupData.m\>\""}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "GAPToMathematica", ",", "ReadGAP", ",", "ReadGAPDataFromFile", ",", 
+       "LoadGroupFromFile"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.6940154298478737`*^9, 3.694015488438944*^9}, {
+   3.694015634159724*^9, 3.694015834890911*^9}, {3.6940159562912807`*^9, 
+   3.694015956570744*^9}, {3.694016511991623*^9, 3.694016562971953*^9}, {
+   3.694016634637323*^9, 3.6940167238241053`*^9}, {3.6940167986618013`*^9, 
+   3.694016800117526*^9}, {3.6940170527762003`*^9, 3.694017114486027*^9}, 
+   3.694017146310988*^9, {3.694017334478704*^9, 3.694017350223199*^9}, {
+   3.6940174048411293`*^9, 3.694017480223178*^9}, {3.69402201796099*^9, 
+   3.694022079023459*^9}}]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1278, 947},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4950, 121, 737, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
