@@ -1,4 +1,3 @@
-LoadPackage("repsn");;
 
 ListMultiply:=function(list1, list2)
     local i, res;
@@ -122,26 +121,5 @@ CheckSmallGroupCGFixedAll:=function(minN, maxN)
     od;
 
     Print("All groups of order less than ", maxN, " are CG-fixed.");
-end;;
-
-GetGenReps:=function(G)
-    local gens, charTab, reps, sizeRep, tmp, i, j;
-    gens:= GeneratorsOfGroup(G);
-    charTab:=Irr(G);
-    reps := [];
-    sizeRep := [];
-    for i in [1..Length(charTab)] do
-        Add(sizeRep,charTab[i][1]);;
-        Add(reps,IrreducibleAffordingRepresentation(charTab[i]));
-    od;
-
-    for i in [1..Length(reps)] do
-        tmp := [];
-        Print("rep ", i, " dim=", sizeRep[i], ": ================== \n");
-        for j in [1..Length(gens)] do
-            Add(tmp, gens[j]^reps[i]);
-            Print(tmp[j], "\n");
-        od;
-    od;
 end;;
 
