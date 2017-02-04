@@ -11,51 +11,43 @@ end;
 
 # find outermorphism of the group PSL(2,7)
 FindPsl27Outermorphism := function()
-    local G, b, alist, autG, innG, innG2, inna, innb, s, news, imb, ima, i, Gb, hom, res, res2;
+    local G, a, b, autG, innG, innG2, inna, innb, ima, imb, clist, i, Gb, hom, res;
     G := PSL(2,7);
 
-    # b: the generator b of the group.
-    b := GeneratorsOfGroup(G)[1];
+    # find the generator a and b of the group.
+    b := First(GeneratorsOfGroup(G), x->Order(x)=3);
+    a := First(Elements(G), x-> Order(x) = 2 and Order(x*b)=7 and Order(x*b*x^-1*b^-1)=4);
 
-    Print("Generator b of order ", Order(b), " is ", b, "\n");
-
-    # alist: stores all the possible a generators.
-
-    alist := Filtered(G, x->Order(x)=2);
-    alist := Filtered(alist, x-> Order(x) = 2 and Order(x*b)=7 and Order(x*b*x^-1*b^-1)=4);
-    Print("Number of possible a found: ", Length(alist), "\n");
-
+    # the generators 
     autG := AutomorphismGroup(G);
     innG := InnerAutomorphismsAutomorphismGroup(autG);
-    s := First(GeneratorsOfGroup(autG),x->not x in innG);
-    news := First(Elements(innG),x->Order(x*s)=2) * s;
 
-    #innG2 := FindFinitelyPresentedGroup(innG);
-    #Print("inner automorphism group: ", innG2, "\n");
-    #Print("generators of inner autormophism group:", GeneratorsOfGroup(innG), " of orders: ", List(GeneratorsOfGroup(innG), Order));
-    
-    Print("Find an automorphism of order 2: ", news, "\n");
-    
+    # verify that inna and innb are elements of the inner automorphism group.
+    inna := InnerAutomorphism(G, a);
     innb := InnerAutomorphism(G, b);
-    imb := Image(news, b);
+    Assert(0, inna in innG, "Inna is not an element of inner automorphism group.\n");
+    Assert(0, innb in innG, "Innb is not an element of inner automorphism group.\n");
+    
+    # verify that inna and innb generate the inner automorphism group.
+    innG2 := GroupByGenerators([inna, innb]);
+    Assert(0, Size(innG2) = Size(innG), "Inna and Innb do not generate the inner automorphism group.\n");
+    
+    # find the outer automorphism c such that c^-1*inna*c=inna^-1 and c^-1*innb*c=innb^-1
+    clist := Filtered(Elements(autG), x -> Order(x) = 2 and x^-1*inna*x = inna^-1 and x^-1*innb*x=innb^-1 and not x in innG);
+
+    # find the fintely presentation of the mapping c.
     res := [];
-    res2 := [];
-    for i in [1..Length(alist)] do
-        ima := Image(news, alist[i]);
+    for i in [1..Length(clist)] do
+        ima := Image(clist[i], a);
+        imb := Image(clist[i], b);
         
-        Gb := GroupByGenerators([alist[i], b]);
+        Gb := GroupByGenerators([a, b]);
         hom := EpimorphismFromFreeGroup(Gb:names:=["a","b"]);
         
         Add(res, [PreImagesRepresentative(hom, ima), PreImagesRepresentative(hom, imb)]);
-
-        inna := InnerAutomorphism(G, alist[i]);
-        innG2 := GroupByGenerators([inna, innb]);
-        hom := EpimorphismFromFreeGroup(innG2:names:=["ia","ib"]);
-        Add(res2, [PreImagesRepresentative(hom, news^-1*inna*news), PreImagesRepresentative(hom, news^-1*innb*news)]);
     od;
-
-    Print("res: ", res, "\n");
-    Print("res2: ", res2, "\n");
+    
+    return res;
 end;
 
 # find finted presentation of PGL27. 
