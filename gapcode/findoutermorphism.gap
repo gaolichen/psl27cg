@@ -1,7 +1,17 @@
-# this is the script to find outermorphism of the group PSL(2,7)
 
+# find finitely presented group for group G.
+FindFinitelyPresentedGroup := function(G)
+    local H, K;
+    H:=Image(IsomorphismFpGroup(G));
+    Print("Generators: ", GeneratorsOfGroup(H), "\n");
+    #Print("Elements: ", Elements(H), "\n");
+    K:=SimplifiedFpGroup(H);
+    return RelatorsOfFpGroup(K);
+end;
+
+# find outermorphism of the group PSL(2,7)
 FindPsl27Outermorphism := function()
-    local G, b, alist, autG, innG, s, news, imb, ima, i, Gb, hom, res;
+    local G, b, alist, autG, innG, innG2, inna, innb, s, news, imb, ima, i, Gb, hom, res, res2;
     G := PSL(2,7);
 
     # b: the generator b of the group.
@@ -19,11 +29,17 @@ FindPsl27Outermorphism := function()
     innG := InnerAutomorphismsAutomorphismGroup(autG);
     s := First(GeneratorsOfGroup(autG),x->not x in innG);
     news := First(Elements(innG),x->Order(x*s)=2) * s;
+
+    #innG2 := FindFinitelyPresentedGroup(innG);
+    #Print("inner automorphism group: ", innG2, "\n");
+    #Print("generators of inner autormophism group:", GeneratorsOfGroup(innG), " of orders: ", List(GeneratorsOfGroup(innG), Order));
     
     Print("Find an automorphism of order 2: ", news, "\n");
     
+    innb := InnerAutomorphism(G, b);
     imb := Image(news, b);
     res := [];
+    res2 := [];
     for i in [1..Length(alist)] do
         ima := Image(news, alist[i]);
         
@@ -31,9 +47,71 @@ FindPsl27Outermorphism := function()
         hom := EpimorphismFromFreeGroup(Gb:names:=["a","b"]);
         
         Add(res, [PreImagesRepresentative(hom, ima), PreImagesRepresentative(hom, imb)]);
+
+        inna := InnerAutomorphism(G, alist[i]);
+        innG2 := GroupByGenerators([inna, innb]);
+        hom := EpimorphismFromFreeGroup(innG2:names:=["ia","ib"]);
+        Add(res2, [PreImagesRepresentative(hom, news^-1*inna*news), PreImagesRepresentative(hom, news^-1*innb*news)]);
     od;
 
     Print("res: ", res, "\n");
+    Print("res2: ", res2, "\n");
+end;
+
+# find finted presentation of PGL27. 
+# The results shows that, the PGL can be presented as: a^2=b^3=(ab)^7=[a,b]^4=c^2=e, c^-1*a*c=a, c^-1*b*c=b^2,
+# where a, b generate the PSL27 subgroup, and c generates the Z2 subgroup.
+FinitedPresentationOfPGL27 := function()
+    local G, a, b, clist, order2Ops, elist, subG, subElist, i, a2, b2, res, newG, hom, clist2;
+    G := PGL(2,7);
+    elist := Elements(G);
+    
+    # find PSL27 generators a, b.
+    b := First(elist, x->Order(x) = 3);
+    order2Ops := Filtered(elist, x->Order(x) = 2);
+    a := First(order2Ops, x->Order(x*b) = 7 and Order(x*b*x^-1*b^-1)=4);
+    
+    # find all order 2 elements not in the PSL27 sub group.
+    subG := GroupByGenerators([a, b]);
+    subElist := Elements(subG);    
+    clist := Filtered(order2Ops, x -> not x in subElist);
+
+    # verify that the PSL27 subgroup does not contain an element c such that c^2=1, c^-1*a*c=a^-1, c^-1*b*c=b^-1.
+    clist2 := Filtered(subElist, x -> Order(x) = 2 and Order(a^-1*x^-1*a*x) = 1 and Order(b^-1*x^-1*b*a) = 1);
+    Print("clist2=", clist2, "\n");
+
+    # find the results of c^-1*a*c and c^-1*b*c.
+    res := [];
+
+    for i in [1..Length(clist)] do
+        newG := GroupByGenerators([a, b, clist[i]]);
+        if Size(newG) <> Length(elist) then
+            Print("wrong group.. ");
+        fi;
+
+        a2 := clist[i]^-1*a*clist[i];
+        b2 := clist[i]^-1*b*clist[i];
+        hom := EpimorphismFromFreeGroup(subG:names:=["a","b"]);
+        
+        Add(res, [PreImagesRepresentative(hom, a2), PreImagesRepresentative(hom, b2)]);
+    od;
+
+    return res;
+end;
+
+# find relation of inner automorphism group of PSL27
+PSL27InnerAutomorphismGroup := function()
+    local G, a, b, inna, innb;
+    G := PSL(2,7);
+
+    # b: the generator b of the group.
+    b := GeneratorsOfGroup(G)[1];
+    a := First(Elements(G), x-> Order(x) = 2 and Order(x*b)=7 and Order(x*b*x^-1*b^-1)=4);
+
+    inna := InnerAutomorphism(G, a);
+    innb := InnerAutomorphism(G, b);
+
+    Print("order(a)=", Order(inna), ", order(b)=", Order(innb), ", order(a*b)=", Order(inna*innb), ",  order([a,b])=", Order(inna*innb*inna^-1*innb^-1));
 end;
 
 # identify A4 generators from PSL27 elements.
@@ -206,14 +284,4 @@ IdentifyS4FromPSL27C:=function(first)
     od;
 
     return res;
-end;
-
-# find finitely presented group for group G.
-FindFinitelyPresentedGroup := function(G)
-    local H, K;
-    H:=Image(IsomorphismFpGroup(G));
-    Print("Generators: ", GeneratorsOfGroup(H), "\n");
-    Print("Elements: ", Elements(H), "\n");
-    K:=SimplifiedFpGroup(H);
-    return RelatorsOfFpGroup(K);
 end;
