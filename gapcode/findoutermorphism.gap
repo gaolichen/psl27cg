@@ -247,7 +247,7 @@ end;
 # S4: a^4=b^2=(ab)^3=e
 # third try: let a=[A,B]
 IdentifyS4FromPSL27C:=function(first)
-    local G, GFp, blist, A, B, a, b, elist, i, res, hom;
+    local G, GFp, blist, ablist, A, B, a, b, elist, i, res, hom;
     
     G := PSL(2,7);
     elist := Elements(G);
@@ -261,18 +261,24 @@ IdentifyS4FromPSL27C:=function(first)
     # find generator A of PSL27.    
     A := First(elist, x-> Order(x) = 2 and Order(x*B)=7 and Order(x*B*x^-1*B^-1) = 4);
 
-    # Identify ab to B
+    # Identify a to [A,B]
     a := A*B*A^-1*B^-1;
-    # now we need to find a.
+    # now we need to find b or ab.
     blist := Filtered(elist, x-> Order(x) = 2 and Order(a*x) = 3);
+    ablist := Filtered(elist, x-> Order(x)=3 and Order(a^-1*x)=2);
     
-    # find relationship between a and s.
+    # find relationship between generators.
     GFp := GroupByGenerators([A, B]);
     res := [];
     hom := EpimorphismFromFreeGroup(GFp:names:=["A","B"]);
+    Print("a=[A,B]\n");
 
     for i in [1..Length(blist)] do
-        Add(res, [PreImagesRepresentative(hom, a), PreImagesRepresentative(hom, blist[i])]);
+        Add(res, ["b", PreImagesRepresentative(hom, blist[i])]);
+    od;
+
+    for i in [1..Length(ablist)] do
+        Add(res, ["ab", PreImagesRepresentative(hom, ablist[i])]);
     od;
 
     return res;
