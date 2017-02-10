@@ -3,10 +3,39 @@
 FindFinitelyPresentedGroup := function(G)
     local H, K;
     H:=Image(IsomorphismFpGroup(G));
-    Print("Generators: ", GeneratorsOfGroup(H), "\n");
+    #Print("Generators: ", GeneratorsOfGroup(H), "\n");
     #Print("Elements: ", Elements(H), "\n");
     K:=SimplifiedFpGroup(H);
     return RelatorsOfFpGroup(K);
+end;
+
+
+
+# find outermorphism of the group A4
+FindA4Outerautomorphism := function()
+    local G, autG, innG, outer, fpInn, fpOut;
+
+    G := AlternatingGroup(4);
+    autG := AutomorphismGroup(G);
+    innG := InnerAutomorphismsAutomorphismGroup(autG);
+
+    fpOut := FindFinitelyPresentedGroup(autG);
+    fpInn := FindFinitelyPresentedGroup(innG);
+#    Print("Auto group Elements: size=", Size(autG), ", ",Elements(autG), "\n");
+#    Print("Inner group Elements: size=", Size(innG), ", ",Elements(innG), "\n");
+    Print("fpOut=", StructureDescription(autG), ", ", fpOut, "\n");
+    Print("fpInn=", StructureDescription(innG), ", ", fpInn, "\n");
+end;
+
+# find outermorphism of the group S4
+FindS4Outerautomorphism := function()
+    local G, autG, innG;
+    G := SymmetricGroup(4);
+    autG := AutomorphismGroup(G);
+    innG := InnerAutomorphismsAutomorphismGroup(autG);
+    
+    Print("AutomorphismGroup=", StructureDescription(autG), "\n");
+    Print("Inner AutomorphismGroup=", StructureDescription(innG), "\n");
 end;
 
 # find outermorphism of the group PSL(2,7)
