@@ -9,8 +9,6 @@ FindFinitelyPresentedGroup := function(G)
     return RelatorsOfFpGroup(K);
 end;
 
-
-
 # find outermorphism of the group A4
 FindA4Outerautomorphism := function()
     local G, autG, innG, outer, fpInn, fpOut;
