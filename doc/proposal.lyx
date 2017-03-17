@@ -3,6 +3,10 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\bibliographystyle{unsrt}
+\newcommand{\rep}[1]{\mathbf{#1}} 
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -25,7 +29,17 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
-\use_hyperref false
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry false
 \use_amsmath 1
@@ -63,17 +77,24 @@
 Research Proposal
 \end_layout
 
+\begin_layout Author
+Gaoli Chen
+\end_layout
+
 \begin_layout Standard
 One puzzle of particle physics is why there are three families of elementary
  particles.
  One of the goals of flavor physics is to answer this question.
  A possible solution to this question is the idea of flavor symmetry, which
- assumes that there exists certain symmetry among these three generations
- of particles.
- There are many models built based on flavor symmetry and people have chosen
- different groups behind the symmetry.
- Usually these groups are discrete finite group.
- Some popular choice of the groups are 
+ assumes that there exists certain symmetry among the three generations.
+ There are many models built based on flavor symmetries and people have
+ chosen different groups as the mathematical model for these symmetries.
+ Usually these groups are discrete subgroups of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+.
+ Some popular choices are 
 \begin_inset Formula $A_{4}$
 \end_inset
 
@@ -86,13 +107,296 @@ One puzzle of particle physics is why there are three families of elementary
 \end_inset
 
 .
- During the building models, one needs to study the mathematical properties
- of the selected group.
- An important step here is to find the Clebsch Gordan coefficients of the
- group, which determins how the fields of the model are coupled.
+ Recently, the group 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ are also used in such models 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw,Kile:2013gla"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
+In the model building, one needs to study the mathematical properties of
+ the selected group.
+ An important step here is to find the Clebsch-Gordan (CG) coefficients
+ of the group, which determines how fields are coupled in the model.
+ Mathematically, CG coefficients determines how the elements of Kronecker
+ product of two representations are linearly combined into a new representation
+ (these representations can be the same).
+ 
+\end_layout
+
+\begin_layout Standard
+My research is to find a complete set of CG coefficients of the group 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+, and also to provide some ideas for addressing some common issues concerning
+ CG coefficients.
+ Specifically, I would like to find the CG coefficients of the group 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ in terms of its maximum subgroups 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ and 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+.
+ In the remainder of this article, we will refer it as subgroup-based CG
+ coefficients.
+ This is different with the regular approach, where CG coefficients are
+ expressed in terms of components of representations.
+ For example, for the CG coefficients 
+\begin_inset Formula $\rep{6}\otimes\rep{7}\to\rep{8}$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+, regular CG coefficients express the eight components of 
+\begin_inset Formula $\rep{8}$
+\end_inset
+
+ in bilinear forms of thirteen components of 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+.
+ While for the subgroup-based CG coefficients, we first decompose the 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ representations into representations of its subgroup, say 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+, as 
+\begin_inset Formula $\rep{6}=\rep{3}+\rep{\bar{3}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{7}=\rep{1}+\rep{3}+\rep{\bar{3}}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rep{8}=\rep{1^{\prime}}+\rep{\bar{1}^{\prime}}+\rep{3}+\rep{\bar{3}}$
+\end_inset
+
+.
+ Then we only need to express the four parts of 
+\begin_inset Formula $\rep{8}$
+\end_inset
+
+ in terms of five parts of 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+ with the CG coefficients of the subgroup 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The freedom of phases of CG coefficients is another interesting problem
+ to investigate.
+ These phases have something to do with the CP symmetry of the model.
+ They also link to the concept of generalized CP, which was introduced recently
+ to flavor model building by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Feruglio:2012cw,Holthausen:2012dk,Chen:2014tpa"
+
+\end_inset
+
+.
+ According to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fallbacher:2015rea"
+
+\end_inset
+
+, if one impose a generalized CP symmetry to a flavor model, it is possible
+ that the phases in the couplings of the model can be fixed.
+ This may imply that, if the phases of coupling constants are absorbed into
+ CG coefficients, the phases of the CG coefficients can be fixed as well.
+ In this project, we will investigate how these phases can be fixed under
+ the generalized CP symmetry and how the model building would be affected
+ by this.
+ 
+\end_layout
+
+\begin_layout Standard
+Compared with the regular CG coefficients, the method of subgroup-based
+ CG coefficients has several advantages.
+ First, it is a more effective way to express CG coefficients.
+ The number of coefficients are much fewer than the regular CG coefficients.
+ Because of that, it is easier to find the CG coefficients provided that
+ the CG coefficients of subgroup are given.
+ Second, the regular CG coefficients depend on the basis of representations.
+ They can be totally different for different representation basis.
+ While each subgroup-based CG coefficient is unique possibly up to a pure
+ phase.
+ Third, when symmetry breaking is concerned on the flavor symmetry, say,
+ the flavor symmetry is spontaneously broken into a symmetry of a subgroup,
+ it is convenient to use the subgroup-based CG coefficients in such a model.
+\end_layout
+
+\begin_layout Standard
+Besides the above project, I am also interested in collaborating with Prof.
+ Stephen Parke.
+ I recently read one of Prof.
+ Stephen Parke's paper on neutrino oscillations in matter 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Denton:2016wmg"
+
+\end_inset
+
+.
+ In the paper, a perturbative approach is used to solve the model of neutrino
+ oscillation in uniform matter.
+ The Hamiltonian of the model is diagonalized perturbatively.
+ It is interesting to me because in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw"
+
+\end_inset
+
+ I did a similar calculation to diagonalize a 
+\begin_inset Formula $6\times6$
+\end_inset
+
+ matrix perturbatively up to 6 order of the perturbation variable.
+ I am good at this kind of calculation, which intensely requires Mathematica
+ and other programming skills.
+ The programming languages I am familiar with include but not limited to
+ C/C++, C#, Java, Mathematica, Matlab, GAP (a framework to do calculation
+ of group theory).
+ The source code of my previous projects can be found on the website: 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://github.com/gaolichen"
+target "https://github.com/gaolichen"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In terms of the timeline, I need about two months to do the calculation
+ and one month to write the paper for the CG coefficients project.
+ Around the time of mid August 2017, I should be able to finish the project.
+ Meanwhile, I can get familiar with one or two projects of Fermilab.
+ I hope I can finish a collaboration with people in the Fermilab during
+ the last three months of the program.
+ 
+\end_layout
+
+\begin_layout Standard
+I plan to stay in Fermilab for about 176 days between 05/10/2017 and 11/01/2017.
+ My budget proposal are as follows.
+\end_layout
+
+\begin_layout Itemize
+Local Expense: Per Diem $35/day, Lodging $25/day, Car Rental $30/day.
+ Total: 
+\begin_inset Formula $\$\left(35+25+30\right)\times176=\$15840$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Transportation Expenses: One trip back and forth to Ohare from Gainesville:
+ about 
+\begin_inset Formula $\$500$
+\end_inset
+
+.
+ Travel back and forth from Ohare to Fermilab: 
+\begin_inset Formula $\$130$
+\end_inset
+
+.
+ Total: 
+\begin_inset Formula $\$630$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Salary: 
+\begin_inset Formula $\$946.96$
+\end_inset
+
+ each two week.
+ Total: 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\$946.96\times176/14=\$11905$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In sum, the total budget I request is 
+\begin_inset Formula $\$15840+\$630+\$11905=\$28375$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "rp"
+options "plain"
+
+\end_inset
+
 
 \end_layout
 
