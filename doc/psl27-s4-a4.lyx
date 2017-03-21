@@ -1541,9 +1541,9 @@ X=\bigoplus x_{i},\quad Y=\bigoplus y_{i},\quad Z=\bigoplus z_{i}.
 
 , one can write 
 \begin_inset Formula 
-\[
-Z=\bigoplus_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}.
-\]
+\begin{equation}
+Z=\bigoplus_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}.\label{eq:CG_Z}
+\end{equation}
 
 \end_inset
 
@@ -1567,11 +1567,28 @@ Z=\bigoplus_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_
  
 \begin_inset Formula 
 \[
-P_{X\to j}=\begin{pmatrix}O_{n_{1}}\big| & O_{n_{2}}\big| & \cdots\big| & I_{j}\big| & O_{n_{j+1}}\big|\cdots\end{pmatrix}
+P_{X\to j}=\begin{pmatrix}O_{n_{1}}\big| & O_{n_{2}}\big| & \cdots\big| & I_{n_{j}}\big| & O_{n_{j+1}}\big|\cdots\end{pmatrix},
 \]
 
 \end_inset
 
+ where 
+\begin_inset Formula $O_{n_{k}}$
+\end_inset
+
+ is the zero matrix of dimension 
+\begin_inset Formula $\mathrm{dim}\left(\rep{n_{k}}\right)\times\mathrm{dim}\left(\rep{n_{k}}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $I_{j}$
+\end_inset
+
+ the identity matrix of dimension 
+\begin_inset Formula $\dim\left(\rep{n_{j}}\times\rep{n_{j}}\right)$
+\end_inset
+
+.
  Let 
 \begin_inset Formula $g\in G$
 \end_inset
@@ -1622,9 +1639,9 @@ u_{i}z_{i}=\left\{ u_{j}x_{j}\otimes u_{k}y_{k}\right\} _{u_{i}z_{i}}^{\prime}=u
 
  transform as
 \begin_inset Formula 
-\[
-Z\to Z^{\prime}=U_{Z}Z,\quad U_{Z}=\bigoplus_{i\,\mathrm{in}\, Z}u_{i},
-\]
+\begin{equation}
+Z\to Z^{\prime}=U_{Z}Z,\quad U_{Z}=\bigoplus_{i\,\mathrm{in}\, Z}u_{i},\label{eq:transform_Uz}
+\end{equation}
 
 \end_inset
 
@@ -1667,11 +1684,90 @@ R_{Z}^{\prime}\left(g\right)=U_{Z}R_{Z}\left(g\right)U_{Z}^{-1}.
 \begin{align*}
 Z^{\prime}\to Z^{\prime\prime} & =U_{Z}R_{Z}\left(g\right)Z\\
  & =U_{Z}R_{Z}\left(g\right)U_{Z}^{-1}U_{Z}Z\\
- & =R_{Z}^{\prime}Z^{\prime}.
+ & =R_{Z}^{\prime}\left(g\right)Z^{\prime}.
 \end{align*}
 
 \end_inset
 
+ It implies that the transform 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:transform_Uz"
+
+\end_inset
+
+ is a similarity transformation of the 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ It then follows that the coefficients 
+\begin_inset Formula $c_{i,jk}$
+\end_inset
+
+ do not change.
+\end_layout
+
+\begin_layout Standard
+Now consider another kind of transformation, where basis of subgroup does
+ not change but the basis of the large group is changed.
+ In such case, we have 
+\begin_inset Formula 
+\begin{equation}
+Z\to Z^{\prime}=U_{Z}Z,\quad P_{Z\to j}\to P_{Z\to j}^{\prime}=P_{Z\to j}U_{Z}^{-1},\quad R_{Z}\left(g\right)\to R_{Z}^{\prime}\left(g\right)=U_{Z}R_{Z}\left(g\right)U_{Z}^{-1}.\label{eq:Transform_Z}
+\end{equation}
+
+\end_inset
+
+ Therefore, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_Z"
+
+\end_inset
+
+ becomes 
+\begin_inset Formula 
+\begin{equation}
+P_{Z\to i}^{\prime}Z^{\prime}=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}^{\prime}X^{\prime}\right)\otimes\left(P_{Y\to k}^{\prime}Y^{\prime}\right)\right\} _{z_{i}}.\label{eq:CG_Zprime}
+\end{equation}
+
+\end_inset
+
+ Under the action of 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+P_{Z\to i}^{\prime}Z^{\prime}\to Z^{\prime\prime} & =\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}^{\prime}R_{X}^{\prime}\left(g\right)X^{\prime}\right)\otimes\left(P_{Y\to k}^{\prime}R_{Y}^{\prime}\left(g\right)Y^{\prime}\right)\right\} _{z_{i}}\\
+ & =\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}R_{X}\left(g\right)X\right)\otimes\left(P_{Y\to k}R_{Y}\left(g\right)Y\right)\right\} _{z_{i}}\\
+ & =P_{Z\to i}R_{Z}\left(g\right)Z\\
+ & =P_{Z\to i}^{\prime}R_{Z}^{\prime}\left(g\right)Z^{\prime}.
+\end{align*}
+
+\end_inset
+
+ It follows that 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Transform_Z"
+
+\end_inset
+
+ is a similarity transfrmation for 
+\begin_inset Formula $Z^{\prime}$
+\end_inset
+
+ defined as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_Zprime"
+
+\end_inset
+
+.
  
 \end_layout
 
