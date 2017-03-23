@@ -10,14 +10,22 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     13088,        373]
-NotebookOptionsPosition[     12577,        352]
-NotebookOutlinePosition[     12911,        367]
-CellTagsIndexPosition[     12868,        364]
+NotebookDataLength[     12307,        336]
+NotebookOptionsPosition[     11922,        318]
+NotebookOutlinePosition[     12256,        333]
+CellTagsIndexPosition[     12213,        330]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+   "<<", "\"\</users/gaolichen/gitroot/psl27cg/mpackage/cgframework.m\>\""}], 
+   ";"}]}]], "Input",
+ CellChangeTimes->{{3.699283753884763*^9, 3.6992837549183283`*^9}}],
+
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{"(*", " ", 
@@ -50,7 +58,9 @@ Cell[BoxData[
     RowBox[{
      RowBox[{"Psl27Kronecker", "[", 
       RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+     RowBox[{"DefaultKronecker", "[", 
+      RowBox[{"Psl27", ",", "x", ",", "y"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"Psl27Kronecker", "[", 
@@ -173,6 +183,11 @@ Cell[BoxData[
      RowBox[{"Psl27ToS4", "[", "KeySubGroup", "]"}], ":=", "S4Group"}], ";"}],
     "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"Psl27ToS4", "[", "r_", "]"}], ":=", 
+    RowBox[{"DefaultEmbed", "[", 
+     RowBox[{"r", ",", " ", "Psl27", ",", " ", "S4Group"}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{
      RowBox[{"Psl27ToS4", "[", "\"\<3\>\"", "]"}], ":=", 
      RowBox[{"{", "\"\<3_2\>\"", "}"}]}], ";"}], "\[IndentingNewLine]", 
@@ -217,34 +232,50 @@ Cell[BoxData[
    RowBox[{"On", "[", "Assert", "]"}], "\[IndentingNewLine]", 
    RowBox[{"VerifyEmbed", "[", "Psl27ToS4", "]"}], 
    "\[IndentingNewLine]"}]}]], "Input",
- CellChangeTimes->{{3.6992756241015472`*^9, 3.699275671981982*^9}}],
+ CellChangeTimes->{{3.6992756241015472`*^9, 3.699275671981982*^9}, {
+  3.699293775237732*^9, 3.699293794063113*^9}, {3.699295529147513*^9, 
+  3.699295552603633*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"BuildCGTerms", "[", 
+     RowBox[{
+     "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<6:+\>\"", ",", "Psl27ToS4"}], 
+     "]"}], "\[IndentingNewLine]", 
+    RowBox[{"BuildCGTerms", "[", 
+     RowBox[{
+     "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<7:-\>\"", ",", "Psl27ToS4"}], 
+     "]"}], "\[IndentingNewLine]", 
+    RowBox[{"BuildCGTerms", "[", 
+     RowBox[{
+     "\"\<3\>\"", ",", "\"\<6\>\"", ",", "\"\<3b\>\"", ",", "Psl27ToS4"}], 
+     "]"}], "\[IndentingNewLine]", 
+    RowBox[{"BuildCGTerms", "[", 
+     RowBox[{
+     "\"\<6\>\"", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", "Psl27ToS4"}], 
+     "]"}], "\[IndentingNewLine]", 
+    RowBox[{"BuildCGTerms", "[", 
+     RowBox[{
+     "\"\<6\>\"", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", "Psl27ToS4"}], 
+     "]"}]}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"BuildGeneralCG", "[", 
+   RowBox[{"BuildCGTermsAll", "[", "Psl27ToS4", "]"}], "\[IndentingNewLine]", 
+   
+   RowBox[{"Psl27", "[", 
     RowBox[{
-    "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<6:+\>\"", ",", "Psl27ToS4"}], 
-    "]"}], "\[IndentingNewLine]", 
-   RowBox[{"BuildGeneralCG", "[", 
-    RowBox[{
-    "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<7:-\>\"", ",", "Psl27ToS4"}], 
-    "]"}], "\[IndentingNewLine]", 
-   RowBox[{"BuildGeneralCG", "[", 
-    RowBox[{
-    "\"\<3\>\"", ",", "\"\<6\>\"", ",", "\"\<3b\>\"", ",", "Psl27ToS4"}], 
-    "]"}], "\[IndentingNewLine]", 
-   RowBox[{"BuildGeneralCG", "[", 
-    RowBox[{
-    "\"\<6\>\"", ",", "\"\<3\>\"", ",", "\"\<7\>\"", ",", "Psl27ToS4"}], 
-    "]"}], "\[IndentingNewLine]", 
-   RowBox[{"BuildGeneralCG", "[", 
-    RowBox[{
-    "\"\<6\>\"", ",", "\"\<3\>\"", ",", "\"\<8\>\"", ",", "Psl27ToS4"}], 
-    "]"}]}]}]], "Input",
- CellChangeTimes->{{3.699275710363783*^9, 3.6992757108427467`*^9}}],
+    "\"\<6\>\"", ",", "\"\<6\>\"", ",", "\"\<6:+\>\"", ",", "KeyCGTerms"}], 
+    "]"}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.699275710363783*^9, 3.6992757108427467`*^9}, {
+  3.699289792423512*^9, 3.699289795964517*^9}, {3.699290438790338*^9, 
+  3.6992904754628773`*^9}, {3.699294141327721*^9, 3.699294166466729*^9}, {
+  3.699294312386939*^9, 3.699294327295072*^9}, {3.6992951503112*^9, 
+  3.699295190495687*^9}, {3.699295251656419*^9, 3.699295258631309*^9}, {
+  3.699295623710141*^9, 3.699295638244405*^9}, {3.699295743172174*^9, 
+  3.6992957433990602`*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -274,80 +305,15 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{"\<\"3_1:+\"\>", ",", "\<\"3_1\"\>", ",", "\<\"3_1\"\>"}], 
     "}"}]}], "}"}]], "Output",
- CellChangeTimes->{3.699275719784873*^9}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"\<\"1_1:-\"\>", ",", "\<\"2\"\>", ",", "\<\"2\"\>"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_1\"\>", ",", "\<\"1_0\"\>", ",", "\<\"3_1\"\>", ",", 
-     RowBox[{"-", "1"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_1\"\>", ",", "\<\"2\"\>", ",", "\<\"3_1\"\>", ",", 
-     RowBox[{"-", "1"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2\"\>", ",", "\<\"2\"\>", ",", "\<\"3_1\"\>", ",", 
-     RowBox[{"-", "1"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2:-\"\>", ",", "\<\"3_1\"\>", ",", "\<\"3_1\"\>"}], 
-    "}"}]}], "}"}]], "Output",
- CellChangeTimes->{3.6992757197876053`*^9}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2\"\>", ",", "\<\"3_2\"\>", ",", "\<\"1_0\"\>"}], "}"}], 
-   ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2\"\>", ",", "\<\"3_2\"\>", ",", "\<\"2\"\>"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2\"\>", ",", "\<\"3_2\"\>", ",", "\<\"3_1\"\>"}], "}"}]}], 
-  "}"}]], "Output",
- CellChangeTimes->{3.6992757197914333`*^9}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"\<\"1_1\"\>", ",", "\<\"3_1\"\>", ",", "\<\"3_2\"\>"}], "}"}], 
-   ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_1\"\>", ",", "\<\"2\"\>", ",", "\<\"3_2\"\>"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_1\"\>", ",", "\<\"3_1\"\>", ",", "\<\"3_2\"\>"}], "}"}], 
-   ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2\"\>", ",", "\<\"1_0\"\>", ",", "\<\"3_2\"\>"}], "}"}], 
-   ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2\"\>", ",", "\<\"2\"\>", ",", "\<\"3_2\"\>"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2\"\>", ",", "\<\"3_1\"\>", ",", "\<\"3_2\"\>"}], "}"}]}], 
-  "}"}]], "Output",
- CellChangeTimes->{3.699275719795103*^9}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"\<\"2\"\>", ",", "\<\"3_1\"\>", ",", "\<\"3_2\"\>"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_1\"\>", ",", "\<\"2\"\>", ",", "\<\"3_2\"\>"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_1\"\>", ",", "\<\"3_1\"\>", ",", "\<\"3_2\"\>"}], "}"}], 
-   ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2\"\>", ",", "\<\"1_0\"\>", ",", "\<\"3_2\"\>"}], "}"}], 
-   ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2\"\>", ",", "\<\"2\"\>", ",", "\<\"3_2\"\>"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\<\"3_2\"\>", ",", "\<\"3_1\"\>", ",", "\<\"3_2\"\>"}], "}"}]}], 
-  "}"}]], "Output",
- CellChangeTimes->{3.699275719799102*^9}]
+ CellChangeTimes->{
+  3.699275719784873*^9, 3.699283771062376*^9, 3.699289797498391*^9, 
+   3.6992904777513447`*^9, 3.699290545270217*^9, 3.699290604108706*^9, 
+   3.6992927198317223`*^9, 3.699292802044507*^9, 3.6992938955352383`*^9, 
+   3.6992940039174843`*^9, 3.6992940892291613`*^9, {3.699294154363666*^9, 
+   3.699294167771894*^9}, 3.699294329805633*^9, {3.699295185334071*^9, 
+   3.699295191403885*^9}, 3.699295260698029*^9, 3.699295303620913*^9, {
+   3.6992955840286417`*^9, 3.6992956411443644`*^9}, {3.6992957383037453`*^9, 
+   3.699295745278639*^9}}]
 }, Open  ]]
 },
 WindowSize->{1278, 947},
@@ -366,14 +332,11 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 7537, 199, 913, "Input"],
+Cell[558, 20, 238, 6, 55, "Input"],
+Cell[799, 28, 7898, 208, 935, "Input"],
 Cell[CellGroupData[{
-Cell[8120, 223, 905, 23, 143, "Input"],
-Cell[9028, 248, 1042, 28, 55, "Output"],
-Cell[10073, 278, 686, 17, 32, "Output"],
-Cell[10762, 297, 399, 11, 32, "Output"],
-Cell[11164, 310, 700, 19, 32, "Output"],
-Cell[11867, 331, 694, 18, 32, "Output"]
+Cell[8722, 240, 1622, 37, 231, "Input"],
+Cell[10347, 279, 1559, 36, 55, "Output"]
 }, Open  ]]
 }
 ]

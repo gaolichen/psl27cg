@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     35640,        835]
-NotebookOptionsPosition[     35405,        822]
-NotebookOutlinePosition[     35739,        837]
-CellTagsIndexPosition[     35696,        834]
+NotebookDataLength[     45592,       1068]
+NotebookOptionsPosition[     45356,       1055]
+NotebookOutlinePosition[     45690,       1070]
+CellTagsIndexPosition[     45647,       1067]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -63,6 +63,10 @@ Cell[BoxData[
     RowBox[{"ClearAll", "[", "GetRepName", "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"SetAttributes", "[", 
+     RowBox[{"GetRepName", ",", "Listable"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{
      RowBox[{"GetRepName", "[", "r_", "]"}], ":=", 
      RowBox[{"If", "[", 
@@ -73,6 +77,58 @@ Cell[BoxData[
         RowBox[{"StringSplit", "[", 
          RowBox[{"r", ",", "\"\<:\>\""}], "]"}], "]"}], ",", "r"}], "]"}]}], 
     ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "GetRepWithSym", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SetAttributes", "[", 
+     RowBox[{"GetRepWithSym", ",", "Listable"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"GetRepWithSym", "[", "r_", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "parts", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"StringContainsQ", "[", 
+            RowBox[{"r", ",", "\"\<:\>\""}], "]"}], "\[Equal]", "False"}], 
+          ",", 
+          RowBox[{"Return", "[", "r", "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"parts", "=", 
+         RowBox[{"StringSplit", "[", 
+          RowBox[{"r", ",", "\"\<:\>\""}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"StringContainsQ", "[", 
+           RowBox[{
+            RowBox[{"Last", "[", "parts", "]"}], ",", " ", "\"\<+\>\""}], 
+           "]"}], ",", " ", 
+          RowBox[{"Return", "[", 
+           RowBox[{"ToFullRep", "[", 
+            RowBox[{
+             RowBox[{"First", "[", "parts", "]"}], ",", " ", "\"\<+\>\""}], 
+            "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"StringContainsQ", "[", 
+           RowBox[{
+            RowBox[{"Last", "[", "parts", "]"}], ",", " ", "\"\<-\>\""}], 
+           "]"}], ",", " ", 
+          RowBox[{"Return", "[", 
+           RowBox[{"ToFullRep", "[", 
+            RowBox[{
+             RowBox[{"First", "[", "parts", "]"}], ",", " ", "\"\<-\>\""}], 
+            "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", 
+         RowBox[{"First", "[", "parts", "]"}], "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "GetRepDecorate", "]"}], ";"}], 
    "\[IndentingNewLine]", 
@@ -218,6 +274,48 @@ Cell[BoxData[
               RowBox[{"[", "1", "]"}], "]"}], ",", "rd"}], "]"}], "]"}]}], 
          "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "DefaultKronecker", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"DefaultKronecker", "[", 
+      RowBox[{"gi_", ",", "r1_", ",", "r2_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"r1", "\[Equal]", " ", 
+            RowBox[{"SingletRepresentation", "[", "gi", "]"}]}], " ", "&&", 
+           " ", 
+           RowBox[{"r2", "\[Equal]", "r1"}]}], ",", " ", 
+          RowBox[{"Return", "[", 
+           RowBox[{"{", 
+            RowBox[{"ToFullRep", "[", 
+             RowBox[{
+              RowBox[{"SingletRepresentation", "[", "gi", "]"}], ",", " ", 
+              "\"\<+\>\""}], "]"}], "}"}], "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"r1", "\[Equal]", " ", 
+           RowBox[{"SingletRepresentation", "[", "gi", "]"}]}], ",", 
+          RowBox[{"Return", "[", 
+           RowBox[{"{", "r2", "}"}], "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"r2", "\[Equal]", " ", 
+           RowBox[{"SingletRepresentation", "[", "gi", "]"}]}], ",", 
+          RowBox[{"Return", "[", 
+           RowBox[{"{", "r1", "}"}], "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", 
+         RowBox[{"{", "}"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "Kronecker", "]"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
@@ -438,6 +536,22 @@ Cell[BoxData[
          "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"ClearAll", "[", "DefaultEmbed", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"DefaultEmbed", "[", 
+      RowBox[{"r_", ",", "largeG_", ",", "subG_"}], "]"}], ":=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"r", "\[Equal]", " ", 
+        RowBox[{"SingletRepresentation", "[", "largeG", "]"}]}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"SingletRepresentation", "[", "subG", "]"}], "}"}], ",", " ", 
+       
+       RowBox[{"{", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{"ClearAll", "[", "VerifyEmbed", "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
@@ -610,11 +724,11 @@ Cell[BoxData[
         RowBox[{"Return", "[", "res", "]"}], ";"}]}], "\[IndentingNewLine]", 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"ClearAll", "[", "BuildGeneralCGSub", "]"}], ";"}], 
+    RowBox[{"ClearAll", "[", "BuildCGTermsSub", "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
-     RowBox[{"BuildGeneralCGSub", "[", 
+     RowBox[{"BuildCGTermsSub", "[", 
       RowBox[{"r1_", ",", "r2_", ",", "subr_", ",", "embed_"}], "]"}], ":=", 
      RowBox[{"Module", "[", "\[IndentingNewLine]", 
       RowBox[{
@@ -727,11 +841,11 @@ Cell[BoxData[
         RowBox[{"Return", "[", "res", "]"}], ";"}]}], "\[IndentingNewLine]", 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"ClearAll", "[", "BuildGeneralCG", "]"}], ";"}], 
+    RowBox[{"ClearAll", "[", "BuildCGTerms", "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
-     RowBox[{"BuildGeneralCG", "[", 
+     RowBox[{"BuildCGTerms", "[", 
       RowBox[{"r1_", ",", "r2_", ",", "r3_", ",", "embed_"}], "]"}], ":=", 
      RowBox[{"Module", "[", "\[IndentingNewLine]", 
       RowBox[{
@@ -750,7 +864,11 @@ Cell[BoxData[
          RowBox[{"GetRepName", "[", "r3", "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"subr", "=", 
          RowBox[{"embed", "[", "rn", "]"}]}], ";", "\[IndentingNewLine]", 
-        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Print", "[", 
+           RowBox[{"\"\<subr=\>\"", ",", "subr"}], "]"}], ";"}], "*)"}], 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"For", "[", 
          RowBox[{
           RowBox[{"i", "=", "1"}], ",", 
@@ -760,7 +878,7 @@ Cell[BoxData[
           RowBox[{"res", "=", 
            RowBox[{"Join", "[", 
             RowBox[{"res", ",", " ", 
-             RowBox[{"BuildGeneralCGSub", "[", 
+             RowBox[{"BuildCGTermsSub", "[", 
               RowBox[{"r1", ",", "r2", ",", " ", 
                RowBox[{"ToFullRep", "[", 
                 RowBox[{
@@ -769,6 +887,109 @@ Cell[BoxData[
                ",", " ", "embed"}], "]"}]}], "]"}]}]}], "\[IndentingNewLine]",
           "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"Return", "[", "res", "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"KeyCGTerms", "=", "\"\<CGTerms\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "BuildCGTermsAll", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"BuildCGTermsAll", "[", "embed_", "]"}], ":=", 
+     RowBox[{"Module", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "lg", ",", " ", "rlist", ",", "i", ",", "j", ",", "k", ",", "klist", 
+         ",", "terms"}], "}"}], ",", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"lg", " ", "=", " ", 
+         RowBox[{"embed", "[", "KeyLargeGroup", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"rlist", " ", "=", " ", 
+         RowBox[{"lg", "[", "KeyIrr", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "start", " ", "from", " ", "2", "nd", " ", "rep", " ", "because", 
+          " ", "the", " ", "first", " ", "one", " ", "is", " ", "trivial", 
+          " ", "singlet", " ", "representation"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "2"}], ",", 
+          RowBox[{"i", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", "rlist", "]"}]}], ",", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"j", "=", "i"}], ",", 
+             RowBox[{"j", "\[LessEqual]", " ", 
+              RowBox[{"Length", "[", "rlist", "]"}]}], ",", 
+             RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"klist", " ", "=", " ", 
+               RowBox[{"DeleteDuplicates", "[", 
+                RowBox[{"GetRepWithSym", "[", 
+                 RowBox[{"Kronecker", "[", 
+                  RowBox[{"lg", ",", 
+                   RowBox[{"rlist", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", 
+                   RowBox[{"rlist", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"j", ",", "1"}], "]"}], "]"}]}], "]"}], "]"}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"For", "[", 
+               RowBox[{
+                RowBox[{"k", "=", "1"}], ",", 
+                RowBox[{"k", "\[LessEqual]", " ", 
+                 RowBox[{"Length", "[", "klist", "]"}]}], ",", 
+                RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"terms", "=", 
+                  RowBox[{"BuildCGTerms", "[", 
+                   RowBox[{
+                    RowBox[{"rlist", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", 
+                    RowBox[{"rlist", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"j", ",", "1"}], "]"}], "]"}], ",", 
+                    RowBox[{"klist", "[", 
+                    RowBox[{"[", "k", "]"}], "]"}], ",", "embed"}], "]"}]}], 
+                 ";", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"lg", "[", 
+                   RowBox[{
+                    RowBox[{"rlist", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", 
+                    RowBox[{"rlist", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"j", ",", "1"}], "]"}], "]"}], ",", 
+                    RowBox[{"klist", "[", 
+                    RowBox[{"[", "k", "]"}], "]"}], ",", "KeyCGTerms"}], 
+                   "]"}], "=", "terms"}], ";"}]}], "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{
+                 RowBox[{"Print", "[", 
+                  RowBox[{
+                   RowBox[{"rlist", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", "\"\< \>\"", 
+                   ",", 
+                   RowBox[{"rlist", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"j", ",", "1"}], "]"}], "]"}], ",", "\"\< \>\"", 
+                   ",", 
+                   RowBox[{"klist", "[", 
+                    RowBox[{"[", "k", "]"}], "]"}], ",", "\"\<=\>\"", ",", 
+                   "terms"}], "]"}], ";"}], "*)"}], "\[IndentingNewLine]", 
+               "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"Save", "[", 
@@ -780,11 +1001,13 @@ Cell[BoxData[
        RowBox[{
        "KeyIrr", ",", "KeyConjugateIrr", ",", "KeyKronecker", ",", 
         "KeyCGCoefficient", ",", "KeyLargeGroup", ",", "KeySubGroup", ",", 
-        "KeyTransformMatrix", ",", "GetRepName", ",", "GetRepDecorate", ",", 
-        "ToFullRep", ",", "GetDimensionByRep", ",", "SingletRepresentation", 
-        ",", "ToConjugateRep", ",", "Kronecker", ",", "VerifyGroupInfo", ",", 
-        "VerifyEmbed", ",", "ToSubRep", ",", "BuildGeneralCGSub", ",", 
-        "BuildGeneralCG"}], "}"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+        "KeyTransformMatrix", ",", "GetRepName", ",", "GetRepWithSym", ",", 
+        "GetRepDecorate", ",", "ToFullRep", ",", "GetDimensionByRep", ",", 
+        "SingletRepresentation", ",", "ToConjugateRep", ",", 
+        "DefaultKronecker", ",", "Kronecker", ",", "VerifyGroupInfo", ",", 
+        "DefaultEmbed", ",", "VerifyEmbed", ",", "ToSubRep", ",", 
+        "BuildCGTermsSub", ",", "BuildCGTerms", ",", "KeyCGTerms", ",", 
+        "BuildCGTermsAll"}], "}"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
    "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.697996820201434*^9, 3.697996857377672*^9}, {
    3.6979988438087387`*^9, 3.697998843960761*^9}, {3.697998891056485*^9, 
@@ -818,7 +1041,17 @@ Cell[BoxData[
    3.698110655139086*^9, 3.698110675562417*^9}, 3.698110734124337*^9, {
    3.6981107712994967`*^9, 3.698110789515732*^9}, 3.698110844521343*^9, {
    3.69817033842533*^9, 3.6981703948711433`*^9}, {3.698175660275652*^9, 
-   3.6981756635921097`*^9}, {3.699281212447809*^9, 3.69928123748447*^9}}]
+   3.6981756635921097`*^9}, {3.699281212447809*^9, 3.69928123748447*^9}, {
+   3.6992896921114902`*^9, 3.699289694267033*^9}, {3.699289736889905*^9, 
+   3.6992897811989326`*^9}, {3.699289821715555*^9, 3.6992901163613377`*^9}, {
+   3.699290149617105*^9, 3.699290332803295*^9}, {3.699290505568767*^9, 
+   3.699290595666079*^9}, {3.699292199180263*^9, 3.699292232732746*^9}, {
+   3.699292381393255*^9, 3.69929270676964*^9}, {3.6992927834518967`*^9, 
+   3.699292785631935*^9}, {3.699293585577808*^9, 3.69929376452422*^9}, {
+   3.6992938396862*^9, 3.699293843077918*^9}, {3.699293929995038*^9, 
+   3.699293977552389*^9}, {3.699295281537788*^9, 3.699295295945571*^9}, {
+   3.6992953682483788`*^9, 3.699295390910151*^9}, {3.699295445545102*^9, 
+   3.699295516878676*^9}, 3.699295597003359*^9, 3.699295711209696*^9}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -836,7 +1069,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 34843, 800, 4081, "Input"]
+Cell[558, 20, 44794, 1033, 5128, "Input"]
 }
 ]
 *)
