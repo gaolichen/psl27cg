@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     38800,        919]
-NotebookOptionsPosition[     38523,        905]
-NotebookOutlinePosition[     38857,        920]
-CellTagsIndexPosition[     38814,        917]
+NotebookDataLength[     35640,        835]
+NotebookOptionsPosition[     35405,        822]
+NotebookOutlinePosition[     35739,        837]
+CellTagsIndexPosition[     35696,        834]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -769,7 +769,23 @@ Cell[BoxData[
                ",", " ", "embed"}], "]"}]}], "]"}]}]}], "\[IndentingNewLine]",
           "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"Return", "[", "res", "]"}]}]}], "\[IndentingNewLine]", 
-      "]"}]}], ";"}], "\[IndentingNewLine]"}]}]], "Input",
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Save", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+       "\"\</cgframework.m\>\""}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+       "KeyIrr", ",", "KeyConjugateIrr", ",", "KeyKronecker", ",", 
+        "KeyCGCoefficient", ",", "KeyLargeGroup", ",", "KeySubGroup", ",", 
+        "KeyTransformMatrix", ",", "GetRepName", ",", "GetRepDecorate", ",", 
+        "ToFullRep", ",", "GetDimensionByRep", ",", "SingletRepresentation", 
+        ",", "ToConjugateRep", ",", "Kronecker", ",", "VerifyGroupInfo", ",", 
+        "VerifyEmbed", ",", "ToSubRep", ",", "BuildGeneralCGSub", ",", 
+        "BuildGeneralCG"}], "}"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.697996820201434*^9, 3.697996857377672*^9}, {
    3.6979988438087387`*^9, 3.697998843960761*^9}, {3.697998891056485*^9, 
    3.697999005383793*^9}, {3.6979990583301973`*^9, 3.697999152042242*^9}, {
@@ -802,106 +818,7 @@ Cell[BoxData[
    3.698110655139086*^9, 3.698110675562417*^9}, 3.698110734124337*^9, {
    3.6981107712994967`*^9, 3.698110789515732*^9}, 3.698110844521343*^9, {
    3.69817033842533*^9, 3.6981703948711433`*^9}, {3.698175660275652*^9, 
-   3.6981756635921097`*^9}}],
-
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
-   RowBox[{"S4", " ", "Group", " ", 
-    RowBox[{"Info", "."}]}], "*)"}], "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"ClearAll", "[", "S4Group", "]"}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Group", "[", "KeyIrr", "]"}], ":=", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"\"\<1_0\>\"", ",", "1"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"\"\<1_1\>\"", ",", "1"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"\"\<2\>\"", ",", "2"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"\"\<3_1\>\"", ",", "3"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"\"\<3_2\>\"", ",", "3"}], "}"}]}], "}"}]}], ";", 
-    "\[IndentingNewLine]", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
-     RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"\"\<3_1\>\"", ",", "\"\<3_1\>\""}], "]"}], ":=", 
-     RowBox[{"{", 
-      RowBox[{
-      "\"\<1_0:+\>\"", ",", "\"\<2:+\>\"", ",", "\"\<3_1:+\>\"", ",", 
-       "\"\<3_2:-\>\""}], "}"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"\"\<3_2\>\"", ",", "\"\<3_2\>\""}], "]"}], ":=", 
-     RowBox[{"{", 
-      RowBox[{
-      "\"\<1_0:+\>\"", ",", "\"\<2:+\>\"", ",", "\"\<3_1:+\>\"", ",", 
-       "\"\<3_2:-\>\""}], "}"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"\"\<3_1\>\"", ",", "\"\<3_2\>\""}], "]"}], ":=", 
-     RowBox[{"{", 
-      RowBox[{
-      "\"\<1_1\>\"", ",", "\"\<2\>\"", ",", "\"\<3_1\>\"", ",", 
-       "\"\<3_2\>\""}], "}"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"\"\<2\>\"", ",", "\"\<3_1\>\""}], "]"}], ":=", 
-     RowBox[{"{", 
-      RowBox[{"\"\<3_1\>\"", ",", "\"\<3_2\>\""}], "}"}]}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"\"\<2\>\"", ",", "\"\<3_2\>\""}], "]"}], ":=", 
-     RowBox[{"{", 
-      RowBox[{"\"\<3_1\>\"", ",", "\"\<3_2\>\""}], "}"}]}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"\"\<2\>\"", ",", "\"\<2\>\""}], "]"}], ":=", 
-     RowBox[{"{", 
-      RowBox[{
-      "\"\<1_0:+\>\"", ",", "\"\<2:+\>\"", ",", " ", "\"\<1_1:-\>\""}], 
-      "}"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"\"\<1_1\>\"", ",", "\"\<3_1\>\""}], "]"}], ":=", 
-     RowBox[{"{", "\"\<3_2\>\"", "}"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"\"\<1_1\>\"", ",", "\"\<3_2\>\""}], "]"}], ":=", 
-     RowBox[{"{", "\"\<3_1\>\"", "}"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"\"\<1_1\>\"", ",", "\"\<2\>\""}], "]"}], ":=", 
-     RowBox[{"{", "\"\<2\>\"", "}"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Kronecker", "[", 
-      RowBox[{"\"\<1_1\>\"", ",", "\"\<1_1\>\""}], "]"}], ":=", 
-     RowBox[{"{", "\"\<1_0:+\>\"", "}"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Group", "[", "KeyKronecker", "]"}], ":=", "S4Kronecker"}], 
-    ";", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"S4Group", "[", "KeyConjugateIrr", "]"}], ":=", 
-     RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-    
-    RowBox[{
-     RowBox[{"On", "[", "Assert", "]"}], "\[IndentingNewLine]", 
-     RowBox[{"VerifyGroupInfo", "[", "S4Group", "]"}]}]}], "*)"}]}]], "Input",\
-
- CellChangeTimes->{{3.698089483088419*^9, 3.698089483454348*^9}, {
-   3.698089515820375*^9, 3.698089556855475*^9}, {3.698091898042289*^9, 
-   3.698091900059256*^9}, 3.69810383613386*^9, {3.698167440964593*^9, 
-   3.698167512887368*^9}, 3.699029718784295*^9}]
+   3.6981756635921097`*^9}, {3.699281212447809*^9, 3.69928123748447*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -919,8 +836,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 34000, 784, 3949, "Input"],
-Cell[34561, 806, 3958, 97, 495, "Input"]
+Cell[558, 20, 34843, 800, 4081, "Input"]
 }
 ]
 *)
