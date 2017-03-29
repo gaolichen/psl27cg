@@ -16,6 +16,8 @@ InitCnBase[n_] := Module[{i, j, vars = {}, eqs = {}, count = 0, res, exp,
         CnRelation[n, i] = relation; ]; CnFreeVarNumber[n] = n - count; 
       Return[CnFreeVarNumber[n]]; ]
  
+vars = {CG6178, CG6179, CG6180, CG6181, CG6182, CG6183}
+ 
 CnToList[cn_, var_, n_] := Module[{i, e, ret, freeVarN}, 
      freeVarN = CnFreeVarNumber[n]; ret = ConstantArray[0, freeVarN]; 
       e = Exponent[cn, var]; For[i = e, i >= 1, i--, 
@@ -37,6 +39,8 @@ CnTimes[clist1_, clist2_, n_] := Module[{ret, i, j, freeVarN},
  
 Attributes[Assert] = {HoldAllComplete}
  
+Assert /: Assert::asrtfl = "Assertion `1` at line `2` in `3` failed."
+ 
 InverseCn[clist_, n_] := Module[{ret, eqs, i, j, root, freeVarN}, 
      freeVarN = CnFreeVarNumber[n]; Assert[freeVarN == Length[clist]]; 
       ret = {}; For[i = 1, i <= freeVarN, i++, 
@@ -44,14 +48,16 @@ InverseCn[clist_, n_] := Module[{ret, eqs, i, j, root, freeVarN},
       eqs[[1]] -= 1; root = Solve[eqs == 0, ret]; Assert[Length[root] == 1]; 
       Return[Simplify[ret /. First[root]]]; ]
  
+Attributes[SimplifyCN] = {Listable}
+ 
 SimplifyCN[cn_, var_, n_] := Module[{num, denor, ret}, 
      num = CnToList[Numerator[cn], var, n]; 
       denor = CnToList[Denominator[cn], var, n]; 
       ret = Simplify[CnTimes[num, InverseCn[denor, n], n]]; 
       Return[ListToCn[ret, var]]; ]
  
-SimplifyCnMat[mat_, var_, n_] := Table[SimplifyCN[mat[[i,j]], var, n], 
-     {i, 1, Length[mat]}, {j, 1, Length[mat[[i]]]}]
+SimplifyCnMat[mat_, var_, n_] := Table[SimplifyCN[mat[[i]], var, n], 
+     {i, 1, Length[mat]}]
  
 FullSimplifyCoef[poly_, var_] := Module[{ret = 0, i, e}, 
      e = Exponent[poly, var]; ret = FullSimplify[poly /. {var -> 0}]; 

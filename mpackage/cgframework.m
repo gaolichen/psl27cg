@@ -19,6 +19,8 @@ Attributes[GetRepName] = {Listable}
 GetRepName[r_String] := If[StringContainsQ[r, ":"], 
      First[StringSplit[r, ":"]], r]
  
+AllIrrs[gi_Symbol] := gi[KeyIrr][[All,1]]
+ 
 Attributes[GetRepWithSym] = {Listable}
  
 GetRepWithSym[r_String] := Module[{parts}, 
@@ -39,6 +41,8 @@ GetDimensionByRep[gi_, r_String] := Module[{v},
       Assert[Length[v] >= 2]; Return[v[[2]]]]
  
 Attributes[Assert] = {HoldAllComplete}
+ 
+Assert /: Assert::asrtfl = "Assertion `1` at line `2` in `3` failed."
  
 SingletRepresentation[gi_] := gi[KeyIrr][[1,1]]
  
@@ -85,24 +89,22 @@ DefaultKronecker[gi_, r1_String, r2_String] :=
  
 VerifyGroupInfo[gi_, opt:OptionsPattern[]] := 
     Module[{irr, i, j, k, tot, res, res2, fun, tmp1, tmp2}, 
-     irr = gi[KeyIrr]; For[i = 1, i <= Length[irr], i++, 
-       For[j = i, j <= Length[irr], j++, res = Kronecker[gi, irr[[i,1]], 
-            irr[[j,1]]]; res2 = Kronecker[gi, ToConjugateRep[gi, irr[[i,1]]], 
-            ToConjugateRep[gi, irr[[j,1]]]]; res2 = ToConjugateRep[gi, res2]; 
+     irr = AllIrrs[gi]; For[i = 1, i <= Length[irr], i++, 
+       For[j = i, j <= Length[irr], j++, res = Kronecker[gi, irr[[i]], 
+            irr[[j]]]; res2 = Kronecker[gi, ToConjugateRep[gi, irr[[i]]], 
+            ToConjugateRep[gi, irr[[j]]]]; res2 = ToConjugateRep[gi, res2]; 
           res = Sort[res]; res2 = Sort[res2]; Assert[res == res2]; 
           tot = Sum[GetDimensionByRep[gi, res[[k]]], {k, 1, Length[res]}]; 
-          Assert[tot == GetDimensionByRep[gi, irr[[i,1]]]*GetDimensionByRep[
-              gi, irr[[j,1]]]]]; ]; If[OptionValue[VerifyDotFunction] == 
-        False, Return[]]; fun = gi[KeyDotFunction]; 
-      For[i = 1, i <= Length[irr], i++, 
+          Assert[tot == GetDimensionByRep[gi, irr[[i]]]*GetDimensionByRep[gi, 
+              irr[[j]]]]]; ]; If[OptionValue[VerifyDotFunction] == False, 
+       Return[]]; fun = gi[KeyDotFunction]; For[i = 1, i <= Length[irr], i++, 
        tmp1 = Table[RandomInteger[], {k, 1, GetDimensionByRep[gi, 
-            irr[[i,1]]]}]; For[j = i, j <= Length[irr], j++, 
+            irr[[i]]]}]; For[j = i, j <= Length[irr], j++, 
          tmp2 = Table[RandomInteger[], {k, 1, GetDimensionByRep[gi, 
-              irr[[j,1]]]}]; res = Kronecker[gi, irr[[i,1]], irr[[j,1]]]; 
-          For[k = 1, k <= Length[res], k++, 
-           res2 = fun[tmp1, tmp2, irr[[i,1]], irr[[j,1]], res[[k]]]; 
-            Assert[Length[res2] == GetDimensionByRep[gi, res[[
-                k]]]]; ]; ]; ]; ]
+              irr[[j]]]}]; res = Kronecker[gi, irr[[i]], irr[[j]]]; 
+          For[k = 1, k <= Length[res], k++, res2 = fun[tmp1, tmp2, irr[[i]], 
+              irr[[j]], res[[k]]]; Assert[Length[res2] == GetDimensionByRep[
+               gi, res[[k]]]]; ]; ]; ]; ]
  
 Options[VerifyGroupInfo] = {VerifyDotFunction -> False}
  
@@ -110,9 +112,9 @@ DefaultEmbed[r_String, largeG_, subG_] :=
     If[r == SingletRepresentation[largeG], {SingletRepresentation[subG]}, {}]
  
 VerifyEmbed[embed_] := Module[{g, subg, irrs, list, i, j, conj, list2}, 
-     g = embed[KeyLargeGroup]; subg = embed[KeySubGroup]; 
-      irrs = g[KeyIrr][[All,1]]; For[i = 2, i <= Length[irrs], i++, 
-       list = embed[irrs[[i]]]; Assert[GetDimensionByRep[g, irrs[[i]]] == 
+     g = embed[KeyLargeGroup]; subg = embed[KeySubGroup]; irrs = AllIrrs[g]; 
+      For[i = 2, i <= Length[irrs], i++, list = embed[irrs[[i]]]; 
+        Assert[GetDimensionByRep[g, irrs[[i]]] == 
           Sum[GetDimensionByRep[subg, list[[j]]], {j, 1, Length[list]}]]; 
         conj = ToConjugateRep[g, irrs[[i]]]; If[conj == irrs[[i]], 
          Continue[]]; list2 = embed[conj]; list2 = ToConjugateRep[subg, 
@@ -168,18 +170,18 @@ BuildCGTerms[r1_String, r2_String, r3_String, embed_] :=
 KeyCGTerms = "CGTerms"
  
 BuildCGTermsAll[embed_] := Module[{lg, rlist, i, j, k, klist, terms}, 
-     lg = embed[KeyLargeGroup]; rlist = lg[KeyIrr]; 
+     lg = embed[KeyLargeGroup]; rlist = AllIrrs[lg]; 
       For[i = 2, i <= Length[rlist], i++, For[j = i, j <= Length[rlist], j++, 
-         klist = DeleteDuplicates[GetRepWithSym[Kronecker[lg, rlist[[i,1]], 
-              rlist[[j,1]]]]]; For[k = 1, k <= Length[klist], k++, 
-           terms = BuildCGTerms[rlist[[i,1]], rlist[[j,1]], klist[[k]], 
-              embed]; embed[rlist[[i,1]], rlist[[j,1]], klist[[k]], 
-              KeyCGTerms] = terms; ]; klist = Kronecker[lg, rlist[[i,1]], 
-            rlist[[j,1]]]; For[k = 1, k <= Length[klist], k++, 
-           terms = embed[rlist[[i,1]], rlist[[j,1]], GetRepWithSym[klist[[
-                k]]], KeyCGTerms]; embed[rlist[[i,1]], rlist[[j,1]], 
-              klist[[k]], KeyCGCoefficient] = Table[Unique["CG"], 
-              {h, 1, Length[terms]}]; ]; ]; ]; ]
+         klist = DeleteDuplicates[GetRepWithSym[Kronecker[lg, rlist[[i]], 
+              rlist[[j]]]]]; For[k = 1, k <= Length[klist], k++, 
+           terms = BuildCGTerms[rlist[[i]], rlist[[j]], klist[[k]], embed]; 
+            embed[rlist[[i]], rlist[[j]], klist[[k]], KeyCGTerms] = terms; ]; 
+          klist = Kronecker[lg, rlist[[i]], rlist[[j]]]; 
+          For[k = 1, k <= Length[klist], k++, 
+           terms = embed[rlist[[i]], rlist[[j]], GetRepWithSym[klist[[k]]], 
+              KeyCGTerms]; embed[rlist[[i]], rlist[[j]], klist[[k]], 
+              KeyCGCoefficient] = Table[Unique["CG"], {h, 1, Length[
+                terms]}]; ]; ]; ]; ]
  
 DotRep[v1_List, v2_List, r1_String, r2_String, r3_String, embed_] := 
     Module[{terms, cgc, lg, subg, i, j, subr, subv1, subv2, subv3, subv4, 
@@ -204,3 +206,40 @@ DotRep[v1_List, v2_List, r1_String, r2_String, r3_String, embed_] :=
               subdot[subv1, subv2, terms[[j,2]], terms[[j,3]], terms[[j,1]]]; 
             vlist[[i]] += (cgc[[j]]/Sqrt[2])*terms[[j,4]]*tmp; ]; ]; ]; 
       Return[ToLargeRep[r3, vlist, embed]]]
+ 
+TwoSimpleList[n1_Integer, n2_Integer, list_List] := 
+    Table[{SimpleList[n1, list[[i,1]]], SimpleList[n2, list[[i,2]]]}, 
+     {i, 1, Length[list]}]
+ 
+SimpleList[n_Integer, m_Integer] := Module[{ret}, ret = ConstantArray[0, n]; 
+      ret[[m]] = 1; Return[ret]]
+ 
+CgcEquations[input_List, r1_String, r2_String, r3_String, embed_Symbol, 
+     opList_List] := Module[{mat, vars, res, diff = {}, i, j}, 
+     vars = embed[r1, r2, r3, KeyCGCoefficient]; 
+      For[i = 1, i <= Length[opList], i++, For[j = 1, j <= Length[input], 
+         j++, diff = Join[diff, DotDifference[input[[j,1]], input[[j,2]], r1, 
+             r2, r3, embed, opList[[i]]]]; ]; ]; 
+      mat = Table[Coefficient[diff, vars[[i]]], {i, 1, Length[vars]}]; 
+      Return[Transpose[mat]]]
+ 
+DotDifference[v1_List, v2_List, r1_String, r2_String, r3_String, 
+     embed_Symbol, op_Symbol] := Module[{res1, res2, res3, v3, v4}, 
+     res1 = op[GetRepName[r3]] . DotRep[v1, v2, r1, r2, r3, embed]; 
+      v3 = op[r1] . v1; v4 = op[r2] . v2; res2 = DotRep[v3, v4, r1, r2, r3, 
+        embed]; Return[res1 - res2]]
+ 
+IndependentRows[mat_List, opt:OptionsPattern[]] := 
+    Module[{res = {}, nmat, i, j, k, rep}, 
+     nmat = Chop[N[mat /. OptionValue[Var2N]], Eps]; 
+      For[i = 1, i <= Length[nmat], i++, For[j = 1, j <= Length[nmat[[i]]], 
+         j++, If[nmat[[i,j]] == 0, Continue[], Break[]]; ]; 
+        If[j > Length[nmat[[i]]], Continue[]]; AppendTo[res, mat[[i]]]; 
+        For[k = i + 1, k <= Length[nmat], k++, 
+         If[nmat[[k,j]] == 0, Continue[]]; nmat[[k]] -= 
+           (nmat[[k,j]]/nmat[[i,j]])*nmat[[i]]; nmat[[k]] = 
+           Chop[nmat[[k]], Eps]; ]; ]; Return[res]; ]
+ 
+Options[IndependentRows] = {Var2N -> {}}
+ 
+Eps = 1/10000000000

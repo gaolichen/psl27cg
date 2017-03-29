@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     37715,        937]
-NotebookOptionsPosition[     37480,        924]
-NotebookOutlinePosition[     37814,        939]
-CellTagsIndexPosition[     37771,        936]
+NotebookDataLength[     38225,        950]
+NotebookOptionsPosition[     37990,        937]
+NotebookOutlinePosition[     38324,        952]
+CellTagsIndexPosition[     38281,        949]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -431,6 +431,8 @@ Cell[BoxData[
        RowBox[{
         RowBox[{"Options", "[", "InverseCN", "]"}], ",", 
         RowBox[{"{", "}"}]}], "]"}]}], ";"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"SetAttributes", "[", 
+    RowBox[{"SimplifyCN", ",", "Listable"}], "]"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"SimplifyCN", "[", 
@@ -470,6 +472,9 @@ Cell[BoxData[
       "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"ClearAll", "[", "SimplifyCnMat", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{
      RowBox[{"SimplifyCnMat", "[", 
       RowBox[{"mat_", ",", "var_", ",", "n_"}], "]"}], ":=", 
@@ -478,17 +483,11 @@ Cell[BoxData[
        RowBox[{"SimplifyCN", "[", 
         RowBox[{
          RowBox[{"mat", "[", 
-          RowBox[{"[", 
-           RowBox[{"i", ",", "j"}], "]"}], "]"}], ",", "var", ",", "n"}], 
-        "]"}], ",", 
+          RowBox[{"[", "i", "]"}], "]"}], ",", "var", ",", "n"}], "]"}], ",", 
+       
        RowBox[{"{", 
         RowBox[{"i", ",", "1", ",", 
-         RowBox[{"Length", "[", "mat", "]"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"j", ",", "1", ",", 
-         RowBox[{"Length", "[", 
-          RowBox[{"mat", "[", 
-           RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}]}], "]"}]}], ";"}], 
+         RowBox[{"Length", "[", "mat", "]"}]}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "FullSimplifyCoef", "]"}], ";"}], 
@@ -887,12 +886,24 @@ Cell[BoxData[
              RowBox[{"Abs", "[", "a", "]"}], "]"}], "ph"}], "]"}]}], 
          "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
     ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"file", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+        "\"\<cyclicnumber.m\>\""}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"FileExistsQ", "[", "file", "]"}], ",", " ", 
+      RowBox[{"DeleteFile", "[", "file", "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"Save", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
-       "\"\</cyclicnumber.m\>\""}], ",", "\[IndentingNewLine]", 
+     RowBox[{"file", ",", "\[IndentingNewLine]", 
       RowBox[{"{", 
        RowBox[{
        "CnRelation", ",", "CnFreeVarNumber", ",", "InitCnBase", ",", 
@@ -900,7 +911,9 @@ Cell[BoxData[
         "SimplifyCN", ",", "SimplifyCnMat", ",", "FullSimplifyCoef", ",", 
         "FullSimplifyCoefMat", ",", "Eigenvector4F7", ",", "ToExpPhase", ",", 
         "ToExp"}], "}"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+   "\[IndentingNewLine]", 
+   RowBox[{"Clear", "[", "file", "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.695301272678041*^9, 3.695301576439644*^9}, {
    3.69530161245601*^9, 3.695301707904037*^9}, {3.6953017433755817`*^9, 
    3.695301786031851*^9}, {3.6953018191679792`*^9, 3.695301893520679*^9}, {
@@ -920,7 +933,7 @@ Cell[BoxData[
    3.6974611029277687`*^9}, {3.697547699836694*^9, 3.697547741588575*^9}, 
    3.6975479282086287`*^9, {3.699280360845875*^9, 3.699280389642679*^9}, {
    3.699280713443077*^9, 3.699280724098748*^9}, {3.6992808292315273`*^9, 
-   3.699280867059639*^9}}]
+   3.699280867059639*^9}, {3.6994810284827538`*^9, 3.699481135417088*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -938,7 +951,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 36918, 902, 4466, "Input"]
+Cell[558, 20, 37428, 915, 4620, "Input"]
 }
 ]
 *)
