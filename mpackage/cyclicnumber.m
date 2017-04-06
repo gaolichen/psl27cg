@@ -39,7 +39,12 @@ CnTimes[clist1_, clist2_, n_] := Module[{ret, i, j, freeVarN},
  
 Attributes[Assert] = {HoldAllComplete}
  
+Assert /: Assert::asrtf = "Assertion `1` failed."
+ 
 Assert /: Assert::asrtfl = "Assertion `1` at line `2` in `3` failed."
+ 
+Assert /: Assert::asrttf = 
+     "Assertion test `1` evaluated to `2` that is neither True nor False."
  
 InverseCn[clist_, n_] := Module[{ret, eqs, i, j, root, freeVarN}, 
      freeVarN = CnFreeVarNumber[n]; Assert[freeVarN == Length[clist]]; 
@@ -67,13 +72,89 @@ FullSimplifyCoef[poly_, var_] := Module[{ret = 0, i, e},
 FullSimplifyCoefMat[mat_, var_] := Table[FullSimplifyCoef[mat[[i,j]], var], 
      {i, 1, Length[mat]}, {j, 1, Length[mat[[i]]]}]
  
-Eigenvector4F7[mat_, val_, var_, n_] := Module[{dim, vec = {}, i, eqs, root, 
-      ret}, dim = Length[mat]; For[i = 1, i <= dim, i++, 
-       AppendTo[vec, Unique["x"]]; ]; eqs = (mat - val*IdentityMatrix[dim]) . 
-        vec; root = First[Solve[eqs[[1 ;; dim - 1]] == 0, vec[[1 ;; dim]]]]; 
-      ret = vec /. root; ret = ret /. Table[vec[[i]] -> 1, {i, 1, dim}]; 
-      Do[ret[[i]] = SimplifyCN[ret[[i]], var, n], {i, 1, Length[ret]}]; 
-      Return[ret]]
+Eigenvector4F7[mat_List, val_, var_Symbol, n_Integer] := 
+    Module[{dim, vec = {}, i, j, eqs, eqsmat, root, ret = {}, res, tmp}, 
+     dim = Length[mat]; For[i = 1, i <= dim, i++, 
+       AppendTo[vec, Unique["x"]]; ]; eqsmat = IndependentRows[
+        mat - val*IdentityMatrix[dim], Var2N -> {var -> Exp[I*2*(Pi/n)]}]; 
+      eqs = eqsmat[[1]] . vec; tmp = Table[{eqsmat[[2,i]]}, 
+        {i, 1, Length[eqsmat[[2]]]}]; root = Solve[eqs == 0, 
+        Delete[vec, tmp]]; res = vec /. root[[1]]; For[i = 1, i <= dim, i++, 
+       tmp = res /. {vec[[i]] -> 1}; tmp = Simplify[
+          tmp /. Table[vec[[j]] -> 0, {j, 1, dim}]]; 
+        If[tmp === ConstantArray[0, dim], Continue[]]; AppendTo[ret, tmp]; ]; 
+      ret = SimplifyCnMat[ret, var, n]; Return[GramSchmid[ret, var, n]]]
+ 
+tmp = {{-(1/Sqrt[2]) + et/(3*Sqrt[2]) + et^2/(3*Sqrt[2]) + et^4/(3*Sqrt[2]), 
+      -(Sqrt[2/3]*(-3*I + Sqrt[3])*et)/3 - (Sqrt[2/3]*(-3*I + Sqrt[3])*et^2)/
+        3 - (Sqrt[2/3]*(-3*I + Sqrt[3])*et^4)/3, 
+      ((1 + I*Sqrt[3])*et)/(3*Sqrt[2]) + ((1 + I*Sqrt[3])*et^2)/(3*Sqrt[2]) + 
+       ((1 + I*Sqrt[3])*et^4)/(3*Sqrt[2]), 1, 0, 0}, 
+     {(((3*I)/8)*(I + Sqrt[3]))/Sqrt[2] + ((Sqrt[2] - I*Sqrt[6])*et)/16 + 
+       ((Sqrt[2] - I*Sqrt[6])*et^2)/16 + ((Sqrt[2] - I*Sqrt[6])*et^4)/16, 
+      ((-I/4)*(-I + Sqrt[3])*et)/Sqrt[2] - ((I/4)*(-I + Sqrt[3])*et^2)/
+        Sqrt[2] - ((I/4)*(-I + Sqrt[3])*et^4)/Sqrt[2], 
+      et/(2*Sqrt[2]) + et^2/(2*Sqrt[2]) + et^4/(2*Sqrt[2]), 
+      (I/8)*(I + Sqrt[3]), (1 + I*Sqrt[3])/4, 1}}
+ 
+IndependentRows[mat_List, opt:OptionsPattern[]] := 
+    Module[{res = {}, nmat, i, j, k, rep, freep, solvedp, cnt}, 
+     nmat = Chop[N[mat /. OptionValue[Var2N]], Eps]; 
+      For[i = 1, i <= Length[nmat], i++, For[j = 1, j <= Length[nmat[[i]]], 
+         j++, If[nmat[[i,j]] == 0, Continue[], Break[]]; ]; 
+        If[j > Length[nmat[[i]]], Continue[]]; AppendTo[res, mat[[i]]]; 
+        For[k = i + 1, k <= Length[nmat], k++, 
+         If[nmat[[k,j]] == 0, Continue[]]; nmat[[k]] -= 
+           (nmat[[k,j]]/nmat[[i,j]])*nmat[[i]]; nmat[[k]] = 
+           Chop[nmat[[k]], Eps]; ]; ]; freep = {}; solvedp = {}; 
+      For[i = Length[nmat], i >= 1, i--, cnt = 0; 
+        For[j = 1, j <= Length[nmat[[i]]], j++, 
+         If[nmat[[i,j]] == 0, Continue[]]; If[MemberQ[solvedp, j], 
+           Continue[]]; AppendTo[solvedp, j]; If[cnt == 0, cnt = 1, 
+           AppendTo[freep, j]]; ]; ]; Return[{res, freep}]; ]
+ 
+Options[IndependentRows] = {Var2N -> {}}
+ 
+Eps = 1/10000000000
+ 
+GramSchmid[vList_List, var_Symbol, n_Integer] := 
+    Module[{ret = {}, i, j, vvl, tmp, dot}, vvl = vList; 
+      For[i = 1, i <= Length[vvl], i++, 
+       If[vvl[[i]] === ConstantArray[0, Length[vvl[[i]]]], Continue[]]; 
+        AppendTo[ret, vvl[[i]]]; tmp = SimplifyCN[
+          1/DotProdCN[vvl[[i]], vvl[[i]], var, n], var, n]; 
+        For[j = i + 1, j <= Length[vvl], j++, 
+         vvl[[j]] = SimplifyCN[vvl[[j]] - DotProdCN[vvl[[i]], vvl[[j]], var, 
+               n]*tmp*vvl[[i]], var, n]; ]; ]; Return[ret]]
+ 
+DotProdCN[v1_List, v2_List, var_Symbol, n_Integer] := 
+    ToConjugateCN[v1, var, n] . v2
+ 
+Attributes[ToConjugateCN] = {Listable}
+ 
+ToConjugateCN[ex_, var_Symbol, n_Integer] := Module[{ret, i}, 
+     ret = ComplexExpand[Conjugate[ex]]; 
+      Return[ret /. Table[var^i -> var^(n - i), {i, 1, n - 1}]]]
+ 
+DiagonalizeMatrixCN[mat_List, valList_List, var_Symbol, n_Integer, 
+     opt:OptionsPattern[]] := Module[{len, left, right, ph, phlist, i}, 
+     len = Length[mat]; ph = OptionValue[PhaseSymbol]; 
+      If[ph == "", phlist = ConstantArray[1, len], 
+       phlist = Table[ToExpression[StringJoin[ph, ToString[i]]], 
+          {i, 1, len}]; phlist[[1]] = 1; ]; right = {}; 
+      For[i = 1, i <= Length[valList], i++, 
+       right = Join[right, Eigenvector4F7[mat, valList[[i]], var, n]]; ]; 
+      left = InverseEigenMat[right, var, n]; left = Transpose[left]; 
+      For[i = 1, i <= len, i++, left[[i]] = left[[i]]/phlist[[i]]; 
+        right[[i]] = right[[i]]*phlist[[i]]; ]; right = Transpose[right]; 
+      Return[{left, right}]]
+ 
+Options[DiagonalizeMatrixCN] = {PhaseSymbol -> ""}
+ 
+InverseEigenMat[mat_, var_, n_] := Module[{i, ret}, 
+     ret = ToConjugateCN[mat, var, n]; For[i = 1, i <= Length[ret], i++, 
+       ret[[i]] = ret[[i]]/DotProdCN[ret[[i]], ret[[i]], var, n]; 
+        ret[[i]] = SimplifyCN[ret[[i]], var, n]]; Return[Transpose[ret]]]
  
 ToExpPhase[ph_] := Module[{b7, d7, i, j, k, v, omega, a, diff}, 
      v = N[ph]; b7 = (-1 + I*Sqrt[7])/(2*Sqrt[2]); 
