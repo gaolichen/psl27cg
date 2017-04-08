@@ -16,8 +16,6 @@ InitCnBase[n_] := Module[{i, j, vars = {}, eqs = {}, count = 0, res, exp,
         CnRelation[n, i] = relation; ]; CnFreeVarNumber[n] = n - count; 
       Return[CnFreeVarNumber[n]]; ]
  
-vars = {CG6178, CG6179, CG6180, CG6181, CG6182, CG6183}
- 
 CnToList[cn_, var_, n_] := Module[{i, e, ret, freeVarN}, 
      freeVarN = CnFreeVarNumber[n]; ret = ConstantArray[0, freeVarN]; 
       e = Exponent[cn, var]; For[i = e, i >= 1, i--, 
@@ -53,6 +51,11 @@ InverseCn[clist_, n_] := Module[{ret, eqs, i, j, root, freeVarN},
       eqs[[1]] -= 1; root = Solve[eqs == 0, ret]; Assert[Length[root] == 1]; 
       Return[Simplify[ret /. First[root]]]; ]
  
+Attributes[ReducePowerCN] = {Listable}
+ 
+ReducePowerCN[cn_, var_, n_] := Module[{list}, list = CnToList[cn, var, n]; 
+      Return[ListToCn[list, var]]]
+ 
 Attributes[SimplifyCN] = {Listable}
  
 SimplifyCN[cn_, var_, n_] := Module[{num, denor, ret}, 
@@ -73,29 +76,18 @@ FullSimplifyCoefMat[mat_, var_] := Table[FullSimplifyCoef[mat[[i,j]], var],
      {i, 1, Length[mat]}, {j, 1, Length[mat[[i]]]}]
  
 Eigenvector4F7[mat_List, val_, var_Symbol, n_Integer] := 
-    Module[{dim, vec = {}, i, j, eqs, eqsmat, root, ret = {}, res, tmp}, 
-     dim = Length[mat]; For[i = 1, i <= dim, i++, 
+    Module[{dim, vec = {}, i, j, eqs, eqsmat, root, ret = {}, res, pos, 
+      vec1}, dim = Length[mat]; For[i = 1, i <= dim, i++, 
        AppendTo[vec, Unique["x"]]; ]; eqsmat = IndependentRows[
         mat - val*IdentityMatrix[dim], Var2N -> {var -> Exp[I*2*(Pi/n)]}]; 
-      eqs = eqsmat[[1]] . vec; tmp = Table[{eqsmat[[2,i]]}, 
+      eqs = eqsmat[[1]] . vec; pos = Table[{eqsmat[[2,i]]}, 
         {i, 1, Length[eqsmat[[2]]]}]; root = Solve[eqs == 0, 
-        Delete[vec, tmp]]; res = vec /. root[[1]]; For[i = 1, i <= dim, i++, 
-       tmp = res /. {vec[[i]] -> 1}; tmp = Simplify[
-          tmp /. Table[vec[[j]] -> 0, {j, 1, dim}]]; 
-        If[tmp === ConstantArray[0, dim], Continue[]]; AppendTo[ret, tmp]; ]; 
-      ret = SimplifyCnMat[ret, var, n]; Return[GramSchmid[ret, var, n]]]
- 
-tmp = {{-(1/Sqrt[2]) + et/(3*Sqrt[2]) + et^2/(3*Sqrt[2]) + et^4/(3*Sqrt[2]), 
-      -(Sqrt[2/3]*(-3*I + Sqrt[3])*et)/3 - (Sqrt[2/3]*(-3*I + Sqrt[3])*et^2)/
-        3 - (Sqrt[2/3]*(-3*I + Sqrt[3])*et^4)/3, 
-      ((1 + I*Sqrt[3])*et)/(3*Sqrt[2]) + ((1 + I*Sqrt[3])*et^2)/(3*Sqrt[2]) + 
-       ((1 + I*Sqrt[3])*et^4)/(3*Sqrt[2]), 1, 0, 0}, 
-     {(((3*I)/8)*(I + Sqrt[3]))/Sqrt[2] + ((Sqrt[2] - I*Sqrt[6])*et)/16 + 
-       ((Sqrt[2] - I*Sqrt[6])*et^2)/16 + ((Sqrt[2] - I*Sqrt[6])*et^4)/16, 
-      ((-I/4)*(-I + Sqrt[3])*et)/Sqrt[2] - ((I/4)*(-I + Sqrt[3])*et^2)/
-        Sqrt[2] - ((I/4)*(-I + Sqrt[3])*et^4)/Sqrt[2], 
-      et/(2*Sqrt[2]) + et^2/(2*Sqrt[2]) + et^4/(2*Sqrt[2]), 
-      (I/8)*(I + Sqrt[3]), (1 + I*Sqrt[3])/4, 1}}
+        Delete[vec, pos]]; res = vec /. root[[1]]; For[i = 1, i <= dim, i++, 
+       vec1 = res /. {vec[[i]] -> 1}; vec1 = Simplify[
+          vec1 /. Table[vec[[j]] -> 0, {j, 1, dim}]]; 
+        If[vec1 === ConstantArray[0, dim], Continue[]]; 
+        AppendTo[ret, vec1]; ]; ret = SimplifyCnMat[ret, var, n]; 
+      Return[GramSchmid[ret, var, n]]]
  
 IndependentRows[mat_List, opt:OptionsPattern[]] := 
     Module[{res = {}, nmat, i, j, k, rep, freep, solvedp, cnt}, 
@@ -118,14 +110,14 @@ Options[IndependentRows] = {Var2N -> {}}
 Eps = 1/10000000000
  
 GramSchmid[vList_List, var_Symbol, n_Integer] := 
-    Module[{ret = {}, i, j, vvl, tmp, dot}, vvl = vList; 
+    Module[{ret = {}, i, j, vvl, inv, dot}, vvl = vList; 
       For[i = 1, i <= Length[vvl], i++, 
        If[vvl[[i]] === ConstantArray[0, Length[vvl[[i]]]], Continue[]]; 
-        AppendTo[ret, vvl[[i]]]; tmp = SimplifyCN[
+        AppendTo[ret, vvl[[i]]]; inv = SimplifyCN[
           1/DotProdCN[vvl[[i]], vvl[[i]], var, n], var, n]; 
         For[j = i + 1, j <= Length[vvl], j++, 
          vvl[[j]] = SimplifyCN[vvl[[j]] - DotProdCN[vvl[[i]], vvl[[j]], var, 
-               n]*tmp*vvl[[i]], var, n]; ]; ]; Return[ret]]
+               n]*inv*vvl[[i]], var, n]; ]; ]; Return[ret]]
  
 DotProdCN[v1_List, v2_List, var_Symbol, n_Integer] := 
     ToConjugateCN[v1, var, n] . v2
