@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      8219,        221]
-NotebookOptionsPosition[      7986,        208]
-NotebookOutlinePosition[      8320,        223]
-CellTagsIndexPosition[      8277,        220]
+NotebookDataLength[      9141,        243]
+NotebookOptionsPosition[      8908,        230]
+NotebookOutlinePosition[      9242,        245]
+CellTagsIndexPosition[      9199,        242]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -33,8 +33,11 @@ Cell[BoxData[
     RowBox[{
      RowBox[{"Options", "[", "DecomposePoly", "]"}], "=", 
      RowBox[{"{", 
-      RowBox[{"Vars", "\[Rule]", 
-       RowBox[{"{", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Vars", "\[Rule]", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"Phases", "\[Rule]", 
+        RowBox[{"{", "}"}]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"DecomposePoly", "[", 
@@ -46,8 +49,8 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{
         "ret", ",", "i", ",", "j", ",", "vars", ",", "terms", ",", "rep", ",",
-          "pp", ",", "coef", ",", " ", "term"}], "}"}], ",", 
-       "\[IndentingNewLine]", 
+          "pp", ",", "coef", ",", " ", "term", ",", "phases", ",", 
+         "invertedPhases"}], "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"ret", " ", "=", " ", 
          RowBox[{"ConstantArray", "[", 
@@ -63,6 +66,22 @@ Cell[BoxData[
         "\[IndentingNewLine]", 
         RowBox[{"vars", " ", "=", " ", 
          RowBox[{"OptionValue", "[", "Vars", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"phases", "=", 
+         RowBox[{"OptionValue", "[", "Phases", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"invertedPhases", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"phases", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "->", 
+            RowBox[{"1", "/", 
+             RowBox[{"phases", "[", 
+              RowBox[{"[", "i", "]"}], "]"}]}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "1", ",", 
+             RowBox[{"Length", "[", "phases", "]"}]}], "}"}]}], "]"}]}], ";", 
         "\[IndentingNewLine]", 
         RowBox[{"If", "[", 
          RowBox[{
@@ -131,8 +150,10 @@ Cell[BoxData[
                 RowBox[{"Coefficient", "[", 
                  RowBox[{"pp", ",", "term"}], "]"}], " ", "*", " ", 
                 RowBox[{"ComplexExpand", "[", 
-                 RowBox[{"Conjugate", "[", "coef", "]"}], "]"}]}]}], ";"}]}], 
-            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"Conjugate", "[", 
+                  RowBox[{"coef", "/.", "invertedPhases"}], "]"}], "]"}]}]}], 
+              ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+           "\[IndentingNewLine]", 
            RowBox[{
             RowBox[{"ret", "[", 
              RowBox[{"[", "i", "]"}], "]"}], "=", 
@@ -204,7 +225,8 @@ Cell[BoxData[
           RowBox[{"opc", "-", "op"}], "]"}], "]"}]}]}], "\[IndentingNewLine]",
        "]"}]}], ";"}], "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.7003057641669607`*^9, 3.700305807694469*^9}, {
-  3.700306380010624*^9, 3.700306380777575*^9}}]
+  3.700306380010624*^9, 3.700306380777575*^9}, {3.700654888937154*^9, 
+  3.7006549930669823`*^9}, {3.700655139393794*^9, 3.700655144891782*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -222,7 +244,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 7424, 186, 869, "Input"]
+Cell[558, 20, 8346, 208, 968, "Input"]
 }
 ]
 *)
