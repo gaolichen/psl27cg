@@ -75,19 +75,22 @@ FullSimplifyCoef[poly_, var_] := Module[{ret = 0, i, e},
 FullSimplifyCoefMat[mat_, var_] := Table[FullSimplifyCoef[mat[[i,j]], var], 
      {i, 1, Length[mat]}, {j, 1, Length[mat[[i]]]}]
  
-Eigenvector4F7[mat_List, val_, var_Symbol, n_Integer] := 
-    Module[{dim, vec = {}, i, j, eqs, eqsmat, root, ret = {}, res, pos, 
-      vec1}, dim = Length[mat]; For[i = 1, i <= dim, i++, 
+Eigenvector4F7[mat_List, val_, var_Symbol, n_Integer, 
+     opt:OptionsPattern[]] := Module[{dim, vec = {}, i, j, eqs, eqsmat, root, 
+      ret = {}, res, pos, vec1}, dim = Length[mat]; For[i = 1, i <= dim, i++, 
        AppendTo[vec, Unique["x"]]; ]; eqsmat = IndependentRows[
         mat - val*IdentityMatrix[dim], Var2N -> {var -> Exp[I*2*(Pi/n)]}]; 
-      eqs = eqsmat[[1]] . vec; pos = Table[{eqsmat[[2,i]]}, 
-        {i, 1, Length[eqsmat[[2]]]}]; root = Solve[eqs == 0, 
-        Delete[vec, pos]]; res = vec /. root[[1]]; For[i = 1, i <= dim, i++, 
-       vec1 = res /. {vec[[i]] -> 1}; vec1 = Simplify[
-          vec1 /. Table[vec[[j]] -> 0, {j, 1, dim}]]; 
+      eqs = eqsmat[[1]] . vec; If[OptionValue[AutoPickVar], 
+       root = Solve[eqs == 0, vec], pos = Table[{eqsmat[[2,i]]}, 
+          {i, 1, Length[eqsmat[[2]]]}]; root = Solve[eqs == 0, 
+          Delete[vec, pos]]; ]; res = vec /. root[[1]]; 
+      For[i = 1, i <= dim, i++, vec1 = res /. {vec[[i]] -> 1}; 
+        vec1 = Simplify[vec1 /. Table[vec[[j]] -> 0, {j, 1, dim}]]; 
         If[vec1 === ConstantArray[0, dim], Continue[]]; 
         AppendTo[ret, vec1]; ]; ret = SimplifyCnMat[ret, var, n]; 
       Return[GramSchmid[ret, var, n]]]
+ 
+Options[Eigenvector4F7] = {AutoPickVar -> False}
  
 IndependentRows[mat_List, opt:OptionsPattern[]] := 
     Module[{res = {}, nmat, i, j, k, rep, freep, solvedp, cnt}, 

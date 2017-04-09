@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     74982,       1800]
-NotebookOptionsPosition[     74746,       1787]
-NotebookOutlinePosition[     75080,       1802]
-CellTagsIndexPosition[     75037,       1799]
+NotebookDataLength[     75794,       1820]
+NotebookOptionsPosition[     75558,       1807]
+NotebookOutlinePosition[     75892,       1822]
+CellTagsIndexPosition[     75849,       1819]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1097,9 +1097,18 @@ Cell[BoxData[
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
+     RowBox[{"Options", "[", "Eigenvector4F7", "]"}], "=", 
+     RowBox[{"{", 
+      RowBox[{"AutoPickVar", "\[Rule]", "False"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
      RowBox[{"Eigenvector4F7", "[", 
-      RowBox[{"mat_List", ",", "val_", ",", "var_Symbol", ",", "n_Integer"}], 
-      "]"}], ":=", "\[IndentingNewLine]", 
+      RowBox[{
+      "mat_List", ",", "val_", ",", "var_Symbol", ",", "n_Integer", ",", 
+       RowBox[{"opt", ":", 
+        RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
+     "\[IndentingNewLine]", 
      RowBox[{"Module", "[", 
       RowBox[{
        RowBox[{"{", 
@@ -1155,26 +1164,37 @@ Cell[BoxData[
            RowBox[{"\"\<eqs=\>\"", ",", 
             RowBox[{"MatrixForm", "[", "eqs", "]"}]}], "]"}], ";"}], "*)"}], 
         "\[IndentingNewLine]", 
-        RowBox[{"pos", " ", "=", " ", 
-         RowBox[{"Table", "[", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"OptionValue", "[", "AutoPickVar", "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"root", " ", "=", " ", 
+           RowBox[{"Solve", "[", 
+            RowBox[{
+             RowBox[{"eqs", "\[Equal]", "0"}], ",", "vec"}], "]"}]}], ",", 
+          "\[IndentingNewLine]", 
           RowBox[{
-           RowBox[{"{", 
-            RowBox[{"eqsmat", "[", 
-             RowBox[{"[", 
-              RowBox[{"2", ",", "i"}], "]"}], "]"}], "}"}], ",", " ", 
-           RowBox[{"{", 
-            RowBox[{"i", ",", "1", ",", 
-             RowBox[{"Length", "[", 
-              RowBox[{"eqsmat", "[", 
-               RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "}"}]}], "]"}]}], ";",
-         "\[IndentingNewLine]", 
-        RowBox[{"root", " ", "=", " ", 
-         RowBox[{"Solve", "[", 
-          RowBox[{
-           RowBox[{"eqs", "\[Equal]", "0"}], ",", 
-           RowBox[{"Delete", "[", 
-            RowBox[{"vec", ",", "pos"}], "]"}]}], "]"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"pos", " ", "=", " ", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"eqsmat", "[", 
+                RowBox[{"[", 
+                 RowBox[{"2", ",", "i"}], "]"}], "]"}], "}"}], ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "1", ",", 
+                RowBox[{"Length", "[", 
+                 RowBox[{"eqsmat", "[", 
+                  RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "}"}]}], "]"}]}], 
+           ";", "\[IndentingNewLine]", 
+           RowBox[{"root", " ", "=", " ", 
+            RowBox[{"Solve", "[", 
+             RowBox[{
+              RowBox[{"eqs", "\[Equal]", "0"}], ",", 
+              RowBox[{"Delete", "[", 
+               RowBox[{"vec", ",", "pos"}], "]"}]}], "]"}]}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
         RowBox[{"(*", 
          RowBox[{
           RowBox[{"Print", "[", 
@@ -1783,7 +1803,7 @@ Cell[BoxData[
    3.7006109885759363`*^9}, {3.7006111185310373`*^9, 
    3.7006111344685287`*^9}, {3.700611171824147*^9, 3.7006112014010878`*^9}, {
    3.700611248730443*^9, 3.700611280442882*^9}, {3.700611369363608*^9, 
-   3.700611395558487*^9}}]
+   3.700611395558487*^9}, {3.70061286250281*^9, 3.7006129799243526`*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -1801,7 +1821,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 74184, 1765, 8272, "Input"]
+Cell[558, 20, 74996, 1785, 8360, "Input"]
 }
 ]
 *)
