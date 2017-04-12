@@ -1,0 +1,229 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\newcommand{\tr}{\mathrm{Tr}\,}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A problem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\begin{pmatrix}x\\
+ & -x\\
+ &  & 1
+\end{pmatrix},\quad B=U^{-1}\hat{B}U\equiv U^{-1}\begin{pmatrix}y\\
+ & -y\\
+ &  & 1
+\end{pmatrix}U,\quad U=\exp\left(ia_{k}\frac{\lambda_{k}}{2}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda_{3}=\begin{pmatrix}1\\
+ & -1\\
+\\
+\end{pmatrix},\quad\lambda_{8}=\frac{1}{\sqrt{3}}\begin{pmatrix}1\\
+ & 1\\
+ &  & -2
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+U\frac{\lambda_{n}}{2}U^{-1} & =\exp\left(ia_{k}\frac{\lambda_{k}}{2}\right)\frac{\lambda_{n}}{2}\exp\left(-ia_{k}\frac{\lambda_{k}}{2}\right)\\
+ & =\frac{\lambda_{n}}{2}+\left[ia_{i}\frac{\lambda_{i}}{2},\frac{\lambda_{n}}{2}\right]+\frac{1}{2!}\left[ia_{j}\frac{\lambda_{j}}{2},\left[ia_{i}\frac{\lambda_{i}}{2},\frac{\lambda_{n}}{2}\right]\right]+\frac{1}{3!}\left[ia_{k}\frac{\lambda_{k}}{2},\left[ia_{j}\frac{\lambda_{j}}{2},\left[ia_{i}\frac{\lambda_{i}}{2},\frac{\lambda_{n}}{2}\right]\right]\right]+\cdots\\
+ & =\frac{\lambda_{n}}{2}+\sum_{i}i^{2}a_{i}f_{inm}\frac{\lambda_{m}}{2}+\frac{1}{2!}\sum_{i,j}i^{4}a_{i}a_{j}f_{inm}f_{jml}\frac{\lambda_{l}}{2}+\frac{1}{3!}\sum_{i,j,k}i^{6}a_{i}a_{j}a_{k}f_{inm}f_{jml}f_{kmn}\frac{\lambda_{n}}{2}+\cdots\\
+ & =\frac{\lambda_{n}}{2}+\left(\sum_{i}-a_{i}f_{i}\right)_{nm}\frac{\lambda_{m}}{2}+\frac{1}{2!}\left[\left(\sum_{i}-a_{i}f_{i}\right)^{2}\right]_{nm}\frac{\lambda_{m}}{2}+\frac{1}{3!}\left[\left(\sum_{i}-a_{i}f_{i}\right)^{3}\right]_{nm}\frac{\lambda_{m}}{2}+\cdots\\
+ & =\left[\exp\left(\sum_{i}-a_{i}f_{i}\right)\right]_{nm}\frac{\lambda_{m}}{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\tr U\frac{\lambda_{n}}{2}U^{-1}\lambda_{m} & =\frac{1}{2}\left[\exp\left(\sum_{i}-a_{i}f_{i}\right)\right]_{nl}\tr\lambda_{l}\lambda_{m}\\
+ & =\left[\exp\left(\sum_{i}-a_{i}f_{i}\right)\right]_{nl}\delta_{lm}\\
+ & =\left[\exp\left(\sum_{i}-a_{i}f_{i}\right)\right]_{nm}\\
+ & \equiv Z_{nm}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\frac{1}{3}+x\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8},\quad\hat{B}=\frac{1}{3}+y\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+A^{2}=\begin{pmatrix}x^{2}\\
+ & x^{2}\\
+ &  & 1
+\end{pmatrix}=\frac{2x^{2}+1}{3}+\frac{x^{2}-1}{\sqrt{3}}\lambda_{8}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\tr AB^{4} & =\tr\left(UAU^{-1}\hat{B}^{4}\right)\\
+ & =\tr\left[U\left(\frac{1}{3}+x\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right)U^{-1}\left(\frac{2y^{4}+1}{3}+\frac{y^{4}-1}{\sqrt{3}}\lambda_{8}\right)\right]\\
+ & =\frac{2y^{4}+1}{3}+2x\left(\frac{y^{4}-1}{\sqrt{3}}\right)Z_{38}-\frac{2}{3}\left(y^{4}-1\right)Z_{88}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\tr A^{4}B & =\tr\left[U\left(\frac{2x^{4}+1}{3}+\frac{x^{4}-1}{\sqrt{3}}\lambda_{8}\right)U^{-1}\left(\frac{1}{3}+y\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right)\right]\\
+ & =\frac{2x^{4}+1}{3}+\frac{2y\left(x^{4}-1\right)}{\sqrt{3}}Z_{83}-\frac{2}{3}\left(x^{4}-1\right)Z_{88}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\tr A^{2}B^{3} & =\tr\left[U\left(\frac{2x^{2}+1}{3}+\frac{x^{2}-1}{\sqrt{3}}\lambda_{8}\right)U^{-1}\left(\frac{1}{3}+y^{3}\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right)\right]\\
+ & =\frac{2x^{2}+1}{3}+\frac{2}{\sqrt{3}}\left(x^{2}-1\right)y^{3}Z_{83}-\frac{2}{3}\left(x^{2}-1\right)Z_{88}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\tr A^{3}B^{2} & = & \tr\left[U\left(\frac{1}{3}+x^{3}\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right)U^{-1}\left(\frac{2y^{2}+1}{3}+\frac{y^{2}-1}{\sqrt{3}}\lambda_{8}\right)\right]\\
+ & = & \frac{2y^{2}+1}{3}+\frac{2}{\sqrt{3}}x^{3}\left(y^{2}-1\right)Z_{38}-\frac{2}{3}\left(y^{2}-1\right)Z_{88}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $x=y$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\frac{2x^{4}+1}{3}+\frac{2x\left(x^{4}-1\right)}{\sqrt{3}}Z_{83}-\frac{2}{3}\left(x^{4}-1\right)Z_{88}=\frac{2x^{2}+1}{3}+\frac{2}{\sqrt{3}}\left(x^{2}-1\right)x^{3}Z_{83}-\frac{2}{3}\left(x^{2}-1\right)Z_{88}
+\]
+
+\end_inset
+
+ which implies 
+\begin_inset Formula 
+\[
+\frac{2}{3}x^{2}\left(x^{2}-1\right)+\frac{2}{\sqrt{3}}x\left(x^{2}-1\right)Z_{83}-\frac{2}{3}Z_{88}\left(x^{2}-1\right)x^{2}=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+x\left(x^{2}-1\right)\left[\frac{2}{3}\left(1-Z_{88}\right)x+\frac{2}{\sqrt{3}}Z_{83}\right]=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\tr ABABB & =\tr UAU^{-1}\hat{B}UAU^{-1}\hat{B}^{2}\\
+ & =\tr U\left(\frac{1}{3}+x\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right)U^{-1}\hat{B}U\left(\frac{1}{3}+x\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right)U^{-1}\hat{B}^{2}\\
+ & =\tr\left(\frac{1}{3}+x\sum_{i}Z_{3i}\lambda_{i}-\frac{1}{\sqrt{3}}\sum_{i}Z_{8i}\lambda_{i}\right)\hat{B}\left(\frac{1}{3}+x\sum_{i}Z_{3i}\lambda_{i}-\frac{1}{\sqrt{3}}\sum_{i}Z_{8i}\lambda_{i}\right)\hat{B}^{2}\\
+ & =\tr\left(\frac{1}{3}+y\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right)\left(\frac{1}{3}+x\sum_{i}Z_{3i}\lambda_{i}-\frac{1}{\sqrt{3}}\sum_{i}Z_{8i}\lambda_{i}\right)\left(\frac{2y^{2}+1}{3}+\frac{y^{2}-1}{\sqrt{3}}\lambda_{8}\right)\left(\frac{1}{3}+x\sum_{i}Z_{3i}\lambda_{i}-\frac{1}{\sqrt{3}}\sum_{i}Z_{8i}\lambda_{i}\right)\\
+ & =\frac{2y^{2}+1}{3}\frac{1}{3^{2}}+\frac{1}{3}\frac{2y^{2}+1}{3}+x^{2}\sum_{ij}Z_{3i}Z_{3j}\tr\lambda_{i}\lambda_{j}-\frac{2x}{\sqrt{3}}\sum_{i,j}Z_{3i}Z_{8j}\tr\lambda_{i}\lambda_{j}+\frac{1}{3}\sum_{ij}Z_{8i}Z_{8j}\tr\lambda_{i}\lambda_{j}\\
+ & +\frac{1}{3}\frac{y^{2}-1}{\sqrt{3}}\frac{2}{3}x\sum_{i}Z_{3i}\tr\lambda_{8}\lambda_{i}+\frac{1}{3}\frac{y^{2}-1}{\sqrt{3}}\left(-\frac{2}{3\sqrt{3}}\right)\sum_{i}Z_{8i}\tr\lambda_{8}\lambda_{i}+\frac{1}{3}\frac{y^{2}-1}{\sqrt{3}}\left(-\frac{2}{\sqrt{3}}\right)\tr\lambda_{8}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
