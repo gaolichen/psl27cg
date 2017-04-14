@@ -376,21 +376,13 @@ Z^{T}Z=1\Rightarrow\sum_{k}Z_{ik}Z_{jk}=\delta_{ij}
 \tr X\left(\frac{1}{3}+y\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right) & =\frac{1}{9}+\frac{2}{3}\left(x^{2}+\frac{1}{3}\right)+\\
  & +\frac{4y}{3}\left(xZ_{33}-\frac{1}{\sqrt{3}}Z_{83}\right)-\frac{4}{3\sqrt{3}}\left(xZ_{38}-\frac{1}{\sqrt{3}}Z_{88}\right)\\
  & +\sum_{i,j}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(2yD^{3}-\frac{2}{\sqrt{3}}D^{8}\right)_{ij}\left(xZ_{j3}-\frac{Z_{j8}}{\sqrt{3}}\right)^{T}\\
- & =\frac{1+2x^{2}}{3}+\frac{4}{3}\left(x^{2}Z_{33}-\frac{2x}{\sqrt{3}}Z_{38}+\frac{Z_{88}}{3}\right)+\mathcal{F}\left(M\right)\\
- & =\frac{1+2x^{2}}{3}+\mathcal{H}\left(\frac{4}{3}Z+ZMZ^{T}\right)
+ & =\frac{1+2x^{2}}{3}+\frac{4}{3}\left(x^{2}Z_{33}-\frac{2x}{\sqrt{3}}Z_{38}+\frac{Z_{88}}{3}\right)+2\mathcal{F}\left(yD^{3}-\frac{1}{\sqrt{3}}D^{8}\right)\\
+ & =\frac{1+2x^{2}}{3}+\frac{4}{3}\mathcal{H}\left(Z\right)+2\mathcal{F}\left(yD^{3}-\frac{1}{\sqrt{3}}D^{8}\right)
 \end{align*}
 
 \end_inset
 
  where 
-\begin_inset Formula 
-\[
-M=2yD^{3}-\frac{2}{\sqrt{3}}D^{8}
-\]
-
-\end_inset
-
-
 \begin_inset Formula 
 \[
 \mathcal{H}\left(M\right)=x^{2}M_{33}-\frac{x}{\sqrt{3}}\left(M_{38}+M_{83}\right)+\frac{1}{3}M_{88},
@@ -445,14 +437,6 @@ Y & =\left(\frac{1}{3}+x\sum_{i}Z_{3i}\lambda_{i}-\frac{1}{\sqrt{3}}\sum_{i}Z_{8
 
 \end_inset
 
-
-\begin_inset Formula 
-\[
-\cdots=\frac{y}{2}\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\tr\left(\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{3}+\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{3}\right)
-\]
-
-\end_inset
-
  Now consider
 \end_layout
 
@@ -475,8 +459,44 @@ Y & =\left(\frac{1}{3}+x\sum_{i}Z_{3i}\lambda_{i}-\frac{1}{\sqrt{3}}\sum_{i}Z_{8
 \tr\left(\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{3}+\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{3}\right) & =\frac{2}{3}\left(\delta_{8i}\delta_{3j}+\delta_{8j}\delta_{3i}\right)+4d_{i8k}\left(d_{kj3}+if_{kj3}\right)\\
  & -4d_{ijk}\left(d_{8k3}+i\zero{f_{8k3}}\right)+4d_{8jk}\left(d_{ki3}+if_{ki3}\right)\\
  & =\frac{2}{3}\left(\delta_{8i}\delta_{3j}+\delta_{8j}\delta_{3i}\right)+4\left(D^{8}D^{3}+iD^{8}F^{3}\right)_{ij}\\
- & +4\left(D^{8}D^{3}+iD^{8}F^{3}\right)_{ji}-\frac{4}{\sqrt{3}}D_{ij}^{3}
+ & +4\left(D^{8}D^{3}+iD^{8}F^{3}\right)_{ji}-\frac{4}{\sqrt{3}}D_{ij}^{3}\\
+ & =\frac{2}{3}\left(\delta_{8i}\delta_{3j}+\delta_{8j}\delta_{3i}\right)-\frac{4}{\sqrt{3}}D_{ij}^{3}\\
+ & +4\left(D^{8}D^{3}+iD^{8}F^{3}\right)_{ij}+4\left(D^{3}D^{8}-iF^{3}D^{8}\right)_{ij}\\
+ & =\frac{2}{3}\left(\delta_{8i}\delta_{3j}+\delta_{8j}\delta_{3i}\right)-\frac{4}{\sqrt{3}}D_{ij}^{3}\\
+ & +4\left\{ D^{8},D^{3}\right\} _{ij}-4i\left[F^{3},D^{8}\right]_{ij}
 \end{align*}
+
+\end_inset
+
+ Using the identifies
+\begin_inset Formula 
+\begin{align*}
+\left\{ D^{a},D^{b}\right\} _{cd} & =-d_{abe}\left(D^{e}\right)_{cd}+\frac{1}{3}\left(\delta_{ab}\delta_{cd}+\delta_{ac}\delta_{bd}+\delta_{ad}\delta_{bc}\right)\\
+\left[F^{a},D^{b}\right] & =if_{abc}D^{c},
+\end{align*}
+
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{align*}
+\left\{ D^{8},D^{3}\right\} _{ij} & =-d_{83e}\left(D^{e}\right)_{ij}+\frac{1}{3}\left(\delta_{i8}\delta_{j3}+\delta_{i3}\delta_{j8}\right)\\
+ & =-\frac{1}{\sqrt{3}}D_{ij}^{3}+\frac{1}{3}\left(\delta_{i8}\delta_{j3}+\delta_{i3}\delta_{j8}\right)\\
+\left[F^{3},D^{8}\right] & =i\zero{f_{38c}}D^{c}=0,
+\end{align*}
+
+\end_inset
+
+ where we used 
+\begin_inset Formula $d_{83c}=\frac{1}{\sqrt{3}}\delta_{c3}$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\tr\left(\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{3}+\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{3}\right)=2\left(\delta_{i8}\delta_{j3}+\delta_{i3}\delta_{j8}\right)-\frac{8}{\sqrt{3}}D_{ij}^{3}\equiv2\left(\Sigma-\frac{4}{\sqrt{3}}D^{3}\right)_{ij}
+\]
 
 \end_inset
 
@@ -501,11 +521,8 @@ Y & =\left(\frac{1}{3}+x\sum_{i}Z_{3i}\lambda_{i}-\frac{1}{\sqrt{3}}\sum_{i}Z_{8
 \begin_inset Formula 
 \begin{align*}
 \text{last term} & =\frac{y}{2}\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\tr\left(\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{3}+\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{3}\right)\\
- & =\frac{2}{3}y\left(xZ_{33}-\frac{Z_{83}}{\sqrt{3}}\right)\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)\\
- & +4y\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(D^{8}D^{3}+iD^{8}F^{3}\right)_{ij}\left(xZ_{j3}-\frac{Z_{j8}}{\sqrt{3}}\right)^{T}\\
- & -\frac{2y}{\sqrt{3}}\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)D^{3}\left(xZ_{j3}-\frac{Z_{j8}}{\sqrt{3}}\right)^{T}\\
- & =\frac{2}{3}y\left(xZ_{33}-\frac{Z_{83}}{\sqrt{3}}\right)\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)\\
- & +4y\mathcal{F}\left(D^{8}D^{3}+iD^{8}F^{3}-\frac{D_{3}}{2\sqrt{3}}\right)
+ & =y\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(\Sigma-\frac{4}{\sqrt{3}}D^{3}\right)_{ij}\left(xZ_{j3}-\frac{Z_{j8}}{\sqrt{3}}\right)^{T}\\
+ & =y\mathcal{F}\left(\Sigma-\frac{4}{\sqrt{3}}D^{3}\right)
 \end{align*}
 
 \end_inset
@@ -514,7 +531,7 @@ Y & =\left(\frac{1}{3}+x\sum_{i}Z_{3i}\lambda_{i}-\frac{1}{\sqrt{3}}\sum_{i}Z_{8
 \begin_inset Formula 
 \begin{align*}
 \tr Y\left(\frac{1}{3}+y\lambda_{3}-\frac{1}{\sqrt{3}}\lambda_{8}\right) & =\frac{2}{3\sqrt{3}}x^{2}+\frac{4}{9}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)+\frac{2}{3}\mathcal{H}\left(ZD^{8}Z^{T}+2ZD^{8}\right)\\
- & +\frac{2}{3}y\left(xZ_{33}-\frac{Z_{83}}{\sqrt{3}}\right)\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)+4y\mathcal{F}\left(D^{8}D^{3}+iD^{8}F^{3}-\frac{D_{3}}{2\sqrt{3}}\right)
+ & +y\mathcal{F}\left(\Sigma-\frac{4}{\sqrt{3}}D^{3}\right)
 \end{align*}
 
 \end_inset
@@ -523,9 +540,46 @@ Y & =\left(\frac{1}{3}+x\sum_{i}Z_{3i}\lambda_{i}-\frac{1}{\sqrt{3}}\sum_{i}Z_{8
 \begin_inset Formula 
 \begin{align*}
 \tr ABABB & =\frac{2y^{2}+1}{3}\tr X\left(\frac{1}{3}+y\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right)+\frac{y^{2}-1}{\sqrt{3}}\tr Y\left(\frac{1}{3}+y\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right)\\
- & =\frac{2y^{2}+1}{3}\left[\frac{1+2x^{2}}{3}+\mathcal{H}\left(\frac{4}{3}Z+ZMZ^{T}\right)\right]\\
- & +\frac{y^{2}-1}{\sqrt{3}}\left[\frac{2}{3\sqrt{3}}x^{2}+\frac{4}{9}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)+\frac{2}{3}y\left(xZ_{33}-\frac{Z_{83}}{\sqrt{3}}\right)\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)\right]\\
- & +\frac{y^{2}-1}{\sqrt{3}}\left[\frac{2}{3}\mathcal{H}\left(ZD^{8}Z^{T}+2ZD^{8}\right)+4y\mathcal{F}\left(D^{8}D^{3}+iD^{8}F^{3}-\frac{D_{3}}{2\sqrt{3}}\right)\right]
+ & =\frac{2y^{2}+1}{3}\left[\frac{1+2x^{2}}{3}+\frac{4}{3}\mathcal{H}\left(Z\right)+2\mathcal{F}\left(yD^{3}-\frac{1}{\sqrt{3}}D^{8}\right)\right]\\
+ & +\frac{y^{2}-1}{\sqrt{3}}\left[\frac{2}{3\sqrt{3}}x^{2}+\frac{4}{9}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)\right]\\
+ & +\frac{y^{2}-1}{\sqrt{3}}\left[\frac{2}{3}\mathcal{H}\left(ZD^{8}Z^{T}+2ZD^{8}\right)+y\mathcal{F}\left(\Sigma-\frac{4}{\sqrt{3}}D^{3}\right)\right]\\
+ & =\frac{6x^{4}+2x^{2}+1}{9}+\frac{4}{9}\mathcal{H}\left[\left(2x^{2}+1\right)Z+\sqrt{3}\left(x^{2}-1\right)ZD^{8}\right]\\
+ & +\mathcal{F}\left(2xD^{3}-\frac{2\left(x^{2}+1\right)}{3\sqrt{3}}D^{8}+\frac{x\left(x^{2}-1\right)}{\sqrt{3}}\Sigma\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+ZD^{i}Z^{T} & =\exp\left(-a_{j}F^{j}\right)D^{i}\exp\left(a_{j}F^{j}\right)\\
+ & =D^{i}-a_{j}\left[F^{j},D^{i}\right]+\frac{1}{2!}a_{j}a_{k}\left[F^{k},\left[F^{j},D^{i}\right]\right]+\cdots\\
+ & =D^{i}-a_{j}if_{jil}D^{l}+\frac{1}{2!}a_{j}a_{k}\left[F^{k},if_{jil}D^{l}\right]+\cdots\\
+ & =D^{i}-a_{j}if_{jil}D^{l}+\frac{1}{2!}a_{j}a_{k}if_{jil}if_{klm}D^{m}+\cdots\\
+ & =D^{i}-ia_{j}F_{il}^{j}D^{l}+\frac{1}{2!}\left(-ia_{j}F_{il}^{j}\right)\left(-ia_{k}F_{lm}^{k}\right)D^{m}+\cdots\\
+ & =\exp\left(-ia_{j}F^{j}\right)_{ik}D^{k}\equiv W_{ik}D^{k}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}\left(D^{3}\right) & =x^{2}\left(W_{3k}D^{k}\right)_{33}-\frac{2x}{\sqrt{3}}\left(W_{3k}D^{k}\right)_{38}+\frac{1}{3}\left(W_{3k}D^{k}\right)_{88}\\
+ & =x^{2}W_{38}\left(D^{8}\right)_{33}-\frac{2x}{\sqrt{3}}W_{33}\left(D^{3}\right)_{38}+\frac{1}{3}W_{38}\left(D^{8}\right)_{88}\\
+ & =\frac{x^{2}}{\sqrt{3}}W_{38}-\frac{2x}{3}W_{33}-\frac{1}{3\sqrt{3}}W_{38}\\
+ & =\frac{3x^{2}-1}{3\sqrt{3}}W_{38}-\frac{2x}{3}W_{33}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}\left(D^{8}\right) & =x^{2}\left(W_{8k}D^{k}\right)_{33}-\frac{2x}{\sqrt{3}}\left(W_{8k}D^{k}\right)_{38}+\frac{1}{3}\left(W_{8k}D^{k}\right)_{88}\\
+ & =x^{2}W_{88}\left(D^{8}\right)_{33}-\frac{2x}{\sqrt{3}}W_{83}\left(D^{3}\right)_{38}+\frac{1}{3}W_{88}\left(D^{8}\right)_{88}\\
+ & =\frac{x^{2}}{\sqrt{3}}W_{88}-\frac{2x}{3}W_{83}-\frac{1}{3\sqrt{3}}W_{88}\\
+ & =\frac{3x^{2}-1}{3\sqrt{3}}W_{88}-\frac{2x}{3}W_{83}
 \end{align*}
 
 \end_inset
