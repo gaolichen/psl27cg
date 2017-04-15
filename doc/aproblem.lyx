@@ -472,10 +472,9 @@ To calculate
 \begin_inset Formula 
 \begin{align*}
 \tr Y_{2}\hat{B} & =\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\tr\left[\lambda_{i}\lambda_{8}\lambda_{j}\left(\frac{1}{3}+y\lambda_{3}-\frac{1}{\sqrt{3}}\lambda_{8}\right)\right]\\
- & =\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\left(\frac{2}{3}d_{8ij}+\frac{4}{3\sqrt{3}}\delta_{ij}+y\tr\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{3}\right)\\
- & =\frac{2}{3}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)D_{ij}^{8}\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)+\frac{4}{3\sqrt{3}}\sum_{i}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)^{2}\\
- & +\frac{y}{2}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\left(\tr\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{3}+\tr\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{3}\right)\\
- & =\frac{4}{3\sqrt{3}}\left(x^{2}+\frac{1}{3}\right)+\frac{2}{3}\mathcal{F}\left(D^{8}\right)\\
+ & =\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\left(\frac{2}{3}d_{8ij}-\frac{1}{\sqrt{3}}\tr\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{8}+y\tr\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{3}\right)\\
+ & =\frac{2}{3}\mathcal{F}\left(D^{8}\right)\\
+ & -\frac{1}{2\sqrt{3}}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\left(\tr\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{8}+\tr\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{8}\right)\\
  & +\frac{y}{2}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\left(\tr\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{3}+\tr\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{3}\right)
 \end{align*}
 
@@ -577,7 +576,15 @@ To calculate
 
 \begin_inset Formula 
 \[
-\tr\left(\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{8}+\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{8}\right)=8\delta_{8i}\delta_{8j}-\frac{4}{3}\delta_{ij}+\frac{8}{\sqrt{3}}D_{ij}^{8}
+\tr\left(\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{8}+\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{8}\right)=8\delta_{8i}\delta_{8j}-\frac{4}{3}\delta_{ij}+\frac{8}{\sqrt{3}}D_{ij}^{8}\equiv8\left(\Omega+\frac{1}{\sqrt{3}}D^{8}\right)_{ij}-\frac{4}{3}\delta_{ij}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Omega_{ij}=\delta_{8i}\delta_{8j}
 \]
 
 \end_inset
@@ -595,25 +602,17 @@ To calculate
 \end_inset
 
 \SpecialChar \@.
- The last term of 
-\begin_inset Formula $\tr Y_{2}\hat{B}$
-\end_inset
-
- is 
+ Then 
 \begin_inset Formula 
 \begin{align*}
-\text{last term} & =\frac{y}{2}\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\tr\left(\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{3}+\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{3}\right)\\
- & =2y\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)_{ij}\left(xZ_{j3}-\frac{Z_{j8}}{\sqrt{3}}\right)^{T}\\
- & =2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)
+\tr Y_{2}\hat{B} & =\frac{2}{3}\mathcal{F}\left(D^{8}\right)-\frac{1}{2\sqrt{3}}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\left(\tr\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{8}+\tr\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{8}\right)\\
+ & +\frac{y}{2}\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\tr\left(\lambda_{i}\lambda_{8}\lambda_{j}\lambda_{3}+\lambda_{j}\lambda_{8}\lambda_{i}\lambda_{3}\right)\\
+ & =\frac{2}{3}\mathcal{F}\left(D^{8}\right)-\frac{8}{2\sqrt{3}}\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(\Omega+\frac{1}{\sqrt{3}}D^{8}\right)_{ij}\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\\
+ & -\frac{1}{2\sqrt{3}}\left(-\frac{4}{3}\right)\sum_{i}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)^{2}\\
+ & +2y\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)_{ij}\left(xZ_{j3}-\frac{Z_{j8}}{\sqrt{3}}\right)^{T}\\
+ & =\frac{2}{3\sqrt{3}}\left(x^{2}+\frac{1}{3}\right)+\frac{2}{3}\mathcal{F}\left(D^{8}\right)-\frac{4}{\sqrt{3}}\mathcal{F}\left(\Omega+\frac{1}{\sqrt{3}}D^{8}\right)+2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)\\
+ & =\frac{2}{3\sqrt{3}}\left(x^{2}+\frac{1}{3}\right)-\frac{2}{\sqrt{3}}\mathcal{F}\left(\Omega+\frac{1}{\sqrt{3}}D^{8}\right)+2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)
 \end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\tr Y_{2}\hat{B}=\frac{4}{3\sqrt{3}}\left(x^{2}+\frac{1}{3}\right)+\frac{2}{3}\mathcal{F}\left(D^{8}\right)+2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)
-\]
 
 \end_inset
 
@@ -622,9 +621,9 @@ To calculate
 \begin{align*}
 \tr Y\hat{B} & =\tr Y_{1}\hat{B}+\tr Y_{2}\hat{B}\\
  & =-\frac{2}{9\sqrt{3}}+\frac{4}{9}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)+\frac{4}{3}\mathcal{H}\left(ZD^{8}\right)\\
- & +\frac{4}{3\sqrt{3}}\left(x^{2}+\frac{1}{3}\right)+\frac{2}{3}\mathcal{F}\left(D^{8}\right)+2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)\\
- & =\frac{4}{3\sqrt{3}}\left(x^{2}+\frac{1}{6}\right)+\frac{4}{9}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)+\frac{4}{3}\mathcal{H}\left(ZD^{8}\right)\\
- & +\frac{2}{3}\mathcal{F}\left(D^{8}\right)+2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)
+ & +\frac{2}{3\sqrt{3}}\left(x^{2}+\frac{1}{3}\right)-\frac{2}{\sqrt{3}}\mathcal{F}\left(\Omega+\frac{1}{\sqrt{3}}D^{8}\right)+2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)\\
+ & =\frac{4x^{2}}{3\sqrt{3}}+\frac{4}{9}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)+\frac{4}{3}\mathcal{H}\left(ZD^{8}\right)\\
+ & -\frac{2}{\sqrt{3}}\mathcal{F}\left(\Omega+\frac{1}{\sqrt{3}}D^{8}\right)+2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)
 \end{align*}
 
 \end_inset
@@ -645,10 +644,10 @@ To calculate
 \begin{align*}
 \tr ABABB & =\frac{2y^{2}+1}{3}\tr X\hat{B}+\frac{y^{2}-1}{\sqrt{3}}\tr Y\hat{B}\\
  & =\frac{2y^{2}+1}{3}\left[\frac{2x^{2}+1}{3}+\frac{2\left(x^{2}-1\right)}{\sqrt{3}}\left(yZ_{83}-\frac{Z_{88}}{\sqrt{3}}\right)\right]\\
- & +\frac{y^{2}-1}{\sqrt{3}}\left[\frac{4}{3\sqrt{3}}\left(x^{2}+\frac{1}{6}\right)+\frac{4}{9}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)\right]\\
- & +\frac{y^{2}-1}{\sqrt{3}}\left[\frac{4}{3}\mathcal{H}\left(ZD^{8}\right)+\frac{2}{3}\mathcal{F}\left(D^{8}\right)+2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)\right]\\
- & =\frac{24x^{4}+2x^{2}+1}{27}+\frac{2\left(12x^{4}+2x^{2}-5\right)}{9\sqrt{3}}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)\\
- & +\frac{2\left(x^{2}-1\right)}{3\sqrt{3}}\left[2\mathcal{H}\left(ZD^{8}\right)+\mathcal{F}\left(D^{8}\right)+3x\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)\right]
+ & +\frac{y^{2}-1}{\sqrt{3}}\left[\frac{4x^{2}}{3\sqrt{3}}+\frac{4}{9}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)\right]\\
+ & +\frac{y^{2}-1}{\sqrt{3}}\left[\frac{4}{3}\mathcal{H}\left(ZD^{8}\right)-\frac{2}{\sqrt{3}}\mathcal{F}\left(\Omega+\frac{1}{\sqrt{3}}D^{8}\right)+2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)\right]\\
+ & =\frac{8x^{4}+1}{9}+\frac{2\left(x^{2}-1\right)\left(2x^{2}+1\right)}{3\sqrt{3}}\left(xZ_{83}-\frac{Z_{88}}{\sqrt{3}}\right)+\frac{4\left(y^{2}-1\right)}{9\sqrt{3}}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)\\
+ & +\frac{2\left(x^{2}-1\right)}{3\sqrt{3}}\left[2\mathcal{H}\left(ZD^{8}\right)-\frac{1}{\sqrt{3}}\mathcal{F}\left(\Omega+\frac{1}{\sqrt{3}}D^{8}\right)+3x\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)\right]
 \end{align*}
 
 \end_inset
@@ -704,7 +703,7 @@ Verify: when
 \begin_inset Formula 
 \begin{align*}
 \mathcal{H}\left(D^{3}\right) & =\mathcal{F}\left(D^{3}\right)=-\frac{2x}{3},\quad\mathcal{H}\left(D^{3}\right)=\mathcal{F}\left(D^{8}\right)=\frac{3x^{2}-1}{3\sqrt{3}},\\
-\mathcal{F}\left(\Sigma\right) & =-\frac{2x}{\sqrt{3}},\quad\mathcal{H}\left(Z\right)=x^{2}+\frac{1}{3}
+\mathcal{F}\left(\Sigma\right) & =-\frac{2x}{\sqrt{3}},\quad\mathcal{H}\left(Z\right)=x^{2}+\frac{1}{3},\quad\mathcal{F}\left(\Omega\right)=\frac{1}{3}
 \end{align*}
 
 \end_inset
@@ -712,11 +711,11 @@ Verify: when
 
 \begin_inset Formula 
 \begin{align*}
-\tr ABABB & =\frac{6x^{4}+2x^{2}+1}{9}+\frac{4}{9}\mathcal{H}\left[\left(2x^{2}+1\right)Z+\sqrt{3}\left(x^{2}-1\right)ZD^{8}\right]\\
- & +\mathcal{F}\left(2xD^{3}-\frac{2\left(x^{2}+1\right)}{3\sqrt{3}}D^{8}+\frac{2x\left(x^{2}-1\right)}{\sqrt{3}}\Sigma\right)\\
- & =\frac{6x^{4}+2x^{2}+1}{9}+\frac{4}{9}\left(2x^{2}+1\right)\left(x^{2}+\frac{1}{3}\right)+\frac{4\sqrt{3}}{9}\left(x^{2}-1\right)\frac{3x^{2}-1}{3\sqrt{3}}\\
- & +2x\left(-\frac{2x}{3}\right)-\frac{2\left(x^{2}+1\right)}{3\sqrt{3}}\frac{3x^{2}-1}{3\sqrt{3}}+\frac{2x\left(x^{2}-1\right)}{\sqrt{3}}\left(-\frac{2x}{\sqrt{3}}\right)\\
- & =\frac{4}{9}x^{4}...
+\tr ABABB & =\frac{8x^{4}+1}{9}+\frac{2\left(x^{2}-1\right)\left(2x^{2}+1\right)}{3\sqrt{3}}\left(xZ_{83}-\frac{Z_{88}}{\sqrt{3}}\right)+\frac{4\left(y^{2}-1\right)}{9\sqrt{3}}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)\\
+ & +\frac{2\left(x^{2}-1\right)}{3\sqrt{3}}\left[2\mathcal{H}\left(ZD^{8}\right)-\frac{1}{\sqrt{3}}\mathcal{F}\left(\Omega+\frac{1}{\sqrt{3}}D^{8}\right)+3x\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)\right]\\
+ & =\frac{8x^{4}+1}{9}+\frac{2\left(x^{2}-1\right)\left(2x^{2}+1\right)}{3\sqrt{3}}\left(-\frac{1}{\sqrt{3}}\right)+\frac{4\left(x^{2}-1\right)}{9\sqrt{3}}\left(-\frac{1}{\sqrt{3}}\right)\\
+ & +\frac{2\left(x^{2}-1\right)}{3\sqrt{3}}\left[\frac{5}{3}\frac{3x^{2}-1}{3\sqrt{3}}-\frac{1}{9}+3x\left(-\frac{2x}{\sqrt{3}}\right)-2\sqrt{3}x\left(-\frac{2x}{3}\right)\right]\\
+ & =\frac{10}{27}x^{4}...
 \end{align*}
 
 \end_inset
