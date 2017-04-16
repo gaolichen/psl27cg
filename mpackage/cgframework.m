@@ -42,7 +42,12 @@ GetDimensionByRep[gi_, r_String] := Module[{v},
  
 Attributes[Assert] = {HoldAllComplete}
  
+Assert /: Assert::asrtf = "Assertion `1` failed."
+ 
 Assert /: Assert::asrtfl = "Assertion `1` at line `2` in `3` failed."
+ 
+Assert /: Assert::asrttf = 
+     "Assertion test `1` evaluated to `2` that is neither True nor False."
  
 SingletRepresentation[gi_] := gi[KeyIrr][[1,1]]
  
@@ -228,18 +233,3 @@ DotDifference[v1_List, v2_List, r1_String, r2_String, r3_String,
      res1 = op[GetRepName[r3]] . DotRep[v1, v2, r1, r2, r3, embed]; 
       v3 = op[r1] . v1; v4 = op[r2] . v2; res2 = DotRep[v3, v4, r1, r2, r3, 
         embed]; Return[res1 - res2]]
- 
-IndependentRows[mat_List, opt:OptionsPattern[]] := 
-    Module[{res = {}, nmat, i, j, k, rep}, 
-     nmat = Chop[N[mat /. OptionValue[Var2N]], Eps]; 
-      For[i = 1, i <= Length[nmat], i++, For[j = 1, j <= Length[nmat[[i]]], 
-         j++, If[nmat[[i,j]] == 0, Continue[], Break[]]; ]; 
-        If[j > Length[nmat[[i]]], Continue[]]; AppendTo[res, mat[[i]]]; 
-        For[k = i + 1, k <= Length[nmat], k++, 
-         If[nmat[[k,j]] == 0, Continue[]]; nmat[[k]] -= 
-           (nmat[[k,j]]/nmat[[i,j]])*nmat[[i]]; nmat[[k]] = 
-           Chop[nmat[[k]], Eps]; ]; ]; Return[res]; ]
- 
-Options[IndependentRows] = {Var2N -> {}}
- 
-Eps = 1/10000000000

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     95146,       2118]
-NotebookOptionsPosition[     94804,       2102]
-NotebookOutlinePosition[     95161,       2118]
-CellTagsIndexPosition[     95118,       2115]
+NotebookDataLength[     90421,       2000]
+NotebookOptionsPosition[     90079,       1984]
+NotebookOutlinePosition[     90436,       2000]
+CellTagsIndexPosition[     90393,       1997]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1821,127 +1821,7 @@ Cell[BoxData[
         "\[IndentingNewLine]", 
         RowBox[{"Return", "[", 
          RowBox[{"Transpose", "[", "mat", "]"}], "]"}]}]}], 
-      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"Eps", "=", 
-     RowBox[{"10", "^", 
-      RowBox[{"-", "10"}]}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"ClearAll", "[", "IndependentRows", "]"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"Options", "[", "IndependentRows", "]"}], "=", 
-     RowBox[{"{", 
-      RowBox[{"Var2N", "\[Rule]", 
-       RowBox[{"{", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"IndependentRows", "[", 
-      RowBox[{"mat_List", ",", 
-       RowBox[{"opt", ":", 
-        RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
-     RowBox[{"Module", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"res", "=", 
-          RowBox[{"{", "}"}]}], ",", "nmat", ",", "i", ",", "j", ",", "k", 
-         ",", "rep"}], "}"}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"nmat", "=", 
-         RowBox[{"Chop", "[", 
-          RowBox[{
-           RowBox[{"N", "[", 
-            RowBox[{"mat", "/.", 
-             RowBox[{"OptionValue", "[", "Var2N", "]"}]}], "]"}], ",", 
-           "Eps"}], "]"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"For", "[", 
-         RowBox[{
-          RowBox[{"i", "=", "1"}], ",", 
-          RowBox[{"i", "\[LessEqual]", " ", 
-           RowBox[{"Length", "[", "nmat", "]"}]}], ",", 
-          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{"For", "[", 
-            RowBox[{
-             RowBox[{"j", "=", "1"}], ",", 
-             RowBox[{"j", "\[LessEqual]", " ", 
-              RowBox[{"Length", "[", 
-               RowBox[{"nmat", "[", 
-                RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ",", 
-             RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"If", "[", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"nmat", "[", 
-                  RowBox[{"[", 
-                   RowBox[{"i", ",", "j"}], "]"}], "]"}], "==", " ", "0"}], 
-                ",", " ", 
-                RowBox[{"Continue", "[", "]"}], ",", 
-                RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
-            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-           "\[IndentingNewLine]", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"j", ">", 
-              RowBox[{"Length", "[", 
-               RowBox[{"nmat", "[", 
-                RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ",", 
-             RowBox[{"Continue", "[", "]"}]}], "]"}], ";", 
-           "\[IndentingNewLine]", 
-           RowBox[{"AppendTo", "[", 
-            RowBox[{"res", ",", 
-             RowBox[{"mat", "[", 
-              RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ";", 
-           "\[IndentingNewLine]", "\[IndentingNewLine]", 
-           RowBox[{"For", "[", 
-            RowBox[{
-             RowBox[{"k", "=", 
-              RowBox[{"i", "+", "1"}]}], ",", 
-             RowBox[{"k", "\[LessEqual]", " ", 
-              RowBox[{"Length", "[", "nmat", "]"}]}], ",", 
-             RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"If", "[", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"nmat", "[", 
-                  RowBox[{"[", 
-                   RowBox[{"k", ",", "j"}], "]"}], "]"}], "==", "0"}], ",", 
-                " ", 
-                RowBox[{"Continue", "[", "]"}]}], "]"}], ";", 
-              "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"nmat", "[", 
-                RowBox[{"[", "k", "]"}], "]"}], "-=", " ", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"nmat", "[", 
-                  RowBox[{"[", 
-                   RowBox[{"k", ",", "j"}], "]"}], "]"}], "/", 
-                 RowBox[{"nmat", "[", 
-                  RowBox[{"[", 
-                   RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "*", 
-                RowBox[{"nmat", "[", 
-                 RowBox[{"[", "i", "]"}], "]"}]}]}], ";", 
-              "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"nmat", "[", 
-                RowBox[{"[", "k", "]"}], "]"}], "=", 
-               RowBox[{"Chop", "[", 
-                RowBox[{
-                 RowBox[{"nmat", "[", 
-                  RowBox[{"[", "k", "]"}], "]"}], ",", "Eps"}], "]"}]}], 
-              ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
-         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-        RowBox[{"(*", 
-         RowBox[{
-          RowBox[{"Print", "[", 
-           RowBox[{"MatrixForm", "[", "nmat", "]"}], "]"}], ";"}], "*)"}], 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Return", "[", "res", "]"}], ";"}]}], "\[IndentingNewLine]", 
-      "]"}]}], ";"}]}]}]], "Input",
+      "\[IndentingNewLine]", "]"}]}], ";"}]}]}]], "Input",
  CellChangeTimes->{{3.697996820201434*^9, 3.697996857377672*^9}, {
    3.6979988438087387`*^9, 3.697998843960761*^9}, {3.697998891056485*^9, 
    3.697999005383793*^9}, {3.6979990583301973`*^9, 3.697999152042242*^9}, {
@@ -2051,7 +1931,8 @@ Cell[BoxData[
    3.699465115753602*^9}, {3.6994652074899817`*^9, 3.699465209687132*^9}, {
    3.6994652590190887`*^9, 3.699465269695242*^9}, {3.6994676777531967`*^9, 
    3.69946770302107*^9}, {3.699468262771167*^9, 3.6994682787796087`*^9}, 
-   3.699481445914276*^9}],
+   3.699481445914276*^9, 3.700845177423524*^9, {3.7009178412766123`*^9, 
+   3.700917842001651*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -2085,8 +1966,8 @@ Cell[BoxData[
         "DefaultEmbed", ",", "VerifyEmbed", ",", "ToSubRep", ",", 
         "ToLargeRep", ",", "BuildCGTermsSub", ",", "BuildCGTerms", ",", 
         "KeyCGTerms", ",", "BuildCGTermsAll", ",", "DotRep", ",", 
-        "TwoSimpleList", ",", "CgcEquations", ",", "IndependentRows"}], 
-       "}"}]}], "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", 
+        "TwoSimpleList", ",", "CgcEquations"}], "}"}]}], 
+     "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"ClearAll", "[", "file", "]"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.699396086490945*^9, 3.6993960871518087`*^9}, {
@@ -2098,7 +1979,8 @@ Cell[BoxData[
    3.69940169457695*^9}, 3.699401738457028*^9, {3.69940178965724*^9, 
    3.6994017898875093`*^9}, {3.699403843248836*^9, 3.699403843614757*^9}, {
    3.699443764065179*^9, 3.699443764447302*^9}, {3.6994598577655354`*^9, 
-   3.699459868438015*^9}, {3.699463693126083*^9, 3.699463693583202*^9}}]
+   3.699459868438015*^9}, {3.699463693126083*^9, 3.699463693583202*^9}, {
+   3.7008451883001013`*^9, 3.700845188519165*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -2118,8 +2000,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 6296, 88, 55, "Input"],
-Cell[6857, 110, 85599, 1943, 8877, "Input"],
-Cell[92459, 2055, 2341, 45, 297, "Input"]
+Cell[6857, 110, 80848, 1824, 8349, "Input"],
+Cell[87708, 1936, 2367, 46, 297, "Input"]
 }
 ]
 *)
