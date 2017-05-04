@@ -70,6 +70,19 @@ A problem
 \end_layout
 
 \begin_layout Standard
+We want 
+\begin_inset Formula 
+\begin{align*}
+\tr A^{5} & =\tr B^{5}=\tr ABABB=\tr BABAA=1\\
+\tr AB^{4} & =\tr BA^{4}=\tr A^{2}B^{3}=\tr A^{3}B^{2}=-1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 A=\begin{pmatrix}x\\
@@ -165,8 +178,10 @@ A^{2}=\begin{pmatrix}x^{2}\\
 \noun off
 \color none
 
-\backslash
-tr ABABB
+\begin_inset Formula $\tr ABABB$
+\end_inset
+
+
 \family default
 \series default
 \shape default
@@ -202,6 +217,130 @@ tr ABABB
 \tr A^{3}B^{2} & = & \tr\left[U\left(\frac{1}{3}+x^{3}\lambda_{3}-\frac{\sqrt{3}}{3}\lambda_{8}\right)U^{-1}\left(\frac{2y^{2}+1}{3}+\frac{y^{2}-1}{\sqrt{3}}\lambda_{8}\right)\right]\\
  & = & \frac{2y^{2}+1}{3}+\frac{2}{\sqrt{3}}x^{3}\left(y^{2}-1\right)Z_{38}-\frac{2}{3}\left(y^{2}-1\right)Z_{88}
 \end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From 
+\begin_inset Formula $\left(x^{2}+1\right)\tr A^{2}B^{3}-\tr A^{4}B=-x^{2}$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{align*}
+-x^{2} & =\frac{\left(2x^{2}+1\right)\left(x^{2}+1\right)}{3}-\frac{2x^{4}+1}{3}+\frac{2}{\sqrt{3}}\left(x^{4}-1\right)y\left(y^{2}-1\right)Z_{83}\\
+ & =x^{2}+\frac{2}{\sqrt{3}}\left(x^{4}-1\right)y\left(y^{2}-1\right)Z_{83}
+\end{align*}
+
+\end_inset
+
+ which implies 
+\begin_inset Formula 
+\[
+Z_{83}=-\frac{\sqrt{3}x^{2}}{y\left(y^{2}-1\right)\left(x^{4}-1\right)}.
+\]
+
+\end_inset
+
+Put 
+\begin_inset Formula $Z_{83}$
+\end_inset
+
+ into 
+\begin_inset Formula $\tr A^{2}B^{3}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+-1 & =\frac{2x^{2}+1}{3}+\frac{2}{\sqrt{3}}\left(x^{2}-1\right)y^{3}\left(-\frac{\sqrt{3}x^{2}}{y\left(y^{2}-1\right)\left(x^{4}-1\right)}\right)-\frac{2}{3}\left(x^{2}-1\right)Z_{88}\\
+ & =\frac{2x^{2}+1}{3}-\frac{2x^{2}y^{2}}{\left(x^{2}+1\right)\left(y^{2}-1\right)}-\frac{2}{3}\left(x^{2}-1\right)Z_{88}
+\end{align*}
+
+\end_inset
+
+ which implies 
+\begin_inset Formula 
+\[
+\left(x^{2}-1\right)Z_{88}=\left(x^{2}+2\right)-\frac{3x^{2}y^{2}}{\left(x^{2}+1\right)\left(y^{2}-1\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Z_{88}=1+\frac{3}{x^{2}-1}-\frac{3x^{2}y^{2}}{\left(x^{2}+1\right)\left(y^{2}-1\right)}.
+\]
+
+\end_inset
+
+ Likewise, 
+\begin_inset Formula 
+\[
+Z_{38}=-\frac{\sqrt{3}y^{2}}{x\left(x^{2}-1\right)\left(y^{4}-1\right)}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Z_{88}=1+\frac{3}{y^{2}-1}-\frac{3x^{2}y^{2}}{\left(y^{2}+1\right)\left(x^{2}-1\right)}
+\]
+
+\end_inset
+
+ which then implies
+\begin_inset Formula 
+\[
+\frac{1}{x^{2}-1}-\frac{x^{2}y^{2}}{\left(x^{2}+1\right)\left(y^{2}-1\right)}=\frac{1}{y^{2}-1}-\frac{x^{2}y^{2}}{\left(y^{2}+1\right)\left(x^{2}-1\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{y^{2}-x^{2}}{\left(x^{2}-1\right)\left(y^{2}-1\right)}=\frac{x^{2}y^{2}}{\left(x^{2}+1\right)\left(y^{2}-1\right)}-\frac{x^{2}y^{2}}{\left(y^{2}+1\right)\left(x^{2}-1\right)}=\frac{2\left(x^{2}-y^{2}\right)}{\left(x^{4}-1\right)\left(y^{4}-1\right)}
+\]
+
+\end_inset
+
+ which implies 
+\begin_inset Formula 
+\[
+\frac{x^{2}-y^{2}}{\left(x^{2}-1\right)\left(y^{2}-1\right)}\left[\frac{2}{\left(x^{2}+1\right)\left(y^{2}+1\right)}-1\right]=0
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\left(x^{2}+1\right)\left(y^{2}+1\right)=2
+\]
+
+\end_inset
+
+ Let 
+\begin_inset Formula 
+\[
+x=\sin\theta,\quad y=\frac{\cos\theta}{\sqrt{1+\sin^{2}\theta}}
+\]
+
+\end_inset
+
+ then
+\begin_inset Formula 
+\begin{align*}
+Z_{88} & =\frac{3\cos4\theta-16\cos2\theta+5}{16\sin^{2}\theta},\quad\\
+Z_{83} & =-\frac{\sqrt{6}}{4}\sqrt{3-\cos2\theta}\sec^{3}\theta\\
+Z_{38} & =\frac{\sqrt{3}}{8}\left(\cos2\theta-3\right)\csc^{3}\theta
+\end{align*}
 
 \end_inset
 
@@ -286,6 +425,14 @@ x^{2}\left(x^{4}-1\right)-x^{4}+1+\frac{3}{Z_{88}-1}=0
 \end_inset
 
 
+\begin_inset Formula 
+\[
+Z_{88}=1-\frac{3}{\left(x^{2}-1\right)\left(x^{4}-1\right)}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -359,12 +506,12 @@ X & =UA^{2}U^{-1}\\
 
 
 \begin_inset Formula 
-\begin{align*}
-\tr Y & =\tr UAU^{-1}\lambda_{8}UAU^{-1}\\
- & =\tr UA^{2}U^{-1}\lambda_{8}\\
- & =\tr\left(\frac{2x^{2}+1}{3}+\frac{x^{2}-1}{\sqrt{3}}Z_{8i}\lambda_{i}\right)\lambda_{8}\\
- & =\frac{2\left(x^{2}-1\right)}{\sqrt{3}}Z_{88}
-\end{align*}
+\begin{align}
+\tr Y & =\tr UAU^{-1}\lambda_{8}UAU^{-1}\nonumber \\
+ & =\tr UA^{2}U^{-1}\lambda_{8}\nonumber \\
+ & =\tr\left(\frac{2x^{2}+1}{3}+\frac{x^{2}-1}{\sqrt{3}}Z_{8i}\lambda_{i}\right)\lambda_{8}\nonumber \\
+ & =\frac{2\left(x^{2}-1\right)}{\sqrt{3}}Z_{88}\label{eq:TrY1}
+\end{align}
 
 \end_inset
 
@@ -488,12 +635,34 @@ Where we defined
  & +\frac{y^{2}-1}{\sqrt{3}}\left[2y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)-\frac{4}{\sqrt{3}}\mathcal{F}\left(\Omega+\frac{1}{\sqrt{3}}D^{8}\right)\right]\\
  & =\frac{6x^{2}y^{2}+2y^{2}+1}{9}+\frac{4}{9}x\left(y^{2}-1\right)\left(yZ_{33}+\frac{Z_{38}}{\sqrt{3}}\right)\\
  & +\frac{2y\left(6x^{2}y^{2}+3x^{2}-8y^{2}-1\right)}{9\sqrt{3}}Z_{83}-\frac{2}{27}\left(3x^{2}y^{2}+6x^{2}-y^{2}-8\right)Z_{88}\\
- & +\frac{2\left(y^{2}-1\right)}{3}\left[\sqrt{3}y\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)-2\mathcal{F}\left(\Omega+\frac{D^{8}}{\sqrt{3}}\right)\right]
+ & +\frac{2\left(y^{2}-1\right)}{3}\left[\mathcal{F}\left(\sqrt{3}y\Sigma-2\Omega\right)-2\mathcal{F}\left(yD^{3}+\frac{D^{8}}{\sqrt{3}}\right)\right].
 \end{align*}
 
 \end_inset
 
- If 
+
+\end_layout
+
+\begin_layout Standard
+We use the value of 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ function from Appendix: 
+\begin_inset Formula 
+\begin{align*}
+\tr ABABB & =\frac{6x^{2}y^{2}+2y^{2}+1}{9}+\frac{4}{3}xy\left(y^{2}-1\right)Z_{33}\\
+ & +\frac{4x\left(y^{2}-1\right)}{3\sqrt{3}}Z_{38}-\frac{2y\left(-3x^{2}+2y^{2}+1\right)}{3\sqrt{3}}Z_{83}\\
+ & -\frac{2}{9}\left(3x^{2}y^{2}-y^{2}-2\right)Z_{88}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
 \begin_inset Formula $x=y$
 \end_inset
 
@@ -511,12 +680,16 @@ Where we defined
  & +\frac{2\left(x^{2}-1\right)\left(2x^{3}+x\right)}{3\sqrt{3}}Z_{38}\\
  & +\frac{2\left(x^{2}-1\right)}{3}\left[\sqrt{3}x\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)-2\mathcal{F}\left(\Omega+\frac{D^{8}}{\sqrt{3}}\right)\right]\\
  & =\frac{6x^{4}+2x^{2}+1}{9}+\frac{4}{9}\left(x^{2}-1\right)\left[x^{2}Z_{33}-\frac{3x^{2}+8}{6}Z_{88}+\frac{\sqrt{3}}{2}x\left(2x^{2}+1\right)Z_{38}\right]\\
- & +\frac{2\left(x^{2}-1\right)}{3}\left[\sqrt{3}x\mathcal{F}\left(\Sigma-\frac{2}{\sqrt{3}}D^{3}\right)-2\mathcal{F}\left(\Omega+\frac{D^{8}}{\sqrt{3}}\right)\right].
+ & +\frac{2\left(x^{2}-1\right)}{3}\left[\mathcal{F}\left(\sqrt{3}x\Sigma-2\Omega\right)-2\mathcal{F}\left(xD^{3}+\frac{D^{8}}{\sqrt{3}}\right)\right].
 \end{align*}
 
 \end_inset
 
- Verify: when 
+
+\end_layout
+
+\begin_layout Standard
+Verify: when 
 \begin_inset Formula $a_{i}=0$
 \end_inset
 
@@ -648,59 +821,6 @@ ZD^{i}Z^{T} & =\exp\left(-a_{j}F^{j}\right)D^{i}\exp\left(a_{j}F^{j}\right)\\
 \begin{align*}
 -2y\mathcal{F}\left(D^{3}\right)-\frac{2}{\sqrt{3}}\mathcal{F}\left(D^{8}\right) & =-2y\left(\frac{3x^{2}-1}{3\sqrt{3}}W_{38}-\frac{2x}{3}W_{33}\right)-\frac{2}{\sqrt{3}}\left(\frac{3x^{2}-1}{3\sqrt{3}}W_{88}-\frac{2x}{3}W_{83}\right)\\
  & =\frac{4xy}{3}W_{33}-\frac{2\left(3x^{2}-1\right)}{9}W_{88}-\frac{2y\left(3x^{2}-1\right)}{3\sqrt{3}}W_{38}+\frac{4x}{3\sqrt{3}}W_{83}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-\left(Z\Sigma Z^{T}\right)_{ij} & =Z_{ik}\Sigma_{kl}Z_{jl}\\
- & =Z_{i3}Z_{j8}+Z_{i8}Z_{j3}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\left(Z\Sigma Z^{T}\right)_{33}=2Z_{33}Z_{38},\quad\left(Z\Sigma Z^{T}\right)_{38}=\left(Z\Sigma Z^{T}\right)_{83}=Z_{33}Z_{88}+Z_{38}Z_{83},\quad Z_{88}=2Z_{83}Z_{88}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-\mathcal{F}\left(\Sigma\right) & =x^{2}\left(2Z_{33}Z_{38}\right)-\frac{2x}{\sqrt{3}}\left(Z_{33}Z_{88}+Z_{38}Z_{83}\right)+\frac{1}{3}Z_{83}Z_{88}\\
- & =2x\left(x-\frac{1}{\sqrt{3}}\right)Z_{33}Z_{88}-\frac{2x}{\sqrt{3}}Z_{38}Z_{83}+\frac{1}{3}Z_{83}Z_{88}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\left(Z\Omega Z^{T}\right)_{ij}=Z_{i8}Z_{j8}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\mathcal{F}\left(\Omega\right)=x^{2}Z_{38}^{2}-\frac{2x}{\sqrt{3}}Z_{38}Z_{88}+\frac{1}{3}Z_{88}^{2}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-\sqrt{3}y\mathcal{F}\left(\Sigma\right)-2\mathcal{F}\left(\Omega\right) & =\sqrt{3}y\left[2x\left(x-\frac{1}{\sqrt{3}}\right)Z_{33}Z_{88}-\frac{2x}{\sqrt{3}}Z_{38}Z_{83}+\frac{1}{3}Z_{83}Z_{88}\right]\\
- & -2\left(x^{2}Z_{38}^{2}-\frac{2x}{\sqrt{3}}Z_{38}Z_{88}+\frac{1}{3}Z_{88}^{2}\right)\\
- & =2xy\left(\sqrt{3}x-1\right)Z_{33}Z_{88}-2xyZ_{38}Z_{83}-2x^{2}Z_{38}^{2}-\frac{2}{3}Z_{88}^{2}\\
- & +\left(\frac{y}{\sqrt{3}}Z_{83}+\frac{4x}{\sqrt{3}}Z_{38}\right)Z_{88}
 \end{align*}
 
 \end_inset
@@ -1035,10 +1155,198 @@ We need following identities:
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \Sigma_{ij}=\delta_{i8}\delta_{j3}+\delta_{i3}\delta_{j8},\quad\Omega_{ij}=\delta_{8i}\delta_{8j}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Calculate 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ functions
+\end_layout
+
+\begin_layout Standard
+Let find 
+\begin_inset Formula $\mathcal{F}\left(D^{8}\right)$
+\end_inset
+
+ by calculating 
+\begin_inset Formula $\tr Y$
+\end_inset
+
+ in another way: 
+\begin_inset Formula 
+\begin{align}
+\tr Y & =\tr UAU^{-1}\lambda_{8}UAU^{-1}\nonumber \\
+ & =\frac{4}{3}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)+\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\tr\left(\lambda_{i}\lambda_{8}\lambda_{j}\right)\nonumber \\
+ & =\frac{4}{3}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)+2\sum_{ij}\left(xZ_{3i}-\frac{Z_{8i}}{\sqrt{3}}\right)\left(xZ_{3j}-\frac{Z_{8j}}{\sqrt{3}}\right)\left(d_{8ij}\right)\nonumber \\
+ & =\frac{4}{3}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)+2\mathcal{F}\left(D^{8}\right),\label{eq:trY2}
+\end{align}
+
+\end_inset
+
+ Comparing 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:TrY1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:trY2"
+
+\end_inset
+
+, we find 
+\begin_inset Formula 
+\[
+\frac{2\left(x^{2}-1\right)}{\sqrt{3}}Z_{88}=\frac{4}{3}\left(xZ_{38}-\frac{Z_{88}}{\sqrt{3}}\right)+2\mathcal{F}\left(D^{8}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}\left(D^{8}\right)=-\frac{2}{3}xZ_{38}+\frac{1}{\sqrt{3}}\left(x^{2}-\frac{1}{3}\right)Z_{88}.\label{eq:FD8}
+\end{equation}
+
+\end_inset
+
+ Likewise, we calculate 
+\begin_inset Formula $\tr Y^{\prime}=\tr UAU^{-1}\lambda_{3}UAU^{-1}$
+\end_inset
+
+ with two ways:
+\begin_inset Formula 
+\begin{align*}
+\tr Y^{\prime} & =\tr UAU^{-1}\lambda_{3}UAU^{-1}\\
+ & =\tr UA^{2}U^{-1}\lambda_{3}\\
+ & =\tr\left(\frac{2x^{2}+1}{3}+\frac{x^{2}-1}{\sqrt{3}}Z_{8i}\lambda_{i}\right)\lambda_{3}\\
+ & =\frac{2\left(x^{2}-1\right)}{\sqrt{3}}Z_{83}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tr Y^{\prime}=\frac{4}{3}\left(xZ_{33}-\frac{Z_{83}}{\sqrt{3}}\right)+2\mathcal{F}\left(D^{3}\right)
+\]
+
+\end_inset
+
+ Therefore
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}\left(D^{3}\right)=-\frac{2}{3}xZ_{33}+\frac{1}{\sqrt{3}}\left(x^{2}-\frac{1}{3}\right)Z_{83}\label{eq:FD3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}\left(yD^{3}+\frac{D^{8}}{\sqrt{3}}\right) & =y\left[-\frac{2}{3}xZ_{33}+\frac{1}{\sqrt{3}}\left(x^{2}-\frac{1}{3}\right)Z_{83}\right]\\
+ & +\frac{1}{\sqrt{3}}\left(-\frac{2}{3}xZ_{38}+\frac{1}{\sqrt{3}}\left(x^{2}-\frac{1}{3}\right)Z_{88}\right)\\
+ & =-\frac{2}{3}xyZ_{33}+\frac{1}{3}\left(x^{2}-\frac{1}{3}\right)Z_{88}+\frac{y}{\sqrt{3}}\left(x^{2}-\frac{1}{3}\right)Z_{83}-\frac{2}{3\sqrt{3}}xZ_{38}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ and 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, let calculate them directly:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(Z\Sigma Z^{T}\right)_{ij} & =Z_{ik}\Sigma_{kl}Z_{jl}\\
+ & =Z_{i3}Z_{j8}+Z_{i8}Z_{j3}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(Z\Sigma Z^{T}\right)_{33}=2Z_{33}Z_{38},\quad\left(Z\Sigma Z^{T}\right)_{38}=\left(Z\Sigma Z^{T}\right)_{83}=Z_{33}Z_{88}+Z_{38}Z_{83},\quad Z_{88}=2Z_{83}Z_{88}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}\left(\Sigma\right) & =x^{2}\left(2Z_{33}Z_{38}\right)-\frac{2x}{\sqrt{3}}\left(Z_{33}Z_{88}+Z_{38}Z_{83}\right)+\frac{1}{3}Z_{83}Z_{88}\\
+ & =2x\left(x-\frac{1}{\sqrt{3}}\right)Z_{33}Z_{88}-\frac{2x}{\sqrt{3}}Z_{38}Z_{83}+\frac{1}{3}Z_{83}Z_{88}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(Z\Omega Z^{T}\right)_{ij}=Z_{i8}Z_{j8}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{F}\left(\Omega\right)=x^{2}Z_{38}^{2}-\frac{2x}{\sqrt{3}}Z_{38}Z_{88}+\frac{1}{3}Z_{88}^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sqrt{3}y\mathcal{F}\left(\Sigma\right)-2\mathcal{F}\left(\Omega\right) & =\sqrt{3}y\left[2x\left(x-\frac{1}{\sqrt{3}}\right)Z_{33}Z_{88}-\frac{2x}{\sqrt{3}}Z_{38}Z_{83}+\frac{1}{3}Z_{83}Z_{88}\right]\\
+ & -2\left(x^{2}Z_{38}^{2}-\frac{2x}{\sqrt{3}}Z_{38}Z_{88}+\frac{1}{3}Z_{88}^{2}\right)\\
+ & =2xy\left(\sqrt{3}x-1\right)Z_{33}Z_{88}-2xyZ_{38}Z_{83}-2x^{2}Z_{38}^{2}-\frac{2}{3}Z_{88}^{2}\\
+ & +\left(\frac{y}{\sqrt{3}}Z_{83}+\frac{4x}{\sqrt{3}}Z_{38}\right)Z_{88}
+\end{align*}
 
 \end_inset
 
