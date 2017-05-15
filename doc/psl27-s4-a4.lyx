@@ -1526,7 +1526,7 @@ X=\bigoplus x_{i},\quad Y=\bigoplus y_{i},\quad Z=\bigoplus z_{i}.
 , one can write 
 \begin_inset Formula 
 \begin{equation}
-Z=\bigoplus_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}.\label{eq:CG_Z}
+P_{Z\to i}Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}.\label{eq:CG_Z}
 \end{equation}
 
 \end_inset
@@ -1580,7 +1580,7 @@ P_{X\to j}=\begin{pmatrix}O_{n_{1}}\big| & O_{n_{2}}\big| & \cdots\big| & I_{n_{
 , 
 \begin_inset Formula 
 \[
-R_{Z}\left(g\right)Z=\bigoplus_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}R_{X}\left(g\right)X\right)\otimes\left(P_{Y\to k}R_{Y}\left(g\right)Y\right)\right\} _{z_{i}}.
+P_{Z\to i}R_{Z}\left(g\right)Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}R_{X}\left(g\right)X\right)\otimes\left(P_{Y\to k}R_{Y}\left(g\right)Y\right)\right\} _{z_{i}}.
 \]
 
 \end_inset
@@ -1589,15 +1589,19 @@ R_{Z}\left(g\right)Z=\bigoplus_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}R_{X
 \end_layout
 
 \begin_layout Standard
-Under the transform
+We consider how 
+\begin_inset Formula $c_{i,jk}$
+\end_inset
+
+ changes under the transform
 \begin_inset Formula 
 \[
-x_{i}\to x_{i}^{\prime}=u_{i}x_{i},
+x_{i}\to x_{i}^{\prime}=u_{i}x_{i}.
 \]
 
 \end_inset
 
- the CG coefficients of the subgoup 
+ The CG coefficients of the subgoup 
 \begin_inset Formula $H$
 \end_inset
 
@@ -1641,12 +1645,12 @@ Z\to Z^{\prime}=U_{Z}Z,\quad U_{Z}=\bigoplus_{i\,\mathrm{in}\, Z}u_{i},\label{eq
  Consider 
 \begin_inset Formula 
 \begin{align*}
-W^{\prime} & =\bigoplus_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X^{\prime}\right)\otimes\left(P_{Y\to k}Y^{\prime}\right)\right\} _{z_{i}^{\prime}}^{\prime}\\
- & =\bigoplus_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\, X}u_{a}\right)X\right)\otimes\left(P_{Y\to k}\left(\bigoplus_{b\,\mathrm{in}\, Y}u_{b}\right)Y\right)\right\} _{z_{i}^{\prime}}^{\prime}\\
- & =\bigoplus_{i}\sum_{j,k}c_{i,jk}\left\{ \left(u_{j}P_{X\to j}X\right)\otimes\left(u_{k}P_{Y\to k}Y\right)\right\} _{z_{i}^{\prime}}^{\prime}\\
- & =\bigoplus_{i}\sum_{j,k}c_{i,jk}u_{i}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}\\
- & =\left(\bigoplus_{i}u_{i}\right)\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}\\
- & =U_{Z}Z=Z^{\prime}
+W_{i}^{\prime} & =\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X^{\prime}\right)\otimes\left(P_{Y\to k}Y^{\prime}\right)\right\} _{z_{i}^{\prime}}^{\prime}\\
+ & =\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\, X}u_{a}\right)X\right)\otimes\left(P_{Y\to k}\left(\bigoplus_{b\,\mathrm{in}\, Y}u_{b}\right)Y\right)\right\} _{z_{i}^{\prime}}^{\prime}\\
+ & =\sum_{j,k}c_{i,jk}\left\{ \left(u_{j}P_{X\to j}X\right)\otimes\left(u_{k}P_{Y\to k}Y\right)\right\} _{z_{i}^{\prime}}^{\prime}\\
+ & =\sum_{j,k}c_{i,jk}u_{i}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}\\
+ & =u_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}\\
+ & =u_{i}P_{Z-i}Z=Z_{i}^{\prime}
 \end{align*}
 
 \end_inset
@@ -1753,6 +1757,227 @@ reference "eq:CG_Zprime"
 
 .
  
+\end_layout
+
+\begin_layout Section
+Real representation
+\end_layout
+
+\begin_layout Standard
+A representation is called to be real if its complex conjugate representation
+ is equivalent to itself.
+ In contrast, a representation is called complex if its complex conjugate
+ representation is inequivalent to itself.
+ If 
+\begin_inset Formula $r$
+\end_inset
+
+ is a complex representation and 
+\begin_inset Formula $\bar{r}$
+\end_inset
+
+ is the corresponding complex conjugate, we can always choose that 
+\begin_inset Formula 
+\[
+R_{\bar{r}}\left(g\right)=R_{r}\left(g\right)^{*}
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $r$
+\end_inset
+
+ be a real representation of a group 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $g$
+\end_inset
+
+ any element of 
+\begin_inset Formula $G$
+\end_inset
+
+, and 
+\begin_inset Formula $R\left(g\right)$
+\end_inset
+
+ a matrix realization of 
+\begin_inset Formula $r$
+\end_inset
+
+, then there exist a unitary matrix 
+\begin_inset Formula $U$
+\end_inset
+
+ so that 
+\begin_inset Formula 
+\[
+\Gamma R_{x}\left(g\right)^{*}\Gamma^{-1}=R_{x}\left(g\right),
+\]
+
+\end_inset
+
+ it then follows that 
+\begin_inset Formula 
+\[
+\Gamma\Gamma^{*}=I.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Constraint of 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ on CG coefficients
+\end_layout
+
+\begin_layout Standard
+Consider the CG coefficients of 
+\begin_inset Formula $x_{1}\otimes x_{2}\to x_{3}$
+\end_inset
+
+.
+ We can write the CG coefficients as 
+\begin_inset Formula 
+\[
+x_{3}=M_{12\to3}\left(x_{1}\otimes x_{2}\right).
+\]
+
+\end_inset
+
+ The complex conjugate CG coefficients is 
+\begin_inset Formula $\bar{x}_{1}\otimes\bar{x}_{2}\to\bar{x}_{3}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\bar{x}_{3}=M_{\bar{1}\bar{2}\to\bar{3}}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right).
+\]
+
+\end_inset
+
+ Apply the constraint 
+\begin_inset Formula $\Gamma_{3}x_{3}^{*}=\bar{x}_{3}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{3}x_{3}^{*} & =\Gamma_{3}M_{12\to3}^{*}\left(x_{1}^{*}\otimes x_{2}^{*}\right)\\
+ & =M_{\bar{1}\bar{2}\to\bar{3}}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right)\\
+ & =M_{\bar{1}\bar{2}\to\bar{3}}\left(\Gamma_{1}x_{1}^{*}\otimes\Gamma_{2}x_{2}^{*}\right)\\
+ & =M_{\bar{1}\bar{2}\to\bar{3}}\left(\Gamma_{1}\otimes\Gamma_{2}\right)\left(x_{1}^{*}\otimes x_{2}^{*}\right).
+\end{align*}
+
+\end_inset
+
+ It then follows 
+\begin_inset Formula 
+\begin{align*}
+M_{\bar{1}\bar{2}\to\bar{3}} & =\Gamma_{3}M_{12\to3}^{*}\left(\Gamma_{1}\otimes\Gamma_{2}\right)^{-1}\\
+ & =\Gamma_{3}M_{12\to3}^{*}\left(\Gamma_{1}^{*}\otimes\Gamma_{2}^{*}\right).
+\end{align*}
+
+\end_inset
+
+ If 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $x_{3}$
+\end_inset
+
+ are complex representation, then we have 
+\begin_inset Formula 
+\[
+M_{\bar{1}\bar{2}\to\bar{3}}=M_{12\to3}^{*}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula 
+\[
+X=\begin{pmatrix}x_{1}\\
+x_{2}\\
+\vdots
+\end{pmatrix},\quad Y=\begin{pmatrix}y_{1}\\
+y_{2}\\
+\vdots
+\end{pmatrix},\quad Z=\begin{pmatrix}z_{1}\\
+z_{2}\\
+\vdots
+\end{pmatrix},
+\]
+
+\end_inset
+
+ then 
+\begin_inset Formula $\left(X\otimes Y\right)\to Z$
+\end_inset
+
+ can be expressed as 
+\begin_inset Formula 
+\[
+P_{Z\to k}Z=\sum_{i,j}c_{ij,k}\left(x_{i}\otimes y_{j}\right)_{z_{k}}.
+\]
+
+\end_inset
+
+Likewise 
+\begin_inset Formula $\left(\bar{X}\otimes\bar{Y}\right)\to\bar{Z}$
+\end_inset
+
+ can be written as 
+\begin_inset Formula 
+\[
+P_{\bar{Z}\to\bar{k}}\bar{Z}=\sum_{i,j}c_{\bar{i}\bar{j},\bar{k}}\left(\bar{x}_{\bar{i}}\otimes\bar{y}_{\bar{j}}\right)_{\bar{z}_{k}}
+\]
+
+\end_inset
+
+Apply the constraint 
+\begin_inset Formula $\bar{Z}=\Gamma Z^{*}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+P_{\bar{Z}\to\bar{k}}\bar{Z} & =\Gamma_{k}\sum_{i,j}c_{ij,k}^{*}\left[\left(x_{i}\otimes y_{j}\right)_{z_{k}}\right]^{*}\\
+ & =\sum_{i,j}c_{ij,k}^{*}\Gamma_{k}\Gamma_{k}^{*}\left(\bar{x}_{\bar{i}}\otimes\bar{y}_{\bar{j}}\right)_{\bar{z}_{k}}\\
+ & =\sum_{i,j}c_{ij,k}^{*}\left(\bar{x}_{i}\otimes\bar{y}_{j}\right)_{\bar{z}_{k}}\\
+ & =\sum_{i,j}c_{\bar{i}\bar{j},\bar{k}}\left(\bar{x}_{\bar{i}}\otimes\bar{y}_{\bar{j}}\right)_{\bar{z}_{k}}
+\end{align*}
+
+\end_inset
+
+ which implies 
+\begin_inset Formula 
+\[
+c_{ij,k}^{*}=c_{\bar{i}\bar{j},\bar{k}}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_body
