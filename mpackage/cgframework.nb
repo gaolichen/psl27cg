@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     90421,       2000]
-NotebookOptionsPosition[     90079,       1984]
-NotebookOutlinePosition[     90436,       2000]
-CellTagsIndexPosition[     90393,       1997]
+NotebookDataLength[     95811,       2123]
+NotebookOptionsPosition[     95469,       2107]
+NotebookOutlinePosition[     95826,       2123]
+CellTagsIndexPosition[     95783,       2120]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -111,6 +111,11 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{
+   RowBox[{
+    RowBox[{
+    "CyclicNumberPackage", "=", 
+     "\"\</users/gaolichen/gitroot/psl27cg/mpackage/cyclicnumber.m\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"KeyIrr", "=", "\"\<Irr\>\""}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
@@ -369,6 +374,22 @@ Cell[BoxData[
               RowBox[{"[", "1", "]"}], "]"}], ",", "rd"}], "]"}], "]"}]}], 
          "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Return", " ", "true", " ", "if", " ", "the", " ", "given", " ", 
+      "representation", " ", "is", " ", "real"}], ",", " ", 
+     RowBox[{"otherwise", " ", 
+      RowBox[{"false", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"IsRealRep", "[", 
+      RowBox[{"gi_", ",", "r_String"}], "]"}], ":=", 
+     RowBox[{"Return", "[", 
+      RowBox[{"r", "\[Equal]", 
+       RowBox[{"ToConjugateRep", "[", 
+        RowBox[{"gi", ",", "r"}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "DefaultKronecker", "]"}], ";"}], 
    "\[IndentingNewLine]", 
@@ -1279,7 +1300,86 @@ Cell[BoxData[
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"KeyCGCoefficient", "=", "\"\<CGCoefficient\>\""}], ";"}], 
-   "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "GetCG", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"GetCG", "[", 
+      RowBox[{
+      "r1_String", ",", "r2_String", ",", "r3_String", ",", "embed_"}], "]"}],
+      ":=", 
+     RowBox[{"embed", "[", 
+      RowBox[{"r1", ",", "r2", ",", "r3", ",", "KeyCGCoefficient"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "SetCG", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"SetCG", "[", 
+      RowBox[{
+      "r1_String", ",", "r2_String", ",", "r3_String", ",", "embed_", ",", 
+       " ", "coefs_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"lg", ",", "klist"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"lg", " ", "=", " ", 
+         RowBox[{"embed", "[", "KeyLargeGroup", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"klist", " ", "=", " ", 
+         RowBox[{"Kronecker", "[", 
+          RowBox[{"lg", ",", " ", "r1", ",", "r2"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"MemberQ", "[", 
+            RowBox[{"klist", ",", " ", "r3"}], "]"}], "\[NotEqual]", " ", 
+           "True"}], ",", " ", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{
+            "\"\<SetCG failed: cannot find the Kronecker product \>\"", ",", 
+             " ", "r1", ",", " ", "\"\<*\>\"", ",", "r2", ",", "\"\<->\>\"", 
+             ",", "r3"}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Return", "[", "]"}]}]}], "\[IndentingNewLine]", "]"}], 
+        ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"embed", "[", 
+          RowBox[{"r1", ",", "r2", ",", "r3", ",", "KeyCGCoefficient"}], 
+          "]"}], "=", "coefs"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "ResetCG", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ResetCG", "[", 
+      RowBox[{
+      "r1_String", ",", "r2_String", ",", "r3_String", ",", " ", "embed_"}], 
+      "]"}], ":=", "\[IndentingNewLine]", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "cgterms", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"cgterms", "=", 
+         RowBox[{"embed", "[", 
+          RowBox[{"r1", ",", "r2", ",", 
+           RowBox[{"GetRepWithSym", "[", "r3", "]"}], ",", "KeyCGTerms"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"embed", "[", 
+          RowBox[{"r1", ",", "r2", ",", "r3", ",", "KeyCGCoefficient"}], 
+          "]"}], "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Unique", "[", "\"\<CG\>\"", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"h", ",", "1", ",", 
+             RowBox[{"Length", "[", "cgterms", "]"}]}], "}"}]}], "]"}]}], 
+        ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "BuildCGTermsAll", "]"}], ";"}], 
    "\[IndentingNewLine]", 
@@ -1382,6 +1482,17 @@ Cell[BoxData[
                 RowBox[{"k", "\[LessEqual]", " ", 
                  RowBox[{"Length", "[", "klist", "]"}]}], ",", 
                 RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+                RowBox[{"(*", 
+                 RowBox[{
+                  RowBox[{"ResetCG", "[", 
+                   RowBox[{
+                    RowBox[{"rlist", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], ",", 
+                    RowBox[{"rlist", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], ",", 
+                    RowBox[{"klist", "[", 
+                    RowBox[{"[", "k", "]"}], "]"}], ",", "embed"}], "]"}], 
+                  ";"}], "*)"}], "\[IndentingNewLine]", 
                 RowBox[{
                  RowBox[{"terms", "=", 
                   RowBox[{"embed", "[", 
@@ -1932,7 +2043,14 @@ Cell[BoxData[
    3.6994652590190887`*^9, 3.699465269695242*^9}, {3.6994676777531967`*^9, 
    3.69946770302107*^9}, {3.699468262771167*^9, 3.6994682787796087`*^9}, 
    3.699481445914276*^9, 3.700845177423524*^9, {3.7009178412766123`*^9, 
-   3.700917842001651*^9}}],
+   3.700917842001651*^9}, {3.703859049750936*^9, 3.703859118616755*^9}, {
+   3.7038862369919*^9, 3.7038862695813503`*^9}, {3.70388989278096*^9, 
+   3.703890026587269*^9}, {3.7038900983152027`*^9, 3.703890211322736*^9}, {
+   3.703890352177836*^9, 3.703890389939897*^9}, {3.703891037805423*^9, 
+   3.703891142033328*^9}, {3.703891220476301*^9, 3.703891286671297*^9}, {
+   3.7038913389288063`*^9, 3.70389140221102*^9}, {3.703892006687502*^9, 
+   3.703892010472188*^9}, {3.703892382330203*^9, 3.7038923916942377`*^9}, {
+   3.703892449424049*^9, 3.703892488641548*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -1961,13 +2079,14 @@ Cell[BoxData[
         "KeySubGroup", ",", "KeyTransformMatrix", ",", "GetRepName", ",", 
         "AllIrrs", ",", "GetRepWithSym", ",", "GetRepDecorate", ",", 
         "ToFullRep", ",", "GetDimensionByRep", ",", "SingletRepresentation", 
-        ",", "ToConjugateRep", ",", "DefaultDotFunction", ",", 
-        "DefaultKronecker", ",", "Kronecker", ",", "VerifyGroupInfo", ",", 
-        "DefaultEmbed", ",", "VerifyEmbed", ",", "ToSubRep", ",", 
+        ",", "ToConjugateRep", ",", "IsRealRep", ",", "DefaultDotFunction", 
+        ",", "DefaultKronecker", ",", "Kronecker", ",", "VerifyGroupInfo", 
+        ",", "DefaultEmbed", ",", "VerifyEmbed", ",", "ToSubRep", ",", 
         "ToLargeRep", ",", "BuildCGTermsSub", ",", "BuildCGTerms", ",", 
-        "KeyCGTerms", ",", "BuildCGTermsAll", ",", "DotRep", ",", 
-        "TwoSimpleList", ",", "CgcEquations"}], "}"}]}], 
-     "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", 
+        "KeyCGTerms", ",", "GetCG", ",", "SetCG", ",", "ResetCG", ",", 
+        "BuildCGTermsAll", ",", "DotRep", ",", "TwoSimpleList", ",", 
+        "CgcEquations"}], "}"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{"ClearAll", "[", "file", "]"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.699396086490945*^9, 3.6993960871518087`*^9}, {
@@ -1980,7 +2099,11 @@ Cell[BoxData[
    3.6994017898875093`*^9}, {3.699403843248836*^9, 3.699403843614757*^9}, {
    3.699443764065179*^9, 3.699443764447302*^9}, {3.6994598577655354`*^9, 
    3.699459868438015*^9}, {3.699463693126083*^9, 3.699463693583202*^9}, {
-   3.7008451883001013`*^9, 3.700845188519165*^9}}]
+   3.7008451883001013`*^9, 3.700845188519165*^9}, {3.7038591400185432`*^9, 
+   3.70385914046452*^9}, {3.7038863577707787`*^9, 3.7038863691533546`*^9}, {
+   3.703886399737062*^9, 3.703886400176055*^9}, 3.703889780566094*^9, {
+   3.703891431895743*^9, 3.703891438076578*^9}, {3.7038925019726353`*^9, 
+   3.7038925023286753`*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -2000,8 +2123,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 6296, 88, 55, "Input"],
-Cell[6857, 110, 80848, 1824, 8349, "Input"],
-Cell[87708, 1936, 2367, 46, 297, "Input"]
+Cell[6857, 110, 85892, 1942, 8965, "Input"],
+Cell[92752, 2054, 2713, 51, 297, "Input"]
 }
 ]
 *)

@@ -168,7 +168,7 @@ Attributes[Subscript] = {NHoldRest}
  
 Attributes[ToExp] = {Listable}
  
-ToExp[a_] := Module[{r, c, i, ph}, If[Im[a] == 0, Return[a]]; c = Arg[a]; 
+ToExp[a_] := Module[{r, c, i, ph}, If[Im[a] == 0, Return[Re[a]]]; c = Arg[a]; 
       If[IntegerQ[c*(2/Pi)], Return[a]]; If[IntegerQ[c*(6/Pi)], 
        ph = 0; i = Abs[c*(6/Pi)]; If[i == 5, ph = (-I)*\[Omega]^2; 
           If[c < 0, ph = I*\[Omega]]]; If[i == 4, ph = \[Omega]; 

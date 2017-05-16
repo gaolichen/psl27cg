@@ -59,6 +59,8 @@ ToConjugateRep[gi_, r_String] := Module[{conj, rn, rd},
        Return[r]]; rd = GetRepDecorate[r]; If[conj[[1]] == rn, 
        Return[ToFullRep[conj[[2]], rd]], Return[ToFullRep[conj[[1]], rd]]]; ]
  
+IsRealRep[gi_, r_String] := Return[r == ToConjugateRep[gi, r]]
+ 
 DefaultDotFunction[gi_, v1_List, v2_List, r1_String, r2_String, r3_String] := 
     Module[{}, If[r1 == SingletRepresentation[gi] && r1 == r2, 
        Assert[Length[v1] == 1]; Assert[Length[v2] == 1]; 
@@ -173,6 +175,20 @@ BuildCGTerms[r1_String, r2_String, r3_String, embed_] :=
           embed]]]; Return[res]]
  
 KeyCGTerms = "CGTerms"
+ 
+GetCG[r1_String, r2_String, r3_String, embed_] := 
+    embed[r1, r2, r3, KeyCGCoefficient]
+ 
+SetCG[r1_String, r2_String, r3_String, embed_, coefs_] := 
+    Module[{lg, klist}, lg = embed[KeyLargeGroup]; 
+      klist = Kronecker[lg, r1, r2]; If[MemberQ[klist, r3] != True, 
+       Print["SetCG failed: cannot find the Kronecker product ", r1, "*", r2, 
+         "->", r3]; Return[]]; embed[r1, r2, r3, KeyCGCoefficient] = coefs; ]
+ 
+ResetCG[r1_String, r2_String, r3_String, embed_] := 
+    Module[{cgterms}, cgterms = embed[r1, r2, GetRepWithSym[r3], KeyCGTerms]; 
+      embed[r1, r2, r3, KeyCGCoefficient] = Table[Unique["CG"], 
+        {h, 1, Length[cgterms]}]; ]
  
 BuildCGTermsAll[embed_] := Module[{lg, rlist, i, j, k, klist, terms}, 
      lg = embed[KeyLargeGroup]; rlist = AllIrrs[lg]; 
