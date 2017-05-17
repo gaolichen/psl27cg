@@ -137,7 +137,7 @@ ToSubRep[v_List, r_String, subr_String, embed_] :=
        Print[r, " does not contains ", subr]; Return[$Failed]]; 
       res = v[[index ;; index + GetDimensionByRep[subg, subr] - 1]]; 
       tmat = SelectFirst[embed[KeyTransformMatrix], 
-        #1[[1]] == r && #1[[2]] == subr & ]; 
+        #1[[1]] == GetRepName[r] && #1[[2]] == subr & ]; 
       If[(tmat === Missing["NotFound"]) == False, res = tmat[[3]] . res; ]; 
       Return[res]; ]
  
@@ -147,9 +147,9 @@ ToLargeRep[r_String, vlist_List, embed_] :=
        Message[CGGeneralError::ArgumentError, "ToLargeRep"]; 
         Throw[$Failed]; ]; For[i = 1, i <= Length[allsubr], i++, 
        tmat = SelectFirst[embed[KeyTransformMatrix], 
-          #1[[1]] == r && #1[[2]] == allsubr[[i]] & ]; 
+          #1[[1]] == GetRepName[r] && #1[[2]] == allsubr[[i]] & ]; 
         If[tmat === Missing["NotFound"], ret = Join[ret, vlist[[i]]], 
-         ret = Join[ret, tmat[[3]] . vlist[[i]]]]; ]; Return[ret]]
+         ret = Join[ret, tmat[[3]] . vlist[[i]]]; ]; ]; Return[ret]]
  
 CGGeneralError /: CGGeneralError::ArgumentError = 
      "Argument error in function  `1`"
@@ -249,3 +249,48 @@ DotDifference[v1_List, v2_List, r1_String, r2_String, r3_String,
      res1 = op[GetRepName[r3]] . DotRep[v1, v2, r1, r2, r3, embed]; 
       v3 = op[r1] . v1; v4 = op[r2] . v2; res2 = DotRep[v3, v4, r1, r2, r3, 
         embed]; Return[res1 - res2]]
+ 
+SolveLinearEquation[cMat_List, opt:OptionsPattern[]] := 
+    Module[{n, vars, i, eqs, root, freecoef, tosolve, allzero, ans, 
+      res = {}}, If[Length[cMat] == 0, Return[{}]]; n = Length[cMat[[1]]]; 
+      vars = Table[Unique["Var"], {i, 1, n}]; eqs = cMat . vars; 
+      freecoef = OptionValue[FreeCoefficients]; If[Length[freecoef] == 0, 
+       freecoef = Table[i, {i, 1, n - Length[cMat]}]]; 
+      tosolve = Delete[vars, Table[{freecoef[[i]]}, 
+         {i, 1, Length[freecoef]}]]; root = First[Solve[eqs == 0, tosolve]]; 
+      allzero = Table[vars[[i]] -> 0, {i, Length[vars]}]; 
+      For[i = 1, i <= Length[freecoef], i++, 
+       ans = vars /. root /. {vars[[freecoef[[i]]]] -> 1}; 
+        ans = ans /. allzero; AppendTo[res, ans]]; Return[res]]
+ 
+Options[SolveLinearEquation] = {FreeCoefficients -> {}}
+ 
+FixCGPhase[r1_, r2_, r3_, coefs_, embed_] := 
+    Module[{cgterms, largeG, subG, conj, i, index, arg1, arg2}, 
+     largeG = embed[KeyLargeGroup]; If[IsRealRep[largeG, r1] != True || 
+        IsRealRep[largeG, r2] != True || IsRealRep[largeG, r3] != True, 
+       Return[coefs]; ]; cgterms = embed[r1, r2, r3, KeyCGTerms]; 
+      subG = embed[KeySubGroup]; conj = cgterms[[1]]; 
+      Do[conj[[i]] = ToConjugateRep[subG, conj[[i]]], {i, 1, Length[conj]}]; 
+      index = FirstPosition[cgterms, conj][[1]]; arg1 = Arg[coefs[[1]]]; 
+      arg2 = Arg[coefs[[index]]]; If[IntegerQ[(arg1 + arg2)/(2*Pi)], 
+       Return[coefs]]; Return[Simplify[coefs*Exp[(-I)*((arg1 + arg2)/2)]]]]
+ 
+OrthnormalizeCG[r1_, r2_, r3_, coefsList_, embed_] := 
+    Module[{cgterms, pos = {}, i, j, subterm, subcoefs = {}, mat, ret, 
+      eigenV, norm}, cgterms = embed[r1, r2, r3, KeyCGTerms]; 
+      subterm = GetRepName[cgterms[[1,1]]]; For[i = 1, i <= Length[cgterms], 
+       i++, If[GetRepName[cgterms[[i,1]]] == subterm, AppendTo[pos, i]]]; 
+      For[i = 1, i <= Length[coefsList], i++, 
+       AppendTo[subcoefs, coefsList[[i]][[pos]]]; ]; 
+      If[Length[coefsList] == 1, ret = coefsList, 
+       Assert[Length[coefsList] > 1]; mat = ConstantArray[0, 
+          {Length[subcoefs], Length[subcoefs]}]; For[i = 1, i <= Length[mat], 
+         i++, For[j = 1, j <= Length[mat], j++, 
+          mat[[i,j]] = Conjugate[subcoefs[[i]]] . subcoefs[[j]]; ]]; 
+        ret = {}; eigenV = Eigenvectors[mat]; For[i = 1, i <= Length[eigenV], 
+         i++, AppendTo[ret, Sum[eigenV[[i,j]]*coefsList[[j]], 
+           {j, 1, Length[eigenV]}]]]; ]; For[i = 1, i <= Length[ret], i++, 
+       norm = Simplify[Conjugate[ret[[i,pos]]] . ret[[i,pos]]]; 
+        norm = Simplify[Sqrt[norm]]; ret[[i]] /= norm; ]; 
+      Return[Simplify[ret]]]
