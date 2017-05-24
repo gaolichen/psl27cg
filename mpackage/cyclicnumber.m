@@ -93,20 +93,19 @@ Eigenvector4F7[mat_List, val_, var_Symbol, n_Integer,
 Options[Eigenvector4F7] = {AutoPickVar -> False}
  
 IndependentRows[mat_List, opt:OptionsPattern[]] := 
-    Module[{res = {}, nmat, i, j, k, rep, freep, solvedp, cnt}, 
-     nmat = Chop[N[mat /. OptionValue[Var2N]], Eps]; 
-      For[i = 1, i <= Length[nmat], i++, For[j = 1, j <= Length[nmat[[i]]], 
-         j++, If[nmat[[i,j]] == 0, Continue[], Break[]]; ]; 
-        If[j > Length[nmat[[i]]], Continue[]]; AppendTo[res, mat[[i]]]; 
-        For[k = i + 1, k <= Length[nmat], k++, 
-         If[nmat[[k,j]] == 0, Continue[]]; nmat[[k]] -= 
-           (nmat[[k,j]]/nmat[[i,j]])*nmat[[i]]; nmat[[k]] = 
-           Chop[nmat[[k]], Eps]; ]; ]; freep = {}; solvedp = {}; 
-      For[i = Length[nmat], i >= 1, i--, cnt = 0; 
-        For[j = 1, j <= Length[nmat[[i]]], j++, 
-         If[nmat[[i,j]] == 0, Continue[]]; If[MemberQ[solvedp, j], 
-           Continue[]]; AppendTo[solvedp, j]; If[cnt == 0, cnt = 1, 
-           AppendTo[freep, j]]; ]; ]; Return[{res, freep}]; ]
+    Module[{res = {}, tmp, pos, nmat, ii, i, j, k, rep, freep = {}, solvedp, 
+      cnt}, nmat = Chop[N[mat /. OptionValue[Var2N]], Eps]; 
+      pos = Table[i, {i, 1, Length[mat]}]; For[j = 1, j <= Length[nmat[[1]]], 
+       j++, For[i = j - Length[freep], i <= Length[nmat], i++, 
+         If[nmat[[pos[[i]],j]] == 0, Continue[], Break[]]; ]; 
+        If[i > Length[nmat], AppendTo[freep, j]; Continue[]]; 
+        AppendTo[res, mat[[pos[[i]]]]]; If[i > j - Length[freep], 
+         tmp = pos[[i]]; pos[[i]] = pos[[j - Length[freep]]]; 
+          pos[[j - Length[freep]]] = tmp; ]; i = pos[[j - Length[freep]]]; 
+        For[k = j - Length[freep] + 1, k <= Length[nmat], k++, 
+         If[nmat[[pos[[k]],j]] == 0, Continue[]]; nmat[[pos[[k]]]] -= 
+           (nmat[[pos[[k]],j]]/nmat[[i,j]])*nmat[[i]]; nmat[[pos[[k]]]] = 
+           Chop[nmat[[pos[[k]]]], Eps]; ]; ]; Return[{res, freep}]; ]
  
 Options[IndependentRows] = {Var2N -> {}}
  
@@ -151,29 +150,43 @@ InverseEigenMat[mat_, var_, n_] := Module[{i, ret},
        ret[[i]] = ret[[i]]/DotProdCN[ret[[i]], ret[[i]], var, n]; 
         ret[[i]] = SimplifyCN[ret[[i]], var, n]]; Return[Transpose[ret]]]
  
-ToExpPhase[ph_] := Module[{b7, d7, i, j, k, v, omega, a, diff}, 
-     v = N[ph]; b7 = (-1 + I*Sqrt[7])/(2*Sqrt[2]); 
-      d7 = (-1 - I*Sqrt[7])/(2*Sqrt[2]); omega = (-1 + I*Sqrt[3])/2; 
+ToExactPhase[ph_, opts:OptionsPattern[]] := 
+    Module[{vb7, vd7, i, j, k, v, vomega, a, diff}, 
+     v = N[ph]; vb7 = (-1 + I*Sqrt[7])/(2*Sqrt[2]); 
+      vd7 = (-1 - I*Sqrt[7])/(2*Sqrt[2]); vomega = (-1 + I*Sqrt[3])/2; 
       For[i = 0, i <= 4, i++, For[j = 0, j <= 2, j++, 
-        a = N[Arg[b7^i*omega^j]]; diff = ((v - a)/Pi)*2; 
-         If[Chop[diff - Round[diff]] == 0, Return[Subscript[b, 7]^i*
-            \[Omega]^j*I^Round[diff]]]; a = N[Arg[d7^i*omega^j]]; 
-         diff = ((v - a)/Pi)*2; If[Chop[diff - Round[diff]] == 0, 
-          Return[ToExpression["\\Bar{b}_7", TeXForm]^i*\[Omega]^j*
-            I^Round[diff]]]; ]]; Return[Infinity]]
+        a = N[Arg[vb7^i*vomega^j]]; diff = ((v - a)/Pi)*2; 
+         If[NIntegerQ[diff], If[OptionValue[ToTex], Return[Subscript[b, 7]^i*
+              \[Omega]^j*I^Round[diff]], Return[b7^i*omg^j*
+              I^Round[diff]]]; ]; a = N[Arg[vd7^i*vomega^j]]; 
+         diff = ((v - a)/Pi)*2; If[NIntegerQ[diff], 
+          If[OptionValue[ToTex], Return[ToExpression["\\Bar{b}_7", TeXForm]^i*
+              \[Omega]^j*I^Round[diff]], Return[d7^i*omg^j*
+              I^Round[diff]]]; ]; ]]; Return[Infinity]]
  
-omega = E^(((2*I)/3)*Pi)
+Options[ToExactPhase] = {ToTex -> False}
+ 
+NIntegerQ[n_] := Chop[N[n] - Round[Re[N[n]]]] == 0
  
 Attributes[Subscript] = {NHoldRest}
  
 Attributes[ToExp] = {Listable}
  
-ToExp[a_] := Module[{r, c, i, ph}, If[Im[a] == 0, Return[Re[a]]]; c = Arg[a]; 
-      If[IntegerQ[c*(2/Pi)], Return[a]]; If[IntegerQ[c*(6/Pi)], 
-       ph = 0; i = Abs[c*(6/Pi)]; If[i == 5, ph = (-I)*\[Omega]^2; 
-          If[c < 0, ph = I*\[Omega]]]; If[i == 4, ph = \[Omega]; 
-          If[c < 0, ph = \[Omega]^2]]; If[i == 2, ph = -\[Omega]^2; 
-          If[c < 0, ph = -\[Omega]]]; If[i == 1, ph = (-I)*\[Omega]; 
-          If[c < 0, ph = I*\[Omega]^2]]; Assert[(ph === 0) == False]; 
-        Return[Abs[a]*ph]; ]; ph = ToExpPhase[c]; If[ph === Infinity, 
-       Return[a], Return[Simplify[Abs[a]]*ph]]]
+ToExp[a_, opts:OptionsPattern[]] := Module[{r, c, i, ph}, 
+     If[Im[a] == 0, Return[Re[a]]]; c = Arg[a]; If[IntegerQ[c*(2/Pi)], 
+       Return[a]]; ph = ToExactPhase[c, FilterRules[{opts}, 
+         Options[ToExactPhase]]]; If[ph === Infinity, Return[a], 
+       Return[Simplify[Abs[a]]*ph]]]
+ 
+Options[ToExp] = {ToTex -> False}
+ 
+Attributes[N2Exact] = {Listable}
+ 
+N2Exact[nn_, opts:OptionsPattern[]] := Module[{c, ph, n}, 
+     n = Chop[N[nn]]; c = Arg[n]; If[NIntegerQ[c*(2/Pi)], 
+       Return[RootApproximant[n]]]; ph = ToExactPhase[Arg[n], 
+        FilterRules[{opts}, Options[ToExactPhase]]]; 
+      If[ph === Infinity, Return[RootApproximant[n]], 
+       Return[RootApproximant[Abs[n]]*ph]]]
+ 
+Options[N2Exact] = {ToTex -> False}
