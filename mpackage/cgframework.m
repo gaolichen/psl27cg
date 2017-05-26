@@ -49,6 +49,14 @@ Assert /: Assert::asrtfl = "Assertion `1` at line `2` in `3` failed."
 Assert /: Assert::asrttf = 
      "Assertion test `1` evaluated to `2` that is neither True nor False."
  
+GetRepMultiplicity[r_String] := If[StringContainsQ[r, ":"] && 
+      DigitQ[StringTake[r, -1]], Return[ToExpression[StringTake[r, -1]]], 
+     Return[0]]
+ 
+SetRepMultiplicity[r_String, m_] := Module[{part}, part = GetRepWithSym[r]; 
+      If[StringContainsQ[part, ":"], Return[StringJoin[part, ToString[m]]], 
+       Return[StringJoin[part, ":", ToString[m]]]]; ]
+ 
 SingletRepresentation[gi_] := gi[KeyIrr][[1,1]]
  
 Attributes[ToConjugateRep] = {Listable}
@@ -93,6 +101,11 @@ DefaultKronecker[gi_, r1_String, r2_String] :=
        Return[{ToFullRep[SingletRepresentation[gi], "+"]}]]; 
       If[r1 == SingletRepresentation[gi], Return[{r2}]]; 
       If[r2 == SingletRepresentation[gi], Return[{r1}]]; Return[{}]]
+ 
+GetCGMultiplicity[gi_, r1_String, r2_String, r3_String] := 
+    Module[{list, rr3, i, ret = 0}, rr3 = GetRepWithSym[r3]; 
+      list = Kronecker[gi, r1, r2]; For[i = 1, i <= Length[list], i++, 
+       If[GetRepWithSym[list[[i]]] == rr3, ret++]]; Return[ret]]
  
 VerifyGroupInfo[gi_, opt:OptionsPattern[]] := 
     Module[{irr, i, j, k, tot, res, res2, fun, tmp1, tmp2}, 
@@ -161,11 +174,14 @@ BuildCGTermsSub[r1_String, r2_String, subr_String, embed_] :=
       For[i = 1, i <= Length[subr1], i++, For[j = 1, j <= Length[subr2], j++, 
          list = Kronecker[subg, subr1[[i]], subr2[[j]]]; 
           For[k = 1, k <= Length[list], k++, If[GetRepName[list[[k]]] != rn, 
-             Continue[]]; If[dec == "" || GetRepDecorate[list[[k]]] == dec, 
-             AppendTo[res, {list[[k]], subr1[[i]], subr2[[j]]}], 
-             If[GetRepDecorate[list[[k]]] == "" && i < j, AppendTo[res, 
-                {list[[k]], subr1[[i]], subr2[[j]], ToExpression[StringJoin[
-                   dec, "1"]]}]; ]]; ]; ]; ]; Return[res]; ]
+             Continue[]]; If[dec == "" || GetRepDecorate[list[[k]]] == dec || 
+              GetDimensionByRep[subg, subr1[[i]]] == GetDimensionByRep[subg, 
+                subr2[[j]]], AppendTo[res, {list[[k]], subr1[[i]], subr2[[
+                j]]}], If[GetRepDecorate[list[[k]]] == "" && 
+               GetDimensionByRep[subg, subr1[[i]]] < GetDimensionByRep[subg, 
+                 subr2[[j]]], AppendTo[res, {list[[k]], subr1[[i]], 
+                 subr2[[j]], ToExpression[StringJoin[dec, 
+                   "1"]]}]; ]]; ]; ]; ]; Return[res]; ]
  
 BuildCGTerms[r1_String, r2_String, r3_String, embed_] := 
     Module[{subg, subr, i, dec, rn, res = {}}, subg = embed[KeySubGroup]; 
@@ -250,20 +266,32 @@ DotDifference[v1_List, v2_List, r1_String, r2_String, r3_String,
       v3 = op[r1] . v1; v4 = op[r2] . v2; res2 = DotRep[v3, v4, r1, r2, r3, 
         embed]; Return[res1 - res2]]
  
-SolveLinearEquation[cMat_List, opt:OptionsPattern[]] := 
-    Module[{n, vars, i, eqs, root, freecoef, tosolve, allzero, ans, 
-      res = {}}, If[Length[cMat] == 0, Return[{}]]; n = Length[cMat[[1]]]; 
-      vars = Table[Unique["Var"], {i, 1, n}]; eqs = cMat . vars; 
-      freecoef = OptionValue[FreeCoefficients]; If[Length[freecoef] == 0, 
-       freecoef = Table[i, {i, 1, n - Length[cMat]}]]; 
-      tosolve = Delete[vars, Table[{freecoef[[i]]}, 
-         {i, 1, Length[freecoef]}]]; root = First[Solve[eqs == 0, tosolve]]; 
-      allzero = Table[vars[[i]] -> 0, {i, Length[vars]}]; 
-      For[i = 1, i <= Length[freecoef], i++, 
-       ans = vars /. root /. {vars[[freecoef[[i]]]] -> 1}; 
-        ans = ans /. allzero; AppendTo[res, ans]]; Return[res]]
+SolveLinearEquation[cMat_List, opts:OptionsPattern[]] := 
+    Module[{n, vars, i, eqs, root, freecoef, tosolve, allzero, ans, res = {}, 
+      zeroArray}, If[Length[cMat] == 0, Return[{}]]; n = Length[cMat[[1]]]; 
+      vars = Table[Unique["Var"], {i, 1, n}]; If[OptionValue[Numeric], 
+       eqs = N[cMat] . vars, eqs = cMat . vars]; 
+      root = First[Solve[eqs == 0, vars]]; allzero = Table[vars[[i]] -> 0, 
+        {i, 1, Length[vars]}]; root = vars /. root; 
+      zeroArray = ConstantArray[0, Length[vars]]; 
+      For[i = 1, i <= Length[vars], i++, ans = root /. {vars[[i]] -> 1}; 
+        ans = ans /. allzero; If[ans != zeroArray, AppendTo[res, ans]]; ]; 
+      If[OptionValue[Numeric], Return[Chop[res]], Return[res]]; ]
  
-Options[SolveLinearEquation] = {FreeCoefficients -> {}}
+Options[SolveLinearEquation] = {FreeCoefficients -> {}, Numeric -> False}
+ 
+CGConjugateMat[r1_, r2_, r3_, embed_] := 
+    Module[{cgterms, subG, conj, conj2, i, j, ret, index}, 
+     cgterms = embed[r1, r2, r3, KeyCGTerms]; subG = embed[KeySubGroup]; 
+      ret = ConstantArray[0, {Length[cgterms], Length[cgterms]}]; 
+      For[i = 1, i <= Length[cgterms], i++, 
+       conj = Table[ToConjugateRep[subG, cgterms[[i,j]]], {j, 1, 3}]; 
+        If[Length[cgterms[[i]]] == 4, AppendTo[conj, cgterms[[i,4]]]]; 
+        conj2 = conj; conj2[[2]] = conj[[3]]; conj2[[3]] = conj[[2]]; 
+        For[j = 1, j <= Length[cgterms], j++, If[cgterms[[j]] == conj, 
+           ret[[i,j]] = 1; Break[], If[Length[conj] == 4 && cgterms[[j]] == 
+               conj2, ret[[i,j]] = conj[[4]]; Break[]; ]; ]; ]; ]; 
+      Return[ret]; ]
  
 FixCGPhase[r1_, r2_, r3_, coefs_, embed_] := 
     Module[{cgterms, largeG, subG, conj, i, index, arg1, arg2}, 
@@ -294,3 +322,15 @@ OrthnormalizeCG[r1_, r2_, r3_, coefsList_, embed_] :=
        norm = Simplify[Conjugate[ret[[i,pos]]] . ret[[i,pos]]]; 
         norm = Simplify[Sqrt[norm]]; ret[[i]] /= norm; ]; 
       Return[Simplify[ret]]]
+ 
+VerifyCG[r1_String, r2_String, r3_String, embed_Symbol, op_Symbol, rep_] := 
+    Module[{v1, v2, lg, res, i, j, coef, d3, expect}, 
+     lg = embed[KeyLargeGroup]; v1 = Table[Unique["x"], 
+        {i, 1, GetDimensionByRep[lg, r1]}]; 
+      v2 = Table[Unique["y"], {i, 1, GetDimensionByRep[lg, r2]}]; 
+      d3 = GetDimensionByRep[lg, r3]; expect = ConstantArray[0, d3]; 
+      res = N[DotDifference[v1, v2, r1, r2, r3, embed, op] /. rep]; 
+      For[i = 1, i <= Length[v1], i++, For[j = 1, j <= Length[v2], j++, 
+        If[Chop[Coefficient[res, v1[[i]]*v2[[j]]]] != expect, 
+         Print["diff=", Chop[Coefficient[res, v1[[i]]*v2[[j]]]]]; 
+          Return[False]]]]; Return[True]]
