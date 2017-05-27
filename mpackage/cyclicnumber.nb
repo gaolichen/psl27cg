@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     82352,       1969]
-NotebookOptionsPosition[     82116,       1956]
-NotebookOutlinePosition[     82450,       1971]
-CellTagsIndexPosition[     82407,       1968]
+NotebookDataLength[     82832,       1979]
+NotebookOptionsPosition[     82493,       1963]
+NotebookOutlinePosition[     82860,       1979]
+CellTagsIndexPosition[     82817,       1976]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -466,18 +466,20 @@ Cell[BoxData[
      RowBox[{"Module", "[", 
       RowBox[{
        RowBox[{"{", 
-        RowBox[{"num", ",", "denor", ",", "ret"}], "}"}], ",", 
+        RowBox[{"num", ",", "denor", ",", "ret", ",", "cnn"}], "}"}], ",", 
        "\[IndentingNewLine]", 
        RowBox[{
+        RowBox[{"cnn", "=", 
+         RowBox[{"Together", "[", "cn", "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"num", " ", "=", " ", 
          RowBox[{"CnToList", "[", 
           RowBox[{
-           RowBox[{"Numerator", "[", "cn", "]"}], ",", "var", ",", "n"}], 
+           RowBox[{"Numerator", "[", "cnn", "]"}], ",", "var", ",", "n"}], 
           "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"denor", " ", "=", " ", 
          RowBox[{"CnToList", "[", 
           RowBox[{
-           RowBox[{"Denominator", "[", "cn", "]"}], ",", "var", ",", "n"}], 
+           RowBox[{"Denominator", "[", "cnn", "]"}], ",", "var", ",", "n"}], 
           "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"(*", 
          RowBox[{
@@ -1508,7 +1510,7 @@ Cell[BoxData[
         RowBox[{"For", "[", 
          RowBox[{
           RowBox[{"i", "=", "0"}], ",", 
-          RowBox[{"i", "\[LessEqual]", " ", "4"}], ",", 
+          RowBox[{"i", "\[LessEqual]", " ", "7"}], ",", 
           RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
           RowBox[{"For", "[", 
            RowBox[{
@@ -1815,36 +1817,8 @@ Cell[BoxData[
             RowBox[{"RootApproximant", "[", 
              RowBox[{"Abs", "[", "n", "]"}], "]"}], "ph"}], "]"}]}], 
          "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
-    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"file", "=", 
-     RowBox[{"FileNameJoin", "[", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"NotebookDirectory", "[", "]"}], ",", 
-        "\"\<cyclicnumber.m\>\""}], "}"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"If", "[", 
-     RowBox[{
-      RowBox[{"FileExistsQ", "[", "file", "]"}], ",", " ", 
-      RowBox[{"DeleteFile", "[", "file", "]"}]}], "]"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"Save", "[", 
-     RowBox[{"file", ",", "\[IndentingNewLine]", 
-      RowBox[{"{", 
-       RowBox[{
-       "CnRelation", ",", "CnFreeVarNumber", ",", "InitCnBase", ",", 
-        "CnToList", ",", "ListToCn", ",", "CnTimes", ",", "InverseCn", ",", 
-        "ReducePowerCN", ",", "SimplifyCN", ",", "SimplifyCnMat", ",", 
-        "FullSimplifyCoef", ",", "FullSimplifyCoefMat", ",", "Eigenvector4F7",
-         ",", "DiagonalizeMatrixCN", ",", "ToExactPhase", ",", "ToExp", ",", 
-        "N2Exact"}], "}"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{"Clear", "[", "file", "]"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]"}]}]], "Input",
+    ";"}], "\[IndentingNewLine]"}]}]], "Input",
+ InitializationCell->True,
  CellChangeTimes->{{3.695301272678041*^9, 3.695301576439644*^9}, {
    3.69530161245601*^9, 3.695301707904037*^9}, {3.6953017433755817`*^9, 
    3.695301786031851*^9}, {3.6953018191679792`*^9, 3.695301893520679*^9}, {
@@ -1952,8 +1926,42 @@ Cell[BoxData[
    3.704547553510689*^9, {3.704547634052897*^9, 3.704547661980114*^9}, {
    3.7045478011529417`*^9, 3.704547806879591*^9}, {3.704548011183272*^9, 
    3.70454801563616*^9}, {3.704548065431087*^9, 3.7045480671971407`*^9}, 
-   3.704552778550502*^9, {3.7045839433430758`*^9, 3.704583944430213*^9}}]
+   3.704552778550502*^9, {3.7045839433430758`*^9, 3.704583944430213*^9}, {
+   3.704813918407875*^9, 3.704813918799706*^9}, {3.704820844081072*^9, 
+   3.704820855795598*^9}, {3.704820915929545*^9, 3.7048209187580223`*^9}, {
+   3.704906196122059*^9, 3.704906205481544*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"file", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+        "\"\<cyclicnumber.m\>\""}], "}"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"FileExistsQ", "[", "file", "]"}], ",", " ", 
+      RowBox[{"DeleteFile", "[", "file", "]"}]}], "]"}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"Save", "[", 
+     RowBox[{"file", ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+       "CnRelation", ",", "CnFreeVarNumber", ",", "InitCnBase", ",", 
+        "CnToList", ",", "ListToCn", ",", "CnTimes", ",", "InverseCn", ",", 
+        "ReducePowerCN", ",", "SimplifyCN", ",", "SimplifyCnMat", ",", 
+        "FullSimplifyCoef", ",", "FullSimplifyCoefMat", ",", "Eigenvector4F7",
+         ",", "DiagonalizeMatrixCN", ",", "ToExactPhase", ",", "ToExp", ",", 
+        "N2Exact"}], "}"}]}], "\[IndentingNewLine]", "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Clear", "[", "file", "]"}]}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.7049062015041447`*^9, 3.7049062138612137`*^9}}]
 },
+AutoGeneratedPackage->Automatic,
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
@@ -1970,7 +1978,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 81554, 1934, 8800, "Input"]
+Cell[558, 20, 80688, 1911, 8547, "Input",
+ InitializationCell->True],
+Cell[81249, 1933, 1240, 28, 209, "Input"]
 }
 ]
 *)
