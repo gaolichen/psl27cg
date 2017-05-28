@@ -20,7 +20,7 @@
 
 
 
-CyclicNumberPackage="/users/gaolichen/gitroot/psl27cg/mpackage/cyclicnumber.m";
+<<"/users/gaolichen/gitroot/psl27cg/mpackage/cyclicnumber.m";
 KeyIrr="Irr";
 KeyConjugateIrr="ConjugateIrr";
 KeyKronecker="MyKroneckerProduct";
@@ -594,9 +594,11 @@ ret=coefsList,
 
 (* If there are more than one set of CG coefficients, we need to do orthnormalization.*)
 Assert[Length[coefsList]>1];
-mat=ConstantArray[0,{Length[subcoefs],Length[subcoefs]}];
-For[i=1,i<= Length[mat],i++,
-For[j=1,j<= Length[mat],j++,
+ret=GramSchmid[coefsList, et,7];
+(*Print["ret=",ret];*)
+(*mat=ConstantArray[0,{Length[subcoefs],Length[subcoefs]}];
+For[i=1,i\[LessEqual] Length[mat],i++,
+For[j=1,j\[LessEqual] Length[mat],j++,
 mat[[i,j]]= Conjugate[subcoefs[[i]]].subcoefs[[j]];
 ]
 ];
@@ -605,16 +607,20 @@ mat[[i,j]]= Conjugate[subcoefs[[i]]].subcoefs[[j]];
 (* orthogonalize. *)
 ret={};
 eigenV=Eigenvectors[mat];
-For[i=1,i<= Length[eigenV],i++,
+For[i=1,i\[LessEqual] Length[eigenV],i++,
 AppendTo[ret,Sum[eigenV[[i,j]]*coefsList[[j]],{j,1,Length[eigenV]}]]
-];
+];*)
 ];
 
 (* normalize. *)
 For[i=1,i<= Length[ret],i++,
-norm=Simplify[Conjugate[ret[[i,pos]]].ret[[i,pos]]];
+norm=Simplify[ToConjugateCN[ret[[i,pos]],et,7].ret[[i,pos]]];
+norm=SimplifyCN[norm,et,7];
+(*Print["norm=",norm];*)
 norm=Simplify[Sqrt[norm]];
 ret[[i]]/=norm;
+ret[[i]]=SimplifyCN[ret[[i]],et,7];
+(*Print["ret[[i]]=",ret];*)
 ];
 
 Return[Simplify[ret]]

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     52589,       1158]
-NotebookOptionsPosition[     52271,       1143]
-NotebookOutlinePosition[     52605,       1158]
-CellTagsIndexPosition[     52562,       1155]
+NotebookDataLength[     53191,       1171]
+NotebookOptionsPosition[     52873,       1156]
+NotebookOutlinePosition[     53207,       1171]
+CellTagsIndexPosition[     53164,       1168]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -718,12 +718,22 @@ Cell[BoxData[
             RowBox[{"{", 
              RowBox[{"i", ",", "1", ",", 
               RowBox[{"Length", "[", "coefsList", "]"}]}], "}"}]}], "]"}], 
-          ";", "\[IndentingNewLine]", 
-          RowBox[{"coefsList", "=", 
-           RowBox[{"OrthnormalizeCG", "[", 
-            RowBox[{
-            "r1", ",", "r2", ",", "r3", ",", "coefsList", ",", " ", "embed"}],
-             "]"}]}], ";"}], "*)"}], "\[IndentingNewLine]", 
+          ";"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"coefsList", "=", 
+         RowBox[{"OrthnormalizeCG", "[", 
+          RowBox[{"r1", ",", "r2", ",", "r3", ",", 
+           RowBox[{"coefsList", "/.", "b7ToEt"}], ",", " ", "embed"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"coefsList", "=", 
+         RowBox[{"N2Exact", "[", 
+          RowBox[{"N", "[", 
+           RowBox[{"coefsList", "/.", 
+            RowBox[{"{", 
+             RowBox[{"et", "\[Rule]", 
+              RowBox[{"Exp", "[", 
+               RowBox[{"I", "*", "2", 
+                RowBox[{"Pi", "/", "7"}]}], "]"}]}], "}"}]}], "]"}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
         RowBox[{"Return", "[", 
          RowBox[{"ToRadicals", "[", "coefsList", "]"}], "]"}], ";"}]}], 
       "\[IndentingNewLine]", 
@@ -1139,7 +1149,10 @@ Cell[BoxData[
    3.704740565392036*^9}, {3.704741311337983*^9, 3.7047413491384478`*^9}, {
    3.704751453844964*^9, 3.7047514957023973`*^9}, {3.7047516329961357`*^9, 
    3.704751664044072*^9}, {3.704751705669238*^9, 3.704751708674697*^9}, {
-   3.704753696944269*^9, 3.704753757038272*^9}, 3.704760290339923*^9}]
+   3.704753696944269*^9, 3.704753757038272*^9}, 3.704760290339923*^9, 
+   3.704968989122683*^9, 3.7049690943485937`*^9, {3.704969228020729*^9, 
+   3.704969269182582*^9}, {3.70497034379391*^9, 3.704970373927311*^9}, 
+   3.704973606172768*^9, 3.704979154703808*^9}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -1159,7 +1172,7 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 678, 17, 99, "Input"],
 Cell[1239, 39, 10140, 264, 1265, "Input"],
-Cell[11382, 305, 40885, 836, 3278, "Input"]
+Cell[11382, 305, 41487, 849, 3300, "Input"]
 }
 ]
 *)

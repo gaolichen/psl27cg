@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    135409,       3034]
-NotebookOptionsPosition[    135004,       3016]
-NotebookOutlinePosition[    135394,       3033]
-CellTagsIndexPosition[    135351,       3030]
+NotebookDataLength[    137069,       3072]
+NotebookOptionsPosition[    136664,       3054]
+NotebookOutlinePosition[    137054,       3071]
+CellTagsIndexPosition[    137011,       3068]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -113,9 +113,8 @@ Cell[BoxData[
   RowBox[{
    RowBox[{
     RowBox[{
-    "CyclicNumberPackage", "=", 
-     "\"\</users/gaolichen/gitroot/psl27cg/mpackage/cyclicnumber.m\>\""}], 
-    ";"}], "\[IndentingNewLine]", 
+    "<<", "\"\</users/gaolichen/gitroot/psl27cg/mpackage/cyclicnumber.m\>\""}]\
+, ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"KeyIrr", "=", "\"\<Irr\>\""}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
@@ -2701,6 +2700,17 @@ Cell[BoxData[
             RowBox[{
              RowBox[{"Length", "[", "coefsList", "]"}], ">", "1"}], "]"}], 
            ";", "\[IndentingNewLine]", 
+           RowBox[{"ret", "=", 
+            RowBox[{"GramSchmid", "[", 
+             RowBox[{"coefsList", ",", " ", "et", ",", "7"}], "]"}]}], 
+           ";"}]}], "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{"\"\<ret=\>\"", ",", "ret"}], "]"}], ";"}], "*)"}], 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
            RowBox[{"mat", "=", 
             RowBox[{"ConstantArray", "[", 
              RowBox[{"0", ",", 
@@ -2767,7 +2777,7 @@ Cell[BoxData[
                  RowBox[{"{", 
                   RowBox[{"j", ",", "1", ",", 
                    RowBox[{"Length", "[", "eigenV", "]"}]}], "}"}]}], "]"}]}],
-               "]"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+               "]"}]}], "\[IndentingNewLine]", "]"}], ";"}], "*)"}], 
          "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
         "\[IndentingNewLine]", 
         RowBox[{"(*", " ", 
@@ -2782,13 +2792,24 @@ Cell[BoxData[
            RowBox[{"norm", "=", 
             RowBox[{"Simplify", "[", 
              RowBox[{
-              RowBox[{"Conjugate", "[", 
-               RowBox[{"ret", "[", 
-                RowBox[{"[", 
-                 RowBox[{"i", ",", "pos"}], "]"}], "]"}], "]"}], ".", 
+              RowBox[{"ToConjugateCN", "[", 
+               RowBox[{
+                RowBox[{"ret", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"i", ",", "pos"}], "]"}], "]"}], ",", "et", ",", 
+                "7"}], "]"}], ".", 
               RowBox[{"ret", "[", 
                RowBox[{"[", 
                 RowBox[{"i", ",", "pos"}], "]"}], "]"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"norm", "=", 
+            RowBox[{"SimplifyCN", "[", 
+             RowBox[{"norm", ",", "et", ",", "7"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{"Print", "[", 
+              RowBox[{"\"\<norm=\>\"", ",", "norm"}], "]"}], ";"}], "*)"}], 
            "\[IndentingNewLine]", 
            RowBox[{"norm", "=", 
             RowBox[{"Simplify", "[", 
@@ -2796,7 +2817,20 @@ Cell[BoxData[
            "\[IndentingNewLine]", 
            RowBox[{
             RowBox[{"ret", "[", 
-             RowBox[{"[", "i", "]"}], "]"}], "/=", "norm"}], ";"}]}], 
+             RowBox[{"[", "i", "]"}], "]"}], "/=", "norm"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"ret", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "=", 
+            RowBox[{"SimplifyCN", "[", 
+             RowBox[{
+              RowBox[{"ret", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], ",", "et", ",", "7"}], "]"}]}],
+            ";"}]}], "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+           RowBox[{"Print", "[", 
+            RowBox[{"\"\<ret[[i]]=\>\"", ",", "ret"}], "]"}], ";"}], "*)"}], 
          "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
         "\[IndentingNewLine]", 
         RowBox[{"Return", "[", 
@@ -2956,7 +2990,11 @@ Cell[BoxData[
    3.704741361440185*^9, {3.70475964099929*^9, 3.704759664296062*^9}, {
    3.7047597432313137`*^9, 3.704759781983391*^9}, {3.7047598136722393`*^9, 
    3.7047598424966307`*^9}, {3.7047600737886057`*^9, 3.70476008809229*^9}, {
-   3.7047603177649403`*^9, 3.7047604948541527`*^9}}],
+   3.7047603177649403`*^9, 3.7047604948541527`*^9}, {3.704968929537462*^9, 
+   3.704968941611876*^9}, {3.70496973725854*^9, 3.704969761080934*^9}, {
+   3.704969797411037*^9, 3.7049698599827623`*^9}, {3.7049700506616497`*^9, 
+   3.704970110070472*^9}, {3.704970234488866*^9, 3.704970237611155*^9}, {
+   3.7049736256187267`*^9, 3.704973635870256*^9}, 3.704979164914569*^9}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -3033,9 +3071,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 6296, 88, 55, "Input"],
-Cell[6857, 110, 124959, 2848, 13299, "Input",
+Cell[6857, 110, 126619, 2886, 13431, "Input",
  InitializationCell->True],
-Cell[131819, 2960, 3181, 54, 319, "Input"]
+Cell[133479, 2998, 3181, 54, 319, "Input"]
 }
 ]
 *)
