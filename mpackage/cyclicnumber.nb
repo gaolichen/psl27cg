@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     90522,       2084]
-NotebookOptionsPosition[     90182,       2068]
-NotebookOutlinePosition[     90549,       2084]
-CellTagsIndexPosition[     90506,       2081]
+NotebookDataLength[     92175,       2118]
+NotebookOptionsPosition[     91835,       2102]
+NotebookOutlinePosition[     92202,       2118]
+CellTagsIndexPosition[     92159,       2115]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1458,7 +1458,18 @@ Cell[BoxData[
     RowBox[{
      RowBox[{"Options", "[", "ToExactPhase", "]"}], "=", 
      RowBox[{"{", 
-      RowBox[{"ToTex", "\[Rule]", "False"}], "}"}]}], ";"}], 
+      RowBox[{
+       RowBox[{"ToTex", "\[Rule]", "False"}], ",", 
+       RowBox[{"Angle", "->", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{"I", "*", 
+            RowBox[{"Sqrt", "[", "7", "]"}]}]}], ")"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"2", 
+           RowBox[{"Sqrt", "[", "2", "]"}]}], ")"}]}]}]}], "}"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -1471,31 +1482,33 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{
         "vb7", ",", "vd7", ",", "i", ",", "j", ",", "k", ",", "v", ",", 
-         "vomega", ",", "a", ",", "diff"}], "}"}], ",", "\[IndentingNewLine]", 
+         "vomega", ",", "a", ",", "diff", ",", "basis", ",", "pos"}], "}"}], 
+       ",", "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"v", "=", 
          RowBox[{"N", "[", "ph", "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"vb7", "=", 
-         RowBox[{
-          RowBox[{"(", 
-           RowBox[{
-            RowBox[{"-", "1"}], "+", 
-            RowBox[{"I", "*", 
-             RowBox[{"Sqrt", "[", "7", "]"}]}]}], ")"}], "/", 
-          RowBox[{"(", 
-           RowBox[{"2", 
-            RowBox[{"Sqrt", "[", "2", "]"}]}], ")"}]}]}], ";", 
+         RowBox[{"OptionValue", "[", "Angle", "]"}]}], ";", 
         "\[IndentingNewLine]", 
-        RowBox[{"vd7", "=", 
+        RowBox[{"basis", "=", 
+         RowBox[{"{", 
+          RowBox[{"vb7", ",", " ", "b7", ",", "d7", ",", 
+           SubscriptBox["b", "7"], ",", 
+           RowBox[{"ToExpression", "[", 
+            RowBox[{"\"\<\\\\Bar{b}_7\>\"", ",", "TeXForm"}], "]"}]}], 
+          "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
          RowBox[{
-          RowBox[{"(", 
+          RowBox[{"vd7", "=", 
            RowBox[{
-            RowBox[{"-", "1"}], "-", 
-            RowBox[{"I", "*", 
-             RowBox[{"Sqrt", "[", "7", "]"}]}]}], ")"}], "/", 
-          RowBox[{"(", 
-           RowBox[{"2", 
-            RowBox[{"Sqrt", "[", "2", "]"}]}], ")"}]}]}], ";", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "-", 
+              RowBox[{"I", "*", 
+               RowBox[{"Sqrt", "[", "7", "]"}]}]}], ")"}], "/", 
+            RowBox[{"(", 
+             RowBox[{"2", 
+              RowBox[{"Sqrt", "[", "2", "]"}]}], ")"}]}]}], ";"}], "*)"}], 
         "\[IndentingNewLine]", 
         RowBox[{"vomega", "=", 
          RowBox[{
@@ -1507,8 +1520,9 @@ Cell[BoxData[
         "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"For", "[", 
          RowBox[{
-          RowBox[{"i", "=", "0"}], ",", 
-          RowBox[{"i", "\[LessEqual]", " ", "4"}], ",", 
+          RowBox[{"i", "=", 
+           RowBox[{"-", "7"}]}], ",", 
+          RowBox[{"i", "\[LessEqual]", " ", "7"}], ",", 
           RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
           RowBox[{"For", "[", 
            RowBox[{
@@ -1543,24 +1557,38 @@ Cell[BoxData[
                RowBox[{
                 RowBox[{"If", "[", 
                  RowBox[{
+                  RowBox[{"i", "<", "0"}], ",", 
+                  RowBox[{"pos", "=", "3"}], ",", " ", 
+                  RowBox[{"pos", "=", "2"}]}], "]"}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
                   RowBox[{"OptionValue", "[", "ToTex", "]"}], ",", 
                   "\[IndentingNewLine]", 
                   RowBox[{"Return", "[", 
                    RowBox[{
                     RowBox[{
-                    SubscriptBox["b", "7"], "^", "i"}], "*", 
+                    RowBox[{"basis", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"pos", "+", "2"}], "]"}], "]"}], "^", 
+                    RowBox[{"Abs", "[", "i", "]"}]}], "*", 
                     RowBox[{"\[Omega]", "^", "j"}], "*", 
                     RowBox[{"I", "^", 
                     RowBox[{"Round", "[", "diff", "]"}]}]}], "]"}], ",", 
                   "\[IndentingNewLine]", 
                   RowBox[{"Return", "[", 
                    RowBox[{
-                    RowBox[{"b7", "^", "i"}], "*", 
+                    RowBox[{
+                    RowBox[{"basis", "[", 
+                    RowBox[{"[", "pos", "]"}], "]"}], "^", 
+                    RowBox[{"Abs", "[", "i", "]"}]}], "*", 
                     RowBox[{"omg", "^", "j"}], "*", 
                     RowBox[{"I", "^", 
                     RowBox[{"Round", "[", "diff", "]"}]}]}], "]"}]}], 
                  "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]",
-               "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+               "]"}], ";"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
              RowBox[{"a", "=", 
               RowBox[{"N", "[", 
                RowBox[{"Arg", "[", 
@@ -1600,7 +1628,7 @@ Cell[BoxData[
                     RowBox[{"I", "^", 
                     RowBox[{"Round", "[", "diff", "]"}]}]}], "]"}]}], 
                  "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]",
-               "]"}], ";"}]}], "\[IndentingNewLine]", 
+               "]"}], ";"}], "*)"}], "\[IndentingNewLine]", 
            RowBox[{"(*", 
             RowBox[{
              RowBox[{"Print", "[", 
@@ -1925,7 +1953,13 @@ Cell[BoxData[
    3.7045478011529417`*^9, 3.704547806879591*^9}, {3.704548011183272*^9, 
    3.70454801563616*^9}, {3.704548065431087*^9, 3.7045480671971407`*^9}, 
    3.704552778550502*^9, {3.7045839433430758`*^9, 3.704583944430213*^9}, 
-   3.7049299083069353`*^9}],
+   3.7049299083069353`*^9, {3.7049691676378193`*^9, 3.704969182503941*^9}, {
+   3.7049692197190933`*^9, 3.7049692204323177`*^9}, {3.704980535963007*^9, 
+   3.7049805374815063`*^9}, {3.704980664589682*^9, 3.704980665105123*^9}, {
+   3.704987716876771*^9, 3.7049877249492273`*^9}, {3.7049878190253057`*^9, 
+   3.704987882804566*^9}, {3.7049880026608*^9, 3.7049881765834913`*^9}, {
+   3.7049882429443207`*^9, 3.704988250622067*^9}, {3.7049882824513893`*^9, 
+   3.704988282670121*^9}, {3.704988882283059*^9, 3.704988934495102*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -2083,9 +2117,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 80374, 1907, 8503, "Input",
+Cell[558, 20, 82027, 1941, 8580, "Input",
  InitializationCell->True],
-Cell[80935, 1929, 9243, 137, 253, "Input"]
+Cell[82588, 1963, 9243, 137, 253, "Input"]
 }
 ]
 *)

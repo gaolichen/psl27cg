@@ -329,33 +329,35 @@ Return[{left,right}]
 NIntegerQ[n_]:=Chop[N[n]-Round[Re[N[n]]]]==0;
 
 ClearAll[ToExactPhase];
-Options[ToExactPhase]={ToTex->False};
-ToExactPhase[ph_,opts:OptionsPattern[]]:=Module[{vb7,vd7,i,j,k,v,vomega,a,diff},
+Options[ToExactPhase]={ToTex->False,Angle->(-1+I*Sqrt[7])/(2Sqrt[2])};
+ToExactPhase[ph_,opts:OptionsPattern[]]:=Module[{vb7,vd7,i,j,k,v,vomega,a,diff,basis,pos},
 v=N[ph];
-vb7=(-1+I*Sqrt[7])/(2Sqrt[2]);
-vd7=(-1-I*Sqrt[7])/(2Sqrt[2]);
+vb7=OptionValue[Angle];
+basis={vb7, b7,d7,Subscript[b, 7],ToExpression["\\Bar{b}_7",TeXForm]};
+(*vd7=(-1-I*Sqrt[7])/(2Sqrt[2]);*)
 vomega=(-1+I*Sqrt[3])/2;
 
-For[i=0,i<= 4,i++,
+For[i=-7,i<= 7,i++,
 For[j=0,j<= 2,j++,
 a=N[Arg[vb7^i*vomega^j]];
 diff=(v-a)/Pi*2;
 (*Print["i=",i,", j=", j, ", diff=", diff];*)
 If[NIntegerQ[diff],
+If[i<0,pos=3, pos=2];
 If[OptionValue[ToTex],
-Return[Subscript[b, 7]^i*\[Omega]^j*I^Round[diff]],
-Return[b7^i*omg^j*I^Round[diff]]
+Return[basis[[pos+2]]^Abs[i]*\[Omega]^j*I^Round[diff]],
+Return[basis[[pos]]^Abs[i]*omg^j*I^Round[diff]]
 ];
 ];
 
-a=N[Arg[vd7^i*vomega^j]];
+(*a=N[Arg[vd7^i*vomega^j]];
 diff=(v-a)/Pi*2;
 If[NIntegerQ[diff],
 If[OptionValue[ToTex],
 Return[ToExpression["\\Bar{b}_7",TeXForm]^i*\[Omega]^j*I^Round[diff]],
 Return[d7^i*omg^j*I^Round[diff]]
 ];
-];
+];*)
 (*Print["i=",i,", j=", j, ", diff=", diff];*)
 ]
 ];
