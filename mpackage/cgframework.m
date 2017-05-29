@@ -48,6 +48,16 @@ If[StringContainsQ[Last[parts], "-"], Return[ToFullRep[First[parts], "-"]]];
 Return[First[parts]];
 ];
 
+ClearAll[GetSymmetryByRep];
+GetSymmetryByRep[r_String]:=Module[{parts},
+If[StringContainsQ[r,":"]==False,Return[""]];
+
+parts=StringSplit[r,":"];
+If[StringContainsQ[Last[parts], "+"], Return["+"],
+If[StringContainsQ[Last[parts], "-"], Return["-"],Return[""]];
+];
+]
+
 ClearAll[GetRepDecorate];
 GetRepDecorate[r_String]:=If[StringContainsQ[r,":"],Last[StringSplit[r,":"]],""];
 

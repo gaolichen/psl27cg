@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     53191,       1171]
-NotebookOptionsPosition[     52873,       1156]
-NotebookOutlinePosition[     53207,       1171]
-CellTagsIndexPosition[     53164,       1168]
+NotebookDataLength[     54046,       1187]
+NotebookOptionsPosition[     53728,       1172]
+NotebookOutlinePosition[     54062,       1187]
+CellTagsIndexPosition[     54019,       1184]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -54,7 +54,8 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{"\"\<3\>\"", ",", "3"}], "}"}], ",", 
        RowBox[{"{", 
-        RowBox[{"\"\<3b\>\"", ",", "3"}], "}"}], ",", 
+        RowBox[{"\"\<3b\>\"", ",", "3", ",", "\"\<\\\\bar{3}\>\""}], "}"}], 
+       ",", 
        RowBox[{"{", 
         RowBox[{"\"\<6\>\"", ",", "6"}], "}"}], ",", 
        RowBox[{"{", 
@@ -301,7 +302,7 @@ Cell[BoxData[
    3.699295552603633*^9}, {3.699317145945179*^9, 3.699317146906282*^9}, 
    3.699381427451576*^9, {3.6994573155136347`*^9, 3.699457455831664*^9}, {
    3.6994575043637457`*^9, 3.699457520447097*^9}, {3.704667981346108*^9, 
-   3.70466800282685*^9}}],
+   3.70466800282685*^9}, {3.7050621615319967`*^9, 3.705062168104129*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -490,10 +491,22 @@ Cell[BoxData[
         ";", "\[IndentingNewLine]", 
         RowBox[{"(*", 
          RowBox[{
-          RowBox[{"mat", "=", 
+          RowBox[{"root", "=", 
+           RowBox[{"SolveLinearEquation", "[", 
+            RowBox[{"mat", ",", 
+             RowBox[{"FreeCoefficients", "\[Rule]", 
+              RowBox[{"neqs", "[", 
+               RowBox[{"[", "2", "]"}], "]"}]}], ",", 
+             RowBox[{"Numeric", "\[Rule]", "False"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"root", "=", 
            RowBox[{"SimplifyCN", "[", 
-            RowBox[{"eqs", ",", "et", ",", "7"}], "]"}]}], ";"}], "*)"}], 
-        "\[IndentingNewLine]", 
+            RowBox[{"root", ",", "et", ",", "7"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"root", "=", 
+           RowBox[{"Simplify", "[", 
+            RowBox[{"root", "/.", "et4ToB7"}], "]"}]}], ";"}], "*)"}], 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"mat", "=", 
          RowBox[{"Simplify", "[", 
           RowBox[{
@@ -1152,7 +1165,10 @@ Cell[BoxData[
    3.704753696944269*^9, 3.704753757038272*^9}, 3.704760290339923*^9, 
    3.704968989122683*^9, 3.7049690943485937`*^9, {3.704969228020729*^9, 
    3.704969269182582*^9}, {3.70497034379391*^9, 3.704970373927311*^9}, 
-   3.704973606172768*^9, 3.704979154703808*^9}]
+   3.704973606172768*^9, 3.704979154703808*^9, {3.704994371069035*^9, 
+   3.704994387738309*^9}, 3.704994419096764*^9, {3.704994515167925*^9, 
+   3.704994520191608*^9}, {3.704994621721477*^9, 3.704994749866167*^9}, {
+   3.704994795706419*^9, 3.7049948440332737`*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -1171,8 +1187,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 678, 17, 99, "Input"],
-Cell[1239, 39, 10140, 264, 1265, "Input"],
-Cell[11382, 305, 41487, 849, 3300, "Input"]
+Cell[1239, 39, 10223, 265, 1298, "Input"],
+Cell[11465, 306, 42259, 864, 3333, "Input"]
 }
 ]
 *)

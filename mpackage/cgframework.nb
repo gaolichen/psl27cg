@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    137069,       3072]
-NotebookOptionsPosition[    136664,       3054]
-NotebookOutlinePosition[    137054,       3071]
-CellTagsIndexPosition[    137011,       3068]
+NotebookDataLength[    138677,       3111]
+NotebookOptionsPosition[    138272,       3093]
+NotebookOutlinePosition[    138662,       3110]
+CellTagsIndexPosition[    138619,       3107]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -228,6 +228,44 @@ Cell[BoxData[
          RowBox[{"First", "[", "parts", "]"}], "]"}], ";"}]}], 
       "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "GetSymmetryByRep", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"GetSymmetryByRep", "[", "r_String", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "parts", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"StringContainsQ", "[", 
+           RowBox[{"r", ",", "\"\<:\>\""}], "]"}], "\[Equal]", "False"}], ",", 
+         RowBox[{"Return", "[", "\"\<\>\"", "]"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"parts", "=", 
+        RowBox[{"StringSplit", "[", 
+         RowBox[{"r", ",", "\"\<:\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"StringContainsQ", "[", 
+          RowBox[{
+           RowBox[{"Last", "[", "parts", "]"}], ",", " ", "\"\<+\>\""}], 
+          "]"}], ",", " ", 
+         RowBox[{"Return", "[", "\"\<+\>\"", "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"StringContainsQ", "[", 
+             RowBox[{
+              RowBox[{"Last", "[", "parts", "]"}], ",", " ", "\"\<-\>\""}], 
+             "]"}], ",", " ", 
+            RowBox[{"Return", "[", "\"\<-\>\"", "]"}], ",", 
+            RowBox[{"Return", "[", "\"\<\>\"", "]"}]}], "]"}], ";"}]}], 
+        "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "GetRepDecorate", "]"}], ";"}], 
    "\[IndentingNewLine]", 
@@ -2994,7 +3032,8 @@ Cell[BoxData[
    3.704968941611876*^9}, {3.70496973725854*^9, 3.704969761080934*^9}, {
    3.704969797411037*^9, 3.7049698599827623`*^9}, {3.7049700506616497`*^9, 
    3.704970110070472*^9}, {3.704970234488866*^9, 3.704970237611155*^9}, {
-   3.7049736256187267`*^9, 3.704973635870256*^9}, 3.704979164914569*^9}],
+   3.7049736256187267`*^9, 3.704973635870256*^9}, 3.704979164914569*^9, {
+   3.7050751592663383`*^9, 3.705075338795063*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -3071,9 +3110,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 6296, 88, 55, "Input"],
-Cell[6857, 110, 126619, 2886, 13431, "Input",
+Cell[6857, 110, 128227, 2925, 13651, "Input",
  InitializationCell->True],
-Cell[133479, 2998, 3181, 54, 319, "Input"]
+Cell[135087, 3037, 3181, 54, 319, "Input"]
 }
 ]
 *)
