@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     92175,       2118]
-NotebookOptionsPosition[     91835,       2102]
-NotebookOutlinePosition[     92202,       2118]
-CellTagsIndexPosition[     92159,       2115]
+NotebookDataLength[     94285,       2159]
+NotebookOptionsPosition[     93945,       2143]
+NotebookOutlinePosition[     94312,       2159]
+CellTagsIndexPosition[     94269,       2156]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -414,8 +414,10 @@ Cell[BoxData[
          RowBox[{
           RowBox[{"Print", "[", 
            RowBox[{
-           "\"\<inverseCn \>\"", ",", "clist", ",", " ", "\"\<=\>\"", ",", 
-            RowBox[{"ret", "/.", "root"}]}], "]"}], ";"}], "*)"}], 
+           "\"\<root=\>\"", ",", "root", ",", "\"\<, inverseCn \>\"", ",", 
+            "clist", ",", " ", "\"\<=\>\"", ",", 
+            RowBox[{"ret", "/.", 
+             RowBox[{"First", "[", "root", "]"}]}]}], "]"}], ";"}], "*)"}], 
         "\[IndentingNewLine]", 
         RowBox[{"Return", "[", 
          RowBox[{"Simplify", "[", 
@@ -484,7 +486,9 @@ Cell[BoxData[
           RowBox[{"Print", "[", 
            RowBox[{
            "\"\<num=\>\"", ",", "num", ",", " ", "\"\<, denor=\>\"", ",", 
-            "denor"}], "]"}], ";"}], "*)"}], "\[IndentingNewLine]", 
+            "denor", ",", "\"\<; \>\"", ",", 
+            RowBox[{"Denominator", "[", "cn", "]"}]}], "]"}], ";"}], "*)"}], 
+        "\[IndentingNewLine]", 
         RowBox[{"ret", " ", "=", " ", 
          RowBox[{"Simplify", "[", 
           RowBox[{"CnTimes", "[", 
@@ -1027,6 +1031,12 @@ Cell[BoxData[
           RowBox[{"{", "}"}]}], ",", "i", ",", "j", ",", "vvl", ",", "inv", 
          ",", "dot"}], "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Length", "[", "vList", "]"}], "\[Equal]", "1"}], ",", 
+          RowBox[{"Return", "[", "vList", "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
         RowBox[{"vvl", "=", "vList"}], ";", "\[IndentingNewLine]", 
         RowBox[{"For", "[", 
          RowBox[{
@@ -1321,14 +1331,28 @@ Cell[BoxData[
          RowBox[{"Transpose", "[", "ret", "]"}], "]"}]}]}], 
       "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"diagonalize", " ", "the", " ", "given", " ", 
+      RowBox[{"matrix", ".", " ", "Return"}], " ", 
+      RowBox[{"{", 
+       RowBox[{"left", ",", " ", "right"}], "}"}], " ", "where", " ", 
+      RowBox[{"left", ".", "mat", ".", "right"}]}], " ", "=", " ", 
+     RowBox[{
+     "diagonal", " ", "matrix", " ", "with", " ", "varList", " ", "as", " ", 
+      "diagonal", " ", 
+      RowBox[{"elements", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"ClearAll", "[", "DiagonalizeMatrixCN", "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"Options", "[", "DiagonalizeMatrixCN", "]"}], "=", 
-     RowBox[{"{", 
-      RowBox[{"PhaseSymbol", "\[Rule]", " ", "\"\<\>\""}], "}"}]}], ";"}], 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"PhaseSymbol", "\[Rule]", " ", "\"\<\>\""}], "}"}], ",", 
+       RowBox[{"Options", "[", "Eigenvector4F7", "]"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -1336,7 +1360,7 @@ Cell[BoxData[
       RowBox[{
       "mat_List", ",", "valList_List", ",", "var_Symbol", ",", " ", 
        "n_Integer", ",", 
-       RowBox[{"opt", ":", 
+       RowBox[{"opts", ":", 
         RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
      RowBox[{"Module", "[", 
       RowBox[{
@@ -1388,8 +1412,13 @@ Cell[BoxData[
                RowBox[{"mat", ",", " ", 
                 RowBox[{"valList", "[", 
                  RowBox[{"[", "i", "]"}], "]"}], ",", " ", "var", ",", " ", 
-                "n"}], "]"}]}], "]"}]}], ";"}]}], "\[IndentingNewLine]", 
-         "]"}], ";", "\[IndentingNewLine]", 
+                "n", ",", 
+                RowBox[{"FilterRules", "[", 
+                 RowBox[{
+                  RowBox[{"{", "opts", "}"}], ",", 
+                  RowBox[{"Options", "[", "Eigenvector4F7", "]"}]}], "]"}]}], 
+               "]"}]}], "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+        "\[IndentingNewLine]", 
         RowBox[{"(*", 
          RowBox[{
           RowBox[{"Print", "[", 
@@ -1959,7 +1988,19 @@ Cell[BoxData[
    3.704987716876771*^9, 3.7049877249492273`*^9}, {3.7049878190253057`*^9, 
    3.704987882804566*^9}, {3.7049880026608*^9, 3.7049881765834913`*^9}, {
    3.7049882429443207`*^9, 3.704988250622067*^9}, {3.7049882824513893`*^9, 
-   3.704988282670121*^9}, {3.704988882283059*^9, 3.704988934495102*^9}}],
+   3.704988282670121*^9}, {3.704988882283059*^9, 3.704988934495102*^9}, {
+   3.705270417442666*^9, 3.7052704429803753`*^9}, {3.705270495498764*^9, 
+   3.705270516663286*^9}, {3.7052706160803833`*^9, 3.705270620511091*^9}, 
+   3.705270663997836*^9, {3.7052708656771297`*^9, 3.7052708666454067`*^9}, {
+   3.705270909664752*^9, 3.705270921171728*^9}, 3.7052710839684258`*^9, 
+   3.705271153056725*^9, {3.705271249989662*^9, 3.705271268769381*^9}, {
+   3.70527163517065*^9, 3.7052716455913467`*^9}, {3.705271937104784*^9, 
+   3.70527194022335*^9}, {3.705272251402858*^9, 3.705272308789035*^9}, {
+   3.705274627270019*^9, 3.705274637602043*^9}, 3.7052746859511623`*^9, 
+   3.7052747347562723`*^9, {3.70527477923205*^9, 3.705274789795042*^9}, {
+   3.705274882854754*^9, 3.70527490785745*^9}, {3.7052749541364098`*^9, 
+   3.705274963192072*^9}, 3.705275008542714*^9, {3.7052751325292807`*^9, 
+   3.7052751693149137`*^9}, 3.705275232985792*^9}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -2117,9 +2158,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 82027, 1941, 8580, "Input",
+Cell[558, 20, 84137, 1982, 8613, "Input",
  InitializationCell->True],
-Cell[82588, 1963, 9243, 137, 253, "Input"]
+Cell[84698, 2004, 9243, 137, 253, "Input"]
 }
 ]
 *)

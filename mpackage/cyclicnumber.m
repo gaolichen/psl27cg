@@ -118,7 +118,7 @@ eqs[[1]]-= 1;
 (*Print["eqs=",MatrixForm[eqs]];*)
 root=Solve[eqs==0, ret];
 Assert[Length[root]==1];
-(*Print["inverseCn ",clist, "=",ret/.root];*)
+(*Print["root=",root,", inverseCn ",clist, "=",ret/.First[root]];*)
 Return[Simplify[ret/.First[root]]];
 ];
 
@@ -135,7 +135,7 @@ SetAttributes[SimplifyCN,Listable]
 SimplifyCN[cn_,var_,n_]:=Module[{num,denor,ret},
 num = CnToList[Numerator[cn],var,n];
 denor = CnToList[Denominator[cn],var,n];
-(*Print["num=",num, ", denor=",denor];*)
+(*Print["num=",num, ", denor=",denor,"; ",Denominator[cn]];*)
 ret = Simplify[CnTimes[num, InverseCn[denor,n],n]];
 Return[ListToCn[ret, var]];
 ];
@@ -242,6 +242,7 @@ DotProdCN[v1_List,v2_List,var_Symbol,n_Integer]:=ToConjugateCN[v1, var, n].v2;
 (* find orghogonal basis *)
 ClearAll[GramSchmid];
 GramSchmid[vList_List, var_Symbol, n_Integer]:=Module[{ret={},i,j,vvl,inv,dot},
+If[Length[vList]==1,Return[vList]];
 vvl=vList;
 For[i=1,i<= Length[vvl],i++,
 If[vvl[[i]]=== ConstantArray[0,Length[vvl[[i]]]], Continue[]];
@@ -298,9 +299,10 @@ ret[[i]]=SimplifyCN[ret[[i]],var,n]
 Return[Transpose[ret]]
 ];
 
+(* diagonalize the given matrix. Return {left, right} where left.mat.right = diagonal matrix with varList as diagonal elements.*)
 ClearAll[DiagonalizeMatrixCN];
-Options[DiagonalizeMatrixCN]={PhaseSymbol-> ""};
-DiagonalizeMatrixCN[mat_List,valList_List,var_Symbol, n_Integer,opt:OptionsPattern[]]:=Module[{len,left,right,ph,phlist,i},
+Options[DiagonalizeMatrixCN]=Join[{PhaseSymbol-> ""},Options[Eigenvector4F7]];
+DiagonalizeMatrixCN[mat_List,valList_List,var_Symbol, n_Integer,opts:OptionsPattern[]]:=Module[{len,left,right,ph,phlist,i},
 len = Length[mat];
 ph=OptionValue[PhaseSymbol];
 If[ph=="", 
@@ -311,7 +313,7 @@ phlist[[1]]=1;
 
 right={};
 For[i=1,i<= Length[valList],i++,
-right = Join[right, Eigenvector4F7[mat, valList[[i]], var, n]];
+right = Join[right, Eigenvector4F7[mat, valList[[i]], var, n,FilterRules[{opts},Options[Eigenvector4F7]]]];
 ];
 (*Print["right=",right];*)
 left = InverseEigenMat[right,var,n];
