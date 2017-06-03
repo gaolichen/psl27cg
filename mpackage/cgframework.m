@@ -162,15 +162,19 @@ res2=Kronecker[gi, ToConjugateRep[gi,irr[[i]]], ToConjugateRep[gi,irr[[j]]]];
 res2=ToConjugateRep[gi,res2];
 res=Sort[res];
 res2=Sort[res2];
-(*If[res\[NotEqual] res2,Print["res=",res, ", res2=",res2]];*)
-Assert[res==res2];
+If[res!= res2,
+Print["res=",res, ", res2=",res2];Return[False]
+];
+
 tot = Sum[GetDimensionByRep[gi, res[[k]]],{k,1,Length[res]}];
-(*Print["tot=",tot, ", r1=",  GetDimension[gi, irr[[i,1]]] , ", r2=",  GetDimension[gi, irr[[j,1]]] ];*)
-Assert[tot == GetDimensionByRep[gi, irr[[i]]] * GetDimensionByRep[gi,irr[[j]]]]
+If[tot!=GetDimensionByRep[gi, irr[[i]]] * GetDimensionByRep[gi,irr[[j]]],
+Print["tot=",tot, ", r1=",  GetDimensionByRep[gi, irr[[i]]] , ", r2=",  GetDimensionByRep[gi, irr[[j]]] ];
+Return[False]
+];
 ];
 ];
 
-If[OptionValue[VerifyDotFunction]==False, Return[]];
+If[OptionValue[VerifyDotFunction]==False, Return[True]];
 fun=gi[KeyDotFunction];
 For[i=1,i<= Length[irr],i++,
 tmp1=Table[RandomInteger[],{k,1,GetDimensionByRep[gi, irr[[i]]]}];
@@ -180,11 +184,15 @@ res=Kronecker[gi, irr[[i]], irr[[j]]];
 (*Print["res=",res];*)
 For[k=1,k<= Length[res],k++,
 res2=fun[tmp1,tmp2,irr[[i]],irr[[j]],res[[k]]];
-(*Print["res=", GetDimensionByRep[gi, res[[k]]]];*)
-Assert[Length[res2]==GetDimensionByRep[gi, res[[k]]]];
+If[SameQ[Length[res2],GetDimensionByRep[gi, res[[k]]]]==False,
+Print["expect size=", GetDimensionByRep[gi, res[[k]]], ", returned=",Length[res2]];
+Return[False]
 ];
 ];
 ];
+];
+
+Return[True]
 ];
 
 ClearAll[DefaultEmbed];
@@ -218,6 +226,23 @@ Throw[$Failed]
 ];
 
 Return[{}]
+];
+
+ClearAll[DotByTable];
+DotByTable[gi_,tab_,a_,b_,ra_,rb_,rc_]:=Module[{cg,res},
+res=DefaultDotFunction[gi, a,b,ra,rb,rc];
+If[Length[res]>0, Return[res]];
+
+(* find CG. *)
+cg = tab[ra,rb,rc];
+If[Length[cg]==0 && ra!=rb,
+(*Print[ra, " ", rb, " ", rc];*)
+cg = tab[rb,ra,rc];
+Do[cg[[i]]=Transpose[cg[[i]]],{i,1,Length[cg]}];
+];
+
+If[Length[cg]==0, Message[DefaultDotFunction::NoCGFound, ra,rb,rc]; Return[$Failed]];
+Return[Table[a.cg[[i]].b, {i,1,Length[cg]}]];
 ];
 
 ClearAll[VerifyEmbed];
