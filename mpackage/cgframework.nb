@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    143021,       3213]
-NotebookOptionsPosition[    142616,       3195]
-NotebookOutlinePosition[    143006,       3212]
-CellTagsIndexPosition[    142963,       3209]
+NotebookDataLength[    146163,       3281]
+NotebookOptionsPosition[    145758,       3263]
+NotebookOutlinePosition[    146148,       3280]
+CellTagsIndexPosition[    146105,       3277]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -869,7 +869,14 @@ Cell[BoxData[
                     "\[Equal]", "False"}], ",", "\[IndentingNewLine]", 
                    RowBox[{
                     RowBox[{"Print", "[", 
-                    RowBox[{"\"\<expect size=\>\"", ",", " ", 
+                    RowBox[{"\"\<ri=\>\"", ",", 
+                    RowBox[{"irr", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], ",", "\"\<, rj=\>\"", ",", 
+                    RowBox[{"irr", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], ",", "\"\<, rk=\>\"", ",", 
+                    RowBox[{"res", "[", 
+                    RowBox[{"[", "k", "]"}], "]"}], ",", 
+                    "\"\<, expect size=\>\"", ",", " ", 
                     RowBox[{"GetDimensionByRep", "[", 
                     RowBox[{"gi", ",", " ", 
                     RowBox[{"res", "[", 
@@ -1019,7 +1026,8 @@ Cell[BoxData[
      RowBox[{"Module", "[", 
       RowBox[{
        RowBox[{"{", 
-        RowBox[{"cg", ",", "res"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"cg", ",", "res", ",", "rab", ",", "rbb", ",", "rcb"}], "}"}],
+        ",", "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"res", "=", 
          RowBox[{"DefaultDotFunction", "[", 
@@ -1075,6 +1083,57 @@ Cell[BoxData[
         RowBox[{"If", "[", 
          RowBox[{
           RowBox[{
+           RowBox[{"Length", "[", "cg", "]"}], "\[Equal]", "0"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"rab", "=", 
+            RowBox[{"ToConjugateRep", "[", 
+             RowBox[{"gi", ",", "ra"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"rbb", "=", 
+            RowBox[{"ToConjugateRep", "[", 
+             RowBox[{"gi", ",", "rb"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"rcb", "=", 
+            RowBox[{"ToConjugateRep", "[", 
+             RowBox[{"gi", ",", "rc"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"cg", " ", "=", " ", 
+            RowBox[{"tab", "[", 
+             RowBox[{"rab", ",", "rbb", ",", "rcb"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Length", "[", "cg", "]"}], "\[Equal]", "0"}], ",", " ",
+              "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"cg", "=", 
+               RowBox[{"tab", "[", 
+                RowBox[{"rbb", ",", "rab", ",", "rcb"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Do", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"cg", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "=", 
+                 RowBox[{"Transpose", "[", 
+                  RowBox[{"cg", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"i", ",", "1", ",", 
+                  RowBox[{"Length", "[", "cg", "]"}]}], "}"}]}], "]"}], 
+              ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Length", "[", "cg", "]"}], "\[NotEqual]", " ", "0"}], 
+             ",", 
+             RowBox[{"cg", "=", 
+              RowBox[{"Conjugate", "[", "cg", "]"}]}]}], "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
            RowBox[{"Length", "[", "cg", "]"}], "\[Equal]", "0"}], ",", " ", 
           RowBox[{
            RowBox[{"Message", "[", 
@@ -1082,6 +1141,11 @@ Cell[BoxData[
              RowBox[{"DefaultDotFunction", "::", "NoCGFound"}], ",", " ", 
              "ra", ",", "rb", ",", "rc"}], "]"}], ";", " ", 
            RowBox[{"Return", "[", "$Failed", "]"}]}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"Print", "[", 
+           RowBox[{"\"\<cg=\>\"", ",", "cg"}], "]"}], ";"}], "*)"}], 
         "\[IndentingNewLine]", 
         RowBox[{"Return", "[", 
          RowBox[{"Table", "[", 
@@ -3135,7 +3199,11 @@ Cell[BoxData[
    3.705414997775126*^9, 3.7054150226335983`*^9}, {3.705415158809054*^9, 
    3.705415161805251*^9}, {3.705415192574952*^9, 3.7054152080953903`*^9}, {
    3.7054155252339687`*^9, 3.7054156282529593`*^9}, {3.705415659146912*^9, 
-   3.705415659832287*^9}}],
+   3.705415659832287*^9}, {3.708084369256874*^9, 3.708084432240684*^9}, {
+   3.7080854186438103`*^9, 3.708085453035961*^9}, {3.7080855232264843`*^9, 
+   3.70808554692566*^9}, {3.7080865721023617`*^9, 3.70808657276492*^9}, {
+   3.708090000796838*^9, 3.708090030310342*^9}, 3.7080902455145817`*^9, {
+   3.7080930357611303`*^9, 3.7080932004962263`*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -3212,9 +3280,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 6296, 88, 55, "Input"],
-Cell[6857, 110, 132571, 3027, 14201, "Input",
+Cell[6857, 110, 135713, 3095, 14553, "Input",
  InitializationCell->True],
-Cell[139431, 3139, 3181, 54, 319, "Input"]
+Cell[142573, 3207, 3181, 54, 319, "Input"]
 }
 ]
 *)

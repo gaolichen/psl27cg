@@ -185,7 +185,7 @@ res=Kronecker[gi, irr[[i]], irr[[j]]];
 For[k=1,k<= Length[res],k++,
 res2=fun[tmp1,tmp2,irr[[i]],irr[[j]],res[[k]]];
 If[SameQ[Length[res2],GetDimensionByRep[gi, res[[k]]]]==False,
-Print["expect size=", GetDimensionByRep[gi, res[[k]]], ", returned=",Length[res2]];
+Print["ri=",irr[[i]],", rj=",irr[[j]],", rk=",res[[k]],", expect size=", GetDimensionByRep[gi, res[[k]]], ", returned=",Length[res2]];
 Return[False]
 ];
 ];
@@ -229,7 +229,7 @@ Return[{}]
 ];
 
 ClearAll[DotByTable];
-DotByTable[gi_,tab_,a_,b_,ra_,rb_,rc_]:=Module[{cg,res},
+DotByTable[gi_,tab_,a_,b_,ra_,rb_,rc_]:=Module[{cg,res,rab,rbb,rcb},
 res=DefaultDotFunction[gi, a,b,ra,rb,rc];
 If[Length[res]>0, Return[res]];
 
@@ -241,7 +241,22 @@ cg = tab[rb,ra,rc];
 Do[cg[[i]]=Transpose[cg[[i]]],{i,1,Length[cg]}];
 ];
 
+If[Length[cg]==0,
+rab=ToConjugateRep[gi,ra];
+rbb=ToConjugateRep[gi,rb];
+rcb=ToConjugateRep[gi,rc];
+cg = tab[rab,rbb,rcb];
+
+If[Length[cg]==0, 
+cg=tab[rbb,rab,rcb];
+Do[cg[[i]]=Transpose[cg[[i]]],{i,1,Length[cg]}];
+];
+
+If[Length[cg]!= 0,cg=Conjugate[cg]];
+];
+
 If[Length[cg]==0, Message[DefaultDotFunction::NoCGFound, ra,rb,rc]; Return[$Failed]];
+(*Print["cg=",cg];*)
 Return[Table[a.cg[[i]].b, {i,1,Length[cg]}]];
 ];
 
