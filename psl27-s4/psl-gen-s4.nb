@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    242716,       6646]
-NotebookOptionsPosition[    240647,       6575]
-NotebookOutlinePosition[    240981,       6590]
-CellTagsIndexPosition[    240938,       6587]
+NotebookDataLength[    238322,       6539]
+NotebookOptionsPosition[    236256,       6468]
+NotebookOutlinePosition[    236590,       6483]
+CellTagsIndexPosition[    236547,       6480]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2703,113 +2703,6 @@ Cell[BoxData[
         RowBox[{"Return", "[", 
          RowBox[{"op", ".", "op"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}],
      ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{"Verify", " ", "Psl27", " ", 
-     RowBox[{"Generators", "."}]}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"VerifyPsl27Generator", "[", 
-      RowBox[{"A_", ",", "B_"}], "]"}], ":=", 
-     RowBox[{"Module", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"AB", ",", "n", ",", "zero", ",", "ABc"}], "}"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"n", "=", 
-         RowBox[{"Length", "[", "A", "]"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"n", "\[NotEqual]", " ", 
-           RowBox[{"Length", "[", "B", "]"}]}], ",", 
-          RowBox[{"Return", "[", "False", "]"}]}], "]"}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"zero", " ", "=", " ", 
-         RowBox[{"ConstantArray", "[", 
-          RowBox[{"0", ",", 
-           RowBox[{"{", 
-            RowBox[{"n", ",", "n"}], "}"}]}], "]"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"AB", "=", 
-         RowBox[{"N", "[", 
-          RowBox[{"A", ".", "B"}], "]"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"ABc", "=", 
-         RowBox[{"N", "[", 
-          RowBox[{"A", ".", "B", ".", "A", ".", "B", ".", "B"}], "]"}]}], ";",
-         "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"SameQ", "[", 
-            RowBox[{
-             RowBox[{"Chop", "[", 
-              RowBox[{
-               RowBox[{"N", "[", 
-                RowBox[{"A", ".", "A"}], "]"}], "-", 
-               RowBox[{"IdentityMatrix", "[", "n", "]"}]}], "]"}], ",", 
-             "zero"}], "]"}], "\[Equal]", "False"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"Return", "[", "False", "]"}]}], "\[IndentingNewLine]", 
-         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"SameQ", "[", 
-            RowBox[{
-             RowBox[{"Chop", "[", 
-              RowBox[{
-               RowBox[{"N", "[", 
-                RowBox[{"MatrixPower", "[", 
-                 RowBox[{"B", ",", "3"}], "]"}], "]"}], "-", 
-               RowBox[{"IdentityMatrix", "[", "n", "]"}]}], "]"}], ",", 
-             "zero"}], "]"}], "\[Equal]", "False"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{
-           "Print", "[", "\"\<VerifyPsl27Generator failed: B^3 != I.\>\"", 
-            "]"}], ";", "\[IndentingNewLine]", 
-           RowBox[{"Return", "[", "False", "]"}]}]}], "\[IndentingNewLine]", 
-         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"SameQ", "[", 
-            RowBox[{
-             RowBox[{"Chop", "[", 
-              RowBox[{
-               RowBox[{"N", "[", 
-                RowBox[{"MatrixPower", "[", 
-                 RowBox[{"AB", ",", "7"}], "]"}], "]"}], "-", 
-               RowBox[{"IdentityMatrix", "[", "n", "]"}]}], "]"}], ",", 
-             "zero"}], "]"}], "\[Equal]", "False"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{
-           "Print", "[", "\"\<VerifyPsl27Generator failed: (AB)^7 != I.\>\"", 
-            "]"}], ";", "\[IndentingNewLine]", 
-           RowBox[{"Return", "[", "False", "]"}]}]}], "\[IndentingNewLine]", 
-         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"SameQ", "[", 
-            RowBox[{
-             RowBox[{"Chop", "[", 
-              RowBox[{
-               RowBox[{"N", "[", 
-                RowBox[{"MatrixPower", "[", 
-                 RowBox[{"ABc", ",", "4"}], "]"}], "]"}], "-", 
-               RowBox[{"IdentityMatrix", "[", "n", "]"}]}], "]"}], ",", 
-             "zero"}], "]"}], "\[Equal]", "False"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{
-           "Print", "[", "\"\<VerifyPsl27Generator failed: [A,B]^4 != I.\>\"",
-             "]"}], ";", "\[IndentingNewLine]", 
-           RowBox[{"Return", "[", "False", "]"}]}]}], "\[IndentingNewLine]", 
-         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"Return", "[", "True", "]"}], ";"}]}], "\[IndentingNewLine]", 
-      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"On", "[", "Assert", "]"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"Assert", "[", 
@@ -2917,7 +2810,7 @@ Cell[BoxData[
    3.704742739199196*^9, 3.7047427549649057`*^9}, {3.704742895839205*^9, 
    3.70474290721004*^9}, {3.704742938078648*^9, 3.7047429522724247`*^9}, {
    3.7047434233784227`*^9, 3.704743561547577*^9}, {3.7047436191964073`*^9, 
-   3.704743841283059*^9}}],
+   3.704743841283059*^9}, {3.708186405069888*^9, 3.708186407482071*^9}}],
 
 Cell[CellGroupData[{
 
@@ -3048,8 +2941,8 @@ Cell[BoxData[
         RowBox[{"pslB6", ".", "a6"}], "-", "c6"}], "]"}], "\[Equal]", 
       RowBox[{"ConstantArray", "[", 
        RowBox[{"0", ",", 
-        RowBox[{"Length", "[", "c6", "]"}]}], "]"}]}], "]"}], ";"}], 
-   "\[IndentingNewLine]", "\n", 
+        RowBox[{"Length", "[", "c6", "]"}]}], "]"}]}], "]"}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"InitCnBase", "[", "7", "]"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
@@ -6611,43 +6504,43 @@ Cell[84516, 2448, 3917, 96, 129, "Print"],
 Cell[88436, 2546, 4354, 108, 92, "Print"]
 }, Open  ]]
 }, Open  ]],
-Cell[92817, 2658, 10464, 261, 1397, "Input"],
+Cell[92817, 2658, 6073, 154, 737, "Input"],
 Cell[CellGroupData[{
-Cell[103306, 2923, 20666, 548, 1969, "Input"],
-Cell[123975, 3473, 899, 17, 37, "Output"],
+Cell[98915, 2816, 20666, 548, 1969, "Input"],
+Cell[119584, 3366, 899, 17, 37, "Output"],
 Cell[CellGroupData[{
-Cell[124899, 3494, 2403, 61, 149, "Print"],
-Cell[127305, 3557, 5705, 154, 207, "Print"]
+Cell[120508, 3387, 2403, 61, 149, "Print"],
+Cell[122914, 3450, 5705, 154, 207, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[133059, 3717, 22935, 646, 2145, "Input"],
+Cell[128668, 3610, 22935, 646, 2145, "Input"],
 Cell[CellGroupData[{
-Cell[156019, 4367, 3308, 86, 229, "Print"],
-Cell[159330, 4455, 14346, 387, 345, "Print"]
+Cell[151628, 4260, 3308, 86, 229, "Print"],
+Cell[154939, 4348, 14346, 387, 345, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[173725, 4848, 17177, 473, 2189, "Input"],
-Cell[190905, 5323, 968, 21, 58, "Output"],
-Cell[191876, 5346, 944, 19, 55, "Output"],
-Cell[192823, 5367, 868, 18, 62, "Output"]
+Cell[169334, 4741, 17177, 473, 2189, "Input"],
+Cell[186514, 5216, 968, 21, 58, "Output"],
+Cell[187485, 5239, 944, 19, 55, "Output"],
+Cell[188432, 5260, 868, 18, 62, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[193728, 5390, 4757, 107, 451, "Input"],
-Cell[198488, 5499, 770, 18, 62, "Output"],
-Cell[199261, 5519, 598, 14, 62, "Output"]
+Cell[189337, 5283, 4757, 107, 451, "Input"],
+Cell[194097, 5392, 770, 18, 62, "Output"],
+Cell[194870, 5412, 598, 14, 62, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[199896, 5538, 25114, 653, 2110, "Input"],
-Cell[225013, 6193, 1008, 18, 70, "Output"],
+Cell[195505, 5431, 25114, 653, 2110, "Input"],
+Cell[220622, 6086, 1008, 18, 70, "Output"],
 Cell[CellGroupData[{
-Cell[226046, 6215, 4879, 109, 213, "Print"],
-Cell[230928, 6326, 8501, 213, 243, "Print"]
+Cell[221655, 6108, 4879, 109, 213, "Print"],
+Cell[226537, 6219, 8501, 213, 243, "Print"]
 }, Open  ]]
 }, Open  ]],
-Cell[239456, 6543, 1095, 27, 99, "Input"],
-Cell[240554, 6572, 89, 1, 55, "Input"]
+Cell[235065, 6436, 1095, 27, 99, "Input"],
+Cell[236163, 6465, 89, 1, 55, "Input"]
 }
 ]
 *)

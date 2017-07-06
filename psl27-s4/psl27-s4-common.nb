@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9141,        243]
-NotebookOptionsPosition[      8908,        230]
-NotebookOutlinePosition[      9242,        245]
-CellTagsIndexPosition[      9199,        242]
+NotebookDataLength[     13629,        351]
+NotebookOptionsPosition[     13394,        338]
+NotebookOutlinePosition[     13728,        353]
+CellTagsIndexPosition[     13685,        350]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -223,10 +223,118 @@ Cell[BoxData[
         RowBox[{"Return", "[", 
          RowBox[{"Simplify", "[", 
           RowBox[{"opc", "-", "op"}], "]"}], "]"}]}]}], "\[IndentingNewLine]",
-       "]"}]}], ";"}], "\[IndentingNewLine]"}]}]], "Input",
+       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Verify", " ", "Psl27", " ", 
+     RowBox[{"Generators", "."}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"VerifyPsl27Generator", "[", 
+      RowBox[{"A_", ",", "B_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"AB", ",", "n", ",", "zero", ",", "ABc"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"n", "=", 
+         RowBox[{"Length", "[", "A", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"n", "\[NotEqual]", " ", 
+           RowBox[{"Length", "[", "B", "]"}]}], ",", 
+          RowBox[{"Return", "[", "False", "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"zero", " ", "=", " ", 
+         RowBox[{"ConstantArray", "[", 
+          RowBox[{"0", ",", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", "n"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"AB", "=", 
+         RowBox[{"N", "[", 
+          RowBox[{"A", ".", "B"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"ABc", "=", 
+         RowBox[{"N", "[", 
+          RowBox[{"A", ".", "B", ".", "A", ".", "B", ".", "B"}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"SameQ", "[", 
+            RowBox[{
+             RowBox[{"Chop", "[", 
+              RowBox[{
+               RowBox[{"N", "[", 
+                RowBox[{"A", ".", "A"}], "]"}], "-", 
+               RowBox[{"IdentityMatrix", "[", "n", "]"}]}], "]"}], ",", 
+             "zero"}], "]"}], "\[Equal]", "False"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Return", "[", "False", "]"}]}], "\[IndentingNewLine]", 
+         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"SameQ", "[", 
+            RowBox[{
+             RowBox[{"Chop", "[", 
+              RowBox[{
+               RowBox[{"N", "[", 
+                RowBox[{"MatrixPower", "[", 
+                 RowBox[{"B", ",", "3"}], "]"}], "]"}], "-", 
+               RowBox[{"IdentityMatrix", "[", "n", "]"}]}], "]"}], ",", 
+             "zero"}], "]"}], "\[Equal]", "False"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+           "Print", "[", "\"\<VerifyPsl27Generator failed: B^3 != I.\>\"", 
+            "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Return", "[", "False", "]"}]}]}], "\[IndentingNewLine]", 
+         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"SameQ", "[", 
+            RowBox[{
+             RowBox[{"Chop", "[", 
+              RowBox[{
+               RowBox[{"N", "[", 
+                RowBox[{"MatrixPower", "[", 
+                 RowBox[{"AB", ",", "7"}], "]"}], "]"}], "-", 
+               RowBox[{"IdentityMatrix", "[", "n", "]"}]}], "]"}], ",", 
+             "zero"}], "]"}], "\[Equal]", "False"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+           "Print", "[", "\"\<VerifyPsl27Generator failed: (AB)^7 != I.\>\"", 
+            "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Return", "[", "False", "]"}]}]}], "\[IndentingNewLine]", 
+         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"SameQ", "[", 
+            RowBox[{
+             RowBox[{"Chop", "[", 
+              RowBox[{
+               RowBox[{"N", "[", 
+                RowBox[{"MatrixPower", "[", 
+                 RowBox[{"ABc", ",", "4"}], "]"}], "]"}], "-", 
+               RowBox[{"IdentityMatrix", "[", "n", "]"}]}], "]"}], ",", 
+             "zero"}], "]"}], "\[Equal]", "False"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+           "Print", "[", "\"\<VerifyPsl27Generator failed: [A,B]^4 != I.\>\"",
+             "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Return", "[", "False", "]"}]}]}], "\[IndentingNewLine]", 
+         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "True", "]"}], ";"}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.7003057641669607`*^9, 3.700305807694469*^9}, {
   3.700306380010624*^9, 3.700306380777575*^9}, {3.700654888937154*^9, 
-  3.7006549930669823`*^9}, {3.700655139393794*^9, 3.700655144891782*^9}}]
+  3.7006549930669823`*^9}, {3.700655139393794*^9, 3.700655144891782*^9}, {
+  3.708186414450466*^9, 3.708186415348939*^9}}]
 },
 WindowSize->{1278, 947},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -244,7 +352,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 8346, 208, 968, "Input"]
+Cell[558, 20, 12832, 316, 1628, "Input"]
 }
 ]
 *)
