@@ -1,9 +1,5 @@
 (* ::Package:: *)
 
-
-
-
-
 <<"/users/gaolichen/gitroot/psl27cg/mpackage/cyclicnumber.m";
 KeyIrr="Irr";
 KeyConjugateIrr="ConjugateIrr";
@@ -669,4 +665,28 @@ OrthnormalizeCG[r1_,r2_,r3_,coefsList_,embed_]:=Module[
 ];
 
 
+ClearAll[PrintCG];
+PrintCG[r1_,r2_,r3_, embed_]:=Module[{cg,cgterms,term,row,i,isFirst=True},
+	cg=GetCG[r1,r2,r3,embed];
+	cgterms=embed[r1,r2,GetRepWithSym[r3],KeyCGTerms];
+	row={};
+
+	For[i=1,i<= Length[cg],i++,
+		If[SameQ[cg[[i]],0]==True, Continue[]];
+		If[isFirst== False && StringTake[ToString[cg[[i]],InputForm],1]!= "-",
+			AppendTo[row,"+"];
+		];
+		AppendTo[row,cg[[i]]];
+		term=cgterms[[i]];
+		AppendTo[row, "("<>term[[2]]<>"*"<>term[[3]]<>"->"<>term[[1]]<>")"];
+		If[Length[term]==4,
+			If[term[[4]]==1,
+				AppendTo[row,"_s"],
+				AppendTo[row,"_a"]]
+		];
+		isFirst=False;
+	];
+
+	Print[Row[row]];
+];
 
