@@ -97,7 +97,6 @@ TestCG[r1_,r2_,r3_,embed_,op_,cgList_]:=Module[{i,rr3,ret=True},
 			rr3=r3, rr3=SetRepMultiplicity[r3, i]
 		];
 		(*rr3=SetRepMultiplicity[r3, i];*)
-
 		SetCG[r1,r2,rr3,embed,N[cgList[[i]]/.{et->Exp[I*2Pi/7]}]];
 		If[VerifyCG[r1,r2,rr3,embed,op,b7ToNum]==False,
 			Print["TestCG: failed for CG " <> r1 <> "*" <> r2 <>"->"<>rr3];
@@ -117,7 +116,7 @@ SolveCGEquations[eqs_]:=Module[{neqs,mat,root,i},
 	root=SimplifyCN[root,et,7];
 	root=Simplify[root/.et4ToB7];*)
 
-	mat=Simplify[mat/.et4ToB7/.b7ToNum];
+	mat=Simplify[mat/.et2Num/.b7ToNum];
 	(*Print["mat=",mat];
 	Print["freeparameter=",neqs[[2]]];*)
 	root=SolveLinearEquation[mat,FreeCoefficients->neqs[[2]],Numeric->True];

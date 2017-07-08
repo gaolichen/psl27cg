@@ -8,6 +8,7 @@ KeyDotFunction="DotFunction";
 KeyLargeGroup="LargeGroup";
 KeySubGroup="SubGroup";
 KeyTransformMatrix="TransformMatrix";
+KeyCGImplicitSymmetric="SubCGImplicitSymmetric";
 
 (* 
 Gets the name of representation from given string. 
@@ -185,7 +186,10 @@ VerifyGroupInfo[gi_, opt:OptionsPattern[]]:=Module[{irr,i,j,k, tot,res,res2,fun,
 ];
 
 ClearAll[DefaultEmbed];
-DefaultEmbed[r_String,largeG_,subG_]:=If[r== SingletRepresentation[largeG], {SingletRepresentation[subG]}, {}];
+DefaultEmbed[r_String,largeG_,subG_]:=
+If[r== SingletRepresentation[largeG], {SingletRepresentation[subG]}, 
+	If[r== KeyCGImplicitSymmetric, Return[False],Return[{}]]
+];
 
 ClearAll[DefaultDotFunction]
 DefaultDotFunction::NoCGFound="Clebsh Gordan Coefficients `1` * `2` -> `3` not found.";
@@ -334,14 +338,13 @@ BuildCGTermsSub[r1_String,r2_String,subr_String,embed_]:=Module[
 			list=Kronecker[subg, subr1[[i]],subr2[[j]]];
 			For[k=1,k<= Length[list],k++,
 				If[GetRepName[list[[k]]]!= rn,Continue[]];
-
-				If[dec=="" || GetRepDecorate[list[[k]]]== dec || 
+				If[dec=="" || GetSymmetryByRep[list[[k]]]== dec || 
 					(* if the subr1 and subr2 has the same dimension, it's possible that subr1*subr2\[Rule]list[[k]] is 
 					already symmetrized or antisymmetrized even subr1 and subr2 are different. So we simply add both 
 					subr1*subr2\[Rule]list[[k]] and subr2*subr1\[Rule]list[[k]] in this case. *)
-					GetDimensionByRep[subg,subr1[[i]]]==GetDimensionByRep[subg,subr2[[j]]],
+					(SameQ[embed[KeyCGImplicitSymmetric],True] && GetDimensionByRep[subg,subr1[[i]]]==GetDimensionByRep[subg,subr2[[j]]]),
 					AppendTo[res,{list[[k]], subr1[[i]], subr2[[j]]}],
-					If[GetRepDecorate[list[[k]]]== "" && GetDimensionByRep[subg,subr1[[i]]]<GetDimensionByRep[subg,subr2[[j]]],
+					If[GetSymmetryByRep[list[[k]]]== "" && Order[GetRepName[subr1[[i]]],GetRepName[subr2[[j]]]]>0,
 						AppendTo[res,{list[[k]], subr1[[i]], subr2[[j]], ToExpression[dec<>"1"]}];
 					]
 				];
