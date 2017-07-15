@@ -1,9 +1,5 @@
 (* ::Package:: *)
 
-
-
-
-
 (* initialize the cyclic number base. *)
 ClearAll[vars,eqs];
 ClearAll[CnRelation,CnFreeVarNumber];
@@ -230,7 +226,7 @@ GramSchmid[vList_List, var_Symbol, n_Integer]:=Module[{ret={},i,j,vvl,inv,dot},
 	For[i=1,i<= Length[vvl],i++,
 		If[vvl[[i]]=== ConstantArray[0,Length[vvl[[i]]]], Continue[]];
 		AppendTo[ret,vvl[[i]]];
-		inv=SimplifyCN[1/DotProdCN[vvl[[i]],vvl[[i]],var,n], var,n];
+		inv=FullSimplify[SimplifyCN[1/DotProdCN[vvl[[i]],vvl[[i]],var,n], var,n]];
 		For[j=i+1,j<= Length[vvl],j++,
 			vvl[[j]] = SimplifyCN[vvl[[j]]-DotProdCN[vvl[[i]],vvl[[j]],var,n]*inv*vvl[[i]],var,n];
 		];
@@ -313,7 +309,7 @@ DiagonalizeMatrixCN[mat_List,valList_List,var_Symbol, n_Integer,opts:OptionsPatt
 NIntegerQ[n_]:=Chop[N[n]-Round[Re[N[n]]]]==0;
 
 ClearAll[ToExactPhase];
-Options[ToExactPhase]={ToTex->False,Angle->(-1+I*Sqrt[7])/(2Sqrt[2])};
+Options[ToExactPhase]={ToTex->False,Angle->(-1+I*Sqrt[7])/(2Sqrt[2]),ToNum->False};
 ToExactPhase[ph_,opts:OptionsPattern[]]:=Module[{vb7,vd7,i,j,k,v,vomega,a,diff,basis,pos},
 	v=N[ph];
 	vb7=OptionValue[Angle];
@@ -327,6 +323,9 @@ ToExactPhase[ph_,opts:OptionsPattern[]]:=Module[{vb7,vd7,i,j,k,v,vomega,a,diff,b
 			diff=(v-a)/Pi*2;
 			(*Print["i=",i,", j=", j, ", diff=", diff];*)
 			If[NIntegerQ[diff],
+				If[OptionValue[ToNum], 
+					Return[vb7^i*omg^j*I^Round[diff]]
+				];
 				If[i<0,pos=3, pos=2];
 				If[OptionValue[ToTex],
 					Return[basis[[pos+2]]^Abs[i]*\[Omega]^j*I^Round[diff]],

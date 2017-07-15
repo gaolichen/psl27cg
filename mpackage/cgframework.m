@@ -522,7 +522,7 @@ CgcEquations[input_List,r1_String,r2_String,r3_String,embed_Symbol,opList_List]:
 ClearAll[SolveLinearEquation];
 Options[SolveLinearEquation]={FreeCoefficients->{},Numeric->False};
 SolveLinearEquation[cMat_List, opts:OptionsPattern[]]:=Module[
-	{n,vars,i,eqs,root,freecoef,tosolve,allzero,ans,res={},zeroArray},
+	{n,vars,freevars,i,eqs,root,freecoef,tosolve,allzero,ans,res={},zeroArray},
 
 	If[Length[cMat]==0,Return[{}]];
 	n=Length[cMat[[1]]];
@@ -532,13 +532,15 @@ SolveLinearEquation[cMat_List, opts:OptionsPattern[]]:=Module[
 		eqs = cMat.vars
 	];
 
-	(*freecoef=OptionValue[FreeCoefficients];
-	If[Length[freecoef]\[Equal]0,freecoef=Table[i,{i,1,n-Length[cMat]}]];
-	tosolve=Delete[vars, Table[{freecoef[[i]]},{i,1,Length[freecoef]}]];
-	Print["tosolve=",tosolve];
-	Print["vars=",vars];
-	root=First[Solve[eqs\[Equal]0,tosolve]];*)
-	root=First[Solve[eqs==0,vars]];
+	freecoef=OptionValue[FreeCoefficients];
+	If[Length[freecoef]>0,
+		freevars = vars[[freecoef]];
+		tosolve = Join[freevars,Select[vars,MemberQ[freevars,#]==False &]],
+		tosolve = vars;
+	];
+
+	(*Print["vars=",vars, ", tosolve=", tosolve, ", freecoef=", freecoef];*)
+	root=First[Solve[eqs==0,tosolve]];
 
 	(*Print["cMat.vars=",Collect[N[cMat].vars/.root,vars]];
 	Print["eqs=",Collect[eqs/.root,vars]];*)
