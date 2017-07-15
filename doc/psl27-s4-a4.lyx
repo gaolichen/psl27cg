@@ -2166,7 +2166,7 @@ reference "eq:CG_real_constraint"
 , we also have 
 \begin_inset Formula 
 \begin{equation}
-ZZ^{\dagger}=AVEE^{\dagger}\Gamma V^{T}A^{T}=nI.\label{eq:cg_real_eq2}
+ZZ^{\dagger}=AVE\left(A^{*}V^{*}\Gamma^{-1}E\right)^{\dagger}=AV\Gamma V^{T}A^{T}=nI.\label{eq:cg_real_eq2}
 \end{equation}
 
 \end_inset
@@ -2178,7 +2178,7 @@ ZZ^{\dagger}=AVEE^{\dagger}\Gamma V^{T}A^{T}=nI.\label{eq:cg_real_eq2}
 Let 
 \begin_inset Formula 
 \[
-V^{*}V^{T}=UDU^{\dagger},
+VV^{\dagger}=UDU^{\dagger},
 \]
 
 \end_inset
@@ -2234,7 +2234,7 @@ reference "eq:cg_real_eq2"
 , 
 \begin_inset Formula 
 \[
-WD^{-1/2}U^{\dagger}V\Gamma V^{T}U^{*}D^{-1/2}W^{T}\equiv W^{T}MW=I,
+WD^{-1/2}U^{\dagger}V\Gamma V^{T}U^{*}D^{-1/2}W^{T}\equiv WMW^{T}=I,
 \]
 
 \end_inset
@@ -2246,7 +2246,7 @@ WD^{-1/2}U^{\dagger}V\Gamma V^{T}U^{*}D^{-1/2}W^{T}\equiv W^{T}MW=I,
  is a complex symmetric matrix, it can always be decomposed as 
 \begin_inset Formula 
 \[
-M=OPO^{T},
+M=D^{-1/2}U^{\dagger}V\Gamma V^{T}U^{*}D^{-1/2}=OPO^{T},
 \]
 
 \end_inset
@@ -2283,19 +2283,15 @@ but
  implies
 \begin_inset Formula 
 \[
-RP^{-1/2}O^{\dagger}O^{*}P^{-1/2}R^{\dagger}=I
+RP^{-1/2}O^{\dagger}OP^{-1/2*}R^{\dagger}=R\left|P^{-1}\right|R^{\dagger}=RR^{\dagger}=I,
 \]
 
 \end_inset
 
-If 
-\begin_inset Formula $R$
-\end_inset
 
- is real orthogonal matrix, then 
 \begin_inset Formula 
 \[
-O^{\dagger}O^{*}=P
+\because\det M=1\Rightarrow?\det P=1.
 \]
 
 \end_inset
@@ -2304,6 +2300,18 @@ Now
 \begin_inset Formula 
 \[
 A=\sqrt{n}RP^{-1/2}O^{\dagger}D^{-1/2}U^{\dagger}
+\]
+
+\end_inset
+
+ we can simply choose 
+\begin_inset Formula $R=I$
+\end_inset
+
+, which implies
+\begin_inset Formula 
+\[
+A=\sqrt{n}P^{-1/2}O^{\dagger}D^{-1/2}U^{\dagger}
 \]
 
 \end_inset
