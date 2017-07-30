@@ -223,7 +223,8 @@ TestCG[r1_,r2_,r3_,embed_,op_,cgList_]:=Module[{i,rr3,ret=True},
 		SetCG[r1,r2,rr3,embed,N[cgList[[i]]/.{et->Exp[I*2Pi/7]}]];
 		If[VerifyCG[r1,r2,rr3,embed,op,b7ToNum]==False,
 			Print["TestCG: failed for CG " <> r1 <> "*" <> r2 <>"->"<>rr3];
-			ret = False;
+			ret = False
+			(*,Print["VerifyCG succeed:", cgList[[i]]]*)
 		];
 		ResetCG[r1,r2,rr3,embed];
 	];
@@ -244,14 +245,57 @@ SolveCGEquations[eqs_,freecoef_:{}]:=Module[{neqs,mat,root,i},
 	(*Print["mat=",mat];
 	Print["freeparameter=",neqs[[2]]];*)
 	root=SolveLinearEquation[mat,FreeCoefficients->freecoef,Numeric->True];
-	root=N2Exact[root];
+	root=N2Exact[root]/.b7ToNum;
 	root = SimplifyNum2[root];
 	(*Print["root=",root];*)
 	Return[root]
 ];
 
+(* find orghogonal basis *)
+ClearAll[GramSchmid2];
+GramSchmid2[vList_List]:=Module[{ret={},i,j,vvl,inv,dot},
+	If[Length[vList]==1,Return[vList]];
+	vvl=vList;
+	For[i=1,i<= Length[vvl],i++,
+		If[vvl[[i]]=== ConstantArray[0,Length[vvl[[i]]]], Continue[]];
+		AppendTo[ret,vvl[[i]]];
+		inv=SimplifyNum2[1/(Conjugate[vvl[[i]]].vvl[[i]])];
+		For[j=i+1,j<= Length[vvl],j++,
+			vvl[[j]] = SimplifyNum2[vvl[[j]]-Conjugate[vvl[[i]]].vvl[[j]]*inv*vvl[[i]]];
+		];
+	];
+
+	Return[ret]
+];
+
+ClearAll[NormalizeVectors];
+NormalizeVectors[vList_List,factor_]:=Module[{i,ret={},norm},
+	For[i=1,i<=Length[vList],i++,
+		norm=SimplifyNum2[Sqrt[Conjugate[vList[[i]]].vList[[i]]]];
+		AppendTo[ret, SimplifyNum2[vList[[i]]/norm*factor]]
+	];
+
+	Return[ret]
+];
+
 NormalizeCG[r1_,r2_,r3_,cgList_,embed_]:=Module[{vv,ncg,eigen,tmp,Dmhalf,ret,lg,matM,gamma,svd,matO,Pmhalf,i},
 	ncg = cgList/.b7ToNum/.et2Num;
+
+	lg = embed[KeyLargeGroup];
+	(* If any of r1, r2, r3 are complex, we simply use GramSchmid algorithm to find orthogonal basis.*)
+	If[IsRealRep[lg, r1]==False || IsRealRep[lg, r2]==False || IsRealRep[lg, r3]==False,
+		ret=GramSchmid2[ncg];
+		Return[NormalizeVectors[ret,Sqrt[Length[embed[GetRepName[r3]]]]]]
+	];
+
+	(* If r1, r2, r3 are real reps, we need to make the *)
+	gamma = CGConjugateMat[r1,r2,r3,embed];
+	If[gamma == IdentityMatrix[Length[ncg[[1]]]],
+		Do[ncg[[i]]=FixCGPhase[ncg[[i]], gamma], {i,1,Length[ncg]}];
+		ret=GramSchmid2[ncg];
+		Return[NormalizeVectors[ret,Sqrt[Length[embed[GetRepName[r3]]]]]]
+	];
+
 	vv=SimplifyNum2[ncg.ConjugateTranspose[ncg]];
 	
 	(*If[Length[cgList]\[Equal]1,
@@ -259,9 +303,8 @@ NormalizeCG[r1_,r2_,r3_,cgList_,embed_]:=Module[{vv,ncg,eigen,tmp,Dmhalf,ret,lg,
 		Return[cgList/SimplifyNum2[Sqrt[vv[[1,1]]/Length[embed[GetRepName[r3]]]]]];
 	];*)
 
+	(*Print["vv=",MatrixForm[vv]];*)
 	eigen=Eigensystem[vv];
-	(*eigen[[1]]=N2Exact[N[eigen[[1]]],ToNum\[Rule]True];
-	eigen[[2]]=N2Exact[N[eigen[[2]]],ToNum\[Rule]True];*)
 	eigen[[1]]=SimplifyNum2[eigen[[1]]];
 	eigen[[2]]=SimplifyNum2[eigen[[2]]];
 	eigen[[2]]=Table[eigen[[2,i]]/Norm[eigen[[2,i]]],{i,1,Length[eigen[[2]]]}];
@@ -270,27 +313,22 @@ NormalizeCG[r1_,r2_,r3_,cgList_,embed_]:=Module[{vv,ncg,eigen,tmp,Dmhalf,ret,lg,
 	(*Print["NormalizeCG eigen=", eigen, ", dmhalf=", Dmhalf];*)
 	ret = Dmhalf.Conjugate[eigen[[2]]];
 	(*Print["NormalizeCG ret1=", ret];*)
-	
-	lg = embed[KeyLargeGroup];
-	(* If r1, r2, r3 are real reps, we need to make the *)
-	If[IsRealRep[lg, r1] && IsRealRep[lg, r2] && IsRealRep[lg, r3],
-		matM = SimplifyNum2[ret.ncg];
-		gamma = CGConjugateMat[r1,r2,r3,embed];
-		matM = SimplifyNum2[matM.gamma.Transpose[matM]];
-		eigen=Eigensystem[matM];
-		(*Print["eigen=",eigen];*)
-		eigen[[1]]=SimplifyNum2[eigen[[1]]];
-		eigen[[2]]=SimplifyNum2[eigen[[2]]];
-		(*Print["eigen2=",eigen];*)
-		eigen[[2]]=Table[eigen[[2,i]]/Norm[eigen[[2,i]]],{i,1,Length[eigen[[2]]]}];
-		matO=Transpose[eigen[[2]]];
 		
-		Pmhalf=DiagonalMatrix[SqrtComplex[Reciprocal[eigen[[1]]]]];
-		(*Print["matM=", matM, ", eigen=", eigen, ", Pmhalf=",Pmhalf];*)
-		(*tmp = SimplifyNum2[Pmhalf.ConjugateTranspose[matO]];*)
-		ret = SimplifyNum2[Pmhalf.ConjugateTranspose[matO].ret];
-		(*Print["NormalizeCG ret2=", ret];*)
-	];
+	matM = SimplifyNum2[ret.ncg];	
+	matM = SimplifyNum2[matM.gamma.Transpose[matM]];
+	eigen=Eigensystem[matM];
+	(*Print["eigen=",eigen];*)
+	eigen[[1]]=SimplifyNum2[eigen[[1]]];
+	eigen[[2]]=SimplifyNum2[eigen[[2]]];
+	(*Print["eigen2=",eigen];*)
+	eigen[[2]]=Table[eigen[[2,i]]/Norm[eigen[[2,i]]],{i,1,Length[eigen[[2]]]}];
+	matO=Transpose[eigen[[2]]];
+		
+	Pmhalf=DiagonalMatrix[SqrtComplex[Reciprocal[eigen[[1]]]]];
+	(*Print["matM=", matM, ", eigen=", eigen, ", Pmhalf=",Pmhalf];*)
+	(*tmp = SimplifyNum2[Pmhalf.ConjugateTranspose[matO]];*)
+	ret = SimplifyNum2[Pmhalf.ConjugateTranspose[matO].ret];
+	(*Print["NormalizeCG ret2=", ret];*)
 
 	(*Print["ret.ncg=",Simplify[ret.ncg]];*)
 	ret = SimplifyNum2[ret.ncg];

@@ -588,26 +588,20 @@ CGConjugateMat[r1_,r2_,r3_,embed_]:=Module[{cgterms,subG,conj,conj2,i,j,ret,inde
 ];
 
 ClearAll[FixCGPhase];
-FixCGPhase[r1_,r2_,r3_,coefs_,embed_]:=Module[
-	{cgterms,largeG, subG,conj,i,index,arg1,arg2},
-	largeG = embed[KeyLargeGroup];
-	(* we need to fix phase only when all of r1, r2, r3 are real representations. *)
-	If[IsRealRep[largeG, r1]!= True || IsRealRep[largeG,r2]!= True || IsRealRep[largeG,r3]!= True, 
-		Return[coefs];
+FixCGPhase[coefs_,conjMat_]:=Module[
+	{i,index,arg1,arg2},
+	For[i=1,i<=Length[coefs],i++, 
+		If[coefs[[i]]!= 0, Break[]]
 	];
 
-	cgterms=embed[r1,r2,r3,KeyCGTerms];
-	subG=embed[KeySubGroup];
-	conj=cgterms[[1]];
+	If[i>Length[coefs], Print["FixCGPhase invalid input: coefs =", coefs]; Throw[$Failed]];
 
-	Do[conj[[i]]=ToConjugateRep[subG, conj[[i]]],
-		{i,1,Length[conj]}
+	For[index=1,index < Length[conjMat[[i]]],index++,
+		If[conjMat[[i,index]]!=0, Break[]]
 	];
 
-	(*Print["cgterm=",cgterms[[1]], ", conj=",conj];*)
-	index = FirstPosition[cgterms, conj][[1]];
-
-	arg1=Arg[coefs[[1]]];
+	If[index>Length[coefs], Print["FixCGPhase invalid input: conjMat =", conjMat]; Throw[$Failed]];
+	arg1=Arg[coefs[[i]]];
 	arg2=Arg[coefs[[index]]];
 
 	If[IntegerQ[(arg1+arg2)/(2*Pi)], Return[coefs]];
@@ -671,17 +665,18 @@ OrthnormalizeCG[r1_,r2_,r3_,coefsList_,embed_]:=Module[
 
 
 ClearAll[PrintCG];
-PrintCG[r1_,r2_,r3_, embed_]:=Module[{cg,cgterms,term,row,i,isFirst=True},
+PrintCG[r1_,r2_,r3_, embed_]:=Module[{cg,cgterms,term,row,i,isFirst=True,c},
 	cg=GetCG[r1,r2,r3,embed];
 	cgterms=embed[r1,r2,GetRepWithSym[r3],KeyCGTerms];
 	row={};
 
 	For[i=1,i<= Length[cg],i++,
 		If[SameQ[cg[[i]],0]==True, Continue[]];
-		If[isFirst== False && StringTake[ToString[cg[[i]],InputForm],1]!= "-",
+		c = ToExp[cg[[i]]];
+		If[isFirst== False && StringTake[ToString[c,InputForm],1]!= "-",
 			AppendTo[row,"+"];
 		];
-		AppendTo[row,cg[[i]]];
+		AppendTo[row,c];
 		term=cgterms[[i]];
 		AppendTo[row, "("<>term[[2]]<>"*"<>term[[3]]<>"->"<>term[[1]]<>")"];
 		If[Length[term]==4,
