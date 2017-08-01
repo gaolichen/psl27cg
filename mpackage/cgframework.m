@@ -1,6 +1,8 @@
 (* ::Package:: *)
 
 <<"/users/gaolichen/gitroot/psl27cg/mpackage/cyclicnumber.m";
+<<"/users/gaolichen/gitroot/psl27cg/mpackage/numerical.m";
+
 KeyIrr="Irr";
 KeyConjugateIrr="ConjugateIrr";
 KeyKronecker="MyKroneckerProduct";
