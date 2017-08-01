@@ -1,6 +1,35 @@
 (* ::Package:: *)
 
 (* numerical function. *)
+
+Enumphase[basis_, curr_, phaseindex_]:=Module[{i},
+	(*Print["curr=",curr, ", phaseindex=",phaseindex, ", basis=",basis];*)
+	If[phaseindex>Length[basis],
+		If[curr != 1 && curr != -1,
+			AppendTo[phaseMap,{N[Arg[curr]], curphase}];
+		];
+		
+		Return[];
+	];
+
+	For[i=-basis[[phaseindex,2]],i <= basis[[phaseindex,2]],i++,
+		curphase[[phaseindex]]=i;
+		Enumphase[basis,Simplify[curr*basis[[phaseindex,1]]^i],phaseindex + 1];
+	];
+];
+
+BuildPhaseMap[basePhases_,names_]:=Module[{i,val=1},
+	Clear[phaseMap,phaseNames];
+	phaseMap={};
+	phaseNames=names;
+	curphase=ConstantArray[0,Length[basePhases]];
+	Enumphase[basePhases, 1, 1];
+	Clear[curphase];
+
+	phaseMap=Sort[phaseMap, #1[[1]] < #2[[1]] &];
+	Return[phaseMap];
+];
+
 NIntegerQ[n_]:=Chop[N[n]-Round[Re[N[n]]]]==0;
 
 ClearAll[ToExactPhase];
@@ -27,16 +56,6 @@ ToExactPhase[ph_,opts:OptionsPattern[]]:=Module[{vb7,vd7,i,j,k,v,vomega,a,diff,b
 					Return[basis[[pos]]^Abs[i]*omg^j*I^Round[diff]]
 				];
 			];
-
-			(*a=N[Arg[vd7^i*vomega^j]];
-			diff=(v-a)/Pi*2;
-			If[NIntegerQ[diff],
-			If[OptionValue[ToTex],
-			Return[ToExpression["\\Bar{b}_7",TeXForm]^i*\[Omega]^j*I^Round[diff]],
-			Return[d7^i*omg^j*I^Round[diff]]
-			];
-			];*)
-			(*Print["i=",i,", j=", j, ", diff=", diff];*)
 		]
 	];
 
@@ -50,17 +69,6 @@ ToExp[a_,opts:OptionsPattern[]]:=Module[{r,c,i,ph},
 	If[Im[a]==0, Return[Re[a]]];
 	c=Arg[a];
 	If[IntegerQ[c*2/Pi], Return[a]];
-	(*If[IntegerQ[c*6/Pi],
-	ph=0;
-	i=Abs[c*6/Pi];
-	If[i\[Equal]5,ph=-I*\[Omega]^2;If[c<0,ph=I*\[Omega]]];
-	If[i\[Equal]4,ph=\[Omega];If[c<0,ph=\[Omega]^2]];
-	If[i\[Equal]2,ph=-\[Omega]^2;If[c<0,ph=-\[Omega]]];
-	If[i\[Equal]1,ph=-I*\[Omega];If[c<0,ph=I*\[Omega]^2]];
-	Assert[SameQ[ph,0]\[Equal]False];
-	Return[Abs[a]*ph];
-	];*)
-	(*Return[Abs[a]*Exp[c*I]];*)
 	ph=ToExactPhase[c,FilterRules[{opts},Options[ToExactPhase]]];
 	If[SameQ[ph, Infinity], 
 		Return[a],
@@ -165,73 +173,4 @@ SimplifyNum2[n_]:=Module[{nn,pol,x,ord, n2,ret},
 		Return[ret], 
 		Assert[Chop[N[ret+nn]]==0];
 		Return[-ret]];
-];
-
-SetAttributes[SimplifyNum,Listable]
-SimplifyNum[n_]:=Module[{an,nn,norm,norm2,tmp,ph},
-	an = Simplify[n];
-	If[NiceComplexQ[an],Return[an]];
-
-	nn=Chop[N[an]];
-	If[nn==0, Return[0]];
-
-	(* simplify norm. *)
-	(* if n is real or pure imaginary*)
-	If[Re[nn]==0,
-		norm= Simplify[Abs[Im[an]]],
-		If[Im[nn]==0, norm = Simplify[Abs[Re[an]]]],
-
-		(* if n is complex *)
-		norm = Sqrt[Simplify[an*Conjugate[an]]];
-	];
-
-	(* if ret is rational or quadratic irational form, we do not need to simplify it.*)
-	If[Element[norm,Rationals]==False && QuadraticIrrationalQ[norm]==False,
-		norm2=Simplify[norm^2];
-		If[QuadraticIrrationalQ[norm2], 
-			tmp=SqrtQudraticForm[norm2];
-			If[SameQ[tmp,Null]==False, norm = tmp],
-			norm = FullSimplify[norm];
-		];
-	];
-
-	(* handle phases. *)
-	If[Re[nn]==0 || Im[nn]==0,
-		ph=Simplify[Exp[I*Arg[nn]]],
-		ph = Simplify[an/norm];
-		tmp=ToExactPhase[Arg[ph],ToNum->True];
-		If[tmp!=Infinity, ph=tmp,
-			ph=FullSimplify[tmp];
-		];
-	];
-
-	Return[ph*norm];
-];
-
-Enumphase[basis_, curr_, phaseindex_]:=Module[{i},
-	(*Print["curr=",curr, ", phaseindex=",phaseindex, ", basis=",basis];*)
-	If[phaseindex>Length[basis],
-		If[curr != 1 && curr != -1,
-			AppendTo[phaseMap,{N[Arg[curr]], curphase}];
-		];
-		
-		Return[];
-	];
-
-	For[i=-basis[[phaseindex,2]],i <= basis[[phaseindex,2]],i++,
-		curphase[[phaseindex]]=i;
-		Enumphase[basis,Simplify[curr*basis[[phaseindex,1]]^i],phaseindex + 1];
-	];
-];
-
-BuildPhaseMap[basePhases_,names_]:=Module[{i,val=1},
-	Clear[phaseMap,phaseNames];
-	phaseMap={};
-	phaseNames=names;
-	curphase=ConstantArray[0,Length[basePhases]];
-	Enumphase[basePhases, 1, 1];
-	Clear[curphase];
-
-	phaseMap=Sort[phaseMap, #1[[1]] < #2[[1]] &];
-	Return[phaseMap];
 ];
