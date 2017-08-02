@@ -1,12 +1,13 @@
 (* ::Package:: *)
 
 <<"/users/gaolichen/gitroot/psl27cg/mpackage/cgframework.m";
+<<"/users/gaolichen/gitroot/psl27cg/mpackage/numerical.m";
 
 MyWriteLine[os_, x___]:=WriteString[os,x, "\n"];
 
 ClearAll[RepTexName];
 Options[RepTexName]={WithSymmetry->True};
-RepTexName[gi_,r_,opts:OptionsPattern[]]:= Module[{v,name,sub,sym,ret},
+RepTexName[gi_,r_,opts:OptionsPattern[]]:= Module[{v,name,sub="",sym,ret},
 	v=SelectFirst[gi[KeyIrr], First[#]==GetRepName[r] &];
 	If[Length[v]>=3, name=v[[3]],name=GetRepName[r]];
 	If[StringContainsQ[name, "_"],
@@ -177,6 +178,8 @@ IsNegative[val_]:=Module[{str},
 
 b7Tolatex={b7-> Subscript[b,7],d7-> Subscript[
 
+
+
 \!\(\*OverscriptBox[\(b\), \(_\)]\), 7]};
 
 ClearAll[CGTermList2TeX];
@@ -190,8 +193,9 @@ CGTermList2TeX[embed_,coefs_,cgterms_,r1_,r2_, align_]:=Module[
 
 	For[i=1,i<= Length[coefs],i++,
 		If[coefs[[i]]==0,Continue[]];
-		val=Simplify[coefs[[i]]/.b7Tolatex];
-		val = Together[val];
+		(*val=Simplify[coefs[[i]]/.b7Tolatex];
+		val = Together[val];*)
+		val = Together[ZToExp[Simplify[coefs[[i]]]]];
 
 		If[Length[cgterms[[i]]]>=4, val = val /Sqrt[2];terminc = 2, terminc = 1];
 		If[terms + terminc > 3, 
@@ -241,8 +245,10 @@ SaveCG[os_, embed_,r1_, r2_,r3_]:=Module[{i,j, align = True,subreps,terms, coefs
 ];
 
 (* Save all CG for r1 times r2 to the stream os. *)
-SaveAllCG[os_, r1_,r2_,embed_]:=Module[
-	{largeG, i,kronecker,r3,m, ch, cg, rep, eq, j, angle1, angle2,rr3},
+ClearAll[SaveAllCG];
+Options[SaveAllCG]={Skips->{}};
+SaveAllCG[os_, r1_,r2_,embed_,opts:OptionsPattern[]]:=Module[
+	{largeG, i,kronecker,r3,m, ch, cg, rep, eq, j, angle1, angle2,rr3,skips},
 	largeG=embed[KeyLargeGroup];
 	MyWriteLine[os,KroneckerEquation2TeX[largeG,r1,r2]];
 	MyWriteLine[os, "\\begin{itemize}"];
@@ -250,8 +256,13 @@ SaveAllCG[os_, r1_,r2_,embed_]:=Module[
 	kronecker=Kronecker[largeG,r1,r2];
 	If[Length[kronecker]==0,Return[]];
 
+	skips=OptionValue[Skips];
 	For[i=1,i<=Length[kronecker],i++,
 		r3 = kronecker[[i]];
+		If[MemberQ[skips,{r1,r2,r3}],
+			Print[r1,"*",r2,"->",r3, " is skipped."];
+			Continue[]
+		];
 		eq = EqsToTeX[largeG,r1, r2, r3];
 		MyWriteLine[os, "\\item $", eq, "$:"];
 		SaveCG[os, embed,r1,r2,r3];
@@ -279,19 +290,22 @@ WriteHeader[os_]:=Module[{},
 
 WriteTail[os_]:=MyWriteLine[os, "\\end{document}"];
 
-WriteBody[os_, prodList_, embed_]:=Module[{i},
+ClearAll[WriteBody]
+Options[WriteBody]=Join[{},Options[SaveAllCG]];
+WriteBody[os_, prodList_, embed_,opts:OptionsPattern[]]:=Module[{i},
 	For[i=1,i <= Length[prodList],i++,
-		SaveAllCG[os, prodList[[i,1]], prodList[[i,2]], embed];
+		SaveAllCG[os, prodList[[i,1]], prodList[[i,2]], embed, FilterRules[{opts},Options[SaveAllCG]]];
 	];
 ];
 
 ClearAll[SaveToTexFile];
-SaveToTexFile[file_, prodList_, embed_]:=Module[{os},
+Options[SaveToTexFile]=Join[{},Options[WriteBody]];
+SaveToTexFile[file_, prodList_, embed_,opts:OptionsPattern[]]:=Module[{os},
 	os = OpenWrite[file];
 	Print["Writing header"];
 	WriteHeader[os];
 	Print["Writing body"];
-	WriteBody[os, prodList, embed];
+	WriteBody[os, prodList, embed, FilterRules[{opts},Options[WriteBody]]];
 	Print["Writing tail"];
 	WriteTail[os];
 	Close[os];

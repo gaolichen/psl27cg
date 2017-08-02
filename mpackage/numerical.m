@@ -2,6 +2,9 @@
 
 (* numerical function. *)
 
+phaseMap={};
+phaseNames={};
+
 Enumphase[basis_, curr_, phaseindex_]:=Module[{i},
 	(*Print["curr=",curr, ", phaseindex=",phaseindex, ", basis=",basis];*)
 	If[phaseindex>Length[basis],
@@ -19,7 +22,6 @@ Enumphase[basis_, curr_, phaseindex_]:=Module[{i},
 ];
 
 BuildPhaseMap[basePhases_,names_]:=Module[{i,val=1},
-	Clear[phaseMap,phaseNames];
 	phaseMap={};
 	phaseNames=names;
 	curphase=ConstantArray[0,Length[basePhases]];
@@ -31,6 +33,23 @@ BuildPhaseMap[basePhases_,names_]:=Module[{i,val=1},
 ];
 
 NIntegerQ[n_]:=Chop[N[n]-Round[Re[N[n]]]]==0;
+
+ZToExp[z_]:=Module[{a,nz,index,diff,ph,i,j},
+	nz=N[z];
+	If[Chop[Im[nz]]==0, Return[Re[z]]];
+	a=Chop[Arg[nz]];
+	If[IntegerQ[a*2/Pi], Return[z]];
+
+	For[i=1,i<=Length[phaseMap],i++,
+		diff = (a-phaseMap[[i,1]])/Pi*2;
+		If[NIntegerQ[diff],
+			ph=Product[phaseNames[[j]]^phaseMap[[i,2,j]],{j,1,Length[phaseMap[[i,2]]]}];
+			Return[Simplify[Abs[z]]*Simplify[ph]*I^Round[diff]];
+		];
+	];
+
+	Return[z]
+];
 
 ClearAll[ToExactPhase];
 Options[ToExactPhase]={ToTex->False,Angle->(-1+I*Sqrt[7])/(2Sqrt[2]),ToNum->False};
@@ -163,14 +182,12 @@ SimplifyNum2[n_]:=Module[{nn,pol,x,ord, n2,ret},
 	n2 = ToRadicals[nn^2];
 	If[Im[n2]==0, 
 		ret=SqrtQudraticForm[n2],
-		ret = SqrtComplex[n2];
+		ret = SqrtComplex[n2]
 	];
 
-	(*Print["n2=",n2, ", ret=", ret];*)
-
 	If[Chop[N[ret-nn]] == 0, 
-		Assert[Chop[N[ret-nn]]==0];
-		Return[ret], 
+		Return[ret],
 		Assert[Chop[N[ret+nn]]==0];
-		Return[-ret]];
+		Return[-ret]
+	];
 ];
