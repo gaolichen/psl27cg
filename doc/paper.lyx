@@ -6,9 +6,14 @@
 \begin_preamble
 \bibliographystyle{unsrt}
 \newcommand{\rep}[1]{\mathbf{#1}} 
+\newcommand{\ket}[1]{\left|{#1}\right\rangle }
 \newcommand{\group}{\mathcal{PSL}_{2}\left(7\right)} 
 \newcommand{\subga}{S_4}
 \newcommand{\subgb}{\mathcal{T}_7}
+
+\newcommand{\cova}[3]{\left(\rep{#1}\otimes\rep{#2}\right)^{}_{\rep{#3}}}
+\newcommand{\covs}[3]{\big\{\rep{#1}\otimes\rep{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\covt}[3]{\big\{\rep{#1}\otimes\rep{#2}\big\}^{}_{\rep{#3}}}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -343,41 +348,197 @@ In this section, let us find the matrix representation of
  
 \end_layout
 
+\begin_layout Subsection
+Triplet representation
+\end_layout
+
 \begin_layout Standard
 Firstly, we need to identify the representation of subgroups.
  The representation of subgroups we choose are listed in Appendix A.
  
 \end_layout
 
-\begin_layout Section
-Group Theory of 
-\begin_inset Formula $A_{4}$
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A^{[3]}=\left(\begin{array}{ccc}
+-\frac{1}{3} & \frac{2}{3}\omega & \frac{2}{3}\omega^{2}\\
+\frac{2}{3}\omega^{2} & -\frac{1}{3} & \frac{2}{3}\omega\\
+\frac{2}{3}\omega & \frac{2}{3}\omega^{2} & -\frac{1}{3}
+\end{array}\right),
+\]
+
 \end_inset
 
- and 
-\begin_inset Formula $S_{4}$
+
+\begin_inset Formula 
+\[
+B^{[3]}=\left(\begin{array}{ccc}
+\frac{2}{3} & -\frac{i\left(\sqrt{3}+\sqrt{7}\right)}{6}\omega^{2}\bar{b}_{7}^{2} & \frac{i\left(\sqrt{3}-\sqrt{7}\right)}{6}\omega\bar{b}_{7}^{2}\\
+\frac{i\left(\sqrt{7}-\sqrt{3}\right)}{6}\omega b_{7}^{2} & -\frac{1}{3} & \frac{1+\sqrt{21}}{6}\omega^{2}\\
+\frac{i\left(\sqrt{3}+\sqrt{7}\right)}{6}\omega^{2}b_{7}^{2} & \frac{1-\sqrt{21}}{6}\omega & -\frac{1}{3}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sextet, Septet and Octet Representations
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ representation 
+\begin_inset Formula 
+\[
+A^{[6]}=\left(\begin{array}{cccccc}
+1 & 0 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & -\frac{1}{3} & \frac{2\omega}{3} & \frac{2\omega^{2}}{3}\\
+0 & 0 & 0 & \frac{2\omega^{2}}{3} & -\frac{1}{3} & \frac{2\omega}{3}\\
+0 & 0 & 0 & \frac{2\omega}{3} & \frac{2\omega^{2}}{3} & -\frac{1}{3}
+\end{array}\right),
+\]
+
+\end_inset
+
+ We can write 
+\begin_inset Formula $B^{[6]}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+B^{[6]}=\left(\begin{array}{cccccc}
+-\frac{1}{6} & -\frac{\sqrt{7}\omega}{6} & -\frac{\sqrt{7}\omega^{2}}{6} & \frac{\sqrt{7}}{6} & \frac{\sqrt{7}\omega}{6} & \frac{\sqrt{7}\omega^{2}}{6}\\
+-\frac{\sqrt{7}}{6} & \frac{\omega}{3} & \frac{\omega^{2}}{3} & -\frac{2\omega^{2}}{3}-\frac{1}{6} & -\frac{\omega^{2}}{3} & -\frac{1}{3}\\
+-\frac{\sqrt{7}}{6} & \frac{\omega}{3} & \frac{\omega^{2}}{3} & -\frac{2\omega}{3}-\frac{1}{6} & -\frac{1}{3} & -\frac{\omega}{3}\\
+\frac{\sqrt{7}}{6} & -\frac{\omega}{6}-\frac{2}{3} & -\frac{\omega^{2}}{6}-\frac{2}{3} & \frac{1}{6} & \frac{\omega}{6} & \frac{\omega^{2}}{6}\\
+\frac{\sqrt{7}}{6} & -\frac{\omega^{2}}{3} & -\frac{\omega}{3} & \frac{1}{6} & -\frac{\omega}{3} & \frac{2\omega^{2}}{3}\\
+\frac{\sqrt{7}}{6} & -\frac{\omega^{2}}{3} & -\frac{\omega}{3} & \frac{1}{6} & \frac{2\omega}{3} & -\frac{\omega^{2}}{3}
+\end{array}\right)
+\]
+
+\end_inset
+
+ In 
+\begin_inset Formula $\rep{8}$
+\end_inset
+
+ representation
+\begin_inset Formula 
+\[
+A^{[8]}=\left(\begin{array}{cccccccc}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & -\frac{1}{3} & \frac{2\omega}{3} & \frac{2\omega^{2}}{3} & 0 & 0 & 0\\
+0 & 0 & \frac{2\omega^{2}}{3} & -\frac{1}{3} & \frac{2\omega}{3} & 0 & 0 & 0\\
+0 & 0 & \frac{2\omega}{3} & \frac{2\omega^{2}}{3} & -\frac{1}{3} & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & -\frac{1}{3} & \frac{2\omega}{3} & \frac{2\omega^{2}}{3}\\
+0 & 0 & 0 & 0 & 0 & \frac{2\omega^{2}}{3} & -\frac{1}{3} & \frac{2\omega}{3}\\
+0 & 0 & 0 & 0 & 0 & \frac{2\omega}{3} & \frac{2\omega^{2}}{3} & -\frac{1}{3}
+\end{array}\right).
+\]
+
+\end_inset
+
+ For 
+\begin_inset Formula $B$
+\end_inset
+
+, elements of the first five columns are
+\begin_inset Formula 
+\[
+B_{1}^{[8]}=\left(\begin{array}{ccccc}
+-\frac{\omega}{4} & -\frac{\omega^{2}}{4} & -\frac{i\omega^{2}}{\sqrt{6}} & \frac{i}{4}\sqrt{\frac{3}{2}}\omega^{2}-\frac{i}{4\sqrt{6}} & \frac{i}{2\sqrt{6}}-\frac{\omega^{2}}{4\sqrt{2}}\\
+-\frac{\omega}{4} & -\frac{\omega^{2}}{4} & \frac{i\omega}{\sqrt{6}} & -\frac{i}{2\sqrt{6}}-\frac{\omega}{4\sqrt{2}} & \frac{i}{4\sqrt{6}}-\frac{i}{4}\sqrt{\frac{3}{2}}\omega\\
+-\frac{i}{\sqrt{6}} & \frac{i}{\sqrt{6}} & \frac{1}{6} & \frac{\omega}{6} & \frac{\omega^{2}}{6}\\
+\frac{i}{4}\sqrt{\frac{3}{2}}\omega^{2}-\frac{i}{4\sqrt{6}} & \frac{i}{4\sqrt{6}}-\frac{i}{4}\sqrt{\frac{3}{2}}\omega & \frac{1}{6} & \frac{13\omega}{24} & -\frac{5\omega^{2}}{24}\\
+\frac{i}{4}\sqrt{\frac{3}{2}}\omega^{2}-\frac{i}{4\sqrt{6}} & \frac{i}{4\sqrt{6}}-\frac{i}{4}\sqrt{\frac{3}{2}}\omega & \frac{1}{6} & -\frac{5\omega}{24} & \frac{13\omega^{2}}{24}\\
+0 & 0 & -\frac{\sqrt{7}}{6} & -\frac{\sqrt{7}}{6}\omega^{2} & -\frac{\sqrt{7}\omega}{6}\\
+\frac{1}{4}\sqrt{\frac{7}{2}}\omega & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2} & -\frac{\sqrt{7}}{6} & -\sqrt{7}\left(\frac{i\omega^{2}}{8\sqrt{3}}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{i\omega}{8\sqrt{3}}-\frac{1}{24}\right)\\
+-\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2} & -\frac{\sqrt{7}}{6} & -\sqrt{7}\left(\frac{i\omega^{2}}{8\sqrt{3}}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{i\omega}{8\sqrt{3}}-\frac{1}{24}\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+ The last three columns are 
+\begin_inset Formula 
+\[
+B_{2}^{[8]}=\begin{pmatrix}0 & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2}\\
+0 & \frac{1}{4}\sqrt{\frac{7}{2}}\omega & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2}\\
+\frac{\sqrt{7}}{6} & \frac{\sqrt{7}\omega}{6} & \frac{\sqrt{7}\omega^{2}}{6}\\
+\frac{\sqrt{7}\omega}{6} & \sqrt{7}\left(\frac{i\omega^{2}}{8\sqrt{3}}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{\omega}{8}+\frac{1}{24}\right)\\
+\frac{\sqrt{7}\omega^{2}}{6} & \sqrt{7}\left(\frac{\omega^{2}}{8}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{1}{24}-\frac{i\omega}{8\sqrt{3}}\right)\\
+-\frac{1}{2} & -\frac{i\omega^{2}}{2\sqrt{3}} & \frac{i\omega}{2\sqrt{3}}\\
+-\frac{i\omega}{2\sqrt{3}} & \frac{3\omega^{2}}{8}+\frac{i}{8\sqrt{3}} & -\frac{\omega^{2}}{8}\\
+\frac{i\omega^{2}}{2\sqrt{3}} & -\frac{\omega}{8} & -\frac{i}{8\sqrt{3}}+\frac{3\omega}{8}
+\end{pmatrix}
+\]
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Let us first study the groups 
+In 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+ representation
+\begin_inset Formula 
+\[
+A^{[7]}=\left(\begin{array}{ccccccc}
+1 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & -\frac{1}{3} & \frac{2\omega}{3} & \frac{2\omega^{2}}{3} & 0 & 0 & 0\\
+0 & \frac{2\omega^{2}}{3} & -\frac{1}{3} & \frac{2\omega}{3} & 0 & 0 & 0\\
+0 & \frac{2\omega}{3} & \frac{2\omega^{2}}{3} & -\frac{1}{3} & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & -\frac{1}{3} & \frac{2\omega}{3} & \frac{2\omega^{2}}{3}\\
+0 & 0 & 0 & 0 & \frac{2\omega^{2}}{3} & -\frac{1}{3} & \frac{2\omega}{3}\\
+0 & 0 & 0 & 0 & \frac{2\omega}{3} & \frac{2\omega^{2}}{3} & -\frac{1}{3}
+\end{array}\right),
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+B^{[7]}=\left(\begin{array}{ccccccc}
+0 & -\frac{i\bar{b}_{7}^{3}}{\sqrt{3}} & \frac{i\omega\bar{b}_{7}^{3}}{2\sqrt{3}} & \frac{i\omega^{2}\bar{b}_{7}^{3}}{2\sqrt{3}} & 0 & -\frac{i\omega\bar{b}_{7}^{2}}{2} & \frac{i\omega^{2}\bar{b}_{7}^{2}}{2}\\
+-\frac{ib_{7}^{3}}{\sqrt{3}} & -\frac{1}{3} & -\frac{\omega}{3} & -\frac{\omega^{2}}{3} & \frac{ib_{7}}{3} & \frac{i\omega b_{7}}{3} & \frac{i\omega^{2}b_{7}}{3}\\
+\frac{ib_{7}^{3}}{2\sqrt{3}} & -\frac{1}{3} & -\frac{\omega}{3} & -\frac{\omega^{2}}{3} & \frac{ib_{7}\omega^{2}}{3}+\frac{b_{7}}{2\sqrt{3}} & \frac{i\omega^{2}b_{7}}{3} & \frac{ib_{7}}{3}\\
+\frac{ib_{7}^{3}}{2\sqrt{3}} & -\frac{1}{3} & -\frac{\omega}{3} & -\frac{\omega^{2}}{3} & \frac{i\omega b_{7}}{3}-\frac{b_{7}}{2\sqrt{3}} & \frac{ib_{7}}{3} & \frac{i\omega b_{7}}{3}\\
+0 & \frac{i\bar{b}_{7}}{3} & \frac{i\bar{b}_{7}}{3}+\frac{\omega\bar{b}_{7}}{2\sqrt{3}} & \frac{i\bar{b}_{7}}{3}-\frac{\omega^{2}\bar{b}_{7}}{2\sqrt{3}} & 0 & -\frac{i\omega}{2\sqrt{3}} & \frac{i\omega^{2}}{2\sqrt{3}}\\
+-\frac{ib_{7}^{2}}{2} & \frac{i\bar{b}_{7}}{3} & \frac{i\omega^{2}\bar{b}_{7}}{3} & \frac{i\omega\bar{b}_{7}}{3} & -\frac{i}{2\sqrt{3}} & -\frac{i\omega}{\sqrt{3}} & 0\\
+\frac{ib_{7}^{2}}{2} & \frac{i\bar{b}_{7}}{3} & \frac{i\omega^{2}\bar{b}_{7}}{3} & \frac{i\omega\bar{b}_{7}}{3} & \frac{i}{2\sqrt{3}} & 0 & \frac{i\omega^{2}}{\sqrt{3}}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+Group Theory
+\end_layout
+
+\begin_layout Subsection
 \begin_inset Formula $A_{4}$
 \end_inset
 
- and 
-\begin_inset Formula $S_{4}$
-\end_inset
 
-, both of which are subgroups of 
-\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
-\end_inset
-
- and the former is a subgroup of the latter.
- We will also study their CG coefficients as a simple example of subgroup-based
- CG coefficients.
- 
 \end_layout
 
 \begin_layout Standard
@@ -401,8 +562,8 @@ s^{2}=t^{3}=\left(st\right)^{3}=e.\label{eq:A4_presentation}
 
 \end_inset
 
-The group has four irreducible representations: one trivial singlet representati
-on 
+The group has four irreducible representations(irrep): one trivial singlet
+ representation 
 \begin_inset Formula $\rep{1}$
 \end_inset
 
@@ -905,6 +1066,13 @@ x_{1}
  are trivial.
 \end_layout
 
+\begin_layout Subsection
+\begin_inset Formula $S_{4}$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 The 
 \begin_inset Formula $S_{4}$
@@ -961,7 +1129,7 @@ s=a^{2},\quad t=ab.\label{eq:S4A4_generator_relation}
 \begin_inset Formula $S_{4}$
 \end_inset
 
- has five irreducible representations: one trivial singlet 
+ has five irreps: one trivial singlet 
 \begin_inset Formula $\rep{1}$
 \end_inset
 
@@ -977,7 +1145,7 @@ s=a^{2},\quad t=ab.\label{eq:S4A4_generator_relation}
 \begin_inset Formula $\rep{3_{1}}$
 \end_inset
 
-, and 
+ and 
 \begin_inset Formula $\rep{3_{2}}$
 \end_inset
 
@@ -994,22 +1162,24 @@ reference "tab:S4_character"
 \end_inset
 
 .
- The irreducible representations of 
+ The irreps of 
 \begin_inset Formula $S_{4}$
 \end_inset
 
- can be decomposed into those of 
+ can be decomposed into irreps of 
 \begin_inset Formula $A_{4}$
 \end_inset
 
- show as table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:S4A4_Embedding"
+: 
+\begin_inset Formula 
+\begin{align*}
+\rep{1_{1}} & =\rep{1},\quad\rep{2}=\rep{1^{\prime}}\oplus\rep{\bar{1}^{\prime}},\\
+\rep{3_{1}} & =\rep{3},\quad\rep{3_{2}}=\rep{3}.
+\end{align*}
 
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
@@ -1435,133 +1605,7 @@ Character table of
 \end_layout
 
 \begin_layout Standard
-\align center
-\begin_inset Float table
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="1">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $S_{4}\supset A_{4}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\rep{1_{1}}=\rep{1}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\rep{2}\;=\rep{1^{\prime}}+\rep{\bar{1}^{\prime}}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\rep{3_{1}}=\rep{3}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\rep{3_{2}}=\rep{3}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:S4A4_Embedding"
-
-\end_inset
-
-Embedding of 
-\begin_inset Formula $A_{4}$
-\end_inset
-
- in 
-\begin_inset Formula $S_{4}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The non-singlet irreducible representations of 
+The non-singlet irreps of 
 \begin_inset Formula $S_{4}$
 \end_inset
 
@@ -1662,15 +1706,23 @@ Using the CG coefficients of
 \begin_inset Formula $\bar{s}^{\prime}$
 \end_inset
 
- are singlets in 
+ are nontrivial singlets of 
 \begin_inset Formula $A_{4}$
 \end_inset
 
- representations, and 
+, and 
 \begin_inset Formula $\rep{s}$
 \end_inset
 
- is a singlet.
+ is a singlet of 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+ and 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -1680,12 +1732,12 @@ Using the CG coefficients of
 :
 \begin_inset Formula 
 \begin{align*}
-\left[\rep{x}\otimes\rep{y}\right]_{1} & =\left(\rep{x}\otimes\rep{y}\right)_{1}\\
-\left[\rep{x}\otimes\rep{y}\right]_{2} & =\begin{pmatrix}\left(\rep{x}\otimes\rep{y}\right)_{\rep{1^{\prime}}}\\
-\left(\rep{x}\otimes\rep{y}\right)_{\rep{\bar{1}^{\prime}}}
+\covs{x}{y}{1} & =\cova{x}{y}{1}\\
+\covs{x}{y}{2} & =\begin{pmatrix}\cova{x}{y}{1^{\prime}}\\
+\cova{x}{y}{\bar{1}^{\prime}}
 \end{pmatrix}\\
-\left[\rep{x}\otimes\rep{y}\right]_{\rep{3_{1}}} & =\left(\rep{x}\otimes\rep{y}\right)_{\rep{3_{s}}}\\
-\left[\rep{x}\otimes\rep{y}\right]_{\rep{3_{2}}} & =i\left(\rep{x}\otimes\rep{y}\right)_{\rep{3_{a}}}
+\covs{x}{y}{3_{1}} & =\cova{x}{y}{3_{s}}\\
+\covs{x}{y}{3_{2}} & =i\cova{x}{y}{3_{a}}
 \end{align*}
 
 \end_inset
@@ -1700,12 +1752,12 @@ Using the CG coefficients of
 :
 \begin_inset Formula 
 \begin{align*}
-\left[\rep{x}\otimes\rep{y}\right]_{1} & =\left(\rep{x}\otimes\rep{y}\right)_{1}\\
-\left[\rep{x}\otimes\rep{y}\right]_{2} & =\begin{pmatrix}\left(\rep{x}\otimes\rep{y}\right)_{\rep{1^{\prime}}}\\
-\left(\rep{x}\otimes\rep{y}\right)_{\rep{\bar{1}^{\prime}}}
+\covs{x}{y}{1} & =\cova{x}{y}{1}\\
+\covs{x}{y}{2} & =\begin{pmatrix}\cova{x}{y}{1^{\prime}}\\
+\cova{x}{y}{\bar{1}^{\prime}}
 \end{pmatrix}\\
-\left[\rep{x}\otimes\rep{y}\right]_{\rep{3_{1}}} & =\left(\rep{x}\otimes\rep{y}\right)_{\rep{3_{s}}}\\
-\left[\rep{x}\otimes\rep{y}\right]_{\rep{3_{2}}} & =i\left(\rep{x}\otimes\rep{y}\right)_{\rep{3_{a}}}
+\covs{x}{y}{3_{1}} & =\cova{x}{y}{3_{s}}\\
+\covs{x}{y}{3_{2}} & =i\cova{x}{y}{3_{a}}
 \end{align*}
 
 \end_inset
@@ -1795,6 +1847,666 @@ Using the CG coefficients of
 -i\left(\rep{\bar{s}_{z}^{\prime}}\otimes\rep{s}\right)_{\rep{\bar{1}^{\prime}}}
 \end{pmatrix}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\subgb$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Frobenius group of order 21 is the smallest finite non-Abelian subgroup
+ of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+.
+ It contains elements of order three and seven, with the presentation 
+\begin_inset Formula 
+\begin{equation}
+\left\langle c,d\big|c^{7}=d^{3}=1,d^{-1}cd=c^{4}\right\rangle .\label{eq:Z7Z3-Generator}
+\end{equation}
+
+\end_inset
+
+Its irreps are, a real singlet, one complex triplet 
+\begin_inset Formula $\rep{3}$
+\end_inset
+
+, a complex singlet, 
+\begin_inset Formula $\rep{1^{\prime}}$
+\end_inset
+
+, and their inequivalent conjugates, 
+\begin_inset Formula $\rep{\bar{3}}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rep{\bar{1}^{\prime}}$
+\end_inset
+
+.
+ Their Kronecker products are 
+\begin_inset Formula 
+\begin{align*}
+\rep{1^{\prime}}\otimes\rep{1^{\prime}} & =\rep{\bar{1}^{\prime}},\quad\quad\quad\quad\quad\;\,\rep{1^{\prime}}\otimes\rep{\bar{1}^{\prime}}=\rep{1}\\
+\rep{3}\otimes\rep{1^{\prime}} & =\rep{3},\quad\quad\quad\quad\quad\quad\rep{3}\otimes\rep{\bar{1}^{\prime}}=\rep{3}\\
+\rep{3}\otimes\rep{3}\; & =\left(\rep{3}+\rep{\bar{3}}\right)_{s}+\rep{\bar{3}}_{a},\;\;\,\rep{3}\otimes\rep{\bar{3}}\;=\rep{1}+\rep{1^{\prime}}+\rep{\bar{1}^{\prime}}+\rep{3}+\rep{\bar{3}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The CG coefficients of 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ are as follows.
+\begin_inset Formula 
+\begin{align*}
+\covt{1^{\prime}}{\bar{3}}{3} & =\begin{pmatrix}\ket{1^{\prime}}\ket{1}\\
+\omega\ket{1^{\prime}}\ket{2}\\
+\omega^{2}\ket{1^{\prime}}\ket{3}
+\end{pmatrix},\quad\quad\quad\quad\quad\quad\covt{3}{3}{3}=\begin{pmatrix}\ket{3}\ket{3^{\prime}}\\
+\ket{1}\ket{1^{\prime}}\\
+\ket{2}\ket{2^{\prime}}
+\end{pmatrix}\\
+\covt{3}{3}{\bar{3}_{s}} & =\begin{pmatrix}\frac{1}{\sqrt{2}}\left(\ket{3}\ket{2^{\prime}}+\ket{2}\ket{3^{\prime}}\right)\\
+\frac{1}{\sqrt{2}}\left(\ket{1}\ket{3^{\prime}}+\ket{3}\ket{1^{\prime}}\right)\\
+\frac{1}{\sqrt{2}}\left(\ket{2}\ket{1^{\prime}}+\ket{1}\ket{2^{\prime}}\right)
+\end{pmatrix},\quad\covt{3}{3}{\bar{3}_{s}}=\begin{pmatrix}\frac{1}{\sqrt{2}}\left(\ket{3}\ket{2^{\prime}}-\ket{2}\ket{3^{\prime}}\right)\\
+\frac{1}{\sqrt{2}}\left(\ket{1}\ket{3^{\prime}}-\ket{3}\ket{1^{\prime}}\right)\\
+\frac{1}{\sqrt{2}}\left(\ket{2}\ket{1^{\prime}}-\ket{1}\ket{2^{\prime}}\right)
+\end{pmatrix}\\
+\covt{3}{\bar{3}}{3} & =\begin{pmatrix}\ket{2}\ket{\bar{1}}\\
+\ket{3}\ket{\bar{2}}\\
+\ket{1}\ket{\bar{3}}
+\end{pmatrix},\quad\quad\quad\quad\quad\quad\quad\quad\covt{3}{\bar{3}}{\bar{3}}=\begin{pmatrix}\ket{1}\ket{\bar{2}}\\
+\ket{2}\ket{\bar{3}}\\
+\ket{3}\ket{\bar{1}}
+\end{pmatrix}\\
+\covt{3}{\bar{3}}{1^{\prime}} & =\frac{1}{\sqrt{3}}\left(\ket{1}\ket{\bar{1}}+\omega^{2}\ket{2}\ket{\bar{2}}+\omega\ket{3}\ket{\bar{3}}\right),\quad\omega=\exp\left(\frac{2i\pi}{3}\right)\\
+\covt{3}{\bar{3}}{1^{\prime}} & =\frac{1}{\sqrt{3}}\left(\ket{1}\ket{\bar{1}}+\omega\ket{2}\ket{\bar{2}}+\omega^{2}\ket{3}\ket{\bar{3}}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\group$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $\group$
+\end_inset
+
+ group has the presentation
+\begin_inset Formula 
+\[
+\left\langle A,B|A^{2}=B^{3}=\left(AB\right)^{7}=\left[A,B\right]^{4}=e\right\rangle .
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ irreps can be decomposed into 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+ irreps as Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:PSL27-S4-T7"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+There are many ways to express 
+\begin_inset Formula $\subga$
+\end_inset
+
+ and 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ generators in terms of 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ generators.
+ One possible ways is
+\begin_inset Formula 
+\[
+a=\left[A,B\right],\quad b=\left(AB^{2}\left(AB\right)^{2}\right)^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\group\supset\subga$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{3}=\rep{3_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{\bar{3}}=\rep{3_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{6}=\rep{1}+\rep{2}+\rep{3_{1}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{7}=\rep{1_{1}}+\rep{3_{1}}+\rep{3_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{8}=\rep{2}+\rep{3_{1}}+\rep{3_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\group\supset\subgb$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{3}=\rep{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{\bar{3}}=\rep{\bar{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{6}=\rep{3}+\rep{\bar{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{7}=\rep{1}+\rep{3}+\rep{\bar{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{8}=\rep{1^{\prime}}+\rep{\bar{1}^{\prime}}+\rep{3}+\rep{\bar{3}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:PSL27-S4-T7"
+
+\end_inset
+
+Embedding of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ and 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ in 
+\begin_inset Formula $\group$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Kronecker product of 
+\begin_inset Formula $\group$
+\end_inset
+
+ are as table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:PSL27-Kronecker"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="15" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\group$
+\end_inset
+
+ Kronecker Product
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{3}\otimes\rep{3}=\rep{\bar{3}}_{a}+\rep{6}_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{3}\otimes\rep{\bar{3}}=\rep{1}+\rep{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{3}\otimes\rep{6}=\rep{\bar{3}}+\rep{7}+\rep{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{\bar{3}}\otimes\rep{6}=\rep{3}+\rep{7}+\rep{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{3}\otimes\rep{7}=\rep{6}+\rep{7}+\rep{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{\bar{3}}\otimes\rep{7}=\rep{6}+\rep{7}+\rep{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{3}\otimes\rep{8}=\rep{3}+\rep{6}+\rep{7}+\rep{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{\bar{3}}\otimes\rep{8}=\rep{\bar{3}}+\rep{6}+\rep{7}+\rep{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{6}\otimes\rep{6}=\left(\rep{1}+\rep{6}+\rep{6}+\rep{8}\right)_{s}+\left(\rep{7}+\rep{8}\right)_{a}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{6}\otimes\rep{7}=\rep{3}+\rep{\bar{3}}+\rep{6}+\rep{7}+\rep{7}+\rep{8}+\rep{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{6}\otimes\rep{8}=\rep{3}+\rep{\bar{3}}+\rep{6}+\rep{6}+\rep{7}+\rep{7}+\rep{8}+\rep{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{7}\otimes\rep{7}=\left(\rep{1}+\rep{6}+\rep{6}+\rep{7}+\rep{8}\right)_{s}+\left(\rep{3}+\rep{\bar{3}}+\rep{7}+\rep{8}\right)_{a}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{7}\otimes\rep{8}=\rep{3}+\rep{\bar{3}}+\rep{6}+\rep{6}+\rep{7}+\rep{7}+\rep{8}+\rep{8}+\rep{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{8}\otimes\rep{8}=\left(\rep{1}+\rep{6}+\rep{6}+\rep{7}+\rep{8}+\rep{8}\right)_{s}+\left(\rep{3}+\rep{\bar{3}}+\rep{7}+\rep{7}+\rep{8}\right)_{a}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:PSL27-Kronecker"
+
+\end_inset
+
+Kronecker products of 
+\begin_inset Formula $\group$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
