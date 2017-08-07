@@ -380,47 +380,84 @@ key "Luhn:2007yr"
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subequations}
+\backslash
+label{Gen_AB3_old}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
-\[
-A_{0}^{[3]}=\frac{i}{\sqrt{7}}\begin{pmatrix}\eta^{2}-\eta^{5} & \eta-\eta^{6} & \eta^{4}-\eta^{3}\\
+\begin{align}
+A_{0}^{[3]} & =\frac{i}{\sqrt{7}}\begin{pmatrix}\eta^{2}-\eta^{5} & \eta-\eta^{6} & \eta^{4}-\eta^{3}\\
 \eta-\eta^{6} & \eta^{4}-\eta^{3} & \eta^{2}-\eta^{5}\\
 \eta^{4}-\eta^{3} & \eta^{2}-\eta^{5} & \eta-\eta^{6}
-\end{pmatrix},
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-B_{0}^{[3]}=\frac{i}{\sqrt{7}}\begin{pmatrix}\eta^{3}-\eta^{6} & \eta^{3}-\eta & \eta-1\\
+\end{pmatrix},\label{eq:Gen_A3_old}\\
+B_{0}^{[3]} & =\frac{i}{\sqrt{7}}\begin{pmatrix}\eta^{3}-\eta^{6} & \eta^{3}-\eta & \eta-1\\
 \eta^{2}-1 & \eta^{6}-\eta^{5} & \eta^{6}-\eta^{2}\\
 \eta^{5}-\eta^{4} & \eta^{4}-1 & \eta^{5}-\eta^{3}
-\end{pmatrix}.
-\]
+\end{pmatrix},\label{eq:Gen_B3_old}
+\end{align}
 
 \end_inset
 
-In this basis, the 
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
+
+\end_inset
+
+ where 
+\begin_inset Formula $\eta=\exp\left(i2\pi/7\right)$
+\end_inset
+
+.
+ With eqs.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:App_Psl_S4_Gen_Relation"
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:App_S4A4_Gen_Relation"
+
+\end_inset
+
+, the 
 \begin_inset Formula $\subga$
 \end_inset
 
- generators 
-\begin_inset Formula $a$
-\end_inset
-
  and 
-\begin_inset Formula $b$
+\begin_inset Formula $A_{4}$
 \end_inset
 
- are 
+ generators in this basis read 
 \begin_inset Formula 
 \[
 a_{0}=\begin{pmatrix}\begin{array}{ccc}
 \frac{i\eta^{5}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}} & \frac{i\eta^{5}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}} & \frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}\\
 -\frac{i\eta^{5}}{\sqrt{7}}-\frac{2i\eta^{4}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}-\frac{i}{\sqrt{7}} & \frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}} & \frac{i\eta^{5}}{\sqrt{7}}+\frac{i\eta^{4}}{\sqrt{7}}+\frac{2i\eta^{3}}{\sqrt{7}}+\frac{i\eta^{2}}{\sqrt{7}}+\frac{i\eta}{\sqrt{7}}+\frac{i}{\sqrt{7}}\\
 -\frac{2i\eta^{5}}{\sqrt{7}}-\frac{i\eta^{4}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}-\frac{i}{\sqrt{7}} & \frac{i\eta^{5}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}} & -\frac{i\eta^{5}}{\sqrt{7}}-\frac{2i\eta^{4}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}-\frac{i}{\sqrt{7}}
-\end{array}\end{pmatrix}
+\end{array}\end{pmatrix},
 \]
 
 \end_inset
@@ -432,31 +469,7 @@ b_{0}=\begin{pmatrix}\begin{array}{ccc}
 -\frac{2\eta^{5}}{7}-\frac{3\eta^{4}}{7}-\frac{3\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{4}{7} & \frac{3\eta^{5}}{7}+\frac{3\eta^{4}}{7}+\frac{\eta^{2}}{7}-\frac{\eta}{7}+\frac{1}{7} & \frac{2\eta^{5}}{7}-\frac{\eta^{4}}{7}-\frac{2\eta^{3}}{7}-\frac{\eta^{2}}{7}+\frac{2\eta}{7}\\
 \frac{2\eta^{5}}{7}+\frac{\eta^{4}}{7}+\frac{4\eta^{3}}{7}+\frac{4\eta^{2}}{7}+\frac{\eta}{7}+\frac{2}{7} & \frac{3\eta^{5}}{7}+\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta^{2}}{7}-\frac{1}{7} & \frac{\eta^{4}}{7}+\frac{3\eta^{3}}{7}-\frac{\eta^{2}}{7}+\frac{3\eta}{7}+\frac{1}{7}\\
 -\frac{3\eta^{5}}{7}-\frac{4\eta^{4}}{7}-\frac{3\eta^{3}}{7}-\frac{2\eta}{7}-\frac{2}{7} & -\frac{4\eta^{5}}{7}-\frac{2\eta^{3}}{7}-\frac{3\eta^{2}}{7}-\frac{3\eta}{7}-\frac{2}{7} & -\frac{\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{2\eta^{3}}{7}-\frac{\eta^{2}}{7}-\frac{2}{7}
-\end{array}\end{pmatrix}
-\]
-
-\end_inset
-
- The 
-\begin_inset Formula $A_{4}$
-\end_inset
-
- generators 
-\begin_inset Formula $s$
-\end_inset
-
- and 
-\begin_inset Formula $t$
-\end_inset
-
- are
-\begin_inset Formula 
-\[
-s_{0}=\begin{pmatrix}\begin{array}{ccc}
-0 & \frac{i\eta^{4}}{\sqrt{7}}+\frac{2i\eta^{3}}{\sqrt{7}}+\frac{2i\eta^{2}}{\sqrt{7}}+\frac{2i}{\sqrt{7}} & 0\\
-0 & 0 & -\frac{2i\eta^{5}}{\sqrt{7}}-\frac{2i\eta^{3}}{\sqrt{7}}-\frac{2i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}\\
-\frac{2i\eta^{5}}{\sqrt{7}}+\frac{i\eta^{2}}{\sqrt{7}}+\frac{2i\eta}{\sqrt{7}}+\frac{2i}{\sqrt{7}} & 0 & 0
-\end{array}\end{pmatrix}
+\end{array}\end{pmatrix},
 \]
 
 \end_inset
@@ -465,6 +478,18 @@ s_{0}=\begin{pmatrix}\begin{array}{ccc}
 \begin_inset Formula 
 \[
 t_{0}=\begin{pmatrix}\begin{array}{ccc}
+0 & \frac{i\eta^{4}}{\sqrt{7}}+\frac{2i\eta^{3}}{\sqrt{7}}+\frac{2i\eta^{2}}{\sqrt{7}}+\frac{2i}{\sqrt{7}} & 0\\
+0 & 0 & -\frac{2i\eta^{5}}{\sqrt{7}}-\frac{2i\eta^{3}}{\sqrt{7}}-\frac{2i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}\\
+\frac{2i\eta^{5}}{\sqrt{7}}+\frac{i\eta^{2}}{\sqrt{7}}+\frac{2i\eta}{\sqrt{7}}+\frac{2i}{\sqrt{7}} & 0 & 0
+\end{array}\end{pmatrix},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+s_{0}=\begin{pmatrix}\begin{array}{ccc}
 -\frac{2\eta^{5}}{7}-\frac{3\eta^{4}}{7}-\frac{3\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{4}{7} & -\frac{3\eta^{5}}{7}-\frac{2\eta^{4}}{7}-\frac{4\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{3\eta}{7} & \frac{2\eta^{4}}{7}-\frac{\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{\eta}{7}+\frac{2}{7}\\
 \frac{\eta^{5}}{7}-\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta}{7}+\frac{3}{7} & \frac{3\eta^{5}}{7}+\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta^{2}}{7}-\frac{1}{7} & \frac{4\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{\eta^{2}}{7}+\frac{2\eta}{7}+\frac{4}{7}\\
 -\frac{\eta^{5}}{7}+\frac{3\eta^{3}}{7}+\frac{\eta^{2}}{7}+\frac{\eta}{7}+\frac{3}{7} & -\frac{\eta^{5}}{7}-\frac{\eta^{4}}{7}+\frac{2\eta^{2}}{7}-\frac{2\eta}{7}+\frac{2}{7} & -\frac{\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{2\eta^{3}}{7}-\frac{\eta^{2}}{7}-\frac{2}{7}
@@ -473,15 +498,42 @@ t_{0}=\begin{pmatrix}\begin{array}{ccc}
 
 \end_inset
 
- We want to find unitary transformation 
+ There exists a unitary matrix 
 \begin_inset Formula $U$
 \end_inset
 
- so that 
+ so that
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subequations}
+\end_layout
+
+\end_inset
+
+ 
 \begin_inset Formula 
-\[
-Us_{0}U^{-1}=s,\quad Ut_{0}U^{-1}=t
-\]
+\begin{align}
+U^{\dagger}s_{0}U & =s\label{eq:Unitary_Transform_Us}\\
+U^{\dagger}t_{0}U & =t\label{eq:Unitary_Transform_Ut}
+\end{align}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
 
 \end_inset
 
@@ -493,7 +545,11 @@ Us_{0}U^{-1}=s,\quad Ut_{0}U^{-1}=t
 \begin_inset Formula $t$
 \end_inset
 
- are given by eq.
+ are 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+ generator given by eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -501,31 +557,170 @@ reference "eq:A4-generators"
 
 \end_inset
 
- .
- 
-\end_layout
+.
+ Let us find the matrix 
+\begin_inset Formula $U$
+\end_inset
 
-\begin_layout Standard
+.
+ Since 
+\begin_inset Formula $t$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+ are related by a similarity transformation, they both have eigenvalues
+ 
+\begin_inset Formula $\left(1,\omega,\omega^{2}\right)$
+\end_inset
+
+ and there exist unitary matrices 
+\begin_inset Formula $U_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $U_{2}$
+\end_inset
+
+ satisfying 
 \begin_inset Formula 
 \[
-A^{[3]}=\left(\begin{array}{ccc}
--\frac{1}{3} & \frac{2}{3}\omega & \frac{2}{3}\omega^{2}\\
-\frac{2}{3}\omega^{2} & -\frac{1}{3} & \frac{2}{3}\omega\\
-\frac{2}{3}\omega & \frac{2}{3}\omega^{2} & -\frac{1}{3}
-\end{array}\right),
+U_{1}^{\dagger}tU_{1}=U_{2}^{\dagger}t_{0}U_{2}=\mathrm{diag}\left(1,\omega,\omega^{2}\right).
 \]
 
 \end_inset
 
+ Then 
+\begin_inset Formula $U=U_{2}U_{1}^{\dagger}$
+\end_inset
 
+ clearly satisfies eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Unitary_Transform_Ut"
+
+\end_inset
+
+.
+ But we can write down a more general expression 
 \begin_inset Formula 
-\[
-B^{[3]}=\left(\begin{array}{ccc}
+\begin{equation}
+U=U_{2}\begin{pmatrix}e^{ip_{1}}\\
+ & e^{ip_{2}}\\
+ &  & e^{ip_{3}}
+\end{pmatrix}U_{1}^{\dagger}.\label{eq:Unitary_Transform_Ut2}
+\end{equation}
+
+\end_inset
+
+Actually, any 
+\begin_inset Formula $U$
+\end_inset
+
+satisfying eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Unitary_Transform_Ut"
+
+\end_inset
+
+ can be written as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Unitary_Transform_Ut2"
+
+\end_inset
+
+.
+ Substituting it into eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Unitary_Transform_Us"
+
+\end_inset
+
+, we can solve for 
+\begin_inset Formula $p_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{2}$
+\end_inset
+
+ in terms of 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+.
+ It is easy to find 
+\begin_inset Formula $U_{1}$
+\end_inset
+
+ but require some nontrivial mathematica computation to find 
+\begin_inset Formula $U_{2}$
+\end_inset
+
+.
+ The details of the computation is shown in the appendix.
+ Applying the unitary transformation of 
+\begin_inset Formula $U$
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Gen_AB3_old"
+
+\end_inset
+
+, we obtain
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subequations}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+A^{[3]} & =\left(\begin{array}{ccc}
+-\frac{1}{3} & \frac{2}{3}\omega & \frac{2}{3}\omega^{2}\\
+\frac{2}{3}\omega^{2} & -\frac{1}{3} & \frac{2}{3}\omega\\
+\frac{2}{3}\omega & \frac{2}{3}\omega^{2} & -\frac{1}{3}
+\end{array}\right),\label{eq:Gen_A3}\\
+B^{[3]} & =\left(\begin{array}{ccc}
 \frac{2}{3} & -\frac{i\left(\sqrt{3}+\sqrt{7}\right)}{6}\omega^{2}\bar{b}_{7}^{2} & \frac{i\left(\sqrt{3}-\sqrt{7}\right)}{6}\omega\bar{b}_{7}^{2}\\
 \frac{i\left(\sqrt{7}-\sqrt{3}\right)}{6}\omega b_{7}^{2} & -\frac{1}{3} & \frac{1+\sqrt{21}}{6}\omega^{2}\\
 \frac{i\left(\sqrt{3}+\sqrt{7}\right)}{6}\omega^{2}b_{7}^{2} & \frac{1-\sqrt{21}}{6}\omega & -\frac{1}{3}
-\end{array}\right).
-\]
+\end{array}\right).\label{eq:Gen_B3}
+\end{align}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
 
 \end_inset
 
@@ -1267,7 +1462,7 @@ reference "eq:A4_presentation"
  can be expressed as 
 \begin_inset Formula 
 \begin{equation}
-s=a^{2},\quad t=ab.\label{eq:S4A4_generator_relation}
+s=a^{2},\quad t=ab.\label{eq:App_S4A4_Gen_Relation}
 \end{equation}
 
 \end_inset
@@ -2145,9 +2340,9 @@ There are many ways to express
  generators.
  One possible ways is
 \begin_inset Formula 
-\[
-a=\left[A,B\right],\quad b=\left(AB^{2}\left(AB\right)^{2}\right)^{2}.
-\]
+\begin{equation}
+a=\left[A,B\right],\quad b=\left(AB^{2}\left(AB\right)^{2}\right)^{2}.\label{eq:App_Psl_S4_Gen_Relation}
+\end{equation}
 
 \end_inset
 
