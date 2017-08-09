@@ -126,7 +126,7 @@ key "Chen:2014wiw,Kile:2013gla"
 
 \begin_layout Standard
 CG coefficients are basis dependent.
- Different basis could lead to totally different CG coefficients.
+ Different basis could lead to different CG coefficients.
  One way to address this issue is expressing CG coefficients in terms of
  subgroup representations.
  In the remainder of this article, I shall describe this as subgroup-based
@@ -252,51 +252,103 @@ In this paper, we will find complete sets of CG coefficients of the group
 \end_layout
 
 \begin_layout Section
-Complex Conjugate Representations and CG coefficients
+Preliminary
+\end_layout
+
+\begin_layout Subsection
+Real and Complex Representations
 \end_layout
 
 \begin_layout Standard
-A representation is called to be real if its complex conjugate representation
- is equivalent to itself.
- In contrast, a representation is called complex if its complex conjugate
- representation is inequivalent to itself.
- Let 
+Let us discuss the concept of real and complex representations, which plays
+ a crucial role in fixing the ambiguity of CG coefficients.
+ A real (or pseudo-real) representation is a representation whose complex
+ conjugate is equivalent to itself.
+ In contrast, a complex representation is the one whose complex conjugate
+ is inequivalent to itself.
+ If 
 \begin_inset Formula $r$
 \end_inset
 
- be a representation of a group 
+ is a representation of a group 
 \begin_inset Formula $G$
 \end_inset
 
-, 
-\begin_inset Formula $g$
+ with a matrix realization 
+\begin_inset Formula $\rho$
 \end_inset
 
- any element of 
-\begin_inset Formula $G$
+ and 
+\begin_inset Formula $\bar{\rho}$
 \end_inset
 
-, and 
-\begin_inset Formula $R\left(g\right)$
-\end_inset
-
- a matrix realization of 
+ be the matrix realization of its complex conjugate representation, which
+ is possibly equivalent to 
 \begin_inset Formula $r$
 \end_inset
 
-, then there exist a unitary matrix 
+, then there exists a unitary matrix 
 \begin_inset Formula $U$
 \end_inset
 
- so that 
+ 
 \begin_inset Formula 
-\[
-UR\left(g\right)^{*}U^{-1}=R\left(g\right).
-\]
+\begin{equation}
+U\rho\left(g\right)^{*}U^{\dagger}=\bar{\rho}\left(g\right),\quad\forall g\in G.\label{eq:Rep_U}
+\end{equation}
 
 \end_inset
 
+When 
+\begin_inset Formula $r$
+\end_inset
 
+ is complex representation, we can simply choose 
+\begin_inset Formula $U$
+\end_inset
+
+ to be the identity matrix and let 
+\begin_inset Formula $\bar{\rho}\left(g\right)=\rho\left(g\right)^{*}$
+\end_inset
+
+.
+ When 
+\begin_inset Formula $r$
+\end_inset
+
+ is a real representation, then 
+\begin_inset Formula $\bar{\rho}\left(g\right)=\rho\left(g\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $U$
+\end_inset
+
+ is in general a non-trivial unitary matrix depending on the basis of the
+ representation.
+ For convenience, we call 
+\begin_inset Formula $U$
+\end_inset
+
+ in eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Rep_U"
+
+\end_inset
+
+ conjugate transform matrix.
+ 
+\end_layout
+
+\begin_layout Subsection
+Ambiguity of CG Coefficients
+\end_layout
+
+\begin_layout Standard
+CGC are basis dependent.
+ 
 \end_layout
 
 \begin_layout Section
