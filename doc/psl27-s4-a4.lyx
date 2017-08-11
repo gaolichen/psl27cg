@@ -1484,7 +1484,12 @@ Let
 \begin_inset Formula $G$
 \end_inset
 
- be a descrete group with irreps 
+ be a descrete group with subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ The irreps 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -1496,20 +1501,11 @@ Let
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
-, 
-\begin_inset Formula $\cdots$
-\end_inset
-
-.
- Let 
-\begin_inset Formula $H$
-\end_inset
-
- be a subgroup of 
+ of 
 \begin_inset Formula $G$
 \end_inset
 
- with the embeding 
+ can be decomposed as 
 \begin_inset Formula 
 \[
 \rep{X}=\bigoplus\rep{x_{i}},\quad\rep{Y}=\bigoplus\rep{y_{i}},\quad\rep{Z}=\bigoplus\rep{z_{i}},
@@ -1534,12 +1530,28 @@ Let
 \end_inset
 
 .
- For simplicity, we only consider the case that 
-\begin_inset Formula $x_{i}\neq x_{j}$
+ For simplicity, we only consider the case that none of the irreps of 
+\begin_inset Formula $G$
 \end_inset
 
- for all 
-\begin_inset Formula $i\neq j$
+ contains duplicated irreps of 
+\begin_inset Formula $H$
+\end_inset
+
+, i.e., all 
+\begin_inset Formula $\rep{x_{i}}$
+\end_inset
+
+ are distinct for 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ and similarly for 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{Z}$
 \end_inset
 
 .
@@ -1547,36 +1559,13 @@ Let
 \end_layout
 
 \begin_layout Standard
-Let 
-\begin_inset Formula $X$
-\end_inset
-
-, 
-\begin_inset Formula $Y$
-\end_inset
-
-, 
-\begin_inset Formula $Z$
-\end_inset
-
- be vectors of irreps 
-\begin_inset Formula $\rep{X}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{Y}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- respectively.
- Now consider the CG coefficients 
+Now consider the CG coefficients 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to Z$
 \end_inset
 
 .
+ We use non-bold letters to represent vectors of the corresponding representatio
+ns.
  In terms of representations of 
 \begin_inset Formula $H$
 \end_inset
@@ -1593,52 +1582,48 @@ P_{Z\to i}Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\
 \begin_inset Formula $P_{X\to j}$
 \end_inset
 
- is the project matrix to obtain the 
-\begin_inset Formula $x_{j}$
+ is the projective matrix to obtain the 
+\begin_inset Formula $\rep{x_{j}}$
 \end_inset
 
- representation of 
-\begin_inset Formula $H$
-\end_inset
-
- from 
-\begin_inset Formula $X$
+ components from 
+\begin_inset Formula $\rep{X}$
 \end_inset
 
 .
- 
+ In the basis where elements of 
+\begin_inset Formula $H$
+\end_inset
+
+ are diagonal matrices, the projective matrices have the form 
 \begin_inset Formula 
-\[
-P_{X\to j}=\begin{pmatrix}O_{n_{1}}\big| & O_{n_{2}}\big| & \cdots\big| & I_{n_{j}}\big| & O_{n_{j+1}}\big|\cdots\end{pmatrix},
-\]
+\begin{equation}
+P_{X\to j}=\begin{pmatrix}O_{1}\big| & O_{2}\big| & \cdots\big| & I_{j}\big| & O_{j+1}\big|\cdots\end{pmatrix},\label{eq:CG_PXj}
+\end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $O_{n_{k}}$
+\begin_inset Formula $O_{k}$
 \end_inset
 
- is the zero matrix of dimension 
-\begin_inset Formula $\mathrm{dim}\left(\rep{n_{k}}\right)\times\mathrm{dim}\left(\rep{n_{k}}\right)$
+ are the 
+\begin_inset Formula $\mathrm{dim}\left(\rep{x_{j}}\right)\times\mathrm{dim}\left(\rep{x_{k}}\right)$
 \end_inset
 
- and 
+ dimension matrices with zero elements and 
 \begin_inset Formula $I_{j}$
 \end_inset
 
- the identity matrix of dimension 
-\begin_inset Formula $\dim\left(\rep{n_{j}}\times\rep{n_{j}}\right)$
+ is the 
+\begin_inset Formula $\dim\left(\rep{x_{j}}\right)\times\mathrm{dim}\left(\rep{x_{j}}\right)$
 \end_inset
 
-.
- Let 
-\begin_inset Formula $g\in G$
-\end_inset
-
-, 
+ dimension identity matrix.
+ By the definition of CG coefficients, we also have 
 \begin_inset Formula 
 \[
-P_{Z\to i}R_{Z}\left(g\right)Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}R_{X}\left(g\right)X\right)\otimes\left(P_{Y\to k}R_{Y}\left(g\right)Y\right)\right\} _{z_{i}}.
+P_{Z\to i}\rho_{Z}\left(g\right)Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\rho_{X}\left(g\right)X\right)\otimes\left(P_{Y\to k}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{i}},\quad\forall g\in G.
 \]
 
 \end_inset
@@ -1654,78 +1639,117 @@ We consider how
  changes under the transform
 \begin_inset Formula 
 \[
-x_{i}\to x_{i}^{\prime}=u_{i}x_{i}.
+x_{i}\to x_{i}^{\prime}=U_{i}x_{i}.
 \]
 
 \end_inset
 
- The CG coefficients of the subgoup 
+ The CG coefficients of 
 \begin_inset Formula $H$
 \end_inset
 
  changes as
 \begin_inset Formula 
 \[
-z_{i}=\left\{ x_{j}\otimes y_{k}\right\} _{z_{i}}\to\left\{ u_{j}x_{j}\otimes u_{k}y_{k}\right\} _{u_{i}z_{i}}^{\prime}=\left\{ \left(u_{j}\otimes u_{k}\right)\left(x_{j}\otimes y_{k}\right)\right\} _{u_{i}z_{i}}^{\prime}
+z_{i}=\left\{ x_{j}\otimes y_{k}\right\} _{z_{i}}\to U_{i}z_{i}=\left\{ U_{j}x_{j}\otimes U_{k}y_{k}\right\} _{U_{i}z_{i}}^{\prime}
 \]
 
 \end_inset
 
-
+ which implies
 \begin_inset Formula 
 \[
-u_{i}z_{i}=\left\{ u_{j}x_{j}\otimes u_{k}y_{k}\right\} _{u_{i}z_{i}}^{\prime}=u_{i}\left\{ x_{j}\otimes y_{k}\right\} _{z_{i}}
+\left\{ U_{j}x_{j}\otimes U_{k}y_{k}\right\} _{z_{i}^{\prime}}^{\prime}=U_{i}\left\{ x_{j}\otimes y_{k}\right\} _{z_{i}}
 \]
 
 \end_inset
 
- The represetations of 
-\begin_inset Formula $G$
+ The vectors 
+\begin_inset Formula $X$
 \end_inset
 
- transform as
+, 
+\begin_inset Formula $Y$
+\end_inset
+
+, 
+\begin_inset Formula $Z$
+\end_inset
+
+ are transformed to 
+\begin_inset Formula 
+\begin{align}
+X^{\prime} & =U_{X}X,\quad Y^{\prime}=U_{Y}Y,\quad Z^{\prime}=U_{Z}Z,\label{eq:transform_Uz}\\
+U_{A} & =\bigoplus_{i\,\mathrm{in}\,\rep{A}}U_{i},\quad A=X,\, Y,\, Z.
+\end{align}
+
+\end_inset
+
+Now consider 
+\begin_inset Formula $W_{i}^{\prime}\equiv\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X^{\prime}\right)\otimes\left(P_{Y\to k}Y^{\prime}\right)\right\} _{z_{i}^{\prime}}^{\prime}$
+\end_inset
+
+.
+ Substituting above into 
+\begin_inset Formula $W_{i}^{\prime}$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{eqnarray*}
+W_{i}^{\prime} & \equiv & \sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\, X}U_{a}\right)X\right)\otimes\left(P_{Y\to k}\left(\bigoplus_{b\,\mathrm{in}\, Y}U_{b}\right)Y\right)\right\} _{z_{i}^{\prime}}^{\prime}
+\end{eqnarray*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $P_{X\to j}$
+\end_inset
+
+ is in the form of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_PXj"
+
+\end_inset
+
+, it is easy to see that 
 \begin_inset Formula 
 \begin{equation}
-Z\to Z^{\prime}=U_{Z}Z,\quad U_{Z}=\bigoplus_{i\,\mathrm{in}\, Z}u_{i},\label{eq:transform_Uz}
+P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\, X}U_{a}\right)=U_{j}P_{X\to j}.\label{eq:CG_PU}
 \end{equation}
 
 \end_inset
 
- similarly for 
-\begin_inset Formula $X$
+ It then follows that 
+\begin_inset Formula $\sum_{j,k}c_{i,jk}\left\{ \left(U_{j}P_{X\to j}X\right)\otimes\left(U_{k}P_{Y\to k}Y\right)\right\} _{z_{i}^{\prime}}^{\prime}=U_{i}P_{Z\to i}Z.$
 \end_inset
 
- and 
-\begin_inset Formula $Y$
-\end_inset
-
-.
- Consider 
-\begin_inset Formula 
-\begin{align*}
-W_{i}^{\prime} & =\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X^{\prime}\right)\otimes\left(P_{Y\to k}Y^{\prime}\right)\right\} _{z_{i}^{\prime}}^{\prime}\\
- & =\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\, X}u_{a}\right)X\right)\otimes\left(P_{Y\to k}\left(\bigoplus_{b\,\mathrm{in}\, Y}u_{b}\right)Y\right)\right\} _{z_{i}^{\prime}}^{\prime}\\
- & =\sum_{j,k}c_{i,jk}\left\{ \left(u_{j}P_{X\to j}X\right)\otimes\left(u_{k}P_{Y\to k}Y\right)\right\} _{z_{i}^{\prime}}^{\prime}\\
- & =\sum_{j,k}c_{i,jk}u_{i}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}\\
- & =u_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}\\
- & =u_{i}P_{Z-i}Z=Z_{i}^{\prime}
-\end{align*}
+ Using eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_PU"
 
 \end_inset
 
-Under the transform of any 
-\begin_inset Formula $g\in G$
-\end_inset
-
-, 
+ one more time, we arrive at 
 \begin_inset Formula 
 \[
-R_{Z}^{\prime}\left(g\right)=U_{Z}R_{Z}\left(g\right)U_{Z}^{-1}.
+P_{Z\to i}U_{Z}Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}U_{X}X\right)\otimes\left(P_{Y\to k}U_{Y}Y\right)\right\} _{z_{i}^{\prime}}^{\prime}.
 \]
 
 \end_inset
 
- 
+
+\begin_inset Formula $ $
+\end_inset
+
+ Under the transform of any 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, 
 \begin_inset Formula 
 \begin{align*}
 Z^{\prime}\to Z^{\prime\prime} & =U_{Z}R_{Z}\left(g\right)Z\\
