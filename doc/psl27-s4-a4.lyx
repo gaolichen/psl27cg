@@ -1555,12 +1555,8 @@ Let
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-Now consider the CG coefficients 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to Z$
+ Now consider the CG coefficients 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
 .
@@ -1570,7 +1566,7 @@ ns.
 \begin_inset Formula $H$
 \end_inset
 
-, one can write 
+, the CG coefficients can be written as 
 \begin_inset Formula 
 \begin{equation}
 P_{Z\to i}Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}.\label{eq:CG_Z}
@@ -1590,12 +1586,164 @@ P_{Z\to i}Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\
 \begin_inset Formula $\rep{X}$
 \end_inset
 
+ and 
+\begin_inset Formula $c_{i,jk}$
+\end_inset
+
+ are complex constants.
+ By the definition of CG coefficients, we also have 
+\begin_inset Formula 
+\begin{equation}
+P_{Z\to i}\rho_{Z}\left(g\right)Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\rho_{X}\left(g\right)X\right)\otimes\left(P_{Y\to k}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{i}},\quad\forall g\in G,\label{eq:CG_rho_Z}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\rho_{X}\left(g\right)$
+\end_inset
+
+ are matrix realization of 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
 .
- In the basis where elements of 
+ In the following we justify that eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_Z"
+
+\end_inset
+
+ is independent of basis, meaning that the coefficients 
+\begin_inset Formula $c_{i,jk}$
+\end_inset
+
+ are invariant under changes of basis.
+\end_layout
+
+\begin_layout Standard
+There are two types of basis transformation.
+ The type I changes the basis of irreps of 
+\begin_inset Formula $G$
+\end_inset
+
+ but keeps the basis of 
 \begin_inset Formula $H$
 \end_inset
 
- are diagonal matrices, the projective matrices have the form 
+ unchanged, i.e., only the projective matrices are changed.
+ On the contrast, the type II changes the basis of irreps of 
+\begin_inset Formula $H$
+\end_inset
+
+ but keeps the projective matrices 
+\begin_inset Formula $P_{X\to j}$
+\end_inset
+
+ unchanged.
+ We only need to show that eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_Z"
+
+\end_inset
+
+ are invariant under both types of basis changes.
+\end_layout
+
+\begin_layout Standard
+Let us consider the type I basis transformation.
+ Under the basis change, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $P_{X\to j}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rho_{X}\left(g\right)$
+\end_inset
+
+ transform as 
+\begin_inset Formula $X^{\prime}=U_{X}X$
+\end_inset
+
+, 
+\begin_inset Formula $P_{X\to j}^{\prime}=P_{X\to j}U_{X}^{-1}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rho_{X}^{\prime}\left(g\right)=U_{X}\rho_{X}\left(g\right)U_{X}^{-1}$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\left(P_{X\to j}X\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(P_{X\to j}\rho_{X}\left(g\right)X\right)$
+\end_inset
+
+ are invariant, and hence, eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_Z"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_rho_Z"
+
+\end_inset
+
+ are invariant under the basis change.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\end_layout
+
+\begin_layout Standard
+Now consider the type II basis transformation.
+ Without loss of generality, we can choose a special form of 
+\begin_inset Formula $P$
+\end_inset
+
+ matrices, since one can perform a type I transform to change them.
+ We choose the basis where elements of 
+\begin_inset Formula $H$
+\end_inset
+
+ are diagonal matrices and the projective matrices have the form 
 \begin_inset Formula 
 \begin{equation}
 P_{X\to j}=\begin{pmatrix}O_{1}\big| & O_{2}\big| & \cdots\big| & I_{j}\big| & O_{j+1}\big|\cdots\end{pmatrix},\label{eq:CG_PXj}
@@ -1620,89 +1768,99 @@ P_{X\to j}=\begin{pmatrix}O_{1}\big| & O_{2}\big| & \cdots\big| & I_{j}\big| & O
 \end_inset
 
  dimension identity matrix.
- By the definition of CG coefficients, we also have 
-\begin_inset Formula 
-\[
-P_{Z\to i}\rho_{Z}\left(g\right)Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\rho_{X}\left(g\right)X\right)\otimes\left(P_{Y\to k}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{i}},\quad\forall g\in G.
-\]
+ We consider the transformation
+\begin_inset ERT
+status open
 
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+begin{subequations}
+\backslash
+label{CG_Tran_II}
 \end_layout
 
-\begin_layout Standard
-We consider how 
-\begin_inset Formula $c_{i,jk}$
 \end_inset
 
- changes under the transform
-\begin_inset Formula 
-\[
-x_{i}\to x_{i}^{\prime}=U_{i}x_{i}.
-\]
-
-\end_inset
-
- The CG coefficients of 
-\begin_inset Formula $H$
-\end_inset
-
- changes as
-\begin_inset Formula 
-\[
-z_{i}=\left\{ x_{j}\otimes y_{k}\right\} _{z_{i}}\to U_{i}z_{i}=\left\{ U_{j}x_{j}\otimes U_{k}y_{k}\right\} _{U_{i}z_{i}}^{\prime}
-\]
-
-\end_inset
-
- which implies
-\begin_inset Formula 
-\[
-\left\{ U_{j}x_{j}\otimes U_{k}y_{k}\right\} _{z_{i}^{\prime}}^{\prime}=U_{i}\left\{ x_{j}\otimes y_{k}\right\} _{z_{i}}
-\]
-
-\end_inset
-
- The vectors 
-\begin_inset Formula $X$
-\end_inset
-
-, 
-\begin_inset Formula $Y$
-\end_inset
-
-, 
-\begin_inset Formula $Z$
-\end_inset
-
- are transformed to 
+ 
 \begin_inset Formula 
 \begin{align}
-X^{\prime} & =U_{X}X,\quad Y^{\prime}=U_{Y}Y,\quad Z^{\prime}=U_{Z}Z,\label{eq:transform_Uz}\\
-U_{A} & =\bigoplus_{i\,\mathrm{in}\,\rep{A}}U_{i},\quad A=X,\, Y,\, Z.
+z_{i} & \to z_{i}^{\prime}=U_{i}z_{i},\\
+z_{i}=\left\{ x_{j}\otimes y_{k}\right\} _{z_{i}} & \to U_{i}z_{i}=\left\{ U_{j}x_{j}\otimes U_{k}y_{k}\right\} _{U_{i}z_{i}}^{\prime},
 \end{align}
 
 \end_inset
 
-Now consider 
-\begin_inset Formula $W_{i}^{\prime}\equiv\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X^{\prime}\right)\otimes\left(P_{Y\to k}Y^{\prime}\right)\right\} _{z_{i}^{\prime}}^{\prime}$
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
+
 \end_inset
 
-.
- Substituting above into 
-\begin_inset Formula $W_{i}^{\prime}$
-\end_inset
-
-, we have 
+where we have used the primed brakets to indicate the CG coefficients in
+ the new basis.
+ It then implies 
 \begin_inset Formula 
-\begin{eqnarray*}
-W_{i}^{\prime} & \equiv & \sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\, X}U_{a}\right)X\right)\otimes\left(P_{Y\to k}\left(\bigoplus_{b\,\mathrm{in}\, Y}U_{b}\right)Y\right)\right\} _{z_{i}^{\prime}}^{\prime}
-\end{eqnarray*}
+\begin{equation}
+\left\{ U_{j}x_{j}\otimes U_{k}y_{k}\right\} _{z_{i}^{\prime}}^{\prime}=U_{i}\left\{ x_{j}\otimes y_{k}\right\} _{z_{i}},\label{eq:CG_Tran_II_UxUy}
+\end{equation}
 
 \end_inset
 
-Since 
+ Under the transformation, 
+\begin_inset Formula $P_{X\to j}X$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{X\to j}\rho_{X}\left(g\right)X$
+\end_inset
+
+ change as
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subequations}
+\backslash
+label{CG_Tran_II_X}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{align}
+P_{X\to j}X & \to P_{X\to j}\left(\bigoplus_{i\,\mathrm{in}\,\rep{X}}\right)X,\\
+P_{X\to j}\rho_{X}\left(g\right)X & \to P_{X\to j}\left(\bigoplus_{i\,\mathrm{in}\,\rep{X}}\right)\rho_{X}\left(g\right)X.\label{eq:CG_Tran_II_X2}
+\end{align}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
+
+\end_inset
+
+ Since 
 \begin_inset Formula $P_{X\to j}$
 \end_inset
 
@@ -1716,129 +1874,64 @@ reference "eq:CG_PXj"
 , it is easy to see that 
 \begin_inset Formula 
 \begin{equation}
-P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\, X}U_{a}\right)=U_{j}P_{X\to j}.\label{eq:CG_PU}
+P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\,\rep{X}}U_{a}\right)=U_{j}P_{X\to j}.\label{eq:CG_PU}
 \end{equation}
 
 \end_inset
 
- It then follows that 
-\begin_inset Formula $\sum_{j,k}c_{i,jk}\left\{ \left(U_{j}P_{X\to j}X\right)\otimes\left(U_{k}P_{Y\to k}Y\right)\right\} _{z_{i}^{\prime}}^{\prime}=U_{i}P_{Z\to i}Z.$
-\end_inset
-
- Using eq.
+ It then follows that right-hand and left-hand sides of eq.
  
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CG_PU"
-
-\end_inset
-
- one more time, we arrive at 
-\begin_inset Formula 
-\[
-P_{Z\to i}U_{Z}Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}U_{X}X\right)\otimes\left(P_{Y\to k}U_{Y}Y\right)\right\} _{z_{i}^{\prime}}^{\prime}.
-\]
-
-\end_inset
-
-
-\begin_inset Formula $ $
-\end_inset
-
- Under the transform of any 
-\begin_inset Formula $g\in G$
-\end_inset
-
-, 
-\begin_inset Formula 
-\begin{align*}
-Z^{\prime}\to Z^{\prime\prime} & =U_{Z}R_{Z}\left(g\right)Z\\
- & =U_{Z}R_{Z}\left(g\right)U_{Z}^{-1}U_{Z}Z\\
- & =R_{Z}^{\prime}\left(g\right)Z^{\prime}.
-\end{align*}
-
-\end_inset
-
- It implies that the transform 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:transform_Uz"
-
-\end_inset
-
- is a similarity transformation of the 
-\begin_inset Formula $Z$
-\end_inset
-
-.
- It then follows that the coefficients 
-\begin_inset Formula $c_{i,jk}$
-\end_inset
-
- do not change.
-\end_layout
-
-\begin_layout Standard
-Now consider another kind of transformation, where basis of subgroup does
- not change but the basis of the large group is changed.
- In such case, we have 
-\begin_inset Formula 
-\begin{equation}
-Z\to Z^{\prime}=U_{Z}Z,\quad P_{Z\to j}\to P_{Z\to j}^{\prime}=P_{Z\to j}U_{Z}^{-1},\quad R_{Z}\left(g\right)\to R_{Z}^{\prime}\left(g\right)=U_{Z}R_{Z}\left(g\right)U_{Z}^{-1}.\label{eq:Transform_Z}
-\end{equation}
-
-\end_inset
-
- Therefore, 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CG_Z"
 
 \end_inset
 
- becomes 
-\begin_inset Formula 
-\begin{equation}
-P_{Z\to i}^{\prime}Z^{\prime}=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}^{\prime}X^{\prime}\right)\otimes\left(P_{Y\to k}^{\prime}Y^{\prime}\right)\right\} _{z_{i}}.\label{eq:CG_Zprime}
-\end{equation}
-
-\end_inset
-
- Under the action of 
-\begin_inset Formula $g\in G$
-\end_inset
-
-, 
+ become 
 \begin_inset Formula 
 \begin{align*}
-P_{Z\to i}^{\prime}Z^{\prime}\to Z^{\prime\prime} & =\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}^{\prime}R_{X}^{\prime}\left(g\right)X^{\prime}\right)\otimes\left(P_{Y\to k}^{\prime}R_{Y}^{\prime}\left(g\right)Y^{\prime}\right)\right\} _{z_{i}}\\
- & =\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}R_{X}\left(g\right)X\right)\otimes\left(P_{Y\to k}R_{Y}\left(g\right)Y\right)\right\} _{z_{i}}\\
- & =P_{Z\to i}R_{Z}\left(g\right)Z\\
- & =P_{Z\to i}^{\prime}R_{Z}^{\prime}\left(g\right)Z^{\prime}.
+\mathrm{LHS} & =U_{i}P_{Z\to j}Z,\\
+\mathrm{RHS} & =\sum_{j,k}c_{i,jk}\left\{ \left(U_{j}P_{X\to j}X\right)\otimes\left(U_{k}P_{Y\to k}Y\right)\right\} _{z_{i}}^{\prime}\\
+ & =U_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}=U_{i}P_{Z\to j}Z,
 \end{align*}
 
 \end_inset
 
- It follows that 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Transform_Z"
-
-\end_inset
-
- is a similarity transfrmation for 
-\begin_inset Formula $Z^{\prime}$
-\end_inset
-
- defined as 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CG_Zprime"
-
-\end_inset
-
-.
+ where we have used eq.
  
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_Tran_II_UxUy"
+
+\end_inset
+
+ in the second equality of RHS.
+ Therefore, eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_Z"
+
+\end_inset
+
+ is invariant under the transformation.
+ Similarly, using eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_Tran_II_X2"
+
+\end_inset
+
+, we can show that eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_rho_Z"
+
+\end_inset
+
+ is also invariant under the transformation.
 \end_layout
 
 \begin_layout Section
