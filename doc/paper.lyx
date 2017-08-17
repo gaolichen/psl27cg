@@ -507,11 +507,52 @@ reference "eq:Rep_Gamma"
 \end_inset
 
  conjugate transform matrix.
- Now the second constraint is that 
+ It is nature to impose to the CG coefficients the contraint 
 \begin_inset Formula 
 \begin{equation}
-\text{Constraint II}:\quad\Gamma_{Z}\left\{ \left(X\otimes Y\right)_{Z}\right\} ^{*}=\left(\bar{X}\otimes\bar{Y}\right)_{\bar{Z}},\quad\Gamma_{Z}=\bigoplus\Gamma_{z_{i}}.\label{eq:CG_Con2}
+\text{Constraint IIa}:\quad\Gamma_{Z}\left\{ \left(X\otimes Y\right)_{Z}\right\} ^{*}=\left(\bar{X}\otimes\bar{Y}\right)_{\bar{Z}},\label{eq:CG_Con2}
 \end{equation}
+
+\end_inset
+
+where the matrix 
+\begin_inset Formula $\Gamma_{Z}$
+\end_inset
+
+ transform 
+\begin_inset Formula $Z^{*}$
+\end_inset
+
+ to 
+\begin_inset Formula $\bar{Z}$
+\end_inset
+
+.
+ Another constraint on 
+\begin_inset Formula $\Gamma_{Z}$
+\end_inset
+
+ is that, 
+\begin_inset Formula $\Gamma_{k}$
+\end_inset
+
+ should transform 
+\begin_inset Formula $Z_{k}$
+\end_inset
+
+ to 
+\begin_inset Formula $\bar{Z}_{\bar{k}}$
+\end_inset
+
+, that is 
+\begin_inset Formula $\Gamma_{k}\left(P_{Z\to k}Z\right)^{*}=P_{\bar{Z}\to\bar{i}}\bar{Z}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}Z^{*}$
+\end_inset
+
+, which implies 
+\begin_inset Formula 
+\[
+\text{Constraint IIb}:\quad\Gamma_{k}P_{Z\to k}^{*}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}
+\]
 
 \end_inset
 
@@ -886,12 +927,19 @@ reference "eq:CG_PXj"
 
 \end_inset
 
-.
+ and 
+\begin_inset Formula 
+\[
+\Gamma_{Z}=\bigoplus_{k\text{ in \rep{Z}}}\Gamma_{k}.
+\]
+
+\end_inset
+
  For the CG coefficients 
 \begin_inset Formula 
 \begin{align*}
 P_{Z\to k}Z & =\sum_{i,j}c_{k,ij}\left(P_{X\to i}X\otimes P_{Y\to j}Y\right)_{z_{k}}\\
-P_{\bar{Z}\to\bar{k}}\bar{Z} & =\sum_{i,j}\bar{c}_{k,ij}\left(P_{\bar{X}\to\bar{i}}\bar{X}\otimes P_{\bar{Y}\to\bar{j}}\bar{Y}\right)_{\bar{z}_{k}}.
+P_{\bar{Z}\to\bar{k}}\bar{Z} & =\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\left(P_{\bar{X}\to\bar{i}}\bar{X}\otimes P_{\bar{Y}\to\bar{j}}\bar{Y}\right)_{\bar{z}_{k}}.
 \end{align*}
 
 \end_inset
@@ -900,13 +948,29 @@ P_{\bar{Z}\to\bar{k}}\bar{Z} & =\sum_{i,j}\bar{c}_{k,ij}\left(P_{\bar{X}\to\bar{
 \begin_inset Formula $\Gamma_{Z}Z^{*}=\bar{Z}$
 \end_inset
 
- leads to 
+ leads to
+\begin_inset Formula 
+\[
+P_{\bar{Z}\to\bar{k}}\Gamma_{Z}Z^{*}=\Gamma_{k}P_{Z\to k}^{*}Z^{*}
+\]
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{align*}
-P_{\bar{Z}\to\bar{k}}\Gamma_{Z}\sum_{i,j}c_{k,ij}^{*}\left(P_{X\to i}^{*}X^{*}\otimes P_{Y\to j}^{*}Y^{*}\right)_{z_{k}} & =\sum_{i,j}\bar{c}_{k,ij}\left(P_{\bar{X}\to\bar{i}}\bar{X}\otimes P_{\bar{Y}\to\bar{j}}\bar{Y}\right)_{\bar{z}_{k}}\\
- & =\sum_{i,j}\bar{c}_{k,ij}\left(P_{\bar{X}\to\bar{i}}\Gamma_{X}X^{*}\otimes P_{\bar{Y}\to\bar{j}}\Gamma_{Y}Y^{*}\right)_{\bar{z}_{k}}\\
- & =\sum_{i,j}\bar{c}_{k,ij}\left(\Gamma_{x_{i}}P_{\bar{X}\to\bar{i}}X^{*}\otimes P_{\bar{Y}\to\bar{j}}\Gamma_{Y}Y^{*}\right)_{\bar{z}_{k}}
+P_{\bar{Z}\to\bar{k}}\bar{Z} & =\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\left(P_{\bar{X}\to\bar{i}}\bar{X}\otimes P_{\bar{Y}\to\bar{j}}\bar{Y}\right)_{\bar{z}_{k}}\\
+ & =\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\Gamma_{k}\left[\left(P_{X\to i}X\otimes P_{Y\to j}Y\right)_{z_{k}}\right]^{*}\\
+ & =\Gamma_{k}\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}P_{Z\to k}^{*}Z^{*}
 \end{align*}
+
+\end_inset
+
+ It follows that 
+\begin_inset Formula 
+\[
+c_{\bar{k},\bar{i}\bar{j}}=c_{k,i,j}^{*}
+\]
 
 \end_inset
 
