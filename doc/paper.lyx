@@ -447,16 +447,11 @@ To introduce the second constraint.
 
 \end_inset
 
-The matrix realization 
-\begin_inset Formula $\bar{\rho}\left(g\right)$
+When 
+\begin_inset Formula $\rep{r}$
 \end_inset
 
- is defined as follows.
- When 
-\begin_inset Formula $r$
-\end_inset
-
- is complex representation, 
+ is a complex representation, 
 \begin_inset Formula $\bar{\rho}\left(g\right)$
 \end_inset
 
@@ -486,7 +481,19 @@ The matrix realization
 \end_inset
 
  is in general a non-trivial unitary matrix depending on the basis of the
- representation.
+ representation; in this case, 
+\begin_inset Formula $\Gamma\Gamma^{*}=\pm I$
+\end_inset
+
+, where 
+\begin_inset Formula $+$
+\end_inset
+
+ is for real representation and 
+\begin_inset Formula $-$
+\end_inset
+
+ for psudoreal representation.
  For convenience, we call 
 \begin_inset Formula $\Gamma$
 \end_inset
@@ -815,6 +822,95 @@ reference "eq:CG_rho_Z"
 \end_inset
 
  is invariant under the transformation.
+\end_layout
+
+\begin_layout Standard
+We now consider the action of constraint II on CG coefficients.
+ We first consider the CG coefficients of the subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula 
+\[
+x_{3}=C_{12\to3}\left(x_{1}\otimes x_{2}\right),\quad\bar{x}_{3}=\bar{C}_{12\to3}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right)
+\]
+
+\end_inset
+
+ be two CG coefficients.
+ The constraint 
+\begin_inset Formula $\Gamma_{3}x_{3}^{*}=\bar{x}_{3}$
+\end_inset
+
+ leads to
+\begin_inset Formula 
+\[
+\Gamma_{3}C_{12\to3}^{*}\left(x_{1}^{*}\otimes x_{2}^{*}\right)=\bar{C}_{12\to3}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right)=\bar{C}_{12\to3}\left(\Gamma_{1}\otimes\Gamma_{2}\right)\left(x_{1}^{*}\otimes x_{2}^{*}\right),
+\]
+
+\end_inset
+
+ which then implies that 
+\begin_inset Formula 
+\[
+\bar{C}_{12\to3}=\Gamma_{3}C_{12\to3}^{*}\left(\Gamma_{1}^{-1}\otimes\Gamma_{2}^{-1}\right).
+\]
+
+\end_inset
+
+ Particularly, if 
+\begin_inset Formula $\rep{x_{i}}$
+\end_inset
+
+ are complex representations we have 
+\begin_inset Formula $\bar{C}_{12\to3}=C_{12\to3}^{*}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Now consider the action of constraint II on the large group 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Without loss of generality, we can choose the basis where the projection
+ matrix has the form 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_PXj"
+
+\end_inset
+
+.
+ For the CG coefficients 
+\begin_inset Formula 
+\begin{align*}
+P_{Z\to k}Z & =\sum_{i,j}c_{k,ij}\left(P_{X\to i}X\otimes P_{Y\to j}Y\right)_{z_{k}}\\
+P_{\bar{Z}\to\bar{k}}\bar{Z} & =\sum_{i,j}\bar{c}_{k,ij}\left(P_{\bar{X}\to\bar{i}}\bar{X}\otimes P_{\bar{Y}\to\bar{j}}\bar{Y}\right)_{\bar{z}_{k}}.
+\end{align*}
+
+\end_inset
+
+ The constraint 
+\begin_inset Formula $\Gamma_{Z}Z^{*}=\bar{Z}$
+\end_inset
+
+ leads to 
+\begin_inset Formula 
+\begin{align*}
+P_{\bar{Z}\to\bar{k}}\Gamma_{Z}\sum_{i,j}c_{k,ij}^{*}\left(P_{X\to i}^{*}X^{*}\otimes P_{Y\to j}^{*}Y^{*}\right)_{z_{k}} & =\sum_{i,j}\bar{c}_{k,ij}\left(P_{\bar{X}\to\bar{i}}\bar{X}\otimes P_{\bar{Y}\to\bar{j}}\bar{Y}\right)_{\bar{z}_{k}}\\
+ & =\sum_{i,j}\bar{c}_{k,ij}\left(P_{\bar{X}\to\bar{i}}\Gamma_{X}X^{*}\otimes P_{\bar{Y}\to\bar{j}}\Gamma_{Y}Y^{*}\right)_{\bar{z}_{k}}\\
+ & =\sum_{i,j}\bar{c}_{k,ij}\left(\Gamma_{x_{i}}P_{\bar{X}\to\bar{i}}X^{*}\otimes P_{\bar{Y}\to\bar{j}}\Gamma_{Y}Y^{*}\right)_{\bar{z}_{k}}
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
