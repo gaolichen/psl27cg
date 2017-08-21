@@ -1077,6 +1077,45 @@ reference "eq:CG_ckij"
  
 \end_layout
 
+\begin_layout Standard
+Procedures to find CGC of large group 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Identify the matrix realization of all irreps of 
+\begin_inset Formula $H$
+\end_inset
+
+ and find CGC of the subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Also the 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ matrices should be also identified.
+ Since 
+\begin_inset Formula $H$
+\end_inset
+
+ is a small group, it is presumably easy to do it.
+\end_layout
+
+\begin_layout Itemize
+Find all matrix realization of the irreps of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
 \begin_layout Section
 Generators of 
 \begin_inset Formula $\group$
@@ -1099,57 +1138,7 @@ In this section, let us find the matrix representation of
 \end_inset
 
 .
- We will first obtain the matrix representation of 
-\begin_inset Formula $\rep{3}$
-\end_inset
-
- and 
-\begin_inset Formula $\rep{\bar{3}}$
-\end_inset
-
-, then the higher dimensional representations from the Kronecker product
- of 
-\begin_inset Formula $\rep{3}$
-\end_inset
-
- and 
-\begin_inset Formula $\rep{\bar{3}}$
-\end_inset
-
-.
- The matrix representation of 
-\begin_inset Formula $\group$
-\end_inset
-
- generators already exists in the literature, for example [a] and [b].
- We only need to transform them to the basis of the subgroups.
- 
-\end_layout
-
-\begin_layout Subsection
-Triplet representation
-\end_layout
-
-\begin_layout Standard
-Firstly, we need to identify the representation of subgroups.
- The representation of subgroups we choose are listed in Appendix A.
- 
-\end_layout
-
-\begin_layout Standard
-To obtain the triplet representation of 
-\begin_inset Formula $\group$
-\end_inset
-
- in 
-\begin_inset Formula $\subga$
-\end_inset
-
- basis, we start with the triplet representation of 
-\begin_inset Formula $\group$
-\end_inset
-
- in the Ref.
+ The later case has been done by ref.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1157,7 +1146,95 @@ key "Luhn:2007yr"
 
 \end_inset
 
+, but we will re obtain the results with slightly different forms due to
+ our specific requirements.
+ For each subgroup, we will first seek for the matrix representation of
+ 
+\begin_inset Formula $\rep{3}$
+\end_inset
 
+ and 
+\begin_inset Formula $\rep{\bar{3}}$
+\end_inset
+
+, then build the higher dimensional irreps from the tensor product of lower
+ dimensional irreps.
+ 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\subga$
+\end_inset
+
+ basis 
+\end_layout
+
+\begin_layout Standard
+The matrix representation of 
+\begin_inset Formula $\group$
+\end_inset
+
+ generators already exists in the literature.
+ We will simply use the existing results and transform them to the basis
+ of 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+ irreps.
+ Here we actually build a series of matrix representation for the subgroup
+ chain 
+\begin_inset Formula $\group\supset\subga\supset A_{4}$
+\end_inset
+
+, where 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+ irreps are in the 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+ basis and 
+\begin_inset Formula $\group$
+\end_inset
+
+ irreps are in the 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+ basis.
+ Since 
+\begin_inset Formula $\subga\supset A_{4}$
+\end_inset
+
+ case is kind of trivial, we directly give the results in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:S4Group"
+
+\end_inset
+
+ and mainly focus on acquiring the maxtrix realization of 
+\begin_inset Formula $\group$
+\end_inset
+
+ irreps.
+\end_layout
+
+\begin_layout Standard
+In ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Luhn:2007yr"
+
+\end_inset
+
+ the triplet matrix realization of 
+\begin_inset Formula $\group$
+\end_inset
+
+ are given by 
 \begin_inset ERT
 status open
 
@@ -1175,14 +1252,14 @@ label{Gen_AB3_old}
 
 \begin_inset Formula 
 \begin{align}
-A_{0}^{[3]} & =\frac{i}{\sqrt{7}}\begin{pmatrix}\eta^{2}-\eta^{5} & \eta-\eta^{6} & \eta^{4}-\eta^{3}\\
+\tilde{A}^{[3]} & =\frac{i}{\sqrt{7}}\begin{pmatrix}\eta^{2}-\eta^{5} & \eta-\eta^{6} & \eta^{4}-\eta^{3}\\
 \eta-\eta^{6} & \eta^{4}-\eta^{3} & \eta^{2}-\eta^{5}\\
 \eta^{4}-\eta^{3} & \eta^{2}-\eta^{5} & \eta-\eta^{6}
-\end{pmatrix},\label{eq:Gen_A3_old}\\
-B_{0}^{[3]} & =\frac{i}{\sqrt{7}}\begin{pmatrix}\eta^{3}-\eta^{6} & \eta^{3}-\eta & \eta-1\\
+\end{pmatrix},\quad\eta=\exp\left(i2\pi/7\right)\label{eq:Gen_A3_old}\\
+\tilde{B}^{[3]} & =\frac{i}{\sqrt{7}}\begin{pmatrix}\eta^{3}-\eta^{6} & \eta^{3}-\eta & \eta-1\\
 \eta^{2}-1 & \eta^{6}-\eta^{5} & \eta^{6}-\eta^{2}\\
 \eta^{5}-\eta^{4} & \eta^{4}-1 & \eta^{5}-\eta^{3}
-\end{pmatrix},\label{eq:Gen_B3_old}
+\end{pmatrix}.\label{eq:Gen_B3_old}
 \end{align}
 
 \end_inset
@@ -1200,12 +1277,48 @@ end{subequations}
 
 \end_inset
 
- where 
-\begin_inset Formula $\eta=\exp\left(i2\pi/7\right)$
+.
+ Since 
+\begin_inset Formula $\rep{3}$
 \end_inset
 
-.
- With eqs.
+ of 
+\begin_inset Formula $\group$
+\end_inset
+
+ is identified to 
+\begin_inset Formula $\rep{3_{1}}$
+\end_inset
+
+ of 
+\begin_inset Formula $\subga$
+\end_inset
+
+, the 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+ generator 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\begin_inset Formula $b$
+\end_inset
+
+ in 
+\begin_inset Formula $\rep{3_{1}}$
+\end_inset
+
+ irreps can be expressed in terms of 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ as eqs.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1213,25 +1326,10 @@ reference "eq:App_Psl_S4_Gen_Relation"
 
 \end_inset
 
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:App_S4A4_Gen_Relation"
-
-\end_inset
-
-, the 
-\begin_inset Formula $\subga$
-\end_inset
-
- and 
-\begin_inset Formula $A_{4}$
-\end_inset
-
- generators in this basis read 
+, which gives 
 \begin_inset Formula 
 \[
-a_{0}=\begin{pmatrix}\begin{array}{ccc}
+\tilde{a}=\left[\tilde{A},\tilde{B}\right]=\begin{pmatrix}\begin{array}{ccc}
 \frac{i\eta^{5}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}} & \frac{i\eta^{5}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}} & \frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}\\
 -\frac{i\eta^{5}}{\sqrt{7}}-\frac{2i\eta^{4}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}-\frac{i}{\sqrt{7}} & \frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}} & \frac{i\eta^{5}}{\sqrt{7}}+\frac{i\eta^{4}}{\sqrt{7}}+\frac{2i\eta^{3}}{\sqrt{7}}+\frac{i\eta^{2}}{\sqrt{7}}+\frac{i\eta}{\sqrt{7}}+\frac{i}{\sqrt{7}}\\
 -\frac{2i\eta^{5}}{\sqrt{7}}-\frac{i\eta^{4}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}-\frac{i}{\sqrt{7}} & \frac{i\eta^{5}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}} & -\frac{i\eta^{5}}{\sqrt{7}}-\frac{2i\eta^{4}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}-\frac{i}{\sqrt{7}}
@@ -1243,7 +1341,7 @@ a_{0}=\begin{pmatrix}\begin{array}{ccc}
 
 \begin_inset Formula 
 \[
-b_{0}=\begin{pmatrix}\begin{array}{ccc}
+\tilde{b}=\left(\tilde{A}\tilde{B}^{2}\left(\tilde{A}\tilde{B}\right)^{2}\right)^{2}=\begin{pmatrix}\begin{array}{ccc}
 -\frac{2\eta^{5}}{7}-\frac{3\eta^{4}}{7}-\frac{3\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{4}{7} & \frac{3\eta^{5}}{7}+\frac{3\eta^{4}}{7}+\frac{\eta^{2}}{7}-\frac{\eta}{7}+\frac{1}{7} & \frac{2\eta^{5}}{7}-\frac{\eta^{4}}{7}-\frac{2\eta^{3}}{7}-\frac{\eta^{2}}{7}+\frac{2\eta}{7}\\
 \frac{2\eta^{5}}{7}+\frac{\eta^{4}}{7}+\frac{4\eta^{3}}{7}+\frac{4\eta^{2}}{7}+\frac{\eta}{7}+\frac{2}{7} & \frac{3\eta^{5}}{7}+\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta^{2}}{7}-\frac{1}{7} & \frac{\eta^{4}}{7}+\frac{3\eta^{3}}{7}-\frac{\eta^{2}}{7}+\frac{3\eta}{7}+\frac{1}{7}\\
 -\frac{3\eta^{5}}{7}-\frac{4\eta^{4}}{7}-\frac{3\eta^{3}}{7}-\frac{2\eta}{7}-\frac{2}{7} & -\frac{4\eta^{5}}{7}-\frac{2\eta^{3}}{7}-\frac{3\eta^{2}}{7}-\frac{3\eta}{7}-\frac{2}{7} & -\frac{\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{2\eta^{3}}{7}-\frac{\eta^{2}}{7}-\frac{2}{7}
@@ -1252,30 +1350,39 @@ b_{0}=\begin{pmatrix}\begin{array}{ccc}
 
 \end_inset
 
+ where 
+\begin_inset Formula $\left[\tilde{A},\tilde{B}\right]\equiv\tilde{A}\tilde{B}\tilde{A}^{-1}\tilde{B}^{-1}$
+\end_inset
 
-\begin_inset Formula 
-\[
-t_{0}=\begin{pmatrix}\begin{array}{ccc}
-0 & \eta^{4} & 0\\
-0 & 0 & \eta\\
-\eta^{2} & 0 & 0
-\end{array}\end{pmatrix},
-\]
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We want to find a unitary matrix that transforms 
+\begin_inset Formula $\tilde{a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{b}$
+\end_inset
+
+ to 
+\begin_inset Formula $a^{[3_{1}]}$
+\end_inset
+
+ and 
+\begin_inset Formula $b^{[3_{1}]}$
+\end_inset
+
+ as eqs 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S4_irr31"
 
 \end_inset
 
-
-\begin_inset Formula 
-\[
-s_{0}=\begin{pmatrix}\begin{array}{ccc}
--\frac{2\eta^{5}}{7}-\frac{3\eta^{4}}{7}-\frac{3\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{4}{7} & -\frac{3\eta^{5}}{7}-\frac{2\eta^{4}}{7}-\frac{4\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{3\eta}{7} & \frac{2\eta^{4}}{7}-\frac{\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{\eta}{7}+\frac{2}{7}\\
-\frac{\eta^{5}}{7}-\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta}{7}+\frac{3}{7} & \frac{3\eta^{5}}{7}+\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta^{2}}{7}-\frac{1}{7} & \frac{4\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{\eta^{2}}{7}+\frac{2\eta}{7}+\frac{4}{7}\\
--\frac{\eta^{5}}{7}+\frac{3\eta^{3}}{7}+\frac{\eta^{2}}{7}+\frac{\eta}{7}+\frac{3}{7} & -\frac{\eta^{5}}{7}-\frac{\eta^{4}}{7}+\frac{2\eta^{2}}{7}-\frac{2\eta}{7}+\frac{2}{7} & -\frac{\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{2\eta^{3}}{7}-\frac{\eta^{2}}{7}-\frac{2}{7}
-\end{array}\end{pmatrix}.
-\]
-
-\end_inset
-
+.
  There exists a unitary matrix 
 \begin_inset Formula $U$
 \end_inset
@@ -1296,8 +1403,8 @@ begin{subequations}
  
 \begin_inset Formula 
 \begin{align}
-U^{\dagger}s_{0}U & =s\label{eq:Unitary_Transform_Us}\\
-U^{\dagger}t_{0}U & =t\label{eq:Unitary_Transform_Ut}
+U^{\dagger}\tilde{a}U & =a^{[3_{1}]}\label{eq:Unitary_Transform_Us}\\
+U^{\dagger}\tilde{b}U & =b^{[3_{1}]}\label{eq:Unitary_Transform_Ut}
 \end{align}
 
 \end_inset
@@ -1315,46 +1422,24 @@ end{subequations}
 
 \end_inset
 
- where 
-\begin_inset Formula $s$
-\end_inset
-
- and 
-\begin_inset Formula $t$
-\end_inset
-
- are 
-\begin_inset Formula $A_{4}$
-\end_inset
-
- generators given by eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:A4-generators"
-
-\end_inset
-
-.
- Let us find the matrix 
+ The matrix 
 \begin_inset Formula $U$
 \end_inset
 
-.
+ can be found as follows.
  Since 
-\begin_inset Formula $t$
+\begin_inset Formula $\tilde{a}$
 \end_inset
 
  and 
-\begin_inset Formula $t_{0}$
+\begin_inset Formula $a^{[3_{1}]}$
 \end_inset
 
- are related by a similarity transformation, they both have eigenvalues
- 
+ both have eigenvalues 
 \begin_inset Formula $\left(1,\omega,\omega^{2}\right)$
 \end_inset
 
- and there exist unitary matrices 
+, there exist unitary matrices 
 \begin_inset Formula $U_{1}$
 \end_inset
 
@@ -1362,59 +1447,30 @@ reference "eq:A4-generators"
 \begin_inset Formula $U_{2}$
 \end_inset
 
- satisfying 
-\begin_inset Formula 
-\[
-U_{1}^{\dagger}tU_{1}=U_{2}^{\dagger}t_{0}U_{2}=\mathrm{diag}\left(1,\omega,\omega^{2}\right).
-\]
-
-\end_inset
-
- Then 
-\begin_inset Formula $U=U_{2}U_{1}^{\dagger}$
-\end_inset
-
- clearly satisfies eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Unitary_Transform_Ut"
-
-\end_inset
-
-.
- But we can write down a more general expression 
+ so that 
 \begin_inset Formula 
 \begin{equation}
-U=U_{2}\begin{pmatrix}e^{ip_{1}}\\
- & e^{ip_{2}}\\
- &  & e^{ip_{3}}
-\end{pmatrix}U_{1}^{\dagger}.\label{eq:Unitary_Transform_Ut2}
+U_{1}^{\dagger}\tilde{a}U_{1}=U_{2}^{\dagger}a^{[3_{1}]}U_{2}=\mathrm{diag}\left(1,\omega,\omega^{2}\right).\label{eq:Gen_U1_U2}
 \end{equation}
 
 \end_inset
 
-Actually, any 
+ Then the matrix 
 \begin_inset Formula $U$
 \end_inset
 
- satisfying eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Unitary_Transform_Ut"
+ can be write as 
+\begin_inset Formula 
+\begin{equation}
+U=U_{1}\begin{pmatrix}e^{ip_{1}}\\
+ & e^{ip_{2}}\\
+ &  & e^{ip_{3}}
+\end{pmatrix}U_{2}^{\dagger}.\label{eq:Unitary_Transform_Ut2}
+\end{equation}
 
 \end_inset
 
- can be written as 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Unitary_Transform_Ut2"
-
-\end_inset
-
-.
- Substituting it into eq.
+Substituting it into eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1434,18 +1490,127 @@ reference "eq:Unitary_Transform_Us"
 \begin_inset Formula $p_{1}$
 \end_inset
 
-.
- It is easy to find 
-\begin_inset Formula $U_{1}$
+ and determine the matrix 
+\begin_inset Formula $U$
 \end_inset
 
- but require some nontrivial mathematica computation to find 
+ up to an irrelevant overall phase.
+ The difficulty here is the diagonalization of the matrix 
+\begin_inset Formula $\tilde{a}$
+\end_inset
+
+ and 
+\begin_inset Formula $a^{[3_{1}]}$
+\end_inset
+
+.
+ We developed a Mathematica package to perform the caulation of cyclic numbers,
+ which are algebric roots of 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+An easier way to find 
+\begin_inset Formula $U$
+\end_inset
+
+ is using the 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+ generators 
+\begin_inset Formula $s$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ In the target basis 
+\begin_inset Formula $t$
+\end_inset
+
+ is diagonal and in the basis of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Gen_AB3_old"
+
+\end_inset
+
+ 
+\begin_inset Formula $\tilde{t}$
+\end_inset
+
+ also has a relative simple form 
+\begin_inset Formula 
+\[
+\tilde{t}=\tilde{a}\tilde{b}=\begin{pmatrix}\begin{array}{ccc}
+0 & \eta^{4} & 0\\
+0 & 0 & \eta\\
+\eta^{2} & 0 & 0
+\end{array}\end{pmatrix},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tilde{s}=\tilde{a}^{2}=\begin{pmatrix}\begin{array}{ccc}
+-\frac{2\eta^{5}}{7}-\frac{3\eta^{4}}{7}-\frac{3\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{4}{7} & -\frac{3\eta^{5}}{7}-\frac{2\eta^{4}}{7}-\frac{4\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{3\eta}{7} & \frac{2\eta^{4}}{7}-\frac{\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{\eta}{7}+\frac{2}{7}\\
+\frac{\eta^{5}}{7}-\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta}{7}+\frac{3}{7} & \frac{3\eta^{5}}{7}+\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta^{2}}{7}-\frac{1}{7} & \frac{4\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{\eta^{2}}{7}+\frac{2\eta}{7}+\frac{4}{7}\\
+-\frac{\eta^{5}}{7}+\frac{3\eta^{3}}{7}+\frac{\eta^{2}}{7}+\frac{\eta}{7}+\frac{3}{7} & -\frac{\eta^{5}}{7}-\frac{\eta^{4}}{7}+\frac{2\eta^{2}}{7}-\frac{2\eta}{7}+\frac{2}{7} & -\frac{\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{2\eta^{3}}{7}-\frac{\eta^{2}}{7}-\frac{2}{7}
+\end{array}\end{pmatrix}.
+\]
+
+\end_inset
+
+Now replace 
+\begin_inset Formula $\tilde{a}$
+\end_inset
+
+ and 
+\begin_inset Formula $a^{[3_{1}]}$
+\end_inset
+
+ of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Gen_U1_U2"
+
+\end_inset
+
+ with 
+\begin_inset Formula $\tilde{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ 
 \begin_inset Formula $U_{2}$
 \end_inset
 
-.
- The details of the computation is shown in the appendix.
- Applying the unitary transformation of 
+ is simply identity matrix and 
+\begin_inset Formula 
+\[
+U=U_{1}\begin{pmatrix}e^{ip_{1}}\\
+ & e^{ip_{2}}\\
+ &  & e^{ip_{3}}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Applying the unitary transformation of 
 \begin_inset Formula $U$
 \end_inset
 
@@ -1685,6 +1850,13 @@ Group Theory
 
 \begin_layout Subsection
 \begin_inset Formula $A_{4}$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:A4Group"
+
 \end_inset
 
 
@@ -2217,6 +2389,13 @@ x_{1}
 
 \begin_layout Subsection
 \begin_inset Formula $S_{4}$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:S4Group"
+
 \end_inset
 
 
