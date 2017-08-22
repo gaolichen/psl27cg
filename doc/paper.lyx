@@ -1817,16 +1817,34 @@ determine the CG coefficients of
 
  to be 
 \begin_inset Formula 
-\[
-\rep{3}\otimes\rep{3}\to\rep{6}=\begin{pmatrix}e^{i\theta_{1}}\covs{3_{2}}{3_{2}}{1}\\
+\begin{equation}
+\left(\rep{3}\otimes\rep{3}\right)_{\rep{6}}=\begin{pmatrix}e^{i\theta_{1}}\covs{3_{2}}{3_{2}}{1}\\
 e^{i\theta_{2}}\covs{3_{3}}{3_{2}}{2}\\
 e^{i\theta_{3}}\covs{3_{2}}{3_{2}}{3_{1}}
-\end{pmatrix}.
+\end{pmatrix},\label{eq:Gen_CG336}
+\end{equation}
+
+\end_inset
+
+ where the phases are to be determined.
+ The generators of 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ can be extracted with the equations 
+\begin_inset Formula 
+\[
+X^{[6]}\rep{6}=\left(X^{\left[3\right]}\rep{3}\otimes X^{\left[3\right]}\rep{3}\right)_{\rep{6}},\quad X=A,B
 \]
 
 \end_inset
 
-The phases 
+We then obtain matrices with unknown phases 
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+.
+ The phases 
 \begin_inset Formula $\theta_{i}$
 \end_inset
 
@@ -1837,7 +1855,7 @@ The phases
  matrix
 \begin_inset Formula 
 \[
-\Gamma_{\rep{6}}\rep{6}^{*}=\rep{6},\quad\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)},
+\Gamma_{\rep{6}}X^{\left[6\right]*}\Gamma_{\rep{6}}^{\dagger}=X^{\left[6\right]},\quad X=A,B\quad\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)},
 \]
 
 \end_inset
@@ -1858,7 +1876,51 @@ reference "sub:S4Group"
 \end_inset
 
 .
- 
+ With above constraints, we can only determine 
+\begin_inset Formula $\left(\rep{3}\otimes\rep{3}\right)_{\rep{6}}$
+\end_inset
+
+ up to an overall phase
+\begin_inset Formula 
+\begin{equation}
+e^{i\theta_{2}}=-i\bar{b}_{7}^{2}e^{i\theta_{1}},\quad e^{i\theta_{3}}=i\bar{b}_{7}e^{i\theta_{1}},\label{eq:Gen_336Phases}
+\end{equation}
+
+\end_inset
+
+ the overall phase 
+\begin_inset Formula $e^{i\theta_{1}}$
+\end_inset
+
+ is a free unphysical parameter as long as the complex conjugate CGC 
+\begin_inset Formula $\left(\rep{\bar{3}}\otimes\rep{\bar{3}}\right)_{\rep{6}}$
+\end_inset
+
+ has the conjugate overall phase 
+\begin_inset Formula $e^{-i\theta_{1}}$
+\end_inset
+
+.
+ For simplicity, we choose 
+\begin_inset Formula $\theta_{1}=0$
+\end_inset
+
+ and the CGC 
+\begin_inset Formula $\rep{3}\otimes\rep{3}\to\rep{6}$
+\end_inset
+
+ is then 
+\begin_inset Formula 
+\[
+\left(\rep{3}\otimes\rep{3}\right)_{\rep{6}}=\begin{pmatrix}\covs{3_{2}}{3_{2}}{1}\\
+-i\bar{b}_{7}^{2}\covs{3_{3}}{3_{2}}{2}\\
+i\bar{b}_{7}\covs{3_{2}}{3_{2}}{3_{1}}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+The matrices of generators are 
 \begin_inset Formula 
 \[
 A^{[6]}=\left(\begin{array}{cccccc}
@@ -1873,11 +1935,7 @@ A^{[6]}=\left(\begin{array}{cccccc}
 
 \end_inset
 
- We can write 
-\begin_inset Formula $B^{[6]}$
-\end_inset
 
- as
 \begin_inset Formula 
 \[
 B^{[6]}=\left(\begin{array}{cccccc}
@@ -1887,16 +1945,33 @@ B^{[6]}=\left(\begin{array}{cccccc}
 \frac{\sqrt{7}}{6} & -\frac{\omega}{6}-\frac{2}{3} & -\frac{\omega^{2}}{6}-\frac{2}{3} & \frac{1}{6} & \frac{\omega}{6} & \frac{\omega^{2}}{6}\\
 \frac{\sqrt{7}}{6} & -\frac{\omega^{2}}{3} & -\frac{\omega}{3} & \frac{1}{6} & -\frac{\omega}{3} & \frac{2\omega^{2}}{3}\\
 \frac{\sqrt{7}}{6} & -\frac{\omega^{2}}{3} & -\frac{\omega}{3} & \frac{1}{6} & \frac{2\omega}{3} & -\frac{\omega^{2}}{3}
-\end{array}\right)
+\end{array}\right).
 \]
 
 \end_inset
 
- In 
+ 
+\end_layout
+
+\begin_layout Standard
+The matrix representation of 
 \begin_inset Formula $\rep{8}$
 \end_inset
 
- representation
+ can be found similarly with the Kronecker product 
+\begin_inset Formula $\rep{3}\otimes\rep{\bar{3}}\to\rep{8}$
+\end_inset
+
+ and the embedding relation 
+\begin_inset Formula 
+\[
+\rep{8}=\rep{2}\oplus\rep{3_{1}}\oplus\rep{3_{2}},\quad\rep{\bar{3}}=\rep{3_{2}},\quad\rep{3}=\rep{3_{2}}
+\]
+
+\end_inset
+
+.
+ 
 \begin_inset Formula 
 \[
 A^{[8]}=\left(\begin{array}{cccccccc}
