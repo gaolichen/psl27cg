@@ -1329,11 +1329,11 @@ reference "eq:App_Psl_S4_Gen_Relation"
 , which gives 
 \begin_inset Formula 
 \[
-\tilde{a}=\left[\tilde{A},\tilde{B}\right]=\begin{pmatrix}\begin{array}{ccc}
-\frac{i\eta^{5}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}} & \frac{i\eta^{5}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}} & \frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}\\
--\frac{i\eta^{5}}{\sqrt{7}}-\frac{2i\eta^{4}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}-\frac{i}{\sqrt{7}} & \frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}} & \frac{i\eta^{5}}{\sqrt{7}}+\frac{i\eta^{4}}{\sqrt{7}}+\frac{2i\eta^{3}}{\sqrt{7}}+\frac{i\eta^{2}}{\sqrt{7}}+\frac{i\eta}{\sqrt{7}}+\frac{i}{\sqrt{7}}\\
--\frac{2i\eta^{5}}{\sqrt{7}}-\frac{i\eta^{4}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}-\frac{i}{\sqrt{7}} & \frac{i\eta^{5}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}} & -\frac{i\eta^{5}}{\sqrt{7}}-\frac{2i\eta^{4}}{\sqrt{7}}-\frac{i\eta^{3}}{\sqrt{7}}-\frac{i\eta^{2}}{\sqrt{7}}-\frac{i\eta}{\sqrt{7}}-\frac{i}{\sqrt{7}}
-\end{array}\end{pmatrix},
+\tilde{a}=\left[\tilde{A},\tilde{B}\right]=\frac{i}{\sqrt{7}}\left(\begin{array}{ccc}
+\eta^{5}-\eta & \eta^{5}-\eta^{3} & \eta^{3}-\eta^{2}\\
+\eta^{6}-\eta^{4} & \eta^{3}-\eta^{2} & \eta^{3}-\eta^{6}\\
+\eta^{6}-\eta^{5} & \eta^{5}-\eta & \eta^{6}-\eta^{4}
+\end{array}\right),
 \]
 
 \end_inset
@@ -1341,11 +1341,10 @@ reference "eq:App_Psl_S4_Gen_Relation"
 
 \begin_inset Formula 
 \[
-\tilde{b}=\left(\tilde{A}\tilde{B}^{2}\left(\tilde{A}\tilde{B}\right)^{2}\right)^{2}=\begin{pmatrix}\begin{array}{ccc}
--\frac{2\eta^{5}}{7}-\frac{3\eta^{4}}{7}-\frac{3\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{4}{7} & \frac{3\eta^{5}}{7}+\frac{3\eta^{4}}{7}+\frac{\eta^{2}}{7}-\frac{\eta}{7}+\frac{1}{7} & \frac{2\eta^{5}}{7}-\frac{\eta^{4}}{7}-\frac{2\eta^{3}}{7}-\frac{\eta^{2}}{7}+\frac{2\eta}{7}\\
-\frac{2\eta^{5}}{7}+\frac{\eta^{4}}{7}+\frac{4\eta^{3}}{7}+\frac{4\eta^{2}}{7}+\frac{\eta}{7}+\frac{2}{7} & \frac{3\eta^{5}}{7}+\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta^{2}}{7}-\frac{1}{7} & \frac{\eta^{4}}{7}+\frac{3\eta^{3}}{7}-\frac{\eta^{2}}{7}+\frac{3\eta}{7}+\frac{1}{7}\\
--\frac{3\eta^{5}}{7}-\frac{4\eta^{4}}{7}-\frac{3\eta^{3}}{7}-\frac{2\eta}{7}-\frac{2}{7} & -\frac{4\eta^{5}}{7}-\frac{2\eta^{3}}{7}-\frac{3\eta^{2}}{7}-\frac{3\eta}{7}-\frac{2}{7} & -\frac{\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{2\eta^{3}}{7}-\frac{\eta^{2}}{7}-\frac{2}{7}
-\end{array}\end{pmatrix},
+\tilde{b}=\left(\tilde{A}\tilde{B}^{2}\left(\tilde{A}\tilde{B}\right)^{2}\right)^{2}=-\frac{1}{7}\begin{pmatrix}\eta^{6}-\eta^{2} & \eta-\eta^{6} & \eta^{3}-\eta^{2}\\
+\eta^{6}-\eta^{4} & \eta^{5}-\eta^{4} & \eta^{2}-\eta^{5}\\
+\eta^{4}-\eta^{3} & \eta^{5}-\eta & \eta^{3}-\eta
+\end{pmatrix}^{2},
 \]
 
 \end_inset
@@ -1435,11 +1434,7 @@ end{subequations}
 \begin_inset Formula $a^{[3_{1}]}$
 \end_inset
 
- both have eigenvalues 
-\begin_inset Formula $\left(1,\omega,\omega^{2}\right)$
-\end_inset
-
-, there exist unitary matrices 
+ both have the same eigenvalues, there exist unitary matrices 
 \begin_inset Formula $U_{1}$
 \end_inset
 
@@ -1450,12 +1445,12 @@ end{subequations}
  so that 
 \begin_inset Formula 
 \begin{equation}
-U_{1}^{\dagger}\tilde{a}U_{1}=U_{2}^{\dagger}a^{[3_{1}]}U_{2}=\mathrm{diag}\left(1,\omega,\omega^{2}\right).\label{eq:Gen_U1_U2}
+U_{1}^{\dagger}\tilde{a}U_{1}=U_{2}^{\dagger}a^{[3_{1}]}U_{2}=\mathrm{diag}\left(1,i,-i\right).\label{eq:Gen_U1_U2}
 \end{equation}
 
 \end_inset
 
- Then the matrix 
+ Since the eigenvalues are nondegenerate, the matrix 
 \begin_inset Formula $U$
 \end_inset
 
@@ -1523,16 +1518,16 @@ An easier way to find
 \end_inset
 
  generators 
-\begin_inset Formula $s$
+\begin_inset Formula $s=a^{2}$
 \end_inset
 
  and 
-\begin_inset Formula $t$
+\begin_inset Formula $t=ab$
 \end_inset
 
 .
  In the target basis 
-\begin_inset Formula $t$
+\begin_inset Formula $t=\mathrm{diag}\left(1,\omega,\omega^{2}\right)$
 \end_inset
 
  is diagonal and in the basis of 
@@ -1553,18 +1548,6 @@ reference "eq:Gen_AB3_old"
 0 & \eta^{4} & 0\\
 0 & 0 & \eta\\
 \eta^{2} & 0 & 0
-\end{array}\end{pmatrix},
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\tilde{s}=\tilde{a}^{2}=\begin{pmatrix}\begin{array}{ccc}
--\frac{2\eta^{5}}{7}-\frac{3\eta^{4}}{7}-\frac{3\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{4}{7} & -\frac{3\eta^{5}}{7}-\frac{2\eta^{4}}{7}-\frac{4\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{3\eta}{7} & \frac{2\eta^{4}}{7}-\frac{\eta^{3}}{7}-\frac{2\eta^{2}}{7}-\frac{\eta}{7}+\frac{2}{7}\\
-\frac{\eta^{5}}{7}-\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta}{7}+\frac{3}{7} & \frac{3\eta^{5}}{7}+\frac{\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{3\eta^{2}}{7}-\frac{1}{7} & \frac{4\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{\eta^{3}}{7}+\frac{\eta^{2}}{7}+\frac{2\eta}{7}+\frac{4}{7}\\
--\frac{\eta^{5}}{7}+\frac{3\eta^{3}}{7}+\frac{\eta^{2}}{7}+\frac{\eta}{7}+\frac{3}{7} & -\frac{\eta^{5}}{7}-\frac{\eta^{4}}{7}+\frac{2\eta^{2}}{7}-\frac{2\eta}{7}+\frac{2}{7} & -\frac{\eta^{5}}{7}+\frac{2\eta^{4}}{7}+\frac{2\eta^{3}}{7}-\frac{\eta^{2}}{7}-\frac{2}{7}
 \end{array}\end{pmatrix}.
 \]
 
@@ -1599,18 +1582,102 @@ reference "eq:Gen_U1_U2"
 \begin_inset Formula $U_{2}$
 \end_inset
 
- is simply identity matrix and 
-\begin_inset Formula 
-\[
-U=U_{1}\begin{pmatrix}e^{ip_{1}}\\
- & e^{ip_{2}}\\
- &  & e^{ip_{3}}
-\end{pmatrix}.
-\]
+ is simply identity matrix and
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subequations}
+\backslash
+label{Gen_U1phases}
+\end_layout
 
 \end_inset
 
-Applying the unitary transformation of 
+ 
+\begin_inset Formula 
+\begin{equation}
+U_{1}=\left(\begin{array}{ccc}
+1 & 1 & 1\\
+\eta^{3} & \omega\eta^{3} & \omega^{2}\eta^{3}\\
+\eta^{2} & \omega^{2}\eta^{2} & \omega\eta^{2}
+\end{array}\right),\quad\omega=\exp\left(i\frac{2\pi}{3}\right).
+\end{equation}
+
+\end_inset
+
+Requiring that 
+\begin_inset Formula $U$
+\end_inset
+
+ transforms 
+\begin_inset Formula $\tilde{s}=\tilde{a}^{2}$
+\end_inset
+
+ to the matrix 
+\begin_inset Formula $s$
+\end_inset
+
+ of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:A4-generators"
+
+\end_inset
+
+, we obtain results of phases 
+\begin_inset Formula 
+\begin{align}
+e^{i\left(p_{2}-p1\right)} & =\frac{1}{28}\left[\left(-9-\sqrt{3}i\right)\eta^{5}-2\left(9+\sqrt{3}i\right)\eta^{4}+\left(-6+4i\sqrt{3}\right)\eta^{3}\right]\nonumber \\
+ & +\frac{1}{28}\left[\left(6-4i\sqrt{3}\right)\eta^{2}+\left(-3+9i\sqrt{3}\right)\eta+\sqrt{3}i-5\right],\\
+e^{i\left(p_{3}-p1\right)} & =\frac{1}{28}\left[\left(-9+\sqrt{3}i\right)\eta^{5}-2\left(9-\sqrt{3}i\right)\eta^{4}+\left(-6-4i\sqrt{3}\right)\eta^{3}\right]\nonumber \\
+ & +\frac{1}{28}\left[\left(6+4i\sqrt{3}\right)\eta^{2}+\left(-3-9i\sqrt{3}\right)\eta-\sqrt{3}i-5\right].
+\end{align}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
+
+\end_inset
+
+Substituing 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Gen_U1phases"
+
+\end_inset
+
+ and 
+\begin_inset Formula $U_{2}=I$
+\end_inset
+
+ into eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Unitary_Transform_Ut2"
+
+\end_inset
+
+ we obtain 
+\begin_inset Formula $U$
+\end_inset
+
+, which is a complicated expression.
+ Fortunately, applying the unitary transformation of 
 \begin_inset Formula $U$
 \end_inset
 
@@ -1621,7 +1688,15 @@ reference "eq:Gen_AB3_old"
 
 \end_inset
 
-, we obtain
+, we obtain relatively simple expresssions of 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ in the target basis
 \begin_inset ERT
 status open
 
@@ -1649,12 +1724,12 @@ B^{[3]} & =\left(\begin{array}{ccc}
 \frac{2}{3} & -\frac{i\left(\sqrt{3}+\sqrt{7}\right)}{6}\omega^{2}\bar{b}_{7}^{2} & \frac{i\left(\sqrt{3}-\sqrt{7}\right)}{6}\omega\bar{b}_{7}^{2}\\
 \frac{i\left(\sqrt{7}-\sqrt{3}\right)}{6}\omega b_{7}^{2} & -\frac{1}{3} & \frac{1+\sqrt{21}}{6}\omega^{2}\\
 \frac{i\left(\sqrt{3}+\sqrt{7}\right)}{6}\omega^{2}b_{7}^{2} & \frac{1-\sqrt{21}}{6}\omega & -\frac{1}{3}
-\end{array}\right).\label{eq:Gen_B3}
+\end{array}\right),\label{eq:Gen_B3}
 \end{align}
 
 \end_inset
 
-
+ 
 \begin_inset ERT
 status open
 
@@ -1667,7 +1742,31 @@ end{subequations}
 
 \end_inset
 
+ where 
+\begin_inset Formula $b_{7}$
+\end_inset
 
+ and 
+\begin_inset Formula $\bar{b}_{7}$
+\end_inset
+
+ are pure phases 
+\begin_inset Formula 
+\[
+b_{7}=\frac{\eta+\eta^{2}+\eta^{4}}{\sqrt{2}}=\frac{-1+i\sqrt{7}}{2\sqrt{2}},\quad\bar{b}_{7}=b_{7}^{*}.
+\]
+
+\end_inset
+
+ The 
+\begin_inset Formula $\rep{\bar{3}}$
+\end_inset
+
+ matrix representation is simply the complex conjugate of 
+\begin_inset Formula $\rep{3}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1675,24 +1774,48 @@ Sextet, Septet and Octet Representations
 \end_layout
 
 \begin_layout Standard
-We can use 
-\begin_inset Formula $\rep{3}\otimes\rep{3}\to\rep{6_{s}}$
+With the matrix realization of 
+\begin_inset Formula $\rep{3}$
 \end_inset
 
- to find sextex representation.
- The decompositions 
-\begin_inset Formula $\rep{6}=\rep{1}\oplus\rep{2}\oplus\rep{3_{1}}$
+ and 
+\begin_inset Formula $\rep{\bar{3}}$
 \end_inset
 
-, 
-\begin_inset Formula $\rep{3}=\rep{3_{2}}$
+, we can build the higher dimensional matrix representations.
+ The decompositions of 
+\begin_inset Formula $\group$
 \end_inset
 
- and the Konecker product of 
-\begin_inset Formula $\rep{3_{2}}\otimes\rep{3_{2}}$
+ into 
+\begin_inset Formula $S_{4}$
 \end_inset
 
- determine the CG coefficients to be 
+ 
+\begin_inset Formula 
+\[
+\rep{6}=\rep{1}\oplus\rep{2}\oplus\rep{3_{1}},\quad\rep{3}=\rep{3_{2}}
+\]
+
+\end_inset
+
+and the Kronecker products of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ group 
+\begin_inset Formula 
+\[
+\rep{3_{2}}\otimes\rep{3_{2}}\to\rep{1}\oplus\rep{2}\oplus\rep{3_{1}}
+\]
+
+\end_inset
+
+determine the CG coefficients of 
+\begin_inset Formula $\rep{3}\otimes\rep{3}\to\rep{6}$
+\end_inset
+
+ to be 
 \begin_inset Formula 
 \[
 \rep{3}\otimes\rep{3}\to\rep{6}=\begin{pmatrix}e^{i\theta_{1}}\covs{3_{2}}{3_{2}}{1}\\
@@ -1703,12 +1826,39 @@ e^{i\theta_{3}}\covs{3_{2}}{3_{2}}{3_{1}}
 
 \end_inset
 
-We need constraints to determind the phases 
+The phases 
 \begin_inset Formula $\theta_{i}$
 \end_inset
 
+ can be determined by the constraint the 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ matrix
+\begin_inset Formula 
+\[
+\Gamma_{\rep{6}}\rep{6}^{*}=\rep{6},\quad\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)},
+\]
+
+\end_inset
+
+ where the expression of 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ matrices of 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+ group are provided in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:S4Group"
+
+\end_inset
+
 .
-  
+ 
 \begin_inset Formula 
 \[
 A^{[6]}=\left(\begin{array}{cccccc}
