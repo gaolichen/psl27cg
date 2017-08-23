@@ -1028,7 +1028,7 @@ Then
  implies that 
 \begin_inset Formula 
 \begin{equation}
-c_{\bar{k},\bar{i}\bar{j}}=c_{k,i,j}^{*}.\label{eq:CG_ckij}
+c_{\bar{k},\bar{i}\bar{j}}=c_{k,ij}^{*}.\label{eq:CG_ckij}
 \end{equation}
 
 \end_inset
@@ -1965,13 +1965,61 @@ The matrix representation of
  and the embedding relation 
 \begin_inset Formula 
 \[
-\rep{8}=\rep{2}\oplus\rep{3_{1}}\oplus\rep{3_{2}},\quad\rep{\bar{3}}=\rep{3_{2}},\quad\rep{3}=\rep{3_{2}}
+\rep{8}=\rep{2}\oplus\rep{3_{1}}\oplus\rep{3_{2}},\quad\rep{3}=\rep{3_{2}},\quad\rep{\bar{3}}=\rep{3_{2}}.
 \]
 
 \end_inset
 
-.
- 
+ But there is one difference comparing to the 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ case.
+ The projection matrices 
+\begin_inset Formula $P_{\rep{3}\to\rep{3_{2}}}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{\rep{\bar{3}}\to\rep{3_{2}}}$
+\end_inset
+
+ cannot both be the identity matrix.
+ It turns out that, if we choose the former be identity matrix, then the
+ latter has to be a nontrivial unitary matrix
+\begin_inset Formula 
+\[
+P_{\rep{3}\to\rep{3_{2}}}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix},\quad P_{\rep{\bar{3}}\to\rep{3_{2}}}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Since the complex conjugate of 
+\begin_inset Formula $\rep{3}\otimes\rep{\bar{3}}\to\rep{8}$
+\end_inset
+
+ is itself, the overall phase of the CGC can be determined.
+ By a little algebra, we find that
+\begin_inset Formula 
+\[
+\left(\rep{3}\otimes\rep{\bar{3}}\right)_{\rep{8}}=\begin{pmatrix}\covs{3_{2}}{3_{2}}{2}\\
+\covs{3_{2}}{3_{2}}{3_{1}}\\
+i\covs{3_{2}}{3_{2}}{3_{2}}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+The generator 
+\begin_inset Formula $A^{[8]}$
+\end_inset
+
+ has a simple form 
 \begin_inset Formula 
 \[
 A^{[8]}=\left(\begin{array}{cccccccc}
@@ -1988,11 +2036,11 @@ A^{[8]}=\left(\begin{array}{cccccccc}
 
 \end_inset
 
- For 
-\begin_inset Formula $B$
+ For the generator 
+\begin_inset Formula $B^{[8]}$
 \end_inset
 
-, elements of the first five columns are
+, the first five columns are
 \begin_inset Formula 
 \[
 B_{1}^{[8]}=\left(\begin{array}{ccccc}
@@ -2009,7 +2057,7 @@ B_{1}^{[8]}=\left(\begin{array}{ccccc}
 
 \end_inset
 
- The last three columns are 
+ and the last three columns are 
 \begin_inset Formula 
 \[
 B_{2}^{[8]}=\begin{pmatrix}0 & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2}\\
@@ -2020,7 +2068,7 @@ B_{2}^{[8]}=\begin{pmatrix}0 & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4
 -\frac{1}{2} & -\frac{i\omega^{2}}{2\sqrt{3}} & \frac{i\omega}{2\sqrt{3}}\\
 -\frac{i\omega}{2\sqrt{3}} & \frac{3\omega^{2}}{8}+\frac{i}{8\sqrt{3}} & -\frac{\omega^{2}}{8}\\
 \frac{i\omega^{2}}{2\sqrt{3}} & -\frac{\omega}{8} & -\frac{i}{8\sqrt{3}}+\frac{3\omega}{8}
-\end{pmatrix}
+\end{pmatrix}.
 \]
 
 \end_inset
@@ -2029,11 +2077,46 @@ B_{2}^{[8]}=\begin{pmatrix}0 & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4
 \end_layout
 
 \begin_layout Standard
-In 
+Finally, let us consider the 
 \begin_inset Formula $\rep{7}$
 \end_inset
 
- representation
+ representation.
+ We can obtain the 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+ irrep from 
+\begin_inset Formula $\rep{3}\otimes\rep{6}\to\rep{7}$
+\end_inset
+
+.
+ However, unlike the 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{8}$
+\end_inset
+
+ cases, the norm of the CGCs of 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+ case is undetermined.
+ 
+\begin_inset Formula 
+\begin{align*}
+P_{\rep{\bar{3}}\to\rep{3_{2}}}\left(\rep{3}\otimes\rep{6}\right)_{\rep{\bar{3}}} & =\alpha_{1}\covs{3_{2}}{1_{0}}{3_{2}}+\beta_{1}\covs{3_{2}}{2}{3_{2}}+\gamma_{1}\covs{3_{2}}{3_{1}}{3_{2}}\\
+\left(\rep{3}\otimes\rep{6}\right)_{\rep{8}} & =\begin{pmatrix}\covs{3_{2}}{3_{2}}{2}\\
+\covs{3_{2}}{2}{3_{1}}+\covs{3_{2}}{3_{1}}{3_{1}}\\
+\covs{3_{2}}{1_{0}}{3_{2}}+\covs{3_{2}}{2}{3_{2}}+\covs{3_{2}}{3_{1}}{3_{2}}
+\end{pmatrix}
+\end{align*}
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \[
 A^{[7]}=\left(\begin{array}{ccccccc}
