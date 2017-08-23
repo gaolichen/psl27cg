@@ -11,6 +11,7 @@
 \newcommand{\subga}{S_4}
 \newcommand{\subgb}{\mathcal{T}_7}
 
+\newcommand{\covp}[3]{\left[\rep{#1}\otimes\rep{#2}\right]^{}_{\rep{#3}}}
 \newcommand{\cova}[3]{\left(\rep{#1}\otimes\rep{#2}\right)^{}_{\rep{#3}}}
 \newcommand{\covs}[3]{\big\{\rep{#1}\otimes\rep{#2}\big\}^{}_{\rep{#3}}}
 \newcommand{\covt}[3]{\big\{\rep{#1}\otimes\rep{#2}\big\}^{}_{\rep{#3}}}
@@ -1818,7 +1819,7 @@ determine the CG coefficients of
  to be 
 \begin_inset Formula 
 \begin{equation}
-\left(\rep{3}\otimes\rep{3}\right)_{\rep{6}}=\begin{pmatrix}e^{i\theta_{1}}\covs{3_{2}}{3_{2}}{1}\\
+\covp{3}{3}{6}=\begin{pmatrix}e^{i\theta_{1}}\covs{3_{2}}{3_{2}}{1}\\
 e^{i\theta_{2}}\covs{3_{3}}{3_{2}}{2}\\
 e^{i\theta_{3}}\covs{3_{2}}{3_{2}}{3_{1}}
 \end{pmatrix},\label{eq:Gen_CG336}
@@ -1834,7 +1835,7 @@ e^{i\theta_{3}}\covs{3_{2}}{3_{2}}{3_{1}}
  can be extracted with the equations 
 \begin_inset Formula 
 \[
-X^{[6]}\rep{6}=\left(X^{\left[3\right]}\rep{3}\otimes X^{\left[3\right]}\rep{3}\right)_{\rep{6}},\quad X=A,B
+X^{[6]}\rep{6}=\left[X^{\left[3\right]}\rep{3}\otimes X^{\left[3\right]}\rep{3}\right]_{\rep{6}},\quad X=A,B
 \]
 
 \end_inset
@@ -1854,9 +1855,9 @@ We then obtain matrices with unknown phases
 
  matrix
 \begin_inset Formula 
-\[
-\Gamma_{\rep{6}}X^{\left[6\right]*}\Gamma_{\rep{6}}^{\dagger}=X^{\left[6\right]},\quad X=A,B\quad\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)},
-\]
+\begin{equation}
+\Gamma_{\rep{6}}X^{\left[6\right]*}\Gamma_{\rep{6}}^{\dagger}=X^{\left[6\right]},\quad X=A,B\quad\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)},\label{eq:Gen_Gamma6}
+\end{equation}
 
 \end_inset
 
@@ -1893,7 +1894,7 @@ e^{i\theta_{2}}=-i\bar{b}_{7}^{2}e^{i\theta_{1}},\quad e^{i\theta_{3}}=i\bar{b}_
 \end_inset
 
  is a free unphysical parameter as long as the complex conjugate CGC 
-\begin_inset Formula $\left(\rep{\bar{3}}\otimes\rep{\bar{3}}\right)_{\rep{6}}$
+\begin_inset Formula $\covp{\bar{3}}{\bar{3}}{6}$
 \end_inset
 
  has the conjugate overall phase 
@@ -1906,13 +1907,13 @@ e^{i\theta_{2}}=-i\bar{b}_{7}^{2}e^{i\theta_{1}},\quad e^{i\theta_{3}}=i\bar{b}_
 \end_inset
 
  and the CGC 
-\begin_inset Formula $\rep{3}\otimes\rep{3}\to\rep{6}$
+\begin_inset Formula $\covp{3}{3}{6}$
 \end_inset
 
  is then 
 \begin_inset Formula 
 \[
-\left(\rep{3}\otimes\rep{3}\right)_{\rep{6}}=\begin{pmatrix}\covs{3_{2}}{3_{2}}{1}\\
+\covp{3}{3}{6}=\begin{pmatrix}\covs{3_{2}}{3_{2}}{1}\\
 -i\bar{b}_{7}^{2}\covs{3_{3}}{3_{2}}{2}\\
 i\bar{b}_{7}\covs{3_{2}}{3_{2}}{3_{1}}
 \end{pmatrix}.
@@ -2007,7 +2008,7 @@ Since the complex conjugate of
  By a little algebra, we find that
 \begin_inset Formula 
 \[
-\left(\rep{3}\otimes\rep{\bar{3}}\right)_{\rep{8}}=\begin{pmatrix}\covs{3_{2}}{3_{2}}{2}\\
+\covp{3}{\bar{3}}{8}=\begin{pmatrix}\covs{3_{2}}{3_{2}}{2}\\
 \covs{3_{2}}{3_{2}}{3_{1}}\\
 i\covs{3_{2}}{3_{2}}{3_{2}}
 \end{pmatrix}.
@@ -2081,7 +2082,7 @@ Finally, let us consider the
 \begin_inset Formula $\rep{7}$
 \end_inset
 
- representation.
+ representation case.
  We can obtain the 
 \begin_inset Formula $\rep{7}$
 \end_inset
@@ -2091,32 +2092,71 @@ Finally, let us consider the
 \end_inset
 
 .
- However, unlike the 
-\begin_inset Formula $\rep{6}$
+ However, to determine the norm of the CGCs of 
+\begin_inset Formula $\covp{3}{6}{7}$
+\end_inset
+
+, we have to first determine the CGC of 
+\begin_inset Formula $\covp{3}{6}{\bar{3}}$
 \end_inset
 
  and 
-\begin_inset Formula $\rep{8}$
+\begin_inset Formula $\covp{3}{6}{8}$
 \end_inset
 
- cases, the norm of the CGCs of 
-\begin_inset Formula $\rep{7}$
-\end_inset
-
- case is undetermined.
+.
  
 \begin_inset Formula 
 \begin{align*}
-P_{\rep{\bar{3}}\to\rep{3_{2}}}\left(\rep{3}\otimes\rep{6}\right)_{\rep{\bar{3}}} & =\alpha_{1}\covs{3_{2}}{1_{0}}{3_{2}}+\beta_{1}\covs{3_{2}}{2}{3_{2}}+\gamma_{1}\covs{3_{2}}{3_{1}}{3_{2}}\\
-\left(\rep{3}\otimes\rep{6}\right)_{\rep{8}} & =\begin{pmatrix}\covs{3_{2}}{3_{2}}{2}\\
-\covs{3_{2}}{2}{3_{1}}+\covs{3_{2}}{3_{1}}{3_{1}}\\
-\covs{3_{2}}{1_{0}}{3_{2}}+\covs{3_{2}}{2}{3_{2}}+\covs{3_{2}}{3_{1}}{3_{2}}
-\end{pmatrix}
+P_{\rep{\bar{3}}\to\rep{3_{2}}}\covp{3}{6}{\bar{3}} & =\frac{1}{\sqrt{6}}\covs{3_{2}}{1_{0}}{3_{2}}-\frac{i\bar{b}_{7}^{2}}{\sqrt{3}}\covs{3_{2}}{2}{3_{2}}+\frac{i\bar{b}_{7}}{\sqrt{2}}\covs{3_{2}}{3_{1}}{3_{2}},\\
+\covp{3}{6}{8} & =\begin{pmatrix}\covs{3_{2}}{3_{2}}{2}\\
+-\sqrt{\frac{2}{3}}b_{7}\covs{3_{2}}{2}{3_{1}}+\frac{1}{\sqrt{3}}\covs{3_{2}}{3_{1}}{3_{1}}\\
+\frac{2\bar{b}_{7}}{7}\covs{3_{2}}{1_{0}}{3_{2}}-\frac{\sqrt{2}i}{3}b_{7}\covs{3_{2}}{2}{3_{2}}+\frac{i}{\sqrt{3}}\covs{3_{2}}{3_{1}}{3_{2}}
+\end{pmatrix}.
 \end{align*}
 
 \end_inset
 
+The CGCs of 
+\begin_inset Formula $\covp{3}{6}{7}$
+\end_inset
+
+ can be determined by the orthonormal condition up to phases 
+\begin_inset Formula 
+\[
+\covp{3}{6}{7}=\begin{pmatrix}e^{i\theta_{1}}\covs{3_{2}}{3_{1}}{1_{1}}\\
+e^{i\theta_{2}}\left(\frac{1}{\sqrt{3}}\covs{3_{2}}{2}{3_{1}}+\sqrt{\frac{2}{3}}\bar{b}_{7}\covs{3_{2}}{3_{1}}{3_{1}}\right)\\
+e^{i\theta_{3}}\left(\frac{i}{3}\sqrt{\frac{7}{2}}b_{7}\covs{3_{2}}{1_{0}}{3_{2}}-\frac{2i}{3}\bar{b}_{7}^{3}\covs{3_{2}}{2}{3_{2}}-\frac{i}{\sqrt{6}}\covs{3_{2}}{3_{1}}{3_{2}}\right)
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Applying the 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ constraints in analogy to eq.
  
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Gen_Gamma6"
+
+\end_inset
+
+, we determine the CGCs of 
+\begin_inset Formula $\covp{3}{6}{7}$
+\end_inset
+
+ up to an overall phase 
+\begin_inset Formula 
+\[
+e^{i\left(\theta_{2}-\theta_{1}\right)}=\bar{b}_{7}^{3},\quad e^{i\left(\theta_{3}-\theta_{1}\right)}=-i\bar{b}_{7}^{2}.
+\]
+
+\end_inset
+
+Meanwhile, the generators are found to be 
 \begin_inset Formula 
 \[
 A^{[7]}=\left(\begin{array}{ccccccc}
@@ -2143,7 +2183,7 @@ B^{[7]}=\left(\begin{array}{ccccccc}
 0 & \frac{i\bar{b}_{7}}{3} & \frac{i\bar{b}_{7}}{3}+\frac{\omega\bar{b}_{7}}{2\sqrt{3}} & \frac{i\bar{b}_{7}}{3}-\frac{\omega^{2}\bar{b}_{7}}{2\sqrt{3}} & 0 & -\frac{i\omega}{2\sqrt{3}} & \frac{i\omega^{2}}{2\sqrt{3}}\\
 -\frac{ib_{7}^{2}}{2} & \frac{i\bar{b}_{7}}{3} & \frac{i\omega^{2}\bar{b}_{7}}{3} & \frac{i\omega\bar{b}_{7}}{3} & -\frac{i}{2\sqrt{3}} & -\frac{i\omega}{\sqrt{3}} & 0\\
 \frac{ib_{7}^{2}}{2} & \frac{i\bar{b}_{7}}{3} & \frac{i\omega^{2}\bar{b}_{7}}{3} & \frac{i\omega\bar{b}_{7}}{3} & \frac{i}{2\sqrt{3}} & 0 & \frac{i\omega^{2}}{\sqrt{3}}
-\end{array}\right)
+\end{array}\right).
 \]
 
 \end_inset
