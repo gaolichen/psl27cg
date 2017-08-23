@@ -3,6 +3,24 @@
 <<"/users/gaolichen/gitroot/psl27cg/mpackage/cgframework.m";
 <<"/users/gaolichen/gitroot/psl27cg/mpackage/numerical.m";
 
+CountTerms[expr_,var_]:=Module[{ret=0,e,i},
+	e=Exponent[expr,var];
+	For[i=1,i <= e,i++,
+	];
+];
+
+ClearAll[ToEt6]
+ToEt6[expr_,et_,n_:0]:=Module[
+	{ret=expr,i,sum=1+et+et^2+et^3+et^4+et^5+et^6},
+	For[i=5,i>=2,i--,
+		If[i!=n && Coefficient[expr,et^i]!=0,
+			ret=Simplify[expr/.{et^i->-Simplify[sum-et^i]}];Break[]
+		];
+	];
+
+	Return[Distribute[ret]];
+];
+
 (* common functions for psl27-g4 CG coefficients calculation. *)
 ClearAll[DecomposePoly];
 Options[DecomposePoly]={Vars->{},Phases->{}};
