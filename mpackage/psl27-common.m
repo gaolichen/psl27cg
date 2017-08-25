@@ -3,22 +3,30 @@
 <<"/users/gaolichen/gitroot/psl27cg/mpackage/cgframework.m";
 <<"/users/gaolichen/gitroot/psl27cg/mpackage/numerical.m";
 
+ClearAll[CountTerms]
 CountTerms[expr_,var_]:=Module[{ret=0,e,i},
 	e=Exponent[expr,var];
-	For[i=1,i <= e,i++,
+	For[i=e,i >= 1,i--,
+		If[Coefficient[expr,var^i]!=0, ret++];
 	];
+
+	If[(expr/.{var->0})!=0, ret++];
+	Return[ret]
 ];
 
 ClearAll[ToEt6]
+SetAttributes[ToEt6,Listable];
 ToEt6[expr_,et_,n_:0]:=Module[
-	{ret=expr,i,sum=1+et+et^2+et^3+et^4+et^5+et^6},
+	{ret=expr,i,exp2,sum=1+et+et^2+et^3+et^4+et^5+et^6,cnt},
+	cnt = CountTerms[expr,et];
 	For[i=5,i>=2,i--,
 		If[i!=n && Coefficient[expr,et^i]!=0,
-			ret=Simplify[expr/.{et^i->-Simplify[sum-et^i]}];Break[]
+			exp2=Simplify[expr/.{et^i->-Simplify[sum-et^i]}];
+			If[CountTerms[exp2,et]<cnt, ret=exp2;Break[]]
 		];
 	];
 
-	Return[Distribute[ret]];
+	Return[Expand[ret]];
 ];
 
 (* common functions for psl27-g4 CG coefficients calculation. *)

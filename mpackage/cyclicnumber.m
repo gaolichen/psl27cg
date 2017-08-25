@@ -108,6 +108,26 @@ ReducePowerCN[cn_,var_,n_]:=Module[{list},
 	Return[ListToCn[list,var]]
 ];
 
+(*ClearAll[EtaToTrig]
+SetAttributes[EtaToTrig,Listable];
+EtaToTrig[expr_, et_, n_]:=Module[{ret},
+	ret = expr/.{et->Exp[I*2Pi/n]};
+	Return[ExpToTrig[ret]]
+];*)
+
+ClearAll[EtaToTrig]
+SetAttributes[EtaToTrig,Listable];
+EtaToTrig[expr_, et_, n_]:=Module[{ret=expr,ci,si,i},
+	For[i = Floor[n/2],i >= 1, i--,
+		ci = Subscript[c,i];
+		si = Subscript[s,i];
+		ret = ret /.{et^(n-i) -> ci - I*si};
+		ret = ret /. {et^i -> ci + I*si};
+	];
+
+	Return[Simplify[ret]]
+];
+
 ClearAll[SimplifyCN];
 (*Options[SimplifyCN]=Join[Options[InverseCN],{}];*)
 SetAttributes[SimplifyCN,Listable]
