@@ -275,27 +275,7 @@ In this section, we will briefly introduce the definition of (CGCs) and
 \begin_layout Standard
 The tensor product of two irreducible representations (irrep) are in general
  reducible.
- Let 
-\begin_inset Formula $\rep{X}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{Y}$
-\end_inset
-
- two irreps of a finite group 
-\begin_inset Formula $G$
-\end_inset
-
-, and 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- be a irrep contained in 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}$
-\end_inset
-
-.
+ CGCs determines how the two irreps can be contracted to a third irrep.
  Let 
 \begin_inset Formula $X$
 \end_inset
@@ -308,7 +288,7 @@ The tensor product of two irreducible representations (irrep) are in general
 \begin_inset Formula $Z$
 \end_inset
 
- be vectors in the Hilbert space on which 
+ be vectors in the Hilbert space on which the group elements of irreps 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -320,16 +300,16 @@ The tensor product of two irreducible representations (irrep) are in general
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- acting.
- One can write 
-\begin_inset Formula $Z$
+ acting on.
+ If there exist a contraction 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
- as 
+, then one can write 
 \begin_inset Formula 
-\[
-Z_{k}=\sum_{i,j}M_{k,ij}\left(X\otimes Y\right)_{ij},
-\]
+\begin{equation}
+Z_{k}=\sum_{i,j}M_{k,ij}\left(X\otimes Y\right)_{ij},\label{eq:CGC_Def}
+\end{equation}
 
 \end_inset
 
@@ -351,7 +331,15 @@ Z_{k}=\sum_{i,j}M_{k,ij}\left(X\otimes Y\right)_{ij},
 \end_layout
 
 \begin_layout Standard
-CGCs are basis dependent.
+From eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGC_Def"
+
+\end_inset
+
+, we see that CGCs are basis dependent.
  Under a basis transformation, 
 \begin_inset Formula 
 \[
@@ -372,7 +360,8 @@ M_{k}\to M_{k}^{\prime}=U_{Z}M_{k}\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right).
 
 \end_inset
 
-
+ Hence, for a set of CGCs, we must specify the basis of irreps.
+ 
 \end_layout
 
 \begin_layout Section
