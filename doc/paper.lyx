@@ -16,6 +16,8 @@
 \newcommand{\cova}[3]{\left(\rep{#1}\otimes\rep{#2}\right)^{}_{\rep{#3}}}
 \newcommand{\covs}[3]{\big\{\rep{#1}\otimes\rep{#2}\big\}^{}_{\rep{#3}}}
 \newcommand{\covt}[3]{\big\{\rep{#1}\otimes\rep{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\covsub}[3]{\big\{{#1}\otimes{#2}\big\}^{}_{{#3}}}
+\newcommand{\covlg}[3]{\left[{#1}\otimes{#2}\right]^{}_{{#3}}}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -300,7 +302,7 @@ The tensor product of two irreducible representations (irrep) are in general
 \end_inset
 
  be vectors of the corresponding Hilbert space on which the group elements
- acting on.
+ act.
  We use 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
@@ -493,7 +495,7 @@ reference "eq:CGC_Orthnormal"
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to n\rep{Z}$
 \end_inset
 
-, then any linear combination of the CGCs 
+, then any linear combination of CGCs 
 \begin_inset Formula $a_{1}M^{\left(1\right)}+\cdots+a_{n}M^{\left(n\right)}$
 \end_inset
 
@@ -521,7 +523,40 @@ reference "eq:CGC_Orthnormal"
 \end_layout
 
 \begin_layout Standard
-How can we get rid of the ambiguity of CGCs? 
+How can we get rid of the ambiguity of CGCs? One need to choose a basis
+ of irreps.
+ A natural choice of the basis is that the elements of a perticular subgroup
+ are diagonal.
+ It turns out that, with suitable conditions, CGCs are basis independent
+ under such a choice.
+ Also, we will be able to put nontrivial constraints regarding the second
+ and third ambiguities.
+ 
+\end_layout
+
+\begin_layout Standard
+In the remainder of this paper, we will use bold letters to denote irreps
+ of a group and the same nonbold letters to denote vectors in Hilbert spaces.
+ The irreps and vectors of subgroup are denoted by lower case letters and
+ those of large group are denoted by upper case letters.
+ The notation 
+\begin_inset Formula $\covsub{r_{1}}{r_{2}}{r_{3}}$
+\end_inset
+
+ represents the contract of two irreps 
+\begin_inset Formula $\rep{r_{1}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{r_{2}}$
+\end_inset
+
+ to another irrep 
+\begin_inset Formula $\rep{r_{3}}$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Section
@@ -529,19 +564,22 @@ CGCs in subgroup basis
 \end_layout
 
 \begin_layout Standard
-In this section, we will discuss how we fix the basis of CG coefficients
- and the ambiguity of phases.
- Let us first setup the notation.
- Let 
-\begin_inset Formula $G$
-\end_inset
+In this section, we will discuss how to define CGCs in a basis independent
+ way.
+ 
+\end_layout
 
- be a descrete group with a subgroup 
+\begin_layout Standard
+Let 
 \begin_inset Formula $H$
 \end_inset
 
+ be a subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
 .
- The irreps 
+ The irrep 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -557,11 +595,49 @@ In this section, we will discuss how we fix the basis of CG coefficients
 \begin_inset Formula $G$
 \end_inset
 
- can be decomposed as 
+ can be decomposed into irreps of 
+\begin_inset Formula $H$
+\end_inset
+
+ as 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+On the rhs of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Embed"
+
+\end_inset
+
+, 
+\begin_inset Formula $\{\rep{r_{i}}\}$
+\end_inset
+
+ may contain duplidated members, which introduces additional complexicity
+ to the problem.
+ But such as case can be avoided by choosing a large enough subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ So here we only consider the case that all 
+\begin_inset Formula $\rep{r_{i}}$
+\end_inset
+
+ are distinct.
+ 
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
-\[
-\rep{X}=\bigoplus\rep{x_{i}},\quad\rep{Y}=\bigoplus\rep{y_{i}},\quad\rep{Z}=\bigoplus\rep{z_{i}},
-\]
+\begin{equation}
+\rep{X}=\bigoplus\rep{x_{i}},\quad\rep{Y}=\bigoplus\rep{y_{i}},\quad\rep{Y}=\bigoplus\rep{y_{i}},\label{eq:CGSub_Embed}
+\end{equation}
 
 \end_inset
 
@@ -582,79 +658,14 @@ In this section, we will discuss how we fix the basis of CG coefficients
 \end_inset
 
 .
- For simplicity, we only consider the case that none of the irreps of 
-\begin_inset Formula $G$
-\end_inset
-
- contains duplicated irreps of 
-\begin_inset Formula $H$
-\end_inset
-
-, i.e., all 
-\begin_inset Formula $\rep{x_{i}}$
-\end_inset
-
- are distinct for 
-\begin_inset Formula $\rep{X}$
-\end_inset
-
- and similarly for 
-\begin_inset Formula $\rep{Y}$
-\end_inset
-
- and 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
-.
- In the remainder of this paper, we use non-bold letters to represent vectors
- of the corresponding representations, for example 
-\begin_inset Formula $X$
-\end_inset
-
-, 
-\begin_inset Formula $Y$
-\end_inset
-
-, and 
-\begin_inset Formula $Z$
-\end_inset
-
- are covariants of irreps 
-\begin_inset Formula $\rep{X}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{Y}$
-\end_inset
-
-, and 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- respectively.
- 
-\end_layout
-
-\begin_layout Standard
-To get rid of the basis dependence of CG coefficients, we express the CGC
- of 
-\begin_inset Formula $G$
-\end_inset
-
- in the basis of the subgroup 
-\begin_inset Formula $H$
-\end_inset
-
-.
  For 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
-, the CGC are expressed as 
+, we can express the CGC as 
 \begin_inset Formula 
 \begin{equation}
-P_{Z\to i}Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\to k}Y\right)\right\} _{z_{i}}.\label{eq:CG_Con1}
+P_{Z\to k}Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}X\right)\otimes\left(P_{Y\to j}Y\right)\right\} _{z_{k}}.\label{eq:CGSub_Def}
 \end{equation}
 
 \end_inset
@@ -663,27 +674,27 @@ P_{Z\to i}Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}X\right)\otimes\left(P_{Y\
 \begin_inset Formula $P_{X\to j}$
 \end_inset
 
- is the projective matrix to obtain the 
-\begin_inset Formula $\rep{x_{j}}$
+ is a projection matrix to obtain the 
+\begin_inset Formula $x_{j}$
 \end_inset
 
  components from 
-\begin_inset Formula $\rep{X}$
+\begin_inset Formula $X$
 \end_inset
 
  and 
-\begin_inset Formula $c_{i,jk}$
+\begin_inset Formula $c_{k,ij}$
 \end_inset
 
- are complex constants.
+ are CGCs.
  By the definition of CG coefficients, 
-\begin_inset Formula $c_{i,jk}$
+\begin_inset Formula $c_{k,ij}$
 \end_inset
 
  should satisfy a stronger constraint 
 \begin_inset Formula 
 \begin{equation}
-P_{Z\to i}\rho_{Z}\left(g\right)Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\rho_{X}\left(g\right)X\right)\otimes\left(P_{Y\to k}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{i}},\quad\forall g\in G,\label{eq:CG_rho_Z}
+P_{Z\to k}\rho_{Z}\left(g\right)Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}\rho_{X}\left(g\right)X\right)\otimes\left(P_{Y\to j}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{k}},\quad\forall g\in G,\label{eq:CGSub_Def2}
 \end{equation}
 
 \end_inset
@@ -705,71 +716,64 @@ P_{Z\to i}\rho_{Z}\left(g\right)Z=\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\rho
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_Con1"
+reference "eq:CGSub_Def"
 
 \end_inset
 
 .
  We will show shortly that the coefficients 
-\begin_inset Formula $c_{i,jk}$
+\begin_inset Formula $c_{k,ij}$
 \end_inset
 
- are independent of basis transformation.
+ are independent in both the basis transformation of subgroup and of the
+ large group itself.
+ The orthonormalization constraints of CGCs now become
+\begin_inset Formula 
+\begin{equation}
+c_{k}^{\dagger}c_{l}=\delta_{kl}\label{eq:CGSub_orthnormal}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-To deal with the phase ambiguity of CGC, let us first discuss about real
- and complex representations.
+In addition, we would like to impose another constraint on CGCs.
+ To introduce the constraint, we need to first discuss about real and complex
+ representations.
  A real (or pseudo-real) representation is a representation whose complex
  conjugate is equivalent to itself.
  While a complex representation is the one whose complex conjugate is inequivale
 nt to itself.
+ For convenience, we define a complex conjugate of a real (or pseudo-real)
+ representation to be itself.
  If 
-\begin_inset Formula $\rep{r}$
-\end_inset
-
- is a representation of a group 
-\begin_inset Formula $G$
-\end_inset
-
- with a matrix realization 
 \begin_inset Formula $\rho$
+\end_inset
+
+ is a matrix realization of a representation of group 
+\begin_inset Formula $G$
 \end_inset
 
  and 
 \begin_inset Formula $\bar{\rho}$
 \end_inset
 
- be the matrix realization of its complex conjugate representation, which
- is possibly equivalent to 
-\begin_inset Formula $\rep{r}$
-\end_inset
-
-, then there exists a unitary matrix 
+ be the matrix realization of the complex conjugate representation, then
+ there exists a unitary matrix 
 \begin_inset Formula $\Gamma$
 \end_inset
 
  so that 
 \begin_inset Formula 
 \begin{equation}
-\Gamma\rho\left(g\right)^{*}\Gamma^{\dagger}=\bar{\rho}\left(g\right),\quad\forall g\in G.\label{eq:Rep_Gamma}
+\Gamma\rho\left(g\right)^{*}\Gamma^{\dagger}=\bar{\rho}\left(g\right),\quad\forall g\in G.\label{eq:CGSub_Gamma}
 \end{equation}
 
 \end_inset
 
-When 
-\begin_inset Formula $\rep{r}$
-\end_inset
-
- is a complex representation, 
-\begin_inset Formula $\bar{\rho}\left(g\right)$
-\end_inset
-
- is the matrix realization of the complex conjugate representation 
-\begin_inset Formula $\rep{\bar{r}}$
-\end_inset
-
-; in this case, a convenience choice is that 
+When the representation is complex, we can always choose 
 \begin_inset Formula $\bar{\rho}\left(g\right)=\rho\left(g\right)^{*}$
 \end_inset
 
@@ -778,11 +782,7 @@ When
 \end_inset
 
  is simplify the identity matrix.
- When 
-\begin_inset Formula $\rep{r}$
-\end_inset
-
- is a real representation, then 
+ When the representation is real, then 
 \begin_inset Formula $\bar{\rho}\left(g\right)=\rho\left(g\right)$
 \end_inset
 
@@ -790,7 +790,7 @@ When
 \begin_inset Formula $\Gamma$
 \end_inset
 
- is in general a non-trivial unitary matrix depending on the basis of the
+ is in general a nontrivial unitary matrix depending on the basis of the
  representation; in this case, 
 \begin_inset Formula $\Gamma\Gamma^{*}=\pm I$
 \end_inset
@@ -803,7 +803,7 @@ When
 \begin_inset Formula $-$
 \end_inset
 
- for psudoreal representation.
+ is for pseudo-real representation.
  For convenience, we call 
 \begin_inset Formula $\Gamma$
 \end_inset
@@ -812,12 +812,12 @@ When
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:Rep_Gamma"
+reference "eq:CGSub_Gamma"
 
 \end_inset
 
  conjugate transform matrix.
- It is then nature to impose on the CG coefficients the contraint
+ It is then natural to impose the following contraints
 \begin_inset ERT
 status open
 
@@ -835,8 +835,8 @@ label{CG_GammaCon}
  
 \begin_inset Formula 
 \begin{align}
-\Gamma_{Z}\left\{ \left(X\otimes Y\right)_{Z}\right\} ^{*} & =\left(\bar{X}\otimes\bar{Y}\right)_{\bar{Z}},\label{eq:CG_GammaCon1}\\
-\Gamma_{k}\left\{ \left(x_{i}\otimes x_{j}\right)_{x_{k}}\right\} ^{*} & =\left(\bar{x}_{i}\otimes\bar{x}_{j}\right)_{\bar{x}_{k}}\label{eq:CG_GammaCon2}
+\Gamma_{Z}\left(\covlg{X}{Y}{Z}\right)^{*} & =\covlg{\bar{X}}{\bar{Y}}{\bar{Z}},\label{eq:CGSub_GammaCon1}\\
+\Gamma_{k}\left(\covsub{x_{i}}{x_{j}}{x_{k}}\right)^{*} & =\covsub{\bar{x}_{i}}{\bar{x}_{j}}{\bar{x}_{k}}\label{eq:CGSub_GammaCon2}
 \end{align}
 
 \end_inset
@@ -845,7 +845,7 @@ where the matrix
 \begin_inset Formula $\Gamma_{Z}$
 \end_inset
 
- transform 
+ transforms 
 \begin_inset Formula $Z^{*}$
 \end_inset
 
@@ -853,13 +853,25 @@ where the matrix
 \begin_inset Formula $\bar{Z}$
 \end_inset
 
+, and 
+\begin_inset Formula $\Gamma_{k}$
+\end_inset
+
+ trasforms 
+\begin_inset Formula $x_{k}^{*}$
+\end_inset
+
+ to 
+\begin_inset Formula $x_{k}$
+\end_inset
+
 .
- Besides, 
+ Moreover, we require that 
 \begin_inset Formula $\Gamma_{k}$
 \end_inset
 
  should transform the 
-\begin_inset Formula $\rep{x_{k}}$
+\begin_inset Formula $x_{k}$
 \end_inset
 
  components of 
@@ -867,7 +879,7 @@ where the matrix
 \end_inset
 
  to 
-\begin_inset Formula $\rep{\bar{x}_{k}}$
+\begin_inset Formula $\bar{x}_{k}$
 \end_inset
 
  components of 
@@ -878,10 +890,10 @@ where the matrix
 \begin_inset Formula $\Gamma_{k}\left(P_{Z\to k}Z\right)^{*}=P_{\bar{Z}\to\bar{i}}\bar{Z}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}Z^{*}$
 \end_inset
 
-, which implies 
+, from which it follows 
 \begin_inset Formula 
 \begin{equation}
-\Gamma_{k}P_{Z\to k}^{*}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}.\label{eq:CG_GammaCon3}
+\Gamma_{k}P_{Z\to k}^{*}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}.\label{eq:CGSub_GammaCon3}
 \end{equation}
 
 \end_inset
@@ -904,21 +916,20 @@ end{subequations}
 
 \begin_layout Standard
 Now let us justify that coefficients 
-\begin_inset Formula $c_{i,jk}$
+\begin_inset Formula $c_{k,ij}$
 \end_inset
 
- are invariant under changes of basis.
- We only need to show eq.
+ are basis independent, or equivalently, eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:CG_rho_Z"
+reference "eq:CGSub_Def2"
 
 \end_inset
 
  is invariant under basis transformations.
- There are two types of basis transformation.
- The type I changes the basis of irreps of 
+ There are three types of basis transformations.
+ The first type changes the basis of irreps of 
 \begin_inset Formula $G$
 \end_inset
 
@@ -926,21 +937,30 @@ reference "eq:CG_rho_Z"
 \begin_inset Formula $H$
 \end_inset
 
- unchanged, i.e., only the projective matrices are changed.
- The type II changes the basis of irreps of 
+ unchanged, i.e., only the projection matrices are changed.
+ The second type changes the basis of irreps of 
 \begin_inset Formula $H$
 \end_inset
 
- but keeps the projective matrices 
+ but keeps the projection matrices 
 \begin_inset Formula $P_{X\to j}$
 \end_inset
 
  unchanged.
+ The third type is the mixing of first two.
+ We only need to show eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+ is invariant under first two types of basis transformations
 \end_layout
 
 \begin_layout Standard
-Let us consider the type I basis transformation.
- Under the basis change, 
+Under the first type basis changes, 
 \family roman
 \series medium
 \shape up
@@ -985,38 +1005,31 @@ Let us consider the type I basis transformation.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_rho_Z"
+reference "eq:CGSub_Def2"
 
 \end_inset
 
  is invariant under the basis change.
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- 
 \end_layout
 
 \begin_layout Standard
-Now consider the type II basis transformation.
+Now consider the second type basis transformation.
  Without loss of generality, we can choose a special form of 
 \begin_inset Formula $P$
 \end_inset
 
- matrices, since one can perform a type I transform to change them.
+ matrices, since we can always perform a first type transformation to change
+ 
+\begin_inset Formula $P$
+\end_inset
+
+ matrices to the form we want.
  We choose the basis where elements of 
 \begin_inset Formula $H$
 \end_inset
 
- are diagonal matrices and the projective matrices have the form 
+ are diagonal matrices, which means the projection matrices have the form
+ 
 \begin_inset Formula 
 \begin{equation}
 P_{X\to j}=\begin{pmatrix}O_{1}\big| & O_{2}\big| & \cdots\big| & I_{j}\big| & O_{j+1}\big|\cdots\end{pmatrix},\label{eq:CG_PXj}
@@ -1025,22 +1038,22 @@ P_{X\to j}=\begin{pmatrix}O_{1}\big| & O_{2}\big| & \cdots\big| & I_{j}\big| & O
 \end_inset
 
  where 
-\begin_inset Formula $O_{k}$
-\end_inset
-
- are the 
-\begin_inset Formula $\mathrm{dim}\left(\rep{x_{j}}\right)\times\mathrm{dim}\left(\rep{x_{k}}\right)$
-\end_inset
-
- dimension matrices with zero elements and 
 \begin_inset Formula $I_{j}$
 \end_inset
 
- is the 
+ is the identity matrix of dimension 
 \begin_inset Formula $\dim\left(\rep{x_{j}}\right)\times\mathrm{dim}\left(\rep{x_{j}}\right)$
 \end_inset
 
- dimension identity matrix.
+ and 
+\begin_inset Formula $O_{k}$
+\end_inset
+
+ are all-zero matrices of dimension 
+\begin_inset Formula $\mathrm{dim}\left(\rep{x_{j}}\right)\times\mathrm{dim}\left(\rep{x_{k}}\right)$
+\end_inset
+
+.
  We consider the transformation
 \begin_inset ERT
 status open
@@ -1078,8 +1091,8 @@ end{subequations}
 
 \end_inset
 
-where we have used the primed brakets to indicate the CG coefficients in
- the new basis.
+where we have used the primed brakets to take care of the CG coefficients
+ changes in the new basis.
  It then implies 
 \begin_inset Formula 
 \begin{equation}
@@ -1123,7 +1136,7 @@ P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\,\rep{X}}U_{a}\right)=U_{j}P_{X\to j}.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_rho_Z"
+reference "eq:CGSub_Def2"
 
 \end_inset
 
@@ -1154,7 +1167,7 @@ reference "eq:CG_Tran_II_UxUy"
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_rho_Z"
+reference "eq:CGSub_Def2"
 
 \end_inset
 
@@ -1258,7 +1271,7 @@ Using eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_GammaCon3"
+reference "eq:CGSub_GammaCon3"
 
 \end_inset
 
@@ -1274,7 +1287,7 @@ P_{\bar{Z}\to\bar{k}}\Gamma_{Z}Z^{*}=\Gamma_{k}P_{Z\to k}^{*}Z^{*}.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_GammaCon2"
+reference "eq:CGSub_GammaCon2"
 
 \end_inset
 
@@ -1416,7 +1429,7 @@ Setup equations about
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_rho_Z"
+reference "eq:CGSub_Def2"
 
 \end_inset
 
