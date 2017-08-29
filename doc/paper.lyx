@@ -263,32 +263,19 @@ In this paper, we will find complete sets of CG coefficients of the group
 \end_layout
 
 \begin_layout Section
-Ambiguity of CGCs
-\end_layout
-
-\begin_layout Standard
-In this section, we will briefly introduce the definition of (CGCs) and
- the ambiguity of CGCs.
- 
+Ambiguity of Clebsch-Gordan coefficients
 \end_layout
 
 \begin_layout Standard
 The tensor product of two irreducible representations (irrep) are in general
  reducible.
- CGCs determines how the two irreps can be contracted to a third irrep.
+ The information of how the tensor product being reduced into irreps are
+ encoded in Clebsch-Gordan coefficients.
  Let 
-\begin_inset Formula $X$
+\begin_inset Formula $G$
 \end_inset
 
-, 
-\begin_inset Formula $Y$
-\end_inset
-
-, 
-\begin_inset Formula $Z$
-\end_inset
-
- be vectors in the Hilbert space on which the group elements of irreps 
+ be a discrete group with irreps 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -300,25 +287,79 @@ The tensor product of two irreducible representations (irrep) are in general
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
+, and 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $Y$
+\end_inset
+
+, 
+\begin_inset Formula $Z$
+\end_inset
+
+ be vectors of the corresponding Hilbert space on which the group elements
  acting on.
- If there exist a contraction 
+ We use 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
-, then one can write 
+ to indicate that 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ is in the list irreps of 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}$
+\end_inset
+
+.
+ In Hilbert spaces, given 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+, there exist a 
+\begin_inset Formula $Z$
+\end_inset
+
+ and a set of coefficients 
+\begin_inset Formula $M_{k,ij}$
+\end_inset
+
+ so that 
 \begin_inset Formula 
 \begin{equation}
-Z_{k}=\sum_{i,j}M_{k,ij}\left(X\otimes Y\right)_{ij},\label{eq:CGC_Def}
+\left(\rho_{Z}\left(g\right)Z\right)_{k}=\sum_{i,j}M_{k,ij}\left(\rho_{X}\left(g\right)X\otimes\rho_{Y}\left(g\right)Y\right)_{ij},\quad\forall g\in G\label{eq:CGC_Def}
 \end{equation}
 
 \end_inset
 
- where the tensor product 
-\begin_inset Formula $\left(X\otimes Y\right)$
+ where 
+\begin_inset Formula $\rho_{Z}$
 \end_inset
 
- is of dimension 
+ is a matrix realization of irreps 
+\begin_inset Formula $Z$
+\end_inset
+
+, and the square matrix 
+\begin_inset Formula $\left(\rho_{X}\left(g\right)X\otimes\rho_{Y}\left(g\right)Y\right)$
+\end_inset
+
+ of dimension 
 \begin_inset Formula $\mathrm{dim}\left(X\right)\times\mathrm{dim}\left(Y\right)$
+\end_inset
+
+ is the tensor product of the two column vectors 
+\begin_inset Formula $\rho_{X}\left(g\right)X$
+\end_inset
+
+ and 
+\begin_inset Formula $\rho_{Y}\left(g\right)Y$
 \end_inset
 
 .
@@ -331,7 +372,15 @@ Z_{k}=\sum_{i,j}M_{k,ij}\left(X\otimes Y\right)_{ij},\label{eq:CGC_Def}
 \end_layout
 
 \begin_layout Standard
-From eq.
+If 
+\begin_inset Formula $Z$
+\end_inset
+
+ and 
+\begin_inset Formula $M$
+\end_inset
+
+ satisfy eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -339,29 +388,99 @@ reference "eq:CGC_Def"
 
 \end_inset
 
-, we see that CGCs are basis dependent.
- Under a basis transformation, 
+, then 
+\begin_inset Formula $\alpha Z$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha M$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\neq0$
+\end_inset
+
+, also satisfy the equation.
+ So it is then conventional to impose a normalization on CGCs 
+\begin_inset Formula 
+\begin{equation}
+\sum_{ij}M_{k,ij}^{\dagger}M_{l,ji}=\delta_{kl}.\label{eq:CGC_Orthnormal}
+\end{equation}
+
+\end_inset
+
+Nevertheless, there are still some ambiguities of the CGCs.
+ Firstly, it is basis dependent.
+ Under basis transformations
 \begin_inset Formula 
 \[
-X\to X^{\prime}=U_{X}X,\quad Y\to Y^{\prime}=U_{Y}Y,\quad Z\to Z^{\prime}=U_{Z}Z,
+R\to R^{\prime}=U_{R}R,\quad\rho_{R}\left(g\right)\to U_{R}\rho_{R}\left(g\right)U_{R}^{-1},\quad R=X,Y,Z
 \]
 
 \end_inset
 
-we see that matrices 
+one only need to transform the matrices 
 \begin_inset Formula $M_{k}$
 \end_inset
 
- transform as 
+ as 
 \begin_inset Formula 
 \[
-M_{k}\to M_{k}^{\prime}=U_{Z}M_{k}\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right).
+M_{k}\to M_{k}^{\prime}=U_{Z}M_{k}\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right)
 \]
 
 \end_inset
 
- Hence, for a set of CGCs, we must specify the basis of irreps.
+ to keep eqs.
  
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGC_Def"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGC_Orthnormal"
+
+\end_inset
+
+ invariant.
+ Even if the basis are fixed, 
+\begin_inset Formula $M$
+\end_inset
+
+ are only determined up to an overall phase.
+ That is eqs.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGC_Def"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGC_Orthnormal"
+
+\end_inset
+
+ are also invariant under 
+\begin_inset Formula $M\to e^{i\theta}M$
+\end_inset
+
+, 
+\begin_inset Formula $Z\to e^{i\theta}Z$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+How can we get rid of the ambiguity of CGCs? 
 \end_layout
 
 \begin_layout Section
