@@ -20,6 +20,9 @@
 \newcommand{\covlg}[3]{\left[{#1}\otimes{#2}\right]^{}_{{#3}}}
 \end_preamble
 \use_default_options true
+\begin_modules
+theorems-ams
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -335,7 +338,7 @@ The tensor product of two irreducible representations (irrep) are in general
  so that 
 \begin_inset Formula 
 \begin{equation}
-\left(\rho_{Z}\left(g\right)Z\right)_{k}=\sum_{i,j}M_{k,ij}\left(\rho_{X}\left(g\right)X\otimes\rho_{Y}\left(g\right)Y\right)_{ij},\quad\forall g\in G\label{eq:CGC_Def}
+\left(\rho_{Z}\left(g\right)Z\right)_{k}=\sum_{i,j}C_{k,ij}\left(\rho_{X}\left(g\right)X\otimes\rho_{Y}\left(g\right)Y\right)_{ij},\quad\forall g\in G\label{eq:CGC_Def}
 \end{equation}
 
 \end_inset
@@ -366,7 +369,7 @@ The tensor product of two irreducible representations (irrep) are in general
 
 .
  The coefficients 
-\begin_inset Formula $M_{k,ij}$
+\begin_inset Formula $C_{k,ij}$
 \end_inset
 
  are Clebsch-Gordan coefficients.
@@ -391,7 +394,7 @@ reference "eq:CGC_Def"
 \end_inset
 
  and 
-\begin_inset Formula $\alpha M$
+\begin_inset Formula $\alpha C$
 \end_inset
 
 , 
@@ -402,7 +405,7 @@ reference "eq:CGC_Def"
  So it is then conventional to impose a normalization on CGCs 
 \begin_inset Formula 
 \begin{equation}
-\sum_{ij}M_{k,ij}^{\dagger}M_{l,ji}=\delta_{kl}.\label{eq:CGC_Orthnormal}
+\sum_{ij}C_{k,ij}^{*}C_{l,ij}=\delta_{kl}.\label{eq:CGC_Orthnormal}
 \end{equation}
 
 \end_inset
@@ -422,13 +425,13 @@ R\to R^{\prime}=U_{R}R,\quad\rho_{R}\left(g\right)\to U_{R}\rho_{R}\left(g\right
 \end_inset
 
 one only need to transform the matrices 
-\begin_inset Formula $M_{k}$
+\begin_inset Formula $C_{k}$
 \end_inset
 
  as 
 \begin_inset Formula 
 \[
-M_{k}\to M_{k}^{\prime}=U_{Z}M_{k}\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right)
+C_{k}\to C_{k}^{\prime}=U_{Z}C_{k}\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right)
 \]
 
 \end_inset
@@ -470,7 +473,7 @@ reference "eq:CGC_Orthnormal"
 \end_inset
 
  are also invariant under 
-\begin_inset Formula $M\to e^{i\theta}M$
+\begin_inset Formula $C\to e^{i\theta}C$
 \end_inset
 
 , 
@@ -496,7 +499,7 @@ reference "eq:CGC_Orthnormal"
 \end_inset
 
 , then any linear combination of CGCs 
-\begin_inset Formula $a_{1}M^{\left(1\right)}+\cdots+a_{n}M^{\left(n\right)}$
+\begin_inset Formula $a_{1}C^{\left(1\right)}+\cdots+a_{n}C^{\left(n\right)}$
 \end_inset
 
  with 
@@ -662,7 +665,7 @@ reference "eq:CGSub_Embed"
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
-, we can express the CGC as 
+, we can express the CGCs as 
 \begin_inset Formula 
 \begin{equation}
 P_{Z\to k}Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}X\right)\otimes\left(P_{Y\to j}Y\right)\right\} _{z_{k}}.\label{eq:CGSub_Def}
@@ -727,7 +730,7 @@ reference "eq:CGSub_Def"
 
  are independent in both the basis transformation of subgroup and of the
  large group itself.
- The orthonormalization constraints of CGCs now become
+ The orthonormalization constraints now become
 \begin_inset Formula 
 \begin{equation}
 c_{k}^{\dagger}c_{l}=\delta_{kl}\label{eq:CGSub_orthnormal}
@@ -739,7 +742,15 @@ c_{k}^{\dagger}c_{l}=\delta_{kl}\label{eq:CGSub_orthnormal}
 \end_layout
 
 \begin_layout Standard
-In addition, we would like to impose another constraint on CGCs.
+In addition to eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_orthnormal"
+
+\end_inset
+
+, we shall impose another constraint on CGCs.
  To introduce the constraint, we need to first discuss about real and complex
  representations.
  A real (or pseudo-real) representation is a representation whose complex
@@ -866,7 +877,31 @@ where the matrix
 \end_inset
 
 .
- Moreover, we require that 
+ Constraints 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_GammaCon"
+
+\end_inset
+
+ imply that the contraction 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\covsub{x_{i}}{x_{j}}{x_{k}}$
+\end_inset
+
+ should behave the same as 
+\begin_inset Formula $Z$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+ regarding complex conjugate transformation.
+ We also require that 
 \begin_inset Formula $\Gamma_{k}$
 \end_inset
 
@@ -890,7 +925,7 @@ where the matrix
 \begin_inset Formula $\Gamma_{k}\left(P_{Z\to k}Z\right)^{*}=P_{\bar{Z}\to\bar{i}}\bar{Z}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}Z^{*}$
 \end_inset
 
-, from which it follows 
+, from which it follows that
 \begin_inset Formula 
 \begin{equation}
 \Gamma_{k}P_{Z\to k}^{*}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}.\label{eq:CGSub_GammaCon3}
@@ -915,8 +950,16 @@ end{subequations}
 \end_layout
 
 \begin_layout Standard
-Now let us justify that coefficients 
+Now we prove that coefficients 
 \begin_inset Formula $c_{k,ij}$
+\end_inset
+
+ defined as eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
 \end_inset
 
  are basis independent, or equivalently, eq.
@@ -928,7 +971,11 @@ reference "eq:CGSub_Def2"
 \end_inset
 
  is invariant under basis transformations.
- There are three types of basis transformations.
+ 
+\end_layout
+
+\begin_layout Proof
+There are three types of basis transformations.
  The first type changes the basis of irreps of 
 \begin_inset Formula $G$
 \end_inset
@@ -956,10 +1003,11 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
- is invariant under first two types of basis transformations
+ is invariant under first two types of basis transformations.
+ 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Under the first type basis changes, 
 \family roman
 \series medium
@@ -1012,9 +1060,9 @@ reference "eq:CGSub_Def2"
  is invariant under the basis change.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Now consider the second type basis transformation.
- Without loss of generality, we can choose a special form of 
+ Without loss of generality, we can choose a special form for 
 \begin_inset Formula $P$
 \end_inset
 
@@ -1023,7 +1071,7 @@ Now consider the second type basis transformation.
 \begin_inset Formula $P$
 \end_inset
 
- matrices to the form we want.
+ to the form we want.
  We choose the basis where elements of 
 \begin_inset Formula $H$
 \end_inset
@@ -1072,8 +1120,8 @@ label{CG_Tran_II}
  
 \begin_inset Formula 
 \begin{align}
-z_{i} & \to z_{i}^{\prime}=U_{i}z_{i},\\
-z_{i}=\left\{ x_{j}\otimes y_{k}\right\} _{z_{i}} & \to U_{i}z_{i}=\left\{ U_{j}x_{j}\otimes U_{k}y_{k}\right\} _{U_{i}z_{i}}^{\prime},
+z_{k} & \to z_{k}^{\prime}=U_{k}z_{k},\\
+z_{k}=\left\{ x_{i}\otimes y_{j}\right\} _{z_{k}} & \to z_{k}^{\prime}=\left\{ U_{i}x_{i}\otimes U_{j}y_{j}\right\} _{U_{k}z_{k}}^{\prime},
 \end{align}
 
 \end_inset
@@ -1096,25 +1144,25 @@ where we have used the primed brakets to take care of the CG coefficients
  It then implies 
 \begin_inset Formula 
 \begin{equation}
-\left\{ U_{j}x_{j}\otimes U_{k}y_{k}\right\} _{z_{i}^{\prime}}^{\prime}=U_{i}\left\{ x_{j}\otimes y_{k}\right\} _{z_{i}},\label{eq:CG_Tran_II_UxUy}
+\left\{ U_{i}x_{i}\otimes U_{j}y_{j}\right\} _{z_{k}^{\prime}}^{\prime}=U_{k}\left\{ x_{i}\otimes y_{j}\right\} _{z_{k}},\label{eq:CG_Tran_II_UxUy}
 \end{equation}
 
 \end_inset
 
- Under the transformation, 
-\begin_inset Formula $P_{X\to j}\rho_{X}\left(g\right)X$
+ Under such a transformation, 
+\begin_inset Formula $P_{X\to i}\rho_{X}\left(g\right)X$
 \end_inset
 
  change as 
 \begin_inset Formula 
 \begin{equation}
-P_{X\to j}\rho_{X}\left(g\right)X\to P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\,\rep{X}}U_{a}\right)\rho_{X}\left(g\right)X.\label{eq:CG_Tran_II_X2}
+P_{X\to i}\rho_{X}\left(g\right)X\to P_{X\to i}\left(\bigoplus_{a\,\mathrm{in}\,\rep{X}}U_{a}\right)\rho_{X}\left(g\right)X.\label{eq:CG_Tran_II_X2}
 \end{equation}
 
 \end_inset
 
 Since 
-\begin_inset Formula $P_{X\to j}$
+\begin_inset Formula $P_{X\to i}$
 \end_inset
 
  is in the form of 
@@ -1127,7 +1175,7 @@ reference "eq:CG_PXj"
 , it is easy to see that 
 \begin_inset Formula 
 \begin{equation}
-P_{X\to j}\left(\bigoplus_{a\,\mathrm{in}\,\rep{X}}U_{a}\right)=U_{j}P_{X\to j}.\label{eq:CG_PU}
+P_{X\to i}\left(\bigoplus_{a\,\mathrm{in}\,\rep{X}}U_{a}\right)=U_{i}P_{X\to i}.\label{eq:CG_PU}
 \end{equation}
 
 \end_inset
@@ -1140,16 +1188,16 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
- become 
-\begin_inset Formula $U_{i}P_{Z\to j}\rho_{Z}\left(g\right)Z$
+ becomes 
+\begin_inset Formula $U_{k}P_{Z\to k}\rho_{Z}\left(g\right)Z$
 \end_inset
 
  and the rhs becomes 
 \begin_inset Formula 
 \begin{align*}
-\mathrm{rhs} & =\sum_{j,k}c_{i,jk}\left\{ \left(U_{j}P_{X\to j}\rho_{X}\left(g\right)X\right)\otimes\left(U_{k}P_{Y\to k}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{i}}^{\prime}\\
- & =U_{i}\sum_{j,k}c_{i,jk}\left\{ \left(P_{X\to j}\rho_{X}\left(g\right)X\right)\otimes\left(P_{Y\to k}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{i}}\\
- & =U_{i}P_{Z\to j}\rho_{Z}\left(g\right)Z=\mathrm{lhs},
+\mathrm{rhs} & =\sum_{i,j}c_{k,ij}\left\{ \left(U_{i}P_{X\to i}\rho_{X}\left(g\right)X\right)\otimes\left(U_{j}P_{Y\to j}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{k}}^{\prime}\\
+ & =U_{k}\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}\rho_{X}\left(g\right)X\right)\otimes\left(P_{Y\to j}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{k}}\\
+ & =U_{k}P_{Z\to k}\rho_{Z}\left(g\right)Z=\mathrm{lhs},
 \end{align*}
 
 \end_inset
@@ -1202,25 +1250,25 @@ The constraint
  leads to
 \begin_inset Formula 
 \[
-\Gamma_{3}C_{12\to3}^{*}\left(x_{1}^{*}\otimes x_{2}^{*}\right)=C_{\bar{1}\bar{2}\to\bar{3}}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right)=\bar{C}_{12\to3}\left(\Gamma_{1}\otimes\Gamma_{2}\right)\left(x_{1}^{*}\otimes x_{2}^{*}\right),
+\Gamma_{3}C_{12\to3}^{*}\left(x_{1}^{*}\otimes x_{2}^{*}\right)=C_{\bar{1}\bar{2}\to\bar{3}}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right)=C_{\bar{1}\bar{2}\to\bar{3}}\left(\Gamma_{1}\otimes\Gamma_{2}\right)\left(x_{1}^{*}\otimes x_{2}^{*}\right),
 \]
 
 \end_inset
 
  which then implies that 
 \begin_inset Formula 
-\[
-\bar{C}_{\bar{1}\bar{2}\to\bar{3}}=\Gamma_{3}C_{12\to3}^{*}\left(\Gamma_{1}^{-1}\otimes\Gamma_{2}^{-1}\right).
-\]
+\begin{equation}
+C_{\bar{1}\bar{2}\to\bar{3}}=\Gamma_{3}C_{12\to3}^{*}\left(\Gamma_{1}^{-1}\otimes\Gamma_{2}^{-1}\right).\label{eq:CGSub_C123}
+\end{equation}
 
 \end_inset
 
  Particularly, if 
-\begin_inset Formula $\rep{x_{i}}$
+\begin_inset Formula $\rep{x_{1,2,3}}$
 \end_inset
 
  are complex representations, we have 
-\begin_inset Formula $\bar{C}_{12\to3}=C_{12\to3}^{*}$
+\begin_inset Formula $C_{\bar{1}\bar{2}\to\bar{3}}=C_{12\to3}^{*}$
 \end_inset
 
 .
@@ -1228,7 +1276,7 @@ The constraint
 \end_layout
 
 \begin_layout Standard
-Now consider the CGCs of the large group 
+Now consider CGCs of the large group 
 \begin_inset Formula $G$
 \end_inset
 
@@ -1248,8 +1296,8 @@ begin{subequations}
  
 \begin_inset Formula 
 \begin{align}
-P_{Z\to k}Z & =\sum_{i,j}c_{k,ij}\left(P_{X\to i}X\otimes P_{Y\to j}Y\right)_{z_{k}}\\
-P_{\bar{Z}\to\bar{k}}\bar{Z} & =\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\left(P_{\bar{X}\to\bar{i}}\bar{X}\otimes P_{\bar{Y}\to\bar{j}}\bar{Y}\right)_{\bar{z}_{k}}.\label{eq:CG_PZbar}
+P_{Z\to k}Z & =\sum_{i,j}c_{k,ij}\covsub{P_{X\to i}X}{P_{Y\to j}Y}{z_{k}}\\
+P_{\bar{Z}\to\bar{k}}\bar{Z} & =\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\covsub{P_{\bar{X}\to\bar{i}}\bar{X}}{P_{\bar{Y}\to\bar{j}}\bar{Y}}{\bar{z}_{k}}.\label{eq:CG_PZbar}
 \end{align}
 
 \end_inset
@@ -1267,7 +1315,16 @@ end{subequations}
 
 \end_inset
 
-Using eq.
+We apply the projection matrix 
+\begin_inset Formula $P_{\bar{Z}\to\bar{k}}$
+\end_inset
+
+ on both sides of constraint 
+\begin_inset Formula $\Gamma_{Z}Z^{*}=\bar{Z}$
+\end_inset
+
+.
+ Using eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1275,15 +1332,15 @@ reference "eq:CGSub_GammaCon3"
 
 \end_inset
 
-, we have 
+, the lhs becomes
 \begin_inset Formula 
-\[
-P_{\bar{Z}\to\bar{k}}\Gamma_{Z}Z^{*}=\Gamma_{k}P_{Z\to k}^{*}Z^{*}.
-\]
+\begin{equation}
+P_{\bar{Z}\to\bar{k}}\Gamma_{Z}Z^{*}=\Gamma_{k}P_{Z\to k}^{*}Z^{*}=\sum_{i,j}c_{k,ij}^{*}\Gamma_{k}\left(\covsub{P_{X\to i}X}{P_{Y\to j}Y}{z_{k}}\right)^{*}\label{eq:CGSub_PGmmaZ}
+\end{equation}
 
 \end_inset
 
- On the other hand, applying eq.
+ Applying eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1301,20 +1358,31 @@ reference "eq:CG_PZbar"
 
 , we obtain 
 \begin_inset Formula 
-\[
-P_{\bar{Z}\to\bar{k}}\bar{Z}=\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\Gamma_{k}\left[\left(P_{X\to i}X\otimes P_{Y\to j}Y\right)_{z_{k}}\right]^{*}=\Gamma_{k}\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}P_{Z\to k}^{*}Z^{*}.
-\]
+\begin{equation}
+P_{\bar{Z}\to\bar{k}}\bar{Z}=\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\Gamma_{k}\left(\covsub{P_{X\to i}X}{P_{Y\to j}Y}{z_{k}}\right)^{*}.\label{eq:CGSub_PGammaZb}
+\end{equation}
 
 \end_inset
 
-Then 
-\begin_inset Formula $\Gamma_{Z}Z^{*}=\bar{Z}$
+The rhs of eqs.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_PGmmaZ"
+
 \end_inset
 
- implies that 
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_PGammaZb"
+
+\end_inset
+
+ shoud be equal, from which it follows that 
 \begin_inset Formula 
 \begin{equation}
-c_{\bar{k},\bar{i}\bar{j}}=c_{k,ij}^{*}.\label{eq:CG_ckij}
+c_{\bar{k},\bar{i}\bar{j}}=c_{k,ij}^{*}.\label{eq:CGSub_ckij}
 \end{equation}
 
 \end_inset
@@ -1323,23 +1391,36 @@ c_{\bar{k},\bar{i}\bar{j}}=c_{k,ij}^{*}.\label{eq:CG_ckij}
 \end_layout
 
 \begin_layout Standard
-We see that the consequence of constraints 
+The constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_GammaCon"
+reference "eq:CGSub_ckij"
 
 \end_inset
 
- on CGC of the subgroup 
-\begin_inset Formula $H$
+ for the large group is much simpler than 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_C123"
+
 \end_inset
 
- is basis dependent, while for the large group 
-\begin_inset Formula $G$
+ for the subgroup.
+ The formal is independent of basis while the latter depends on basis.
+ The eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
 \end_inset
 
-, it is basis independent.
- Moreover, in the case that all of 
+ give rise to different constraint in different cases.
+ 
+\end_layout
+
+\begin_layout Itemize
+When 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -1351,19 +1432,64 @@ reference "eq:CG_GammaCon"
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- are real representations, eq.
+ are all real representations, eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_ckij"
+reference "eq:CGSub_ckij"
 
 \end_inset
 
- fixes the phases of the CGCs.
+ fixes the overall phases of CGCs.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+When only 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ is real but 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+ are complex conjugates to each other, eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ also fixes the overall phases of CGCs.
+ 
+\end_layout
+
+\begin_layout Itemize
+For other cases, eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ implies that the CGCs of 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+ are complex conjugates to each other.
+\end_layout
+
+\begin_layout Section
 Procedures to find CGC of large group 
 \begin_inset Formula $G$
 \end_inset
