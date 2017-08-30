@@ -1681,7 +1681,7 @@ Generators of
 \end_layout
 
 \begin_layout Standard
-In this section, let us find the matrix representation of 
+In this section, we will find the matrix realizations of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -1694,16 +1694,6 @@ In this section, let us find the matrix representation of
 \end_inset
 
 .
- The later case has been done by ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Luhn:2007yr"
-
-\end_inset
-
-, but we will re obtain the results with slightly different forms due to
- our specific requirements.
  We choose the basis so that all the projection matrices 
 \begin_inset Formula $P_{X\to i}$
 \end_inset
@@ -1716,8 +1706,8 @@ reference "eq:CG_PXj"
 
 \end_inset
 
-, except for a special case we will see shortly.
- For each subgroup, we will first seek for the matrix representation of
+, except for a special case that we will see shortly.
+ For both subgroups, we will first seek for the matrix representation of
  
 \begin_inset Formula $\rep{3}$
 \end_inset
@@ -1728,14 +1718,101 @@ reference "eq:CG_PXj"
 
 , then build the higher-dimensional irreps from the tensor product of lower-dime
 nsional irreps.
+ Ref.
  
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Luhn:2007yr"
+
+\end_inset
+
+ has built matrix realization of the 
+\begin_inset Formula $\group$
+\end_inset
+
+ generators from 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ generators.
+ Our calculation is similar to Ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Luhn:2007yr"
+
+\end_inset
+
+ except that the additional constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Gamma"
+
+\end_inset
+
+ will be used in our calculation to restrict the phases in the results.
+ Also, the baisis of 
+\begin_inset Formula $\group$
+\end_inset
+
+ in ref 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Luhn:2007yr"
+
+\end_inset
+
+ is slightly different with our basis.
+ So our results for 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ will be slightly different with ref 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Luhn:2007yr"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
 \begin_inset Formula $\subga$
 \end_inset
 
- basis 
+ basis
+\end_layout
+
+\begin_layout Standard
+We first need to find the matrix realization of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ generators in a basis that elements its subgoup 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+ are diagonal.
+ The procedures are similar to what we will talk in this section but more
+ trivial.
+ So we simply give the results in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:S4Group"
+
+\end_inset
+
+ and focus on finding the maxtrix realization of 
+\begin_inset Formula $\group$
+\end_inset
+
+ irreps.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+The triplet representation
 \end_layout
 
 \begin_layout Standard
@@ -1744,58 +1821,12 @@ The matrix representation of
 \end_inset
 
  generators already exists in the literature.
- We will simply use the existing results and transform them to the basis
- of 
-\begin_inset Formula $S_{4}$
-\end_inset
-
- irreps.
- Here we actually build a series of matrix representation for the subgroup
- chain 
-\begin_inset Formula $\group\supset\subga\supset A_{4}$
-\end_inset
-
-, where 
-\begin_inset Formula $S_{4}$
-\end_inset
-
- irreps are in the 
-\begin_inset Formula $A_{4}$
-\end_inset
-
- basis and 
-\begin_inset Formula $\group$
-\end_inset
-
- irreps are in the 
-\begin_inset Formula $S_{4}$
+ We will use the existing results and transform them to the 
+\begin_inset Formula $\subga$
 \end_inset
 
  basis.
- Since 
-\begin_inset Formula $\subga\supset A_{4}$
-\end_inset
-
- case is kind of trivial, we directly give the results in Appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:S4Group"
-
-\end_inset
-
- and mainly focus on acquiring the maxtrix realization of 
-\begin_inset Formula $\group$
-\end_inset
-
- irreps.
-\end_layout
-
-\begin_layout Subsubsection
-The triplet representation
-\end_layout
-
-\begin_layout Standard
-In ref.
+ In ref.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1871,11 +1902,11 @@ end{subequations}
 \begin_inset Formula $S_{4}$
 \end_inset
 
- generator 
+ generators 
 \begin_inset Formula $a$
 \end_inset
 
-, 
+ and 
 \begin_inset Formula $b$
 \end_inset
 
@@ -1883,7 +1914,7 @@ end{subequations}
 \begin_inset Formula $\rep{3_{1}}$
 \end_inset
 
- irreps can be expressed in terms of 
+ irrep can be expressed in terms of 
 \begin_inset Formula $A$
 \end_inset
 
@@ -1931,7 +1962,11 @@ reference "eq:App_Psl_S4_Gen_Relation"
 \end_layout
 
 \begin_layout Standard
-We want to find a unitary matrix that transforms 
+We want to find a unitary matrix 
+\begin_inset Formula $U$
+\end_inset
+
+ that transforms 
 \begin_inset Formula $\tilde{a}$
 \end_inset
 
@@ -1947,19 +1982,14 @@ We want to find a unitary matrix that transforms
 \begin_inset Formula $b^{[3_{1}]}$
 \end_inset
 
- as eqs 
+ of the form 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:S4_irr31"
 
 \end_inset
 
-.
- There exists a unitary matrix 
-\begin_inset Formula $U$
-\end_inset
-
- satisfying 
+ 
 \begin_inset ERT
 status open
 
@@ -1975,8 +2005,8 @@ begin{subequations}
  
 \begin_inset Formula 
 \begin{align}
-U^{\dagger}\tilde{a}U & =a^{[3_{1}]}\label{eq:Unitary_Transform_Us}\\
-U^{\dagger}\tilde{b}U & =b^{[3_{1}]}\label{eq:Unitary_Transform_Ut}
+U^{\dagger}\tilde{a}U & =a^{[3_{1}]},\label{eq:Unitary_Transform_Us}\\
+U^{\dagger}\tilde{b}U & =b^{[3_{1}]}.\label{eq:Unitary_Transform_Ut}
 \end{align}
 
 \end_inset
@@ -2007,7 +2037,11 @@ end{subequations}
 \begin_inset Formula $a^{[3_{1}]}$
 \end_inset
 
- both have the same eigenvalues, there exist unitary matrices 
+ have the same eigenvalues 
+\begin_inset Formula $\left\{ 1,i,-i\right\} $
+\end_inset
+
+, there exist unitary matrices 
 \begin_inset Formula $U_{1}$
 \end_inset
 
@@ -2027,18 +2061,18 @@ U_{1}^{\dagger}\tilde{a}U_{1}=U_{2}^{\dagger}a^{[3_{1}]}U_{2}=\mathrm{diag}\left
 \begin_inset Formula $U$
 \end_inset
 
- can be write as 
+ can be written as 
 \begin_inset Formula 
 \begin{equation}
-U=U_{1}\begin{pmatrix}e^{ip_{1}}\\
- & e^{ip_{2}}\\
- &  & e^{ip_{3}}
+U=U_{1}\begin{pmatrix}e^{i\theta_{1}}\\
+ & e^{i\theta_{2}}\\
+ &  & e^{i\theta_{3}}
 \end{pmatrix}U_{2}^{\dagger}.\label{eq:Unitary_Transform_Ut2}
 \end{equation}
 
 \end_inset
 
-Substituting it into eq.
+Substituting above into eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -2047,15 +2081,15 @@ reference "eq:Unitary_Transform_Us"
 \end_inset
 
 , we can solve for 
-\begin_inset Formula $p_{2}$
+\begin_inset Formula $\theta_{2}$
 \end_inset
 
  and 
-\begin_inset Formula $p_{3}$
+\begin_inset Formula $\theta_{3}$
 \end_inset
 
  in terms of 
-\begin_inset Formula $p_{1}$
+\begin_inset Formula $\theta_{1}$
 \end_inset
 
  and determine the matrix 
@@ -2114,7 +2148,7 @@ reference "eq:Gen_AB3_old"
 \begin_inset Formula $\tilde{t}$
 \end_inset
 
- also has a relative simple form 
+ also has a simple form 
 \begin_inset Formula 
 \[
 \tilde{t}=\tilde{a}\tilde{b}=\begin{pmatrix}\begin{array}{ccc}
@@ -2202,12 +2236,12 @@ reference "eq:A4-generators"
 
 \end_inset
 
-, we obtain results of phases 
+, we obtain
 \begin_inset Formula 
 \begin{align}
-e^{i\left(p_{2}-p1\right)} & =\frac{1}{28}\left[\left(-9-\sqrt{3}i\right)\eta^{5}-2\left(9+\sqrt{3}i\right)\eta^{4}+\left(-6+4i\sqrt{3}\right)\eta^{3}\right]\nonumber \\
+e^{i\left(\theta_{2}-\theta_{1}\right)} & =\frac{1}{28}\left[\left(-9-\sqrt{3}i\right)\eta^{5}-2\left(9+\sqrt{3}i\right)\eta^{4}+\left(-6+4i\sqrt{3}\right)\eta^{3}\right]\nonumber \\
  & +\frac{1}{28}\left[\left(6-4i\sqrt{3}\right)\eta^{2}+\left(-3+9i\sqrt{3}\right)\eta+\sqrt{3}i-5\right],\\
-e^{i\left(p_{3}-p1\right)} & =\frac{1}{28}\left[\left(-9+\sqrt{3}i\right)\eta^{5}-2\left(9-\sqrt{3}i\right)\eta^{4}+\left(-6-4i\sqrt{3}\right)\eta^{3}\right]\nonumber \\
+e^{i\left(\theta_{3}-\theta_{1}\right)} & =\frac{1}{28}\left[\left(-9+\sqrt{3}i\right)\eta^{5}-2\left(9-\sqrt{3}i\right)\eta^{4}+\left(-6-4i\sqrt{3}\right)\eta^{3}\right]\nonumber \\
  & +\frac{1}{28}\left[\left(6+4i\sqrt{3}\right)\eta^{2}+\left(-3-9i\sqrt{3}\right)\eta-\sqrt{3}i-5\right].
 \end{align}
 
@@ -2226,7 +2260,8 @@ end{subequations}
 
 \end_inset
 
-Substituing 
+With eqs.
+ 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Gen_U1phases"
@@ -2237,19 +2272,11 @@ reference "eq:Gen_U1phases"
 \begin_inset Formula $U_{2}=I$
 \end_inset
 
- into eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Unitary_Transform_Ut2"
-
-\end_inset
-
- we obtain 
+, we can calculate the matrix 
 \begin_inset Formula $U$
 \end_inset
 
-, which is a complicated expression.
+ in a complicated expression.
  Fortunately, applying the unitary transformation of 
 \begin_inset Formula $U$
 \end_inset
@@ -2261,7 +2288,7 @@ reference "eq:Gen_AB3_old"
 
 \end_inset
 
-, we obtain relatively simple expresssions of 
+, we get simple expresssions of 
 \begin_inset Formula $A$
 \end_inset
 
@@ -2355,13 +2382,13 @@ With the matrix realization of
 \begin_inset Formula $\rep{\bar{3}}$
 \end_inset
 
-, we can build the higher dimensional matrix representations.
+, we can build the higher-dimensional irreps.
  The decompositions of 
 \begin_inset Formula $\group$
 \end_inset
 
  into 
-\begin_inset Formula $S_{4}$
+\begin_inset Formula $\subga$
 \end_inset
 
  
@@ -2404,15 +2431,23 @@ e^{i\theta_{3}}\covs{3_{2}}{3_{2}}{3_{1}}
 \begin_inset Formula $\rep{6}$
 \end_inset
 
- can be extracted with the equations 
+ can be extracted from the equations 
 \begin_inset Formula 
 \[
-X^{[6]}\rep{6}=\left[X^{\left[3\right]}\rep{3}\otimes X^{\left[3\right]}\rep{3}\right]_{\rep{6}},\quad X=A,B
+O^{[6]}\rep{6}=\left[O^{\left[3\right]}\rep{3}\otimes O^{\left[3\right]}\rep{3}\right]_{\rep{6}},\quad O=A,B.
 \]
 
 \end_inset
 
-We then obtain matrices with unknown phases 
+We then obtain matrices 
+\begin_inset Formula $A^{[6]}$
+\end_inset
+
+ and 
+\begin_inset Formula $B^{[6]}$
+\end_inset
+
+ with unknown phases 
 \begin_inset Formula $\theta_{i}$
 \end_inset
 
@@ -2421,14 +2456,10 @@ We then obtain matrices with unknown phases
 \begin_inset Formula $\theta_{i}$
 \end_inset
 
- can be determined by the constraint the 
-\begin_inset Formula $\Gamma$
-\end_inset
-
- matrix
+ can be determined by the constraint 
 \begin_inset Formula 
 \begin{equation}
-\Gamma_{\rep{6}}X^{\left[6\right]*}\Gamma_{\rep{6}}^{\dagger}=X^{\left[6\right]},\quad X=A,B\quad\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)},\label{eq:Gen_Gamma6}
+\Gamma_{\rep{6}}O^{\left[6\right]*}\Gamma_{\rep{6}}^{\dagger}=O^{\left[6\right]},\quad O=A,B\quad\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)},\label{eq:Gen_Gamma6}
 \end{equation}
 
 \end_inset
@@ -2438,7 +2469,7 @@ We then obtain matrices with unknown phases
 \end_inset
 
  matrices of 
-\begin_inset Formula $S_{4}$
+\begin_inset Formula $\subga$
 \end_inset
 
  group are provided in Appendix 
@@ -2449,23 +2480,23 @@ reference "subsec:S4Group"
 \end_inset
 
 .
- With above constraints, we can only determine 
+ With above constraints, we can determine 
 \begin_inset Formula $\left(\rep{3}\otimes\rep{3}\right)_{\rep{6}}$
 \end_inset
 
- up to an overall phase
+ up to an overall unphysical phase
 \begin_inset Formula 
 \begin{equation}
-e^{i\theta_{2}}=-i\bar{b}_{7}^{2}e^{i\theta_{1}},\quad e^{i\theta_{3}}=i\bar{b}_{7}e^{i\theta_{1}},\label{eq:Gen_336Phases}
+e^{i\theta_{2}}=-i\bar{b}_{7}^{2}e^{i\theta_{1}},\quad e^{i\theta_{3}}=i\bar{b}_{7}e^{i\theta_{1}}.\label{eq:Gen_336Phases}
 \end{equation}
 
 \end_inset
 
- the overall phase 
-\begin_inset Formula $e^{i\theta_{1}}$
+ We can choose any value for 
+\begin_inset Formula $\theta_{1}$
 \end_inset
 
- is a free unphysical parameter as long as the complex conjugate CGC 
+ as long as the complex conjugate CGC 
 \begin_inset Formula $\covp{\bar{3}}{\bar{3}}{6}$
 \end_inset
 
@@ -2493,7 +2524,7 @@ i\bar{b}_{7}\covs{3_{2}}{3_{2}}{3_{1}}
 
 \end_inset
 
-The matrices of generators are 
+Then the generators are
 \begin_inset Formula 
 \[
 A^{[6]}=\left(\begin{array}{cccccc}
@@ -2535,7 +2566,7 @@ The matrix representation of
 \begin_inset Formula $\rep{3}\otimes\rep{\bar{3}}\to\rep{8}$
 \end_inset
 
- and the embedding relation 
+ and the embedding relations 
 \begin_inset Formula 
 \[
 \rep{8}=\rep{2}\oplus\rep{3_{1}}\oplus\rep{3_{2}},\quad\rep{3}=\rep{3_{2}},\quad\rep{\bar{3}}=\rep{3_{2}}.
@@ -2557,8 +2588,8 @@ The matrix representation of
 \end_inset
 
  cannot both be the identity matrix.
- It turns out that, if we choose the former be identity matrix, then the
- latter has to be a nontrivial unitary matrix
+ If we choose the former to be the identity matrix, then two projection
+ matrices are
 \begin_inset Formula 
 \[
 P_{\rep{3}\to\rep{3_{2}}}=\begin{pmatrix}1 & 0 & 0\\
@@ -2654,7 +2685,7 @@ Finally, let us consider the
 \begin_inset Formula $\rep{7}$
 \end_inset
 
- representation case.
+ irrep case.
  We can obtain the 
 \begin_inset Formula $\rep{7}$
 \end_inset
@@ -2668,7 +2699,7 @@ Finally, let us consider the
 \begin_inset Formula $\covp{3}{6}{7}$
 \end_inset
 
-, we have to first determine the CGC of 
+, we have to first determine the CGCs of 
 \begin_inset Formula $\covp{3}{6}{\bar{3}}$
 \end_inset
 
@@ -2677,23 +2708,32 @@ Finally, let us consider the
 \end_inset
 
 .
- 
+ By a straightforward calculation, we obtain
 \begin_inset Formula 
 \begin{align*}
 P_{\rep{\bar{3}}\to\rep{3_{2}}}\covp{3}{6}{\bar{3}} & =\frac{1}{\sqrt{6}}\covs{3_{2}}{1_{0}}{3_{2}}-\frac{i\bar{b}_{7}^{2}}{\sqrt{3}}\covs{3_{2}}{2}{3_{2}}+\frac{i\bar{b}_{7}}{\sqrt{2}}\covs{3_{2}}{3_{1}}{3_{2}},\\
 \covp{3}{6}{8} & =\begin{pmatrix}\covs{3_{2}}{3_{2}}{2}\\
 -\sqrt{\frac{2}{3}}b_{7}\covs{3_{2}}{2}{3_{1}}+\frac{1}{\sqrt{3}}\covs{3_{2}}{3_{1}}{3_{1}}\\
 \frac{2\bar{b}_{7}}{7}\covs{3_{2}}{1_{0}}{3_{2}}-\frac{\sqrt{2}i}{3}b_{7}\covs{3_{2}}{2}{3_{2}}+\frac{i}{\sqrt{3}}\covs{3_{2}}{3_{1}}{3_{2}}
-\end{pmatrix}.
+\end{pmatrix},
 \end{align*}
 
 \end_inset
 
-The CGCs of 
+ up to two overall phases.
+ The orthonormalization condition eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_orthnormal"
+
+\end_inset
+
+ determine the CGCs of 
 \begin_inset Formula $\covp{3}{6}{7}$
 \end_inset
 
- can be determined by the orthonormal condition up to phases 
+ to be 
 \begin_inset Formula 
 \[
 \covp{3}{6}{7}=\begin{pmatrix}e^{i\theta_{1}}\covs{3_{2}}{3_{1}}{1_{1}}\\
@@ -2716,11 +2756,7 @@ reference "eq:Gen_Gamma6"
 
 \end_inset
 
-, we determine the CGCs of 
-\begin_inset Formula $\covp{3}{6}{7}$
-\end_inset
-
- up to an overall phase 
+, we arrive at
 \begin_inset Formula 
 \[
 e^{i\left(\theta_{2}-\theta_{1}\right)}=\bar{b}_{7}^{3},\quad e^{i\left(\theta_{3}-\theta_{1}\right)}=-i\bar{b}_{7}^{2}.
@@ -2728,7 +2764,7 @@ e^{i\left(\theta_{2}-\theta_{1}\right)}=\bar{b}_{7}^{3},\quad e^{i\left(\theta_{
 
 \end_inset
 
-Meanwhile, the generators are found to be 
+Then the generators are 
 \begin_inset Formula 
 \[
 A^{[7]}=\left(\begin{array}{ccccccc}
@@ -2779,27 +2815,12 @@ The procedures to find
 \begin_inset Formula $\subgb$
 \end_inset
 
- basis are the same as the one of 
+ basis are the same as 
 \begin_inset Formula $\subga$
 \end_inset
 
 .
- Similar results are already obtained in ref 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Luhn:2007yr"
-
-\end_inset
-
-, but our results will be slightly different with ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Luhn:2007yr"
-
-\end_inset
-
-.
+ We therefore will simply give results in this subsection.
 \end_layout
 
 \begin_layout Standard
@@ -2918,7 +2939,7 @@ B^{[i]}=A^{[i]}\left(AB\right)^{[i]},\quad i=\rep{3},\,\rep{\bar{3}},\,\rep{6},\
 \begin_inset Formula $\rep{6}$
 \end_inset
 
- representation,
+ irrep,
 \begin_inset ERT
 status open
 
@@ -2991,7 +3012,7 @@ end{subequations}
 \begin_inset Formula $\rep{8}$
 \end_inset
 
- representation,
+ irrep,
 \begin_inset ERT
 status open
 
@@ -3042,7 +3063,7 @@ A^{[8]}=\frac{2}{7}\begin{pmatrix}\mathcal{C}_{1} & \mathcal{C}_{2} & \mathcal{C
 \begin_inset Formula $\mathcal{R}_{3}$
 \end_inset
 
- is real 
+ is a real 
 \begin_inset Formula $3\times3$
 \end_inset
 
@@ -3087,7 +3108,7 @@ Note that
 \begin_inset Formula $\rep{7}$
 \end_inset
 
- representation, 
+ irrep, 
 \begin_inset Formula 
 \[
 A^{[7]}=\frac{2}{7}\begin{pmatrix}-\frac{1}{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2}\\
@@ -3102,7 +3123,14 @@ A^{[7]}=\frac{2}{7}\begin{pmatrix}-\frac{1}{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} 
 
 \end_inset
 
- 
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
