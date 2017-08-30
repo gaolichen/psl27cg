@@ -2379,9 +2379,9 @@ With the matrix realization of
 
  
 \begin_inset Formula 
-\[
-\rep{6}=\rep{1}\oplus\rep{2}\oplus\rep{3_{1}},\quad\rep{3}=\rep{3_{2}}
-\]
+\begin{equation}
+\rep{6}=\rep{1}\oplus\rep{2}\oplus\rep{3_{1}},\quad\rep{3}=\rep{3_{2}}\label{eq:CGSub_embedding6}
+\end{equation}
 
 \end_inset
 
@@ -3124,8 +3124,8 @@ key "Luhn:2007yr"
 
 .
  The triplet and antitriplet are the same.
- For the sextet, octet and septet irreps, the unitary transformations between
- our basis and basis of ref.
+ For the sextet, octet and septet irreps, the similarity transformations
+ between our basis and basis of ref.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3134,6 +3134,30 @@ key "Luhn:2007yr"
 \end_inset
 
  are
+\begin_inset Formula 
+\[
+\tilde{O}^{[i]}=U^{[i]}O^{[i]}U^{[i]^{\dagger}},\quad i=\rep{6},\,\rep{7},\,\rep{8},\quad O=A,\,B,
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\tilde{O}$
+\end_inset
+
+ denotes the generators in the basis of ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Luhn:2007yr"
+
+\end_inset
+
+ and the 
+\begin_inset Formula $U$
+\end_inset
+
+ matrices are
 \begin_inset Formula 
 \[
 U^{[6]}=\begin{pmatrix}0 & 1 & 0 & 0 & 0 & 0\\
@@ -3174,12 +3198,138 @@ U^{[8]}=\frac{1}{\sqrt{2}}\begin{pmatrix}0 & 0 & 1 & 0 & 0 & 1 & 0 & 0\\
 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0\\
 0 & 0 & 0 & i & 0 & 0 & -i & 0\\
 -\omega^{2} & -\omega & 0 & 0 & 0 & 0 & 0 & 0
-\end{pmatrix},
+\end{pmatrix}.
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Finding 
+\begin_inset Formula $\group$
+\end_inset
+
+ CGCs
+\end_layout
+
+\begin_layout Standard
+With the generators, we can now find the CGCs of 
+\begin_inset Formula $\group$
+\end_inset
+
+.
+ We will find the CGCs for 
+\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}^{\left(1\right)}\oplus\rep{6}_{s}^{\left(2\right)}$
+\end_inset
+
+ as an example to demostrate the procedures.
+ Here the superscription indicates the multiplicity of irreps in the tensor
+ product.
+ 
+\end_layout
+
+\begin_layout Standard
+We first consider the CGCs in the 
+\begin_inset Formula $\subga$
+\end_inset
+
+ basis.
+ the result in Using the embedding relation 
+\begin_inset Formula $\rep{6}=\rep{1_{0}}\oplus\rep{2}\oplus\rep{3}$
+\end_inset
+
+, we can write down most general form of the CGCs 
+\begin_inset Formula $\covp{6}{6}{6_{s}}$
+\end_inset
+
+ built from the CGCs of 
+\begin_inset Formula $\subga$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{align*}
+\rep{1_{0}} & =c_{1,11}\covs{1_{0}}{1_{0}}{1_{0}}+c_{1,22}\covs{2}{2}{1_{0}}+c_{1,33}\covs{3_{1}}{3_{1}}{1_{0}},\\
+\rep{2} & =c_{2,12}\left(\covs{1_{0}}{2}{2}+\covs{2}{1_{0}}{2}\right)+c_{2,22}\covs{2}{2}{2}+c_{2,33}\covs{3_{1}}{3_{1}}{2},\\
+\rep{3_{1}} & =c_{3,13}\left(\covs{1_{0}}{3_{1}}{3_{1}}+\covs{3_{1}}{1_{0}}{3_{1}}\right)\\
+ & +c_{3,23}\left(\covs{2}{3_{1}}{3_{1}}+\covs{3_{1}}{2}{3_{1}}\right)+c_{3,33}\covs{3_{1}}{3_{1}}{3_{1}},
+\end{align*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $c_{k,ij}$
+\end_inset
+
+ are CGCs to be determined.
+ In the 
+\begin_inset Formula $\subga$
+\end_inset
+
+ contract 
+\begin_inset Formula $\covs{x}{y}{z}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{x}$
+\end_inset
+
+ is the component embedded in the first 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+ of the tensor product 
+\begin_inset Formula $\rep{6}\otimes\rep{6}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{y}$
+\end_inset
+
+ is the one of the second 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The unknown parameters 
+\begin_inset Formula $c_{k,ij}$
+\end_inset
+
+ can be solved by setting up linear equations with eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+.
+ In additon to the normalization condition, we need 8 equations to solve
+ all of them.
+ But since 
+\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}$
+\end_inset
+
+ has multiplicity of 
+\begin_inset Formula $2$
+\end_inset
+
+, we can only solve for 
+\begin_inset Formula $8$
+\end_inset
+
+ unknown variables and hence need 
+\begin_inset Formula $7$
+\end_inset
+
+ equations.
 \end_layout
 
 \begin_layout Standard
