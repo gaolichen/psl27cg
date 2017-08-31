@@ -3232,12 +3232,72 @@ With the generators, we can now find the CGCs of
  
 \end_layout
 
-\begin_layout Subsection
-Example I: 
-\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{7}_{a}$
+\begin_layout Standard
+It is straight forward to use eqs.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def"
+
 \end_inset
 
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
 
+\end_inset
+
+ to setup linear equations for CGCs.
+ One simply eliminate 
+\begin_inset Formula $Z$
+\end_inset
+
+ by substituting eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def"
+
+\end_inset
+
+ into eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+.
+ Then we choose 
+\begin_inset Formula $g$
+\end_inset
+
+ to be generators which are member of 
+\begin_inset Formula $G$
+\end_inset
+
+ but not 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Comparing the coefficients of each bilinear form of 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+, we obtain 
+\begin_inset Formula $\dim X\times\dim Y$
+\end_inset
+
+ equations.
+ In general these equations are not independent.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -3265,20 +3325,19 @@ We first consider the CGCs in the
 \end_inset
 
  basis.
- the result in Using the embedding relation 
+ Using the embedding relation 
 \begin_inset Formula $\rep{6}=\rep{1_{0}}\oplus\rep{2}\oplus\rep{3}$
 \end_inset
 
-, we can write down most general form of the CGCs 
+, we can write down the general expression of the 
 \begin_inset Formula $\covp{6}{6}{6_{s}}$
 \end_inset
 
- built from the CGCs of 
+ built from CGCs of 
 \begin_inset Formula $\subga$
 \end_inset
 
-.
- 
+,
 \begin_inset Formula 
 \begin{align*}
 \rep{1_{0}} & =c_{1,11}\covs{1_{0}}{1_{0}}{1_{0}}+c_{1,22}\covs{2}{2}{1_{0}}+c_{1,33}\covs{3_{1}}{3_{1}}{1_{0}},\\
@@ -3294,31 +3353,23 @@ We first consider the CGCs in the
 \end_inset
 
  are CGCs to be determined.
- In the 
-\begin_inset Formula $\subga$
-\end_inset
-
- contract 
+ In the above equations, the notation 
 \begin_inset Formula $\covs{x}{y}{z}$
 \end_inset
 
-, 
+ denotes the contraction of 
 \begin_inset Formula $\rep{x}$
 \end_inset
 
- is the component embedded in the first 
+ components of the first 
 \begin_inset Formula $\rep{6}$
 \end_inset
 
- of the tensor product 
-\begin_inset Formula $\rep{6}\otimes\rep{6}$
-\end_inset
-
- and 
+ with 
 \begin_inset Formula $\rep{y}$
 \end_inset
 
- is the one of the second 
+ components of the second 
 \begin_inset Formula $\rep{6}$
 \end_inset
 
@@ -3327,11 +3378,13 @@ We first consider the CGCs in the
 \end_layout
 
 \begin_layout Standard
-The unknown parameters 
-\begin_inset Formula $c_{k,ij}$
+If 
+\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}$
 \end_inset
 
- can be solved by setting up linear equations with eq.
+ is multiplicity free, we would be able to express eight of the parameters
+ in terms of the remaining one parameter from homogeneous linear equations
+ built from eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -3339,9 +3392,8 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
-.
- In additon to the normalization condition, we need 8 equations to solve
- all of them.
+, and then fixing the absolute value of the last parameter by normalization
+ codition.
  But since 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}$
 \end_inset
@@ -3350,15 +3402,24 @@ reference "eq:CGSub_Def2"
 \begin_inset Formula $2$
 \end_inset
 
-, we can only solve for 
-\begin_inset Formula $8$
+, we can only express seven parameter in terms of two parameters.
+ In additon to the normalization condition, we need 8 equations to solve
+ all of them.
+ The unknown parameters 
+\begin_inset Formula $c_{k,ij}$
 \end_inset
 
- unknown variables and hence need 
-\begin_inset Formula $7$
+ can be found by solving homogeneous linear equations, which are built from
+ eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
 \end_inset
 
- equations.
+, and one extra equation from the normalization condition.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -3366,7 +3427,338 @@ Multiplicity
 \end_layout
 
 \begin_layout Standard
-TODO
+When there is multiplicity for a Kronecker produdt, say 
+\begin_inset Formula $X\otimes Y\to Z$
+\end_inset
+
+ has 
+\begin_inset Formula $m$
+\end_inset
+
+ multiplicty, we need to do some calculation to find 
+\begin_inset Formula $m$
+\end_inset
+
+ sets of orthonormal CGCs which satisfies the constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+After solving the linear equations, we would have 
+\begin_inset Formula $m$
+\end_inset
+
+ solutions
+\begin_inset Formula 
+\[
+V^{\left(a\right)}=\sum_{i}v_{i}^{\left(a\right)}e_{i},\quad a=1,\cdots,m
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ are orthonormal basis in the form of 
+\begin_inset Formula $\left(x_{j}\otimes y_{k}\right)_{z_{l}}$
+\end_inset
+
+.
+ Any linear combination of 
+\begin_inset Formula $V^{\left(a\right)}$
+\end_inset
+
+ also satisfies the linear equations.
+ Let 
+\begin_inset Formula $V=\left(V^{\left(1\right)},V^{\left(2\right)},\cdots,V^{\left(m\right)}\right)^{T}$
+\end_inset
+
+, 
+\begin_inset Formula $E=\left(e_{1},e_{2},\cdots\right)^{T}$
+\end_inset
+
+ be two colum vectors, then we have 
+\begin_inset Formula 
+\[
+\tilde{Z}=VE,\quad V=\begin{pmatrix}v_{1}^{\left(1\right)} & v_{2}^{\left(1\right)} & \cdots\\
+\vdots & \vdots & \vdots\\
+v_{1}^{\left(m\right)} & v_{2}^{\left(m\right)} & \cdots
+\end{pmatrix}.
+\]
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula 
+\[
+A=\begin{pmatrix}a_{1}^{\left(1\right)} & a_{2}^{\left(1\right)} & \cdots & a_{m}^{\left(1\right)}\\
+\vdots & \vdots & \cdots & \vdots\\
+a_{1}^{\left(m\right)} & a_{2}^{\left(m\right)} & \cdots & a_{m}^{\left(m\right)}
+\end{pmatrix}
+\]
+
+\end_inset
+
+ and 
+\begin_inset Formula $Z^{\left(a\right)}$
+\end_inset
+
+ are the vectors we want and satisfies 
+\begin_inset Formula 
+\[
+Z=\begin{pmatrix}Z^{\left(1\right)}\\
+Z^{\left(2\right)}\\
+\vdots\\
+Z^{\left(m\right)}
+\end{pmatrix}=AVE.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then, we should have 
+\begin_inset Formula $Z^{*}=Z$
+\end_inset
+
+, which is translated into 
+\begin_inset Formula 
+\[
+A^{*}V^{*}E^{*}=AVE.
+\]
+
+\end_inset
+
+ If 
+\begin_inset Formula $Z$
+\end_inset
+
+ is real, we should be able to write 
+\begin_inset Formula 
+\[
+E^{*}=\Gamma^{-1}E,
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is a symmetric matrix with nonzero elements are either 
+\begin_inset Formula $1$
+\end_inset
+
+ or 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+ So we have 
+\begin_inset Formula 
+\begin{equation}
+A^{*}V^{*}\Gamma^{-1}E=AVE.\label{eq:CG_real_constraint}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now consider the constraint the normalization condition of 
+\begin_inset Formula $Z$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+ZZ^{\dagger}=AVV^{\dagger}A^{\dagger}=nI\label{eq:cg_real_eq1}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $n$
+\end_inset
+
+ is an integer indicates the number of sub representations in the decomposition
+ of 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ Because of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_real_constraint"
+
+\end_inset
+
+, we also have 
+\begin_inset Formula 
+\begin{equation}
+ZZ^{\dagger}=AVE\left(A^{*}V^{*}\Gamma^{-1}E\right)^{\dagger}=AV\Gamma V^{T}A^{T}=nI.\label{eq:cg_real_eq2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula 
+\[
+VV^{\dagger}=UDU^{\dagger},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $D$
+\end_inset
+
+ is positive definite diagonal matrix and and 
+\begin_inset Formula $U$
+\end_inset
+
+ a unitary matrix.
+ Then 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:cg_real_eq1"
+
+\end_inset
+
+ can be written as 
+\begin_inset Formula 
+\[
+AU\sqrt{D}\left(AU\sqrt{D}\right)^{\dagger}=nI.
+\]
+
+\end_inset
+
+ It implies 
+\begin_inset Formula $\frac{1}{\sqrt{n}}AU\sqrt{D}$
+\end_inset
+
+ is a unitary matrix.
+ So we can write 
+\begin_inset Formula $A$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+A=\sqrt{n}WD^{-1/2}U^{\dagger},\quad WW^{\dagger}=I.
+\]
+
+\end_inset
+
+ Substituting above into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:cg_real_eq2"
+
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+WD^{-1/2}U^{\dagger}V\Gamma V^{T}U^{*}D^{-1/2}W^{T}\equiv WMW^{T}=I,
+\]
+
+\end_inset
+
+
+\begin_inset Formula $M$
+\end_inset
+
+ is a complex symmetric matrix, it can always be decomposed as 
+\begin_inset Formula 
+\[
+M=D^{-1/2}U^{\dagger}V\Gamma V^{T}U^{*}D^{-1/2}=OPO^{T},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $P$
+\end_inset
+
+ is non-negative diagonal matrix and 
+\begin_inset Formula $O$
+\end_inset
+
+ is unitary matrix.
+ We then have 
+\begin_inset Formula 
+\[
+WO\sqrt{P}\sqrt{P}O^{T}W^{T}\equiv RR^{T}=1
+\]
+
+\end_inset
+
+ which implies 
+\begin_inset Formula 
+\[
+W=RP^{-1/2}O^{\dagger}
+\]
+
+\end_inset
+
+but 
+\begin_inset Formula $WW^{\dagger}=1$
+\end_inset
+
+ implies
+\begin_inset Formula 
+\[
+RP^{-1/2}O^{\dagger}OP^{-1/2*}R^{\dagger}=R\left|P^{-1}\right|R^{\dagger}=RR^{\dagger}=I,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\because\det M=1\Rightarrow?\det P=1.
+\]
+
+\end_inset
+
+Now 
+\begin_inset Formula 
+\[
+A=\sqrt{n}RP^{-1/2}O^{\dagger}D^{-1/2}U^{\dagger}
+\]
+
+\end_inset
+
+ we can simply choose 
+\begin_inset Formula $R=I$
+\end_inset
+
+, which implies
+\begin_inset Formula 
+\[
+A=\sqrt{n}P^{-1/2}O^{\dagger}D^{-1/2}U^{\dagger}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
