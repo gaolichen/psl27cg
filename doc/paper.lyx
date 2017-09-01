@@ -3686,14 +3686,18 @@ Multiplicity
 
 \begin_layout Standard
 When there is multiplicity for a Kronecker product, say 
-\begin_inset Formula $X\otimes Y\to Z$
+\begin_inset Formula $Z$
 \end_inset
 
- has 
+ has a multiplicty of 
 \begin_inset Formula $m$
 \end_inset
 
- multiplicty, we need to do some calculation to find 
+ 
+\begin_inset Formula $X\otimes Y$
+\end_inset
+
+, we need to do some calculation to find 
 \begin_inset Formula $m$
 \end_inset
 
@@ -3716,7 +3720,7 @@ After solving the linear equations, we would have
  solutions
 \begin_inset Formula 
 \[
-V^{\left(a\right)}=\sum_{i}v_{i}^{\left(a\right)}e_{i},\quad a=1,\cdots,m
+\tilde{Z}^{\left(a\right)}=\sum_{i}v_{i}^{\left(a\right)}e_{i},\quad a=1,\cdots,m
 \]
 
 \end_inset
@@ -3736,7 +3740,7 @@ V^{\left(a\right)}=\sum_{i}v_{i}^{\left(a\right)}e_{i},\quad a=1,\cdots,m
 
  also satisfies the linear equations.
  Let 
-\begin_inset Formula $V=\left(V^{\left(1\right)},V^{\left(2\right)},\cdots,V^{\left(m\right)}\right)^{T}$
+\begin_inset Formula $\tilde{Z}=\left(\tilde{Z}^{\left(1\right)},\tilde{Z}^{\left(2\right)},\cdots,\tilde{Z}^{\left(m\right)}\right)^{T}$
 \end_inset
 
 , 
@@ -3754,7 +3758,7 @@ v_{1}^{\left(m\right)} & v_{2}^{\left(m\right)} & \cdots
 
 \end_inset
 
- Suppose 
+We want to find a matrix 
 \begin_inset Formula 
 \[
 A=\begin{pmatrix}a_{1}^{\left(1\right)} & a_{2}^{\left(1\right)} & \cdots & a_{m}^{\left(1\right)}\\
@@ -3765,31 +3769,19 @@ a_{1}^{\left(m\right)} & a_{2}^{\left(m\right)} & \cdots & a_{m}^{\left(m\right)
 
 \end_inset
 
- and 
-\begin_inset Formula $Z^{\left(a\right)}$
-\end_inset
-
- are the vectors we want and satisfies 
+such that 
 \begin_inset Formula 
 \[
-Z=\begin{pmatrix}Z^{\left(1\right)}\\
-Z^{\left(2\right)}\\
-\vdots\\
-Z^{\left(m\right)}
-\end{pmatrix}=AVE.
+Z=AVE
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Then, we should have 
+satisfies the condition 
 \begin_inset Formula $Z^{*}=Z$
 \end_inset
 
-, which is translated into 
+, i.e, 
 \begin_inset Formula 
 \[
 A^{*}V^{*}E^{*}=AVE.
@@ -3834,11 +3826,11 @@ A^{*}V^{*}\Gamma^{-1}E=AVE.\label{eq:CG_real_constraint}
 \end_layout
 
 \begin_layout Standard
-Now consider the constraint the normalization condition of 
+Now consider the normalization condition of 
 \begin_inset Formula $Z$
 \end_inset
 
-:
+
 \begin_inset Formula 
 \begin{equation}
 ZZ^{\dagger}=AVV^{\dagger}A^{\dagger}=nI\label{eq:cg_real_eq1}
