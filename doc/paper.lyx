@@ -3233,7 +3233,7 @@ With the generators, we can now find the CGCs of
 \end_layout
 
 \begin_layout Standard
-It is straight forward to use eqs.
+It is straightforward to use eqs.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -3249,7 +3249,15 @@ reference "eq:CGSub_Def2"
 \end_inset
 
  to setup linear equations for CGCs.
- One simply eliminate 
+ We choose a basis that projection matrices are in the trivial form 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_PXj"
+
+\end_inset
+
+.
+ We then eliminate 
 \begin_inset Formula $Z$
 \end_inset
 
@@ -3270,20 +3278,28 @@ reference "eq:CGSub_Def2"
 \end_inset
 
 .
- Then we choose 
+ The group element 
 \begin_inset Formula $g$
 \end_inset
 
- to be generators which are member of 
+ in eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+ can be a generator of 
 \begin_inset Formula $G$
 \end_inset
 
- but not 
+ that is not an element of 
 \begin_inset Formula $H$
 \end_inset
 
 .
- Comparing the coefficients of each bilinear form of 
+ Comparing the coefficients of bilinear forms of 
 \begin_inset Formula $X$
 \end_inset
 
@@ -3292,11 +3308,154 @@ reference "eq:CGSub_Def2"
 \end_inset
 
 , we obtain 
-\begin_inset Formula $\dim X\times\dim Y$
+\begin_inset Formula $\dim X\times\dim Y\times N_{Z}$
 \end_inset
 
- equations.
- In general these equations are not independent.
+ homogeneous linear equations (Some may be trivially 
+\begin_inset Formula $0=0$
+\end_inset
+
+) about 
+\begin_inset Formula $c_{k,ij}$
+\end_inset
+
+, where 
+\begin_inset Formula $N_{Z}$
+\end_inset
+
+ is number of 
+\begin_inset Formula $H$
+\end_inset
+
+ irreps contained in 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+.
+ These equations are in general not independent.
+ The maximum number of independent equations are 
+\begin_inset Formula $N_{c}-m_{Z}$
+\end_inset
+
+, where 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ is the number of 
+\begin_inset Formula $c_{k,ij}$
+\end_inset
+
+ parameters and 
+\begin_inset Formula $m_{Z}$
+\end_inset
+
+ is the multiplicity of 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ in 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}$
+\end_inset
+
+.
+ By solving these linear equations, we express 
+\begin_inset Formula $N_{c}-m_{Z}$
+\end_inset
+
+ paramters in terms of other 
+\begin_inset Formula $m_{Z}$
+\end_inset
+
+ parameters.
+ 
+\end_layout
+
+\begin_layout Standard
+These 
+\begin_inset Formula $m_{Z}$
+\end_inset
+
+ parameters are 
+\begin_inset Formula $m_{Z}$
+\end_inset
+
+ complex numbers and have 
+\begin_inset Formula $2m_{Z}$
+\end_inset
+
+ real degrees of freedom.
+ The normalization condition reduces the number of real degress of freedom
+ to 
+\begin_inset Formula $2m_{Z}-1$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ are all real representations or only 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ is real representation and 
+\begin_inset Formula $\rep{X}=\rep{\bar{Y}}$
+\end_inset
+
+, the number will be continued reduced by constraints 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ to 
+\begin_inset Formula $m_{Z}-1$
+\end_inset
+
+.
+ In other cases, the constraints 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ simply require CGCs of 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+\end_inset
+
+ are complex conjugate to CGCs of 
+\begin_inset Formula $\rep{\bar{X}}\otimes\rep{\bar{Y}}\to\rep{\bar{Z}}$
+\end_inset
+
+, hence they totally has 
+\begin_inset Formula $2m_{Z}-1$
+\end_inset
+
+ real degrees of freedom.
+ 
+\end_layout
+
+\begin_layout Standard
+In above precedures, when the group 
+\begin_inset Formula $G$
+\end_inset
+
+ is large, analytic solution to the homogeneous linear equations is usually
+ a nontrivial calculation as complicated algebraic numbers may be invovled.
+ We use a small trick in the calculation.
+ Instead of solving the equations exactly, we solve them numerically and
+ then convert the decimal number to exact numbers using the Mathematica
+ function RootApproximate.
  
 \end_layout
 
@@ -3392,8 +3551,8 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
-, and then fixing the absolute value of the last parameter by normalization
- codition.
+, and then fixing the value of the last parameter, up to an phase, by normalizat
+ion codition.
  But since 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}$
 \end_inset
