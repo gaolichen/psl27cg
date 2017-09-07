@@ -2450,7 +2450,7 @@ We then obtain matrices
 \begin_inset Formula $\theta_{i}$
 \end_inset
 
- can be determined by the constraint 
+ can be determined by the constraints 
 \begin_inset Formula 
 \begin{equation}
 \Gamma_{\rep{6}}O^{\left[6\right]*}\Gamma_{\rep{6}}^{\dagger}=O^{\left[6\right]},\quad O=A,B\quad\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)},\label{eq:Gen_Gamma6}
@@ -2459,14 +2459,10 @@ We then obtain matrices
 \end_inset
 
  where the expression of 
-\begin_inset Formula $\Gamma$
+\begin_inset Formula $\Gamma^{\left(S_{4}\right)}$
 \end_inset
 
- matrices of 
-\begin_inset Formula $\subga$
-\end_inset
-
- group are provided in Appendix 
+ matrices are provided in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:S4Group"
@@ -2954,9 +2950,9 @@ label{eq:Gen_T7_A6}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-A^{[6]}=\frac{2}{7}\begin{pmatrix}\mathcal{R}_{1} & \sqrt{2}\mathcal{R}_{2}\\
+A^{[6]}=\frac{2}{7}\mathcal{U}^{[6]}\begin{pmatrix}\mathcal{R}_{1} & \sqrt{2}\mathcal{R}_{2}\\
 \sqrt{2}\mathcal{R}_{2} & \mathcal{R}_{1}
-\end{pmatrix},
+\end{pmatrix}\mathcal{U}^{[6]\dagger},
 \end{equation}
 
 \end_inset
@@ -3002,7 +2998,37 @@ end{subequations}
 \end_inset
 
 .
- In the 
+ 
+\begin_inset Formula $\mathcal{U}^{[6]}$
+\end_inset
+
+ is a pure phase diagonal matrice 
+\begin_inset Formula 
+\[
+\mathcal{U}^{[6]}=\mathrm{diag}\left(e^{i\alpha_{6}}\mathbf{I}_{3},e^{-i\alpha_{6}}\mathbf{I}_{3}\right)
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula $\alpha_{6}$
+\end_inset
+
+ is a free phase which also show up in the CGC
+\begin_inset Formula 
+\[
+\covp{3}{3}{6_{s}}=\mathcal{U}^{[6]}\begin{pmatrix}\covt{3}{3}{3}\\
+\covt{3}{3}{\bar{3}}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the 
 \begin_inset Formula $\rep{8}$
 \end_inset
 
@@ -3024,10 +3050,10 @@ label{eq:Gen_T7_a8}
 
 \begin_inset Formula 
 \begin{equation}
-A^{[8]}=\frac{2}{7}\begin{pmatrix}\mathcal{C}_{1} & \mathcal{C}_{2} & \mathcal{C}_{2}\\
+A^{[8]}=\frac{2}{7}\mathcal{U}^{[8]}\begin{pmatrix}\mathcal{C}_{1} & \mathcal{C}_{2} & \mathcal{C}_{2}\\
 \mathcal{C}_{2}^{\dagger} & \mathcal{R}_{3} & \mathcal{R}_{1}\\
 \mathcal{C}_{2}^{\dagger} & \mathcal{R}_{1} & \mathcal{R}_{3}
-\end{pmatrix},
+\end{pmatrix}\mathcal{U}^{[8]\dagger},
 \end{equation}
 
 \end_inset
@@ -3053,7 +3079,7 @@ A^{[8]}=\frac{2}{7}\begin{pmatrix}\mathcal{C}_{1} & \mathcal{C}_{2} & \mathcal{C
 
 \end_inset
 
- and 
+ 
 \begin_inset Formula $\mathcal{R}_{3}$
 \end_inset
 
@@ -3067,8 +3093,20 @@ A^{[8]}=\frac{2}{7}\begin{pmatrix}\mathcal{C}_{1} & \mathcal{C}_{2} & \mathcal{C
 \mathcal{R}_{3}=\begin{pmatrix}c_{2}-c_{1} & c_{1}-c_{3} & c_{3}-c_{2}\\
 c_{1}-c_{3} & c_{3}-c_{2} & c_{2}-c_{1}\\
 c_{3}-c_{2} & c_{2}-c_{1} & c_{1}-c_{3}
-\end{pmatrix}.
+\end{pmatrix},
 \end{equation}
+
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{U}$
+\end_inset
+
+ is a pure phase diagoal matrix
+\begin_inset Formula 
+\[
+\mathcal{U}=\mathrm{diag}\left(e^{i\alpha_{81}},e^{-i\alpha_{81}},e^{i\alpha_{83}}\mathbf{I}_{3},e^{-i\alpha_{83}}\mathbf{I}_{3}\right).
+\]
 
 \end_inset
 
@@ -3105,14 +3143,33 @@ Note that
  irrep, 
 \begin_inset Formula 
 \[
-A^{[7]}=\frac{2}{7}\begin{pmatrix}-\frac{1}{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2}\\
+A^{[7]}=\frac{2}{7}\mathcal{U}_{\left(7\right)}\begin{pmatrix}-\frac{1}{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2}\\
 \sqrt{2} & 2c_{1}+c_{2} & c_{1}+2c_{3} & 2c_{2}+c_{3} & 2c_{2}+1 & 2c_{1}+1 & 2c_{3}+1\\
 \sqrt{2} & c_{1}+2c_{3} & 2c_{2}+c_{3} & 2c_{1}+c_{2} & 2c_{1}+1 & 2c_{3}+1 & 2c_{2}+1\\
 \sqrt{2} & 2c_{2}+c_{3} & 2c_{1}+c_{2} & c_{1}+2c_{3} & 2c_{3}+1 & 2c_{2}+1 & 2c_{1}+1\\
 \sqrt{2} & 2c_{2}+1 & 2c_{1}+1 & 2c_{3}+1 & 2c_{1}+c_{2} & c_{1}+2c_{3} & 2c_{2}+c_{3}\\
 \sqrt{2} & 2c_{1}+1 & 2c_{3}+1 & 2c_{2}+1 & c_{1}+2c_{3} & 2c_{2}+c_{3} & 2c_{1}+c_{2}\\
 \sqrt{2} & 2c_{3}+1 & 2c_{2}+1 & 2c_{1}+1 & 2c_{2}+c_{3} & 2c_{1}+c_{2} & c_{1}+2c_{3}
-\end{pmatrix}.
+\end{pmatrix}\mathcal{U}_{\left(7\right)}^{\dagger}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{U}^{\left[7\right]}=\mathrm{diag}\left(1,e^{i\left(2\alpha_{6}+\alpha_{7}\right)}\mathbf{I}_{3},e^{-i\left(2\alpha_{6}+\alpha_{7}\right)}\mathbf{I}_{3}\right).
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\cov{3}{6}{7}=\mathcal{U}^{[7]}\begin{pmatrix}\covt{3}{\bar{3}}{1}\\
+\frac{i}{\sqrt{3}}\covt{3}{3}{3}+i\sqrt{\frac{2}{3}}e^{2i\alpha_{6}}\covt{3}{\bar{3}}{3}\\
+-\frac{i}{\sqrt{6}}\covt{3}{3}{\bar{3}_{s}}+i\sqrt{\frac{2}{3}}\covt{3}{3}{\bar{3}_{a}}+\frac{ie^{2i\alpha_{6}}}{\sqrt{6}}\covt{3}{\bar{3}}{\bar{3}}
+\end{pmatrix}
 \]
 
 \end_inset
@@ -3677,7 +3734,14 @@ reference "eq:Ex_SixSix2Six"
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}^{\left(1\right)}\oplus\rep{6}_{s}^{\left(2\right)}$
 \end_inset
 
- shown in Appendix.
+ shown in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:CGC_S4"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -6484,6 +6548,12 @@ Kronecker products of
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:CGC_S4"
+
+\end_inset
+
 CG Coefficients of 
 \begin_inset Formula $\group$
 \end_inset
@@ -6500,6 +6570,12 @@ TODO
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:CGC_T7"
+
+\end_inset
+
 CG Coefficients of 
 \begin_inset Formula $\group$
 \end_inset
