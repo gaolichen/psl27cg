@@ -7,10 +7,10 @@ ClearAll[CountTerms]
 CountTerms[expr_,var_]:=Module[{ret=0,e,i},
 	e=Exponent[expr,var];
 	For[i=e,i >= 1,i--,
-		If[Coefficient[expr,var^i]!=0, ret++];
+		If[SameQ[Coefficient[expr,var^i],0]==False, ret++];
 	];
 
-	If[(expr/.{var->0})!=0, ret++];
+	If[SameQ[Simplify[(expr/.{var->0})],0] == False, ret++];
 	Return[ret]
 ];
 
@@ -20,8 +20,9 @@ ToEt6[expr_,et_,n_:0]:=Module[
 	{ret=expr,i,exp2,sum=1+et+et^2+et^3+et^4+et^5+et^6,cnt},
 	cnt = CountTerms[expr,et];
 	For[i=5,i>=2,i--,
-		If[i!=n && Coefficient[expr,et^i]!=0,
-			exp2=Simplify[expr/.{et^i->-Simplify[sum-et^i]}];
+		If[i!=n && SameQ[Coefficient[expr,et^i],0]==False,
+			exp2=Expand[Simplify[expr/.{et^i->-Simplify[sum-et^i]}]];
+			(*Print["i=",i, ", exp2=",exp2];*)
 			If[CountTerms[exp2,et]<cnt, ret=exp2;Break[]]
 		];
 	];
@@ -33,7 +34,7 @@ ToEt6[expr_,et_,n_:0]:=Module[
 ClearAll[DecomposePoly];
 Options[DecomposePoly]={Vars->{},Phases->{}};
 DecomposePoly[poly_,basis_,opts:OptionsPattern[]]:=
-	Module[{ret,i,j,vars,terms,rep,pp,coef, term,phases,invertedPhases},
+	Module[{ret,i,j,vars,terms,rep,pp,coef,term,phases,invertedPhases, phases2One},
 	ret = ConstantArray[0,Length[basis]];
 	pp=Expand[poly];
 	(*Print["pp=",pp];*)
@@ -42,12 +43,15 @@ DecomposePoly[poly_,basis_,opts:OptionsPattern[]]:=
 	invertedPhases=Table[phases[[i]]->1/phases[[i]],{i,1,Length[phases]}];
 	If[Length[vars]==0,vars=Variables[poly]];
 	rep=Table[vars[[i]]->1,{i,1,Length[vars]}];
+	phases2One=Table[phases[[i]]->1,{i,1,Length[phases]}];
+	(*Print["phases2One=",phases2One];*)
 	For[i=1,i<= Length[basis],i++,
-		terms=MonomialList[basis[[i]]];
+		terms=MonomialList[basis[[i]]/.phases2One];
 		(*Print["terms=",terms];*)
 		For[j=1,j<= Length[terms],j++,
 		coef =terms[[j]]/.rep;
 		term = Simplify[terms[[j]]/coef];
+		coef = Coefficient[basis[[i]],term];
 		(*Print["coef=",Coefficient[pp,term], "*",coef];*)
 		ret[[i]] += Coefficient[pp,term] * ComplexExpand[Conjugate[coef/.invertedPhases]];
 	];
