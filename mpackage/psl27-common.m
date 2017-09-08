@@ -186,6 +186,42 @@ NormalizeVectors[vList_List,factor_]:=Module[{i,ret={},norm},
 	Return[ret]
 ];
 
+ClearAll[SolveConjugateConstraints];
+SolveConjugateConstraints[cgc_,gamma_]:=Module[
+	{reVarList,imVarList, i, cg1, cg2, cg1parts, cg2parts, root, allzero, ret={}, v},
+
+	reVarList=Table[Unique["cgRe"],{i,1,Length[cgc]}];
+	imVarList=Table[Unique["cgIm"],{i,1,Length[cgc]}];
+	cg1 = Sum[(reVarList[[i]]+imVarList[[i]]*I)*cgc[[i]],{i,1,Length[cgc]}];
+	cg2 = gamma.ComplexExpand[Conjugate[cg1]];
+	cg1parts = ComplexExpand[Join[Re[cg1],Im[cg1]]];
+	cg2parts = ComplexExpand[Join[Re[cg2],Im[cg2]]];
+
+	root=Solve[cg1parts==cg2parts, Join[reVarList, imVarList]];
+	If[Length[root]==0, 
+		Print["SolveConjugateConstraints: No solution found."];
+		Throw[$Failed];
+	];
+
+	root = First[root];
+	cg1=Simplify[cg1/.root];
+	
+	allzero=Join[Table[reVarList[[i]]->0,{i,1,Length[reVarList]}],
+		Table[imVarList[[i]]->0,{i,1,Length[reVarList]}]];
+
+	For[i=1, i <= Length[reVarList], i++,
+		v=Simplify[cg1/.{reVarList[[i]]->1}];
+		v= Simplify[v/.allzero];
+		If[SameQ[v,ConstantArray[0,Length[cg1]]]==False, AppendTo[ret,v]];
+
+		v=Simplify[cg1/.{imVarList[[i]]->1}];
+		v=Simplify[v/.allzero];
+		If[SameQ[v,ConstantArray[0,Length[cg1]]]==False, AppendTo[ret,v]];
+	];
+
+	Return[ret]
+];
+
 NormalizeCG[r1_,r2_,r3_,cgList_,embed_]:=Module[{vv,ncg,eigen,tmp,Dmhalf,ret,lg,matM,gamma,svd,matO,Pmhalf,i},
 	ncg = cgList/.b7ToNum/.et2Num;
 
@@ -199,17 +235,14 @@ NormalizeCG[r1_,r2_,r3_,cgList_,embed_]:=Module[{vv,ncg,eigen,tmp,Dmhalf,ret,lg,
 	(* If r1, r2, r3 are real reps, we need to make the *)
 	gamma = CGConjugateMat[r1,r2,r3,embed];
 	If[gamma == IdentityMatrix[Length[ncg[[1]]]],
-		Do[ncg[[i]]=FixCGPhase[ncg[[i]], gamma], {i,1,Length[ncg]}];
-		ret=GramSchmid2[ncg];
-		Return[NormalizeVectors[ret,Sqrt[Length[embed[GetRepName[r3]]]]]]
+		Do[ncg[[i]]=FixCGPhase[ncg[[i]], gamma], {i,1,Length[ncg]}],
+		ncg=SolveConjugateConstraints[cgList, gamma]
 	];
 
-	vv=SimplifyNum2[ncg.ConjugateTranspose[ncg]];
-	
-	(*If[Length[cgList]\[Equal]1,
-		(*Print["Length[embed[r3]]=",Length[embed[GetRepName[r3]]], ", vv=", vv];*)
-		Return[cgList/SimplifyNum2[Sqrt[vv[[1,1]]/Length[embed[GetRepName[r3]]]]]];
-	];*)
+	ret=GramSchmid2[ncg];
+	Return[NormalizeVectors[ret,Sqrt[Length[embed[GetRepName[r3]]]]]];
+
+(*	vv=SimplifyNum2[ncg.ConjugateTranspose[ncg]];
 
 	(*Print["vv=",MatrixForm[vv]];*)
 	eigen=Eigensystem[vv];
@@ -242,7 +275,7 @@ NormalizeCG[r1_,r2_,r3_,cgList_,embed_]:=Module[{vv,ncg,eigen,tmp,Dmhalf,ret,lg,
 	ret = SimplifyNum2[ret.ncg];
 	(*Print["NormalizeCG ret3=", ret];*)
 	
-	Return[ret*Sqrt[Length[embed[GetRepName[r3]]]]];
+	Return[ret*Sqrt[Length[embed[GetRepName[r3]]]]];*)
 ];
 
 (* find the index of free parameter. The fp argument has the form: r1*r2\[Rule]r3 *)
@@ -294,30 +327,8 @@ FinalizeCG[r1_,r2_,r3_,cgEqs_,embed_,opts:OptionsPattern[]]:=Module[
 		Return[{}]
 	];
 
-	(* we need to build authonormal basis if there are more than one solutions.*)
-	(*If[Length[coefsList]>1,
-	mat=ConstantArray[0,{Length[coefsList],Length[coefsList]}];
-	cgmat=CGConjugateMat[r1,r2,r3,embed];
-	Do[mat[[i,j]]=coefsList[[i]].cgmat.coefsList[[j]],
-	{i,1,Length[coefsList]},{j,1,Length[coefsList]}];
-	mat=SimplifyCN[mat/.b7ToEt,et,7];
-	nmat=Chop[N[mat/.{et\[Rule]Exp[I*2Pi/7]}]];
-	Print["nmat=",MatrixForm[nmat]];
-	u=LeftDiag[nmat];
-	diag=Chop[Transpose[u].nmat.u];
-	diag=Inverse[Sqrt[diag]];
-	u=Chop[Transpose[u.diag]];
-	Print["u=",MatrixForm[u],",u.nmat.u^T=",Chop[u.nmat.Transpose[u]]];
-	Print["res=",Chop[Sum[u[[1,i]]*coefsList[[i]]/.{et\[Rule] Exp[I*2Pi/7]}/.b7ToNum,{i,1,Length[u]}]]];
-	];
-	*)
-	(*Do[coefsList[[i]]=FixCGPhase[r1,r2,r3,coefsList[[i]], embed], {i,1,Length[coefsList]}];*)
-	(*coefsList=OrthnormalizeCG[r1,r2,r3,coefsList/.b7ToEt, embed];
-	Print["coefsList=",coefsList];
-	coefsList=N2Exact[N[coefsList/.{et->Exp[I*2Pi/7]}]];*)
 	coefsList=NormalizeCG[r1,r2,r3,coefsList,embed];
 	Return[ToRadicals[coefsList]];
-	(*Return[ToExp[ToRadicals[coefsList]]];*)
 ];
 
 ClearAll[CalculateCG];
