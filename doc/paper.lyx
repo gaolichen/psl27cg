@@ -3166,7 +3166,7 @@ A^{[7]}=\frac{2}{7}\mathcal{U}_{\left(7\right)}\begin{pmatrix}-\frac{1}{2} & \sq
 
 \begin_inset Formula 
 \[
-\cov{3}{6}{7}=\mathcal{U}^{[7]}\begin{pmatrix}\covt{3}{\bar{3}}{1}\\
+\covp{3}{6}{7}=\mathcal{U}^{[7]}\begin{pmatrix}\covt{3}{\bar{3}}{1}\\
 \frac{i}{\sqrt{3}}\covt{3}{3}{3}+i\sqrt{\frac{2}{3}}e^{2i\alpha_{6}}\covt{3}{\bar{3}}{3}\\
 -\frac{i}{\sqrt{6}}\covt{3}{3}{\bar{3}_{s}}+i\sqrt{\frac{2}{3}}\covt{3}{3}{\bar{3}_{a}}+\frac{ie^{2i\alpha_{6}}}{\sqrt{6}}\covt{3}{\bar{3}}{\bar{3}}
 \end{pmatrix}
@@ -3508,8 +3508,9 @@ In the above procedures, when the group
 \begin_inset Formula $G$
 \end_inset
 
- is large, analytic solution to the homogeneous linear equations is usually
- a nontrivial computation as complicated algebraic numbers may be invovled.
+ is large, the analytic solution to the homogeneous linear equations is
+ usually a nontrivial computation as complicated algebraic numbers may be
+ invovled.
  We use a trick in the calculation.
  Instead of solving the equations exactly, we solve them numerically and
  then convert the decimal results to exact numbers using the Mathematica
@@ -3585,9 +3586,9 @@ label{eq:Ex_SixSix2Six}
 \begin_inset Formula 
 \begin{align}
 \rep{1_{0}} & =c_{1,11}\covs{1_{0}}{1_{0}}{1_{0}}+c_{1,22}\covs{2}{2}{1_{0}}+c_{1,33}\covs{3_{1}}{3_{1}}{1_{0}},\\
-\rep{2} & =c_{2,12}\left(\covs{1_{0}}{2}{2}+\covs{2}{1_{0}}{2}\right)+c_{2,22}\covs{2}{2}{2}+c_{2,33}\covs{3_{1}}{3_{1}}{2},\\
-\rep{3_{1}} & =c_{3,13}\left(\covs{1_{0}}{3_{1}}{3_{1}}+\covs{3_{1}}{1_{0}}{3_{1}}\right)\nonumber \\
- & +c_{3,23}\left(\covs{2}{3_{1}}{3_{1}}+\covs{3_{1}}{2}{3_{1}}\right)+c_{3,33}\covs{3_{1}}{3_{1}}{3_{1}},
+\rep{2} & =\frac{c_{2,12}}{\sqrt{2}}\left(\covs{1_{0}}{2}{2}+\covs{2}{1_{0}}{2}\right)+c_{2,22}\covs{2}{2}{2}+c_{2,33}\covs{3_{1}}{3_{1}}{2},\\
+\rep{3_{1}} & =\frac{c_{3,13}}{\sqrt{2}}\left(\covs{1_{0}}{3_{1}}{3_{1}}+\covs{3_{1}}{1_{0}}{3_{1}}\right)\nonumber \\
+ & +\frac{c_{3,23}}{\sqrt{2}}\left(\covs{2}{3_{1}}{3_{1}}+\covs{3_{1}}{2}{3_{1}}\right)+c_{3,33}\covs{3_{1}}{3_{1}}{3_{1}},
 \end{align}
 
 \end_inset
@@ -3643,11 +3644,7 @@ But since
 \begin_inset Formula $2$
 \end_inset
 
-, we can setup 
-\begin_inset Formula $9-2$
-\end_inset
-
- homogeneous linear equations from eq.
+, we can setup seven homogeneous linear equations from eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -3745,28 +3742,77 @@ reference "sec:CGC_S4"
 .
 \end_layout
 
+\begin_layout Standard
+The calculation is more nontrivial in 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ basis.
+ The general form of CGCs in 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ basis is
+\begin_inset Formula 
+\begin{align*}
+\rep{3} & =c_{3,33}\covt{3}{3}{3}+\frac{c_{3,3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{3}+\covt{\bar{3}}{3}{3}\right)+c_{3,\bar{3}\bar{3}}\covt{\bar{3}}{\bar{3}}{3_{s}},\\
+\rep{\bar{3}} & =c_{\bar{3},33}\covt{3}{3}{\bar{3}_{s}}+\frac{c_{\bar{3},3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{\bar{3}}+\covt{\bar{3}}{3}{\bar{3}}\right)+c_{\bar{3},\bar{3}\bar{3}}\covt{\bar{3}_{s}}{\bar{3}}{\bar{3}}.
+\end{align*}
+
+\end_inset
+
+ Solving the linear equations from eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{align*}
+c_{3,\bar{3}\bar{3}} & =-\sqrt{2}c_{3,33}-\frac{c_{3,\bar{3}\bar{3}}}{\sqrt{2}},\quad c_{\bar{3},33}=-c_{3,33}-c_{3,\bar{3}\bar{3}},\\
+c_{\bar{3},\bar{3}\bar{3}} & =\sqrt{2}c_{3,33},\quad c_{\bar{3},\bar{3}\bar{3}}=\frac{1}{\sqrt{2}}c_{3,\bar{3}\bar{3}}.
+\end{align*}
+
+\end_inset
+
+The charge constraints 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ are nontrivial now as 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ irreps are complex.
+ To solve the constraints, we can express 
+\begin_inset Formula $c$
+\end_inset
+
+ coefficients in terms of its real and imaginary parts.
+ 
+\end_layout
+
 \begin_layout Subsection
 Multiplicity
 \end_layout
 
 \begin_layout Standard
-When there is multiplicity for a Kronecker product, say 
-\begin_inset Formula $Z$
+When there is a nontrivial multiplicity of a Kronecker product, say 
+\begin_inset Formula $X\otimes Y\to mZ$
 \end_inset
 
- has a multiplicty of 
-\begin_inset Formula $m$
-\end_inset
-
+, and all irreps involved are real, we need to do a calculation to find
  
-\begin_inset Formula $X\otimes Y$
-\end_inset
-
-, we need to do some calculation to find 
 \begin_inset Formula $m$
 \end_inset
 
- sets of orthonormal CGCs which satisfies the constraint 
+ sets of orthonormal CGCs that satisfy the constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_ckij"
@@ -3774,11 +3820,20 @@ reference "eq:CGSub_ckij"
 \end_inset
 
 .
- 
+ The constraints are nonlinear as complex conjugate and quadratic orthonomal
+ conditions are involved.
+ We show here procedure to solve such constraints.
 \end_layout
 
 \begin_layout Standard
-After solving the linear equations, we would have 
+After solving the linear equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+, we would have 
 \begin_inset Formula $m$
 \end_inset
 
@@ -3794,7 +3849,7 @@ After solving the linear equations, we would have
 \begin_inset Formula $e_{i}$
 \end_inset
 
- are orthonormal basis in the form of 
+ are orthonormal basis of the form 
 \begin_inset Formula $\left(x_{j}\otimes y_{k}\right)_{z_{l}}$
 \end_inset
 
@@ -3803,7 +3858,14 @@ After solving the linear equations, we would have
 \begin_inset Formula $\tilde{Z}^{\left(a\right)}$
 \end_inset
 
- also satisfies the linear equations.
+ also satisfies the linear equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+.
  Let 
 \begin_inset Formula $V=\left(v^{\left(1\right)},v^{\left(2\right)},\cdots,v^{\left(m\right)}\right)^{T}$
 \end_inset
@@ -3831,11 +3893,25 @@ Z=AVE
 
 \end_inset
 
-satisfies
+satisfies both the charge operator constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon1"
+
+\end_inset
+
+ and orthonomalization condition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_orthnormal"
+
+\end_inset
+
+, i.e.,
 \begin_inset Formula 
-\[
-Z^{*}=Z,\quad ZZ^{\dagger}=N_{Z}I
-\]
+\begin{equation}
+\bar{Z}=Z,\quad ZZ^{\dagger}=N_{Z}I\label{eq:Multi-Cons}
+\end{equation}
 
 \end_inset
 
@@ -3843,8 +3919,7 @@ where
 \begin_inset Formula $N_{Z}$
 \end_inset
 
- is an integer indicates the number of sub representations in the decomposition
- of 
+ is the number of subgroup irreps contained in 
 \begin_inset Formula $Z$
 \end_inset
 
@@ -3853,11 +3928,11 @@ where
 \end_layout
 
 \begin_layout Standard
-If 
+Since 
 \begin_inset Formula $Z$
 \end_inset
 
- is real, we should be able to write 
+ is real, we have 
 \begin_inset Formula 
 \[
 E^{*}=\Gamma^{-1}E,
@@ -3878,7 +3953,14 @@ E^{*}=\Gamma^{-1}E,
 \end_inset
 
 .
- So we have 
+ Applying the equation to first the frist equation of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Multi-Cons"
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \begin{equation}
 A^{*}V^{*}\Gamma^{-1}E=AVE.\label{eq:CG_real_constraint}
@@ -3886,10 +3968,6 @@ A^{*}V^{*}\Gamma^{-1}E=AVE.\label{eq:CG_real_constraint}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Now consider the normalization condition of 
 \begin_inset Formula $Z$
 \end_inset
@@ -3902,14 +3980,15 @@ ZZ^{\dagger}=AVV^{\dagger}A^{\dagger}=N_{Z}I\label{eq:cg_real_eq1}
 
 \end_inset
 
- Because of 
+Using eq.
+ 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CG_real_constraint"
 
 \end_inset
 
-, we also have 
+, the orthonomal condition can also be written as 
 \begin_inset Formula 
 \begin{equation}
 ZZ^{\dagger}=AVE\left(A^{*}V^{*}\Gamma^{-1}E\right)^{\dagger}=AV\Gamma V^{T}A^{T}=N_{Z}I.\label{eq:cg_real_eq2}
@@ -3921,7 +4000,11 @@ ZZ^{\dagger}=AVE\left(A^{*}V^{*}\Gamma^{-1}E\right)^{\dagger}=AV\Gamma V^{T}A^{T
 \end_layout
 
 \begin_layout Standard
-Let 
+Since 
+\begin_inset Formula $VV^{\dagger}$
+\end_inset
+
+ is a positivedefinite Hermitian matrix, we can diagonalize it as 
 \begin_inset Formula 
 \[
 VV^{\dagger}=UDU^{\dagger},
@@ -3945,7 +4028,7 @@ reference "eq:cg_real_eq1"
 
 \end_inset
 
- can be written as 
+ implies 
 \begin_inset Formula 
 \[
 AU\sqrt{D}\left(AU\sqrt{D}\right)^{\dagger}=N_{Z}I.
@@ -3953,16 +4036,11 @@ AU\sqrt{D}\left(AU\sqrt{D}\right)^{\dagger}=N_{Z}I.
 
 \end_inset
 
- It implies 
+ It means that 
 \begin_inset Formula $\frac{1}{\sqrt{N_{Z}}}AU\sqrt{D}$
 \end_inset
 
- is a unitary matrix.
- So we can write 
-\begin_inset Formula $A$
-\end_inset
-
- as 
+ is a unitary matrix, from which it follows 
 \begin_inset Formula 
 \[
 A=\sqrt{N_{Z}}WD^{-1/2}U^{\dagger},\quad WW^{\dagger}=I.
@@ -3980,19 +4058,19 @@ reference "eq:cg_real_eq2"
 , 
 \begin_inset Formula 
 \[
-WD^{-1/2}U^{\dagger}V\Gamma V^{T}U^{*}D^{-1/2}W^{T}\equiv WMW^{T}=I,
+WD^{-1/2}U^{\dagger}V\Gamma V^{T}U^{*}D^{-1/2}W^{T}\equiv WMW^{T}=I,\quad M\equiv D^{-1/2}U^{\dagger}V\Gamma V^{T}U^{*}D^{-1/2},
 \]
 
 \end_inset
 
-
+where 
 \begin_inset Formula $M$
 \end_inset
 
  is a complex symmetric matrix, it can always be decomposed as 
 \begin_inset Formula 
 \[
-M=D^{-1/2}U^{\dagger}V\Gamma V^{T}U^{*}D^{-1/2}=OPO^{T},
+M=OPO^{T},
 \]
 
 \end_inset
