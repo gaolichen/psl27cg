@@ -542,7 +542,12 @@ SolveLinearEquation[cMat_List, opts:OptionsPattern[]]:=Module[
 	];
 
 	(*Print["vars=",vars, ", tosolve=", tosolve, ", freecoef=", freecoef];*)
-	root=First[Solve[eqs==0,tosolve]];
+	Quiet[root = Solve[eqs==0,tosolve], {Solve::svars}];
+	If[Length[root]!=1,
+		Print["SolveLinearEquation: Failed to solve equations, root=",root];
+		Throw[$Failed],
+		root=First[root];
+	];
 
 	(*Print["cMat.vars=",Collect[N[cMat].vars/.root,vars]];
 	Print["eqs=",Collect[eqs/.root,vars]];*)

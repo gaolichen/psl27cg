@@ -23,10 +23,12 @@ InitCnBase[n_]:=Module[{i,j,vars={}, eqs={},count=0,res,exp,relation},
 	];
 
 	(*Print["eqs=",MatrixForm[eqs]];*)
-	res=Solve[eqs==0, Take[vars,-count]];
+	Quiet[res=Solve[eqs==0, Take[vars,-count]],{Solve::svars}];
 	If[Length[res]!= 1,
-		Print["Failed to initialize cnbase: ", Length[res]," solutions found."];Return[];
+		Print["Failed to initialize cnbase: ", Length[res]," solutions found."];
+		Throw[$Failed];
 	];
+
 	res=First[res];
 	(*Print["res=", res];*)
 
@@ -95,8 +97,12 @@ InverseCn[clist_,n_]:=Module[{ret,eqs,i,j,root,freeVarN},
 	eqs=CnTimes[clist, ret,n];
 	eqs[[1]]-= 1;
 	(*Print["eqs=",MatrixForm[eqs]];*)
-	root=Solve[eqs==0, ret];
-	Assert[Length[root]==1];
+	Quiet[root=Solve[eqs==0, ret], {Solve::svars}];
+	If[Length[root] != 1,
+		Print["InverseCn: Failed to solve equations, root=", root];
+		Throw[$Failed];
+	];
+
 	(*Print["root=",root,", inverseCn ",clist, "=",ret/.First[root]];*)
 	Return[Simplify[ret/.First[root]]];
 ];

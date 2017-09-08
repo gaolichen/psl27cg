@@ -197,7 +197,7 @@ SolveConjugateConstraints[cgc_,gamma_]:=Module[
 	cg1parts = ComplexExpand[Join[Re[cg1],Im[cg1]]];
 	cg2parts = ComplexExpand[Join[Re[cg2],Im[cg2]]];
 
-	root=Solve[cg1parts==cg2parts, Join[reVarList, imVarList]];
+	Quiet[root=Solve[cg1parts==cg2parts, Join[reVarList, imVarList]],{Solve::svars}];
 	If[Length[root]==0, 
 		Print["SolveConjugateConstraints: No solution found."];
 		Throw[$Failed];
@@ -205,6 +205,7 @@ SolveConjugateConstraints[cgc_,gamma_]:=Module[
 
 	root = First[root];
 	cg1=Simplify[cg1/.root];
+	(*Print["root=",root, ", cg1=",cg1];*)
 	
 	allzero=Join[Table[reVarList[[i]]->0,{i,1,Length[reVarList]}],
 		Table[imVarList[[i]]->0,{i,1,Length[reVarList]}]];
@@ -239,6 +240,7 @@ NormalizeCG[r1_,r2_,r3_,cgList_,embed_]:=Module[{vv,ncg,eigen,tmp,Dmhalf,ret,lg,
 		ncg=SolveConjugateConstraints[cgList, gamma]
 	];
 
+	(*Print["ncg=",ncg];*)
 	ret=GramSchmid2[ncg];
 	Return[NormalizeVectors[ret,Sqrt[Length[embed[GetRepName[r3]]]]]];
 
