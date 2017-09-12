@@ -6288,6 +6288,271 @@ Kronecker products of
 \end_layout
 
 \begin_layout Section
+Algorithms
+\end_layout
+
+\begin_layout Subsection
+Cyclotomic fields
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $n$
+\end_inset
+
+th cyclotomic field contains all 
+\begin_inset Formula $n$
+\end_inset
+
+th roots of unity and the numbers which can be expressed as a polynomials
+ of 
+\begin_inset Formula $n$
+\end_inset
+
+th roots of unity with rational coefficients.
+ The general form of an element in the field is 
+\begin_inset Formula 
+\begin{equation}
+f=\sum_{k=0}^{n-1}q_{k}\exp\left(2k\pi i/n\right),\quad q_{k}\in\mathbb{Q}.\label{eq:CN_def}
+\end{equation}
+
+\end_inset
+
+ Descrete group characters are usually expressed in terms of elements of
+ such fields.
+ In the calculation of this project, we need to perform calculation of these
+ fields.
+ Here we introduce the algorithm we used in the calculation of these fields.
+ we note that the algorithm not only apply to cyclotomic fields but also
+ to the numbers which can be written in the same form as eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CN_def"
+
+\end_inset
+
+ with irrational coefficients 
+\begin_inset Formula $q_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Cyclotomic fields are closed in the arithmetic of addition, multiplication,
+ and division.
+ The addition and multiplication operators are trivially the operators of
+ polynomials and we only need to dicuss the division.
+ If we can find the reciprocal of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CN_def"
+
+\end_inset
+
+, then the problem is solved as the remaining step is simply a multiplication.
+\end_layout
+
+\begin_layout Standard
+Let us now consider how to find reciprocal of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CN_def"
+
+\end_inset
+
+.
+ For convenience, we now write 
+\begin_inset Formula $\exp\left(2\pi i/n\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $r_{n}$
+\end_inset
+
+.
+ Suppose the reciprocal of 
+\begin_inset Formula $f$
+\end_inset
+
+ is 
+\begin_inset Formula $g=\sum p_{k}r_{n}^{k}$
+\end_inset
+
+, then expanding 
+\begin_inset Formula $fg$
+\end_inset
+
+ and collecting 
+\begin_inset Formula $r_{n}^{k}$
+\end_inset
+
+ terms, we have 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subequations}
+\backslash
+label{eq:CN_equations}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+0 & =\sum_{i}q_{\left[k\right]-i}p_{i},\quad k>0,\,\left[k\right]=k,\,n+k,\\
+1 & =q_{0}p_{0}+\sum_{i}q_{n-i}p_{i}.
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
+
+\end_inset
+
+ We therefore setup 
+\begin_inset Formula $n$
+\end_inset
+
+ linear equations for 
+\begin_inset Formula $n$
+\end_inset
+
+ unknown variables 
+\begin_inset Formula $p_{k}$
+\end_inset
+
+.
+ Naively, we should be able to solve the equations.
+ However, the equations are usually not independent and sometimes there
+ is no solution.
+ The root cause is that the expression 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CN_def"
+
+\end_inset
+
+ is not unique.
+ 
+\end_layout
+
+\begin_layout Standard
+One of the ambiguities comes from that 
+\begin_inset Formula $r_{n}^{k}$
+\end_inset
+
+ are not independent, e.g,
+\begin_inset Formula 
+\[
+\sum_{k=0}^{n-1}r_{n}^{k}=0.
+\]
+
+\end_inset
+
+We therefore can always eliminate 
+\begin_inset Formula $r_{n}^{n-1}$
+\end_inset
+
+ from the expression 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CN_def"
+
+\end_inset
+
+.
+ Is it the only dependent relation? The answer is no.
+ If 
+\begin_inset Formula $n$
+\end_inset
+
+ has a factor 
+\begin_inset Formula $1<p<n$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\sum_{k=0}^{n/p}r_{n}^{kp}=0
+\]
+
+\end_inset
+
+is also a dependent relation.
+ If 
+\begin_inset Formula $n$
+\end_inset
+
+ has 
+\begin_inset Formula $s$
+\end_inset
+
+ positive factors (not including 
+\begin_inset Formula $n$
+\end_inset
+
+ itself), we can setup 
+\begin_inset Formula $s$
+\end_inset
+
+ equations and solve for 
+\begin_inset Formula $r_{n}^{k_{1}},\cdots,r_{n}^{k_{s}}$
+\end_inset
+
+ in terms of the remaining 
+\begin_inset Formula $n-s$
+\end_inset
+
+ nubmer of 
+\begin_inset Formula $n$
+\end_inset
+
+th root of unity.
+ By doing this, there are at most 
+\begin_inset Formula $n-s$
+\end_inset
+
+ nonvanishing terms in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CN_def"
+
+\end_inset
+
+ and the number of equations in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CN_equations"
+
+\end_inset
+
+ is 
+\begin_inset Formula $n-s$
+\end_inset
+
+.
+ It turns out that, after doing this, the equations are always solvable
+ and has only one solution.
+ 
+\end_layout
+
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:CGC_S4"
