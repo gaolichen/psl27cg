@@ -3,6 +3,16 @@
 <<"/users/gaolichen/gitroot/psl27cg/mpackage/cgframework.m";
 <<"/users/gaolichen/gitroot/psl27cg/mpackage/numerical.m";
 
+(* Returns a vector v such that Conjugate[v].v1 = Conjugate[v].v2 = 0. *)
+ClearAll[CrossProduct];
+Options[CrossProduct]={Phases->{}};
+CrossProduct[v1_,v2_,opts:OptionsPattern[]]:=Module[{det,x,y,z,phases,rep},
+	phases=OptionValue[Phases];
+	rep = Table[phases[[i]]->1/phases[[i]],{i,Length[phases]}];
+	det=Det[{{x,y,z},ComplexExpand[Conjugate[v1]],ComplexExpand[Conjugate[v2]]}]/.rep;
+	Return[Simplify[{Coefficient[det,x],Coefficient[det,y],Coefficient[det,z]}]];
+]
+
 ClearAll[CountTerms]
 CountTerms[expr_,var_]:=Module[{ret=0,e,i},
 	e=Exponent[expr,var];
@@ -83,21 +93,21 @@ VerifyPsl27Generator[A_,B_]:=Module[{AB,n,zero,ABc},
 
 	AB=N[A.B];
 	ABc=N[A.B.A.B.B];
-	If[SameQ[Chop[N[A.A]-IdentityMatrix[n]],zero]==False,
+	If[SameQ[Chop[Expand[N[A.A]]-IdentityMatrix[n]],zero]==False,
 		Return[False]
 	];
 
-	If[SameQ[Chop[N[MatrixPower[B,3]]-IdentityMatrix[n]],zero]==False,
+	If[SameQ[Chop[Expand[N[MatrixPower[B,3]]]-IdentityMatrix[n]],zero]==False,
 		Print["VerifyPsl27Generator failed: B^3 != I."];
 		Return[False]
 	];
 
-	If[SameQ[Chop[N[MatrixPower[AB,7]]-IdentityMatrix[n]],zero]==False,
+	If[SameQ[Chop[Expand[N[MatrixPower[AB,7]]]-IdentityMatrix[n]],zero]==False,
 		Print["VerifyPsl27Generator failed: (AB)^7 != I."];
-	Return[False]
+		Return[False]
 	];
 
-	If[SameQ[Chop[N[MatrixPower[ABc,4]]-IdentityMatrix[n]],zero]==False,
+	If[SameQ[Chop[Expand[N[MatrixPower[ABc,4]]]-IdentityMatrix[n]],zero]==False,
 		Print["VerifyPsl27Generator failed: [A,B]^4 != I."];
 		Return[False]
 	];
@@ -120,6 +130,106 @@ RightDiag[Y_]:=Module[{mat,res,ret},
 
 	Return[ret];
 ];
+
+ClearAll[ExtractOverallPhase];
+ExtractOverallPhase/:ExtractOverallPhase[expr_, phases_]:=Module[
+	{i, e, ret = 1, expr2, rep1, rep2, diff},
+	If[expr === 0, Return[{0, ret}]];
+
+	For[i=1,i <= Length[phases],i++,
+		e = Exponent[expr, phases[[i]]];
+		ret *= phases[[i]]^e;
+	];
+
+	(* verify it is reall an overall phase *)
+	rep1 = Table[phases[[i]]->1, {i,Length[phases]}];
+	rep2 = Table[phases[[i]]->2, {i,Length[phases]}];
+	diff = Simplify[(expr/.rep1) * (ret/.rep2) - (expr/.rep2)];
+	If[SameQ[diff, 0] == False, 
+		Print["ret=", ret, ", diff=", diff];
+		Print["ExtractOverallPhase: not overall phase, expr = ", expr];
+		Throw[$Failed];
+	];
+
+	Return[{expr/.rep1, ret}];
+]
+
+ExtractOverallPhase/:ExtractOverallPhase[list_,phases_]:=Module[{i, ret={}, ph={}, res},
+	For[i=1,i <= Length[list],i++,
+		res = ExtractOverallPhase[list[[i]], phases];
+		AppendTo[ret, res[[1]]];
+		AppendTo[ph, res[[2]]];
+	];
+	
+	Return[{ret, ph}];
+]/;Head[list]==List
+
+ClearAll[CalcGenerator];
+CalcGenerator[dotFun_, phases_, rep1_, rep2_]:=Module[{n1, n2, i, v1, v2, res1, res2, gen, ph, ret},
+	n1 = Length[rep1];
+	n2 = Length[rep2];
+	v1 = Table[Unique["x"], {i,n1}];
+	v2 = Table[Unique["y"],{i,n2}];
+	res1 = dotFun[v1,v2];
+	res2 = dotFun[rep1.v1, rep2.v2];
+	gen = DecomposePolyMat[res2, res1, Vars->Join[v1,v2], Phases->phases];
+	(*Print["gen=",gen];*)
+	{gen, ph} = ExtractOverallPhase[gen, phases];
+	(*Print["gen=", gen, ", ph=", ph];*)
+	ret = SimplifyCN[gen, et, 7];
+	ret = ToEt6[ret, et];
+	ret = Table[ret[[i,j]]*ph[[i,j]], {i, 1, Length[ret]}, {j, 1, Length[ret[[1]]]}];
+	Return[ret];
+];
+
+ClearAll[ChargeDiff];
+Options[ChargeDiff]={Numeric->False};
+ChargeDiff[gen_, chargeOp_, phases_, opts:OptionsPattern[]]:=Module[{op2, gen1, gen2, rep, diff, ndiff},
+	op2 = ConjugateTranspose[chargeOp];
+	rep = Table[phases[[i]]->1/phases[[i]],{i, Length[phases]}];
+	gen1 = chargeOp.gen.op2;
+	gen2 = ToConjugateCN[gen, et, 7]/.rep;
+	
+	diff = gen2 - gen1;
+	ndiff = Chop[Expand[N[diff/.et2Num]]];
+	(*Print["ndiff=",ndiff];*)
+	If[ndiff == ConstantArray[0, {Length[gen], Length[gen]}], Return[ndiff]];
+	If[OptionValue[Numeric],
+		Return[ndiff],
+		Return[diff]
+	];
+];
+
+SolveDiff[diff_, phases_, pos_]:=Module[{i,eqs={},root, ret, ph, ndiff},
+	eqs = Table[diff[[pos[[i,1]],pos[[i,2]]]],{i,Length[pos]}];
+	Quiet[root=Solve[eqs==0 && phases!=0, phases], {Solve::svars}];
+
+	If[Length[root]!=1, 
+		Print["SolveDiff: solve failed, root=", root];
+		Throw[$Failed]
+	];
+
+	root = First[root];
+	ret = phases/.root;
+	{ret,ph}=ExtractOverallPhase[ret, phases];
+	ret = SimplifyCN[ret, et, 7];
+	ret = Table[phases[[i]] -> ret[[i]]*ph[[i]], {i,Length[ret]}];
+
+	(* verify diff is zero with the solution*)
+	ndiff=Chop[Expand[N[diff/.ret/.et2Num]]];
+	If[SameQ[ndiff, ConstantArray[0,{Length[diff],Length[diff]}]]==False,
+		Print["ndiff=", ndiff]
+	];
+
+	Return[ret]
+];
+
+SimplifyCnWithPhase[expr_,phases_]:=Module[{n,ph},
+	{n,ph}=ExtractOverallPhase[expr,phases];
+	n=SimplifyCN[n, et, 7];
+	Return[n*ph]
+];
+
 
 
 TestCG[r1_,r2_,r3_,embed_,op_,cgList_]:=Module[{i,rr3,ret=True},
