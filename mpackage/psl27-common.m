@@ -136,8 +136,10 @@ ExtractOverallPhase/:ExtractOverallPhase[expr_, phases_]:=Module[
 	{i, e, ret = 1, expr2, rep1, rep2, diff},
 	If[expr === 0, Return[{0, ret}]];
 
+	expr2 = Factor[expr];
+
 	For[i=1,i <= Length[phases],i++,
-		e = Exponent[expr, phases[[i]]];
+		e = Exponent[expr2, phases[[i]]];
 		ret *= phases[[i]]^e;
 	];
 
