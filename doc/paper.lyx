@@ -246,7 +246,7 @@ Ambiguity of Clebsch-Gordan coefficients
 \begin_layout Standard
 The tensor product of two irreducible representations (irrep) of a group
  is in general reducible.
- The information of how the tensor product being reduced into irreps are
+ The information of how the tensor product being reduced into irreps is
  encoded in Clebsch-Gordan coefficients.
  Let 
 \begin_inset Formula $G$
@@ -286,12 +286,12 @@ The tensor product of two irreducible representations (irrep) of a group
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- is contained in the list of irreps decomposition of 
+ is contained in the decomposition of 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}$
 \end_inset
 
 .
- In Hilbert spaces, given 
+ Given 
 \begin_inset Formula $X$
 \end_inset
 
@@ -307,7 +307,7 @@ The tensor product of two irreducible representations (irrep) of a group
 \begin_inset Formula $C_{k,ij}$
 \end_inset
 
- so that 
+ such that 
 \begin_inset Formula 
 \begin{equation}
 \left(\rho_{Z}\left(g\right)Z\right)_{k}=\sum_{i,j}C_{k,ij}\left(\rho_{X}\left(g\right)X\otimes\rho_{Y}\left(g\right)Y\right)_{ij},\quad\forall g\in G\label{eq:CGC_Def}
@@ -344,7 +344,7 @@ The tensor product of two irreducible representations (irrep) of a group
 \begin_inset Formula $C_{k,ij}$
 \end_inset
 
- are Clebsch-Gordan coefficients.
+ are Clebsch-Gordan coefficients (CGCs).
  If 
 \begin_inset Formula $Z$
 \end_inset
@@ -361,7 +361,11 @@ reference "eq:CGC_Def"
 
 \end_inset
 
-, then 
+, then for any nonzero c-number 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
 \begin_inset Formula $\alpha Z$
 \end_inset
 
@@ -369,12 +373,9 @@ reference "eq:CGC_Def"
 \begin_inset Formula $\alpha C$
 \end_inset
 
-, 
-\begin_inset Formula $\alpha\neq0$
-\end_inset
-
-, also satisfy the equation.
- So it is then conventional to impose a normalization on CGCs 
+ also satisfy the equation.
+ So it is then conventional to impose normalization constraints on CGCs
+ 
 \begin_inset Formula 
 \begin{equation}
 \sum_{ij}C_{k,ij}^{*}C_{l,ij}=\delta_{kl}.\label{eq:CGC_Orthnormal}
@@ -386,7 +387,7 @@ reference "eq:CGC_Def"
 \end_layout
 
 \begin_layout Standard
-Nevertheless, there are still ambiguities of CGCs.
+There are, however, still ambiguities of CGCs.
  Firstly, they are basis dependent.
  Under basis transformations
 \begin_inset Formula 
@@ -396,19 +397,7 @@ R\to R^{\prime}=U_{R}R,\quad\rho_{R}\left(g\right)\to U_{R}\rho_{R}\left(g\right
 
 \end_inset
 
-one only need to transform the matrices 
-\begin_inset Formula $C_{k}$
-\end_inset
-
- as 
-\begin_inset Formula 
-\[
-C_{k}\to C_{k}^{\prime}=U_{Z}C_{k}\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right)
-\]
-
-\end_inset
-
- to keep eqs.
+eqs.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -423,7 +412,18 @@ reference "eq:CGC_Orthnormal"
 
 \end_inset
 
- invariant.
+ are invariant if the matrices 
+\begin_inset Formula $C_{k}$
+\end_inset
+
+ simultaneously transform as 
+\begin_inset Formula 
+\[
+C_{k}\to C_{k}^{\prime}=U_{Z}C_{k}\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right).
+\]
+
+\end_inset
+
  Secondly, even if the basis are fixed, 
 \begin_inset Formula $C_{k,ij}$
 \end_inset
@@ -453,24 +453,12 @@ reference "eq:CGC_Orthnormal"
 \end_inset
 
 .
- Thirdly, if there are 
-\begin_inset Formula $n>1$
-\end_inset
-
- copies of 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- contained in 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}$
-\end_inset
-
- decomposition, i.e.
+ Thirdly, if there are nontrivial multiplicity, i.e.
  
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\supset n\rep{Z}$
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(n\right)}$
 \end_inset
 
-, then any linear combination of CGCs 
+, then any linear combination of the CGCs 
 \begin_inset Formula $a_{1}C^{\left(1\right)}+\cdots+a_{n}C^{\left(n\right)}$
 \end_inset
 
@@ -478,34 +466,19 @@ reference "eq:CGC_Orthnormal"
 \begin_inset Formula $\sum a_{i}^{*}a_{i}=1$
 \end_inset
 
- also satisfies eqs.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGC_Def"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGC_Orthnormal"
-
-\end_inset
-
-.
+ is also satisfy above constraints.
  
 \end_layout
 
 \begin_layout Standard
-How can we get rid of the ambiguity of CGCs? One needs to choose a basis
- of irreps.
+Can we get rid of these ambiguities of CGCs? Or can we define some kind
+ of convention to reduce the ambiguities of CGCs? One needs to choose a
+ basis of irreps.
  A natural choice of the basis is that the elements of a subgroup are diagonal.
  It turns out that, with suitable conditions, CGCs are basis independent
  under such a choice.
  Also, we will be able to put nontrivial constraints regarding the second
  and third ambiguities.
- 
 \end_layout
 
 \begin_layout Standard
@@ -555,6 +528,11 @@ CGCs in subgroup basis
 \begin_layout Standard
 In this section, we will discuss how to define CGCs in a basis independent
  way.
+ The CGCs of a large group will be defined in terms of subgroup irreps.
+ In such a definition, the knowledge of basis was encoded in projection
+ matrices, which projects irreps of large group into irreps of the subgroup.
+ In addition, we restrict overall phases of CGCs by imposing constraints
+ regarding irreps that are complex conjugate to each other.
  
 \end_layout
 
@@ -567,8 +545,7 @@ Let
 \begin_inset Formula $G$
 \end_inset
 
-.
- The irrep 
+ and the irrep 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -1401,7 +1378,7 @@ reference "eq:CGSub_ckij"
 
 \end_inset
 
- give rise to different constraint in different cases.
+ give rise to different restriction on overall phases in different cases.
  
 \end_layout
 
@@ -1480,7 +1457,7 @@ Procedures to calculate CGCs
 \end_layout
 
 \begin_layout Standard
-Calculating CGCs of a large discrete group is usually nontrivial.
+Calculation CGCs of a large discrete group is usually nontrivial.
  As far as we know, the most commonly used method is the Mathematica package
  Discrete, which implements the algorithm introduced by ref.
  
@@ -1503,7 +1480,7 @@ key "van1978clebsch"
 \end_layout
 
 \begin_layout Standard
-The procedures are very straightforward and simply based on the definition
+Our procedures are very straightforward and simply based on the definition
  of CGCs, i.e.
  eq.
  
@@ -1516,11 +1493,13 @@ reference "eq:CGSub_Def2"
 .
  The most challenging work is the technique for handling numerical and analytic
  calculation.
- 
+ Specifically, the calculation heavily depends on the calculation technique
+ of Cyclotomic fields.
+ The detail
 \end_layout
 
 \begin_layout Itemize
-Identify all the matrix realizations of irreps of 
+Identify all the matrix realizations of irreps of the subgroup 
 \begin_inset Formula $H$
 \end_inset
 
@@ -1528,14 +1507,16 @@ Identify all the matrix realizations of irreps of
 \begin_inset Formula $\Gamma$
 \end_inset
 
-, and then calculate all the CGCs of the group.
- We assume 
+, and then calculate all the CGCs of 
 \begin_inset Formula $H$
 \end_inset
 
- is a small group and this step can be done by usual method, like the Discrete
- package.
- 
+.
+ We assume that 
+\begin_inset Formula $H$
+\end_inset
+
+ is a small group and its CGCs are known or easy to find.
 \end_layout
 
 \begin_layout Itemize
@@ -1543,7 +1524,7 @@ Find matrix realizations of all the irreps of
 \begin_inset Formula $G$
 \end_inset
 
- in the basis that the projection matrices are in the form as 
+ in the basis that the projection matrices are in the trivial form as 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CG_PXj"
@@ -1551,11 +1532,24 @@ reference "eq:CG_PXj"
 \end_inset
 
 .
- It is usually easy to find a arbitrary matrix realization of the discrete
- group from GAP.
- Then one need to find a similarity transformation to transform the matrices
- to the basis of the subgroup.
- This work is usually requires some nontrivial calculation.
+ We assume that a matrix realization of 
+\begin_inset Formula $G$
+\end_inset
+
+ in an arbitrary basis is known
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+One can also find a matrix realization of a descrete group using the GAP
+ platform.
+\end_layout
+
+\end_inset
+
+.
+ Then one only needs to find a similarity transformation that transforms
+ the matrices to the desired basis.
 \end_layout
 
 \begin_layout Itemize
@@ -1629,9 +1623,9 @@ To be clear, the
 \end_inset
 
 .
- The equations are linear but with complicated algebraic numbers.
- Some numerical techniques are involved in solving the equations and will
- be discussed later.
+ The equations are linear but usually contain complicated algebraic numbers
+ coefficients.
+ A small trick is used to solve the equations and will be discussed later.
 \end_layout
 
 \begin_layout Itemize
@@ -1788,8 +1782,7 @@ We first need to find the matrix realization of
 \end_inset
 
  are diagonal.
- The procedures are similar to what we will talk in this section but more
- trivial.
+ The procedures are similar to what we will talk in this section but trivial.
  So we simply give the results in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6292,6 +6285,12 @@ Algorithms
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Cyclotomic-fields"
+
+\end_inset
+
 Cyclotomic fields
 \end_layout
 
