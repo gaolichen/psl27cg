@@ -1844,13 +1844,7 @@ There are two ways to solve the issue.
 .
  We developed a algorithm to perform arithmetic operation of cyclotomic
  fields.
- We can therefore use Gaussian Eliminate algorithm to solve for 
-\begin_inset Formula $c_{k,ij}$
-\end_inset
-
- and meanwhile use the cyclotomic field techniqe to simplify the results.
- The algorithm of arithmetic operation of cyclotomic fields is discussed
- in Appendix 
+ The details are discussed in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Cyclotomic-fields"
@@ -1858,6 +1852,14 @@ reference "subsec:Cyclotomic-fields"
 \end_inset
 
 .
+ We can therefore apply Gaussian elimination algorithm with arithmetic operation
+ of cyclotomic fields to solve the equations.
+ To be efficient, the Gaussian elimination procedure should only apply to
+ a set of independent equations.
+ To find the set of independent equations, we can convert the coefficients
+ of equations to float number and apply Gaussian elimination algorithm with
+ an appropriate error tolerance.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1881,9 +1883,8 @@ The document of the function can be found on http://reference.wolfram.com/langua
  are broken when the coefficients are converted to float numbers.
  Hence, it is crucial to pick out the maximal set of independent equations
  before solving the equations.
- This can be done by the Gaussian elimination algorithm with an appropriate
- error tolerance.
- 
+ Again, this can be done by the Gaussian elimination algorithm with an appropria
+te error tolerance.
 \end_layout
 
 \begin_layout Standard
@@ -1895,16 +1896,46 @@ Step IV
 \end_layout
 
 \begin_layout Standard
-The last step is to apply the charge conjugate and orthonormalization codition
- constraints on the CGCs.
- The charge conjugate is necessary for the case I and II of section 
+If The last step is to apply the charge conjugate and orthonormalization
+ condition constraints on the CGCs.
+ As discussed in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:CGCs-in-subgroup"
 
 \end_inset
 
-.
+, the conjugate conjugate constraints require that CGCs of 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{\bar{X}}\otimes\rep{\bar{Y}}\to\rep{\bar{Z}}$
+\end_inset
+
+ to be complex conjugate of each other.
+ When all of 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ are real irreps or only 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ is real and 
+\begin_inset Formula $\rep{X}=\rep{Y}$
+\end_inset
+
+, it leads to nontrivial restrictions on overall phases of CGCs.
+ The constraints of these two cases can be solved as follows.
  Let 
 \begin_inset Formula $\left\{ c_{P}\right\} $
 \end_inset
@@ -1964,20 +1995,16 @@ reference "eq:Proc_aPcP"
 \end_inset
 
 .
- The 
-\begin_inset Formula $m_{Z}$
-\end_inset
-
- free parameters of step III have 
+ These equations reduce the number of real degrees of freedom (DOF) of solutions
+ from 
 \begin_inset Formula $2m_{Z}$
 \end_inset
 
- real degrees of freedom (DOF).
- The charge conjugate constraints reduce the DOF to 
+ to 
 \begin_inset Formula $m_{Z}$
 \end_inset
 
- real DOFs.
+.
 \end_layout
 
 \begin_layout Standard
