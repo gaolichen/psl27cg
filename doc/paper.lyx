@@ -12,6 +12,10 @@
 \newcommand{\subga}{S_4}
 \newcommand{\subgb}{\mathcal{T}_7}
 
+% matrix realization
+\newcommand{\mr}[1]{\rho_{\rep{#1}}}
+
+% contractions
 \newcommand{\covp}[3]{\left[\rep{#1}\otimes\rep{#2}\right]^{}_{\rep{#3}}}
 \newcommand{\cova}[3]{\left(\rep{#1}\otimes\rep{#2}\right)^{}_{\rep{#3}}}
 \newcommand{\covs}[3]{\big\{\rep{#1}\otimes\rep{#2}\big\}^{}_{\rep{#3}}}
@@ -286,7 +290,7 @@ The tensor product of two irreducible representations (irrep) of a group
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- is contained in the decomposition of 
+ is contained in the decomposition of tensor product 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}$
 \end_inset
 
@@ -310,13 +314,13 @@ The tensor product of two irreducible representations (irrep) of a group
  such that 
 \begin_inset Formula 
 \begin{equation}
-\left(\rho_{Z}\left(g\right)Z\right)_{k}=\sum_{i,j}C_{k,ij}\left(\rho_{X}\left(g\right)X\otimes\rho_{Y}\left(g\right)Y\right)_{ij},\quad\forall g\in G\label{eq:CGC_Def}
+\left(\mr{Z}\left(g\right)Z\right)_{k}=\sum_{i,j}C_{k,ij}\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{ij},\quad\forall g\in G\label{eq:CGC_Def}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $\rho_{Z}$
+\begin_inset Formula $\mr{Z}$
 \end_inset
 
  is a matrix realization of irrep 
@@ -324,7 +328,7 @@ The tensor product of two irreducible representations (irrep) of a group
 \end_inset
 
 , and the square matrix 
-\begin_inset Formula $\left(\rho_{X}\left(g\right)X\otimes\rho_{Y}\left(g\right)Y\right)$
+\begin_inset Formula $\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)$
 \end_inset
 
  of dimension 
@@ -332,11 +336,11 @@ The tensor product of two irreducible representations (irrep) of a group
 \end_inset
 
  is the tensor product of the two column vectors 
-\begin_inset Formula $\rho_{X}\left(g\right)X$
+\begin_inset Formula $\mr{X}\left(g\right)X$
 \end_inset
 
  and 
-\begin_inset Formula $\rho_{Y}\left(g\right)Y$
+\begin_inset Formula $\mr{Y}\left(g\right)Y$
 \end_inset
 
 .
@@ -392,7 +396,7 @@ There are, however, other ambiguities.
  Under basis transformations
 \begin_inset Formula 
 \[
-R\to R^{\prime}=U_{R}R,\quad\rho_{R}\left(g\right)\to U_{R}\rho_{R}\left(g\right)U_{R}^{-1},\quad R=X,Y,Z
+R\to R^{\prime}=U_{R}R,\quad\mr{R}\left(g\right)\to U_{R}\mr{R}\left(g\right)U_{R}^{-1},\quad R=X,Y,Z
 \]
 
 \end_inset
@@ -468,8 +472,9 @@ reference "eq:CGC_Orthnormal"
 
 \begin_layout Standard
 Can we get rid of these ambiguities of CGCs? Or can we define some kind
- of convention to reduce the ambiguities of CGCs? One needs to choose a
- basis of irreps.
+ of convention to reduce the ambiguities of CGCs? 
+\backslash
+One needs to choose a basis of irreps.
  A natural choice of the basis is that the elements of a subgroup are diagonal.
  It turns out that, with suitable conditions, CGCs are basis independent
  under such a choice.
@@ -626,11 +631,11 @@ reference "eq:CGSub_Embed"
 \end_inset
 
 .
- For 
+ For the contraction 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
-, we can express the CGCs as 
+, we can write 
 \begin_inset Formula 
 \begin{equation}
 P_{Z\to k}Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}X\right)\otimes\left(P_{Y\to j}Y\right)\right\} _{z_{k}}.\label{eq:CGSub_Def}
@@ -662,13 +667,13 @@ P_{Z\to k}Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}X\right)\otimes\left(P_{Y\
  should satisfy a stronger constraint 
 \begin_inset Formula 
 \begin{equation}
-P_{Z\to k}\rho_{Z}\left(g\right)Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}\rho_{X}\left(g\right)X\right)\otimes\left(P_{Y\to j}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{k}},\quad\forall g\in G,\label{eq:CGSub_Def2}
+P_{Z\to k}\mr{Z}\left(g\right)Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to j}\mr{Y}\left(g\right)Y\right)\right\} _{z_{k}},\quad\forall g\in G,\label{eq:CGSub_Def2}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $\rho_{X}\left(g\right)$
+\begin_inset Formula $\mr{X}\left(g\right)$
 \end_inset
 
  are matrix realization of 
@@ -1006,12 +1011,12 @@ Under the first type basis changes,
 \end_inset
 
 , and 
-\begin_inset Formula $\rho_{X}^{\prime}\left(g\right)=U_{X}\rho_{X}\left(g\right)U_{X}^{-1}$
+\begin_inset Formula $\rho_{X}^{\prime}\left(g\right)=U_{X}\mr{X}\left(g\right)U_{X}^{-1}$
 \end_inset
 
 .
  It follows that 
-\begin_inset Formula $\left(P_{X\to j}\rho_{X}\left(g\right)X\right)$
+\begin_inset Formula $\left(P_{X\to j}\mr{X}\left(g\right)X\right)$
 \end_inset
 
  are invariant, and hence, eq.
@@ -1115,13 +1120,13 @@ where we have used the primed brackets to take care of the CG coefficients
 \end_inset
 
  Under such a transformation, 
-\begin_inset Formula $P_{X\to i}\rho_{X}\left(g\right)X$
+\begin_inset Formula $P_{X\to i}\mr{X}\left(g\right)X$
 \end_inset
 
  changes as 
 \begin_inset Formula 
 \begin{equation}
-P_{X\to i}\rho_{X}\left(g\right)X\to P_{X\to i}\left(\bigoplus_{a\,\mathrm{in}\,\rep{X}}U_{a}\right)\rho_{X}\left(g\right)X.\label{eq:CG_Tran_II_X2}
+P_{X\to i}\mr{X}\left(g\right)X\to P_{X\to i}\left(\bigoplus_{a\,\mathrm{in}\,\rep{X}}U_{a}\right)\mr{X}\left(g\right)X.\label{eq:CG_Tran_II_X2}
 \end{equation}
 
 \end_inset
@@ -1154,15 +1159,15 @@ reference "eq:CGSub_Def2"
 \end_inset
 
  becomes 
-\begin_inset Formula $U_{k}P_{Z\to k}\rho_{Z}\left(g\right)Z$
+\begin_inset Formula $U_{k}P_{Z\to k}\mr{Z}\left(g\right)Z$
 \end_inset
 
  and the rhs becomes 
 \begin_inset Formula 
 \begin{align*}
-\mathrm{rhs} & =\sum_{i,j}c_{k,ij}\left\{ \left(U_{i}P_{X\to i}\rho_{X}\left(g\right)X\right)\otimes\left(U_{j}P_{Y\to j}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{k}}^{\prime}\\
- & =U_{k}\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}\rho_{X}\left(g\right)X\right)\otimes\left(P_{Y\to j}\rho_{Y}\left(g\right)Y\right)\right\} _{z_{k}}\\
- & =U_{k}P_{Z\to k}\rho_{Z}\left(g\right)Z=\mathrm{lhs},
+\mathrm{rhs} & =\sum_{i,j}c_{k,ij}\left\{ \left(U_{i}P_{X\to i}\mr{X}\left(g\right)X\right)\otimes\left(U_{j}P_{Y\to j}\mr{Y}\left(g\right)Y\right)\right\} _{z_{k}}^{\prime}\\
+ & =U_{k}\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to j}\mr{Y}\left(g\right)Y\right)\right\} _{z_{k}}\\
+ & =U_{k}P_{Z\to k}\mr{Z}\left(g\right)Z=\mathrm{lhs},
 \end{align*}
 
 \end_inset
@@ -2079,7 +2084,7 @@ In the following sections, we will demonstrate these procedures with the
 \end_inset
 
 .
- We first calculate the matrix realization of the group 
+ We first calculate the matrix realizations of the group 
 \begin_inset Formula $\group$
 \end_inset
 
