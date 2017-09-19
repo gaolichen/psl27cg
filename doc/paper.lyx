@@ -698,7 +698,7 @@ reference "eq:CGSub_Def"
  The orthonormalization constraints now become
 \begin_inset Formula 
 \begin{equation}
-c_{k}^{\dagger}c_{l}=\delta_{kl}\label{eq:CGSub_orthnormal}
+\sum_{ij}c_{k,ij}^{*}c_{l,ij}=\delta_{kl}\label{eq:CGSub_orthnormal}
 \end{equation}
 
 \end_inset
@@ -715,8 +715,8 @@ reference "eq:CGSub_orthnormal"
 
 \end_inset
 
-, we shall impose another constraint on CGCs.
- To introduce the constraint, we need to first discuss about real and complex
+, we shall impose other constraints on CGCs.
+ To introduce the constraints, we need to first discuss about real and complex
  representations.
  A real (or pseudo-real) representation is a representation whose complex
  conjugate is equivalent to itself.
@@ -759,7 +759,11 @@ When the representation is complex, we can always choose
 
  is simplify the identity matrix.
  When the representation is real, then 
-\begin_inset Formula $\bar{\rho}\left(g\right)=\rho\left(g\right)$
+\begin_inset Formula $\bar{\rho}$
+\end_inset
+
+ should be the same as 
+\begin_inset Formula $\rho$
 \end_inset
 
  and 
@@ -767,7 +771,8 @@ When the representation is complex, we can always choose
 \end_inset
 
  is in general a nontrivial unitary matrix depending on the basis of the
- representation; in this case, 
+ representation.
+ Particularly, for real representation, 
 \begin_inset Formula $\Gamma\Gamma^{*}=\pm I$
 \end_inset
 
@@ -780,11 +785,7 @@ When the representation is complex, we can always choose
 \end_inset
 
  is for pseudo-real representation.
- For convenience, we call 
-\begin_inset Formula $\Gamma$
-\end_inset
-
- in eq.
+ In the Hilbert space, eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -792,8 +793,12 @@ reference "eq:CGSub_Gamma"
 
 \end_inset
 
- a charge operator.
- It is then natural to impose the following constraints
+ implies 
+\begin_inset Formula $\Gamma_{X}X^{*}=\bar{X}$
+\end_inset
+
+.
+ It is natural to impose a similar constraints on contractions
 \begin_inset ERT
 status open
 
@@ -842,14 +847,35 @@ where the matrix
 \end_inset
 
 .
- Constraints 
+ In the terminology of physics, the matrices 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ transform a particle to its antiparticle with opposite charge and parity.
+ For convenience, in the remainder of the paper, we shall refer 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_GammaCon"
+reference "eq:CGSub_GammaCon1"
 
 \end_inset
 
- imply that the contraction 
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon2"
+
+\end_inset
+
+ as charge parity (CP) constraints and 
+\begin_inset Formula $\Gamma_{Z}$
+\end_inset
+
+ as CP transformation for irrep 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+.
+ The CP constraints imply that the contraction 
 \begin_inset Formula $\covlg{X}{Y}{Z}$
 \end_inset
 
@@ -865,13 +891,14 @@ reference "eq:CG_GammaCon"
 \begin_inset Formula $x_{k}$
 \end_inset
 
- regarding complex conjugate transformation.
- We also require that 
+ under complex conjugate operation.
+ It is then natural to impose CP constraints on irreps of subgroup contained
+ in irreps of large group, meaning that 
 \begin_inset Formula $\Gamma_{k}$
 \end_inset
 
  should transform the 
-\begin_inset Formula $x_{k}$
+\begin_inset Formula $z_{k}$
 \end_inset
 
  components of 
@@ -879,18 +906,22 @@ reference "eq:CG_GammaCon"
 \end_inset
 
  to 
-\begin_inset Formula $\bar{x}_{k}$
+\begin_inset Formula $\bar{z}_{k}$
 \end_inset
 
  components of 
 \begin_inset Formula $\bar{Z}$
 \end_inset
 
-, that is 
-\begin_inset Formula $\Gamma_{k}\left(P_{Z\to k}Z\right)^{*}=P_{\bar{Z}\to\bar{i}}\bar{Z}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}Z^{*}$
+, 
+\begin_inset Formula 
+\[
+\Gamma_{k}\left(P_{Z\to k}Z\right)^{*}=P_{\bar{Z}\to\bar{i}}\bar{Z}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}Z^{*},
+\]
+
 \end_inset
 
-, from which it follows that
+from which it follows that
 \begin_inset Formula 
 \begin{equation}
 \Gamma_{k}P_{Z\to k}^{*}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}.\label{eq:CGSub_GammaCon3}
@@ -912,6 +943,38 @@ end{subequations}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In summary, our CGCs are defined by eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+ and should satisfy constraints 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_orthnormal"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon"
+
+\end_inset
+
+.
+ In the remainder of this section, we will show some properties of the CGCs.
+ 
+\end_layout
+
+\begin_layout Subsection
+Proof of basis independence
 \end_layout
 
 \begin_layout Standard
@@ -1055,7 +1118,7 @@ P_{X\to j}=\begin{pmatrix}O_{1}\big| & O_{2}\big| & \cdots\big| & I_{j}\big| & O
 \end_inset
 
  is the identity matrix of dimension 
-\begin_inset Formula $\dim\left(\rep{x_{j}}\right)\times\mathrm{dim}\left(\rep{x_{j}}\right)$
+\begin_inset Formula $\dim\rep{x_{j}}\times\dim\rep{x_{j}}$
 \end_inset
 
  and 
@@ -1187,8 +1250,12 @@ reference "eq:CGSub_Def2"
  is invariant under the transformation.
 \end_layout
 
+\begin_layout Subsection
+Phases of CGCs
+\end_layout
+
 \begin_layout Standard
-We now discuss the consequence of the constraint 
+We now discuss the consequence of the CP constraints 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CG_GammaCon"
@@ -1196,19 +1263,42 @@ reference "eq:CG_GammaCon"
 \end_inset
 
 .
- We first consider the CGC of the subgroup 
+ Note that we not only impose the CP constraints on large groups but also
+ on the subgroup 
 \begin_inset Formula $H$
 \end_inset
 
-, 
+.
+ We first discuss the consequence on the subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+ and then on the large group 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let us write subgroup contractions as 
 \begin_inset Formula 
 \[
-x_{3}=C_{12\to3}\left(x_{1}\otimes x_{2}\right),\quad\bar{x}_{3}=C_{\bar{1}\bar{2}\to\bar{3}}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right)
+x_{3}=C_{12\to3}\left(x_{1}\otimes x_{2}\right),\quad\bar{x}_{3}=C_{\bar{1}\bar{2}\to\bar{3}}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right),
 \]
 
 \end_inset
 
-The constraint 
+ where 
+\begin_inset Formula $C_{12\to3}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{\bar{1}\bar{2}\to\bar{3}}$
+\end_inset
+
+ are CGCs.
+ The CP constraint 
 \begin_inset Formula $\Gamma_{3}x_{3}^{*}=\bar{x}_{3}$
 \end_inset
 
@@ -1220,7 +1310,12 @@ The constraint
 
 \end_inset
 
- which then implies that 
+ where we used 
+\begin_inset Formula $\bar{x}_{1,2}=\Gamma_{1,2}x_{1,2}^{*}$
+\end_inset
+
+ in the second equality.
+ Comparing the coefficients give rise to 
 \begin_inset Formula 
 \begin{equation}
 C_{\bar{1}\bar{2}\to\bar{3}}=\Gamma_{3}C_{12\to3}^{*}\left(\Gamma_{1}^{-1}\otimes\Gamma_{2}^{-1}\right).\label{eq:CGSub_C123}
@@ -1228,24 +1323,37 @@ C_{\bar{1}\bar{2}\to\bar{3}}=\Gamma_{3}C_{12\to3}^{*}\left(\Gamma_{1}^{-1}\otime
 
 \end_inset
 
- Particularly, if 
+ Particularly, if all of 
 \begin_inset Formula $\rep{x_{1,2,3}}$
 \end_inset
 
- are complex representations, we have 
+ are complex representations, 
+\begin_inset Formula $\Gamma_{1,2,3}$
+\end_inset
+
+ are identity matrices and 
 \begin_inset Formula $C_{\bar{1}\bar{2}\to\bar{3}}=C_{12\to3}^{*}$
 \end_inset
 
 .
- 
+ Otherwise, the relation between 
+\begin_inset Formula $C_{\bar{1}\bar{2}\to\bar{3}}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{12\to3}^{*}$
+\end_inset
+
+ are nontrivial.
 \end_layout
 
 \begin_layout Standard
-Now consider CGCs of the large group 
+Now consider CP constraints on the large group 
 \begin_inset Formula $G$
 \end_inset
 
-,
+.
+ Suppose we have contractions 
 \begin_inset ERT
 status open
 
@@ -1261,7 +1369,7 @@ begin{subequations}
  
 \begin_inset Formula 
 \begin{align}
-P_{Z\to k}Z & =\sum_{i,j}c_{k,ij}\covsub{P_{X\to i}X}{P_{Y\to j}Y}{z_{k}}\\
+P_{Z\to k}Z & =\sum_{i,j}c_{k,ij}\covsub{P_{X\to i}X}{P_{Y\to j}Y}{z_{k}},\\
 P_{\bar{Z}\to\bar{k}}\bar{Z} & =\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\covsub{P_{\bar{X}\to\bar{i}}\bar{X}}{P_{\bar{Y}\to\bar{j}}\bar{Y}}{\bar{z}_{k}}.\label{eq:CG_PZbar}
 \end{align}
 
@@ -1284,7 +1392,7 @@ We apply the projection matrix
 \begin_inset Formula $P_{\bar{Z}\to\bar{k}}$
 \end_inset
 
- on both sides of the constraint 
+ on both sides of 
 \begin_inset Formula $\Gamma_{Z}Z^{*}=\bar{Z}$
 \end_inset
 
@@ -1321,7 +1429,7 @@ reference "eq:CG_PZbar"
 
 \end_inset
 
-, we obtain 
+ yields
 \begin_inset Formula 
 \begin{equation}
 P_{\bar{Z}\to\bar{k}}\bar{Z}=\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\Gamma_{k}\left(\covsub{P_{X\to i}X}{P_{Y\to j}Y}{z_{k}}\right)^{*}.\label{eq:CGSub_PGammaZb}
@@ -1344,7 +1452,7 @@ reference "eq:CGSub_PGammaZb"
 
 \end_inset
 
- should be equal, from which it follows that 
+ should be equal, which implies 
 \begin_inset Formula 
 \begin{equation}
 c_{\bar{k},\bar{i}\bar{j}}=c_{k,ij}^{*}.\label{eq:CGSub_ckij}
@@ -1356,23 +1464,7 @@ c_{\bar{k},\bar{i}\bar{j}}=c_{k,ij}^{*}.\label{eq:CGSub_ckij}
 \end_layout
 
 \begin_layout Standard
-The constraint 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_ckij"
-
-\end_inset
-
- for the large group is much simpler than 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_C123"
-
-\end_inset
-
- for the subgroup.
- The formal is independent of basis while the latter depends on basis.
- The eq.
+Eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1380,7 +1472,50 @@ reference "eq:CGSub_ckij"
 
 \end_inset
 
- give rise to different restrictions on overall phases in different cases:
+ is the consequence of the CP constraints for the large group 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ We see that it is much simpler than eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_C123"
+
+\end_inset
+
+ for the subgroup.
+ Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_C123"
+
+\end_inset
+
+ depends on basis while eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ is independent of basis.
+ We now category a contration 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+\end_inset
+
+ to three cases, in which has eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ give rise to different restrictions on overall phases of CGCs:
 \end_layout
 
 \begin_layout Itemize
@@ -1396,16 +1531,16 @@ Case I: When
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- are all real representations, eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_ckij"
-
+ are all real or pseudo-real representations, 
+\begin_inset Formula $c_{\bar{k},\bar{i}\bar{j}}$
 \end_inset
 
- fixes the overall phases of CGCs.
- 
+ and 
+\begin_inset Formula $c_{k,ij}$
+\end_inset
+
+ are contained in the same set of CGCs, and hence, the overall phases of
+ CGCs are fixed.
 \end_layout
 
 \begin_layout Itemize
@@ -1413,7 +1548,7 @@ Case II: When only
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- is real but 
+ is real and 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -1421,16 +1556,20 @@ Case II: When only
 \begin_inset Formula $\rep{Y}$
 \end_inset
 
- are complex conjugates to each other, eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_ckij"
-
+ are complex conjugates to each other, i.e., 
+\begin_inset Formula $\rep{\bar{X}}=\rep{Y}$
 \end_inset
 
- also fixes the overall phases of CGCs.
- 
+, 
+\begin_inset Formula $c_{\bar{k},\bar{i}\bar{j}}$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{k,ij}$
+\end_inset
+
+ are also contained in the same set of CGCs and the overall phases of CGCs
+ is fixed.
 \end_layout
 
 \begin_layout Itemize
@@ -1454,9 +1593,12 @@ reference "eq:CGSub_ckij"
 \end_layout
 
 \begin_layout Standard
-In the remainder of the paper, we shall call these three cases, Case I,
- II, and III respectively.
- 
+For an ambivalent group, a group whose irreps are all real or pseudo-real,
+ its CGCs are basis independent and overall phases are fixed.
+ The only ambiguity of the CGCs comes from nontrivial multiplicity of tensor
+ products.
+ In the remainder of the paper, we shall call these three cases, Case I,
+ II, and III respectively for convenience.
 \end_layout
 
 \begin_layout Section
