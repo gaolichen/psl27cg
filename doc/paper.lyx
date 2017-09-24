@@ -394,10 +394,25 @@ reference "eq:CGC_Def"
 There are, however, other ambiguities.
  Firstly, CGCs are basis dependent.
  Under basis transformations
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subequations}
+\backslash
+label{eq:CGC_BaseTransform}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
-\[
+\begin{equation}
 R\to R^{\prime}=U_{R}R,\quad\mr{R}\left(g\right)\to U_{R}\mr{R}\left(g\right)U_{R}^{-1},\quad R=X,Y,Z
-\]
+\end{equation}
 
 \end_inset
 
@@ -422,9 +437,22 @@ reference "eq:CGC_Orthnormal"
 
  simultaneously transform as 
 \begin_inset Formula 
-\[
+\begin{equation}
 C_{k}\to C_{k}^{\prime}=U_{Z}C_{k}\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right).
-\]
+\end{equation}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
 
 \end_inset
 
@@ -1027,8 +1055,12 @@ There are three types of basis transformations.
 \end_inset
 
  unchanged.
- The third type is the mixing of first two.
- We only need to show eq.
+ The third type changes both the basis of irreps of 
+\begin_inset Formula $H$
+\end_inset
+
+ and the projection matrices.
+ If eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1036,8 +1068,9 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
- is invariant under first two types of basis transformations.
- 
+ is invariant under first two types of basis transformations, then it is
+ also invariant under the third type basis transformation.
+ Hence, we only need to consider the first two types of basis transformation.
 \end_layout
 
 \begin_layout Proof
@@ -1113,29 +1146,33 @@ Now consider the second type basis transformation.
  
 \begin_inset Formula 
 \begin{equation}
-P_{X\to j}=\begin{pmatrix}O_{1}\big| & O_{2}\big| & \cdots\big| & I_{j}\big| & O_{j+1}\big|\cdots\end{pmatrix},\label{eq:CG_PXj}
+P_{X\to j}=\begin{pmatrix}O_{1} & \cdots & O_{j-1} & P_{X\to j}^{\left(\mathrm{nonzero}\right)} & O_{j+1}\cdots\end{pmatrix},\label{eq:CG_PXj}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $I_{j}$
-\end_inset
-
- is the identity matrix of dimension 
-\begin_inset Formula $\dim\rep{x_{j}}\times\dim\rep{x_{j}}$
-\end_inset
-
- and 
 \begin_inset Formula $O_{k}$
 \end_inset
 
- are all-zero matrices of dimension 
-\begin_inset Formula $\mathrm{dim}\left(\rep{x_{j}}\right)\times\mathrm{dim}\left(\rep{x_{k}}\right)$
+ are zero matrices of dimension 
+\begin_inset Formula $\dim\rep{x_{j}}\times\dim\rep{x_{k}}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{X\to j}^{\left(\mathrm{nonzero}\right)}$
+\end_inset
+
+ is a nonzero matrix of dimension 
+\begin_inset Formula $\dim\rep{x_{j}}\times\dim\rep{x_{j}}$
 \end_inset
 
 .
- We consider the transformation
+ We consider the folloiwng basis transformations of subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+
 \begin_inset ERT
 status open
 
@@ -1153,7 +1190,7 @@ label{eq:CG_Tran_II}
  
 \begin_inset Formula 
 \begin{align}
-z_{k} & \to z_{k}^{\prime}=U_{k}z_{k},\\
+\left(x_{i},\,y_{j},\,z_{k}\right) & \to\left(x_{i}^{\prime},\,y_{j}^{\prime},\,z_{k}^{\prime}\right)=\left(U_{i}x_{i},\,U_{j}y_{j},\,U_{k}z_{k}\right),\\
 z_{k}=\left\{ x_{i}\otimes y_{j}\right\} _{z_{k}} & \to z_{k}^{\prime}=\left\{ U_{i}x_{i}\otimes U_{j}y_{j}\right\} _{U_{k}z_{k}}^{\prime},
 \end{align}
 
@@ -1182,14 +1219,30 @@ where we have used the primed brackets to take care of the CG coefficients
 
 \end_inset
 
- Under such a transformation, 
+ Under these transformations, 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $\mr{X}\left(g\right)$
+\end_inset
+
+ transform as 
+\begin_inset Formula 
+\[
+X\to U_{X}X,\quad\mr{X}\left(g\right)\to U_{X}\mr{X}\left(g\right)U_{X}^{-1},\quad U_{X}=\bigoplus_{\rep{i}\text{ in }\rep{X}}\left(P_{X\to i}^{\left(\mathrm{nonzero}\right)}\right)^{-1}U_{i}P_{X\to i}^{\left(\mathrm{nonzero}\right)}.
+\]
+
+\end_inset
+
+Thereform 
 \begin_inset Formula $P_{X\to i}\mr{X}\left(g\right)X$
 \end_inset
 
- changes as 
+ transforms as 
 \begin_inset Formula 
 \begin{equation}
-P_{X\to i}\mr{X}\left(g\right)X\to P_{X\to i}\left(\bigoplus_{a\,\mathrm{in}\,\rep{X}}U_{a}\right)\mr{X}\left(g\right)X.\label{eq:CG_Tran_II_X2}
+P_{X\to i}\mr{X}\left(g\right)X\to P_{X\to i}U_{X}\mr{X}\left(g\right)X.\label{eq:CG_Tran_II_X2}
 \end{equation}
 
 \end_inset
@@ -1208,7 +1261,7 @@ reference "eq:CG_PXj"
 , it is easy to see that 
 \begin_inset Formula 
 \begin{equation}
-P_{X\to i}\left(\bigoplus_{a\,\mathrm{in}\,\rep{X}}U_{a}\right)=U_{i}P_{X\to i}.\label{eq:CG_PU}
+P_{X\to i}U_{X}=U_{i}P_{X\to i}.\label{eq:CG_PU}
 \end{equation}
 
 \end_inset
@@ -1252,7 +1305,14 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
- is invariant under the transformation.
+ is invariant under the basis transformations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_Tran_II"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
