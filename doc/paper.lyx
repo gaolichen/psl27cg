@@ -308,13 +308,13 @@ The tensor product of two irreducible representations (irrep) of a group
 \end_inset
 
  and a set of coefficients 
-\begin_inset Formula $C_{k,ij}$
+\begin_inset Formula $C_{k,ij}^{\left(XY\to Z\right)}$
 \end_inset
 
  such that 
 \begin_inset Formula 
 \begin{equation}
-\left(\mr{Z}\left(g\right)Z\right)_{k}=\sum_{i,j}C_{k,ij}\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{ij},\quad\forall g\in G\label{eq:CGC_Def}
+\left(\mr{Z}\left(g\right)Z\right)_{k}=\sum_{l}C_{kl}^{\left(XY\to Z\right)}\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{l},\quad\forall g\in G\label{eq:CGC_Def}
 \end{equation}
 
 \end_inset
@@ -327,34 +327,58 @@ The tensor product of two irreducible representations (irrep) of a group
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
-, and the square matrix 
-\begin_inset Formula $\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)$
+ and the tensor product is defined as 
+\begin_inset Formula 
+\[
+\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{i\times j}=\left(\mr{X}\left(g\right)X\right)_{i}\left(\mr{Y}\left(g\right)Y\right)_{j}.
+\]
+
 \end_inset
 
- of dimension 
-\begin_inset Formula $\mathrm{dim}\left(X\right)\times\mathrm{dim}\left(Y\right)$
+The coefficients 
+\begin_inset Formula $C_{kl}^{\left(XY\to Z\right)}$
 \end_inset
 
- is the tensor product of the two column vectors 
-\begin_inset Formula $\mr{X}\left(g\right)X$
+ are called Clebsch-Gordan coefficients (CGCs).
+ For convenience, we will use 
+\begin_inset Formula $C_{kl}$
 \end_inset
 
- and 
-\begin_inset Formula $\mr{Y}\left(g\right)Y$
+ to denote a single CGC and 
+\begin_inset Formula $C_{k}$
+\end_inset
+
+ for the CGCs of 
+\begin_inset Formula $Z_{k}$
+\end_inset
+
+ components.
+ Sometimes we will write 
+\begin_inset Formula $Z=C^{\left(XY\to Z\right)}\left(X\otimes Y\right)$
+\end_inset
+
+, which should be understood the same as the 
+\begin_inset Formula $g=e$
+\end_inset
+
+ case of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGC_Def"
+
 \end_inset
 
 .
- The coefficients 
-\begin_inset Formula $C_{k,ij}$
-\end_inset
+\end_layout
 
- are Clebsch-Gordan coefficients (CGCs).
- If 
+\begin_layout Standard
+If 
 \begin_inset Formula $Z$
 \end_inset
 
  and 
-\begin_inset Formula $C$
+\begin_inset Formula $C^{\left(XY\to Z\right)}$
 \end_inset
 
  satisfy eq.
@@ -374,7 +398,7 @@ reference "eq:CGC_Def"
 \end_inset
 
  and 
-\begin_inset Formula $\alpha C$
+\begin_inset Formula $\alpha C^{\left(XY\to Z\right)}$
 \end_inset
 
  also satisfy the equation.
@@ -382,7 +406,7 @@ reference "eq:CGC_Def"
  
 \begin_inset Formula 
 \begin{equation}
-\sum_{ij}C_{k,ij}^{*}C_{l,ij}=\delta_{kl}.\label{eq:CGC_Orthnormal}
+\sum_{j}C_{kj}^{*}C_{lj}=\delta_{kl}.\label{eq:CGC_Orthnormal}
 \end{equation}
 
 \end_inset
@@ -1346,23 +1370,22 @@ reference "eq:CG_GammaCon"
 \end_layout
 
 \begin_layout Standard
-Let us write subgroup contractions as 
+Consider subgroup CGCs 
+\begin_inset Formula $C^{\left(12\to3\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $C^{\bar{1}\bar{2}\to\bar{3}}$
+\end_inset
+
+ 
 \begin_inset Formula 
 \[
-x_{3}=C_{12\to3}\left(x_{1}\otimes x_{2}\right),\quad\bar{x}_{3}=C_{\bar{1}\bar{2}\to\bar{3}}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right),
+x_{3}=C^{\left(12\to3\right)}\left(x_{1}\otimes x_{2}\right),\quad\bar{x}_{3}=C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right).
 \]
 
 \end_inset
 
- where 
-\begin_inset Formula $C_{12\to3}$
-\end_inset
-
- and 
-\begin_inset Formula $C_{\bar{1}\bar{2}\to\bar{3}}$
-\end_inset
-
- are CGCs.
  The CP constraint 
 \begin_inset Formula $\Gamma_{3}x_{3}^{*}=\bar{x}_{3}$
 \end_inset
@@ -1370,7 +1393,7 @@ x_{3}=C_{12\to3}\left(x_{1}\otimes x_{2}\right),\quad\bar{x}_{3}=C_{\bar{1}\bar{
  leads to
 \begin_inset Formula 
 \[
-\Gamma_{3}C_{12\to3}^{*}\left(x_{1}^{*}\otimes x_{2}^{*}\right)=C_{\bar{1}\bar{2}\to\bar{3}}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right)=C_{\bar{1}\bar{2}\to\bar{3}}\left(\Gamma_{1}\otimes\Gamma_{2}\right)\left(x_{1}^{*}\otimes x_{2}^{*}\right),
+\Gamma_{3}C^{\left(12\to3\right)*}\left(x_{1}^{*}\otimes x_{2}^{*}\right)=C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right)=C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}\left(\Gamma_{1}\otimes\Gamma_{2}\right)\left(x_{1}^{*}\otimes x_{2}^{*}\right),
 \]
 
 \end_inset
@@ -1380,10 +1403,10 @@ x_{3}=C_{12\to3}\left(x_{1}\otimes x_{2}\right),\quad\bar{x}_{3}=C_{\bar{1}\bar{
 \end_inset
 
  in the second equality.
- Comparing the coefficients give rise to 
+ Comparing the coefficients gives rise to 
 \begin_inset Formula 
 \begin{equation}
-C_{\bar{1}\bar{2}\to\bar{3}}=\Gamma_{3}C_{12\to3}^{*}\left(\Gamma_{1}^{-1}\otimes\Gamma_{2}^{-1}\right).\label{eq:CGSub_C123}
+C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}=\Gamma_{3}C^{\left(12\to3\right)*}\left(\Gamma_{1}^{-1}\otimes\Gamma_{2}^{-1}\right).\label{eq:CGSub_C123}
 \end{equation}
 
 \end_inset
@@ -1418,7 +1441,7 @@ If all of
 \end_inset
 
  are real or pseduo-real representations, 
-\begin_inset Formula $C_{\bar{1}\bar{2}\to\bar{3}}=C_{12\to3}$
+\begin_inset Formula $C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}=C^{\left(12\to3\right)}$
 \end_inset
 
 , eq.
@@ -1430,12 +1453,12 @@ reference "eq:CGSub_C123"
 \end_inset
 
  is in general a nontrivial constraint on 
-\begin_inset Formula $C_{12\to3}$
+\begin_inset Formula $C^{\left(12\to3\right)}$
 \end_inset
 
 .
  Particularly, the overall phases of 
-\begin_inset Formula $C_{12\to3}$
+\begin_inset Formula $C^{\left(12\to3\right)}$
 \end_inset
 
  is fixed.
@@ -1449,7 +1472,7 @@ reference "eq:CGSub_C123"
 
  are identity matrix.
  In such a basis, all elements of 
-\begin_inset Formula $C_{12\to3}$
+\begin_inset Formula $C^{\left(12\to3\right)}$
 \end_inset
 
  are real numbers.
@@ -1469,7 +1492,7 @@ If
 \end_inset
 
  are complex conjugate to each other, then 
-\begin_inset Formula $C_{\bar{1}\bar{2}\to\bar{3}}$
+\begin_inset Formula $C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}$
 \end_inset
 
  is the transpose of 
@@ -1501,7 +1524,7 @@ reference "eq:CGSub_C123"
 \end_inset
 
  are identity matrices, 
-\begin_inset Formula $C_{\bar{1}\bar{2}\to\bar{3}}$
+\begin_inset Formula $C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}$
 \end_inset
 
  are complex conjugate to 
@@ -1781,6 +1804,145 @@ For an ambivalent group, a group whose irreps are all real or pseudo-real,
  products.
  In the remainder of the paper, we shall call these three cases, Case I,
  II, and III respectively for convenience.
+\end_layout
+
+\begin_layout Standard
+The CP constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon1"
+
+\end_inset
+
+ implies similar constraints for contractions of more than two covariants.
+ Consider a contraction of three covaraints 
+\begin_inset Formula $\covlg{X}{\covlg{V}{W}{Y}}{Z}$
+\end_inset
+
+ and its complex conjugate version 
+\begin_inset Formula $\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{\bar{Y}}}{\bar{Z}}$
+\end_inset
+
+.
+ The relation between these two is
+\begin_inset Formula 
+\[
+\Gamma_{Z}\left(\covlg{X}{\covlg{V}{W}{Y}}{Z}\right)^{*}=\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{\bar{Y}}}{\bar{Z}}.
+\]
+
+\end_inset
+
+ It can be shown as follows:
+\begin_inset Formula 
+\begin{align*}
+\mathrm{lhs} & =\Gamma_{Z}C^{\left(XY\to Z\right)*}\left(X^{*}\otimes\left(\covlg{V}{W}{Y}\right)^{*}\right)\\
+ & =\Gamma_{Z}C^{\left(XY\to Z\right)*}\left(\Gamma_{X}^{-1}\otimes\Gamma_{Y}^{-1}\right)\left(\bar{X}\otimes\left(\covlg{\bar{V}}{\bar{W}}{\bar{Y}}\right)\right)\\
+ & =C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\left(\covlg{\bar{V}}{\bar{W}}{\bar{Y}}\right)\right)\\
+ & =\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{\bar{Y}}}{\bar{Z}}
+\end{align*}
+
+\end_inset
+
+ where in the third equality we used eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_C123"
+
+\end_inset
+
+.
+ In general we have
+\begin_inset Formula 
+\[
+\Gamma_{Z}\left(\covlg{X\otimes Y\otimes\cdots}{W}{Z}\right)^{*}=\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{\bar{Z}},
+\]
+
+\end_inset
+
+ where the 
+\begin_inset Formula $\mathrm{lhs}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{rhs}$
+\end_inset
+
+ have the same nesting structure of the brackets 
+\begin_inset Formula $\left[\cdot\otimes\cdot\right]$
+\end_inset
+
+ and at each level the brackets of 
+\begin_inset Formula $\mathrm{lhs}$
+\end_inset
+
+ produce an irrep that is complex conjugate to the one of 
+\begin_inset Formula $\mathrm{rhs}$
+\end_inset
+
+.
+ When 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ is the trivial singlet representation, 
+\begin_inset Formula $\Gamma_{Z}$
+\end_inset
+
+ is the one-dimensional identity matrix and 
+\begin_inset Formula $\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{\bar{Z}}$
+\end_inset
+
+ is a c-number that is complex conjugate to 
+\begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{Z}$
+\end_inset
+
+.
+ Particularly, if the forms of 
+\begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{\bar{Z}}$
+\end_inset
+
+ are identically the same
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+It includes the case when all the irreps are real or psedo-real and the
+ case when there is a symmetry regarding complex conjugate irreps, for example
+ 
+\begin_inset Formula $\covlg{X}{\bar{X}}{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\covlg{\covlg{X}{\bar{Y}}{W}}{\covlg{\bar{X}}{Y}{\bar{W}}}{1}$
+\end_inset
+
+, where 
+\begin_inset Formula $\rep{1}$
+\end_inset
+
+ is the trivial singlet irreps.
+ 
+\end_layout
+
+\end_inset
+
+, the contraction is a real number.
+\end_layout
+
+\begin_layout Standard
+The above property has a crucial implication in the flavor physics model
+ with a discrete flavor symmetry.
+ For a unitary thery, the Lagrangian should be real, therefore, for each
+ term of the Lagrangian, one needs to add its complex conjugate to the Lagrangia
+n.
+ With the CGCs defined above, the coefficients of each term can choose to
+ be real.
+ 
 \end_layout
 
 \begin_layout Section
