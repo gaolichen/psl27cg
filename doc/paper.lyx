@@ -1944,7 +1944,7 @@ Case II: When only
 \end_inset
 
  are also contained in the same set of CGCs and the overall phase of CGCs
- is also fixed.
+ is fixed.
 \end_layout
 
 \begin_layout Itemize
@@ -2083,7 +2083,7 @@ reference "eq:CGSub_CXYZ"
 
  is invariant under CP transformation, i.e.
  
-\begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{Z}=\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{\bar{Z}}$
+\begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{1}=\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{1}$
 \end_inset
 
 , the term is real.
@@ -2120,7 +2120,7 @@ The above property has an implication in flavor physics models with discrete
  has to be a complex number with a fixed phase.
  With the CGCs defined under the CP constraint 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:CGSub_GammaCon1"
 
 \end_inset
@@ -2215,7 +2215,7 @@ There is a special case that the projection matrix cannot be in the trivial
 \begin_inset Formula $\rep{3_{1}}$
 \end_inset
 
- irrep of 
+ of 
 \begin_inset Formula $S_{4}$
 \end_inset
 
@@ -2224,13 +2224,12 @@ There is a special case that the projection matrix cannot be in the trivial
 \begin_inset Formula $P_{3\to3_{1}}$
 \end_inset
 
- be a identify matrix, then 
+ to be a identify matrix, then 
 \begin_inset Formula $P_{\bar{3}\to3_{1}}$
 \end_inset
 
- has to be non-identity matrix.
- To be precise, the key point here is to make projection matrix as simple
- as possible.
+ cannot be non-identity matrix simutenously.
+ The key point here is to make projection matriices as simple as possible.
 \end_layout
 
 \end_inset
@@ -2594,7 +2593,7 @@ reference "sec:CGCs-in-subgroup"
 
 \end_inset
 
-, the conjugate conjugate constraints require that CGCs of 
+, the CP constraints require that CGCs of 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
@@ -2699,30 +2698,20 @@ reference "eq:Proc_aPcP"
 \begin_layout Standard
 Finally, we apply the orthonormalization constraints to CGCs.
  If 
-\begin_inset Formula $m_{Z}=1$
-\end_inset
-
-, then we simply divide the 
-\begin_inset Formula $c_{k,ij}$
-\end_inset
-
- by a factor of 
-\begin_inset Formula $\sum_{ij}\left|c_{k,ij}\right|^{2}$
-\end_inset
-
-.
- If 
 \begin_inset Formula $m_{Z}>1$
 \end_inset
 
-, we need to first find 
+, we can use the Gram–Schmidt process to build 
 \begin_inset Formula $m_{Z}$
 \end_inset
 
- sets of orthonormal CGCs, which can be done by Gram–Schmidt process, and
- then normalize the CGCs.
+ sets of orthonormal CGCs.
  The normalization reduces the real DOF by 1.
- In summary, for case I and II, 
+ 
+\end_layout
+
+\begin_layout Standard
+In summary, for case I and II, 
 \begin_inset Formula $m_{z}$
 \end_inset
 
@@ -3022,7 +3011,7 @@ end{subequations}
 \end_inset
 
  and 
-\begin_inset Formula $\tilde{A}^{[\rep{3}]}$
+\begin_inset Formula $\tilde{B}^{[\rep{3}]}$
 \end_inset
 
 .
@@ -3493,9 +3482,9 @@ The
 , 
 \begin_inset Formula 
 \[
-P_{\bar{3}\to3_{2}}=\Gamma_{3_{2}}=\begin{pmatrix}1\\
- &  & 1\\
- & 1
+P_{\bar{3}\to3_{2}}=\Gamma_{3_{2}}=\begin{pmatrix}1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
 \end{pmatrix}.
 \]
 
@@ -3506,7 +3495,7 @@ It can be explained as follows.
 \begin_inset Formula $\rep{3_{2}}$
 \end_inset
 
- were not a real representation, there would exist its complex conjugate
+ were a complex representation, there would exist its complex conjugate
  
 \begin_inset Formula $\rep{\bar{3}_{2}}$
 \end_inset
@@ -3528,7 +3517,7 @@ It can be explained as follows.
 \begin_inset Formula $\rep{\bar{3}}=\rep{\bar{3}_{2}}$
 \end_inset
 
- and the projection matrices be the identity matrix.
+ and both of the projection matrices be the identity matrix.
  But now 
 \begin_inset Formula $\rep{3_{2}}$
 \end_inset
@@ -3550,11 +3539,8 @@ It can be explained as follows.
 \begin_inset Formula $\rep{\bar{3}}$
 \end_inset
 
- should also be related by a similarity transformation 
-\begin_inset Formula $\Gamma_{3_{2}}$
-\end_inset
-
-, and hence, 
+ should also be related by the same similarity transformation, and hence,
+ 
 \begin_inset Formula $P_{\bar{3}\to3_{2}}=\Gamma_{3_{2}}$
 \end_inset
 
@@ -3596,7 +3582,7 @@ and the tensor product of
 \begin_inset Formula $\subga$
 \end_inset
 
- group 
+
 \begin_inset Formula 
 \[
 \rep{3_{2}}\otimes\rep{3_{2}}\to\rep{1}\oplus\rep{2}\oplus\rep{3_{1}}
@@ -3685,7 +3671,7 @@ e^{i\theta_{2}}=-i\bar{b}_{7}^{2}e^{i\theta_{1}},\quad e^{i\theta_{3}}=i\bar{b}_
 \begin_inset Formula $\theta_{1}$
 \end_inset
 
- as long as the complex conjugate CGC 
+ as long as 
 \begin_inset Formula $\covp{\bar{3}}{\bar{3}}{6}$
 \end_inset
 
@@ -3694,15 +3680,11 @@ e^{i\theta_{2}}=-i\bar{b}_{7}^{2}e^{i\theta_{1}},\quad e^{i\theta_{3}}=i\bar{b}_
 \end_inset
 
 .
- For simplicity, we choose 
+ Choose 
 \begin_inset Formula $\theta_{1}=0$
 \end_inset
 
- and the CGC 
-\begin_inset Formula $\covp{3}{3}{6}$
-\end_inset
-
- is then 
+ give rise to 
 \begin_inset Formula 
 \[
 \covp{3}{3}{6}=\begin{pmatrix}\covs{3_{2}}{3_{2}}{1}\\
@@ -3751,7 +3733,7 @@ The matrix representation of
 \begin_inset Formula $\rep{8}$
 \end_inset
 
- can be found similarly with the Kronecker product 
+ can be found similarly with the tensor product 
 \begin_inset Formula $\rep{3}\otimes\rep{\bar{3}}\to\rep{8}$
 \end_inset
 
@@ -3767,7 +3749,7 @@ The matrix representation of
 \begin_inset Formula $\rep{3}\otimes\rep{\bar{3}}\to\rep{8}$
 \end_inset
 
- is itself, the overall phase of the CGC can be determined.
+ is itself, the overall phase of the CGCs is fixed.
  By a little algebra, we find that
 \begin_inset Formula 
 \[
@@ -3807,7 +3789,7 @@ A^{[\rep{8}]}=\left(\begin{array}{cccccccc}
 , the first five columns are
 \begin_inset Formula 
 \[
-B_{1}^{[\rep{6}]}=\left(\begin{array}{ccccc}
+B_{1}^{[\rep{8}]}=\left(\begin{array}{ccccc}
 -\frac{\omega}{4} & -\frac{\omega^{2}}{4} & -\frac{i\omega^{2}}{\sqrt{6}} & \frac{i}{4}\sqrt{\frac{3}{2}}\omega^{2}-\frac{i}{4\sqrt{6}} & \frac{i}{2\sqrt{6}}-\frac{\omega^{2}}{4\sqrt{2}}\\
 -\frac{\omega}{4} & -\frac{\omega^{2}}{4} & \frac{i\omega}{\sqrt{6}} & -\frac{i}{2\sqrt{6}}-\frac{\omega}{4\sqrt{2}} & \frac{i}{4\sqrt{6}}-\frac{i}{4}\sqrt{\frac{3}{2}}\omega\\
 -\frac{i}{\sqrt{6}} & \frac{i}{\sqrt{6}} & \frac{1}{6} & \frac{\omega}{6} & \frac{\omega^{2}}{6}\\
@@ -3824,7 +3806,7 @@ B_{1}^{[\rep{6}]}=\left(\begin{array}{ccccc}
  and the last three columns are 
 \begin_inset Formula 
 \[
-B_{2}^{[\rep{6}]}=\begin{pmatrix}0 & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2}\\
+B_{2}^{[\rep{8}]}=\begin{pmatrix}0 & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2}\\
 0 & \frac{1}{4}\sqrt{\frac{7}{2}}\omega & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2}\\
 \frac{\sqrt{7}}{6} & \frac{\sqrt{7}\omega}{6} & \frac{\sqrt{7}\omega^{2}}{6}\\
 \frac{\sqrt{7}\omega}{6} & \sqrt{7}\left(\frac{i\omega^{2}}{8\sqrt{3}}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{\omega}{8}+\frac{1}{24}\right)\\
