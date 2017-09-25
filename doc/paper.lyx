@@ -640,6 +640,39 @@ reference "eq:CGC_Orthnormal"
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(n\right)}$
 \end_inset
 
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The tensor product of two identical irreps has symmetric and antisymmetric
+ parts.
+ If both parts contain an irrep 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+, then 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ has multiplicity of 
+\begin_inset Formula $2$
+\end_inset
+
+ conceptually.
+ But in practical, we can treat the symmetric 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ and antisymmetric 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ as two different irreps when calculating the CGCs.
+\end_layout
+
+\end_inset
+
 , then any linear combination of the CGCs 
 \begin_inset Formula $a_{1}C^{\left(1\right)}+\cdots+a_{n}C^{\left(n\right)}$
 \end_inset
@@ -654,9 +687,8 @@ reference "eq:CGC_Orthnormal"
 
 \begin_layout Standard
 Can we get rid of these ambiguities of CGCs? Or can we define some kind
- of convention to reduce the ambiguities of CGCs? 
-\backslash
-One needs to choose a basis of irreps.
+ of convention to reduce the ambiguities of CGCs? One needs to choose a
+ basis of irreps.
  A natural choice of the basis is that the elements of a subgroup are diagonal.
  It turns out that, with suitable conditions, CGCs are basis independent
  under such a choice.
@@ -1374,29 +1406,21 @@ where we have used the primed brackets to take care of the CG coefficients
 \end_inset
 
  Under these transformations, 
-\begin_inset Formula $X$
-\end_inset
-
- and 
-\begin_inset Formula $\mr{X}\left(g\right)$
-\end_inset
-
- transform as 
-\begin_inset Formula 
-\[
-X\to U_{X}X,\quad\mr{X}\left(g\right)\to U_{X}\mr{X}\left(g\right)U_{X}^{-1},\quad U_{X}=\bigoplus_{\rep{i}\text{ in }\rep{X}}\left(P_{X\to i}^{\left(\mathrm{nonzero}\right)}\right)^{-1}U_{i}P_{X\to i}^{\left(\mathrm{nonzero}\right)}.
-\]
-
-\end_inset
-
-Thereform 
-\begin_inset Formula $P_{X\to i}\mr{X}\left(g\right)X$
+\begin_inset Formula $\mr{X}\left(g\right)X$
 \end_inset
 
  transforms as 
 \begin_inset Formula 
 \begin{equation}
-P_{X\to i}\mr{X}\left(g\right)X\to P_{X\to i}U_{X}\mr{X}\left(g\right)X.\label{eq:CG_Tran_II_X2}
+\mr{X}\left(g\right)X\to U_{X}\mr{X}\left(g\right)X,\label{eq:CG_Tran_II_X2}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula 
+\begin{equation}
+U_{X}=\bigoplus_{\rep{i}\text{ in }\rep{X}}\left(P_{X\to i}^{\left(\mathrm{nonzero}\right)}\right)^{-1}U_{i}P_{X\to i}^{\left(\mathrm{nonzero}\right)}.
 \end{equation}
 
 \end_inset
@@ -1420,7 +1444,19 @@ P_{X\to i}U_{X}=U_{i}P_{X\to i}.\label{eq:CG_PU}
 
 \end_inset
 
- It then follows that the lhs of eq.
+ Therefore, 
+\begin_inset Formula $P_{X\to i}\mr{X}\left(g\right)X$
+\end_inset
+
+ transforms as 
+\begin_inset Formula 
+\[
+P_{X\to i}\mr{X}\left(g\right)X\to P_{X\to i}U_{X}\mr{X}\left(g\right)X=U_{i}P_{X\to i}U_{X}\mr{X}\left(g\right)X.
+\]
+
+\end_inset
+
+ Now consider the both sides of eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1428,11 +1464,20 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
+ under the basis transformations.
+ The 
+\begin_inset Formula $\mathrm{lhs}$
+\end_inset
+
  becomes 
 \begin_inset Formula $U_{k}P_{Z\to k}\mr{Z}\left(g\right)Z$
 \end_inset
 
- and the rhs becomes 
+ and the 
+\begin_inset Formula $\mathrm{rhs}$
+\end_inset
+
+ becomes 
 \begin_inset Formula 
 \begin{align*}
 \mathrm{rhs} & =\sum_{i,j}c_{k,ij}\left\{ \left(U_{i}P_{X\to i}\mr{X}\left(g\right)X\right)\otimes\left(U_{j}P_{Y\to j}\mr{Y}\left(g\right)Y\right)\right\} _{z_{k}}^{\prime}\\
@@ -1469,6 +1514,18 @@ reference "eq:CG_Tran_II"
 .
 \end_layout
 
+\begin_layout Proof
+To sum up, we have showed that eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+ is invariant under both type I and type II basis transformations.
+\end_layout
+
 \begin_layout Subsection
 Phases of CGCs
 \end_layout
@@ -1482,61 +1539,59 @@ reference "eq:CG_GammaCon"
 \end_inset
 
 .
- Note that we not only impose the CP constraints on large groups but also
- on the subgroup 
-\begin_inset Formula $H$
+ The CP constraints can apply to both general CGCs defined as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGC_Def"
+
 \end_inset
 
-.
- We first discuss the consequence on the subgroup 
-\begin_inset Formula $H$
-\end_inset
-
- and then on the large group 
-\begin_inset Formula $G$
-\end_inset
-
-.
+ and CGCs in subgroup basis.
+ We first discuss the consequence on the formal and then on latter.
 \end_layout
 
 \begin_layout Standard
-Consider subgroup CGCs 
-\begin_inset Formula $C^{\left(12\to3\right)}$
+Consider CGCs 
+\begin_inset Formula $C^{\left(XY\to Z\right)}$
 \end_inset
 
  and 
-\begin_inset Formula $C^{\bar{1}\bar{2}\to\bar{3}}$
+\begin_inset Formula $C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
- 
+ as
 \begin_inset Formula 
 \[
-x_{3}=C^{\left(12\to3\right)}\left(x_{1}\otimes x_{2}\right),\quad\bar{x}_{3}=C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right).
+Z=C^{\left(XY\to Z\right)}\left(X\otimes Y\right),\quad\bar{Z}=C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\bar{Y}\right).
 \]
 
 \end_inset
 
  The CP constraint 
-\begin_inset Formula $\Gamma_{3}x_{3}^{*}=\bar{x}_{3}$
+\begin_inset Formula $\Gamma_{Z}Z^{*}=\bar{Z}$
 \end_inset
 
  leads to
 \begin_inset Formula 
 \[
-\Gamma_{3}C^{\left(12\to3\right)*}\left(x_{1}^{*}\otimes x_{2}^{*}\right)=C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}\left(\bar{x}_{1}\otimes\bar{x}_{2}\right)=C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}\left(\Gamma_{1}\otimes\Gamma_{2}\right)\left(x_{1}^{*}\otimes x_{2}^{*}\right),
+\Gamma_{Z}C^{\left(XY\to Z\right)*}\left(X^{*}\otimes Y^{*}\right)=C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\bar{Y}\right)=C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\Gamma_{X}\otimes\Gamma_{Y}\right)\left(X^{*}\otimes Y^{*}\right),
 \]
 
 \end_inset
 
  where we used 
-\begin_inset Formula $\bar{x}_{1,2}=\Gamma_{1,2}x_{1,2}^{*}$
+\begin_inset Formula $\bar{X}=\Gamma_{X}X^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{Y}=\Gamma_{Y}Y^{*}$
 \end_inset
 
  in the second equality.
  Comparing the coefficients gives rise to 
 \begin_inset Formula 
 \begin{equation}
-C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}=\Gamma_{3}C^{\left(12\to3\right)*}\left(\Gamma_{1}^{-1}\otimes\Gamma_{2}^{-1}\right).\label{eq:CGSub_C123}
+C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\Gamma_{Z}C^{\left(XY\to Z\right)*}\left(\Gamma_{X}^{-1}\otimes\Gamma_{Y}^{-1}\right).\label{eq:CGSub_CXYZ}
 \end{equation}
 
 \end_inset
@@ -1549,7 +1604,7 @@ Let us discuss the implication of eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CGSub_C123"
+reference "eq:CGSub_CXYZ"
 
 \end_inset
 
@@ -1559,50 +1614,47 @@ reference "eq:CGSub_C123"
 
 \begin_layout Itemize
 If all of 
-\begin_inset Formula $\rep{x_{1}}$
+\begin_inset Formula $\rep{X}$
 \end_inset
 
 , 
-\begin_inset Formula $\rep{x_{2}}$
+\begin_inset Formula $\rep{Y}$
 \end_inset
 
 , and 
-\begin_inset Formula $\rep{x_{3}}$
+\begin_inset Formula $\rep{Z}$
 \end_inset
 
- are real or pseduo-real representations, 
-\begin_inset Formula $C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}=C^{\left(12\to3\right)}$
+ irreps are real or pseduo-real, 
+\begin_inset Formula $C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=C^{\left(XY\to Z\right)}$
 \end_inset
 
 , eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CGSub_C123"
+reference "eq:CGSub_CXYZ"
 
 \end_inset
 
  is in general a nontrivial constraint on 
-\begin_inset Formula $C^{\left(12\to3\right)}$
+\begin_inset Formula $C^{\left(XY\to Z\right)}$
 \end_inset
 
 .
  Particularly, the overall phases of 
-\begin_inset Formula $C^{\left(12\to3\right)}$
+\begin_inset Formula $C^{\left(XY\to Z\right)}$
 \end_inset
 
  is fixed.
- If all of 
-\begin_inset Formula $\rep{x_{1,2,3}}$
-\end_inset
-
- are real representation, there exist a basis that 
-\begin_inset Formula $\Gamma_{1,2,3}$
+ If all of these irreps are real representation, there exist a basis that
+ 
+\begin_inset Formula $\Gamma_{X,Y,Z}$
 \end_inset
 
  are identity matrix.
  In such a basis, all elements of 
-\begin_inset Formula $C^{\left(12\to3\right)}$
+\begin_inset Formula $C^{\left(XY\to Z\right)}$
 \end_inset
 
  are real numbers.
@@ -1610,23 +1662,19 @@ reference "eq:CGSub_C123"
 
 \begin_layout Itemize
 If 
-\begin_inset Formula $\rep{x_{3}}$
+\begin_inset Formula $\rep{Z}$
 \end_inset
 
  is real or psedo-real and 
-\begin_inset Formula $\rep{x_{1}}$
+\begin_inset Formula $\rep{X}=\rep{\bar{Y}}$
 \end_inset
 
- and 
-\begin_inset Formula $\rep{x_{2}}$
-\end_inset
-
- are complex conjugate to each other, then 
-\begin_inset Formula $C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}$
+ are complex, then 
+\begin_inset Formula $C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
  is the transpose of 
-\begin_inset Formula $C_{12\to3}$
+\begin_inset Formula $C^{\left(XY\to Z\right)}$
 \end_inset
 
 .
@@ -1639,26 +1687,22 @@ In other cases, eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CGSub_C123"
+reference "eq:CGSub_CXYZ"
 
 \end_inset
 
  imposes constraints between two sets of CGCs.
  Hence, the overall phases of the two sets of CGCs are not fixed but dependent.
- Particularly, if all of 
-\begin_inset Formula $\rep{x_{1,2,3}}$
+ Particularly, if all the irreps are complex, 
+\begin_inset Formula $\Gamma_{X,Y,Z}$
 \end_inset
 
- are complex representations, 
-\begin_inset Formula $\Gamma_{1,2,3}$
+ are identity matrices and 
+\begin_inset Formula $C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
- are identity matrices, 
-\begin_inset Formula $C^{\left(\bar{1}\bar{2}\to\bar{3}\right)}$
-\end_inset
-
- are complex conjugate to 
-\begin_inset Formula $C_{12\to3}$
+ is the complex conjugate of 
+\begin_inset Formula $C^{\left(XY\to Z\right)}$
 \end_inset
 
 .
@@ -1666,11 +1710,7 @@ reference "eq:CGSub_C123"
 \end_layout
 
 \begin_layout Standard
-Now consider CP constraints on the large group 
-\begin_inset Formula $G$
-\end_inset
-
-.
+Now consider CP constraints on the CGCs in subgroup basis.
  Suppose we have contractions 
 \begin_inset ERT
 status open
@@ -1799,7 +1839,7 @@ reference "eq:CGSub_ckij"
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CGSub_C123"
+reference "eq:CGSub_CXYZ"
 
 \end_inset
 
@@ -1808,7 +1848,7 @@ reference "eq:CGSub_C123"
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CGSub_C123"
+reference "eq:CGSub_CXYZ"
 
 \end_inset
 
@@ -1977,7 +2017,7 @@ reference "eq:CGSub_GammaCon1"
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CGSub_C123"
+reference "eq:CGSub_CXYZ"
 
 \end_inset
 
@@ -2209,7 +2249,7 @@ There is a special case that the projection matrix cannot be in the trivial
  satisfy the CP constraints 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CGSub_C123"
+reference "eq:CGSub_CXYZ"
 
 \end_inset
 
@@ -4760,8 +4800,24 @@ reference "sec:CGC_T7"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
 \start_of_appendix
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+numberwithin{equation}{section}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Group-Theory"
@@ -6031,12 +6087,12 @@ Using the CG coefficients of
 :
 \begin_inset Formula 
 \begin{align*}
-\left[\rep{x}\otimes\rep{y}\right]_{\rep{1_{1}}} & =\left(\rep{x}\otimes\rep{y}\right)_{\rep{1}}\\
-\left[\rep{x}\otimes\rep{y}\right]_{\rep{2}} & =\begin{pmatrix}i\left(\rep{x}\otimes\rep{y}\right)_{\rep{1^{\prime}}}\\
--i\left(\rep{x}\otimes\rep{y}\right)_{\rep{\bar{1}^{\prime}}}
+\covs{x}{y}{1_{1}} & =\cova{x}{y}{1}\\
+\covs{x}{y}{2} & =\begin{pmatrix}i\cova{x}{y}{1^{\prime}}\\
+-i\cova{x}{y}{\bar{1}^{\prime}}
 \end{pmatrix}\\
-\left[\rep{x}\otimes\rep{y}\right]_{\rep{3_{1}}} & =i\left(\rep{x}\otimes\rep{y}\right)_{\rep{3_{a}}}\\
-\left[\rep{x}\otimes\rep{y}\right]_{\rep{3_{2}}} & =\left(\rep{x}\otimes\rep{y}\right)_{\rep{3_{s}}}
+\covs{x}{y}{3_{1}} & =i\cova{x}{y}{3_{a}}\\
+\covs{x}{y}{3_{2}} & =\cova{x}{y}{3_{s}}
 \end{align*}
 
 \end_inset
@@ -6051,8 +6107,8 @@ Using the CG coefficients of
 : 
 \begin_inset Formula 
 \begin{align*}
-\left[\rep{x}\otimes\rep{z}\right]_{\rep{3_{1}}} & =\frac{1}{\sqrt{2}}\left(\rep{x}\otimes\rep{s_{z}^{\prime}}\right)_{\rep{3}}+\frac{1}{\sqrt{2}}\left(\rep{x}\otimes\rep{\bar{s}_{z}^{\prime}}\right)_{\rep{3}}\\
-\left[\rep{x}\otimes\rep{z}\right]_{\rep{3_{2}}} & =\frac{i}{\sqrt{2}}\left(\rep{x}\otimes\rep{s_{z}^{\prime}}\right)_{\rep{3}}-\frac{i}{\sqrt{2}}\left(\rep{x}\otimes\rep{\bar{s}_{z}^{\prime}}\right)_{\rep{3}}
+\covs{x}{z}{3_{1}} & =\frac{1}{\sqrt{2}}\cova{x}{s_{z}^{\prime}}{3}+\frac{1}{\sqrt{2}}\cova{x}{\bar{s}_{z}^{\prime}}{3}\\
+\covs{x}{z}{3_{2}} & =\frac{i}{\sqrt{2}}\cova{x}{s_{z}^{\prime}}{3}-\frac{i}{\sqrt{2}}\cova{x}{\bar{s}_{z}^{\prime}}{3}
 \end{align*}
 
 \end_inset
@@ -6067,8 +6123,8 @@ Using the CG coefficients of
 :
 \begin_inset Formula 
 \begin{align*}
-\left[\rep{x}\otimes\rep{z}\right]_{\rep{3_{1}}} & =\frac{i}{\sqrt{2}}\left(\rep{x}\otimes\rep{s_{z}^{\prime}}\right)_{\rep{3}}-\frac{i}{\sqrt{2}}\left(\rep{x}\otimes\rep{\bar{s}_{z}^{\prime}}\right)_{\rep{3}}\\
-\left[\rep{x}\otimes\rep{z}\right]_{\rep{3_{2}}} & =\frac{1}{\sqrt{2}}\left(\rep{x}\otimes\rep{s_{z}^{\prime}}\right)_{\rep{3}}+\frac{1}{\sqrt{2}}\left(\rep{x}\otimes\rep{\bar{s}_{z}^{\prime}}\right)_{\rep{3}}
+\covs{x}{z}{3_{1}} & =\frac{i}{\sqrt{2}}\cova{x}{s_{z}^{\prime}}{3}-\frac{i}{\sqrt{2}}\cova{x}{\bar{s}_{z}^{\prime}}{3}\\
+\covs{x}{z}{3_{2}} & =\frac{1}{\sqrt{2}}\cova{x}{s_{z}^{\prime}}{3}+\frac{1}{\sqrt{2}}\cova{x}{\bar{s}_{z}^{\prime}}{3}
 \end{align*}
 
 \end_inset
@@ -6083,10 +6139,10 @@ Using the CG coefficients of
 : 
 \begin_inset Formula 
 \begin{align*}
-\left[\rep{z}\otimes\rep{w}\right]_{\rep{1}} & =\frac{1}{\sqrt{2}}\left(\rep{s_{z}^{\prime}}\otimes\rep{\bar{s}_{w}^{\prime}}\right)_{\rep{1}}+\frac{1}{\sqrt{2}}\left(\rep{\bar{s}_{z}^{\prime}}\otimes\rep{s_{w}^{\prime}}\right)_{\rep{1}}\\
-\left[\rep{z}\otimes\rep{w}\right]_{\rep{1_{1}}} & =\frac{i}{\sqrt{2}}\left(\rep{s_{z}^{\prime}}\otimes\rep{\bar{s}_{w}^{\prime}}\right)_{\rep{1}}-\frac{i}{\sqrt{2}}\left(\rep{\bar{s}_{z}^{\prime}}\otimes\rep{s_{w}^{\prime}}\right)_{\rep{1}}\\
-\left[\rep{z}\otimes\rep{w}\right]_{\rep{2}} & =\begin{pmatrix}\left(\rep{\bar{s}_{z}^{\prime}}\otimes\rep{\bar{s}_{w}^{\prime}}\right)_{\rep{1^{\prime}}}\\
-\left(\rep{s_{z}^{\prime}}\otimes\rep{s_{w}^{\prime}}\right)_{\rep{\bar{1}^{\prime}}}
+\covs{z}{w}{1} & =\frac{1}{\sqrt{2}}\cova{s_{z}^{\prime}}{\bar{s}_{w}^{\prime}}{1}+\frac{1}{\sqrt{2}}\cova{\bar{s}_{z}^{\prime}}{s_{w}^{\prime}}{1}\\
+\covs{z}{w}{1_{1}} & =\frac{i}{\sqrt{2}}\cova{s_{z}^{\prime}}{\bar{s}_{w}^{\prime}}{1}-\frac{i}{\sqrt{2}}\cova{\bar{s}_{z}^{\prime}}{s_{w}^{\prime}}{1}\\
+\covs{z}{w}{2} & =\begin{pmatrix}\cova{\bar{s}_{z}^{\prime}}{\bar{s}_{w}^{\prime}}{1^{\prime}}\\
+\cova{s_{z}^{\prime}}{s_{w}^{\prime}}{\bar{1}^{\prime}}
 \end{pmatrix}
 \end{align*}
 
@@ -6102,8 +6158,8 @@ Using the CG coefficients of
 :
 \begin_inset Formula 
 \[
-\left[\rep{z}\otimes\rep{s}\right]_{\rep{2}}=\begin{pmatrix}i\left(\rep{s_{z}^{\prime}}\otimes\rep{s}\right)_{\rep{1^{\prime}}}\\
--i\left(\rep{\bar{s}_{z}^{\prime}}\otimes\rep{s}\right)_{\rep{\bar{1}^{\prime}}}
+\covs{z}{s}{2}=\begin{pmatrix}i\cova{s_{z}^{\prime}}{s}{1^{\prime}}\\
+-i\cova{\bar{s}_{z}^{\prime}}{s}{\bar{1}^{\prime}}
 \end{pmatrix}
 \]
 
