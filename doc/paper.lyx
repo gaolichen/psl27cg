@@ -106,7 +106,38 @@ Discrete subgroups of
 \end_inset
 
  are widely used in flavor models.
- Some popular choices are 
+ In a model building, one needs to study the mathematical properties of
+ the selected group.
+ An important step here is to find Clebsch-Gordan coefficients (CGCs) of
+ the group, which determines how fields are coupled in the model.
+ Therefore, CGCs play important roles in flavor model buildings.
+\end_layout
+
+\begin_layout Standard
+Calculation of CGCs of a large discrete group is usually nontrivial.
+ As far as we know, the most commonly used method is the Mathematica package
+ Discrete, which implements the algorithm introduced by ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "van1978clebsch"
+
+\end_inset
+
+.
+ However, the method cannot obtain the obtain the CGCs in the basis we want.
+ Moreover, for a large discrete group, say a group of rank 
+\begin_inset Formula $>100$
+\end_inset
+
+, it is usually impossible perform an analytic calculation with Mathematica
+ as the calculation usually involves complicated expression of irrational
+ numbers.
+ We therefore turn to the method we will discuss in this section.
+\end_layout
+
+\begin_layout Standard
+Some popular choices are 
 \begin_inset Formula $A_{4}$
 \end_inset
 
@@ -135,21 +166,60 @@ key "Chen:2014wiw,Kile:2013gla"
 \end_inset
 
 .
- Clebsch-Gordan coefficients (CGCs) play important roles in flavor model
- building.
- In a model building, one needs to study the mathematical properties of
- the selected group.
- An important step here is to find the CGCs of the group, which determines
- how fields are coupled in the model.
  Mathematically, CG coefficients determines how the elements of Kronecker
  product of two representations are linearly combined into a new representation.
 \end_layout
 
 \begin_layout Standard
-CGCs are basis dependent.
- Different basis could lead to different CGCs.
- One way to address this issue is expressing CGCs in terms of subgroup represent
-ations.
+There are ambiguities in CGCs.
+ Let us briefly summarize the ambiguities here and we will give more details
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Amb_CGC"
+
+\end_inset
+
+.
+ Firstly they depend on the basis of irreducible representations of the
+ group.
+ It is difficult to say which basis is better than others.
+ Secondly, if 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ are irreps, one can multiply the set of CGCs for the tensor product 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+\end_inset
+
+ by an arbitary overall pahse.
+ That is CGCs has a 
+\begin_inset Formula $U\left(1\right)$
+\end_inset
+
+ ambiguity.
+ Thirdly, if a tensor product has nontrivial multiplicity, i.e, 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to m\rep{Z}$
+\end_inset
+
+, then the CGCs would have a 
+\begin_inset Formula $U\left(m\right)$
+\end_inset
+
+ ambiguity.
+\end_layout
+
+\begin_layout Standard
+One way to address this issue is expressing CGCs in terms of subgroup representa
+tions.
  In the remainder of this article, I shall describe this as CGCs in subgroup
  basis.
  It is different from the regular approach, where CG coefficients are expressed
