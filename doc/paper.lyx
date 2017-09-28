@@ -114,66 +114,9 @@ Discrete subgroups of
 \end_layout
 
 \begin_layout Standard
-Calculation of CGCs of a large discrete group is usually nontrivial.
- As far as we know, the most commonly used method is the Mathematica package
- Discrete, which implements the algorithm introduced by ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "van1978clebsch"
-
-\end_inset
-
-.
- However, the method cannot obtain the obtain the CGCs in the basis we want.
- Moreover, for a large discrete group, say a group of rank 
-\begin_inset Formula $>100$
-\end_inset
-
-, it is usually impossible perform an analytic calculation with Mathematica
- as the calculation usually involves complicated expression of irrational
- numbers.
- We therefore turn to the method we will discuss in this section.
-\end_layout
-
-\begin_layout Standard
-Some popular choices are 
-\begin_inset Formula $A_{4}$
-\end_inset
-
-, 
-\begin_inset Formula $S_{4}$
-\end_inset
-
-, and 
-\begin_inset Formula $\Delta(27)$
-\end_inset
-
- [refs].
- Recently, the group 
-\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
-\end_inset
-
- and 
-\begin_inset Formula $\mathcal{T}_{7}$
-\end_inset
-
- are also used in such models 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chen:2014wiw,Kile:2013gla"
-
-\end_inset
-
-.
- Mathematically, CG coefficients determines how the elements of Kronecker
- product of two representations are linearly combined into a new representation.
-\end_layout
-
-\begin_layout Standard
-There are ambiguities in CGCs.
- Let us briefly summarize the ambiguities here and we will give more details
- in Section 
+However, there are ambiguities in CGCs.
+ We briefly summarize the ambiguities here and will give more details in
+ Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Amb_CGC"
@@ -184,7 +127,12 @@ reference "sec:Amb_CGC"
  Firstly they depend on the basis of irreducible representations of the
  group.
  It is difficult to say which basis is better than others.
- Secondly, if 
+ Secondly, there is still 
+\begin_inset Formula $U\left(1\right)$
+\end_inset
+
+ ambiguity for a fixed basis.
+ If 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -196,18 +144,17 @@ reference "sec:Amb_CGC"
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- are irreps, one can multiply the set of CGCs for the tensor product 
+ are irreps, one can multiply the CGCs for the tensor product 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
  by an arbitary overall pahse.
- That is CGCs has a 
-\begin_inset Formula $U\left(1\right)$
-\end_inset
-
- ambiguity.
  Thirdly, if a tensor product has nontrivial multiplicity, i.e, 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to m\rep{Z}$
+\end_inset
+
+ for 
+\begin_inset Formula $m>1$
 \end_inset
 
 , then the CGCs have a 
@@ -218,59 +165,69 @@ reference "sec:Amb_CGC"
 \end_layout
 
 \begin_layout Standard
-To eliminate ambiguities, we define CGCs of discrete groups in a more restrictiv
-e way.
- The CGCs of a discrete group are expressed in terms of the irreps of its
- subgroup.
- Such CGCs are basis independent because the basis information is absorbed
- into projection matrices, which convert irreps of the large group to irreps
- of its subgroup.
- We then impose on CGCs extra constraints, which relate CGCs of a contraction
- to the CGCs of the charge-parity (CP) conjugate of the contraction.
- This restricts the overall phase of CGCs.
- Particularly, if 
-\begin_inset Formula $\rep{X}$
+In this paper, we introduce a way to define CGCs for discrete group that
+ is independent of basis and reduce the phase and multiplicity ambiguities.
+ The CGCs of a group are defined with respect to irreps of its subgroup.
+ In this definition, the basis information are carried in the projection
+ matrices, which convert irreps of the large group to irreps of the subgroup.
+ We stress that the CGCs are invariant under both the basis transformations
+ of irreps of the large group and subgoup.
+ In addition, composite covaraints of the form 
+\begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
 \end_inset
 
-, 
-\begin_inset Formula $\rep{Y}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- are real or pseudo-real irreps, the overall phase of CGCs for 
+ , which built out of CGCs and various irreps, are required to behave as
+ an irrep under the charge-parity (CP) like transformation.
+ Such a constraint restricts the overall phase of CGCs.
+ Particularly, the overall phase of CGCs for 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
- is fixed.
- Or if 
+ is fixed if i) 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
- is the complex conjugate irrep of 
+, 
 \begin_inset Formula $\rep{Y}$
 \end_inset
 
- and 
+, 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- is real or pesudo-real, the overall phases of the CGCs is also fixed.
- The 
+ are all real or pseudo-real or ii) 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ is real or pseudo-real and 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ is complex conjugate of 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+.
+ The multiplicity ambiguities of such cases are reduced from 
 \begin_inset Formula $U\left(m\right)$
 \end_inset
 
- ambiguity caused by multiplicity is reduce to 
+ to 
 \begin_inset Formula $O\left(m\right)$
 \end_inset
 
- ambiguity for above two cases.
+.
+ We call the above definition CGCs in subgroup basis though it is basis
+ independent.
+ CGCs in subgroup basis is a more effective way to express CGCs.
+ Especially, for large discrete groups that have high-dimensional irreps.
+ The number of coefficients are much less than the CGCs expressed in the
+ component-wise.
 \end_layout
 
 \begin_layout Standard
-We then describe the detail procedures to find the CGCs in subgroup basis.
+We then proceed to find CGCs in subgroup basis.
+ We describe the procedures to find the CGCs in subgroup basis.
  We next demostrate these procedures using the group 
 \begin_inset Formula $\group$
 \end_inset
@@ -509,6 +466,63 @@ reference "sec:CGC_T7"
 \end_inset
 
  bases.
+\end_layout
+
+\begin_layout Standard
+Calculation of CGCs of a large discrete group is usually nontrivial.
+ As far as we know, the most commonly used method is the Mathematica package
+ Discrete, which implements the algorithm introduced by ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "van1978clebsch"
+
+\end_inset
+
+.
+ However, the method cannot obtain the obtain the CGCs in the basis we want.
+ Moreover, for a large discrete group, say a group of rank 
+\begin_inset Formula $>100$
+\end_inset
+
+, it is usually impossible perform an analytic calculation with Mathematica
+ as the calculation usually involves complicated expression of irrational
+ numbers.
+ We therefore turn to the method we will discuss in this section.
+\end_layout
+
+\begin_layout Standard
+Some popular choices are 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+, and 
+\begin_inset Formula $\Delta(27)$
+\end_inset
+
+ [refs].
+ Recently, the group 
+\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{T}_{7}$
+\end_inset
+
+ are also used in such models 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw,Kile:2013gla"
+
+\end_inset
+
+.
+ Mathematically, CG coefficients determines how the elements of Kronecker
+ product of two representations are linearly combined into a new representation.
 \end_layout
 
 \begin_layout Section
