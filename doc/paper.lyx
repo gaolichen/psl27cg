@@ -226,18 +226,22 @@ In this paper, we introduce a way to define CGCs for discrete group that
 \end_layout
 
 \begin_layout Standard
-We then proceed to find CGCs in subgroup basis.
- We describe the procedures to find the CGCs in subgroup basis.
- We next demostrate these procedures using the group 
-\begin_inset Formula $\group$
+We then describe the procedures to calculate the CGCs in subgroup basis.
+ The crucial step is to solve linear equations with complicated coeffcients,
+ which can be expressed as polynomials of 
+\begin_inset Formula $e^{2\pi i/n}$
 \end_inset
 
 .
- We abtained complete sets of CGCs of 
+ Mathematically, these coefficients are elements of cyclotomic fields.
+ A Mathematica package is developed to perform arithmetic calculations of
+ cyclotomic fields.
+ We next demostrate these procedures by calculating the CGCs of the group
+ 
 \begin_inset Formula $\group$
 \end_inset
 
- in the basis of 
+ in the basis of its subgroups 
 \begin_inset Formula $\subga$
 \end_inset
 
@@ -246,102 +250,11 @@ We then proceed to find CGCs in subgroup basis.
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-One way to address this issue is expressing CGCs in terms of subgroup representa
-tions.
- In the remainder of this article, I shall describe this as CGCs in subgroup
- basis.
- It is different from the regular approach, where CG coefficients are expressed
- in terms of one-dimensional components of group representations.
- For example, for the CGCs 
-\begin_inset Formula $\rep{6}\otimes\rep{7}\to\rep{8}$
-\end_inset
-
- of 
-\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
-\end_inset
-
-, regular CGCs express the eight components of 
-\begin_inset Formula $\rep{8}$
-\end_inset
-
- in bilinear forms of thirteen components of 
-\begin_inset Formula $\rep{6}$
-\end_inset
-
- and 
-\begin_inset Formula $\rep{7}$
+ For both subgroups, we obtain a complete list of CGCs of the group 
+\begin_inset Formula $\group$
 \end_inset
 
 .
- While for CGCs in subgroup basis, we first decompose the 
-\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
-\end_inset
-
- representations into representations of its subgroup, say 
-\begin_inset Formula $\mathcal{T}_{7}$
-\end_inset
-
-, as 
-\begin_inset Formula $\rep{6}=\rep{3}+\rep{\bar{3}}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{7}=\rep{1}+\rep{3}+\rep{\bar{3}}$
-\end_inset
-
-, and 
-\begin_inset Formula $\rep{8}=\rep{1^{\prime}}+\rep{\bar{1}^{\prime}}+\rep{3}+\rep{\bar{3}}$
-\end_inset
-
-.
- Then we only need to express the four parts of 
-\begin_inset Formula $\rep{8}$
-\end_inset
-
- in terms of five parts of 
-\begin_inset Formula $\rep{6}$
-\end_inset
-
- and 
-\begin_inset Formula $\rep{7}$
-\end_inset
-
- with the CGCs of the subgroup 
-\begin_inset Formula $\mathcal{T}_{7}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Clearly, CGCs in subgroup basis is a more effective way to express CGCs.
- As we shall show in the paper, each subgroup basis CGC is unique possibly
- up to a pure phase.
- Moreover, when symmetry breaking is concerned, say, the flavor symmetry
- is spontaneously broken into a symmetry of a subgroup, it is convenient
- to use the subgroup basis CGCs in such a model.
-\end_layout
-
-\begin_layout Standard
-In this paper, we will find complete sets of CG coefficients of the group
- 
-\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
-\end_inset
-
- in terms of its subgroup 
-\begin_inset Formula $S_{4}$
-\end_inset
-
- and 
-\begin_inset Formula $\mathcal{T}_{7}$
-\end_inset
-
-.
- 
 \end_layout
 
 \begin_layout Standard
@@ -353,7 +266,7 @@ reference "sec:Amb_CGC"
 
 \end_inset
 
-, we discuss the ambiguities of Clebsch-Gordan coefficients.
+, we analyze the ambiguities of Clebsch-Gordan coefficients.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -361,8 +274,8 @@ reference "sec:CGCs-in-subgroup"
 
 \end_inset
 
-, we first introduce CGCs in subgroup basis and show that they are basis
- independent, then we discuss the phases of CGCs.
+, we define CGCs in subgroup basis and show that they are basis independent,
+ then we discuss how the phases of CGCs being restricted.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -371,7 +284,7 @@ reference "sec:Calc_CGC"
 \end_inset
 
 , we describe the procedures to calculate the CGCs in subgroup basis.
- We apply these procedures to the group 
+ We then apply these procedures to the group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -409,7 +322,7 @@ reference "sec:Gen_PSL27"
 \begin_inset Formula $\group$
 \end_inset
 
- group are calculated.
+ group are obtained.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -417,7 +330,7 @@ reference "sec:Calc_PSL27_CGC"
 
 \end_inset
 
-, we give examples of how to calculate CGCs for the tensor product 
+, we give examples of calculating CGCs for the tensor product 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{7}$
 \end_inset
 
@@ -466,63 +379,6 @@ reference "sec:CGC_T7"
 \end_inset
 
  bases.
-\end_layout
-
-\begin_layout Standard
-Calculation of CGCs of a large discrete group is usually nontrivial.
- As far as we know, the most commonly used method is the Mathematica package
- Discrete, which implements the algorithm introduced by ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "van1978clebsch"
-
-\end_inset
-
-.
- However, the method cannot obtain the obtain the CGCs in the basis we want.
- Moreover, for a large discrete group, say a group of rank 
-\begin_inset Formula $>100$
-\end_inset
-
-, it is usually impossible perform an analytic calculation with Mathematica
- as the calculation usually involves complicated expression of irrational
- numbers.
- We therefore turn to the method we will discuss in this section.
-\end_layout
-
-\begin_layout Standard
-Some popular choices are 
-\begin_inset Formula $A_{4}$
-\end_inset
-
-, 
-\begin_inset Formula $S_{4}$
-\end_inset
-
-, and 
-\begin_inset Formula $\Delta(27)$
-\end_inset
-
- [refs].
- Recently, the group 
-\begin_inset Formula $\mathcal{PSL}_{2}\left(7\right)$
-\end_inset
-
- and 
-\begin_inset Formula $\mathcal{T}_{7}$
-\end_inset
-
- are also used in such models 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chen:2014wiw,Kile:2013gla"
-
-\end_inset
-
-.
- Mathematically, CG coefficients determines how the elements of Kronecker
- product of two representations are linearly combined into a new representation.
 \end_layout
 
 \begin_layout Section
@@ -7557,7 +7413,7 @@ name "subsec:Cyclotomic-fields"
 
 \end_inset
 
-Cyclotomic fields
+Cyclotomic field
 \end_layout
 
 \begin_layout Standard
