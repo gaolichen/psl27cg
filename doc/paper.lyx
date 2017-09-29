@@ -2273,32 +2273,63 @@ Find matrix realizations of all the irreps of
 \begin_inset Formula $G$
 \end_inset
 
- in the basis that the projection matrices are in the trivial form as 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CG_PXj"
+ in the subgroup basis that the projection matrices are in the simplest
+ form.
+ One can first find the matrix realization of lower-dimensional irreps then
+ build the ones for higher-dimensional from tensor products.
+ Usually the lower-dimensional irreps matrix realizations, in a certain
+ basis, are already known in the literature or can be obtained from the
+ GAP programming platform.
+ We therefore focus on finding a similarity transformation that transforms
+ the matrices to the desired basis.
+\end_layout
 
-\end_inset
-
-.
- We assume that a matrix realization of 
-\begin_inset Formula $G$
-\end_inset
-
- in an arbitrary basis is known
+\begin_layout Standard
+To find the similarity transformation, we need to diagonalize the matrices
+ of generators
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-One can also find a matrix realization of a discrete group using the GAP
- platform.
+See Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Gen_PSL27"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
 
 .
- Then one only needs to find a similarity transformation that transforms
- the matrices to the desired basis.
+ Entries of these matrices are usually cyclotomic numbers, which are polynomials
+ of 
+\begin_inset Formula $n$
+\end_inset
+
+-th roots of unity for certain fixed 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ It is difficult to find the eigenvectors of these matrices directly by
+ Mathematica.
+ We developed a algorithm to perform arithmetic operation of cyclotomic
+ numbers.
+ The details are discussed in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Cyclotomic-fields"
+
+\end_inset
+
+.
+ With the algorithm, we can find the eigenvector for a given eigenvalue
+ of a matrice.
+ For low-dimensional irreps, one can usually find the eigenvalues directly
+ from Mathematica.
 \end_layout
 
 \begin_layout Itemize
@@ -2516,45 +2547,16 @@ The third step is to solve for the parameters
 
 \begin_layout Standard
 There are two ways to solve the issue.
- The first way is to use the technique of cyclotomic fields.
- A 
-\begin_inset Formula $n$
-\end_inset
-
--th cyclotomic field is a polynomial of 
-\begin_inset Formula $n$
-\end_inset
-
--th roots of unity with rational coefficients.
- The matrices of group generators of a discrete group usually consist of
- cyclotomic fields for a fixed value of 
-\begin_inset Formula $n$
-\end_inset
-
-.
- These numbers then enter to the coefficients of the linear equations of
- 
-\begin_inset Formula $c_{k,ij}$
-\end_inset
-
-.
- We developed a algorithm to perform arithmetic operation of cyclotomic
- fields.
- The details are discussed in Appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Cyclotomic-fields"
-
-\end_inset
-
-.
- We can therefore apply Gaussian elimination algorithm with arithmetic operation
- of cyclotomic fields to solve the equations.
+ The first way is to use the calculation technique of cyclotomic numbers.
+ These numbers enter to the coefficients of the linear equations from matrices
+ of group generators.
+ We can apply Gaussian elimination algorithm with arithmetic operation of
+ cyclotomic numbers to solve the equations.
  To be efficient, the Gaussian elimination procedure should only apply to
  a set of independent equations.
  To find the set of independent equations, we can convert the coefficients
- of equations to float number and apply Gaussian elimination algorithm with
- an appropriate error tolerance.
+ of equations to float numbers and apply Gaussian elimination algorithm
+ with an appropriate error tolerance.
  
 \end_layout
 
