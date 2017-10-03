@@ -114,10 +114,13 @@ Discrete subgroups of
 \end_layout
 
 \begin_layout Standard
-In flavor physics, the CGCs of three-dimensional representations are mostly
- investigated.
- These low-dimensional CGCs can be found by several methods.
- One method is to use the Discrete package, which implements the algorithm
+In flavor physics models, the fields that are responsible for flavor symmetry
+ are usually in three-dimensional irreducible representation of the selected
+ group.
+ Thus, these models usually need the the CGCs involving low-dimensional
+ irreps of the group.
+ These CGCs can be calculated in several methods.
+ One method is to use the Discrete package [ref], which implements the algorithm
  of ref 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -126,16 +129,21 @@ key "van1978clebsch"
 \end_inset
 
 .
- Ref 
+ One can also calculate these CGCs with the method introduced by Ref 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ludl:2009ft"
 
 \end_inset
 
- introduce another method to calculate CGCs.
- Recently, some flavor models used CGCs of high-dimensional representations,
- for example in ref.
+.
+ 
+\end_layout
+
+\begin_layout Standard
+But there are also models containing flavor fields of higher-dimensional
+ irreps.
+ For example, in ref.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -148,9 +156,15 @@ key "Chen:2014wiw"
 \end_inset
 
  are used in the model building.
- Finding CGCs of these high-dimensional representation are not as easy as
- low-dimensional cases.
- 
+ Finding CGCs of these high-dimensional irreps is usually more involved
+ than the low-dimensional cases.
+ These calculations usually involve complicated algebraic numbers containing
+ roots of unity 
+\begin_inset Formula $e^{2\pi i/n}$
+\end_inset
+
+ and hence difficult to obtain simplified results from calculations.
+ As far as we know, there is no effective way to perform such calculations.
 \end_layout
 
 \begin_layout Standard
