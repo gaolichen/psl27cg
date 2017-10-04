@@ -114,22 +114,17 @@ Discrete subgroups of
 \end_layout
 
 \begin_layout Standard
-In flavor physics models, the fields that are responsible for flavor symmetry
- are usually in three-dimensional irreducible representation of the selected
- group.
- Thus, these models usually need the the CGCs involving low-dimensional
- irreps of the group.
- These CGCs can be calculated in several methods.
- One method is to use the Discrete package [ref], which implements the algorithm
- of ref 
+Three-dimensional irreps gain most attention in flavor model buidings.
+ CGCs of these lower-dimensional irreps can be calculated in several methods.
+ These methods include but not limitted to the Discrete package [ref], which
+ implements the algorithm of ref 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "van1978clebsch"
 
 \end_inset
 
-.
- One can also calculate these CGCs with the method introduced by Ref 
+, and the method introduced by Ref 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ludl:2009ft"
@@ -137,12 +132,15 @@ key "Ludl:2009ft"
 \end_inset
 
 .
- 
-\end_layout
+ However, when comes to CGCs involing higher-dimensional irreps, these methods
+ are not applicable any more.
+ These calculations involve complicated algebraic numbers consist of roots
+ of unity 
+\begin_inset Formula $e^{2k\pi i/n}$
+\end_inset
 
-\begin_layout Standard
-But there are also models containing flavor fields of higher-dimensional
- irreps.
+ and their polynomial, and hence it is difficult to obtain simplified results.
+ Recently, higher-dimensional irreps are also used in model buildings.
  For example, in ref.
  
 \begin_inset CommandInset citation
@@ -156,19 +154,12 @@ key "Chen:2014wiw"
 \end_inset
 
  are used in the model building.
- Finding CGCs of these high-dimensional irreps is usually more involved
- than the low-dimensional cases.
- These calculations usually involve complicated algebraic numbers containing
- roots of unity 
-\begin_inset Formula $e^{2\pi i/n}$
-\end_inset
-
- and hence difficult to obtain simplified results from calculations.
- As far as we know, there is no effective way to perform such calculations.
+ Finding CGCs of these higher-dimensional irreps is one challging task for
+ these model buildings.
 \end_layout
 
 \begin_layout Standard
-However, there are ambiguities in CGCs.
+Another issue for CGCs is that there are ambiguities in CGCs.
  We briefly summarize the ambiguities here and will give more details in
  Section 
 \begin_inset CommandInset ref
@@ -219,8 +210,14 @@ reference "sec:Amb_CGC"
 \end_layout
 
 \begin_layout Standard
-In this paper, we introduce a way to define CGCs for discrete group that
- is independent of basis and reduce the phase and multiplicity ambiguities.
+We aim to reduce the ambiguities of CGCs and find a way to calculate the
+ CGCs of higer-dimensional irreps of discrete groups.
+ We proceed as follows.
+\end_layout
+
+\begin_layout Itemize
+We introduce a way to define CGCs for discrete group that is independent
+ of basis and reduce the phase and multiplicity ambiguities.
  The CGCs of a group are defined with respect to irreps of its subgroup.
  In this definition, the basis information are carried in the projection
  matrices, which convert irreps of the large group to irreps of the subgroup.
@@ -279,7 +276,7 @@ In this paper, we introduce a way to define CGCs for discrete group that
  component-wise.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 We then describe the procedures to calculate the CGCs in subgroup basis.
  The crucial step is to solve linear equations with complicated coefficients,
  which can be expressed as polynomials of 
