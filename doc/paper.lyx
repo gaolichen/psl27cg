@@ -106,16 +106,17 @@ Discrete subgroups of
 \end_inset
 
  are widely used in flavor models.
- In a model building, one needs to study the mathematical properties of
- the selected group.
- An important step here is to find Clebsch-Gordan coefficients (CGCs) of
- the group, which determines how fields are coupled in the model.
- Therefore, CGCs play important roles in flavor model buildings.
+ In model building, one needs to study the mathematical properties of the
+ selected group.
+ An important step here is to find Clebsch-Gordan (CG) coefficients of the
+ group, which determines how fields are coupled in the model.
+ Therefore, CG coefficients play important roles in flavor model buildings.
 \end_layout
 
 \begin_layout Standard
 Three-dimensional irreps gain most attention in flavor model buidings.
- CGCs of these lower-dimensional irreps can be calculated in several methods.
+ CG coefficients of these lower-dimensional irreps can be calculated in
+ several methods.
  These methods include but not limitted to the Discrete package [ref], which
  implements the algorithm of ref 
 \begin_inset CommandInset citation
@@ -132,8 +133,8 @@ key "Ludl:2009ft"
 \end_inset
 
 .
- However, when comes to CGCs involing higher-dimensional irreps, these methods
- are not applicable any more.
+ However, when comes to CG coefficients involing higher-dimensional irreps,
+ these methods are not applicable any more.
  These calculations involve complicated algebraic numbers consist of roots
  of unity 
 \begin_inset Formula $e^{2k\pi i/n}$
@@ -154,29 +155,15 @@ key "Chen:2014wiw"
 \end_inset
 
  are used in the model building.
- Finding CGCs of these higher-dimensional irreps is one challging task for
- these model buildings.
+ Finding CG coefficients of these higher-dimensional irreps is one challging
+ task for these model buildings.
 \end_layout
 
 \begin_layout Standard
-Another issue for CGCs is that there are ambiguities in CGCs.
- We briefly summarize the ambiguities here and will give more details in
- Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Amb_CGC"
-
-\end_inset
-
-.
- Firstly they depend on the basis of irreducible representations (irrep)
- of the group.
- It is difficult to say which basis is better than others.
- Secondly, there is still 
-\begin_inset Formula $U\left(1\right)$
-\end_inset
-
- ambiguity for a fixed basis.
+Another issue is that there are ambiguities in CG coefficients.
+ In general, CG coefficients depend on the basis of irreducible representations
+ (irrep) of the group.
+ There is still a phase ambiguity for a fixed basis.
  If 
 \begin_inset Formula $\rep{X}$
 \end_inset
@@ -189,12 +176,13 @@ reference "sec:Amb_CGC"
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- are irreps, one can multiply the CGCs for the tensor product 
+ are irreps, one can multiply the CG coefficients for the tensor product
+ 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
  by an arbitrary overall phase.
- Thirdly, if a tensor product has nontrivial multiplicity, i.e, 
+ In addition, if a tensor product has nontrivial multiplicity, i.e, 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to m\rep{Z}$
 \end_inset
 
@@ -202,35 +190,45 @@ reference "sec:Amb_CGC"
 \begin_inset Formula $m>1$
 \end_inset
 
-, then the CGCs have a 
+, then the CG coefficients have a 
 \begin_inset Formula $U\left(m\right)$
 \end_inset
 
  ambiguity.
+ We will give more details about these ambiguities in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Amb_CGC"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
-We aim to reduce the ambiguities of CGCs and find a way to calculate the
- CGCs of higer-dimensional irreps of discrete groups.
+We aim to reduce the ambiguities of CG coefficients and find a way to calculate
+ the CG coefficients of higer-dimensional irreps of discrete groups.
  We proceed as follows.
 \end_layout
 
 \begin_layout Itemize
-We introduce a way to define CGCs for discrete group that is independent
- of basis and reduce the phase and multiplicity ambiguities.
- The CGCs of a group are defined with respect to irreps of its subgroup.
- In this definition, the basis information are carried in the projection
- matrices, which convert irreps of the large group to irreps of the subgroup.
- We stress that the CGCs are invariant under both the basis transformations
- of irreps of the large group and subgroup.
- In addition, composite covaraints of the form 
+We introduce CG coefficients for discrete groups that are basis-independent
+ and reduce the phase and multiplicity ambiguities.
+ To do this, we express the CG coefficients of a group with respect to irreps
+ of its subgroup.
+ The basis information is carried in the projection matrices, which convert
+ irreps of the large group to irreps of the subgroup.
+ The CG coefficients are invariant under both the basis transformations
+ of irreps of the group and its subgroup.
+ In addition, contractions of the form 
 \begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
 \end_inset
 
- , which built out of CGCs and various irreps, are required to behave the
- same as an irrep under the charge-parity (CP) like transformation.
- Such a constraint restricts the overall phase of CGCs.
- Particularly, the overall phase of CGCs for 
+ are required to behave the same as an irrep under the charge-parity (CP)
+ like transformation.
+ Such a constraint restricts the overall phase of CG coefficients.
+ Particularly, the overall phase of CG coefficients for 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
@@ -268,16 +266,20 @@ We introduce a way to define CGCs for discrete group that is independent
 \end_inset
 
 .
- We call the above definition CGCs in subgroup basis though it is basis
- independent.
- CGCs in subgroup basis is a more effective way to express CGCs.
+ We call the above definition 
+\shape italic
+CG coefficients in the subgroup basis
+\shape default
+.
+ It is a more effective way to express CG coefficients.
  Especially, for large discrete groups that have high-dimensional irreps,
- the number of coefficients are much less than the CGCs expressed in the
- component-wise.
+ the number of coefficients are much less than the CG coefficients expressed
+ in the component-wise.
 \end_layout
 
 \begin_layout Itemize
-We then describe the procedures to calculate the CGCs in subgroup basis.
+We then describe the procedures to calculate the CG coefficients in subgroup
+ basis.
  The crucial step is to solve linear equations with complicated coefficients,
  which can be expressed as polynomials of 
 \begin_inset Formula $e^{2\pi i/n}$
@@ -287,8 +289,8 @@ We then describe the procedures to calculate the CGCs in subgroup basis.
  Mathematically, these coefficients are elements of cyclotomic fields.
  A Mathematica package is developed to perform arithmetic calculations of
  cyclotomic fields.
- We next demonstrate these procedures by calculating the CGCs of the group
- 
+ We next demonstrate these procedures by calculating the CG coefficients
+ of the group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -301,7 +303,8 @@ We then describe the procedures to calculate the CGCs in subgroup basis.
 \end_inset
 
 .
- For both subgroups, we obtain a complete list of CGCs of the group 
+ For both subgroups, we obtain a complete list of CG coefficients of the
+ group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -325,8 +328,8 @@ reference "sec:CGCs-in-subgroup"
 
 \end_inset
 
-, we define CGCs in subgroup basis and show that they are basis independent,
- then we discuss how the phases of CGCs being restricted.
+, we define CG coefficients in subgroup basis and show that they are basis
+ independent, then we discuss how the phases of CG coefficients being restricted.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -334,7 +337,8 @@ reference "sec:Calc_CGC"
 
 \end_inset
 
-, we describe the procedures to calculate the CGCs in subgroup basis.
+, we describe the procedures to calculate the CG coefficients in subgroup
+ basis.
  We then apply these procedures to the group 
 \begin_inset Formula $\group$
 \end_inset
@@ -381,7 +385,8 @@ reference "sec:Calc_PSL27_CGC"
 
 \end_inset
 
-, we give examples of calculating CGCs for the tensor product 
+, we give examples of calculating CG coefficients for the tensor product
+ 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{7}$
 \end_inset
 
@@ -402,7 +407,7 @@ reference "sec:Tech_Detail"
 \end_inset
 
 , we give some details of the Mathematica package we developed for the calculati
-on of CGCs.
+on of CG coefficients.
  Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -417,7 +422,7 @@ reference "sec:CGC_T7"
 
 \end_inset
 
- list complete sets of CGCs of 
+ list complete sets of CG coefficients of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -566,7 +571,7 @@ The tensor product of two irreducible representations of a group is in general
  and the tensor product is defined as 
 \begin_inset Formula 
 \[
-\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{i\times j}=\left(\mr{X}\left(g\right)X\right)_{i}\left(\mr{Y}\left(g\right)Y\right)_{j}.
+\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\left(i-1\right)\times\dim Y+j}=\left(\mr{X}\left(g\right)X\right)_{i}\left(\mr{Y}\left(g\right)Y\right)_{j}.
 \]
 
 \end_inset
@@ -575,20 +580,17 @@ The coefficients
 \begin_inset Formula $C_{kl}^{\left(XY\to Z\right)}$
 \end_inset
 
- are called Clebsch-Gordan coefficients (CGCs).
+ are called Clebsch-Gordan coefficients.
  For convenience, we will use 
 \begin_inset Formula $C_{kl}$
 \end_inset
 
- to denote a single CGC and 
-\begin_inset Formula $C_{k}$
+ and 
+\begin_inset Formula $C$
 \end_inset
 
- for the CGCs of 
-\begin_inset Formula $Z_{k}$
-\end_inset
-
- components.
+ to denote a single CG coefficient and the matrix of CG coefficients respectivel
+y.
  Sometimes we will write 
 \begin_inset Formula $Z=C^{\left(XY\to Z\right)}\left(X\otimes Y\right)$
 \end_inset
@@ -638,8 +640,8 @@ reference "eq:CGC_Def"
 \end_inset
 
  also satisfy the equation.
- So it is then conventional to impose normalization constraints on CGCs
- 
+ So it is then conventional to impose normalization constraints on CG coefficien
+ts 
 \begin_inset Formula 
 \begin{equation}
 \sum_{j}C_{kj}^{*}C_{lj}=\delta_{kl}.\label{eq:CGC_Orthnormal}
@@ -652,7 +654,7 @@ reference "eq:CGC_Def"
 
 \begin_layout Standard
 There are, however, other ambiguities.
- Firstly, CGCs are basis dependent.
+ Firstly, CG coefficients are basis dependent.
  Under basis transformations
 \begin_inset ERT
 status open
@@ -663,7 +665,7 @@ status open
 \backslash
 begin{subequations}
 \backslash
-label{eq:CGC_BaseTransform}
+label{eq:CG coefficient_BaseTransform}
 \end_layout
 
 \end_inset
@@ -692,13 +694,13 @@ reference "eq:CGC_Orthnormal"
 \end_inset
 
  are invariant if the matrices 
-\begin_inset Formula $C_{k}$
+\begin_inset Formula $C$
 \end_inset
 
  simultaneously transform as 
 \begin_inset Formula 
 \begin{equation}
-C_{k}\to C_{k}^{\prime}=U_{Z}C_{k}\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right).
+C\to C^{\prime}=U_{Z}C\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right).
 \end{equation}
 
 \end_inset
@@ -774,12 +776,12 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- as two different irreps when calculating the CGCs.
+ as two different irreps when calculating the CG coefficients.
 \end_layout
 
 \end_inset
 
-, then any linear combination of the CGCs 
+, then any linear combination of the CG coefficients 
 \begin_inset Formula $a_{1}C^{\left(1\right)}+\cdots+a_{n}C^{\left(n\right)}$
 \end_inset
 
@@ -792,8 +794,8 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 \end_layout
 
 \begin_layout Standard
-In order to eliminate or reduce the ambiguities, we introduce CGCs in subgroup
- basis in the following section.
+In order to eliminate or reduce the ambiguities, we introduce CG coefficients
+ in subgroup basis in the following section.
 \end_layout
 
 \begin_layout Section
@@ -803,17 +805,7 @@ name "sec:CGCs-in-subgroup"
 
 \end_inset
 
-CGCs in subgroup basis
-\end_layout
-
-\begin_layout Standard
-In this section, we will define CGCs of a large group with respect to its
- subgroup irreps.
- In such a definition, the knowledge of basis was encoded in projection
- matrices, which projects irreps of large group into irreps of the subgroup.
- In addition, we restrict overall phases of CGCs by imposing constraints
- regarding irreps that are complex conjugate to each other.
- 
+CG coefficients in subgroup basis
 \end_layout
 
 \begin_layout Standard
@@ -882,7 +874,7 @@ reference "eq:CGSub_Embed"
 
 \begin_inset Formula 
 \begin{equation}
-\rep{X}=\bigoplus\rep{x_{i}},\quad\rep{Y}=\bigoplus\rep{y_{i}},\quad\rep{Y}=\bigoplus\rep{y_{i}},\label{eq:CGSub_Embed}
+\rep{X}=\bigoplus\rep{x_{i}},\quad\rep{Y}=\bigoplus\rep{y_{j}},\quad\rep{Z}=\bigoplus\rep{z_{k}},\label{eq:CGSub_Embed}
 \end{equation}
 
 \end_inset
@@ -892,11 +884,11 @@ reference "eq:CGSub_Embed"
 \end_inset
 
 , 
-\begin_inset Formula $\rep{y_{i}}$
+\begin_inset Formula $\rep{y_{j}}$
 \end_inset
 
 , 
-\begin_inset Formula $\rep{z_{i}}$
+\begin_inset Formula $\rep{z_{k}}$
 \end_inset
 
  are irreps of 
@@ -932,7 +924,7 @@ P_{Z\to k}Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}X\right)\otimes\left(P_{Y\
 \begin_inset Formula $c_{k,ij}$
 \end_inset
 
- are CGCs.
+ are CG coefficients.
  By the definition of CG coefficients, 
 \begin_inset Formula $c_{k,ij}$
 \end_inset
@@ -993,8 +985,8 @@ reference "eq:CGSub_orthnormal"
 
 \end_inset
 
-, we shall impose other constraints on CGCs.
- To introduce the constraints, we need to first discuss about real and complex
+, we shall impose other constraints on CG coefficients.
+ To introduce the constraints, we need to first discuss real and complex
  representations.
  A real (or pseudo-real) representation is a representation whose complex
  conjugate is equivalent to itself.
@@ -1095,7 +1087,7 @@ label{eq:CG_GammaCon}
 \begin_inset Formula 
 \begin{align}
 \Gamma_{Z}\left(\covlg{X}{Y}{Z}\right)^{*} & =\covlg{\bar{X}}{\bar{Y}}{\bar{Z}},\label{eq:CGSub_GammaCon1}\\
-\Gamma_{k}\left(\covsub{x_{i}}{x_{j}}{x_{k}}\right)^{*} & =\covsub{\bar{x}_{i}}{\bar{x}_{j}}{\bar{x}_{k}}\label{eq:CGSub_GammaCon2}
+\Gamma_{k}\left(\covsub{x_{i}}{y_{j}}{z_{k}}\right)^{*} & =\covsub{\bar{x}_{i}}{\bar{y}_{j}}{\bar{z}_{k}}\label{eq:CGSub_GammaCon2}
 \end{align}
 
 \end_inset
@@ -1144,7 +1136,7 @@ reference "eq:CGSub_GammaCon2"
 
 \end_inset
 
- as charge parity (CP) constraints and 
+ as charge-parity (CP) constraints and 
 \begin_inset Formula $\Gamma_{Z}$
 \end_inset
 
@@ -1224,7 +1216,7 @@ end{subequations}
 \end_layout
 
 \begin_layout Standard
-In summary, our CGCs are defined by eq.
+In summary, our CG coefficients are defined by eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1247,7 +1239,8 @@ reference "eq:CGSub_GammaCon"
 \end_inset
 
 .
- In the remainder of this section, we will show some properties of the CGCs.
+ In the remainder of this section, we will show some properties of the CG
+ coefficients.
  
 \end_layout
 
@@ -1586,7 +1579,7 @@ reference "eq:CGSub_Def2"
 \end_layout
 
 \begin_layout Subsection
-Phases of CGCs
+Phases of CG coefficients
 \end_layout
 
 \begin_layout Standard
@@ -1598,19 +1591,20 @@ reference "eq:CG_GammaCon"
 \end_inset
 
 .
- The CP constraints can apply to both general CGCs defined as 
+ The CP constraints can apply to both general CG coefficients defined as
+ 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGC_Def"
 
 \end_inset
 
- and CGCs in subgroup basis.
+ and CG coefficients in subgroup basis.
  We first discuss the consequence on the formal and then on latter.
 \end_layout
 
 \begin_layout Standard
-Consider CGCs 
+Consider CG coefficients 
 \begin_inset Formula $C^{\left(XY\to Z\right)}$
 \end_inset
 
@@ -1737,7 +1731,7 @@ Case II: If
 \end_inset
 
 .
- In this case, the overall phase of the CGCs is also fixed.
+ In this case, the overall phase of the CG coefficients is also fixed.
  
 \end_layout
 
@@ -1750,8 +1744,9 @@ reference "eq:CGSub_CXYZ"
 
 \end_inset
 
- imposes constraints between two sets of CGCs.
- Hence, the overall phases of the two sets of CGCs are not fixed but dependent.
+ imposes constraints between two sets of CG coefficients.
+ Hence, the overall phases of the two sets of CG coefficients are not fixed
+ but dependent.
  Particularly, if all the irreps are complex, 
 \begin_inset Formula $\Gamma_{X,Y,Z}$
 \end_inset
@@ -1774,7 +1769,7 @@ In the remainder of the paper, we shall call these three cases, Case I,
 \end_layout
 
 \begin_layout Standard
-Now consider CP constraints on the CGCs in subgroup basis.
+Now consider CP constraints on the CG coefficients in subgroup basis.
  Suppose we have contractions 
 \begin_inset ERT
 status open
@@ -1937,7 +1932,7 @@ reference "eq:CGSub_ckij"
 
 \end_inset
 
- also give rise to different restrictions on overall phases of CGCs:
+ also give rise to different restrictions on overall phases of CG coefficients:
 \end_layout
 
 \begin_layout Itemize
@@ -1949,8 +1944,8 @@ Case I: In this case,
 \begin_inset Formula $c_{k,ij}$
 \end_inset
 
- are contained in the same set of CGCs, and hence, the overall phases of
- CGCs are fixed.
+ are contained in the same set of CG coefficients, and hence, the overall
+ phases of CG coefficients are fixed.
  If the irreps 
 \begin_inset Formula $\rep{z_{k}}$
 \end_inset
@@ -1979,8 +1974,8 @@ Case II: In this case,
 \begin_inset Formula $c_{k,ij}$
 \end_inset
 
- are also contained in the same set of CGCs and the overall phase of CGCs
- is fixed.
+ are also contained in the same set of CG coefficients and the overall phase
+ of CG coefficients is fixed.
 \end_layout
 
 \begin_layout Itemize
@@ -1992,7 +1987,7 @@ reference "eq:CGSub_ckij"
 
 \end_inset
 
- implies that the CGCs of 
+ implies that the CG coefficients of 
 \begin_inset Formula $\covlg{X}{Y}{Z}$
 \end_inset
 
@@ -2131,7 +2126,7 @@ The above property has an implication in flavor physics models with discrete
 \end_inset
 
  is presumably contained in the Lagrangian as well.
- However, for a general CGCs, 
+ However, for a general CG coefficients, 
 \begin_inset Formula $\covlg{X}{\covlg{V}{W}{\bar{X}}}{1}$
 \end_inset
 
@@ -2145,7 +2140,7 @@ The above property has an implication in flavor physics models with discrete
 \end_inset
 
  has to be a complex number with a fixed phase.
- With the CGCs defined under the CP constraint 
+ With the CG coefficients defined under the CP constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_GammaCon1"
@@ -2167,11 +2162,11 @@ name "sec:Calc_CGC"
 
 \end_inset
 
-Procedures to calculate CGCs
+Procedures to calculate CG coefficients
 \end_layout
 
 \begin_layout Standard
-Calculation of CGCs of a large discrete group is usually nontrivial.
+Calculation of CG coefficients of a large discrete group is usually nontrivial.
  As far as we know, the most commonly used method is the Mathematica package
  Discrete, which implements the algorithm introduced by ref.
  
@@ -2182,7 +2177,8 @@ key "van1978clebsch"
 \end_inset
 
 .
- However, the method cannot obtain the obtain the CGCs in the basis we want.
+ However, the method cannot obtain the obtain the CG coefficients in the
+ basis we want.
  Moreover, for a large discrete group, say a group of rank 
 \begin_inset Formula $>100$
 \end_inset
@@ -2195,7 +2191,7 @@ key "van1978clebsch"
 
 \begin_layout Standard
 Our procedures are very straightforward and simply based on our definition
- of CGCs, i.e.
+ of CG coefficients, i.e.
  eq.
  
 \begin_inset CommandInset ref
@@ -2263,12 +2259,12 @@ There is a special case that the projection matrix cannot be in the trivial
 
 .
  We assume that the matrix realization, CP transformations of irreps, and
- CGCs of the subgroup 
+ CG coefficients of the subgroup 
 \begin_inset Formula $H$
 \end_inset
 
  are known or easy to find.
- Moreover, the CGCs of 
+ Moreover, the CG coefficients of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -2356,7 +2352,7 @@ Step II
 \end_layout
 
 \begin_layout Standard
-Write down the most general forms of CGCs as eq.
+Write down the most general forms of CG coefficients as eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -2614,7 +2610,7 @@ Step IV
 
 \begin_layout Standard
 The last step is to apply the charge conjugate and orthonormalization condition
- constraints on the CGCs.
+ constraints on the CG coefficients.
  As discussed in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2622,7 +2618,7 @@ reference "sec:CGCs-in-subgroup"
 
 \end_inset
 
-, the CP constraints require that CGCs of 
+, the CP constraints require that CG coefficients of 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
@@ -2651,7 +2647,7 @@ reference "sec:CGCs-in-subgroup"
 \begin_inset Formula $\rep{X}=\rep{Y}$
 \end_inset
 
-, it leads to nontrivial restrictions on overall phases of CGCs.
+, it leads to nontrivial restrictions on overall phases of CG coefficients.
  The constraints of these two cases can be solved as follows.
  Let 
 \begin_inset Formula $\left\{ c_{P}\right\} $
@@ -2725,7 +2721,7 @@ reference "eq:Proc_aPcP"
 \end_layout
 
 \begin_layout Standard
-Finally, we apply the orthonormalization constraints to CGCs.
+Finally, we apply the orthonormalization constraints to CG coefficients.
  If 
 \begin_inset Formula $m_{Z}>1$
 \end_inset
@@ -2734,7 +2730,7 @@ Finally, we apply the orthonormalization constraints to CGCs.
 \begin_inset Formula $m_{Z}$
 \end_inset
 
- sets of orthonormal CGCs.
+ sets of orthonormal CG coefficients.
  The normalization reduces the real DOF by 1.
  
 \end_layout
@@ -2744,7 +2740,7 @@ In summary, for case I and II,
 \begin_inset Formula $m_{z}$
 \end_inset
 
- sets of CGCs have 
+ sets of CG coefficients have 
 \begin_inset Formula $m_{z}-1$
 \end_inset
 
@@ -2752,7 +2748,7 @@ In summary, for case I and II,
 \begin_inset Formula $2m_{z}$
 \end_inset
 
- sets of CGCs have 
+ sets of CG coefficients have 
 \begin_inset Formula $2m_{z}-1$
 \end_inset
 
@@ -3838,7 +3834,7 @@ The matrix representation of
 \begin_inset Formula $\rep{3}\otimes\rep{\bar{3}}\to\rep{8}$
 \end_inset
 
- is itself, the overall phase of the CGCs is fixed.
+ is itself, the overall phase of the CG coefficients is fixed.
  By a little algebra, we find that
 \begin_inset Formula 
 \[
@@ -3926,11 +3922,11 @@ Finally, let us consider the
 \end_inset
 
 .
- However, to determine the norm of the CGCs of 
+ However, to determine the norm of the CG coefficients of 
 \begin_inset Formula $\covp{3}{6}{7}$
 \end_inset
 
-, we have to first determine the CGCs of 
+, we have to first determine the CG coefficients of 
 \begin_inset Formula $\covp{3}{6}{\bar{3}}$
 \end_inset
 
@@ -3960,7 +3956,7 @@ reference "eq:CGSub_orthnormal"
 
 \end_inset
 
- determine the CGCs of 
+ determine the CG coefficients of 
 \begin_inset Formula $\covp{3}{6}{7}$
 \end_inset
 
@@ -4227,7 +4223,7 @@ O^{[\rep{i}]}\to\mathcal{P}^{[\rep{i}]}O^{[\rep{i}]}\left(\mathcal{P}^{[\rep{i}]
 \begin_inset Formula $\group$
 \end_inset
 
- and the new CGCs satisfy all our requirements.
+ and the new CG coefficients satisfy all our requirements.
  In the following, we will not show the phase matrices 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
@@ -4439,7 +4435,7 @@ The
 \end_inset
 
 .
- We first find CGCs of 
+ We first find CG coefficients of 
 \begin_inset Formula $\rep{3}\otimes\rep{6}\to\rep{\bar{3}}$
 \end_inset
 
@@ -4447,7 +4443,7 @@ The
 \begin_inset Formula $\rep{3}\otimes\rep{6}\to\rep{8}$
 \end_inset
 
-, then CGCs of 
+, then CG coefficients of 
 \begin_inset Formula $\rep{3}\otimes\rep{6}\to\rep{7}$
 \end_inset
 
@@ -4590,11 +4586,11 @@ Finding
 \begin_inset Formula $\group$
 \end_inset
 
- CGCs
+ CG coefficients
 \end_layout
 
 \begin_layout Standard
-With the generators, we can now find the CGCs of 
+With the generators, we can now find the CG coefficients of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -4611,7 +4607,7 @@ Example I:
 \end_layout
 
 \begin_layout Standard
-We will find the CGCs for 
+We will find the CG coefficients for 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}^{\left(1\right)}\oplus\rep{6}_{s}^{\left(2\right)}$
 \end_inset
 
@@ -4622,7 +4618,7 @@ We will find the CGCs for
 \end_layout
 
 \begin_layout Standard
-We first consider the CGCs in the 
+We first consider the CG coefficients in the 
 \begin_inset Formula $\subga$
 \end_inset
 
@@ -4682,7 +4678,7 @@ end{subequations}
 \begin_inset Formula $c_{k,ij}$
 \end_inset
 
- are CGCs to be determined.
+ are CG coefficients to be determined.
  In the above equations, the notation 
 \begin_inset Formula $\covs{x}{y}{z}$
 \end_inset
@@ -4774,7 +4770,7 @@ reference "eq:CGSub_orthnormal"
 \end_inset
 
  component.
- We form vectors with the CGCs of 
+ We form vectors with the CG coefficients of 
 \begin_inset Formula $\rep{1_{0}}$
 \end_inset
 
@@ -4800,7 +4796,7 @@ reference "eq:Ex_SixSix2Six"
 
 \end_inset
 
-, we obtain the CGCs of 
+, we obtain the CG coefficients of 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}^{\left(1\right)}\oplus\rep{6}_{s}^{\left(2\right)}$
 \end_inset
 
@@ -4820,7 +4816,7 @@ The calculation is more nontrivial in
 \end_inset
 
  basis.
- The general form of CGCs in 
+ The general form of CG coefficients in 
 \begin_inset Formula $\subgb$
 \end_inset
 
@@ -4876,8 +4872,8 @@ reference "eq:CGSub_ckij"
 \end_inset
 
 .
- The orthonormalization condition then give rise to the CGCs shown in Appendix
- 
+ The orthonormalization condition then give rise to the CG coefficients
+ shown in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:CGC_T7"
@@ -4924,7 +4920,7 @@ key "Ludl:2009ft"
 \end_layout
 
 \begin_layout Standard
-Another possible direction is to simplify the procedures to find CGCs.
+Another possible direction is to simplify the procedures to find CG coefficients.
  As we have shown, the coefficients 
 \begin_inset Formula $c_{k,ij}$
 \end_inset
@@ -4938,7 +4934,7 @@ Another possible direction is to simplify the procedures to find CGCs.
 
  are determined by the coset structure of the large group.
  It would be very helpful if there exists a method to determine these coefficien
-ts without knowing the matrix realizations and CGCs of subgroups.
+ts without knowing the matrix realizations and CG coefficients of subgroups.
 \end_layout
 
 \begin_layout Standard
