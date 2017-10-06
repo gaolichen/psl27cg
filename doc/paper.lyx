@@ -14,6 +14,9 @@
 
 % matrix realization
 \newcommand{\mr}[1]{\rho_{\rep{#1}}}
+% CP transformation matrices
+\newcommand{\cp}{\Gamma}
+\newcommand{\cpx}[1]{\Gamma_{#1}}
 
 % contractions
 \newcommand{\covp}[3]{\left[\rep{#1}\otimes\rep{#2}\right]^{}_{\rep{#3}}}
@@ -110,15 +113,15 @@ Discrete subgroups of
  selected group.
  An important step here is to find Clebsch-Gordan (CG) coefficients of the
  group, which determines how fields are coupled in the model.
- Therefore, CG coefficients play important roles in flavor model buildings.
+ 
 \end_layout
 
 \begin_layout Standard
-Three-dimensional irreps gain most attention in flavor model buidings.
- CG coefficients of these lower-dimensional irreps can be calculated in
- several methods.
- These methods include but not limitted to the Discrete package [ref], which
- implements the algorithm of ref 
+CG coefficients invoving low-dimensional irreps, especially, three-dimensional
+ irreps, play important roles in flavor model buildings.
+ These CG coefficients can be calculated in several methods, including but
+ not limitted to the Discrete package [ref], which implements the algorithm
+ of ref 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "van1978clebsch"
@@ -134,7 +137,7 @@ key "Ludl:2009ft"
 
 .
  However, when comes to CG coefficients involing higher-dimensional irreps,
- these methods are not applicable any more.
+ these methods are not effective any more.
  These calculations involve complicated algebraic numbers consist of roots
  of unity 
 \begin_inset Formula $e^{2k\pi i/n}$
@@ -155,7 +158,7 @@ key "Chen:2014wiw"
 \end_inset
 
  are used in the model building.
- Finding CG coefficients of these higher-dimensional irreps is one challging
+ Finding CG coefficients of these higher-dimensional irreps is a challging
  task for these model buildings.
 \end_layout
 
@@ -213,22 +216,21 @@ We aim to reduce the ambiguities of CG coefficients and find a way to calculate
 \end_layout
 
 \begin_layout Itemize
-We introduce CG coefficients for discrete groups that are basis-independent
- and reduce the phase and multiplicity ambiguities.
- To do this, we express the CG coefficients of a group with respect to irreps
+We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which are
+ CG coefficients of a discrete group that are expressed in terms of irreps
  of its subgroup.
- The basis information is carried in the projection matrices, which convert
- irreps of the large group to irreps of the subgroup.
- The CG coefficients are invariant under both the basis transformations
- of irreps of the group and its subgroup.
- In addition, contractions of the form 
+ In the definition of SBCG, basis information is carried in the projection
+ matrices, which convert irreps of the group to irreps of its subgroup.
+ SBCG coefficients are therefore independent of bases of irreps of both
+ the group and its subgroup.
+ To reduce the phase ambiguity, we impose additonal constraints on SBCG,
+ which requires that contractions of the form 
 \begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
 \end_inset
 
- are required to behave the same as an irrep under the charge-parity (CP)
- like transformation.
- Such a constraint restricts the overall phase of CG coefficients.
- Particularly, the overall phase of CG coefficients for 
+ behave the same as an irrep under charge-parity (CP) like transformations.
+ Such constraints restrict the overall phase of SBCG coefficients.
+ Particularly, the overall phase of SBCG coefficients for 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
@@ -266,27 +268,18 @@ We introduce CG coefficients for discrete groups that are basis-independent
 \end_inset
 
 .
- We call the above definition 
-\shape italic
-CG coefficients in the subgroup basis
-\shape default
-.
- It is a more effective way to express CG coefficients.
- Especially, for large discrete groups that have high-dimensional irreps,
- the number of coefficients are much less than the CG coefficients expressed
- in the component-wise.
+ 
 \end_layout
 
 \begin_layout Itemize
-We then describe the procedures to calculate the CG coefficients in subgroup
- basis.
+We then describe the procedures to calculate SBCG coefficients.
  The crucial step is to solve linear equations with complicated coefficients,
  which can be expressed as polynomials of 
 \begin_inset Formula $e^{2\pi i/n}$
 \end_inset
 
 .
- Mathematically, these coefficients are elements of cyclotomic fields.
+ These coefficients are elements of cyclotomic fields.
  A Mathematica package is developed to perform arithmetic calculations of
  cyclotomic fields.
  We next demonstrate these procedures by calculating the CG coefficients
@@ -312,6 +305,13 @@ We then describe the procedures to calculate the CG coefficients in subgroup
 \end_layout
 
 \begin_layout Standard
+SBCG coefficients is a more effective way to express CG coefficients.
+ Especially, for large discrete groups that have high-dimensional irreps,
+ the number of coefficients are much less than the CG coefficients expressed
+ in the component-wise.
+\end_layout
+
+\begin_layout Standard
 The remainder of the paper is organized as follows.
  In Section 
 \begin_inset CommandInset ref
@@ -320,7 +320,7 @@ reference "sec:Amb_CGC"
 
 \end_inset
 
-, we analyze the ambiguities of Clebsch-Gordan coefficients.
+, we analyze the ambiguities of CG coefficients.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -328,8 +328,8 @@ reference "sec:CGCs-in-subgroup"
 
 \end_inset
 
-, we define CG coefficients in subgroup basis and show that they are basis
- independent, then we discuss how the phases of CG coefficients being restricted.
+, we define SBCG coefficients and show that they are basis independent,
+ then we discuss how their phases are restricted.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -337,8 +337,7 @@ reference "sec:Calc_CGC"
 
 \end_inset
 
-, we describe the procedures to calculate the CG coefficients in subgroup
- basis.
+, we describe the procedures to calculate SBCG coefficients.
  We then apply these procedures to the group 
 \begin_inset Formula $\group$
 \end_inset
@@ -549,13 +548,13 @@ The tensor product of two irreducible representations of a group is in general
 \end_inset
 
  and a set of coefficients 
-\begin_inset Formula $C_{kl}^{\left(XY\to Z\right)}$
+\begin_inset Formula $M_{k\alpha}^{\left(XY\to Z\right)}$
 \end_inset
 
  such that 
 \begin_inset Formula 
 \begin{equation}
-\left(\mr{Z}\left(g\right)Z\right)_{k}=\sum_{l}C_{kl}^{\left(XY\to Z\right)}\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{l},\quad\forall g\in G\label{eq:CGC_Def}
+\left(\mr{Z}\left(g\right)Z\right)_{k}=\sum_{l}M_{k\alpha}^{\left(XY\to Z\right)}\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\alpha},\quad\forall g\in G\label{eq:CGC_Def}
 \end{equation}
 
 \end_inset
@@ -571,28 +570,28 @@ The tensor product of two irreducible representations of a group is in general
  and the tensor product is defined as 
 \begin_inset Formula 
 \[
-\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\left(i-1\right)\times\dim Y+j}=\left(\mr{X}\left(g\right)X\right)_{i}\left(\mr{Y}\left(g\right)Y\right)_{j}.
+\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\alpha=\left(i-1\right)\times\dim Y+j}=\left(\mr{X}\left(g\right)X\right)_{i}\left(\mr{Y}\left(g\right)Y\right)_{j}.
 \]
 
 \end_inset
 
 The coefficients 
-\begin_inset Formula $C_{kl}^{\left(XY\to Z\right)}$
+\begin_inset Formula $M_{k\alpha}^{\left(XY\to Z\right)}$
 \end_inset
 
  are called Clebsch-Gordan coefficients.
  For convenience, we will use 
-\begin_inset Formula $C_{kl}$
+\begin_inset Formula $M_{k\alpha}$
 \end_inset
 
  and 
-\begin_inset Formula $C$
+\begin_inset Formula $M$
 \end_inset
 
  to denote a single CG coefficient and the matrix of CG coefficients respectivel
 y.
  Sometimes we will write 
-\begin_inset Formula $Z=C^{\left(XY\to Z\right)}\left(X\otimes Y\right)$
+\begin_inset Formula $Z=M^{\left(XY\to Z\right)}\left(X\otimes Y\right)$
 \end_inset
 
 , which should be understood the same as the 
@@ -628,15 +627,15 @@ reference "eq:CGC_Def"
 \end_inset
 
 , then for any nonzero c-number 
-\begin_inset Formula $\alpha$
+\begin_inset Formula $\lambda$
 \end_inset
 
 , 
-\begin_inset Formula $\alpha Z$
+\begin_inset Formula $\lambda Z$
 \end_inset
 
  and 
-\begin_inset Formula $\alpha C^{\left(XY\to Z\right)}$
+\begin_inset Formula $\lambda M^{\left(XY\to Z\right)}$
 \end_inset
 
  also satisfy the equation.
@@ -644,7 +643,7 @@ reference "eq:CGC_Def"
 ts 
 \begin_inset Formula 
 \begin{equation}
-\sum_{j}C_{kj}^{*}C_{lj}=\delta_{kl}.\label{eq:CGC_Orthnormal}
+\sum_{\alpha}M_{k\alpha}^{*}M_{l\alpha}=\delta_{kl}.\label{eq:CGC_Orthnormal}
 \end{equation}
 
 \end_inset
@@ -694,13 +693,13 @@ reference "eq:CGC_Orthnormal"
 \end_inset
 
  are invariant if the matrices 
-\begin_inset Formula $C$
+\begin_inset Formula $M$
 \end_inset
 
  simultaneously transform as 
 \begin_inset Formula 
 \begin{equation}
-C\to C^{\prime}=U_{Z}C\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right).
+M\to M^{\prime}=U_{Z}M\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right).
 \end{equation}
 
 \end_inset
@@ -735,7 +734,7 @@ reference "eq:CGC_Orthnormal"
 \end_inset
 
  are invariant under 
-\begin_inset Formula $C\to e^{i\theta}C$
+\begin_inset Formula $M\to e^{i\theta}M$
 \end_inset
 
 , 
@@ -745,7 +744,7 @@ reference "eq:CGC_Orthnormal"
 .
  The last ambiguity is when there are nontrivial multiplicity, i.e.
  
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(n\right)}$
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(\mu\right)}$
 \end_inset
 
 
@@ -782,7 +781,7 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 \end_inset
 
 , then any linear combination of the CG coefficients 
-\begin_inset Formula $a_{1}C^{\left(1\right)}+\cdots+a_{n}C^{\left(n\right)}$
+\begin_inset Formula $a_{1}M^{\left(1\right)}+\cdots+a_{n}M^{\left(\mu\right)}$
 \end_inset
 
  with 
@@ -805,7 +804,7 @@ name "sec:CGCs-in-subgroup"
 
 \end_inset
 
-CG coefficients in subgroup basis
+Subgroup-basis Clebsch-Gordan coefficients
 \end_layout
 
 \begin_layout Standard
@@ -851,7 +850,7 @@ reference "eq:CGSub_Embed"
 \end_inset
 
 , 
-\begin_inset Formula $\{\rep{r_{i}}\}$
+\begin_inset Formula $\{\rep{r_{a}}\}$
 \end_inset
 
  may contain duplicated members, which introduces additional complexity
@@ -874,21 +873,21 @@ reference "eq:CGSub_Embed"
 
 \begin_inset Formula 
 \begin{equation}
-\rep{X}=\bigoplus\rep{x_{i}},\quad\rep{Y}=\bigoplus\rep{y_{j}},\quad\rep{Z}=\bigoplus\rep{z_{k}},\label{eq:CGSub_Embed}
+\rep{X}=\bigoplus\rep{x_{a}},\quad\rep{Y}=\bigoplus\rep{y_{b}},\quad\rep{Z}=\bigoplus\rep{z_{c}},\label{eq:CGSub_Embed}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $\rep{x_{i}}$
+\begin_inset Formula $\rep{x_{a}}$
 \end_inset
 
 , 
-\begin_inset Formula $\rep{y_{j}}$
+\begin_inset Formula $\rep{y_{b}}$
 \end_inset
 
 , 
-\begin_inset Formula $\rep{z_{k}}$
+\begin_inset Formula $\rep{z_{c}}$
 \end_inset
 
  are irreps of 
@@ -903,17 +902,17 @@ reference "eq:CGSub_Embed"
 , we can write 
 \begin_inset Formula 
 \begin{equation}
-P_{Z\to k}Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}X\right)\otimes\left(P_{Y\to j}Y\right)\right\} _{z_{k}}.\label{eq:CGSub_Def}
+P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}\left\{ \left(P_{X\to a}X\right)\otimes\left(P_{Y\to b}Y\right)\right\} _{z_{c}}.\label{eq:CGSub_Def}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $P_{X\to j}$
+\begin_inset Formula $P_{X\to a}$
 \end_inset
 
  is the projection matrix to obtain the 
-\begin_inset Formula $x_{j}$
+\begin_inset Formula $x_{a}$
 \end_inset
 
  components from 
@@ -921,18 +920,18 @@ P_{Z\to k}Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}X\right)\otimes\left(P_{Y\
 \end_inset
 
  and 
-\begin_inset Formula $c_{k,ij}$
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
- are CG coefficients.
- By the definition of CG coefficients, 
-\begin_inset Formula $c_{k,ij}$
+ are Subgroup-basis Clebsch-Gordan coefficients.
+ 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
- should satisfy a stronger constraint 
+ should actually satisfy a stronger constraint 
 \begin_inset Formula 
 \begin{equation}
-P_{Z\to k}\mr{Z}\left(g\right)Z=\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to j}\mr{Y}\left(g\right)Y\right)\right\} _{z_{k}},\quad\forall g\in G,\label{eq:CGSub_Def2}
+P_{Z\to c}\mr{Z}\left(g\right)Z=\sum_{a,b}\mathcal{M}_{c,ab}\left\{ \left(P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}},\quad\forall g\in G,\label{eq:CGSub_Def2}
 \end{equation}
 
 \end_inset
@@ -960,7 +959,7 @@ reference "eq:CGSub_Def"
 
 .
  We will show shortly that the coefficients 
-\begin_inset Formula $c_{k,ij}$
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
  are independent in both the basis transformation of subgroup and of the
@@ -968,7 +967,7 @@ reference "eq:CGSub_Def"
  The orthonormalization constraints now become
 \begin_inset Formula 
 \begin{equation}
-\sum_{ij}c_{k,ij}^{*}c_{l,ij}=\delta_{kl}\label{eq:CGSub_orthnormal}
+\sum_{ab}\mathcal{M}_{c,ab}^{*}\mathcal{M}_{d,ab}=\delta_{cd}\label{eq:CGSub_orthnormal}
 \end{equation}
 
 \end_inset
@@ -985,7 +984,7 @@ reference "eq:CGSub_orthnormal"
 
 \end_inset
 
-, we shall impose other constraints on CG coefficients.
+, we shall impose other constraints on SBCG coefficients.
  To introduce the constraints, we need to first discuss real and complex
  representations.
  A real (or pseudo-real) representation is a representation whose complex
@@ -1008,13 +1007,13 @@ nt to itself.
 
  be the matrix realization of the complex conjugate representation, then
  there exists a unitary matrix 
-\begin_inset Formula $\Gamma$
+\begin_inset Formula $\cp$
 \end_inset
 
  so that 
 \begin_inset Formula 
 \begin{equation}
-\Gamma\rho\left(g\right)^{*}\Gamma^{\dagger}=\bar{\rho}\left(g\right),\quad\forall g\in G.\label{eq:CGSub_Gamma}
+\cp\rho\left(g\right)^{*}\left(\cp\right)^{\dagger}=\bar{\rho}\left(g\right),\quad\forall g\in G.\label{eq:CGSub_Gamma}
 \end{equation}
 
 \end_inset
@@ -1024,7 +1023,7 @@ When the representation is complex, we can always choose
 \end_inset
 
  so that 
-\begin_inset Formula $\Gamma$
+\begin_inset Formula $\cp$
 \end_inset
 
  is simplify the identity matrix.
@@ -1037,13 +1036,13 @@ When the representation is complex, we can always choose
 \end_inset
 
  and 
-\begin_inset Formula $\Gamma$
+\begin_inset Formula $\cp$
 \end_inset
 
  is in general a nontrivial unitary matrix depending on the basis of the
  representation.
  Particularly, for real representation, 
-\begin_inset Formula $\Gamma\Gamma^{*}=\pm I$
+\begin_inset Formula $\cp\cp^{*}=\pm I$
 \end_inset
 
 , where 
@@ -1064,7 +1063,7 @@ reference "eq:CGSub_Gamma"
 \end_inset
 
  implies 
-\begin_inset Formula $\Gamma_{X}X^{*}=\bar{X}$
+\begin_inset Formula $\cpx{X}X^{*}=\bar{X}$
 \end_inset
 
 .
@@ -1086,14 +1085,14 @@ label{eq:CG_GammaCon}
  
 \begin_inset Formula 
 \begin{align}
-\Gamma_{Z}\left(\covlg{X}{Y}{Z}\right)^{*} & =\covlg{\bar{X}}{\bar{Y}}{\bar{Z}},\label{eq:CGSub_GammaCon1}\\
-\Gamma_{k}\left(\covsub{x_{i}}{y_{j}}{z_{k}}\right)^{*} & =\covsub{\bar{x}_{i}}{\bar{y}_{j}}{\bar{z}_{k}}\label{eq:CGSub_GammaCon2}
+\cpx{Z}\left(\covlg{X}{Y}{Z}\right)^{*} & =\covlg{\bar{X}}{\bar{Y}}{\bar{Z}},\label{eq:CGSub_GammaCon1}\\
+\cpx{c}\left(\covsub{x_{a}}{y_{b}}{z_{c}}\right)^{*} & =\covsub{\bar{x}_{a}}{\bar{y}_{b}}{\bar{z}_{c}}\label{eq:CGSub_GammaCon2}
 \end{align}
 
 \end_inset
 
 where the matrix 
-\begin_inset Formula $\Gamma_{Z}$
+\begin_inset Formula $\cpx{Z}$
 \end_inset
 
  transforms 
@@ -1105,20 +1104,20 @@ where the matrix
 \end_inset
 
 , and 
-\begin_inset Formula $\Gamma_{k}$
+\begin_inset Formula $\cpx{c}$
 \end_inset
 
  transforms 
-\begin_inset Formula $x_{k}^{*}$
+\begin_inset Formula $z_{c}^{*}$
 \end_inset
 
  to 
-\begin_inset Formula $x_{k}$
+\begin_inset Formula $z_{c}$
 \end_inset
 
 .
  In the terminology of physics, the matrices 
-\begin_inset Formula $\Gamma$
+\begin_inset Formula $\cp$
 \end_inset
 
  transform a particle to its antiparticle with opposite charge and parity.
@@ -1137,7 +1136,7 @@ reference "eq:CGSub_GammaCon2"
 \end_inset
 
  as charge-parity (CP) constraints and 
-\begin_inset Formula $\Gamma_{Z}$
+\begin_inset Formula $\cpx{Z}$
 \end_inset
 
  as CP transformation for irrep 
@@ -1150,7 +1149,7 @@ reference "eq:CGSub_GammaCon2"
 \end_inset
 
  and 
-\begin_inset Formula $\covsub{x_{i}}{x_{j}}{x_{k}}$
+\begin_inset Formula $\covsub{x_{a}}{y_{b}}{z_{c}}$
 \end_inset
 
  should behave the same as 
@@ -1158,17 +1157,17 @@ reference "eq:CGSub_GammaCon2"
 \end_inset
 
  and 
-\begin_inset Formula $x_{k}$
+\begin_inset Formula $z_{c}$
 \end_inset
 
  under complex conjugate operation.
  It is then natural to impose CP constraints on irreps of subgroup contained
  in irreps of large group, meaning that 
-\begin_inset Formula $\Gamma_{k}$
+\begin_inset Formula $\cp{c}$
 \end_inset
 
  should transform the 
-\begin_inset Formula $z_{k}$
+\begin_inset Formula $z_{c}$
 \end_inset
 
  components of 
@@ -1176,7 +1175,7 @@ reference "eq:CGSub_GammaCon2"
 \end_inset
 
  to 
-\begin_inset Formula $\bar{z}_{k}$
+\begin_inset Formula $\bar{z}_{c}$
 \end_inset
 
  components of 
@@ -1186,7 +1185,7 @@ reference "eq:CGSub_GammaCon2"
 , 
 \begin_inset Formula 
 \[
-\Gamma_{k}\left(P_{Z\to k}Z\right)^{*}=P_{\bar{Z}\to\bar{i}}\bar{Z}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}Z^{*},
+\cp{k}\left(P_{Z\to c}Z\right)^{*}=P_{\bar{Z}\to\bar{c}}\bar{Z}=P_{\bar{Z}\to\bar{c}}\cpx{Z}Z^{*},
 \]
 
 \end_inset
@@ -1194,7 +1193,7 @@ reference "eq:CGSub_GammaCon2"
 from which it follows that
 \begin_inset Formula 
 \begin{equation}
-\Gamma_{k}P_{Z\to k}^{*}=P_{\bar{Z}\to\bar{i}}\Gamma_{Z}.\label{eq:CGSub_GammaCon3}
+\cpx{c}P_{Z\to c}^{*}=P_{\bar{Z}\to\bar{c}}\cpx{Z}.\label{eq:CGSub_GammaCon3}
 \end{equation}
 
 \end_inset
@@ -1329,7 +1328,7 @@ Under the first type basis changes,
 \end_inset
 
 , 
-\begin_inset Formula $P_{X\to j}$
+\begin_inset Formula $P_{X\to a}$
 \end_inset
 
 , and 
@@ -1341,7 +1340,7 @@ Under the first type basis changes,
 \end_inset
 
 , 
-\begin_inset Formula $P_{X\to j}^{\prime}=P_{X\to j}U_{X}^{-1}$
+\begin_inset Formula $P_{X\to a}^{\prime}=P_{X\to a}U_{X}^{-1}$
 \end_inset
 
 , and 
@@ -1350,7 +1349,7 @@ Under the first type basis changes,
 
 .
  It follows that 
-\begin_inset Formula $\left(P_{X\to j}\mr{X}\left(g\right)X\right)$
+\begin_inset Formula $\left(P_{X\to a}\mr{X}\left(g\right)X\right)$
 \end_inset
 
  are invariant, and hence, eq.
@@ -1384,25 +1383,25 @@ Now consider the second type basis transformation.
  
 \begin_inset Formula 
 \begin{equation}
-P_{X\to j}=\begin{pmatrix}O_{1} & \cdots & O_{j-1} & P_{X\to j}^{\left(\mathrm{nonzero}\right)} & O_{j+1}\cdots\end{pmatrix},\label{eq:CG_PXj}
+P_{X\to a}=\begin{pmatrix}O_{1} & \cdots & O_{a-1} & P_{X\to a}^{\left(\mathrm{nonzero}\right)} & O_{a+1}\cdots\end{pmatrix},\label{eq:CG_PXj}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $O_{k}$
+\begin_inset Formula $O_{b}$
 \end_inset
 
  are zero matrices of dimension 
-\begin_inset Formula $\dim\rep{x_{j}}\times\dim\rep{x_{k}}$
+\begin_inset Formula $\dim\rep{x_{a}}\times\dim\rep{x_{b}}$
 \end_inset
 
  and 
-\begin_inset Formula $P_{X\to j}^{\left(\mathrm{nonzero}\right)}$
+\begin_inset Formula $P_{X\to a}^{\left(\mathrm{nonzero}\right)}$
 \end_inset
 
  is a nonzero matrix of dimension 
-\begin_inset Formula $\dim\rep{x_{j}}\times\dim\rep{x_{j}}$
+\begin_inset Formula $\dim\rep{x_{a}}\times\dim\rep{x_{a}}$
 \end_inset
 
 .
@@ -1428,8 +1427,8 @@ label{eq:CG_Tran_II}
  
 \begin_inset Formula 
 \begin{align}
-\left(x_{i},\,y_{j},\,z_{k}\right) & \to\left(x_{i}^{\prime},\,y_{j}^{\prime},\,z_{k}^{\prime}\right)=\left(U_{i}x_{i},\,U_{j}y_{j},\,U_{k}z_{k}\right),\\
-z_{k}=\left\{ x_{i}\otimes y_{j}\right\} _{z_{k}} & \to z_{k}^{\prime}=\left\{ U_{i}x_{i}\otimes U_{j}y_{j}\right\} _{U_{k}z_{k}}^{\prime},
+\left(x_{a},\,y_{b},\,z_{c}\right) & \to\left(x_{a}^{\prime},\,y_{b}^{\prime},\,z_{c}^{\prime}\right)=\left(U_{a}x_{a},\,U_{b}y_{b},\,U_{c}z_{c}\right),\\
+z_{c}=\left\{ x_{a}\otimes y_{b}\right\} _{z_{c}} & \to z_{c}^{\prime}=\left\{ U_{a}x_{a}\otimes U_{b}y_{b}\right\} _{U_{c}z_{c}}^{\prime},
 \end{align}
 
 \end_inset
@@ -1452,7 +1451,7 @@ where we have used the primed brackets to take care of the CG coefficients
  It then implies 
 \begin_inset Formula 
 \begin{equation}
-\left\{ U_{i}x_{i}\otimes U_{j}y_{j}\right\} _{z_{k}^{\prime}}^{\prime}=U_{k}\left\{ x_{i}\otimes y_{j}\right\} _{z_{k}},\label{eq:CG_Tran_II_UxUy}
+\left\{ U_{a}x_{a}\otimes U_{b}y_{b}\right\} _{z_{c}^{\prime}}^{\prime}=U_{c}\left\{ x_{a}\otimes y_{b}\right\} _{z_{c}},\label{eq:CG_Tran_II_UxUy}
 \end{equation}
 
 \end_inset
@@ -1472,13 +1471,13 @@ where we have used the primed brackets to take care of the CG coefficients
  where 
 \begin_inset Formula 
 \begin{equation}
-U_{X}=\bigoplus_{\rep{i}\text{ in }\rep{X}}\left(P_{X\to i}^{\left(\mathrm{nonzero}\right)}\right)^{-1}U_{i}P_{X\to i}^{\left(\mathrm{nonzero}\right)}.
+U_{X}=\bigoplus_{\rep{a}\text{ in }\rep{X}}\left(P_{X\to a}^{\left(\mathrm{nonzero}\right)}\right)^{-1}U_{a}P_{X\to a}^{\left(\mathrm{nonzero}\right)}.
 \end{equation}
 
 \end_inset
 
 Since 
-\begin_inset Formula $P_{X\to i}$
+\begin_inset Formula $P_{X\to a}$
 \end_inset
 
  is in the form of 
@@ -1491,19 +1490,19 @@ reference "eq:CG_PXj"
 , it is easy to see that 
 \begin_inset Formula 
 \begin{equation}
-P_{X\to i}U_{X}=U_{i}P_{X\to i}.\label{eq:CG_PU}
+P_{X\to a}U_{X}=U_{a}P_{X\to a}.\label{eq:CG_PU}
 \end{equation}
 
 \end_inset
 
  Therefore, 
-\begin_inset Formula $P_{X\to i}\mr{X}\left(g\right)X$
+\begin_inset Formula $P_{X\to a}\mr{X}\left(g\right)X$
 \end_inset
 
  transforms as 
 \begin_inset Formula 
 \[
-P_{X\to i}\mr{X}\left(g\right)X\to P_{X\to i}U_{X}\mr{X}\left(g\right)X=U_{i}P_{X\to i}U_{X}\mr{X}\left(g\right)X.
+P_{X\to a}\mr{X}\left(g\right)X\to P_{X\to a}U_{X}\mr{X}\left(g\right)X=U_{a}P_{X\to a}U_{X}\mr{X}\left(g\right)X.
 \]
 
 \end_inset
@@ -1522,7 +1521,7 @@ reference "eq:CGSub_Def2"
 \end_inset
 
  becomes 
-\begin_inset Formula $U_{k}P_{Z\to k}\mr{Z}\left(g\right)Z$
+\begin_inset Formula $U_{c}P_{Z\to c}\mr{Z}\left(g\right)Z$
 \end_inset
 
  and the 
@@ -1532,9 +1531,9 @@ reference "eq:CGSub_Def2"
  becomes 
 \begin_inset Formula 
 \begin{align*}
-\mathrm{rhs} & =\sum_{i,j}c_{k,ij}\left\{ \left(U_{i}P_{X\to i}\mr{X}\left(g\right)X\right)\otimes\left(U_{j}P_{Y\to j}\mr{Y}\left(g\right)Y\right)\right\} _{z_{k}}^{\prime}\\
- & =U_{k}\sum_{i,j}c_{k,ij}\left\{ \left(P_{X\to i}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to j}\mr{Y}\left(g\right)Y\right)\right\} _{z_{k}}\\
- & =U_{k}P_{Z\to k}\mr{Z}\left(g\right)Z=\mathrm{lhs},
+\mathrm{rhs} & =\sum_{a,b}\mathcal{M}_{c,ab}\left\{ \left(U_{a}P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(U_{b}P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}}^{\prime}\\
+ & =U_{c}\sum_{a,b}\mathcal{M}_{c,ab}\left\{ \left(P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}}\\
+ & =U_{c}P_{Z\to c}\mr{Z}\left(g\right)Z=\mathrm{lhs},
 \end{align*}
 
 \end_inset
@@ -1605,46 +1604,46 @@ reference "eq:CGC_Def"
 
 \begin_layout Standard
 Consider CG coefficients 
-\begin_inset Formula $C^{\left(XY\to Z\right)}$
+\begin_inset Formula $M^{\left(XY\to Z\right)}$
 \end_inset
 
  and 
-\begin_inset Formula $C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
  as
 \begin_inset Formula 
 \[
-Z=C^{\left(XY\to Z\right)}\left(X\otimes Y\right),\quad\bar{Z}=C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\bar{Y}\right).
+Z=M^{\left(XY\to Z\right)}\left(X\otimes Y\right)_{\alpha},\quad\bar{Z}=M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\bar{Y}\right)_{\alpha}.
 \]
 
 \end_inset
 
  The CP constraint 
-\begin_inset Formula $\Gamma_{Z}Z^{*}=\bar{Z}$
+\begin_inset Formula $\cpx{Z}Z^{*}=\bar{Z}$
 \end_inset
 
  leads to
 \begin_inset Formula 
 \[
-\Gamma_{Z}C^{\left(XY\to Z\right)*}\left(X^{*}\otimes Y^{*}\right)=C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\bar{Y}\right)=C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\Gamma_{X}\otimes\Gamma_{Y}\right)\left(X^{*}\otimes Y^{*}\right),
+\cpx{Z}M^{\left(XY\to Z\right)*}\left(X^{*}\otimes Y^{*}\right)=M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\bar{Y}\right)=M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\cpx{X}\otimes\cpx{Y}\right)\left(X^{*}\otimes Y^{*}\right),
 \]
 
 \end_inset
 
  where we used 
-\begin_inset Formula $\bar{X}=\Gamma_{X}X^{*}$
+\begin_inset Formula $\bar{X}=\cpx{X}X^{*}$
 \end_inset
 
  and 
-\begin_inset Formula $\bar{Y}=\Gamma_{Y}Y^{*}$
+\begin_inset Formula $\bar{Y}=\cpx{Y}Y^{*}$
 \end_inset
 
  in the second equality.
  Comparing the coefficients gives rise to 
 \begin_inset Formula 
 \begin{equation}
-C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\Gamma_{Z}C^{\left(XY\to Z\right)*}\left(\Gamma_{X}^{-1}\otimes\Gamma_{Y}^{-1}\right).\label{eq:CGSub_CXYZ}
+M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\cpx{Z}M^{\left(XY\to Z\right)*}\left(\cpx{X}^{-1}\otimes\cpx{Y}^{-1}\right).\label{eq:CGSub_CXYZ}
 \end{equation}
 
 \end_inset
@@ -1679,7 +1678,7 @@ Case I: If all of
 \end_inset
 
  irreps are real or pseudo-real, 
-\begin_inset Formula $C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=C^{\left(XY\to Z\right)}$
+\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=M^{\left(XY\to Z\right)}$
 \end_inset
 
 , eq.
@@ -1691,23 +1690,23 @@ reference "eq:CGSub_CXYZ"
 \end_inset
 
  is in general a nontrivial constraint on 
-\begin_inset Formula $C^{\left(XY\to Z\right)}$
+\begin_inset Formula $M^{\left(XY\to Z\right)}$
 \end_inset
 
 .
  Particularly, the overall phases of 
-\begin_inset Formula $C^{\left(XY\to Z\right)}$
+\begin_inset Formula $M^{\left(XY\to Z\right)}$
 \end_inset
 
  is fixed.
  If all of these irreps are real representation, there exist a basis that
  
-\begin_inset Formula $\Gamma_{X,Y,Z}$
+\begin_inset Formula $\cpx{X,Y,Z}$
 \end_inset
 
  are identity matrix.
  In such a basis, all elements of 
-\begin_inset Formula $C^{\left(XY\to Z\right)}$
+\begin_inset Formula $M^{\left(XY\to Z\right)}$
 \end_inset
 
  are real numbers.
@@ -1723,11 +1722,11 @@ Case II: If
 \end_inset
 
  are complex, then 
-\begin_inset Formula $C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
  is the transpose of 
-\begin_inset Formula $C^{\left(XY\to Z\right)}$
+\begin_inset Formula $M^{\left(XY\to Z\right)}$
 \end_inset
 
 .
@@ -1748,15 +1747,15 @@ reference "eq:CGSub_CXYZ"
  Hence, the overall phases of the two sets of CG coefficients are not fixed
  but dependent.
  Particularly, if all the irreps are complex, 
-\begin_inset Formula $\Gamma_{X,Y,Z}$
+\begin_inset Formula $\cpx{X,Y,Z}$
 \end_inset
 
  are identity matrices and 
-\begin_inset Formula $C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
  is the complex conjugate of 
-\begin_inset Formula $C^{\left(XY\to Z\right)}$
+\begin_inset Formula $M^{\left(XY\to Z\right)}$
 \end_inset
 
 .
@@ -1786,8 +1785,8 @@ begin{subequations}
  
 \begin_inset Formula 
 \begin{align}
-P_{Z\to k}Z & =\sum_{i,j}c_{k,ij}\covsub{P_{X\to i}X}{P_{Y\to j}Y}{z_{k}},\\
-P_{\bar{Z}\to\bar{k}}\bar{Z} & =\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\covsub{P_{\bar{X}\to\bar{i}}\bar{X}}{P_{\bar{Y}\to\bar{j}}\bar{Y}}{\bar{z}_{k}}.\label{eq:CG_PZbar}
+P_{Z\to c}Z & =\sum_{a,b}\mathcal{M}_{c,ab}\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}},\\
+P_{\bar{Z}\to\bar{c}}\bar{Z} & =\sum_{a,b}\mathcal{M}_{\bar{c},\bar{a}\bar{b}}\covsub{P_{\bar{X}\to\bar{a}}\bar{X}}{P_{\bar{Y}\to\bar{b}}\bar{Y}}{\bar{z}_{c}}.\label{eq:CG_PZbar}
 \end{align}
 
 \end_inset
@@ -1806,11 +1805,11 @@ end{subequations}
 \end_inset
 
 We apply the projection matrix 
-\begin_inset Formula $P_{\bar{Z}\to\bar{k}}$
+\begin_inset Formula $P_{\bar{Z}\to\bar{c}}$
 \end_inset
 
  on both sides of 
-\begin_inset Formula $\Gamma_{Z}Z^{*}=\bar{Z}$
+\begin_inset Formula $\cpx{Z}Z^{*}=\bar{Z}$
 \end_inset
 
 .
@@ -1825,7 +1824,7 @@ reference "eq:CGSub_GammaCon3"
 , the lhs is
 \begin_inset Formula 
 \begin{equation}
-P_{\bar{Z}\to\bar{k}}\Gamma_{Z}Z^{*}=\Gamma_{k}P_{Z\to k}^{*}Z^{*}=\sum_{i,j}c_{k,ij}^{*}\Gamma_{k}\left(\covsub{P_{X\to i}X}{P_{Y\to j}Y}{z_{k}}\right)^{*}\label{eq:CGSub_PGmmaZ}
+P_{\bar{Z}\to\bar{c}}\Gamma_{Z}Z^{*}=\Gamma_{c}P_{Z\to c}^{*}Z^{*}=\sum_{a,b}\mathcal{M}_{c,ab}^{*}\cpx{c}\left(\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}}\right)^{*}\label{eq:CGSub_PGmmaZ}
 \end{equation}
 
 \end_inset
@@ -1849,7 +1848,7 @@ reference "eq:CG_PZbar"
  yields
 \begin_inset Formula 
 \begin{equation}
-P_{\bar{Z}\to\bar{k}}\bar{Z}=\sum_{i,j}c_{\bar{k},\bar{i}\bar{j}}\Gamma_{k}\left(\covsub{P_{X\to i}X}{P_{Y\to j}Y}{z_{k}}\right)^{*}.\label{eq:CGSub_PGammaZb}
+P_{\bar{Z}\to\bar{c}}\bar{Z}=\sum_{a,b}c_{\bar{c},\bar{a}\bar{b}}\Gamma_{c}\left(\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}}\right)^{*}.\label{eq:CGSub_PGammaZb}
 \end{equation}
 
 \end_inset
@@ -1872,7 +1871,7 @@ reference "eq:CGSub_PGammaZb"
  should be equal, which implies 
 \begin_inset Formula 
 \begin{equation}
-c_{\bar{k},\bar{i}\bar{j}}=c_{k,ij}^{*}.\label{eq:CGSub_ckij}
+\mathcal{M}_{\bar{c},\bar{a}\bar{b}}=\mathcal{M}_{c,ab}^{*}.\label{eq:CGSub_ckij}
 \end{equation}
 
 \end_inset
@@ -1937,11 +1936,11 @@ reference "eq:CGSub_ckij"
 
 \begin_layout Itemize
 Case I: In this case, 
-\begin_inset Formula $c_{\bar{k},\bar{i}\bar{j}}$
+\begin_inset Formula $\mathcal{M}_{\bar{c},\bar{a}\bar{b}}$
 \end_inset
 
  and 
-\begin_inset Formula $c_{k,ij}$
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
  are contained in the same set of CG coefficients, and hence, the overall
@@ -1959,7 +1958,7 @@ Case I: In this case,
 \end_inset
 
  of subgroup are real or pseudo real, then 
-\begin_inset Formula $c_{k,ij}$
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
  is a real number.
@@ -1967,11 +1966,11 @@ Case I: In this case,
 
 \begin_layout Itemize
 Case II: In this case, 
-\begin_inset Formula $c_{\bar{k},\bar{i}\bar{j}}$
+\begin_inset Formula $\mathcal{M}_{\bar{c},\bar{a}\bar{b}}$
 \end_inset
 
  and 
-\begin_inset Formula $c_{k,ij}$
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
  are also contained in the same set of CG coefficients and the overall phase
@@ -2019,7 +2018,7 @@ reference "eq:CGSub_GammaCon1"
  The relation between these two is
 \begin_inset Formula 
 \[
-\Gamma_{Z}\left(\covlg{X}{\covlg{V}{W}{Y}}{Z}\right)^{*}=\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{\bar{Y}}}{\bar{Z}}.
+\cpx{Z}\left(\covlg{X}{\covlg{V}{W}{Y}}{Z}\right)^{*}=\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{\bar{Y}}}{\bar{Z}}.
 \]
 
 \end_inset
@@ -2027,9 +2026,9 @@ reference "eq:CGSub_GammaCon1"
  It can be shown as follows:
 \begin_inset Formula 
 \begin{align*}
-\mathrm{lhs} & =\Gamma_{Z}C^{\left(XY\to Z\right)*}\left(X^{*}\otimes\left(\covlg{V}{W}{Y}\right)^{*}\right)\\
- & =\Gamma_{Z}C^{\left(XY\to Z\right)*}\left(\Gamma_{X}^{-1}\otimes\Gamma_{Y}^{-1}\right)\left(\bar{X}\otimes\left(\covlg{\bar{V}}{\bar{W}}{\bar{Y}}\right)\right)\\
- & =C^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\left(\covlg{\bar{V}}{\bar{W}}{\bar{Y}}\right)\right)\\
+\mathrm{lhs} & =\cpx{Z}M^{\left(XY\to Z\right)*}\left(X^{*}\otimes\left(\covlg{V}{W}{Y}\right)^{*}\right)\\
+ & =\cpx{Z}M^{\left(XY\to Z\right)*}\left(\cpx{X}^{-1}\otimes\cpx{Y}^{-1}\right)\left(\bar{X}\otimes\left(\covlg{\bar{V}}{\bar{W}}{\bar{Y}}\right)\right)\\
+ & =M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\left(\covlg{\bar{V}}{\bar{W}}{\bar{Y}}\right)\right)\\
  & =\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{\bar{Y}}}{\bar{Z}}
 \end{align*}
 
@@ -2047,7 +2046,7 @@ reference "eq:CGSub_CXYZ"
  In general we have
 \begin_inset Formula 
 \[
-\Gamma_{Z}\left(\covlg{X\otimes Y\otimes\cdots}{W}{Z}\right)^{*}=\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{\bar{Z}},
+\cpx{Z}\left(\covlg{X\otimes Y\otimes\cdots}{W}{Z}\right)^{*}=\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{\bar{Z}},
 \]
 
 \end_inset
@@ -2451,17 +2450,17 @@ Alternatively, instead of matching coefficients of bilinear forms, we can
  with some constant vectors 
 \begin_inset Formula 
 \[
-\left(X,Y\right)=\left(V^{\left(a\right)},W^{\left(a\right)}\right),\quad a=1,2,\cdots
+\left(X,Y\right)=\left(V^{\left(p\right)},W^{\left(p\right)}\right),\quad p=1,2,\cdots
 \]
 
 \end_inset
 
 There are different choices of the constant vectors 
-\begin_inset Formula $V^{\left(a\right)}$
+\begin_inset Formula $V^{\left(p\right)}$
 \end_inset
 
  and 
-\begin_inset Formula $W^{\left(a\right)}$
+\begin_inset Formula $W^{\left(p\right)}$
 \end_inset
 
 .
@@ -2469,17 +2468,17 @@ There are different choices of the constant vectors
  
 \begin_inset Formula 
 \[
-V_{k}^{\left(a\right)}=\delta_{k,i_{a}},\,W_{k}^{\left(a\right)}=\delta_{k,j_{a}},
+V_{k}^{\left(p\right)}=\delta_{k,i_{p}},\,W_{k}^{\left(p\right)}=\delta_{k,j_{p}},
 \]
 
 \end_inset
 
  where 
-\begin_inset Formula $\left\{ i_{a}\right\} $
+\begin_inset Formula $\left\{ i_{p}\right\} $
 \end_inset
 
  and 
-\begin_inset Formula $\left\{ j_{a}\right\} $
+\begin_inset Formula $\left\{ j_{p}\right\} $
 \end_inset
 
  are two sets of appropriately chosen positive integers.
@@ -2490,7 +2489,7 @@ V_{k}^{\left(a\right)}=\delta_{k,i_{a}},\,W_{k}^{\left(a\right)}=\delta_{k,j_{a}
 
 .
  We can solve for 
-\begin_inset Formula $c_{k,ij}$
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
  using the remaining nontrivial equations.
@@ -2508,11 +2507,11 @@ V_{k}^{\left(a\right)}=\delta_{k,i_{a}},\,W_{k}^{\left(a\right)}=\delta_{k,j_{a}
 \end_inset
 
  has multiplicity 
-\begin_inset Formula $m_{Z}$
+\begin_inset Formula $\mu_{Z}$
 \end_inset
 
 , then there will be at most 
-\begin_inset Formula $N_{c}-m_{Z}$
+\begin_inset Formula $N_{c}-\mu_{Z}$
 \end_inset
 
  independent equations, where 
@@ -2520,7 +2519,7 @@ V_{k}^{\left(a\right)}=\delta_{k,i_{a}},\,W_{k}^{\left(a\right)}=\delta_{k,j_{a}
 \end_inset
 
  is number of 
-\begin_inset Formula $c_{k,ij}$
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
  parameters.
@@ -2533,20 +2532,20 @@ Step III
 
 \begin_layout Standard
 The third step is to solve for the parameters 
-\begin_inset Formula $c_{k,ij}$
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
 .
  In the solution of the homogeneous linear equations, there will be 
-\begin_inset Formula $m_{Z}$
+\begin_inset Formula $\mu_{Z}$
 \end_inset
 
  free variables and the other 
-\begin_inset Formula $N_{c}-m_{Z}$
+\begin_inset Formula $N_{c}-\mu_{Z}$
 \end_inset
 
  variables can be expressed as linear combination of the 
-\begin_inset Formula $m_{Z}$
+\begin_inset Formula $\mu_{Z}$
 \end_inset
 
  free variables.
@@ -2650,54 +2649,53 @@ reference "sec:CGCs-in-subgroup"
 , it leads to nontrivial restrictions on overall phases of CG coefficients.
  The constraints of these two cases can be solved as follows.
  Let 
-\begin_inset Formula $\left\{ c_{P}\right\} $
+\begin_inset Formula $\left\{ \mathcal{M}_{A}\right\} $
 \end_inset
 
- be the sets of free parameters in the solution, then the constraints are
- translated into linear equations about 
-\begin_inset Formula $c_{P}$
+ be the sets of free parameters in the solution, where 
+\begin_inset Formula $A$
 \end_inset
 
- and 
-\begin_inset Formula $c_{P}^{*}$
+ denotes subscripts of the form 
+\begin_inset Formula $\left(c,ab\right)$
 \end_inset
 
-, 
+, then the constraints are translated into linear equations 
 \begin_inset Formula 
 \begin{equation}
-\sum_{P}a_{P}c_{P}=\sum_{P}b_{P}c_{P}^{*},\label{eq:Proc_aPcP}
+L_{1}\left(\left\{ \mathcal{M}_{A}\right\} \right)-L_{2}\left(\left\{ \mathcal{M}_{A}^{*}\right\} \right)=0,\label{eq:Proc_aPcP}
 \end{equation}
 
 \end_inset
 
- where 
-\begin_inset Formula $P$
-\end_inset
-
- denotes subscripts of the form 
-\begin_inset Formula $\left(k,ij\right)$
+ with 
+\begin_inset Formula $L_{1}$
 \end_inset
 
  and 
-\begin_inset Formula $a_{P}$
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ being linear combination of 
+\begin_inset Formula $\left\{ \mathcal{M}_{A}\right\} $
 \end_inset
 
  and 
-\begin_inset Formula $b_{P}$
+\begin_inset Formula $\left\{ \mathcal{M}_{A}^{*}\right\} $
 \end_inset
 
- are in general c-number constants.
+ respectively .
  These equations can be solve by expressing 
-\begin_inset Formula $c_{P}$
+\begin_inset Formula $\mathcal{M}_{A}$
 \end_inset
 
  in terms of real and imaginary parts, i.e, 
-\begin_inset Formula $c_{P}=c_{P}^{\left(r\right)}+ic_{P}^{\left(i\right)}$
+\begin_inset Formula $\mathcal{M}_{A}=\mathcal{M}_{A}^{\left(r\right)}+i\mathcal{M}_{A}^{\left(i\right)}$
 \end_inset
 
 .
  There will be 
-\begin_inset Formula $m_{Z}$
+\begin_inset Formula $\mu_{Z}$
 \end_inset
 
  independent equations of the form 
@@ -2710,11 +2708,11 @@ reference "eq:Proc_aPcP"
 .
  These equations reduce the number of real degrees of freedom (DOF) of the
  solution from 
-\begin_inset Formula $2m_{Z}$
+\begin_inset Formula $2\mu_{Z}$
 \end_inset
 
  to 
-\begin_inset Formula $m_{Z}$
+\begin_inset Formula $\mu_{Z}$
 \end_inset
 
 .
@@ -2723,11 +2721,11 @@ reference "eq:Proc_aPcP"
 \begin_layout Standard
 Finally, we apply the orthonormalization constraints to CG coefficients.
  If 
-\begin_inset Formula $m_{Z}>1$
+\begin_inset Formula $\mu_{Z}>1$
 \end_inset
 
 , we can use the Gram–Schmidt process to build 
-\begin_inset Formula $m_{Z}$
+\begin_inset Formula $\mu_{Z}$
 \end_inset
 
  sets of orthonormal CG coefficients.
@@ -2737,19 +2735,19 @@ Finally, we apply the orthonormalization constraints to CG coefficients.
 
 \begin_layout Standard
 In summary, for case I and II, 
-\begin_inset Formula $m_{z}$
+\begin_inset Formula $\mu_{Z}$
 \end_inset
 
  sets of CG coefficients have 
-\begin_inset Formula $m_{z}-1$
+\begin_inset Formula $\mu_{Z}-1$
 \end_inset
 
  real DOFs; for case III, 
-\begin_inset Formula $2m_{z}$
+\begin_inset Formula $2\mu_{Z}$
 \end_inset
 
  sets of CG coefficients have 
-\begin_inset Formula $2m_{z}-1$
+\begin_inset Formula $2\mu_{Z}-1$
 \end_inset
 
  real DOFs.
@@ -2820,7 +2818,7 @@ In this section, we will find the matrix realizations of
 
 .
  We choose the basis that the projection matrices 
-\begin_inset Formula $P_{X\to i}$
+\begin_inset Formula $P_{X\to a}$
 \end_inset
 
  are in the form of eq.
@@ -2832,7 +2830,7 @@ reference "eq:CG_PXj"
 \end_inset
 
  with 
-\begin_inset Formula $P_{X\to i}^{\left(\mathrm{nonzero}\right)}$
+\begin_inset Formula $P_{X\to a}^{\left(\mathrm{nonzero}\right)}$
 \end_inset
 
  being identity matrices, except for a special case that we will see shortly.
@@ -4590,7 +4588,7 @@ Finding
 \end_layout
 
 \begin_layout Standard
-With the generators, we can now find the CG coefficients of 
+With the generators, we can now find the SBCG coefficients of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -4607,7 +4605,7 @@ Example I:
 \end_layout
 
 \begin_layout Standard
-We will find the CG coefficients for 
+We will find the SBCG coefficients for 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}^{\left(1\right)}\oplus\rep{6}_{s}^{\left(2\right)}$
 \end_inset
 
@@ -4653,10 +4651,10 @@ label{eq:Ex_SixSix2Six}
 
 \begin_inset Formula 
 \begin{align}
-\rep{1_{0}} & =c_{1,11}\covs{1_{0}}{1_{0}}{1_{0}}+c_{1,22}\covs{2}{2}{1_{0}}+c_{1,33}\covs{3_{1}}{3_{1}}{1_{0}},\\
-\rep{2} & =\frac{c_{2,12}}{\sqrt{2}}\left(\covs{1_{0}}{2}{2}+\covs{2}{1_{0}}{2}\right)+c_{2,22}\covs{2}{2}{2}+c_{2,33}\covs{3_{1}}{3_{1}}{2},\\
-\rep{3_{1}} & =\frac{c_{3,13}}{\sqrt{2}}\left(\covs{1_{0}}{3_{1}}{3_{1}}+\covs{3_{1}}{1_{0}}{3_{1}}\right)\nonumber \\
- & +\frac{c_{3,23}}{\sqrt{2}}\left(\covs{2}{3_{1}}{3_{1}}+\covs{3_{1}}{2}{3_{1}}\right)+c_{3,33}\covs{3_{1}}{3_{1}}{3_{1}},
+\rep{1_{0}} & =\mathcal{M}_{1,11}\covs{1_{0}}{1_{0}}{1_{0}}+\mathcal{M}_{1,22}\covs{2}{2}{1_{0}}+\mathcal{M}_{1,33}\covs{3_{1}}{3_{1}}{1_{0}},\\
+\rep{2} & =\frac{\mathcal{M}_{2,12}}{\sqrt{2}}\left(\covs{1_{0}}{2}{2}+\covs{2}{1_{0}}{2}\right)+\mathcal{M}_{2,22}\covs{2}{2}{2}+c_{2,33}\covs{3_{1}}{3_{1}}{2},\\
+\rep{3_{1}} & =\frac{\mathcal{M}_{3,13}}{\sqrt{2}}\left(\covs{1_{0}}{3_{1}}{3_{1}}+\covs{3_{1}}{1_{0}}{3_{1}}\right)\nonumber \\
+ & +\frac{\mathcal{M}_{3,23}}{\sqrt{2}}\left(\covs{2}{3_{1}}{3_{1}}+\covs{3_{1}}{2}{3_{1}}\right)+\mathcal{M}_{3,33}\covs{3_{1}}{3_{1}}{3_{1}},
 \end{align}
 
 \end_inset
@@ -4675,10 +4673,10 @@ end{subequations}
 \end_inset
 
  where 
-\begin_inset Formula $c_{k,ij}$
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
- are CG coefficients to be determined.
+ are SBCG coefficients to be determined.
  In the above equations, the notation 
 \begin_inset Formula $\covs{x}{y}{z}$
 \end_inset
@@ -4722,18 +4720,18 @@ reference "eq:CGSub_Def2"
 
 .
  By solving them, we express all coefficients in terms of 
-\begin_inset Formula $c_{1,11}$
+\begin_inset Formula $\mathcal{M}_{1,11}$
 \end_inset
 
  and 
-\begin_inset Formula $c_{1,22}$
+\begin_inset Formula $\mathcal{M}_{1,22}$
 \end_inset
 
 
 \begin_inset Formula 
 \begin{align*}
-c_{1,33} & =-\frac{c_{1,11}}{\sqrt{3}}-\frac{2c_{1,22}}{\sqrt{3}},\quad c_{2,12}=c_{1,22},\quad c_{2,22}=-\frac{2c_{1,11}}{\sqrt{7}}-\frac{3c_{1,22}}{\sqrt{14}},\quad c_{2,33}=\frac{c_{1,22}}{\sqrt{42}}-\frac{4c_{1,11}}{\sqrt{21}},\\
-c_{3,13} & =-\frac{\sqrt{2}}{3}c_{1,11}-\frac{2c_{1,22}}{3},\quad c_{3,23}=\frac{1}{3}\sqrt{\frac{2}{7}}c_{1,22}-\frac{8c_{1,11}}{3\sqrt{7}},\quad c_{3,33}=\sqrt{\frac{2}{21}}c_{1,11}+\frac{5c_{1,22}}{\sqrt{21}}.
+\mathcal{M}_{1,33} & =-\frac{\mathcal{M}_{1,11}}{\sqrt{3}}-\frac{2\mathcal{M}_{1,22}}{\sqrt{3}},\quad\mathcal{M}_{2,12}=\mathcal{M}_{1,22},\quad\mathcal{M}_{2,22}=-\frac{2\mathcal{M}_{1,11}}{\sqrt{7}}-\frac{3\mathcal{M}_{1,22}}{\sqrt{14}},\quad\mathcal{M}_{2,33}=\frac{\mathcal{M}_{1,22}}{\sqrt{42}}-\frac{4\mathcal{M}_{1,11}}{\sqrt{21}},\\
+\mathcal{M}_{3,13} & =-\frac{\sqrt{2}}{3}\mathcal{M}_{1,11}-\frac{2\mathcal{M}_{1,22}}{3},\quad\mathcal{M}_{3,23}=\frac{1}{3}\sqrt{\frac{2}{7}}\mathcal{M}_{1,22}-\frac{8\mathcal{M}_{1,11}}{3\sqrt{7}},\quad\mathcal{M}_{3,33}=\sqrt{\frac{2}{21}}\mathcal{M}_{1,11}+\frac{5\mathcal{M}_{1,22}}{\sqrt{21}}.
 \end{align*}
 
 \end_inset
@@ -4750,11 +4748,11 @@ reference "eq:CGSub_ckij"
 \end_inset
 
  are satisfied if 
-\begin_inset Formula $c_{1,11}$
+\begin_inset Formula $\mathcal{M}_{1,11}$
 \end_inset
 
  and 
-\begin_inset Formula $c_{1,22}$
+\begin_inset Formula $\mathcal{M}_{1,22}$
 \end_inset
 
  are real.
@@ -4775,17 +4773,17 @@ reference "eq:CGSub_orthnormal"
 \end_inset
 
  component as 
-\begin_inset Formula $\left\{ c_{1,11},c_{1,22},c_{1,33}\right\} $
+\begin_inset Formula $\left\{ \mathcal{M}_{1,11},\mathcal{M}_{1,22},\mathcal{M}_{1,33}\right\} $
 \end_inset
 
 .
  With Gram–Schmidt process we can find two independent orthonormal vectors
  with 
-\begin_inset Formula $\left(c_{1,11},c_{1,22}\right)=\left(\frac{\sqrt{3}}{2},0\right)$
+\begin_inset Formula $\left(\mathcal{M}_{1,11},\mathcal{M}_{1,22}\right)=\left(\frac{\sqrt{3}}{2},0\right)$
 \end_inset
 
  and 
-\begin_inset Formula $\left(c_{1,11},c_{1,22}\right)=\left(-\frac{1}{2\sqrt{3}},\sqrt{\frac{2}{3}}\right)$
+\begin_inset Formula $\left(\mathcal{M}_{1,11},\mathcal{M}_{1,22}\right)=\left(-\frac{1}{2\sqrt{3}},\sqrt{\frac{2}{3}}\right)$
 \end_inset
 
 .
@@ -4823,8 +4821,8 @@ The calculation is more nontrivial in
  basis is
 \begin_inset Formula 
 \begin{align*}
-\rep{3} & =c_{3,33}\covt{3}{3}{3}+\frac{c_{3,3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{3}+\covt{\bar{3}}{3}{3}\right)+c_{3,\bar{3}\bar{3}}\covt{\bar{3}}{\bar{3}}{3_{s}},\\
-\rep{\bar{3}} & =c_{\bar{3},33}\covt{3}{3}{\bar{3}_{s}}+\frac{c_{\bar{3},3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{\bar{3}}+\covt{\bar{3}}{3}{\bar{3}}\right)+c_{\bar{3},\bar{3}\bar{3}}\covt{\bar{3}_{s}}{\bar{3}}{\bar{3}}.
+\rep{3} & =\mathcal{M}_{3,33}\covt{3}{3}{3}+\frac{\mathcal{M}_{3,3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{3}+\covt{\bar{3}}{3}{3}\right)+\mathcal{M}_{3,\bar{3}\bar{3}}\covt{\bar{3}}{\bar{3}}{3_{s}},\\
+\rep{\bar{3}} & =\mathcal{M}_{\bar{3},33}\covt{3}{3}{\bar{3}_{s}}+\frac{\mathcal{M}_{\bar{3},3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{\bar{3}}+\covt{\bar{3}}{3}{\bar{3}}\right)+\mathcal{M}_{\bar{3},\bar{3}\bar{3}}\covt{\bar{3}_{s}}{\bar{3}}{\bar{3}}.
 \end{align*}
 
 \end_inset
@@ -4840,8 +4838,8 @@ reference "eq:CGSub_Def2"
  yields
 \begin_inset Formula 
 \begin{align*}
-c_{3,\bar{3}\bar{3}} & =-\sqrt{2}c_{3,33}-\frac{c_{3,\bar{3}\bar{3}}}{\sqrt{2}},\quad c_{\bar{3},33}=-c_{3,33}-c_{3,\bar{3}\bar{3}},\\
-c_{\bar{3},\bar{3}\bar{3}} & =\sqrt{2}c_{3,33},\quad c_{\bar{3},\bar{3}\bar{3}}=\frac{1}{\sqrt{2}}c_{3,\bar{3}\bar{3}}.
+\mathcal{M}_{3,\bar{3}\bar{3}} & =-\sqrt{2}\mathcal{M}_{3,33}-\frac{\mathcal{M}_{3,\bar{3}\bar{3}}}{\sqrt{2}},\quad\mathcal{M}_{\bar{3},33}=-\mathcal{M}_{3,33}-\mathcal{M}_{3,\bar{3}\bar{3}},\\
+\mathcal{M}_{\bar{3},\bar{3}\bar{3}} & =\sqrt{2}c_{3,33},\quad\mathcal{M}_{\bar{3},\bar{3}\bar{3}}=\frac{1}{\sqrt{2}}\mathcal{M}_{3,\bar{3}\bar{3}}.
 \end{align*}
 
 \end_inset
@@ -4859,16 +4857,16 @@ reference "eq:CGSub_ckij"
 
  irreps are complex.
  They can be solved by expressing 
-\begin_inset Formula $c_{3,33}$
+\begin_inset Formula $\mathcal{M}_{3,33}$
 \end_inset
 
  and 
-\begin_inset Formula $c_{3,\bar{3}\bar{3}}$
+\begin_inset Formula $\mathcal{M}_{3,\bar{3}\bar{3}}$
 \end_inset
 
  in terms of their real and imaginary parts.
  The solution is simply 
-\begin_inset Formula $c_{3,\bar{3}\bar{3}}=c_{3,33}^{*}$
+\begin_inset Formula $\mathcal{M}_{3,\bar{3}\bar{3}}=\mathcal{M}_{3,33}^{*}$
 \end_inset
 
 .
@@ -6138,10 +6136,6 @@ Using the CG coefficients of
 
 .
  In the following CG coefficients, 
-\begin_inset Formula $ $
-\end_inset
-
-
 \begin_inset Formula $\rep{x}$
 \end_inset
 
