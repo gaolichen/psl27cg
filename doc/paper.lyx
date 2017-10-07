@@ -490,8 +490,6 @@ Ambiguities of Clebsch-Gordan coefficients
 \begin_layout Standard
 The tensor product of two irreducible representations of a group is in general
  reducible.
- The information of how the tensor product being reduced into irreps is
- encoded in Clebsch-Gordan coefficients.
  Let 
 \begin_inset Formula $G$
 \end_inset
@@ -570,7 +568,7 @@ The tensor product of two irreducible representations of a group is in general
  and the tensor product is defined as 
 \begin_inset Formula 
 \[
-\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\alpha=\left(i-1\right)\times\dim Y+j}=\left(\mr{X}\left(g\right)X\right)_{i}\left(\mr{Y}\left(g\right)Y\right)_{j}.
+\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\left(i-1\right)\times\dim Y+j}=\left(\mr{X}\left(g\right)X\right)_{i}\left(\mr{Y}\left(g\right)Y\right)_{j}.
 \]
 
 \end_inset
@@ -733,7 +731,7 @@ reference "eq:CGC_Orthnormal"
 
 \end_inset
 
- are invariant under 
+ are invariant under the transformation 
 \begin_inset Formula $M\to e^{i\theta}M$
 \end_inset
 
@@ -742,7 +740,7 @@ reference "eq:CGC_Orthnormal"
 \end_inset
 
 .
- The last ambiguity is when there are nontrivial multiplicity, i.e.
+ The last ambiguity exists when there are nontrivial multiplicity, i.e.
  
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(\mu\right)}$
 \end_inset
@@ -780,7 +778,7 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 
 \end_inset
 
-, then any linear combination of the CG coefficients 
+, then a linear combination of the CG coefficients 
 \begin_inset Formula $a_{1}M^{\left(1\right)}+\cdots+a_{n}M^{\left(\mu\right)}$
 \end_inset
 
@@ -788,13 +786,13 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 \begin_inset Formula $\sum a_{i}^{*}a_{i}=1$
 \end_inset
 
- is also satisfy above constraints.
- 
+ also satisfy above constraints.
 \end_layout
 
 \begin_layout Standard
-In order to eliminate or reduce the ambiguities, we introduce CG coefficients
- in subgroup basis in the following section.
+To reduce the ambiguities of CG coefficients, we introduce subgroup-basis
+ CG coefficients in the following section.
+ 
 \end_layout
 
 \begin_layout Section
@@ -816,7 +814,7 @@ Let
 \begin_inset Formula $G$
 \end_inset
 
- and the irrep 
+ and assume the irreps 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -826,10 +824,6 @@ Let
 
 , 
 \begin_inset Formula $\rep{Z}$
-\end_inset
-
- of 
-\begin_inset Formula $G$
 \end_inset
 
  can be decomposed into irreps of 
@@ -958,13 +952,19 @@ reference "eq:CGSub_Def"
 \end_inset
 
 .
- We will show shortly that the coefficients 
+ We will show shortly that 
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
- are independent in both the basis transformation of subgroup and of the
- large group itself.
- The orthonormalization constraints now become
+ are independent of basis of irreps of both the group and subgroup.
+ The orthonormalization constraints 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGC_Orthnormal"
+
+\end_inset
+
+ now become
 \begin_inset Formula 
 \begin{equation}
 \sum_{ab}\mathcal{M}_{c,ab}^{*}\mathcal{M}_{d,ab}=\delta_{cd}\label{eq:CGSub_orthnormal}
@@ -984,16 +984,15 @@ reference "eq:CGSub_orthnormal"
 
 \end_inset
 
-, we shall impose other constraints on SBCG coefficients.
+, we impose other constraints on SBCG coefficients.
  To introduce the constraints, we need to first discuss real and complex
  representations.
  A real (or pseudo-real) representation is a representation whose complex
  conjugate is equivalent to itself.
- While a complex representation is the one whose complex conjugate is inequivale
-nt to itself.
+ While a complex representation is inequivalent to its complex conjugate.
  For convenience, we define a complex conjugate of a real (or pseudo-real)
  representation to be itself.
- If 
+ Now if 
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -1063,11 +1062,21 @@ reference "eq:CGSub_Gamma"
 \end_inset
 
  implies 
-\begin_inset Formula $\cpx{X}X^{*}=\bar{X}$
+\begin_inset Formula 
+\begin{equation}
+\cpx{X}X^{*}=\bar{X}.\label{eq:CGSub-GammaX}
+\end{equation}
+
 \end_inset
 
-.
- It is natural to impose similar constraints on contractions
+It is natural to impose constraints similar to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub-GammaX"
+
+\end_inset
+
+ on contractions
 \begin_inset ERT
 status open
 
@@ -1086,7 +1095,7 @@ label{eq:CG_GammaCon}
 \begin_inset Formula 
 \begin{align}
 \cpx{Z}\left(\covlg{X}{Y}{Z}\right)^{*} & =\covlg{\bar{X}}{\bar{Y}}{\bar{Z}},\label{eq:CGSub_GammaCon1}\\
-\cpx{c}\left(\covsub{x_{a}}{y_{b}}{z_{c}}\right)^{*} & =\covsub{\bar{x}_{a}}{\bar{y}_{b}}{\bar{z}_{c}}\label{eq:CGSub_GammaCon2}
+\cpx{c}\left(\covsub{x_{a}}{y_{b}}{z_{c}}\right)^{*} & =\covsub{\bar{x}_{a}}{\bar{y}_{b}}{\bar{z}_{c}},\label{eq:CGSub_GammaCon2}
 \end{align}
 
 \end_inset
@@ -1161,9 +1170,9 @@ reference "eq:CGSub_GammaCon2"
 \end_inset
 
  under complex conjugate operation.
- It is then natural to impose CP constraints on irreps of subgroup contained
- in irreps of large group, meaning that 
-\begin_inset Formula $\cp{c}$
+ It is also natural to impose CP constraints on irreps of subgroup embedded
+ in irreps of the large group, meaning that 
+\begin_inset Formula $\cpx{c}$
 \end_inset
 
  should transform the 
@@ -1185,7 +1194,7 @@ reference "eq:CGSub_GammaCon2"
 , 
 \begin_inset Formula 
 \[
-\cp{k}\left(P_{Z\to c}Z\right)^{*}=P_{\bar{Z}\to\bar{c}}\bar{Z}=P_{\bar{Z}\to\bar{c}}\cpx{Z}Z^{*},
+\cpx{c}\left(P_{Z\to c}Z\right)^{*}=P_{\bar{Z}\to\bar{c}}\bar{Z}=P_{\bar{Z}\to\bar{c}}\cpx{Z}Z^{*},
 \]
 
 \end_inset
@@ -1215,7 +1224,7 @@ end{subequations}
 \end_layout
 
 \begin_layout Standard
-In summary, our CG coefficients are defined by eq.
+In summary, the SBCG coefficients are defined as eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1238,26 +1247,20 @@ reference "eq:CGSub_GammaCon"
 \end_inset
 
 .
- In the remainder of this section, we will show some properties of the CG
- coefficients.
- 
+ In the remainder of this section, we prove some properties of SBCG coefficients.
 \end_layout
 
 \begin_layout Subsection
-Proof of basis independence
+Proof of basis independence of 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Now we prove that coefficients 
-\begin_inset Formula $c_{k,ij}$
-\end_inset
-
- defined as eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_Def2"
-
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
  are basis independent, or equivalently, eq.
@@ -1278,7 +1281,7 @@ There are three types of basis transformations.
 \begin_inset Formula $G$
 \end_inset
 
- but keeps the basis of 
+ but keeps the basis of irreps of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -1287,17 +1290,14 @@ There are three types of basis transformations.
 \begin_inset Formula $H$
 \end_inset
 
- but keeps the projection matrices 
-\begin_inset Formula $P_{X\to j}$
-\end_inset
-
- unchanged.
+ but keeps the projection matrices unchanged.
  The third type changes both the basis of irreps of 
 \begin_inset Formula $H$
 \end_inset
 
  and the projection matrices.
- If eq.
+ Since the last type basis change is the combination of the first two, if
+ eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1305,9 +1305,9 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
- is invariant under first two types of basis transformations, then it is
- also invariant under the third type basis transformation.
- Hence, we only need to consider the first two types of basis transformation.
+ is invariant under the first two types of basis transformations, then it
+ is also invariant under the third type basis transformation.
+ Hence, we only need to consider the first two types of basis transformations.
 \end_layout
 
 \begin_layout Proof
@@ -1347,12 +1347,12 @@ Under the first type basis changes,
 \begin_inset Formula $\rho_{X}^{\prime}\left(g\right)=U_{X}\mr{X}\left(g\right)U_{X}^{-1}$
 \end_inset
 
-.
+ respectively.
  It follows that 
 \begin_inset Formula $\left(P_{X\to a}\mr{X}\left(g\right)X\right)$
 \end_inset
 
- are invariant, and hence, eq.
+ are invariant, and hence, both sides of eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1360,27 +1360,19 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
- is invariant under the basis change.
+ are invariant under the transformation.
 \end_layout
 
 \begin_layout Proof
 Now consider the second type basis transformation.
- Without loss of generality, we can choose a special form for 
-\begin_inset Formula $P$
-\end_inset
-
- matrices, since we can always perform a first type transformation to change
- 
-\begin_inset Formula $P$
-\end_inset
-
- to the form we want.
- We choose the basis where elements of 
+ Without loss of generality, we can choose a special form for projection
+ matrices, which can be obtained by first type transformations.
+ We choose a basis where elements of 
 \begin_inset Formula $H$
 \end_inset
 
- are diagonal matrices, which means the projection matrices have the form
- 
+ are block diagonal matrices, which means that the projection matrices have
+ the form 
 \begin_inset Formula 
 \begin{equation}
 P_{X\to a}=\begin{pmatrix}O_{1} & \cdots & O_{a-1} & P_{X\to a}^{\left(\mathrm{nonzero}\right)} & O_{a+1}\cdots\end{pmatrix},\label{eq:CG_PXj}
@@ -1389,14 +1381,6 @@ P_{X\to a}=\begin{pmatrix}O_{1} & \cdots & O_{a-1} & P_{X\to a}^{\left(\mathrm{n
 \end_inset
 
  where 
-\begin_inset Formula $O_{b}$
-\end_inset
-
- are zero matrices of dimension 
-\begin_inset Formula $\dim\rep{x_{a}}\times\dim\rep{x_{b}}$
-\end_inset
-
- and 
 \begin_inset Formula $P_{X\to a}^{\left(\mathrm{nonzero}\right)}$
 \end_inset
 
@@ -1404,8 +1388,16 @@ P_{X\to a}=\begin{pmatrix}O_{1} & \cdots & O_{a-1} & P_{X\to a}^{\left(\mathrm{n
 \begin_inset Formula $\dim\rep{x_{a}}\times\dim\rep{x_{a}}$
 \end_inset
 
+ and 
+\begin_inset Formula $O_{b}$
+\end_inset
+
+ are zero matrices of dimension 
+\begin_inset Formula $\dim\rep{x_{a}}\times\dim\rep{x_{b}}$
+\end_inset
+
 .
- We consider the following basis transformations of subgroup 
+ For any basis transformations of subgroup 
 \begin_inset Formula $H$
 \end_inset
 
@@ -1426,14 +1418,25 @@ label{eq:CG_Tran_II}
 
  
 \begin_inset Formula 
-\begin{align}
-\left(x_{a},\,y_{b},\,z_{c}\right) & \to\left(x_{a}^{\prime},\,y_{b}^{\prime},\,z_{c}^{\prime}\right)=\left(U_{a}x_{a},\,U_{b}y_{b},\,U_{c}z_{c}\right),\\
-z_{c}=\left\{ x_{a}\otimes y_{b}\right\} _{z_{c}} & \to z_{c}^{\prime}=\left\{ U_{a}x_{a}\otimes U_{b}y_{b}\right\} _{U_{c}z_{c}}^{\prime},
-\end{align}
+\begin{equation}
+\left(x_{a},\,y_{b},\,z_{c}\right)\to\left(x_{a}^{\prime},\,y_{b}^{\prime},\,z_{c}^{\prime}\right)=\left(U_{a}x_{a},\,U_{b}y_{b},\,U_{c}z_{c}\right),
+\end{equation}
 
 \end_inset
 
+the subgroup contraction 
+\begin_inset Formula $\left\{ x_{a}\otimes y_{b}\right\} _{z_{c}}$
+\end_inset
 
+ should transform as 
+\begin_inset Formula 
+\begin{equation}
+z_{c}=\left\{ x_{a}\otimes y_{b}\right\} _{z_{c}}\to z_{c}^{\prime}=\left\{ U_{a}x_{a}\otimes U_{b}y_{b}\right\} _{U_{c}z_{c}}^{\prime},
+\end{equation}
+
+\end_inset
+
+ 
 \begin_inset ERT
 status open
 
@@ -1446,8 +1449,8 @@ end{subequations}
 
 \end_inset
 
-where we have used the primed brackets to take care of the CG coefficients
- changes in the new basis.
+where we have used the primed brackets to take care of the new CG coefficients
+ in the new basis.
  It then implies 
 \begin_inset Formula 
 \begin{equation}
@@ -1547,7 +1550,7 @@ reference "eq:CG_Tran_II_UxUy"
 \end_inset
 
  in the second equality.
- Therefore, eq.
+ Above calculation shows that eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1563,18 +1566,8 @@ reference "eq:CG_Tran_II"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Proof
-To sum up, we have showed that eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_Def2"
-
-\end_inset
-
- is invariant under both type I and type II basis transformations.
+ We therefore have showed that SBCG coefficients are independent of basis
+ of irreps of both the group and its subgroup.
 \end_layout
 
 \begin_layout Subsection
