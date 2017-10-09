@@ -914,12 +914,12 @@ P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{
 \end_inset
 
  and 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
  are Subgroup-basis Clebsch-Gordan coefficients.
  
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
  should actually satisfy a stronger constraint 
@@ -952,6 +952,15 @@ reference "eq:CGSub_Def"
 \end_inset
 
 .
+ In the following, we may write 
+\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
+\end_inset
+
+ simply as 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+ for convenience.
  We will show shortly that 
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
@@ -1589,10 +1598,6 @@ reference "eq:CG_GammaCon"
  ambiguity of CG coefficients of the subgroup.
 \end_layout
 
-\begin_layout Subsubsection
-Overall phases
-\end_layout
-
 \begin_layout Standard
 We now discuss the consequence of the CP constraints.
  The CP constraints can apply to both general CG coefficients defined as
@@ -1648,7 +1653,7 @@ Z=M^{\left(XY\to Z\right)}\left(X\otimes Y\right),\quad\bar{Z}=M^{\left(\bar{X}\
  Comparing the coefficients gives rise to 
 \begin_inset Formula 
 \begin{equation}
-M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\cpx{Z}M^{\left(XY\to Z\right)*}\left(\cpx{X}^{-1}\otimes\cpx{Y}^{-1}\right).\label{eq:CGSub_CXYZ}
+M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\cpx{Z}\left(M^{\left(XY\to Z\right)}\right)^{*}\left(\cpx{X}^{-1}\otimes\cpx{Y}^{-1}\right).\label{eq:CGSub_CXYZ}
 \end{equation}
 
 \end_inset
@@ -1998,36 +2003,20 @@ reference "eq:CGSub_CXYZ"
 
 \end_inset
 
- where the 
+ where we have suppressed all the nesting structures and intermediate irreps
+ and the 
 \begin_inset Formula $\mathrm{rhs}$
 \end_inset
 
- is the CP conjugate of 
+ is the CP counterpart of 
 \begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{Z}$
 \end_inset
 
+ on the 
+\begin_inset Formula $\mathrm{lhs}$
+\end_inset
+
 .
- The 
-\begin_inset Formula $\mathrm{lhs}$
-\end_inset
-
- and 
-\begin_inset Formula $\mathrm{rhs}$
-\end_inset
-
- have the same nesting structure of the brackets 
-\begin_inset Formula $\left[\cdot\otimes\cdot\right]$
-\end_inset
-
- and at each level the brackets of 
-\begin_inset Formula $\mathrm{lhs}$
-\end_inset
-
- and 
-\begin_inset Formula $\mathrm{rhs}$
-\end_inset
-
- produce two CP conjugate irreps.
  When 
 \begin_inset Formula $\rep{Z}$
 \end_inset
@@ -2040,21 +2029,25 @@ reference "eq:CGSub_CXYZ"
 \begin_inset Formula $\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{\bar{Z}}$
 \end_inset
 
- is a c-number that is complex conjugate to 
+ is a c-number complex conjugate to 
 \begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{Z}$
 \end_inset
 
 .
- Particularly, if the forms of 
-\begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{Z}$
+ Particularly, if the contraction 
+\begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{1}$
 \end_inset
 
- is invariant under CP transformation, i.e.
+, with 
+\begin_inset Formula $\rep{1}$
+\end_inset
+
+ being the trivial singlet, is invariant under CP transformation, i.e.
  
 \begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{1}=\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{1}$
 \end_inset
 
-, the term is real.
+, then the contraction is a real number.
 \end_layout
 
 \begin_layout Standard
@@ -2062,7 +2055,7 @@ The above property has an implication in flavor physics models with discrete
  symmetries.
  For a unitary theory, the Lagrangian should be real.
  Therefore, for each term of the Lagrangian, one needs to add its complex
- conjugate term to the Lagrangian.
+ conjugate to the Lagrangian.
  For example, if a term like 
 \begin_inset Formula $\lambda\covlg{X}{\covlg{V}{W}{\bar{X}}}{1}$
 \end_inset
@@ -2085,8 +2078,8 @@ The above property has an implication in flavor physics models with discrete
 \begin_inset Formula $\lambda$
 \end_inset
 
- has to be a complex number with a fixed phase.
- With the CG coefficients defined under the CP constraint 
+ in general has to be a complex number with certain phase.
+ With the SBCG coefficients defined under the CP constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_GammaCon1"
@@ -2097,8 +2090,75 @@ reference "eq:CGSub_GammaCon1"
 \begin_inset Formula $\lambda$
 \end_inset
 
- can be a real number without loss of generality.
+ can always be a real number without loss of generality.
  
+\end_layout
+
+\begin_layout Standard
+Finally, let us remark on the relative phases among the SBCG coefficients.
+ In general, the phase of an individual SBCG coefficients 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+ depends on the overall phase of the subgroup CG coefficients 
+\begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{c}\right)}$
+\end_inset
+
+.
+ We see that Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+ is invariant under the following transformation 
+\begin_inset Formula 
+\begin{equation}
+\covsub{x_{a}}{y_{b}}{z_{c}}\to e^{i\theta}\covsub{x_{a}}{y_{b}}{z_{c}},\quad\mathcal{M}_{c,ab}\to e^{-i\theta}\mathcal{M}_{c,ab}.\label{eq:CGSub_Mcab_phase}
+\end{equation}
+
+\end_inset
+
+ Such a transformation is allowed for all 
+\begin_inset Formula $0<\theta<2\pi$
+\end_inset
+
+ if any of 
+\begin_inset Formula $\rep{x_{a}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{y_{b}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{z_{c}}$
+\end_inset
+
+ is complex.
+ Therefore, the relative phase among SBCG coefficients are in general not
+ fixed.
+ But if all of irreps are real or pseudo-real, then 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Mcab_phase"
+
+\end_inset
+
+ is allowed only for 
+\begin_inset Formula $\theta=\pi$
+\end_inset
+
+, meaning that 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+ is fixed up to a sign factor.
+ If the subgroup is an ambivalent group, a group that all of its irreps
+ are real or pseudo-real, then the relative phases among SBCG coefficients
+ are fixed up to a sign factor.
 \end_layout
 
 \begin_layout Section
