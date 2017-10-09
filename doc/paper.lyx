@@ -2073,7 +2073,7 @@ The above property has an implication in flavor physics models with discrete
 \begin_inset Formula $\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{X}}{1}$
 \end_inset
 
- are not necessary complex conjugate.
+ are not necessary complex conjugate to each other.
  To make these two terms complex conjugate, 
 \begin_inset Formula $\lambda$
 \end_inset
@@ -2168,36 +2168,13 @@ name "sec:Calc_CGC"
 
 \end_inset
 
-Procedures to calculate CG coefficients
+Procedures to calculate SBCG coefficients
 \end_layout
 
 \begin_layout Standard
-Calculation of CG coefficients of a large discrete group is usually nontrivial.
- As far as we know, the most commonly used method is the Mathematica package
- Discrete, which implements the algorithm introduced by ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "van1978clebsch"
-
-\end_inset
-
-.
- However, the method cannot obtain the obtain the CG coefficients in the
- basis we want.
- Moreover, for a large discrete group, say a group of rank 
-\begin_inset Formula $>100$
-\end_inset
-
-, it is usually impossible perform an analytic calculation with Mathematica
- as the calculation usually involves complicated expression of irrational
- numbers.
- We therefore turn to the method we will discuss in this section.
-\end_layout
-
-\begin_layout Standard
-Our procedures are very straightforward and simply based on our definition
- of CG coefficients, i.e.
+In this section, we will describe the prcedures to find SBCG coefficients.
+ The procedures are straightforward and based on the definition of SBCG
+ coefficients, i.e.
  eq.
  
 \begin_inset CommandInset ref
@@ -2207,8 +2184,42 @@ reference "eq:CGSub_Def2"
 \end_inset
 
 .
+ 
+\end_layout
+
+\begin_layout Standard
+To find the SBCG coefficients, we need to first find CG coefficients of
+ the subgroup.
+ Here, we assume that the matrix realizations, CP transformations of irreps,
+ and CG coefficients of the subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+ are known or easy to find.
+ Moreover, the CG coefficients of the subgroup should satisfy the CP constraints
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_CXYZ"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Step I
+\end_layout
+
+\begin_layout Standard
+Find matrix realizations of all the irreps of 
+\begin_inset Formula $G$
+\end_inset
+
+ in the subgroup basis.
  For simplicity, we choose a basis that projection matrices are in the most
- simple form, where 
+ simple form, meaning that 
 \begin_inset Formula $P_{X\to j}^{\left(\mathrm{nonzero}\right)}$
 \end_inset
 
@@ -2226,7 +2237,7 @@ status open
 \begin_layout Plain Layout
 There is a special case that the projection matrix cannot be in the trivial
  form.
- This case occurs when two irreps of large group are identified to one single
+ This case occurs when two irreps of the group are identified to the same
  irrep of the subgroup.
  For example, for the 
 \begin_inset Formula $\group$
@@ -2257,50 +2268,17 @@ There is a special case that the projection matrix cannot be in the trivial
 \begin_inset Formula $P_{\bar{3}\to3_{2}}$
 \end_inset
 
- cannot be non-identity matrix simultaneously.
+ cannot be identity matrix simultaneously.
  The key point here is to make projection matrices as simple as possible.
 \end_layout
 
 \end_inset
 
-.
- We assume that the matrix realization, CP transformations of irreps, and
- CG coefficients of the subgroup 
-\begin_inset Formula $H$
-\end_inset
-
- are known or easy to find.
- Moreover, the CG coefficients of 
-\begin_inset Formula $H$
-\end_inset
-
- satisfy the CP constraints 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_CXYZ"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Itemize
-Step I
-\end_layout
-
-\begin_layout Standard
-Find matrix realizations of all the irreps of 
-\begin_inset Formula $G$
-\end_inset
-
- in the subgroup basis that the projection matrices are in the simplest
- form.
- One can first find the matrix realization of lower-dimensional irreps then
- build the ones for higher-dimensional from tensor products.
- Usually the lower-dimensional irreps matrix realizations, in a certain
- basis, are already known in the literature or can be obtained from the
- GAP programming platform.
+One can first find the matrix realization of low-dimensional irreps then
+ build the high-dimensional irreps from tensor products.
+ Usually the low-dimensional irreps matrix realizations, in a certain basis,
+ are already known in the literature or can be obtained from the GAP programming
+ platform.
  We therefore focus on finding a similarity transformation that transforms
  the matrices to the desired basis.
 \end_layout
@@ -2347,9 +2325,8 @@ reference "subsec:Cyclotomic-fields"
 \end_inset
 
 .
- With the algorithm, we can find the eigenvector for a given eigenvalue
- of a matrice.
- For low-dimensional irreps, one can usually find the eigenvalues directly
+ With the algorithm, we can find the eigenvector of a matrix for a given
+ eigenvalue, which, for low-dimensional irreps, usually can be find directly
  from Mathematica.
 \end_layout
 
@@ -2358,7 +2335,11 @@ Step II
 \end_layout
 
 \begin_layout Standard
-Write down the most general forms of CG coefficients as eq.
+Write down the most general decomposition of a contraction 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+ into subgroup contraction as eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -2366,15 +2347,11 @@ reference "eq:CGSub_Def"
 
 \end_inset
 
- with undetermined parameters 
-\begin_inset Formula $c_{k,ij}$
+ with undetermined SBCG coefficients 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
- and then setup equations for 
-\begin_inset Formula $c_{k,ij}$
-\end_inset
-
-.
+ and then setup equations for these coefficients.
  With eq.
  
 \begin_inset CommandInset ref
@@ -2388,7 +2365,7 @@ reference "eq:CGSub_Def"
 \end_inset
 
  in terms of 
-\begin_inset Formula $c_{k,ij}$
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
  and bilinear forms of 
@@ -2400,10 +2377,10 @@ reference "eq:CGSub_Def"
 \end_inset
 
  by setting 
-\begin_inset Formula $g$
+\begin_inset Formula $g=e$
 \end_inset
 
- to identity.
+.
  We then substitute the expression of 
 \begin_inset Formula $Z$
 \end_inset
@@ -2433,20 +2410,21 @@ reference "eq:CGSub_Def"
 \begin_inset Formula $Y$
 \end_inset
 
-, we obtain homogeneous equations of 
-\begin_inset Formula $c_{k,ij}$
+, we obtain homogeneous equations with respect to the unknown variables
+ 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
 .
  In this way, the number of equations we obtained are usually much more
  than the number of unknown variables.
- Many of the equations are dependent to others and redundant.
+ Many of the equations are dependent to others and hence redundant.
  
 \end_layout
 
 \begin_layout Standard
 Alternatively, instead of matching coefficients of bilinear forms, we can
- generate the equation by replacing 
+ generate the equations by replacing 
 \begin_inset Formula $X$
 \end_inset
 
@@ -2471,7 +2449,7 @@ There are different choices of the constant vectors
 \end_inset
 
 .
- One simple choice is that each vector has only one nonzero component, i.e.,
+ A simple choice is that each vector has only one nonzero component, i.e.,
  
 \begin_inset Formula 
 \[
@@ -2489,26 +2467,21 @@ V_{k}^{\left(p\right)}=\delta_{k,i_{p}},\,W_{k}^{\left(p\right)}=\delta_{k,j_{p}
 \end_inset
 
  are two sets of appropriately chosen positive integers.
- In this way, we can reduce the number of equations and some of the equations
- are trivially as 
+ In this way, we can reduce the number of equations.
+ Of course, we need to choose enough number of 
+\begin_inset Formula $i_{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $j_{p}$
+\end_inset
+
+ and there could still be redundant equations and some of the equations
+ are trivially 
 \begin_inset Formula $0=0$
 \end_inset
 
 .
- We can solve for 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
-\end_inset
-
- using the remaining nontrivial equations.
- Of course, we need to choose enough number of 
-\begin_inset Formula $i_{a}$
-\end_inset
-
- and 
-\begin_inset Formula $j_{a}$
-\end_inset
-
- and there could still be redundant equations.
  If 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
@@ -2525,12 +2498,11 @@ V_{k}^{\left(p\right)}=\delta_{k,i_{p}},\,W_{k}^{\left(p\right)}=\delta_{k,j_{p}
 \begin_inset Formula $N_{c}$
 \end_inset
 
- is number of 
+ is number of the unknown variables 
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
- parameters.
- 
+.
 \end_layout
 
 \begin_layout Itemize
@@ -2538,7 +2510,7 @@ Step III
 \end_layout
 
 \begin_layout Standard
-The third step is to solve for the parameters 
+The third step is to solve for the unknown variables 
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
@@ -2551,16 +2523,11 @@ The third step is to solve for the parameters
 \begin_inset Formula $N_{c}-\mu_{Z}$
 \end_inset
 
- variables can be expressed as linear combination of the 
-\begin_inset Formula $\mu_{Z}$
-\end_inset
-
- free variables.
+ variables can be expressed as linear combination of the free variables.
  In principle, we could solve these linear equations using standard methods.
- However, it is common that, the coefficients are complicated irrational
- numbers.
- The exact solutions are usually involved unless we find a clever way to
- simplify the results.
+ However, as the coefficients of these linear equations are cyclotomic numbers,
+ which come from the matrices of group generators, the exact solutions are
+ usually involved unless we find a clever way to simplify the results.
  If we use program like Mathematica to do the work, it usually cannot simplify
  the solution to appropriate forms.
  
@@ -2569,24 +2536,20 @@ The third step is to solve for the parameters
 \begin_layout Standard
 There are two ways to solve the issue.
  The first way is to use the calculation technique of cyclotomic numbers.
- These numbers enter to the coefficients of the linear equations from matrices
- of group generators.
  We can apply Gaussian elimination algorithm with arithmetic operation of
  cyclotomic numbers to solve the equations.
  To be efficient, the Gaussian elimination procedure should only apply to
- a set of independent equations.
- To find the set of independent equations, we can convert the coefficients
- of equations to float numbers and apply Gaussian elimination algorithm
- with an appropriate error tolerance.
- 
+ a set of independent equations, which can be found by converting the coefficien
+ts of equations to float numbers and apply regular Gaussian elimination
+ algorithm with certain error tolerance.
 \end_layout
 
 \begin_layout Standard
 The second way to solve the issue is to use a Mathematica programming trick.
- Instead of solving the equations directly, we first convert all the coefficient
-s to float numbers and solve the equation numerically.
- We then convert the float numbers into exact numbers by invoking the Mathematic
-a function RootApproximant
+ Instead of solving the equations directly, we convert all the coefficients
+ to float numbers and solve the equation numerically.
+ We then convert the float numbers back into exact numbers using the Mathematica
+ function RootApproximant
 \begin_inset Foot
 status open
 
@@ -2604,10 +2567,12 @@ The document of the function can be found on http://reference.wolfram.com/langua
  before solving the equations.
  Again, this can be done by the Gaussian elimination algorithm with an appropria
 te error tolerance.
-\end_layout
+ The method is informal comparing to the first method.
+ But we found it very effective in the calculation of 
+\begin_inset Formula $\group$
+\end_inset
 
-\begin_layout Standard
-[TODO: more comments about the method.]
+ CG coefficients.
 \end_layout
 
 \begin_layout Itemize
@@ -2615,8 +2580,8 @@ Step IV
 \end_layout
 
 \begin_layout Standard
-The last step is to apply the charge conjugate and orthonormalization condition
- constraints on the CG coefficients.
+The last step is to apply the CP and orthonormalization constraints on the
+ SBCG coefficients.
  As discussed in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2624,7 +2589,7 @@ reference "sec:CGCs-in-subgroup"
 
 \end_inset
 
-, the CP constraints require that CG coefficients of 
+, the CP constraints require that SBCG coefficients of 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
@@ -2645,21 +2610,21 @@ reference "sec:CGCs-in-subgroup"
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- are real irreps or only 
+ are real (or pseudo-real) irreps or when only 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- is real and 
-\begin_inset Formula $\rep{X}=\rep{Y}$
+ is real (or pseudo-real) and 
+\begin_inset Formula $\rep{X}=\rep{\bar{Y}}$
 \end_inset
 
-, it leads to nontrivial restrictions on overall phases of CG coefficients.
- The constraints of these two cases can be solved as follows.
+ is complex, the overall phases of the SBCG coefficients are fixed.
+ The CP constraints of these two cases can be solved as follows.
  Let 
 \begin_inset Formula $\left\{ \mathcal{M}_{A}\right\} $
 \end_inset
 
- be the sets of free parameters in the solution, where 
+ be the sets of free parameters in the solution of setp III, where 
 \begin_inset Formula $A$
 \end_inset
 
@@ -2667,7 +2632,7 @@ reference "sec:CGCs-in-subgroup"
 \begin_inset Formula $\left(c,ab\right)$
 \end_inset
 
-, then the constraints are translated into linear equations 
+, then the CP constraints are translated into linear equations 
 \begin_inset Formula 
 \begin{equation}
 L_{1}\left(\left\{ \mathcal{M}_{A}\right\} \right)-L_{2}\left(\left\{ \mathcal{M}_{A}^{*}\right\} \right)=0,\label{eq:Proc_aPcP}
@@ -2675,7 +2640,7 @@ L_{1}\left(\left\{ \mathcal{M}_{A}\right\} \right)-L_{2}\left(\left\{ \mathcal{M
 
 \end_inset
 
- with 
+ where 
 \begin_inset Formula $L_{1}$
 \end_inset
 
@@ -2683,7 +2648,7 @@ L_{1}\left(\left\{ \mathcal{M}_{A}\right\} \right)-L_{2}\left(\left\{ \mathcal{M
 \begin_inset Formula $L_{2}$
 \end_inset
 
- being linear combination of 
+ are linear combinations of 
 \begin_inset Formula $\left\{ \mathcal{M}_{A}\right\} $
 \end_inset
 
@@ -2691,7 +2656,7 @@ L_{1}\left(\left\{ \mathcal{M}_{A}\right\} \right)-L_{2}\left(\left\{ \mathcal{M
 \begin_inset Formula $\left\{ \mathcal{M}_{A}^{*}\right\} $
 \end_inset
 
- respectively .
+ respectively.
  These equations can be solve by expressing 
 \begin_inset Formula $\mathcal{M}_{A}$
 \end_inset
@@ -2701,7 +2666,42 @@ L_{1}\left(\left\{ \mathcal{M}_{A}\right\} \right)-L_{2}\left(\left\{ \mathcal{M
 \end_inset
 
 .
- There will be 
+ We need apply the orthonormalization constraints to the SBCG coefficients.
+ If 
+\begin_inset Formula $\mu_{Z}>1$
+\end_inset
+
+, we can use the Gram–Schmidt process to build 
+\begin_inset Formula $\mu_{Z}$
+\end_inset
+
+ sets of orthonormal CG coefficients.
+ 
+\end_layout
+
+\begin_layout Standard
+Above are the procedures of finding SBCG coefficients for a discrete group.
+ Let us now count the number of degrees of freedom (DOF) of SBCG coefficients.
+ First consider the case I and II, in which overall phases of SBCG coefficients
+ are fixed.
+ If the multiplicity of 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mu_{Z}$
+\end_inset
+
+, then there will be 
+\begin_inset Formula $\mu_{Z}$
+\end_inset
+
+ free complex coefficients 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+ after solving the homogeneous linear equations.
+ The CP constraints generate 
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
@@ -2712,57 +2712,45 @@ reference "eq:Proc_aPcP"
 
 \end_inset
 
-.
- These equations reduce the number of real degrees of freedom (DOF) of the
- solution from 
-\begin_inset Formula $2\mu_{Z}$
-\end_inset
-
- to 
+, which reduce 
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
-Finally, we apply the orthonormalization constraints to CG coefficients.
- If 
-\begin_inset Formula $\mu_{Z}>1$
-\end_inset
-
-, we can use the Gram–Schmidt process to build 
+ real DOF.
+ The normalization condition reduces one more real DOF.
+ Therefore, there will be 
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
- sets of orthonormal CG coefficients.
- The normalization reduces the real DOF by 1.
- 
-\end_layout
-
-\begin_layout Standard
-In summary, for case I and II, 
-\begin_inset Formula $\mu_{Z}$
-\end_inset
-
- sets of CG coefficients have 
+ sets of independent SBCG coeffcients with 
 \begin_inset Formula $\mu_{Z}-1$
 \end_inset
 
- real DOFs; for case III, 
+ real DOF.
+ For other cases, in which overall phases of SBCG coefficients are not fixed,
+ the homogeneous linear equations and CP contraints lead to 
 \begin_inset Formula $2\mu_{Z}$
 \end_inset
 
- sets of CG coefficients have 
+ sets of SBCG coefficients with 
+\begin_inset Formula $\mu_{Z}$
+\end_inset
+
+ complex DOF.
+ Applying the normalization condition, the 
+\begin_inset Formula $2\mu_{Z}$
+\end_inset
+
+ sets of SBCG coefficients have 
 \begin_inset Formula $2\mu_{Z}-1$
 \end_inset
 
- real DOFs.
+ real DOF.
  
 \end_layout
 
 \begin_layout Standard
-In the following sections, we will demonstrate these procedures with the
+In the following sections, we will demonstrate above procedures with the
  group 
 \begin_inset Formula $\group$
 \end_inset
