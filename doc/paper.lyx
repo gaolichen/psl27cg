@@ -896,7 +896,7 @@ reference "eq:CGSub_Embed"
 , we can write 
 \begin_inset Formula 
 \begin{equation}
-P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}\left\{ \left(P_{X\to a}X\right)\otimes\left(P_{Y\to b}Y\right)\right\} _{z_{c}}.\label{eq:CGSub_Def}
+P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}X\right)\otimes\left(P_{Y\to b}Y\right)\right\} _{z_{c}}.\label{eq:CGSub_Def}
 \end{equation}
 
 \end_inset
@@ -925,7 +925,7 @@ P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}\left\{ \left(P_{X\to a}X\right)\otimes\
  should actually satisfy a stronger constraint 
 \begin_inset Formula 
 \begin{equation}
-P_{Z\to c}\mr{Z}\left(g\right)Z=\sum_{a,b}\mathcal{M}_{c,ab}\left\{ \left(P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}},\quad\forall g\in G,\label{eq:CGSub_Def2}
+P_{Z\to c}\mr{Z}\left(g\right)Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}},\quad\forall g\in G,\label{eq:CGSub_Def2}
 \end{equation}
 
 \end_inset
@@ -1571,18 +1571,30 @@ reference "eq:CG_Tran_II"
 \end_layout
 
 \begin_layout Subsection
-Phases of CG coefficients
+Phases of SBCG coefficients
 \end_layout
 
 \begin_layout Standard
-We now discuss the consequence of the CP constraints 
+While SBCG coefficients are independent of basis of irreps, their phases
+ are in general not fixed.
+ The overall phases of SBCG coefficients are constrained by the CP constraints
+ 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CG_GammaCon"
 
 \end_inset
 
-.
+ and the relative phases among SBCG coefficients change due to the phase
+ ambiguity of CG coefficients of the subgroup.
+\end_layout
+
+\begin_layout Subsubsection
+Overall phases
+\end_layout
+
+\begin_layout Standard
+We now discuss the consequence of the CP constraints.
  The CP constraints can apply to both general CG coefficients defined as
  
 \begin_inset CommandInset ref
@@ -1591,7 +1603,7 @@ reference "eq:CGC_Def"
 
 \end_inset
 
- and CG coefficients in subgroup basis.
+ and SBCG coefficients.
  We first discuss the consequence on the formal and then on latter.
 \end_layout
 
@@ -1604,10 +1616,10 @@ Consider CG coefficients
 \begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
- as
+ 
 \begin_inset Formula 
 \[
-Z=M^{\left(XY\to Z\right)}\left(X\otimes Y\right)_{\alpha},\quad\bar{Z}=M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\bar{Y}\right)_{\alpha}.
+Z=M^{\left(XY\to Z\right)}\left(X\otimes Y\right),\quad\bar{Z}=M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\bar{Y}\right).
 \]
 
 \end_inset
@@ -1641,127 +1653,11 @@ M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\cpx{Z}M^{\left(XY\to Z\right)*}\left(
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Standard
-Let us discuss the implication of eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_CXYZ"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Itemize
-Case I: If all of 
-\begin_inset Formula $\rep{X}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{Y}$
-\end_inset
-
-, and 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- irreps are real or pseudo-real, 
-\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=M^{\left(XY\to Z\right)}$
-\end_inset
-
-, eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_CXYZ"
-
-\end_inset
-
- is in general a nontrivial constraint on 
-\begin_inset Formula $M^{\left(XY\to Z\right)}$
-\end_inset
-
-.
- Particularly, the overall phases of 
-\begin_inset Formula $M^{\left(XY\to Z\right)}$
-\end_inset
-
- is fixed.
- If all of these irreps are real representation, there exist a basis that
- 
-\begin_inset Formula $\cpx{X,Y,Z}$
-\end_inset
-
- are identity matrix.
- In such a basis, all elements of 
-\begin_inset Formula $M^{\left(XY\to Z\right)}$
-\end_inset
-
- are real numbers.
-\end_layout
-
-\begin_layout Itemize
-Case II: If 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- is real or pseudo-real and 
-\begin_inset Formula $\rep{X}=\rep{\bar{Y}}$
-\end_inset
-
- are complex, then 
-\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
-\end_inset
-
- is the transpose of 
-\begin_inset Formula $M^{\left(XY\to Z\right)}$
-\end_inset
-
-.
- In this case, the overall phase of the CG coefficients is also fixed.
- 
-\end_layout
-
-\begin_layout Itemize
-Case III: In other cases, eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_CXYZ"
-
-\end_inset
-
- imposes constraints between two sets of CG coefficients.
- Hence, the overall phases of the two sets of CG coefficients are not fixed
- but dependent.
- Particularly, if all the irreps are complex, 
-\begin_inset Formula $\cpx{X,Y,Z}$
-\end_inset
-
- are identity matrices and 
-\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
-\end_inset
-
- is the complex conjugate of 
-\begin_inset Formula $M^{\left(XY\to Z\right)}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-In the remainder of the paper, we shall call these three cases, Case I,
- II, and III respectively for convenience.
-\end_layout
-
-\begin_layout Standard
-Now consider CP constraints on the CG coefficients in subgroup basis.
+Now consider CP constraints on the SBCG coefficients.
  Suppose we have contractions 
 \begin_inset ERT
 status open
@@ -1778,8 +1674,8 @@ begin{subequations}
  
 \begin_inset Formula 
 \begin{align}
-P_{Z\to c}Z & =\sum_{a,b}\mathcal{M}_{c,ab}\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}},\\
-P_{\bar{Z}\to\bar{c}}\bar{Z} & =\sum_{a,b}\mathcal{M}_{\bar{c},\bar{a}\bar{b}}\covsub{P_{\bar{X}\to\bar{a}}\bar{X}}{P_{\bar{Y}\to\bar{b}}\bar{Y}}{\bar{z}_{c}}.\label{eq:CG_PZbar}
+P_{Z\to c}Z & =\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}},\\
+P_{\bar{Z}\to\bar{c}}\bar{Z} & =\sum_{a,b}\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\covsub{P_{\bar{X}\to\bar{a}}\bar{X}}{P_{\bar{Y}\to\bar{b}}\bar{Y}}{\bar{z}_{c}}.\label{eq:CG_PZbar}
 \end{align}
 
 \end_inset
@@ -1817,7 +1713,7 @@ reference "eq:CGSub_GammaCon3"
 , the lhs is
 \begin_inset Formula 
 \begin{equation}
-P_{\bar{Z}\to\bar{c}}\Gamma_{Z}Z^{*}=\Gamma_{c}P_{Z\to c}^{*}Z^{*}=\sum_{a,b}\mathcal{M}_{c,ab}^{*}\cpx{c}\left(\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}}\right)^{*}\label{eq:CGSub_PGmmaZ}
+P_{\bar{Z}\to\bar{c}}\Gamma_{Z}Z^{*}=\Gamma_{c}P_{Z\to c}^{*}Z^{*}=\sum_{a,b}\left(\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\right)^{*}\cpx{c}\left(\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}}\right)^{*}\label{eq:CGSub_PGmmaZ}
 \end{equation}
 
 \end_inset
@@ -1841,7 +1737,7 @@ reference "eq:CG_PZbar"
  yields
 \begin_inset Formula 
 \begin{equation}
-P_{\bar{Z}\to\bar{c}}\bar{Z}=\sum_{a,b}c_{\bar{c},\bar{a}\bar{b}}\Gamma_{c}\left(\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}}\right)^{*}.\label{eq:CGSub_PGammaZb}
+P_{\bar{Z}\to\bar{c}}\bar{Z}=\sum_{a,b}\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\Gamma_{c}\left(\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}}\right)^{*}.\label{eq:CGSub_PGammaZb}
 \end{equation}
 
 \end_inset
@@ -1862,9 +1758,12 @@ reference "eq:CGSub_PGammaZb"
 \end_inset
 
  should be equal, which implies 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\mathcal{M}_{\bar{c},\bar{a}\bar{b}}=\mathcal{M}_{c,ab}^{*}.\label{eq:CGSub_ckij}
+\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\left(\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\right)^{*}.\label{eq:CGSub_ckij}
 \end{equation}
 
 \end_inset
@@ -1873,20 +1772,7 @@ reference "eq:CGSub_PGammaZb"
 \end_layout
 
 \begin_layout Standard
-Eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_ckij"
-
-\end_inset
-
- is the consequence of the CP constraints for the large group 
-\begin_inset Formula $G$
-\end_inset
-
-.
- We see that it is simpler than the CP constraints eq.
+We see again that eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1894,16 +1780,7 @@ reference "eq:CGSub_CXYZ"
 
 \end_inset
 
- for the subgroup.
- Eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_CXYZ"
-
-\end_inset
-
- depends on basis while eq.
+ is basis dependent while eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1911,75 +1788,93 @@ reference "eq:CGSub_ckij"
 
 \end_inset
 
- is independent of basis.
- For the three cases of 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
-\end_inset
-
- discussed above, the eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_ckij"
-
-\end_inset
-
- also give rise to different restrictions on overall phases of CG coefficients:
+ is basis independent.
+ These two constraints put different restrictions on overall phases of coefficie
+nts in different cases.
 \end_layout
 
 \begin_layout Itemize
-Case I: In this case, 
-\begin_inset Formula $\mathcal{M}_{\bar{c},\bar{a}\bar{b}}$
+Case I: all of 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ irreps are real or pseudo-real.
+ In this case, we have 
+\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=M^{\left(XY\to Z\right)}$
 \end_inset
 
  and 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{M}^{\left(XY\to Z\right)}=\mathcal{M}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
- are contained in the same set of CG coefficients, and hence, the overall
- phases of CG coefficients are fixed.
- If the irreps 
-\begin_inset Formula $\rep{z_{k}}$
+, which imply that the overall phases of 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ are fixed.
+ If all of 
+\begin_inset Formula $\rep{X}$
 \end_inset
 
 , 
-\begin_inset Formula $\rep{x_{i}}$
+\begin_inset Formula $\rep{Y}$
 \end_inset
 
 , 
-\begin_inset Formula $\rep{y_{j}}$
+\begin_inset Formula $\rep{Z}$
 \end_inset
 
- of subgroup are real or pseudo real, then 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+ are real representation, there exist a basis in which 
+\begin_inset Formula $\cpx{X,Y,Z}$
+\end_inset
+
+ are identity matrix and 
+\begin_inset Formula $M^{\left(XY\to Z\right)}$
+\end_inset
+
+ are real.
+ If subgroup irreps 
+\begin_inset Formula $\rep{z_{c}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{x_{a}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{y_{b}}$
+\end_inset
+
+ are real or pseudo real, then 
+\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
  is a real number.
 \end_layout
 
 \begin_layout Itemize
-Case II: In this case, 
-\begin_inset Formula $\mathcal{M}_{\bar{c},\bar{a}\bar{b}}$
+Case II: 
+\begin_inset Formula $\rep{Z}$
 \end_inset
 
- and 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+ is real or pseudo-real and 
+\begin_inset Formula $\rep{X}=\rep{\bar{Y}}$
 \end_inset
 
- are also contained in the same set of CG coefficients and the overall phase
- of CG coefficients is fixed.
-\end_layout
-
-\begin_layout Itemize
-Case III: eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_ckij"
-
-\end_inset
-
- implies that the CG coefficients of 
+ are complex.
+ In this case, 
 \begin_inset Formula $\covlg{X}{Y}{Z}$
 \end_inset
 
@@ -1987,7 +1882,69 @@ reference "eq:CGSub_ckij"
 \begin_inset Formula $\covlg{\bar{X}}{\bar{Y}}{\bar{Z}}$
 \end_inset
 
- are complex conjugates to each other.
+ represents the same contraction.
+ Therefore, the overall phases of 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ are also fixed.
+\end_layout
+
+\begin_layout Itemize
+Case III: other cases.
+ Overall phases of 
+\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{M}^{\left(XY\to Z\right)}$
+\end_inset
+
+ are not fixed.
+ Coefficients 
+\begin_inset Formula $\mathcal{M}^{\left(XY\to Z\right)}$
+\end_inset
+
+ are related to 
+\begin_inset Formula $\mathcal{M}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\end_inset
+
+ by complex conjugate.
+ If 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ are all complex, 
+\begin_inset Formula $\cpx{X,Y,Z}$
+\end_inset
+
+ are identity matrices and 
+\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\end_inset
+
+ is the complex conjugate of 
+\begin_inset Formula $M^{\left(XY\to Z\right)}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In the remainder of the paper, we shall call these three cases, Case I,
+ II, and III respectively for convenience.
 \end_layout
 
 \begin_layout Standard
