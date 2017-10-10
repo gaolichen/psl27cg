@@ -3632,7 +3632,8 @@ Sextet, Octet, and Septet Representations
 \end_layout
 
 \begin_layout Standard
-With the matrix realization of 
+We now find matrix realizations of high-dimensional irreps.
+ With the matrix realization of 
 \begin_inset Formula $\rep{3}$
 \end_inset
 
@@ -4021,7 +4022,16 @@ B^{[\rep{7}]}=\left(\begin{array}{ccccccc}
 \end_layout
 
 \begin_layout Standard
-We see that the generator of 
+Since 
+\begin_inset Formula $\subga$
+\end_inset
+
+ is a ambivalent group, the overall phases of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ CG coefficients under the CP constraints are fixed up to sign factors.
+ It then implies that the matrix realizations of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -4029,12 +4039,24 @@ We see that the generator of
 \begin_inset Formula $\subga$
 \end_inset
 
- basis are completely determined.
- This is due to the fact that 
-\begin_inset Formula $\subga$
+ are fixed up to similarity transformation of diagonal sign-factor matrices,
+\begin_inset Formula 
+\[
+O^{[\rep{R}]}\to\mathcal{S}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{S}^{[\rep{R}]}\right)^{\dagger},\quad O=A,\,B,\quad\rep{R}=\rep{6},\,\rep{7},\,\rep{8},
+\]
+
 \end_inset
 
- is an ambivalent group, a group whose irreps are all real or pseudo-real.
+ where 
+\begin_inset Formula 
+\begin{align*}
+\mathcal{S}^{\left[\rep{6}\right]} & =\mathrm{diag}\left(\pm1,\pm\mathbf{I}_{2},\pm\mathbf{I}_{3}\right),\\
+\mathcal{S}^{\left[\rep{7}\right]} & =\mathrm{diag}\left(\pm1,\pm\mathbf{I}_{3},\pm\mathbf{I}_{3}\right),\\
+\mathcal{S}^{\left[\rep{8}\right]} & =\mathrm{diag}\left(\pm\mathbf{I}_{2},\pm\mathbf{I}_{3},\pm\mathbf{I}_{3}\right).
+\end{align*}
+
+\end_inset
+
  We will see shortly that for the non-ambivalent subgroup 
 \begin_inset Formula $\subgb$
 \end_inset
@@ -4137,7 +4159,7 @@ reference "tab:Character-T7"
 \end{pmatrix},\quad\left(AB\right)^{[\rep{7}]}=\begin{pmatrix}1\\
  & \mathcal{P}^{[3]}\\
  &  & \bar{\mathcal{P}}^{[3]}
-\end{pmatrix},\quad\left(AB\right)^{[\rep{8}]}=\begin{pmatrix}I_{2}\\
+\end{pmatrix},\quad\left(AB\right)^{[\rep{8}]}=\begin{pmatrix}\mathbf{I}_{2}\\
  & \mathcal{P}^{[3]}\\
  &  & \bar{\mathcal{P}}^{[3]}
 \end{pmatrix},
@@ -4201,23 +4223,14 @@ O^{[\rep{R}]}\to\mathcal{P}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{P}^{[\rep{R}]
 
 \end_inset
 
-
+ the CG coefficients transform as
 \begin_inset Formula 
 \[
-\covlg{X}{Y}{R}\to\mathcal{P}^{[\rep{R}]}\covlg{X}{Y}{R}
+\covlg{X}{Y}{R}\to\mathcal{P}^{[\rep{R}]}\covlg{X}{Y}{R}.
 \]
 
 \end_inset
 
- 
-\begin_inset Formula $O^{[\rep{R}]}$
-\end_inset
-
- are generators of 
-\begin_inset Formula $\group$
-\end_inset
-
- and the new CG coefficients satisfy all our requirements.
  In the following, we will not show the phase matrices 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
@@ -4499,7 +4512,7 @@ key "Luhn:2007yr"
  are
 \begin_inset Formula 
 \[
-\tilde{O}^{[\rep{i}]}=U^{[\rep{i}]}O^{[\rep{i}]}U^{[\rep{i}]^{\dagger}},\quad\rep{i}=\rep{6},\,\rep{7},\,\rep{8},\quad O=A,\,B,
+\tilde{O}^{[\rep{R}]}=U^{[\rep{R}]}O^{[\rep{R}]}U^{[\rep{R}]^{\dagger}},\quad\rep{R}=\rep{6},\,\rep{7},\,\rep{8},\quad O=A,\,B,
 \]
 
 \end_inset
@@ -4698,11 +4711,11 @@ end{subequations}
 \end_layout
 
 \begin_layout Standard
-But since 
+Since 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}$
 \end_inset
 
- has multiplicity of 
+ has multiplicity 
 \begin_inset Formula $2$
 \end_inset
 
