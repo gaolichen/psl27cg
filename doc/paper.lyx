@@ -1002,11 +1002,6 @@ reference "eq:CGSub_Def"
 \end_inset
 
  for convenience.
- We will show shortly that 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
-\end_inset
-
- are independent of basis of irreps of both the group and subgroup.
  The orthonormalization constraints 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1017,7 +1012,7 @@ reference "eq:CGC_Orthnormal"
  now become
 \begin_inset Formula 
 \begin{equation}
-\sum_{ab}\mathcal{M}_{c,ab}^{*}\mathcal{M}_{d,ab}=\delta_{cd}\label{eq:CGSub_orthnormal}
+\sum_{ab}\mathcal{M}_{c,ab}^{*}\mathcal{M}_{d,ab}=\delta_{cd}.\label{eq:CGSub_orthnormal}
 \end{equation}
 
 \end_inset
@@ -1026,255 +1021,12 @@ reference "eq:CGC_Orthnormal"
 \end_layout
 
 \begin_layout Standard
-In addition to eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_orthnormal"
-
+We now show that 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
-, we impose other constraints on SBCG coefficients.
- To introduce the constraints, we need to first discuss real and complex
- representations.
- A real (or pseudo-real) representation is a representation whose complex
- conjugate is equivalent to itself.
- While a complex representation is inequivalent to its complex conjugate.
- For convenience, we define a complex conjugate of a real (or pseudo-real)
- representation to be itself.
- Now if 
-\begin_inset Formula $\rho$
-\end_inset
-
- is a matrix realization of a representation of group 
-\begin_inset Formula $G$
-\end_inset
-
- and 
-\begin_inset Formula $\bar{\rho}$
-\end_inset
-
- be the matrix realization of the complex conjugate representation, then
- there exists a unitary matrix 
-\begin_inset Formula $\cp$
-\end_inset
-
- so that 
-\begin_inset Formula 
-\begin{equation}
-\cp\rho\left(g\right)^{*}\left(\cp\right)^{\dagger}=\bar{\rho}\left(g\right),\quad\forall g\in G.\label{eq:CGSub_Gamma}
-\end{equation}
-
-\end_inset
-
-When the representation is complex, we can always choose 
-\begin_inset Formula $\bar{\rho}\left(g\right)=\rho\left(g\right)^{*}$
-\end_inset
-
- so that 
-\begin_inset Formula $\cp$
-\end_inset
-
- is simplify the identity matrix.
- When the representation is real, then 
-\begin_inset Formula $\bar{\rho}$
-\end_inset
-
- should be the same as 
-\begin_inset Formula $\rho$
-\end_inset
-
- and 
-\begin_inset Formula $\cp$
-\end_inset
-
- is in general a nontrivial unitary matrix depending on the basis of the
- representation.
- Particularly, for real representation, 
-\begin_inset Formula $\cp\cp^{*}=\pm I$
-\end_inset
-
-, where 
-\begin_inset Formula $+$
-\end_inset
-
- is for real representation and 
-\begin_inset Formula $-$
-\end_inset
-
- is for pseudo-real representation.
- In the Hilbert space, eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_Gamma"
-
-\end_inset
-
- implies 
-\begin_inset Formula 
-\begin{equation}
-\cpx{X}X^{*}=\bar{X}.\label{eq:CGSub-GammaX}
-\end{equation}
-
-\end_inset
-
-It is natural to impose constraints similar to 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub-GammaX"
-
-\end_inset
-
- on contractions
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{subequations}
-\backslash
-label{eq:CG_GammaCon}
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Formula 
-\begin{align}
-\cpx{Z}\left(\covlg{X}{Y}{Z}\right)^{*} & =\covlg{\bar{X}}{\bar{Y}}{\bar{Z}},\label{eq:CGSub_GammaCon1}\\
-\cpx{c}\left(\covsub{x_{a}}{y_{b}}{z_{c}}\right)^{*} & =\covsub{\bar{x}_{a}}{\bar{y}_{b}}{\bar{z}_{c}},\label{eq:CGSub_GammaCon2}
-\end{align}
-
-\end_inset
-
-where the matrix 
-\begin_inset Formula $\cpx{Z}$
-\end_inset
-
- transforms 
-\begin_inset Formula $Z^{*}$
-\end_inset
-
- to 
-\begin_inset Formula $\bar{Z}$
-\end_inset
-
-, and 
-\begin_inset Formula $\cpx{c}$
-\end_inset
-
- transforms 
-\begin_inset Formula $z_{c}^{*}$
-\end_inset
-
- to 
-\begin_inset Formula $z_{c}$
-\end_inset
-
-.
- In the terminology of physics, the matrices 
-\begin_inset Formula $\cp$
-\end_inset
-
- transform a particle to its antiparticle with opposite charge and parity.
- In this sense, we shall refer 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_GammaCon1"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_GammaCon2"
-
-\end_inset
-
- as charge-parity (CP) constraints and 
-\begin_inset Formula $\cpx{Z}$
-\end_inset
-
- as CP transformation for irrep 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
-.
- The CP constraints imply that the contraction 
-\begin_inset Formula $\covlg{X}{Y}{Z}$
-\end_inset
-
- and 
-\begin_inset Formula $\covsub{x_{a}}{y_{b}}{z_{c}}$
-\end_inset
-
- should behave the same as 
-\begin_inset Formula $Z$
-\end_inset
-
- and 
-\begin_inset Formula $z_{c}$
-\end_inset
-
- under complex conjugate operation.
- It is also natural to impose CP constraints on irreps of subgroup embedded
- in irreps of the large group, meaning that 
-\begin_inset Formula $\cpx{c}$
-\end_inset
-
- should transform the 
-\begin_inset Formula $z_{c}$
-\end_inset
-
- components of 
-\begin_inset Formula $Z$
-\end_inset
-
- to 
-\begin_inset Formula $\bar{z}_{c}$
-\end_inset
-
- components of 
-\begin_inset Formula $\bar{Z}$
-\end_inset
-
-, 
-\begin_inset Formula 
-\[
-\cpx{c}\left(P_{Z\to c}Z\right)^{*}=P_{\bar{Z}\to\bar{c}}\bar{Z}=P_{\bar{Z}\to\bar{c}}\cpx{Z}Z^{*},
-\]
-
-\end_inset
-
-from which it follows that
-\begin_inset Formula 
-\begin{equation}
-\cpx{c}P_{Z\to c}^{*}=P_{\bar{Z}\to\bar{c}}\cpx{Z}.\label{eq:CGSub_GammaCon3}
-\end{equation}
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{subequations}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In summary, the SBCG coefficients are defined as eq.
+ are independent of basis of irreps of both the group and the subgroup,
+ i.e., eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1282,46 +1034,7 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
- and should satisfy constraints 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_orthnormal"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_GammaCon"
-
-\end_inset
-
-.
- In the remainder of this section, we prove some properties of SBCG coefficients.
-\end_layout
-
-\begin_layout Subsection
-Proof of basis independence of 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Now we prove that coefficients 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
-\end_inset
-
- are basis independent, or equivalently, eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_Def2"
-
-\end_inset
-
- is invariant under unitary basis transformations.
+ is invariant under unitary basis transformations of irreps.
  
 \end_layout
 
@@ -1616,17 +1329,19 @@ reference "eq:CG_Tran_II"
 \end_inset
 
 .
- We therefore have showed that SBCG coefficients are independent of basis
- of irreps of both the group and its subgroup.
+ 
 \end_layout
 
 \begin_layout Standard
-SBCG coefficients are basis independent, there are, however, still ambiguities.
+We have showed that SBCG coefficients are independent of basis of irreps
+ of both the group and its subgroup.
+ There are, however, still ambiguities in SBCG coefficients.
  Consider the 
 \begin_inset Formula $U\left(1\right)$
 \end_inset
 
- transformations in following forms
+ transformations on irreps and subgroup CG coefficients in the following
+ forms
 \begin_inset Formula 
 \begin{align}
 P_{X\to a} & \to e^{i\theta_{a}^{\left(X\right)}}P_{X\to a},\label{eq:U1_PXa}\\
@@ -1639,26 +1354,19 @@ Under these
 \begin_inset Formula $U\left(1\right)$
 \end_inset
 
- transformations, the SBCG transforms as 
+ transformations, the SBCG coefficients transform as 
 \begin_inset Formula 
-\[
-\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\to\exp\left[i\left(\theta_{a}^{\left(X\right)}+\theta_{b}^{\left(Y\right)}-\theta_{c}^{\left(Z\right)}+\phi^{\left(ab\to c\right)}\right)\right]\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}.
-\]
+\begin{eqnarray*}
+\mathcal{M}_{c,ab}^{\left(XY\to Z\right)} & \to & \exp\left[i\left(\theta_{a}^{\left(X\right)}+\theta_{b}^{\left(Y\right)}-\theta_{c}^{\left(Z\right)}+\phi^{\left(ab\to c\right)}\right)\right]\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}.
+\end{eqnarray*}
 
 \end_inset
 
- Therefore for each SBCG coefficient, there are multiple 
-\begin_inset Formula $U\left(1\right)$
-\end_inset
-
- ambiguities, which are stem from the 
-\begin_inset Formula $U\left(1\right)$
-\end_inset
-
- ambiguity of irreps and CG coefficients.
- These ambiguities in general have to be removed or reduced by introducing
- appropriate conventions.
- These conventions sometimes are basis dependent.
+ We see that there are four phase ambiguities for each SBCG coefficient.
+ These phase ambiguities stem from the phase ambiguity of irreps and CG
+ coefficients.
+ In general, they can be removed or reduced by appropriate phase conventions,
+ which are usually basis dependent.
  For example, for 
 \begin_inset Formula $SU\left(2\right)$
 \end_inset
@@ -1677,29 +1385,252 @@ Under these
 ) ambiguities.
 \end_layout
 
-\begin_layout Subsection
-Phases of SBCG coefficients
+\begin_layout Section
+Reducing phase ambiguities 
 \end_layout
 
 \begin_layout Standard
-While SBCG coefficients are independent of basis of irreps, their phases
- are in general not fixed.
- The overall phases of SBCG coefficients are constrained by the CP constraints
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CG_GammaCon"
+To introduce the phase convention, we first discuss real and complex representat
+ions.
+ A real (or pseudo-real) representation is a representation whose complex
+ conjugate is equivalent to itself.
+ While a complex representation is inequivalent to its complex conjugate.
+ For convenience, we define a complex conjugate of a real (or pseudo-real)
+ representation to be itself.
+ Now if 
+\begin_inset Formula $\rho$
+\end_inset
+
+ is a matrix realization of a representation of group 
+\begin_inset Formula $G$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\rho}$
+\end_inset
+
+ be the matrix realization of the complex conjugate representation, then
+ there exists a unitary matrix 
+\begin_inset Formula $\cp$
+\end_inset
+
+ so that 
+\begin_inset Formula 
+\begin{equation}
+\cp\rho\left(g\right)^{*}\left(\cp\right)^{\dagger}=\bar{\rho}\left(g\right),\quad\forall g\in G.\label{eq:CGSub_Gamma}
+\end{equation}
 
 \end_inset
 
- and the relative phases among SBCG coefficients change due to the phase
- ambiguity of CG coefficients of the subgroup.
+When the representation is complex, we can always choose 
+\begin_inset Formula $\bar{\rho}\left(g\right)=\rho\left(g\right)^{*}$
+\end_inset
+
+ so that 
+\begin_inset Formula $\cp$
+\end_inset
+
+ is simplify the identity matrix.
+ When the representation is real, then 
+\begin_inset Formula $\bar{\rho}$
+\end_inset
+
+ should be the same as 
+\begin_inset Formula $\rho$
+\end_inset
+
+ and 
+\begin_inset Formula $\cp$
+\end_inset
+
+ is in general a nontrivial unitary matrix depending on the basis of the
+ representation.
+ Particularly, for real representation, 
+\begin_inset Formula $\cp\cp^{*}=\pm I$
+\end_inset
+
+, where 
+\begin_inset Formula $+$
+\end_inset
+
+ is for real representation and 
+\begin_inset Formula $-$
+\end_inset
+
+ is for pseudo-real representation.
+ In the Hilbert space, eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Gamma"
+
+\end_inset
+
+ implies 
+\begin_inset Formula 
+\begin{equation}
+\cpx{X}X^{*}=\bar{X}.\label{eq:CGSub-GammaX}
+\end{equation}
+
+\end_inset
+
+It is natural to impose constraints similar to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub-GammaX"
+
+\end_inset
+
+ on contractions
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subequations}
+\backslash
+label{eq:CG_GammaCon}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{align}
+\cpx{Z}\left(\covlg{X}{Y}{Z}\right)^{*} & =\covlg{\bar{X}}{\bar{Y}}{\bar{Z}},\label{eq:CGSub_GammaCon1}\\
+\cpx{c}\left(\covsub{x_{a}}{y_{b}}{z_{c}}\right)^{*} & =\covsub{\bar{x}_{a}}{\bar{y}_{b}}{\bar{z}_{c}},\label{eq:CGSub_GammaCon2}
+\end{align}
+
+\end_inset
+
+where the matrix 
+\begin_inset Formula $\cpx{Z}$
+\end_inset
+
+ transforms 
+\begin_inset Formula $Z^{*}$
+\end_inset
+
+ to 
+\begin_inset Formula $\bar{Z}$
+\end_inset
+
+, and 
+\begin_inset Formula $\cpx{c}$
+\end_inset
+
+ transforms 
+\begin_inset Formula $z_{c}^{*}$
+\end_inset
+
+ to 
+\begin_inset Formula $z_{c}$
+\end_inset
+
+.
+ In the terminology of physics, the matrices 
+\begin_inset Formula $\cp$
+\end_inset
+
+ transform a particle to its antiparticle with opposite charge and parity.
+ In this sense, we shall refer 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon2"
+
+\end_inset
+
+ as charge-parity (CP) constraints and 
+\begin_inset Formula $\cpx{Z}$
+\end_inset
+
+ as CP transformation for irrep 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+.
+ The CP constraints imply that the contraction 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\covsub{x_{a}}{y_{b}}{z_{c}}$
+\end_inset
+
+ should behave the same as 
+\begin_inset Formula $Z$
+\end_inset
+
+ and 
+\begin_inset Formula $z_{c}$
+\end_inset
+
+ under complex conjugate operation.
+ It is also natural to impose CP constraints on irreps of subgroup embedded
+ in irreps of the large group, meaning that 
+\begin_inset Formula $\cpx{c}$
+\end_inset
+
+ should transform the 
+\begin_inset Formula $z_{c}$
+\end_inset
+
+ components of 
+\begin_inset Formula $Z$
+\end_inset
+
+ to 
+\begin_inset Formula $\bar{z}_{c}$
+\end_inset
+
+ components of 
+\begin_inset Formula $\bar{Z}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\cpx{c}\left(P_{Z\to c}Z\right)^{*}=P_{\bar{Z}\to\bar{c}}\bar{Z}=P_{\bar{Z}\to\bar{c}}\cpx{Z}Z^{*},
+\]
+
+\end_inset
+
+from which it follows that
+\begin_inset Formula 
+\begin{equation}
+\cpx{c}P_{Z\to c}^{*}=P_{\bar{Z}\to\bar{c}}\cpx{Z}.\label{eq:CGSub_GammaCon3}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 We now discuss the consequence of the CP constraints.
- The CP constraints can apply to both general CG coefficients defined as
- 
+ The CP constraints can apply to both CG coefficients defined as 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGC_Def"
@@ -1707,22 +1638,22 @@ reference "eq:CGC_Def"
 \end_inset
 
  and SBCG coefficients.
- We first discuss the consequence on the formal and then on latter.
+ We first discuss the consequence on the former and then on the latter.
 \end_layout
 
 \begin_layout Standard
-Consider CG coefficients 
-\begin_inset Formula $M^{\left(XY\to Z\right)}$
+We consider subgroup CG coefficients 
+\begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{a}\right)}$
 \end_inset
 
  and 
-\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\begin_inset Formula $M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}$
 \end_inset
 
  
 \begin_inset Formula 
 \[
-Z=M^{\left(XY\to Z\right)}\left(X\otimes Y\right),\quad\bar{Z}=M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\bar{Y}\right).
+Z=M^{\left(x_{a}y_{b}\to z_{a}\right)}\left(x_{a}\otimes y_{b}\right),\quad\bar{Z}=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\bar{x}_{a}\otimes\bar{y}_{b}\right).
 \]
 
 \end_inset
@@ -1734,50 +1665,100 @@ Z=M^{\left(XY\to Z\right)}\left(X\otimes Y\right),\quad\bar{Z}=M^{\left(\bar{X}\
  leads to
 \begin_inset Formula 
 \[
-\cpx{Z}M^{\left(XY\to Z\right)*}\left(X^{*}\otimes Y^{*}\right)=M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\bar{X}\otimes\bar{Y}\right)=M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\left(\cpx{X}\otimes\cpx{Y}\right)\left(X^{*}\otimes Y^{*}\right),
+\cpx{Z}M^{\left(x_{a}y_{b}\to z_{a}\right)*}\left(x_{a}^{*}\otimes y_{b}^{*}\right)=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\bar{x}_{a}\otimes\bar{y}_{b}\right)=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\cpx{a}\otimes\cpx{b}\right)\left(X^{*}\otimes Y^{*}\right),
 \]
 
 \end_inset
 
  where we used 
-\begin_inset Formula $\bar{X}=\cpx{X}X^{*}$
+\begin_inset Formula $\bar{x}_{a}=\cpx{x}x_{a}^{*}$
 \end_inset
 
  and 
-\begin_inset Formula $\bar{Y}=\cpx{Y}Y^{*}$
+\begin_inset Formula $\bar{y}_{b}=\cpx{b}y_{b}^{*}$
 \end_inset
 
  in the second equality.
  Comparing the coefficients gives rise to 
 \begin_inset Formula 
 \begin{equation}
-M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\cpx{Z}\left(M^{\left(XY\to Z\right)}\right)^{*}\left(\cpx{X}^{-1}\otimes\cpx{Y}^{-1}\right).\label{eq:CGSub_CXYZ}
+M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}=\cpx{c}\left(M^{\left(x_{a}y_{b}\to z_{a}\right)}\right)^{*}\left(\cpx{a}^{-1}\otimes\cpx{b}^{-1}\right).\label{eq:CGSub_CXYZ}
 \end{equation}
 
 \end_inset
 
- We see that eq.
- 
+For group CG coefficients 
+\begin_inset Formula $M^{\left(XY\to Z\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\end_inset
+
+ of the large group, we have a similar relation as 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_CXYZ"
 
 \end_inset
 
- is basis dependent and the CG coefficients 
-\begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+.
+ We see that CG coefficients 
+\begin_inset Formula $M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}$
 \end_inset
 
- is in general not a simply the complex conjugate of 
-\begin_inset Formula $M^{\left(XY\to Z\right)}$
+ is in general not simply the complex conjugate of 
+\begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{c}\right)}$
 \end_inset
 
 .
- 
+ Rather, their relation basis dependent.
+ We stress that, in the case that 
+\begin_inset Formula $\rep{x_{a}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{y_{b}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{z_{c}}$
+\end_inset
+
+ are all real or pseudo-real irreps, the overall phase of 
+\begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{c}\right)}$
+\end_inset
+
+ is fixed up to a sign factor.
+ It implies that the phase transformation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U1_subcg"
+
+\end_inset
+
+ is only allowed for 
+\begin_inset Formula $\phi^{\left(ab\to c\right)}=\pi$
+\end_inset
+
+.
+ Hence, the 
+\begin_inset Formula $U1$
+\end_inset
+
+ ambiguity of the phase 
+\begin_inset Formula $\phi^{\left(ab\to c\right)}$
+\end_inset
+
+ is reduced to a 
+\begin_inset Formula $\mathbb{Z}_{2}$
+\end_inset
+
+ ambiguity.
 \end_layout
 
 \begin_layout Standard
-Now consider CP constraints on the SBCG coefficients.
+Now consider CP constraints on SBCG coefficients.
  Suppose we have contractions 
 \begin_inset ERT
 status open
@@ -1929,6 +1910,54 @@ reference "eq:CGSub_ckij"
 \end_layout
 
 \begin_layout Standard
+Let us consider the overall phase of projection matrices.
+ Suppose the projection matrix changes as 
+\begin_inset Formula 
+\begin{equation}
+P_{Z\to c}\to e^{i\theta_{c}^{\left(Z\right)}}P_{Z\to c},\quad P_{\bar{Z}\to\bar{c}}\to e^{i\theta_{\bar{c}}^{\left(\bar{Z}\right)}}P_{\bar{Z}\to\bar{c}},\label{eq:CGSub_theta_Zc}
+\end{equation}
+
+\end_inset
+
+ then 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon3"
+
+\end_inset
+
+ implies that 
+\begin_inset Formula 
+\[
+e^{i\theta_{\bar{c}}^{\left(\bar{Z}\right)}}=e^{-i\theta_{c}^{\left(Z\right)}}.
+\]
+
+\end_inset
+
+ When both 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{z_{c}}$
+\end_inset
+
+ are real, we therefore have 
+\begin_inset Formula $\theta_{c}^{\left(Z\right)}=0$
+\end_inset
+
+ or 
+\begin_inset Formula $\theta_{c}^{\left(Z\right)}=\pi$
+\end_inset
+
+; if any of them are complex, we have 
+\begin_inset Formula $\theta_{\bar{c}}^{\left(\bar{Z}\right)}=-\theta_{c}^{\left(Z\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 In general the overall phase of 
 \begin_inset Formula $M$
 \end_inset
@@ -2045,70 +2074,6 @@ Case II:
 \begin_layout Standard
 In the remainder of the paper, we shall call these three cases, Case I,
  II respectively for convenience.
-\end_layout
-
-\begin_layout Standard
-Let us consider the overall phase of projection matrices.
- Suppose the projection matrix changes as 
-\begin_inset Formula 
-\begin{equation}
-P_{Z\to c}\to e^{i\theta_{c}^{\left(Z\right)}}P_{Z\to c},\quad P_{\bar{Z}\to\bar{c}}\to e^{i\theta_{\bar{c}}^{\left(\bar{Z}\right)}}P_{\bar{Z}\to\bar{c}},\label{eq:CGSub_theta_Zc}
-\end{equation}
-
-\end_inset
-
- then 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_GammaCon3"
-
-\end_inset
-
- implies that 
-\begin_inset Formula 
-\[
-e^{i\theta_{\bar{c}}^{\left(\bar{Z}\right)}}=e^{-i\theta_{c}^{\left(Z\right)}}.
-\]
-
-\end_inset
-
- When both 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- and 
-\begin_inset Formula $\rep{z_{c}}$
-\end_inset
-
- are real, we therefore have 
-\begin_inset Formula $\theta_{c}^{\left(Z\right)}=0$
-\end_inset
-
- or 
-\begin_inset Formula $\theta_{c}^{\left(Z\right)}=\pi$
-\end_inset
-
-; if any of them are complex, we have 
-\begin_inset Formula $\theta_{\bar{c}}^{\left(\bar{Z}\right)}=-\theta_{c}^{\left(Z\right)}$
-\end_inset
-
-.
- Under the transformation 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_theta_Zc"
-
-\end_inset
-
-, the SBCG coefficients change as
-\begin_inset Formula 
-\[
-\mathcal{M}_{c,ab}\to e^{i\left(\theta_{a}^{\left(X\right)}+\theta_{b}^{\left(Y\right)}-\theta_{c}^{\left(Z\right)}\right)}\mathcal{M}_{c,ab}.
-\]
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
