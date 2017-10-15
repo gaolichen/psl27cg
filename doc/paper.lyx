@@ -2606,9 +2606,9 @@ Alternatively, instead of matching coefficients of bilinear forms, we can
 
  with some constant vectors 
 \begin_inset Formula 
-\[
-\left(X,Y\right)=\left(V^{\left(p\right)},W^{\left(p\right)}\right),\quad p=1,2,\cdots
-\]
+\begin{equation}
+\left(X,Y\right)=\left(V^{\left(p\right)},W^{\left(p\right)}\right),\quad p=1,2,\cdots\label{eq:Proc_XY}
+\end{equation}
 
 \end_inset
 
@@ -2624,9 +2624,9 @@ There are different choices of the constant vectors
  A simple choice is that each vector has only one nonzero component, i.e.,
  
 \begin_inset Formula 
-\[
-V_{k}^{\left(p\right)}=\delta_{k,i_{p}},\,W_{k}^{\left(p\right)}=\delta_{k,j_{p}},
-\]
+\begin{equation}
+V_{k}^{\left(p\right)}=\delta_{k,i_{p}},\,W_{k}^{\left(p\right)}=\delta_{k,j_{p}},\label{eq:Proc_VW}
+\end{equation}
 
 \end_inset
 
@@ -4823,7 +4823,7 @@ We will find the SBCG coefficients for
 \end_layout
 
 \begin_layout Standard
-We first consider the CG coefficients in the 
+We first consider the SBCG coefficients in the 
 \begin_inset Formula $\subga$
 \end_inset
 
@@ -4832,15 +4832,15 @@ We first consider the CG coefficients in the
 \begin_inset Formula $\rep{6}=\rep{1_{0}}\oplus\rep{2}\oplus\rep{3}$
 \end_inset
 
-, we can write down the general expression of the 
+, we can write down the most general expression of the 
 \begin_inset Formula $\covp{6}{6}{6_{s}}$
 \end_inset
 
- built from contractions of 
-\begin_inset Formula $\subga$
+ built out of 
+\begin_inset Formula $S_{4}$
 \end_inset
 
-,
+ contractions,
 \begin_inset ERT
 status open
 
@@ -4888,7 +4888,11 @@ end{subequations}
 \begin_inset Formula $\covs{x}{y}{z}$
 \end_inset
 
- denotes the contraction of 
+ denotes the 
+\begin_inset Formula $\subga$
+\end_inset
+
+ group contraction of 
 \begin_inset Formula $\rep{x}$
 \end_inset
 
@@ -4917,7 +4921,20 @@ Since
 \begin_inset Formula $2$
 \end_inset
 
-, we can setup seven homogeneous linear equations from eq.
+, we can setup seven homogeneous linear equations by feeding values into
+ 
+\begin_inset Formula $g$
+\end_inset
+
+ and 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $Y$
+\end_inset
+
+ of eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -4926,7 +4943,56 @@ reference "eq:CGSub_Def2"
 \end_inset
 
 .
- By solving them, we express all coefficients in terms of 
+ To do this, we choose 
+\begin_inset Formula $g$
+\end_inset
+
+ to be the generator 
+\begin_inset Formula $B$
+\end_inset
+
+ and 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $Y$
+\end_inset
+
+ to be constant vectors, see eqs.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Proc_XY"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Proc_VW"
+
+\end_inset
+
+.
+ It turns out that choosing 
+\begin_inset Formula $\left\{ i_{p}\right\} =\left\{ 1,3\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ j_{p}\right\} =\left\{ 1,4\right\} $
+\end_inset
+
+ for 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ is enough to generate the equations.
+ By solving these equations, we express all coefficients in terms of 
 \begin_inset Formula $\mathcal{M}_{1,11}$
 \end_inset
 
@@ -4947,7 +5013,7 @@ Since all the irreps of
 \begin_inset Formula $\subga$
 \end_inset
 
- are real representations, the charge constraints 
+ are real representations, the CP constraints 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_ckij"
@@ -4970,22 +5036,17 @@ reference "eq:CGSub_orthnormal"
 
 \end_inset
 
-, we only need to consider the 
+, we consider the SBCG coefficients of the 
 \begin_inset Formula $\rep{1_{0}}$
 \end_inset
 
  component.
- We form vectors with the CG coefficients of 
-\begin_inset Formula $\rep{1_{0}}$
-\end_inset
-
- component as 
+ We need to find two orthonormal vectors 
 \begin_inset Formula $\left\{ \mathcal{M}_{1,11},\mathcal{M}_{1,22},\mathcal{M}_{1,33}\right\} $
 \end_inset
 
-.
- With Gram–Schmidt process we can find two independent orthonormal vectors
- with 
+ corresponding to two solutions.
+ By the Gram–Schmidt process, we find the solutions 
 \begin_inset Formula $\left(\mathcal{M}_{1,11},\mathcal{M}_{1,22}\right)=\left(\frac{\sqrt{3}}{2},0\right)$
 \end_inset
 
@@ -4993,15 +5054,15 @@ reference "eq:CGSub_orthnormal"
 \begin_inset Formula $\left(\mathcal{M}_{1,11},\mathcal{M}_{1,22}\right)=\left(-\frac{1}{2\sqrt{3}},\sqrt{\frac{2}{3}}\right)$
 \end_inset
 
-.
- Substituting these two sets of values into 
+ can generate such two vectors.
+ Substituting the two solutions into 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Ex_SixSix2Six"
 
 \end_inset
 
-, we obtain the CG coefficients of 
+, we obtain the SBCG coefficients of 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}^{\left(1\right)}\oplus\rep{6}_{s}^{\left(2\right)}$
 \end_inset
 
@@ -5016,33 +5077,59 @@ reference "sec:CGC_S4"
 \end_layout
 
 \begin_layout Standard
-The calculation is more nontrivial in 
+The calculation is similar for 
 \begin_inset Formula $\subgb$
 \end_inset
 
  basis.
- The general form of CG coefficients in 
+ According to the decomposition 
+\begin_inset Formula $\rep{6}=\rep{3}\oplus\rep{\bar{3}}$
+\end_inset
+
+ and tensor products of 
 \begin_inset Formula $\subgb$
 \end_inset
 
- basis is
+, 
+\begin_inset Formula $\covp{6}{6}{6_{s}}$
+\end_inset
+
+ in 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ basis can be written as
 \begin_inset Formula 
 \begin{align*}
 \rep{3} & =\mathcal{M}_{3,33}\covt{3}{3}{3}+\frac{\mathcal{M}_{3,3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{3}+\covt{\bar{3}}{3}{3}\right)+\mathcal{M}_{3,\bar{3}\bar{3}}\covt{\bar{3}}{\bar{3}}{3_{s}},\\
-\rep{\bar{3}} & =\mathcal{M}_{\bar{3},33}\covt{3}{3}{\bar{3}_{s}}+\frac{\mathcal{M}_{\bar{3},3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{\bar{3}}+\covt{\bar{3}}{3}{\bar{3}}\right)+\mathcal{M}_{\bar{3},\bar{3}\bar{3}}\covt{\bar{3}_{s}}{\bar{3}}{\bar{3}}.
+\rep{\bar{3}} & =\mathcal{M}_{\bar{3},33}\covt{3}{3}{\bar{3}_{s}}+\frac{\mathcal{M}_{\bar{3},3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{\bar{3}}+\covt{\bar{3}}{3}{\bar{3}}\right)+\mathcal{M}_{\bar{3},\bar{3}\bar{3}}\covt{\bar{3}_{s}}{\bar{3}}{\bar{3}},
 \end{align*}
 
 \end_inset
 
- Solving the linear equations from eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_Def2"
-
+ where the curly brackets denote 
+\begin_inset Formula $\subgb$
 \end_inset
 
- yields
+ contractions.
+ The homogeneous linear equations can be generated in the same way as 
+\begin_inset Formula $\subga$
+\end_inset
+
+ case with input 
+\begin_inset Formula $\left\{ i_{p}\right\} =\left\{ 1,3\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ j_{p}\right\} =\{2,4\}$
+\end_inset
+
+ and generator 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Solving the linear equations yields
 \begin_inset Formula 
 \begin{align*}
 \mathcal{M}_{3,\bar{3}\bar{3}} & =-\sqrt{2}\mathcal{M}_{3,33}-\frac{\mathcal{M}_{3,\bar{3}\bar{3}}}{\sqrt{2}},\quad\mathcal{M}_{\bar{3},33}=-\mathcal{M}_{3,33}-\mathcal{M}_{3,\bar{3}\bar{3}},\\
@@ -5051,18 +5138,14 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
-The charge constraints 
+Now the CP constraints 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_ckij"
 
 \end_inset
 
- are nontrivial now as 
-\begin_inset Formula $\subgb$
-\end_inset
-
- irreps are complex.
+ are nontrivial.
  They can be solved by expressing 
 \begin_inset Formula $\mathcal{M}_{3,33}$
 \end_inset
@@ -5072,12 +5155,12 @@ reference "eq:CGSub_ckij"
 \end_inset
 
  in terms of their real and imaginary parts.
- The solution is simply 
+ It turns out that the solution is 
 \begin_inset Formula $\mathcal{M}_{3,\bar{3}\bar{3}}=\mathcal{M}_{3,33}^{*}$
 \end_inset
 
 .
- The orthonormalization condition then give rise to the CG coefficients
+ The orthonormalization condition then give rise to the SBCG coefficients
  shown in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
