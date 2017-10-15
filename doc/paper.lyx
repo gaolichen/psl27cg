@@ -1633,20 +1633,16 @@ end{subequations}
 \end_layout
 
 \begin_layout Standard
-We now discuss the consequence of the CP constraints.
- The CP constraints can apply to both CG coefficients defined as 
+We now discuss the consequences of the CP constraints.
+ We first consider the constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CGC_Def"
+reference "eq:CGSub_GammaCon2"
 
 \end_inset
 
- and SBCG coefficients.
- We first discuss the consequence on the former and then on the latter.
-\end_layout
-
-\begin_layout Standard
-We consider subgroup CG coefficients 
+.
+ Let 
 \begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{a}\right)}$
 \end_inset
 
@@ -1654,22 +1650,25 @@ We consider subgroup CG coefficients
 \begin_inset Formula $M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}$
 \end_inset
 
- 
+ be CG coefficients of the subgroup 
 \begin_inset Formula 
 \[
-Z=M^{\left(x_{a}y_{b}\to z_{a}\right)}\left(x_{a}\otimes y_{b}\right),\quad\bar{Z}=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\bar{x}_{a}\otimes\bar{y}_{b}\right).
+z_{c}=M^{\left(x_{a}y_{b}\to z_{a}\right)}\left(x_{a}\otimes y_{b}\right),\quad\bar{z}_{c}=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\bar{x}_{a}\otimes\bar{y}_{b}\right).
 \]
 
 \end_inset
 
- The CP constraint 
-\begin_inset Formula $\cpx{Z}Z^{*}=\bar{Z}$
+ The constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon2"
+
 \end_inset
 
- leads to
+ then implies
 \begin_inset Formula 
 \[
-\cpx{Z}M^{\left(x_{a}y_{b}\to z_{a}\right)*}\left(x_{a}^{*}\otimes y_{b}^{*}\right)=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\bar{x}_{a}\otimes\bar{y}_{b}\right)=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\cpx{a}\otimes\cpx{b}\right)\left(X^{*}\otimes Y^{*}\right),
+\cpx{c}M^{\left(x_{a}y_{b}\to z_{a}\right)*}\left(x_{a}^{*}\otimes y_{b}^{*}\right)=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\bar{x}_{a}\otimes\bar{y}_{b}\right)=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\cpx{a}\otimes\cpx{b}\right)\left(x_{a}^{*}\otimes y_{b}^{*}\right),
 \]
 
 \end_inset
@@ -1683,7 +1682,7 @@ Z=M^{\left(x_{a}y_{b}\to z_{a}\right)}\left(x_{a}\otimes y_{b}\right),\quad\bar{
 \end_inset
 
  in the second equality.
- Comparing the coefficients gives rise to 
+ Comparing the coefficients of both sides yields 
 \begin_inset Formula 
 \begin{equation}
 M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}=\cpx{c}\left(M^{\left(x_{a}y_{b}\to z_{a}\right)}\right)^{*}\left(\cpx{a}^{-1}\otimes\cpx{b}^{-1}\right).\label{eq:CGSub_CXYZ}
@@ -1691,7 +1690,7 @@ M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}=\cpx{c}\left(M^{\left(x_{a
 
 \end_inset
 
-For group CG coefficients 
+Note that a similar relation also apply to CG coefficients 
 \begin_inset Formula $M^{\left(XY\to Z\right)}$
 \end_inset
 
@@ -1699,15 +1698,21 @@ For group CG coefficients
 \begin_inset Formula $M^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
- of the large group, we have a similar relation as 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_CXYZ"
+ of the large group.
+ 
+\end_layout
 
+\begin_layout Standard
+We see that the relation between 
+\begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{c}\right)}$
 \end_inset
 
-.
- We see that CG coefficients 
+ and 
+\begin_inset Formula $M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}$
+\end_inset
+
+ depends on basis of irreps.
+ 
 \begin_inset Formula $M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}$
 \end_inset
 
@@ -1715,9 +1720,28 @@ reference "eq:CGSub_CXYZ"
 \begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{c}\right)}$
 \end_inset
 
-.
- Rather, their relation basis dependent.
- We stress that, in the case that 
+ unless that 
+\begin_inset Formula $\Gamma_{a,b,c}$
+\end_inset
+
+ matrices are all identity matrices.
+ The matrix 
+\begin_inset Formula $\Gamma_{a}$
+\end_inset
+
+ is the identity matrix in two cases: 1) 
+\begin_inset Formula $\rep{x_{a}}$
+\end_inset
+
+ is complex; 2) 
+\begin_inset Formula $\rep{x_{a}}$
+\end_inset
+
+ is real (not pseudo-real) and the irrep is in a basis that the matrices
+ of its generators are all real.
+ Particularly, if all the three irreps are in the latter case, the CG coefficien
+ts are all real.
+ In the case that 
 \begin_inset Formula $\rep{x_{a}}$
 \end_inset
 
@@ -1747,7 +1771,7 @@ reference "eq:U1_subcg"
 
 .
  Hence, the 
-\begin_inset Formula $U1$
+\begin_inset Formula $U\left(1\right)$
 \end_inset
 
  ambiguity of the phase 
@@ -1893,16 +1917,16 @@ reference "eq:CGSub_ckij"
 
 \end_inset
 
- is basis independent and the relation between 
+ is basis independent and 
 \begin_inset Formula $\mathcal{M}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
- and 
+ is simply the complex conjugate of 
 \begin_inset Formula $\mathcal{M}^{\left(XY\to Z\right)}$
 \end_inset
 
- is simply complex conjugate.
- We stress that eq.
+.
+ We remark that eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1911,11 +1935,37 @@ reference "eq:CGSub_ckij"
 \end_inset
 
  holds only when the CG coefficients of the subgroup also obey CP constraints.
+ When 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ are all real, eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ fixes the overall phase of 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+ up to a sign factor.
+ 
 \end_layout
 
 \begin_layout Standard
-Let us consider the overall phase of projection matrices.
- Suppose the projection matrix changes as 
+Let us consider the phase change of projection matrices.
+ Suppose projection matrices changes as 
 \begin_inset Formula 
 \begin{equation}
 P_{Z\to c}\to e^{i\theta_{c}^{\left(Z\right)}}P_{Z\to c},\quad P_{\bar{Z}\to\bar{c}}\to e^{i\theta_{\bar{c}}^{\left(\bar{Z}\right)}}P_{\bar{Z}\to\bar{c}},\label{eq:CGSub_theta_Zc}
@@ -1938,7 +1988,7 @@ e^{i\theta_{\bar{c}}^{\left(\bar{Z}\right)}}=e^{-i\theta_{c}^{\left(Z\right)}}.
 
 \end_inset
 
- When both 
+ If both 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
@@ -1946,19 +1996,31 @@ e^{i\theta_{\bar{c}}^{\left(\bar{Z}\right)}}=e^{-i\theta_{c}^{\left(Z\right)}}.
 \begin_inset Formula $\rep{z_{c}}$
 \end_inset
 
- are real, we therefore have 
-\begin_inset Formula $\theta_{c}^{\left(Z\right)}=0$
+ are real, we have 
+\begin_inset Formula $\theta_{c}^{\left(Z\right)}\in\left\{ 0,\pi\right\} $
 \end_inset
 
- or 
-\begin_inset Formula $\theta_{c}^{\left(Z\right)}=\pi$
+ and the 
+\begin_inset Formula $U\left(1\right)$
 \end_inset
 
-; if any of them are complex, we have 
+ ambiguity is reduced to a 
+\begin_inset Formula $\mathbb{Z}_{2}$
+\end_inset
+
+ ambiguity; if any of the irreps are complex, we have 
 \begin_inset Formula $\theta_{\bar{c}}^{\left(\bar{Z}\right)}=-\theta_{c}^{\left(Z\right)}$
 \end_inset
 
-.
+, which implies that 
+\begin_inset Formula $U\left(1\right)\times U\left(1\right)$
+\end_inset
+
+ ambiguity is reduced to a 
+\begin_inset Formula $U\left(1\right)$
+\end_inset
+
+ ambiguity.
 \end_layout
 
 \begin_layout Standard
