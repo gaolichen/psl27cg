@@ -1360,9 +1360,9 @@ Under these
 
  transformations, the SBCG coefficients transform as 
 \begin_inset Formula 
-\begin{eqnarray*}
-\mathcal{M}_{c,ab}^{\left(XY\to Z\right)} & \to & \exp\left[i\left(\theta_{a}^{\left(X\right)}+\theta_{b}^{\left(Y\right)}-\theta_{c}^{\left(Z\right)}+\phi^{\left(ab\to c\right)}\right)\right]\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}.
-\end{eqnarray*}
+\begin{eqnarray}
+\mathcal{M}_{c,ab}^{\left(XY\to Z\right)} & \to & \exp\left[i\left(\theta_{a}^{\left(X\right)}+\theta_{b}^{\left(Y\right)}-\theta_{c}^{\left(Z\right)}+\phi^{\left(ab\to c\right)}\right)\right]\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}.\label{eq:CGSub_M_Transform}
+\end{eqnarray}
 
 \end_inset
 
@@ -1390,6 +1390,12 @@ Under these
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:RedPhaseAmbiguity"
+
+\end_inset
+
 Reducing phase ambiguities 
 \end_layout
 
@@ -2936,6 +2942,14 @@ In the following sections, we will demonstrate above procedures with the
 \end_inset
 
 .
+ The group theory about these groups can be found in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Group-Theory"
+
+\end_inset
+
+.
  We will denote contractions of 
 \begin_inset Formula $\group$
 \end_inset
@@ -2975,16 +2989,9 @@ In this section, we will find the matrix realizations of
 \begin_inset Formula $\group$
 \end_inset
 
- generators in the basis of its subgroups 
-\begin_inset Formula $\subga$
-\end_inset
-
- and 
-\begin_inset Formula $\subgb$
-\end_inset
-
-.
- To do that, we will choose bases of 
+ generators in its subgroup bases, in which the subgroup elements are diagonal
+ matrices.
+ Specifically, we will choose bases of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -3009,7 +3016,7 @@ reference "eq:CG_PXj"
 \begin_inset Formula $\group$
 \end_inset
 
- irreps following their order in the embedding relations shown as table
+ irreps following their orders in the embedding relations shown as table
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3018,11 +3025,11 @@ reference "tab:PSL27-S4-T7"
 \end_inset
 
 .
- For example, 
+ For example, irreps of the subgroup 
 \begin_inset Formula $\subgb$
 \end_inset
 
- irreps are embedded in the 
+ are embedded in the 
 \begin_inset Formula $\rep{6}$
 \end_inset
 
@@ -3043,7 +3050,16 @@ reference "tab:PSL27-S4-T7"
 \end_layout
 
 \begin_layout Standard
-For both subgroups, we will first seek for the matrix realizations of 
+We will first find the matrix realization in the 
+\begin_inset Formula $\subga$
+\end_inset
+
+ basis and then the 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ basis.
+ For both subgroups, we will first seek for the matrix realizations of 
 \begin_inset Formula $\rep{3}$
 \end_inset
 
@@ -3120,20 +3136,54 @@ key "Luhn:2007yr"
 \end_layout
 
 \begin_layout Standard
-We first need to find the matrix realization of 
+To find matrix realization of 
+\begin_inset Formula $\group$
+\end_inset
+
+ in 
 \begin_inset Formula $\subga$
 \end_inset
 
- generators in a basis that elements its subgroup 
+ basis, we first need to find a matrix realization of 
+\begin_inset Formula $\subga$
+\end_inset
+
+, which usually can be obtained from existing literatures or the GAP platform,
+ and then the CG coefficients of 
+\begin_inset Formula $\subga$
+\end_inset
+
+.
+ But since 
+\begin_inset Formula $\subga$
+\end_inset
+
+ has the subgroup 
 \begin_inset Formula $A_{4}$
 \end_inset
 
- are diagonal.
+, which is also a group popular in model building of flavor physics, we
+ seek for a matrix realization of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ in 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+ basis.
  The basis of 
 \begin_inset Formula $A_{4}$
 \end_inset
 
- irreps are so called xxx [TODO] basis.
+ irreps are given in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:A4Group"
+
+\end_inset
+
+.
  The procedures are similar to what we will talk in this section but the
  calculation is kind of trivial.
  So we simply give the results in Appendix 
@@ -3148,7 +3198,82 @@ reference "subsec:S4Group"
 \end_inset
 
  irreps.
- 
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $\subga$
+\end_inset
+
+ is a ambivalent group, whose irreps all are real or pseudo-real, the overall
+ phases of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ CG coefficients under the CP constraints are fixed up to sign factors.
+ Moreover, the 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{8}$
+\end_inset
+
+ irreps of 
+\begin_inset Formula $\group$
+\end_inset
+
+ are real.
+ According to the results of Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:RedPhaseAmbiguity"
+
+\end_inset
+
+, matrix realizations of 
+\begin_inset Formula $\rep{6}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{7}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{8}$
+\end_inset
+
+ are fixed up to similarity transformation of diagonal sign-factor matrices,
+\begin_inset Formula 
+\[
+O^{[\rep{R}]}\to\mathcal{S}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{S}^{[\rep{R}]}\right)^{\dagger},\quad O=A,\,B,\quad\rep{R}=\rep{6},\,\rep{7},\,\rep{8},
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula 
+\begin{align*}
+\mathcal{S}^{\left[\rep{6}\right]} & =\mathrm{diag}\left(\pm1,\pm\mathbf{I}_{2},\pm\mathbf{I}_{3}\right),\\
+\mathcal{S}^{\left[\rep{7}\right]} & =\mathrm{diag}\left(\pm1,\pm\mathbf{I}_{3},\pm\mathbf{I}_{3}\right),\\
+\mathcal{S}^{\left[\rep{8}\right]} & =\mathrm{diag}\left(\pm\mathbf{I}_{2},\pm\mathbf{I}_{3},\pm\mathbf{I}_{3}\right).
+\end{align*}
+
+\end_inset
+
+ Since the triplet and antitriplet decomposition are 
+\begin_inset Formula $\rep{3}=\rep{3_{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{\bar{3}}=\rep{3_{2}}$
+\end_inset
+
+, there matrix realizations are completely fixed.
 \end_layout
 
 \begin_layout Subsubsection
@@ -4191,42 +4316,7 @@ B^{[\rep{7}]}=\left(\begin{array}{ccccccc}
 \end_layout
 
 \begin_layout Standard
-Since 
-\begin_inset Formula $\subga$
-\end_inset
-
- is a ambivalent group, the overall phases of 
-\begin_inset Formula $\subga$
-\end_inset
-
- CG coefficients under the CP constraints are fixed up to sign factors.
- It then implies that the matrix realizations of 
-\begin_inset Formula $\group$
-\end_inset
-
- in 
-\begin_inset Formula $\subga$
-\end_inset
-
- are fixed up to similarity transformation of diagonal sign-factor matrices,
-\begin_inset Formula 
-\[
-O^{[\rep{R}]}\to\mathcal{S}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{S}^{[\rep{R}]}\right)^{\dagger},\quad O=A,\,B,\quad\rep{R}=\rep{6},\,\rep{7},\,\rep{8},
-\]
-
-\end_inset
-
- where 
-\begin_inset Formula 
-\begin{align*}
-\mathcal{S}^{\left[\rep{6}\right]} & =\mathrm{diag}\left(\pm1,\pm\mathbf{I}_{2},\pm\mathbf{I}_{3}\right),\\
-\mathcal{S}^{\left[\rep{7}\right]} & =\mathrm{diag}\left(\pm1,\pm\mathbf{I}_{3},\pm\mathbf{I}_{3}\right),\\
-\mathcal{S}^{\left[\rep{8}\right]} & =\mathrm{diag}\left(\pm\mathbf{I}_{2},\pm\mathbf{I}_{3},\pm\mathbf{I}_{3}\right).
-\end{align*}
-
-\end_inset
-
- We will see shortly that for the non-ambivalent subgroup 
+We will see shortly that for the non-ambivalent subgroup 
 \begin_inset Formula $\subgb$
 \end_inset
 
@@ -4280,11 +4370,29 @@ O^{\left[\rep{R}\right]}\to\mathcal{U}^{\left[\rep{R}\right]}O^{\left[\rep{R}\ri
 
 \end_inset
 
-The SBCG coefficients change accordingly 
-\end_layout
+The SBCG coefficients change according to eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_M_Transform"
 
-\begin_layout Standard
-We therefore will simply give results in this subsection.
+\end_inset
+
+ with 
+\begin_inset Formula $\theta_{a,b,c}^{\left(X,Y,Z\right)}$
+\end_inset
+
+ picks the corresponding angles in the 
+\begin_inset Formula $\mathcal{U}$
+\end_inset
+
+ matrices.
+ In the following, we will not set all the 
+\begin_inset Formula $\mathcal{U}$
+\end_inset
+
+ matrices to be identity matrix for simplicity.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -4403,32 +4511,6 @@ B^{[\rep{R}]}=A^{[\rep{R}]}\left(AB\right)^{[\rep{R}]},\quad\rep{R}=\rep{3},\,\r
 \end_inset
 
  in various irreps.
- Also, the generators are fixed up to pure phase diagonal matrices
-\begin_inset Formula 
-\begin{align*}
-\mathcal{P}^{[\rep{6}]} & =\mathrm{diag}\left(e^{i\alpha_{6}}\mathbf{I}_{3},e^{-i\alpha_{6}}\mathbf{I}_{3}\right),\\
-\mathcal{P}^{[\rep{8}]} & =\mathrm{diag}\left(e^{i\alpha_{81}},e^{-i\alpha_{81}},e^{i\alpha_{83}}\mathbf{I}_{3},e^{-i\alpha_{83}}\mathbf{I}_{3}\right),\\
-\mathcal{P}^{[\rep{7}]} & =\mathrm{diag}\left(1,e^{i\left(2\alpha_{6}+\alpha_{7}\right)}\mathbf{I}_{3},e^{-i\left(2\alpha_{6}+\alpha_{7}\right)}\mathbf{I}_{3}\right).
-\end{align*}
-
-\end_inset
-
-Explicitly, under the transformation 
-\begin_inset Formula 
-\[
-O^{[\rep{R}]}\to\mathcal{P}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{P}^{[\rep{R}]}\right)^{\dagger},\quad O=A,\,B,\quad\rep{R}=\rep{3},\,\rep{\bar{3}},\,\rep{6},\,\rep{7},\,\rep{8},
-\]
-
-\end_inset
-
- the CG coefficients transform as
-\begin_inset Formula 
-\[
-\covlg{X}{Y}{R}\to\mathcal{P}^{[\rep{R}]}\covlg{X}{Y}{R}.
-\]
-
-\end_inset
-
  In the following, we will not show the phase matrices 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
@@ -4667,17 +4749,6 @@ A^{[\rep{7}]}=\frac{2}{7}\begin{pmatrix}-\frac{1}{2} & \sqrt{2} & \sqrt{2} & \sq
 \sqrt{2} & 2c_{2}+1 & 2c_{1}+1 & 2c_{3}+1 & 2c_{1}+c_{2} & c_{1}+2c_{3} & 2c_{2}+c_{3}\\
 \sqrt{2} & 2c_{1}+1 & 2c_{3}+1 & 2c_{2}+1 & c_{1}+2c_{3} & 2c_{2}+c_{3} & 2c_{1}+c_{2}\\
 \sqrt{2} & 2c_{3}+1 & 2c_{2}+1 & 2c_{1}+1 & 2c_{2}+c_{3} & 2c_{1}+c_{2} & c_{1}+2c_{3}
-\end{pmatrix}.
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\covp{3}{6}{7}=\begin{pmatrix}\covt{3}{\bar{3}}{1}\\
-\frac{i}{\sqrt{3}}\covt{3}{3}{3}+i\sqrt{\frac{2}{3}}\covt{3}{\bar{3}}{3}\\
--\frac{i}{\sqrt{6}}\covt{3}{3}{\bar{3}_{s}}+i\sqrt{\frac{2}{3}}\covt{3}{3}{\bar{3}_{a}}+\frac{i}{\sqrt{6}}\covt{3}{\bar{3}}{\bar{3}}
 \end{pmatrix}.
 \]
 
