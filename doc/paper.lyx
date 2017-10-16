@@ -6,6 +6,8 @@
 \origin unavailable
 \textclass article
 \begin_preamble
+\usepackage{babel}
+
 \newcommand{\rep}[1]{\mathbf{#1}} 
 \newcommand{\ket}[1]{\left|{#1}\right\rangle }
 \newcommand{\group}{\mathcal{PSL}_{2}\left(7\right)} 
@@ -19,12 +21,20 @@
 \newcommand{\cpx}[1]{\Gamma_{#1}}
 
 % contractions
-\newcommand{\covp}[3]{\left[\rep{#1}\otimes\rep{#2}\right]^{}_{\rep{#3}}}
-\newcommand{\cova}[3]{\left(\rep{#1}\otimes\rep{#2}\right)^{}_{\rep{#3}}}
-\newcommand{\covs}[3]{\big\{\rep{#1}\otimes\rep{#2}\big\}^{}_{\rep{#3}}}
-\newcommand{\covt}[3]{\big\{\rep{#1}\otimes\rep{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\tsprod}[2]{\rep{#1}\otimes\rep{#2}}
+\newcommand{\covp}[3]{\left[\tsprod{#1}{#2}\right]^{}_{\rep{#3}}}
+\newcommand{\cova}[3]{\left(\tsprod{#1}{#2}\right)^{}_{\rep{#3}}}
+\newcommand{\covs}[3]{\big\{\tsprod{#1}{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\covt}[3]{\big\{\tsprod{#1}{#2}\big\}^{}_{\rep{#3}}}
 \newcommand{\covsub}[3]{\big\{{#1}\otimes{#2}\big\}^{}_{{#3}}}
 \newcommand{\covlg}[3]{\left[{#1}\otimes{#2}\right]^{}_{{#3}}}
+
+% commands used in appendix
+\newcommand{\cgEqFontsize}{\normalsize}
+\newcommand{\repx}[2]{{}_{#2}\mathbf{#1}}
+\newcommand{\tsprodx}[2]{\repx{#1}{x}\otimes\repx{#2}{y}}
+\newcommand{\subcgs}[3]{\big\{ \tsprodx{#1}{#2}\big\}^{}_{#3}}
+\newcommand{\subcgt}[3]{\big\{ \tsprodx{#1}{#2}\big\}^{}_{#3}}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -4351,8 +4361,8 @@ The procedures to find
 \end_inset
 
  generators have phase ambiguities.
- We can in general perform a similarity transformation on the generators
- 
+ We can obtain different matrix realizations by performing similarity transforma
+tions with diagonal pure phase matrices,
 \begin_inset Formula 
 \[
 O^{\left[\rep{R}\right]}\to\mathcal{U}^{\left[\rep{R}\right]}O^{\left[\rep{R}\right]}\left(\mathcal{U}^{\left[\rep{R}\right]}\right)^{\dagger},\quad O=A,\,B
@@ -7517,7 +7527,7 @@ Embedding of
 \end_layout
 
 \begin_layout Standard
-The Kronecker product of 
+The tensor products of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -7770,7 +7780,7 @@ name "tab:PSL27-Kronecker"
 
 \end_inset
 
-Kronecker products of 
+Tensor products of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -8105,7 +8115,15 @@ CG Coefficients of
 \end_layout
 
 \begin_layout Standard
-TODO
+The following angles will be used in the CG coefficients
+\begin_inset Formula 
+\[
+\alpha=\arctan\frac{\sqrt{3}}{2},\quad\beta=\arctan\left(3\sqrt{3}+2\sqrt{6}\right).
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
