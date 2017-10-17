@@ -601,10 +601,14 @@ The tensor product of two irreducible representations of a group is in general
 \begin_inset Formula $M_{k\alpha}^{\left(XY\to Z\right)}$
 \end_inset
 
- such that 
+ such that, for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, 
 \begin_inset Formula 
 \begin{equation}
-\left(\mr{Z}\left(g\right)Z\right)_{k}=\sum_{l}M_{k\alpha}^{\left(XY\to Z\right)}\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\alpha},\quad\forall g\in G\label{eq:CGC_Def}
+\left(\mr{Z}\left(g\right)Z\right)_{k}=\sum_{l}M_{k\alpha}^{\left(XY\to Z\right)}\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\alpha},\label{eq:CGC_Def}
 \end{equation}
 
 \end_inset
@@ -617,15 +621,20 @@ The tensor product of two irreducible representations of a group is in general
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- and the tensor product is defined as 
-\begin_inset Formula 
-\[
-\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\left(i-1\right)\times\dim Y+j}=\left(\mr{X}\left(g\right)X\right)_{i}\left(\mr{Y}\left(g\right)Y\right)_{j}.
-\]
-
+ and elements of the tensor product 
+\begin_inset Formula $\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)$
 \end_inset
 
-The coefficients 
+, with dimension 
+\begin_inset Formula $\left(\dim X\times\dim Y\right)$
+\end_inset
+
+, are of the form 
+\begin_inset Formula $\left(\mr{X}\left(g\right)X\right)_{i}\left(\mr{Y}\left(g\right)Y\right)_{j}$
+\end_inset
+
+.
+ The coefficients 
 \begin_inset Formula $M_{k\alpha}^{\left(XY\to Z\right)}$
 \end_inset
 
@@ -665,7 +674,7 @@ If
 \end_inset
 
  and 
-\begin_inset Formula $C^{\left(XY\to Z\right)}$
+\begin_inset Formula $M^{\left(XY\to Z\right)}$
 \end_inset
 
  satisfy eq.
@@ -722,12 +731,20 @@ label{eq:CG coefficient_BaseTransform}
 
 \begin_inset Formula 
 \begin{equation}
-R\to R^{\prime}=U_{R}R,\quad\mr{R}\left(g\right)\to U_{R}\mr{R}\left(g\right)U_{R}^{-1},\quad R=X,Y,Z
+X\to X^{\prime}=U_{X}X,\quad\mr{X}\left(g\right)\to U_{X}\mr{X}\left(g\right)U_{X}^{-1},
 \end{equation}
 
 \end_inset
 
-eqs.
+ and similarly for 
+\begin_inset Formula $Y$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+, eqs.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -979,10 +996,36 @@ P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{
 \end_inset
 
  should actually satisfy a stronger constraint 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{widetext}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 P_{Z\to c}\mr{Z}\left(g\right)Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}},\quad\forall g\in G,\label{eq:CGSub_Def2}
 \end{equation}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{widetext}
+\end_layout
 
 \end_inset
 
@@ -1350,9 +1393,9 @@ Under these
 
  transformations, the SBCG coefficients transform as 
 \begin_inset Formula 
-\begin{eqnarray}
-\mathcal{M}_{c,ab}^{\left(XY\to Z\right)} & \to & \exp\left[i\left(\theta_{a}^{\left(X\right)}+\theta_{b}^{\left(Y\right)}-\theta_{c}^{\left(Z\right)}+\phi^{\left(ab\to c\right)}\right)\right]\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}.\label{eq:CGSub_M_Transform}
-\end{eqnarray}
+\begin{equation}
+\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\to e^{i\left(\theta_{a}^{\left(X\right)}+\theta_{b}^{\left(Y\right)}-\theta_{c}^{\left(Z\right)}+\phi^{\left(ab\to c\right)}\right)}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}.\label{eq:CGSub_M_Transform}
+\end{equation}
 
 \end_inset
 
@@ -1678,9 +1721,10 @@ reference "eq:CGSub_GammaCon2"
 
  then implies 
 \begin_inset Formula 
-\[
-\cpx{c}M^{\left(x_{a}y_{b}\to z_{a}\right)*}\left(x_{a}^{*}\otimes y_{b}^{*}\right)=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\bar{x}_{a}\otimes\bar{y}_{b}\right)=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\cpx{a}\otimes\cpx{b}\right)\left(x_{a}^{*}\otimes y_{b}^{*}\right),
-\]
+\begin{multline*}
+\cpx{c}M^{\left(x_{a}y_{b}\to z_{a}\right)*}\left(x_{a}^{*}\otimes y_{b}^{*}\right)=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\bar{x}_{a}\otimes\bar{y}_{b}\right)\\
+=M^{\left(\bar{x}_{a}\bar{y}_{b}\to\bar{z}_{c}\right)}\left(\cpx{a}\otimes\cpx{b}\right)\left(x_{a}^{*}\otimes y_{b}^{*}\right),
+\end{multline*}
 
 \end_inset
 
@@ -1983,10 +2027,10 @@ reference "eq:CGSub_PZ"
 
 , 
 \begin_inset Formula 
-\begin{align}
-P_{\bar{Z}\to\bar{c}}\bar{Z} & =P_{\bar{Z}\to\bar{c}}\cpx{Z}Z^{*}=\Gamma_{c}P_{Z\to c}^{*}Z^{*}\nonumber \\
- & =\sum_{a,b}\left(\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\right)^{*}\cpx{c}\left(\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}}\right)^{*}\label{eq:CGSub_PGmmaZ}
-\end{align}
+\begin{multline}
+P_{\bar{Z}\to\bar{c}}\bar{Z}=P_{\bar{Z}\to\bar{c}}\cpx{Z}Z^{*}=\Gamma_{c}P_{Z\to c}^{*}Z^{*}\\
+=\sum_{a,b}\left(\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\right)^{*}\cpx{c}\left(\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}}\right)^{*}\label{eq:CGSub_PGmmaZ}
+\end{multline}
 
 \end_inset
 
@@ -3395,12 +3439,13 @@ reference "eq:App_Psl_S4_Gen_Relation"
 
 
 \begin_inset Formula 
-\[
-\tilde{b}=\left(\tilde{A}^{[\rep{3}]}\left(\tilde{B}^{[\rep{3}]}\right)^{2}\left(\tilde{A}^{[\rep{3}]}\tilde{B}^{[\rep{3}]}\right)^{2}\right)^{2}=-\frac{1}{7}\begin{pmatrix}\eta^{6}-\eta^{2} & \eta-\eta^{6} & \eta^{3}-\eta^{2}\\
+\begin{align*}
+\tilde{b} & =\left(\tilde{A}^{[\rep{3}]}\left(\tilde{B}^{[\rep{3}]}\right)^{2}\left(\tilde{A}^{[\rep{3}]}\tilde{B}^{[\rep{3}]}\right)^{2}\right)^{2}\\
+ & =-\frac{1}{7}\begin{pmatrix}\eta^{6}-\eta^{2} & \eta-\eta^{6} & \eta^{3}-\eta^{2}\\
 \eta^{6}-\eta^{4} & \eta^{5}-\eta^{4} & \eta^{2}-\eta^{5}\\
 \eta^{4}-\eta^{3} & \eta^{5}-\eta & \eta^{3}-\eta
 \end{pmatrix}^{2},
-\]
+\end{align*}
 
 \end_inset
 
@@ -3689,10 +3734,12 @@ reference "eq:A4-generators"
 , we obtain
 \begin_inset Formula 
 \begin{align}
-e^{i\left(\theta_{2}-\theta_{1}\right)} & =\frac{1}{28}\left[\left(-9-\sqrt{3}i\right)\eta^{5}-2\left(9+\sqrt{3}i\right)\eta^{4}+\left(-6+4i\sqrt{3}\right)\eta^{3}\right]\nonumber \\
- & +\frac{1}{28}\left[\left(6-4i\sqrt{3}\right)\eta^{2}+\left(-3+9i\sqrt{3}\right)\eta+\sqrt{3}i-5\right],\\
-e^{i\left(\theta_{3}-\theta_{1}\right)} & =\frac{1}{28}\left[\left(-9+\sqrt{3}i\right)\eta^{5}-2\left(9-\sqrt{3}i\right)\eta^{4}+\left(-6-4i\sqrt{3}\right)\eta^{3}\right]\nonumber \\
- & +\frac{1}{28}\left[\left(6+4i\sqrt{3}\right)\eta^{2}+\left(-3-9i\sqrt{3}\right)\eta-\sqrt{3}i-5\right].
+e^{i\left(\theta_{2}-\theta_{1}\right)} & =\frac{1}{28}\left[\left(-9-\sqrt{3}i\right)\eta^{5}-2\left(9+\sqrt{3}i\right)\eta^{4}\right]\nonumber \\
+ & +\frac{1}{28}\left[\left(-6+4i\sqrt{3}\right)\eta^{3}+\left(6-4i\sqrt{3}\right)\eta^{2}\right]\nonumber \\
+ & +\frac{1}{28}\left[\left(-3+9i\sqrt{3}\right)\eta+\sqrt{3}i-5\right],\\
+e^{i\left(\theta_{3}-\theta_{1}\right)} & =\frac{1}{28}\left[\left(-9+\sqrt{3}i\right)\eta^{5}-2\left(9-\sqrt{3}i\right)\eta^{4}\right]\nonumber \\
+ & +\frac{1}{28}\left[\left(-6-4i\sqrt{3}\right)\eta^{3}+\left(6+4i\sqrt{3}\right)\eta^{2}\right]\nonumber \\
+ & +\frac{1}{28}\left[\left(-3-9i\sqrt{3}\right)\eta-\sqrt{3}i-5\right].
 \end{align}
 
 \end_inset
@@ -4149,40 +4196,37 @@ A^{[\rep{8}]}=\left(\begin{array}{cccccccc}
 \begin_inset Formula $B^{[\rep{8}]}$
 \end_inset
 
-, the first five columns are 
-\begin_inset Formula 
-\[
-B_{1}^{[\rep{8}]}=\left(\begin{array}{ccccc}
--\frac{\omega}{4} & -\frac{\omega^{2}}{4} & -\frac{i\omega^{2}}{\sqrt{6}} & \frac{i}{4}\sqrt{\frac{3}{2}}\omega^{2}-\frac{i}{4\sqrt{6}} & \frac{i}{2\sqrt{6}}-\frac{\omega^{2}}{4\sqrt{2}}\\
--\frac{\omega}{4} & -\frac{\omega^{2}}{4} & \frac{i\omega}{\sqrt{6}} & -\frac{i}{2\sqrt{6}}-\frac{\omega}{4\sqrt{2}} & \frac{i}{4\sqrt{6}}-\frac{i}{4}\sqrt{\frac{3}{2}}\omega\\
--\frac{i}{\sqrt{6}} & \frac{i}{\sqrt{6}} & \frac{1}{6} & \frac{\omega}{6} & \frac{\omega^{2}}{6}\\
-\frac{i}{4}\sqrt{\frac{3}{2}}\omega^{2}-\frac{i}{4\sqrt{6}} & \frac{i}{4\sqrt{6}}-\frac{i}{4}\sqrt{\frac{3}{2}}\omega & \frac{1}{6} & \frac{13\omega}{24} & -\frac{5\omega^{2}}{24}\\
-\frac{i}{4}\sqrt{\frac{3}{2}}\omega^{2}-\frac{i}{4\sqrt{6}} & \frac{i}{4\sqrt{6}}-\frac{i}{4}\sqrt{\frac{3}{2}}\omega & \frac{1}{6} & -\frac{5\omega}{24} & \frac{13\omega^{2}}{24}\\
-0 & 0 & -\frac{\sqrt{7}}{6} & -\frac{\sqrt{7}}{6}\omega^{2} & -\frac{\sqrt{7}\omega}{6}\\
-\frac{1}{4}\sqrt{\frac{7}{2}}\omega & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2} & -\frac{\sqrt{7}}{6} & -\sqrt{7}\left(\frac{i\omega^{2}}{8\sqrt{3}}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{i\omega}{8\sqrt{3}}-\frac{1}{24}\right)\\
--\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2} & -\frac{\sqrt{7}}{6} & -\sqrt{7}\left(\frac{i\omega^{2}}{8\sqrt{3}}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{i\omega}{8\sqrt{3}}-\frac{1}{24}\right)
-\end{array}\right)
-\]
+, 
+\begin_inset ERT
+status open
 
-\end_inset
+\begin_layout Plain Layout
 
- and the last three columns are 
-\begin_inset Formula 
-\[
-B_{2}^{[\rep{8}]}=\begin{pmatrix}0 & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2}\\
-0 & \frac{1}{4}\sqrt{\frac{7}{2}}\omega & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2}\\
-\frac{\sqrt{7}}{6} & \frac{\sqrt{7}\omega}{6} & \frac{\sqrt{7}\omega^{2}}{6}\\
-\frac{\sqrt{7}\omega}{6} & \sqrt{7}\left(\frac{i\omega^{2}}{8\sqrt{3}}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{\omega}{8}+\frac{1}{24}\right)\\
-\frac{\sqrt{7}\omega^{2}}{6} & \sqrt{7}\left(\frac{\omega^{2}}{8}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{1}{24}-\frac{i\omega}{8\sqrt{3}}\right)\\
--\frac{1}{2} & -\frac{i\omega^{2}}{2\sqrt{3}} & \frac{i\omega}{2\sqrt{3}}\\
--\frac{i\omega}{2\sqrt{3}} & \frac{3\omega^{2}}{8}+\frac{i}{8\sqrt{3}} & -\frac{\omega^{2}}{8}\\
-\frac{i\omega^{2}}{2\sqrt{3}} & -\frac{\omega}{8} & -\frac{i}{8\sqrt{3}}+\frac{3\omega}{8}
-\end{pmatrix}.
-\]
+
+\backslash
+begin{widetext}
+\end_layout
 
 \end_inset
 
 
+\begin_inset Formula 
+\[
+B^{[\rep{8}]}=\left(\begin{array}{cccccccc}
+-\frac{\omega}{4} & -\frac{\omega^{2}}{4} & -\frac{i\omega^{2}}{\sqrt{6}} & \frac{i}{4}\sqrt{\frac{3}{2}}\omega^{2}-\frac{i}{4\sqrt{6}} & \frac{i}{2\sqrt{6}}-\frac{\omega^{2}}{4\sqrt{2}} & 0 & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2}\\
+-\frac{\omega}{4} & -\frac{\omega^{2}}{4} & \frac{i\omega}{\sqrt{6}} & -\frac{i}{2\sqrt{6}}-\frac{\omega}{4\sqrt{2}} & \frac{i}{4\sqrt{6}}-\frac{i}{4}\sqrt{\frac{3}{2}}\omega & 0 & \frac{1}{4}\sqrt{\frac{7}{2}}\omega & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2}\\
+-\frac{i}{\sqrt{6}} & \frac{i}{\sqrt{6}} & \frac{1}{6} & \frac{\omega}{6} & \frac{\omega^{2}}{6} & \frac{\sqrt{7}}{6} & \frac{\sqrt{7}\omega}{6} & \frac{\sqrt{7}\omega^{2}}{6}\\
+\frac{i}{4}\sqrt{\frac{3}{2}}\omega^{2}-\frac{i}{4\sqrt{6}} & \frac{i}{4\sqrt{6}}-\frac{i}{4}\sqrt{\frac{3}{2}}\omega & \frac{1}{6} & \frac{13\omega}{24} & -\frac{5\omega^{2}}{24} & \frac{\sqrt{7}\omega}{6} & \sqrt{7}\left(\frac{i\omega^{2}}{8\sqrt{3}}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{\omega}{8}+\frac{1}{24}\right)\\
+\frac{i}{4}\sqrt{\frac{3}{2}}\omega^{2}-\frac{i}{4\sqrt{6}} & \frac{i}{4\sqrt{6}}-\frac{i}{4}\sqrt{\frac{3}{2}}\omega & \frac{1}{6} & -\frac{5\omega}{24} & \frac{13\omega^{2}}{24} & \frac{\sqrt{7}\omega^{2}}{6} & \sqrt{7}\left(\frac{\omega^{2}}{8}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{1}{24}-\frac{i\omega}{8\sqrt{3}}\right)\\
+0 & 0 & -\frac{\sqrt{7}}{6} & -\frac{\sqrt{7}}{6}\omega^{2} & -\frac{\sqrt{7}\omega}{6} & -\frac{1}{2} & -\frac{i\omega^{2}}{2\sqrt{3}} & \frac{i\omega}{2\sqrt{3}}\\
+\frac{1}{4}\sqrt{\frac{7}{2}}\omega & -\frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2} & -\frac{\sqrt{7}}{6} & -\sqrt{7}\left(\frac{i\omega^{2}}{8\sqrt{3}}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{i\omega}{8\sqrt{3}}-\frac{1}{24}\right) & -\frac{i\omega}{2\sqrt{3}} & \frac{3\omega^{2}}{8}+\frac{i}{8\sqrt{3}} & -\frac{\omega^{2}}{8}\\
+-\frac{1}{4}\sqrt{\frac{7}{2}}\omega & \frac{1}{4}\sqrt{\frac{7}{2}}\omega^{2} & -\frac{\sqrt{7}}{6} & -\sqrt{7}\left(\frac{i\omega^{2}}{8\sqrt{3}}+\frac{1}{24}\right) & \sqrt{7}\left(\frac{i\omega}{8\sqrt{3}}-\frac{1}{24}\right) & \frac{i\omega^{2}}{2\sqrt{3}} & -\frac{\omega}{8} & -\frac{i}{8\sqrt{3}}+\frac{3\omega}{8}
+\end{array}\right).
+\]
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
@@ -4215,13 +4259,20 @@ Finally, let us consider the
 .
  By a straightforward calculation, we obtain
 \begin_inset Formula 
-\begin{align*}
-P_{\rep{\bar{3}}\to\rep{3_{2}}}\covp{3}{6}{\bar{3}} & =\frac{1}{\sqrt{6}}\covs{3_{2}}{1_{0}}{3_{2}}-\frac{i\bar{b}_{7}^{2}}{\sqrt{3}}\covs{3_{2}}{2}{3_{2}}+\frac{i\bar{b}_{7}}{\sqrt{2}}\covs{3_{2}}{3_{1}}{3_{2}},\\
-\covp{3}{6}{8} & =\begin{pmatrix}\covs{3_{2}}{3_{2}}{2}\\
+\[
+P_{\rep{\bar{3}}\to\rep{3_{2}}}\covp{3}{6}{\bar{3}}=\frac{1}{\sqrt{6}}\covs{3_{2}}{1_{0}}{3_{2}}-\frac{i\bar{b}_{7}^{2}}{\sqrt{3}}\covs{3_{2}}{2}{3_{2}}+\frac{i\bar{b}_{7}}{\sqrt{2}}\covs{3_{2}}{3_{1}}{3_{2}},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\covp{3}{6}{8}=\begin{pmatrix}\covs{3_{2}}{3_{2}}{2}\\
 -\sqrt{\frac{2}{3}}b_{7}\covs{3_{2}}{2}{3_{1}}+\frac{1}{\sqrt{3}}\covs{3_{2}}{3_{1}}{3_{1}}\\
 \frac{2\bar{b}_{7}}{7}\covs{3_{2}}{1_{0}}{3_{2}}-\frac{\sqrt{2}i}{3}b_{7}\covs{3_{2}}{2}{3_{2}}+\frac{i}{\sqrt{3}}\covs{3_{2}}{3_{1}}{3_{2}}
 \end{pmatrix},
-\end{align*}
+\]
 
 \end_inset
 
@@ -4257,15 +4308,16 @@ reference "eq:Gen_Gamma6"
 
 \end_inset
 
-, we arrive at
-\begin_inset Formula 
-\[
-e^{i\left(\theta_{2}-\theta_{1}\right)}=\bar{b}_{7}^{3},\quad e^{i\left(\theta_{3}-\theta_{1}\right)}=-i\bar{b}_{7}^{2}.
-\]
-
+, we arrive at 
+\begin_inset Formula $e^{i\left(\theta_{2}-\theta_{1}\right)}=\bar{b}_{7}^{3}$
 \end_inset
 
-Then the generators are 
+ and 
+\begin_inset Formula $e^{i\left(\theta_{3}-\theta_{1}\right)}=-i\bar{b}_{7}^{2}$
+\end_inset
+
+.
+ Then the generators are 
 \begin_inset Formula 
 \[
 A^{[\rep{7}]}=\left(\begin{array}{ccccccc}
@@ -4281,7 +4333,7 @@ A^{[\rep{7}]}=\left(\begin{array}{ccccccc}
 
 \end_inset
 
- 
+
 \begin_inset Formula 
 \[
 B^{[\rep{7}]}=\left(\begin{array}{ccccccc}
@@ -4294,6 +4346,19 @@ B^{[\rep{7}]}=\left(\begin{array}{ccccccc}
 \frac{ib_{7}^{2}}{2} & \frac{i\bar{b}_{7}}{3} & \frac{i\omega^{2}\bar{b}_{7}}{3} & \frac{i\omega\bar{b}_{7}}{3} & \frac{i}{2\sqrt{3}} & 0 & \frac{i\omega^{2}}{\sqrt{3}}
 \end{array}\right).
 \]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{widetext}
+\end_layout
 
 \end_inset
 
@@ -4444,17 +4509,11 @@ reference "tab:Character-T7"
 
  irreps 
 \begin_inset Formula 
-\[
-\left(AB\right)^{[\rep{6}]}=\begin{pmatrix}\mathcal{P}^{[3]}\\
- & \bar{\mathcal{P}}^{[3]}
-\end{pmatrix},\quad\left(AB\right)^{[\rep{7}]}=\begin{pmatrix}1\\
- & \mathcal{P}^{[3]}\\
- &  & \bar{\mathcal{P}}^{[3]}
-\end{pmatrix},\quad\left(AB\right)^{[\rep{8}]}=\begin{pmatrix}\mathbf{I}_{2}\\
- & \mathcal{P}^{[3]}\\
- &  & \bar{\mathcal{P}}^{[3]}
-\end{pmatrix},
-\]
+\begin{align*}
+\left(AB\right)^{[\rep{6}]} & =\mathrm{diag}\left(\mathcal{P}^{\left[3\right]},\bar{\mathcal{P}}^{[3]}\right),\\
+\left(AB\right)^{[\rep{7}]} & =\mathrm{diag}\left(1,\mathcal{P}^{[3]},\bar{\mathcal{P}}^{[3]}\right),\\
+\left(AB\right)^{[\rep{8}]} & =\mathrm{diag}\left(\mathbf{I}_{2},\mathcal{P}^{[3]},\bar{\mathcal{P}}^{[3]}\right),
+\end{align*}
 
 \end_inset
 
@@ -4639,11 +4698,16 @@ A^{[\rep{8}]}=\frac{2}{7}\begin{pmatrix}\mathcal{C}_{1} & \mathcal{C}_{2} & \mat
  are complex matrices
 \begin_inset Formula 
 \begin{align}
-\mathcal{C}_{1} & =\begin{pmatrix}0 & \frac{\omega}{2}+i\sqrt{3}\left(c_{2}-c_{3}\omega^{2}\right)\\
-\frac{\omega^{2}}{2}-i\sqrt{3}\left(c_{2}-c_{3}\omega\right) & 0
+\mathcal{C}_{1} & =\frac{1}{2}\begin{pmatrix}0 & \omega\\
+\omega^{2} & 0
+\end{pmatrix}+i\sqrt{3}\begin{pmatrix}0 & c_{2}-c_{3}\omega^{2}\\
+-c_{2}+c_{3}\omega & 0
 \end{pmatrix},\\
-\mathcal{C}_{2} & =\begin{pmatrix}-\frac{i\omega^{2}}{2}+\sqrt{3}\left(c_{2}\omega-c_{3}\right) & -\frac{i}{2}+\sqrt{3}\left(c_{2}\omega^{2}-c_{3}\omega\right) & -\frac{i\omega}{2}+\sqrt{3}\left(c_{2}-\omega^{2}c_{3}\right)\\
-\frac{i\omega}{2}+\sqrt{3}\left(c_{2}\omega^{2}-c_{3}\right) & \frac{i}{2}+\sqrt{3}\left(c_{2}\omega-c_{3}\omega^{2}\right) & \frac{i\omega^{2}}{2}+\sqrt{3}\left(c_{2}-\omega c_{3}\right)
+\mathcal{C}_{2} & =\frac{i}{2}\begin{pmatrix}-\omega^{2} & -1 & -\omega\\
+\omega & 1 & \omega^{2}
+\end{pmatrix}\nonumber \\
+ & +\sqrt{3}\begin{pmatrix}c_{2}\omega-c_{3} & c_{2}\omega^{2}-c_{3}\omega & c_{2}-\omega^{2}c_{3}\\
+c_{2}\omega^{2}-c_{3} & c_{2}\omega-c_{3}\omega^{2} & \left(c_{2}-\omega c_{3}\right)
 \end{pmatrix},
 \end{align}
 
@@ -4724,7 +4788,20 @@ The
 \begin_inset Formula $A^{[\rep{7}]}$
 \end_inset
 
- is
+ is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{widetext}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
 A^{[\rep{7}]}=\frac{2}{7}\begin{pmatrix}-\frac{1}{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2} & \sqrt{2}\\
@@ -4736,6 +4813,19 @@ A^{[\rep{7}]}=\frac{2}{7}\begin{pmatrix}-\frac{1}{2} & \sqrt{2} & \sqrt{2} & \sq
 \sqrt{2} & 2c_{3}+1 & 2c_{2}+1 & 2c_{1}+1 & 2c_{2}+c_{3} & 2c_{1}+c_{2} & c_{1}+2c_{3}
 \end{pmatrix}.
 \]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{widetext}
+\end_layout
 
 \end_inset
 
@@ -4914,10 +5004,13 @@ label{eq:Ex_SixSix2Six}
 
 \begin_inset Formula 
 \begin{align}
-\rep{1_{0}} & =\mathcal{M}_{1,11}\covs{1_{0}}{1_{0}}{1_{0}}+\mathcal{M}_{1,22}\covs{2}{2}{1_{0}}+\mathcal{M}_{1,33}\covs{3_{1}}{3_{1}}{1_{0}},\\
-\rep{2} & =\frac{\mathcal{M}_{2,12}}{\sqrt{2}}\left(\covs{1_{0}}{2}{2}+\covs{2}{1_{0}}{2}\right)+\mathcal{M}_{2,22}\covs{2}{2}{2}+c_{2,33}\covs{3_{1}}{3_{1}}{2},\\
+\rep{1_{0}} & =\mathcal{M}_{1,11}\covs{1_{0}}{1_{0}}{1_{0}}+\mathcal{M}_{1,22}\covs{2}{2}{1_{0}}\nonumber \\
+ & +\mathcal{M}_{1,33}\covs{3_{1}}{3_{1}}{1_{0}},\\
+\rep{2} & =\frac{\mathcal{M}_{2,12}}{\sqrt{2}}\left(\covs{1_{0}}{2}{2}+\covs{2}{1_{0}}{2}\right)\nonumber \\
+ & +\mathcal{M}_{2,22}\covs{2}{2}{2}+\mathcal{M}_{2,33}\covs{3_{1}}{3_{1}}{2},\\
 \rep{3_{1}} & =\frac{\mathcal{M}_{3,13}}{\sqrt{2}}\left(\covs{1_{0}}{3_{1}}{3_{1}}+\covs{3_{1}}{1_{0}}{3_{1}}\right)\nonumber \\
- & +\frac{\mathcal{M}_{3,23}}{\sqrt{2}}\left(\covs{2}{3_{1}}{3_{1}}+\covs{3_{1}}{2}{3_{1}}\right)+\mathcal{M}_{3,33}\covs{3_{1}}{3_{1}}{3_{1}},
+ & +\frac{\mathcal{M}_{3,23}}{\sqrt{2}}\left(\covs{2}{3_{1}}{3_{1}}+\covs{3_{1}}{2}{3_{1}}\right)\nonumber \\
+ & +\mathcal{M}_{3,33}\covs{3_{1}}{3_{1}}{3_{1}},
 \end{align}
 
 \end_inset
@@ -5059,8 +5152,12 @@ reference "eq:Proc_VW"
 
 \begin_inset Formula 
 \begin{align*}
-\mathcal{M}_{1,33} & =-\frac{\mathcal{M}_{1,11}}{\sqrt{3}}-\frac{2\mathcal{M}_{1,22}}{\sqrt{3}},\quad\mathcal{M}_{2,12}=\mathcal{M}_{1,22},\quad\mathcal{M}_{2,22}=-\frac{2\mathcal{M}_{1,11}}{\sqrt{7}}-\frac{3\mathcal{M}_{1,22}}{\sqrt{14}},\quad\mathcal{M}_{2,33}=\frac{\mathcal{M}_{1,22}}{\sqrt{42}}-\frac{4\mathcal{M}_{1,11}}{\sqrt{21}},\\
-\mathcal{M}_{3,13} & =-\frac{\sqrt{2}}{3}\mathcal{M}_{1,11}-\frac{2\mathcal{M}_{1,22}}{3},\quad\mathcal{M}_{3,23}=\frac{1}{3}\sqrt{\frac{2}{7}}\mathcal{M}_{1,22}-\frac{8\mathcal{M}_{1,11}}{3\sqrt{7}},\quad\mathcal{M}_{3,33}=\sqrt{\frac{2}{21}}\mathcal{M}_{1,11}+\frac{5\mathcal{M}_{1,22}}{\sqrt{21}}.
+\mathcal{M}_{1,33} & =-\frac{\mathcal{M}_{1,11}}{\sqrt{3}}-\frac{2\mathcal{M}_{1,22}}{\sqrt{3}},\quad\mathcal{M}_{2,12}=\mathcal{M}_{1,22},\\
+\mathcal{M}_{2,22} & =-\frac{2\mathcal{M}_{1,11}}{\sqrt{7}}-\frac{3\mathcal{M}_{1,22}}{\sqrt{14}},\\
+\mathcal{M}_{2,33} & =\frac{\mathcal{M}_{1,22}}{\sqrt{42}}-\frac{4\mathcal{M}_{1,11}}{\sqrt{21}},\\
+\mathcal{M}_{3,13} & =-\frac{\sqrt{2}}{3}\mathcal{M}_{1,11}-\frac{2\mathcal{M}_{1,22}}{3},\\
+\mathcal{M}_{3,23} & =\frac{1}{3}\sqrt{\frac{2}{7}}\mathcal{M}_{1,22}-\frac{8\mathcal{M}_{1,11}}{3\sqrt{7}},\\
+\mathcal{M}_{3,33} & =\sqrt{\frac{2}{21}}\mathcal{M}_{1,11}+\frac{5\mathcal{M}_{1,22}}{\sqrt{21}}.
 \end{align*}
 
 \end_inset
@@ -5157,8 +5254,10 @@ The calculation is similar for
  basis can be written as
 \begin_inset Formula 
 \begin{align*}
-\rep{3} & =\mathcal{M}_{3,33}\covt{3}{3}{3}+\frac{\mathcal{M}_{3,3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{3}+\covt{\bar{3}}{3}{3}\right)+\mathcal{M}_{3,\bar{3}\bar{3}}\covt{\bar{3}}{\bar{3}}{3_{s}},\\
-\rep{\bar{3}} & =\mathcal{M}_{\bar{3},33}\covt{3}{3}{\bar{3}_{s}}+\frac{\mathcal{M}_{\bar{3},3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{\bar{3}}+\covt{\bar{3}}{3}{\bar{3}}\right)+\mathcal{M}_{\bar{3},\bar{3}\bar{3}}\covt{\bar{3}_{s}}{\bar{3}}{\bar{3}},
+\rep{3} & =\mathcal{M}_{3,33}\covt{3}{3}{3}+\mathcal{M}_{3,\bar{3}\bar{3}}\covt{\bar{3}}{\bar{3}}{3_{s}}\\
+ & +\frac{\mathcal{M}_{3,3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{3}+\covt{\bar{3}}{3}{3}\right),\\
+\rep{\bar{3}} & =\mathcal{M}_{\bar{3},33}\covt{3}{3}{\bar{3}_{s}}+\mathcal{M}_{\bar{3},\bar{3}\bar{3}}\covt{\bar{3}_{s}}{\bar{3}}{\bar{3}}\\
+ & +\frac{\mathcal{M}_{\bar{3},3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{\bar{3}}+\covt{\bar{3}}{3}{\bar{3}}\right),
 \end{align*}
 
 \end_inset
@@ -5189,7 +5288,7 @@ The calculation is similar for
 \begin_inset Formula 
 \begin{align*}
 \mathcal{M}_{3,\bar{3}\bar{3}} & =-\sqrt{2}\mathcal{M}_{3,33}-\frac{\mathcal{M}_{3,\bar{3}\bar{3}}}{\sqrt{2}},\quad\mathcal{M}_{\bar{3},33}=-\mathcal{M}_{3,33}-\mathcal{M}_{3,\bar{3}\bar{3}},\\
-\mathcal{M}_{\bar{3},\bar{3}\bar{3}} & =\sqrt{2}c_{3,33},\quad\mathcal{M}_{\bar{3},\bar{3}\bar{3}}=\frac{1}{\sqrt{2}}\mathcal{M}_{3,\bar{3}\bar{3}}.
+\mathcal{M}_{\bar{3},\bar{3}\bar{3}} & =\sqrt{2}\mathcal{M}_{3,33},\quad\mathcal{M}_{\bar{3},\bar{3}\bar{3}}=\frac{1}{\sqrt{2}}\mathcal{M}_{3,\bar{3}\bar{3}}.
 \end{align*}
 
 \end_inset
@@ -6427,19 +6526,48 @@ The non-singlet irreps of
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subequations}
+\backslash
+label{eq:S4_irr31}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{align}
-\rep{3_{1}}:\quad a^{[3_{1}]} & =\frac{1}{3}\left(\begin{array}{ccc}
+\rep{3_{1}}:\quad a^{[\rep{3_{1}}]} & =\frac{1}{3}\left(\begin{array}{ccc}
 -1 & 2\omega^{2} & 2\omega\\
 2\omega^{2} & 2\omega & -1\\
 2\omega & -1 & 2\omega^{2}
-\end{array}\right),\quad b^{[3_{1}]}=\frac{1}{3}\left(\begin{array}{ccc}
+\end{array}\right),\\
+b^{[\rep{3_{1}}]} & =\frac{1}{3}\left(\begin{array}{ccc}
 -1 & 2\omega^{2} & 2\omega\\
 2\omega & 2 & -\omega^{2}\\
 2\omega^{2} & -\omega & 2
-\end{array}\right),\label{eq:S4_irr31}\\
-a^{[3_{2}]} & =-a^{[3_{1}]},\quad b^{[3_{2}]}=-b^{[3_{1}]},
+\end{array}\right),\\
+a^{[\rep{3_{2}}]} & =3_{2}-a^{[\rep{3_{1}}]},\quad b^{[\rep{3_{2}}]}=-b^{[\rep{3_{1}}]},
 \end{align}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
 
 \end_inset
 
@@ -7179,25 +7307,26 @@ The CG coefficients of
 \covt{1^{\prime}}{\bar{3}}{3} & =\begin{pmatrix}\ket{1^{\prime}}\ket{1}\\
 \omega\ket{1^{\prime}}\ket{2}\\
 \omega^{2}\ket{1^{\prime}}\ket{3}
-\end{pmatrix},\quad\quad\quad\quad\quad\quad\covt{3}{3}{3}=\begin{pmatrix}\ket{3}\ket{3^{\prime}}\\
+\end{pmatrix},\quad\covt{3}{3}{3}=\begin{pmatrix}\ket{3}\ket{3^{\prime}}\\
 \ket{1}\ket{1^{\prime}}\\
 \ket{2}\ket{2^{\prime}}
 \end{pmatrix}\\
 \covt{3}{3}{\bar{3}_{s}} & =\begin{pmatrix}\frac{1}{\sqrt{2}}\left(\ket{3}\ket{2^{\prime}}+\ket{2}\ket{3^{\prime}}\right)\\
 \frac{1}{\sqrt{2}}\left(\ket{1}\ket{3^{\prime}}+\ket{3}\ket{1^{\prime}}\right)\\
 \frac{1}{\sqrt{2}}\left(\ket{2}\ket{1^{\prime}}+\ket{1}\ket{2^{\prime}}\right)
-\end{pmatrix},\quad\covt{3}{3}{\bar{3}_{s}}=\begin{pmatrix}\frac{1}{\sqrt{2}}\left(\ket{3}\ket{2^{\prime}}-\ket{2}\ket{3^{\prime}}\right)\\
+\end{pmatrix},\\
+\covt{3}{3}{\bar{3}_{s}} & =\begin{pmatrix}\frac{1}{\sqrt{2}}\left(\ket{3}\ket{2^{\prime}}-\ket{2}\ket{3^{\prime}}\right)\\
 \frac{1}{\sqrt{2}}\left(\ket{1}\ket{3^{\prime}}-\ket{3}\ket{1^{\prime}}\right)\\
 \frac{1}{\sqrt{2}}\left(\ket{2}\ket{1^{\prime}}-\ket{1}\ket{2^{\prime}}\right)
 \end{pmatrix}\\
 \covt{3}{\bar{3}}{3} & =\begin{pmatrix}\ket{2}\ket{\bar{1}}\\
 \ket{3}\ket{\bar{2}}\\
 \ket{1}\ket{\bar{3}}
-\end{pmatrix},\quad\quad\quad\quad\quad\quad\quad\quad\covt{3}{\bar{3}}{\bar{3}}=\begin{pmatrix}\ket{1}\ket{\bar{2}}\\
+\end{pmatrix},\quad\covt{3}{\bar{3}}{\bar{3}}=\begin{pmatrix}\ket{1}\ket{\bar{2}}\\
 \ket{2}\ket{\bar{3}}\\
 \ket{3}\ket{\bar{1}}
 \end{pmatrix}\\
-\covt{3}{\bar{3}}{1^{\prime}} & =\frac{1}{\sqrt{3}}\left(\ket{1}\ket{\bar{1}}+\omega^{2}\ket{2}\ket{\bar{2}}+\omega\ket{3}\ket{\bar{3}}\right),\quad\omega=\exp\left(\frac{2i\pi}{3}\right)\\
+\covt{3}{\bar{3}}{1^{\prime}} & =\frac{1}{\sqrt{3}}\left(\ket{1}\ket{\bar{1}}+\omega^{2}\ket{2}\ket{\bar{2}}+\omega\ket{3}\ket{\bar{3}}\right),\quad\omega=e^{\frac{2i\pi}{3}}\\
 \covt{3}{\bar{3}}{1^{\prime}} & =\frac{1}{\sqrt{3}}\left(\ket{1}\ket{\bar{1}}+\omega\ket{2}\ket{\bar{2}}+\omega^{2}\ket{3}\ket{\bar{3}}\right)
 \end{align*}
 
