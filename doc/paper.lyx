@@ -157,18 +157,26 @@ Discrete subgroups of
 \end_layout
 
 \begin_layout Standard
-CG coefficients invoving low-dimensional irreps, especially, three-dimensional
- irreps, play important roles in flavor model buildings.
+CG coefficients invoving low-dimensional irreducible representations (irrep),
+ typically three-dimensional irreps, play important roles in flavor model
+ buildings.
  These CG coefficients can be calculated in several methods, including but
- not limitted to the Discrete package [ref], which implements the algorithm
- of ref 
+ not limitted to the Mathematica package Discrete
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Holthausen:2011vd"
+
+\end_inset
+
+, which implements the algorithm of ref 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "van1978clebsch"
 
 \end_inset
 
-, and the method introduced by Ref 
+, and the method introduced by ref.
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ludl:2009ft"
@@ -176,15 +184,24 @@ key "Ludl:2009ft"
 \end_inset
 
 .
- However, when comes to CG coefficients involing higher-dimensional irreps,
- these methods are not effective any more.
+ However, when comes to CG coefficients involing high-dimensional irreps
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+By high-dimensional irreps, we mean irreps of dimension greater than three.
+\end_layout
+
+\end_inset
+
+, these methods are not effective any more.
  These calculations involve complicated algebraic numbers consist of roots
  of unity 
 \begin_inset Formula $e^{2k\pi i/n}$
 \end_inset
 
  and their polynomial, and hence it is difficult to obtain simplified results.
- Recently, higher-dimensional irreps are also used in model buildings.
+ Recently, high-dimensional irreps are also used in model buildings.
  For example, in ref.
  
 \begin_inset CommandInset citation
@@ -193,20 +210,19 @@ key "Chen:2014wiw"
 
 \end_inset
 
-, the sextet and septex representations of the group 
+, the six-dimensional and seven-dimensional irreps of the group 
 \begin_inset Formula $\group$
 \end_inset
 
  are used in the model building.
- Finding CG coefficients of these higher-dimensional irreps is a challging
- task for these model buildings.
+ Finding CG coefficients become a nontrivial task for model buildings involving
+ high-dimensional irreps.
 \end_layout
 
 \begin_layout Standard
 Another issue is that there are ambiguities in CG coefficients.
- In general, CG coefficients depend on the basis of irreducible representations
- (irrep) of the group.
- There is still a phase ambiguity for a fixed basis.
+ In general, CG coefficients depend on bases of irreps of the group.
+ There are also phase ambiguities for CG coeffcients under fixed bases.
  If 
 \begin_inset Formula $\rep{X}$
 \end_inset
@@ -256,15 +272,14 @@ We aim to reduce the ambiguities of CG coefficients and find a way to calculate
 \end_layout
 
 \begin_layout Itemize
-We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which are
- CG coefficients of a discrete group that are expressed in terms of irreps
- of its subgroup.
+We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
+ CG coefficients of a discrete group in terms of irreps of its subgroup.
  In the definition of SBCG, basis information is carried in the projection
  matrices, which convert irreps of the group to irreps of its subgroup.
- SBCG coefficients are therefore independent of bases of irreps of both
- the group and its subgroup.
- To reduce the phase ambiguity, we impose additonal constraints on SBCG,
- which requires that contractions of the form 
+ SBCG coefficients are therefore independent of bases of both the group
+ and its subgroup.
+ To reduce phase ambiguities, we impose additonal constraints on SBCG, which
+ requires that contractions of the form 
 \begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
 \end_inset
 
@@ -336,7 +351,7 @@ We then describe the procedures to calculate SBCG coefficients.
 \end_inset
 
 .
- For both subgroups, we obtain a complete list of CG coefficients of the
+ For both subgroups, we obtain a complete list of SBCG coefficients of the
  group 
 \begin_inset Formula $\group$
 \end_inset
@@ -362,8 +377,8 @@ key "deSwart:1963pdg"
 \begin_inset Formula $SU\left(2\right)$
 \end_inset
 
- GG coefficients and isoscalars, where isoscalars play the same role as
- SBCG coefficient in this paper.
+ GG coefficients and isoscalars, which play the same role as SBCG coefficients
+ in this paper.
 \end_layout
 
 \begin_layout Standard
@@ -2492,8 +2507,14 @@ There is a special case that the projection matrix cannot be in the trivial
 One can first find the matrix realization of low-dimensional irreps then
  build the high-dimensional irreps from tensor products.
  Usually the low-dimensional irreps matrix realizations, in a certain basis,
- are already known in the literature or can be obtained from the GAP programming
- platform.
+ are already known in the literature or can be obtained from the GAP
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GAP4"
+
+\end_inset
+
+.
  We therefore focus on finding a similarity transformation that transforms
  the matrices to the desired basis.
 \end_layout
