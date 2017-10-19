@@ -31,11 +31,12 @@
 \newcommand{\covlg}[3]{\left[{#1}\otimes{#2}\right]^{}_{{#3}}}
 
 % commands used in appendix
-\newcommand{\cgEqFontsize}{\normalsize}
+\newcommand{\cgEqFontsize}{\large}
 \newcommand{\repx}[2]{{}_{#2}\mathbf{#1}}
-\newcommand{\tsprodx}[2]{\repx{#1}{x}\otimes\repx{#2}{y}}
-\newcommand{\subcgs}[3]{\big\{ \tsprod{#1}{#2}\big\}^{}_{#3}}
-\newcommand{\subcgt}[3]{\big\{ \tsprod{#1}{#2}\big\}^{}_{#3}}
+%\newcommand{\tsprodx}[2]{\repx{#1}{x}\otimes\repx{#2}{y}}
+\newcommand{\tsprodx}[2]{\rep{#1}\otimes\rep{#2}}
+\newcommand{\subcgs}[3]{\big\{ \tsprod{#1}{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\subcgt}[3]{\big\{ \tsprod{#1}{#2}\big\}^{}_{\rep{#3}}}
 \newcommand{\bfl}{\begin{fleqn}[25pt]}
 \newcommand{\efl}{\end{fleqn}}
 \end_preamble
@@ -488,14 +489,14 @@ on of CG coefficients.
  Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:CGC_S4"
+reference "sec:App_CGC_PSL27"
 
 \end_inset
 
  and 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:CGC_T7"
+reference "sec:App_CGC_PSL27_T7"
 
 \end_inset
 
@@ -746,7 +747,7 @@ The tensor product of two irreducible representations of a group is in general
 \begin_inset Formula $\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)$
 \end_inset
 
-, with dimension 
+, a column vector with dimension 
 \begin_inset Formula $\left(\dim X\times\dim Y\right)$
 \end_inset
 
@@ -968,12 +969,12 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 
 \end_inset
 
-, then a linear combination of the CG coefficients 
-\begin_inset Formula $a_{1}M^{\left(1\right)}+\cdots+a_{n}M^{\left(\mu\right)}$
+ , then a linear combination of the CG coefficients 
+\begin_inset Formula $\lambda_{1}M^{\left(1\right)}+\cdots+\lambda_{n}M^{\left(\mu\right)}$
 \end_inset
 
  with 
-\begin_inset Formula $\sum a_{i}^{*}a_{i}=1$
+\begin_inset Formula $\sum_{i}\lambda_{i}^{*}\lambda_{i}=1$
 \end_inset
 
  also satisfy above constraints.
@@ -5349,7 +5350,7 @@ reference "eq:Ex_SixSix2Six"
  shown in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:CGC_S4"
+reference "sec:App_CGC_PSL27"
 
 \end_inset
 
@@ -5446,7 +5447,7 @@ reference "eq:CGSub_ckij"
  shown in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:CGC_T7"
+reference "sec:App_CGC_PSL27_T7"
 
 \end_inset
 
@@ -8386,7 +8387,7 @@ reference "eq:CN_equations"
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:CGC_S4"
+name "sec:App_CGC_PSL27"
 
 \end_inset
 
@@ -8398,7 +8399,101 @@ CG Coefficients of
 \begin_inset Formula $\subga$
 \end_inset
 
- basis
+ Basis
+\end_layout
+
+\begin_layout Standard
+The notations used in this appedix are as follows.
+ If 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ are decomposed to subgroup irreps as 
+\begin_inset Formula 
+\[
+\rep{X}=\bigoplus\rep{x_{a}},\quad\rep{Y}=\bigoplus\rep{y_{b}},\quad\rep{Z}=\bigoplus\rep{z_{c}}
+\]
+
+\end_inset
+
+then the CG coefficients for 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+\end_inset
+
+ will be written as a list of expressions of the form 
+\begin_inset Formula 
+\begin{equation}
+\rep{z_{c}}=\sum_{a,b}\mathcal{M}_{c,ab}\subcgs{x_{a}}{y_{b}}{z_{c}},\label{eq:App_CGList}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+ are Subgroup-basis CG coefficients and 
+\begin_inset Formula $\subcgs{x_{a}}{y_{b}}{z_{c}}$
+\end_inset
+
+ are contrations of subgroup irreps.
+ Note that, for each term 
+\begin_inset Formula $\subcgs{x_{a}}{y_{b}}{z_{c}}$
+\end_inset
+
+ on the 
+\begin_inset Formula $\mathrm{rhs}$
+\end_inset
+
+ of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:App_CGList"
+
+\end_inset
+
+, the first subgroup irrep 
+\begin_inset Formula $\rep{x_{a}}$
+\end_inset
+
+ always comes from 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ and second subgroup irrep 
+\begin_inset Formula $\rep{y_{b}}$
+\end_inset
+
+ always comes from 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the following, 
+\begin_inset Formula $b_{7}$
+\end_inset
+
+ is a pure phase complex constant
+\begin_inset Formula 
+\[
+b_{7}=\frac{\eta+\eta^{2}+\eta^{4}}{\sqrt{2}}=\frac{-1+i\sqrt{7}}{2\sqrt{2}},\quad\eta=e^{2\pi i/7}.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
@@ -12173,7 +12268,7 @@ efl
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:CGC_T7"
+name "sec:App_CGC_PSL27_T7"
 
 \end_inset
 
@@ -12185,11 +12280,19 @@ CG Coefficients of
 \begin_inset Formula $\subgb$
 \end_inset
 
- basis
+ Basis
 \end_layout
 
 \begin_layout Standard
-The following angles will be used in the CG coefficients
+The notations used in this appendix are the same as those of Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:App_CGC_PSL27"
+
+\end_inset
+
+.
+ Two constant angles will be used in the following results
 \begin_inset Formula 
 \[
 \alpha=\arctan\frac{\sqrt{3}}{2},\quad\beta=\arctan\left(3\sqrt{3}+2\sqrt{6}\right).
