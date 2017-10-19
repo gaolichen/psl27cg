@@ -398,8 +398,16 @@ reference "sec:CGCs-in-subgroup"
 
 \end_inset
 
-, we define SBCG coefficients and show that they are basis independent,
- then we discuss how their phases are restricted.
+, we define SBCG coefficients and show that they are basis independent but
+ still have phase ambiguities.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "sec:RedPhaseAmbiguity"
+
+\end_inset
+
+, we discuss how to reduce the phases ambiguities.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -407,8 +415,8 @@ reference "sec:Calc_CGC"
 
 \end_inset
 
-, we describe the procedures to calculate SBCG coefficients.
- We then apply these procedures to the group 
+, we describe the procedures to calculate SBCG coefficients, which are then
+ applied to the group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -442,7 +450,7 @@ reference "sec:Gen_PSL27"
 
 \end_inset
 
-, the representation matrices of 
+, the matrix realizations of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -454,7 +462,7 @@ reference "sec:Calc_PSL27_CGC"
 
 \end_inset
 
-, we give examples of calculating CG coefficients for the tensor product
+, we give examples of calculating SBCG coefficients for the tensor product
  
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{7}$
 \end_inset
@@ -506,42 +514,137 @@ reference "sec:CGC_T7"
  bases.
 \end_layout
 
+\begin_layout Subsection*
+Notations
+\end_layout
+
 \begin_layout Standard
-The notations of this paper are as follows.
- Bold letters denote irreps of a group and the same nonbold letters denote
- vectors in Hilbert spaces on which the group elements act.
- The irreps and vectors of subgroup are denoted by lower case letters and
- those of large group are denoted by upper case letters.
- The notation 
-\begin_inset Formula $\covsub{x}{y}{z}$
+Some of the notations used in the main text are as follows.
+ 
+\begin_inset Formula $G$
 \end_inset
 
- represents the contraction of two irreps 
-\begin_inset Formula $\rep{x}$
+ represents a discrete group and 
+\begin_inset Formula $H$
 \end_inset
 
- and 
-\begin_inset Formula $\rep{y}$
-\end_inset
-
- of a subgroup group to another irrep 
-\begin_inset Formula $\rep{z}$
-\end_inset
-
- and 
-\begin_inset Formula $\covlg{X}{Y}{Z}$
-\end_inset
-
- represents the contraction of two irreps 
+ is its subgroup.
+ The bold letters 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
- and 
+, 
 \begin_inset Formula $\rep{Y}$
 \end_inset
 
- of a large group to another irrep 
+, 
 \begin_inset Formula $\rep{Z}$
+\end_inset
+
+ are irreps of the group 
+\begin_inset Formula $G$
+\end_inset
+
+ and 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $Y$
+\end_inset
+
+, 
+\begin_inset Formula $Z$
+\end_inset
+
+ are corresponding vectors in Hilbert spaces of these irreps.
+ The bold letters 
+\begin_inset Formula $\rep{x}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{y}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{z}$
+\end_inset
+
+ are irreps of group 
+\begin_inset Formula $H$
+\end_inset
+
+, and 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+, 
+\begin_inset Formula $z$
+\end_inset
+
+ are corresponding vectors in Hilbert space of these irreps.
+ Contraction of irreps of 
+\begin_inset Formula $G$
+\end_inset
+
+ are denoted in the form 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+, which means a contraction of 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ to 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ Similarly, 
+\begin_inset Formula $\covsub{x}{y}{z}$
+\end_inset
+
+ represents a contrations of 
+\begin_inset Formula $H$
+\end_inset
+
+ irreps.
+ The letters 
+\begin_inset Formula $i,\,j,\,k$
+\end_inset
+
+ label a single component of a vector or matrix.
+ The letters 
+\begin_inset Formula $a,\,b,\,c$
+\end_inset
+
+ label an irreps of the subgroup.
+ For example 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ mean the 
+\begin_inset Formula $i$
+\end_inset
+
+-th component of 
+\begin_inset Formula $x$
+\end_inset
+
+ while 
+\begin_inset Formula $x_{a}$
+\end_inset
+
+ is a vector corresponding to the irreps 
+\begin_inset Formula $\rep{x_{a}}$
 \end_inset
 
 .
