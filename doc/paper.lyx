@@ -185,19 +185,12 @@ key "Ludl:2009ft"
 \end_inset
 
 .
- However, when comes to CG coefficients involing high-dimensional irreps
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-By high-dimensional irreps, we mean irreps of dimension greater than three.
-\end_layout
-
-\end_inset
-
-, these methods are not effective any more.
- These calculations involve complicated algebraic numbers consist of roots
- of unity 
+ These methods works well for low-dimensional irreps or groups with small
+ order, typically less than 100.
+ However, when comes to CG coefficients of large discrete group or those
+ involing irreps higher than three dimensions, they are usually not effective.
+ The calculation of CG coefficients involve complicated cyclotomic numbers,
+ which consist of roots of unity 
 \begin_inset Formula $e^{2k\pi i/n}$
 \end_inset
 
@@ -221,7 +214,7 @@ key "Chen:2014wiw"
 \end_layout
 
 \begin_layout Standard
-Another issue is that there are ambiguities in CG coefficients.
+Another issue of CG coefficients is that there are ambiguities.
  In general, CG coefficients depend on bases of irreps of the group.
  There are also phase ambiguities for CG coeffcients under fixed bases.
  If 
@@ -267,20 +260,20 @@ reference "sec:Amb_CGC"
 \end_layout
 
 \begin_layout Standard
-We aim to reduce the ambiguities of CG coefficients and find a way to calculate
- the CG coefficients of higer-dimensional irreps of discrete groups.
- We proceed as follows.
+To reduce the ambiguities of CG coefficients and find a way to calculate
+ the CG coefficients of high-dimensional irreps of large discrete groups,
+ we proceed as follows.
 \end_layout
 
 \begin_layout Itemize
 We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
  CG coefficients of a discrete group in terms of irreps of its subgroup.
- In the definition of SBCG, basis information is carried in the projection
- matrices, which convert irreps of the group to irreps of its subgroup.
+ In the definition of SBCG, basis information is carried in projection matrices,
+ which project irreps of the group to irreps of its subgroup.
  SBCG coefficients are therefore independent of bases of both the group
  and its subgroup.
- To reduce phase ambiguities, we impose additonal constraints on SBCG, which
- requires that contractions of the form 
+ To reduce phase ambiguities, we impose constraints on SBCG, which requires
+ that contractions of the form 
 \begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
 \end_inset
 
@@ -329,13 +322,8 @@ We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
 
 \begin_layout Itemize
 We then describe the procedures to calculate SBCG coefficients.
- The crucial step is to solve linear equations with complicated coefficients,
- which can be expressed as polynomials of 
-\begin_inset Formula $e^{2\pi i/n}$
-\end_inset
-
-.
- These coefficients are elements of cyclotomic fields.
+ The crucial step is to solve linear equations with cyclotomic number coefficien
+ts.
  A Mathematica package is developed to perform arithmetic calculations of
  cyclotomic fields.
  We next demonstrate these procedures by calculating the CG coefficients
@@ -361,16 +349,8 @@ We then describe the procedures to calculate SBCG coefficients.
 \end_layout
 
 \begin_layout Standard
-We remark that the similar idea has been applied to continuous groups.
- In ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "deSwart:1963pdg"
-
-\end_inset
-
-, 
+We remark that a similar idea has been applied to continuous groups.
+ For example, 
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
 
@@ -378,8 +358,14 @@ key "deSwart:1963pdg"
 \begin_inset Formula $SU\left(2\right)$
 \end_inset
 
- GG coefficients and isoscalars, which play the same role as SBCG coefficients
- in this paper.
+ GG coefficients and the so called isoscalars
+\begin_inset CommandInset citation
+LatexCommand cite
+key "deSwart:1963pdg"
+
+\end_inset
+
+, which play the same role as SBCG coefficients in this paper.
 \end_layout
 
 \begin_layout Standard
@@ -403,12 +389,12 @@ reference "sec:CGCs-in-subgroup"
  still have phase ambiguities.
  In Section 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "sec:RedPhaseAmbiguity"
 
 \end_inset
 
-, we discuss how to reduce the phases ambiguities.
+, we introduce conventions to reduce the phases ambiguities of SBCG coefficients.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -416,20 +402,8 @@ reference "sec:Calc_CGC"
 
 \end_inset
 
-, we describe the procedures to calculate SBCG coefficients, which are then
- applied to the group 
-\begin_inset Formula $\group$
-\end_inset
-
- and its subgroups 
-\begin_inset Formula $\subga$
-\end_inset
-
- and 
-\begin_inset Formula $\subgb$
-\end_inset
-
- in Section 
+, we describe the procedures to calculate SBCG coefficients.
+ In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Gen_PSL27"
@@ -443,6 +417,18 @@ reference "sec:Calc_PSL27_CGC"
 
 \end_inset
 
+, we apply these procedures to the group 
+\begin_inset Formula $\group$
+\end_inset
+
+ and its subgroups 
+\begin_inset Formula $\subga$
+\end_inset
+
+ and 
+\begin_inset Formula $\subgb$
+\end_inset
+
 .
  In Section 
 \begin_inset CommandInset ref
@@ -451,11 +437,12 @@ reference "sec:Gen_PSL27"
 
 \end_inset
 
-, the matrix realizations of 
+, the matrix realizations of the 
 \begin_inset Formula $\group$
 \end_inset
 
- group are obtained.
+ group are obtained in its subgroup bases, in which subgroup elements are
+ block diagonal matrices.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -500,7 +487,7 @@ reference "sec:App_CGC_PSL27_T7"
 
 \end_inset
 
- list complete sets of CG coefficients of 
+ list complete sets of SBCG coefficients of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -571,7 +558,7 @@ Some of the notations used in the main text are as follows.
 \begin_inset Formula $\rep{z}$
 \end_inset
 
- are irreps of group 
+ are irreps of the subgroup 
 \begin_inset Formula $H$
 \end_inset
 
@@ -592,7 +579,7 @@ Some of the notations used in the main text are as follows.
 \begin_inset Formula $G$
 \end_inset
 
- are denoted in the form 
+ are denoted as 
 \begin_inset Formula $\covlg{X}{Y}{Z}$
 \end_inset
 
@@ -613,7 +600,7 @@ Some of the notations used in the main text are as follows.
 \begin_inset Formula $\covsub{x}{y}{z}$
 \end_inset
 
- represents a contrations of 
+ represents a contration of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -622,12 +609,11 @@ Some of the notations used in the main text are as follows.
 \begin_inset Formula $i,\,j,\,k$
 \end_inset
 
- label a single component of a vector or matrix.
- The letters 
+ label a single component of a vector or matrix while 
 \begin_inset Formula $a,\,b,\,c$
 \end_inset
 
- label an irreps of the subgroup.
+ label an irrep of the subgroup.
  For example 
 \begin_inset Formula $x_{i}$
 \end_inset
@@ -644,7 +630,7 @@ Some of the notations used in the main text are as follows.
 \begin_inset Formula $x_{a}$
 \end_inset
 
- is a vector corresponding to the irreps 
+ is a vector of the irreps 
 \begin_inset Formula $\rep{x_{a}}$
 \end_inset
 
@@ -662,8 +648,7 @@ Ambiguities of Clebsch-Gordan coefficients
 \end_layout
 
 \begin_layout Standard
-The tensor product of two irreducible representations of a group is in general
- reducible.
+The tensor product of two irreps of a group is in general reducible.
  Let 
 \begin_inset Formula $G$
 \end_inset
@@ -694,20 +679,15 @@ The tensor product of two irreducible representations of a group is in general
 
  be vectors of the corresponding Hilbert spaces on which the group elements
  act.
- We use 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
-\end_inset
-
- to indicate that 
+ If 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- is contained in the decomposition of tensor product 
+ is contained in the tensor product 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}$
 \end_inset
 
-.
- Given 
+, then given 
 \begin_inset Formula $X$
 \end_inset
 
@@ -760,34 +740,24 @@ The tensor product of two irreducible representations of a group is in general
 \begin_inset Formula $M_{k\alpha}^{\left(XY\to Z\right)}$
 \end_inset
 
- are called Clebsch-Gordan coefficients.
- For convenience, we will use 
-\begin_inset Formula $M_{k\alpha}$
-\end_inset
+ are called Clebsch-Gordan coefficients
+\begin_inset Foot
+status open
 
- and 
-\begin_inset Formula $M$
-\end_inset
-
- to denote a single CG coefficient and the matrix of CG coefficients respectivel
-y.
- Sometimes we will write 
-\begin_inset Formula $Z=M^{\left(XY\to Z\right)}\left(X\otimes Y\right)$
-\end_inset
-
-, which should be understood the same as the 
-\begin_inset Formula $g=e$
-\end_inset
-
- case of eq.
+\begin_layout Plain Layout
+While we define CG coefficients with vector spaces, there also exists equivalent
+ definition with group elements.
  
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGC_Def"
+\end_layout
 
 \end_inset
 
 .
+ For convenience, we may suppress the superscript 
+\begin_inset Formula $\left(XY\to Z\right)$
+\end_inset
+
+ if there is no danger of confusion.
 \end_layout
 
 \begin_layout Standard
@@ -820,8 +790,8 @@ reference "eq:CGC_Def"
 \end_inset
 
  also satisfy the equation.
- So it is then conventional to impose normalization constraints on CG coefficien
-ts 
+ So it is then conventional to impose on CG coefficients, in addition to
+ orthogonality, normalization constraints, which give rise to 
 \begin_inset Formula 
 \begin{equation}
 \sum_{\alpha}M_{k\alpha}^{*}M_{l\alpha}=\delta_{kl}.\label{eq:CGC_Orthnormal}
@@ -931,23 +901,18 @@ reference "eq:CGC_Orthnormal"
 \end_inset
 
 .
- The last ambiguity exists when there are nontrivial multiplicity, i.e.
- 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(\mu\right)}$
-\end_inset
-
-
+ The last ambiguity exists when there are nontrivial multiplicity
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
 The tensor product of two identical irreps has symmetric and antisymmetric
  parts.
- If both parts contain an irrep 
+ If both parts contain the irrep 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
-, then 
+ one time, then 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
@@ -965,8 +930,14 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 \end_inset
 
  as two different irreps when calculating the CG coefficients.
+ So in this paper, such a case is not considered as nontrivial multiplicity
+ case.
 \end_layout
 
+\end_inset
+
+, i.e., 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(\mu\right)}$
 \end_inset
 
  , then a linear combination of the CG coefficients 
@@ -1026,31 +997,25 @@ Let
 status open
 
 \begin_layout Plain Layout
-On the rhs of eq.
- 
+The 
+\begin_inset Formula $\mathrm{rhs}$
+\end_inset
+
+ of each equations of 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_Embed"
 
 \end_inset
 
-, 
-\begin_inset Formula $\{\rep{r_{a}}\}$
-\end_inset
-
- may contain duplicated members, which introduces additional complexity
- to the problem.
- But such as case can be avoided by choosing a large enough subgroup 
+ may contain duplicated irreps, which introduces additional complexity.
+ Such a case can be avoided by choosing a large enough subgroup 
 \begin_inset Formula $H$
 \end_inset
 
 .
- So here we only consider the case that all 
-\begin_inset Formula $\rep{r_{i}}$
-\end_inset
-
- are distinct.
- 
+ So we only consider the case that no irrep is contained twice in a irrep
+ of the large group.
 \end_layout
 
 \end_inset
@@ -1096,11 +1061,11 @@ P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{
 \begin_inset Formula $P_{X\to a}$
 \end_inset
 
- is a 
+ is a matrix of dimension 
 \begin_inset Formula $\dim\rep{x_{a}}\times\dim\rep{X}$
 \end_inset
 
- dimensional projection matrix of to obtain the 
+ to project the 
 \begin_inset Formula $x_{a}$
 \end_inset
 
@@ -1112,8 +1077,16 @@ P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{
 \begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
- are Subgroup-basis Clebsch-Gordan coefficients.
- The coefficients 
+ are subgroup-basis Clebsch-Gordan coefficients.
+ In analogy to eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGC_Def"
+
+\end_inset
+
+, the coefficients 
 \begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
@@ -1151,25 +1124,16 @@ end{widetext}
 
 \end_inset
 
- where 
-\begin_inset Formula $\mr{X}\left(g\right)$
-\end_inset
-
- are matrix realization of 
-\begin_inset Formula $\rep{X}$
-\end_inset
-
-.
- When 
-\begin_inset Formula $g=e$
-\end_inset
-
-, the above equation reduces to eq.
+which reduces to eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_Def"
 
+\end_inset
+
+ when 
+\begin_inset Formula $g=e$
 \end_inset
 
 .
@@ -1221,7 +1185,7 @@ reference "eq:CGSub_Def2"
 \end_layout
 
 \begin_layout Proof
-Under the basis transformation of the group 
+Under a basis transformation of the group 
 \begin_inset Formula $G$
 \end_inset
 
@@ -1278,18 +1242,19 @@ reference "eq:CGSub_Def2"
 \end_layout
 
 \begin_layout Proof
-Now consider the basis transformation of the subgroup 
-\begin_inset Formula $H$
+Now consider the basis transformation of the subgroup irreps.
+ We can choose a special form for projection matrices since, without chaning
+ 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
-.
- Without loss of generality, we can choose a special form for projection
- matrices, which can be obtained the basis transformations of the 
+ coefficients, they can always be obtained by basis transformations of the
+ irreps of 
 \begin_inset Formula $G$
 \end_inset
 
 .
- We choose a basis where elements of 
+ So we choose a basis where elements of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -1319,7 +1284,7 @@ P_{X\to a}=\begin{pmatrix}O_{1} & \cdots & O_{a-1} & P_{X\to a}^{\left(\mathrm{n
 \end_inset
 
 .
- For any basis transformations of subgroup 
+ For basis transformations of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -1353,7 +1318,7 @@ the subgroup contraction
  should transform as 
 \begin_inset Formula 
 \begin{equation}
-z_{c}=\left\{ x_{a}\otimes y_{b}\right\} _{z_{c}}\to z_{c}^{\prime}=\left\{ U_{a}x_{a}\otimes U_{b}y_{b}\right\} _{U_{c}z_{c}}^{\prime},
+z_{c}=\left\{ x_{a}\otimes y_{b}\right\} _{z_{c}}\to z_{c}^{\prime}=\left\{ U_{a}x_{a}\otimes U_{b}y_{b}\right\} _{z_{c}^{\prime}}^{\prime},
 \end{equation}
 
 \end_inset
@@ -1371,12 +1336,12 @@ end{subequations}
 
 \end_inset
 
-where we have used the primed brackets to take care of the new CG coefficients
+where we have used the primed brackets to indicate the new CG coefficients
  in the new basis.
  It then implies 
 \begin_inset Formula 
 \begin{equation}
-\left\{ U_{a}x_{a}\otimes U_{b}y_{b}\right\} _{z_{c}^{\prime}}^{\prime}=U_{c}\left\{ x_{a}\otimes y_{b}\right\} _{z_{c}},\label{eq:CG_Tran_II_UxUy}
+\left\{ U_{a}x_{a}\otimes U_{b}y_{b}\right\} _{z_{c}^{\prime}}^{\prime}=U_{c}\left\{ x_{a}\otimes y_{b}\right\} _{z_{c}}.\label{eq:CG_Tran_II_UxUy}
 \end{equation}
 
 \end_inset
@@ -1420,14 +1385,28 @@ P_{X\to a}U_{X}=U_{a}P_{X\to a}.\label{eq:CG_PU}
 
 \end_inset
 
- Therefore, 
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_Tran_II_UxUy"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CG_PU"
+
+\end_inset
+
+ implies that 
 \begin_inset Formula $P_{X\to a}\mr{X}\left(g\right)X$
 \end_inset
 
  transforms as 
 \begin_inset Formula 
 \[
-P_{X\to a}\mr{X}\left(g\right)X\to P_{X\to a}U_{X}\mr{X}\left(g\right)X=U_{a}P_{X\to a}U_{X}\mr{X}\left(g\right)X.
+P_{X\to a}\mr{X}\left(g\right)X\to U_{a}P_{X\to a}\mr{X}\left(g\right)X.
 \]
 
 \end_inset
@@ -1456,8 +1435,8 @@ reference "eq:CGSub_Def2"
  becomes 
 \begin_inset Formula 
 \begin{align*}
-\mathrm{rhs} & =\sum_{a,b}\mathcal{M}_{c,ab}\left\{ \left(U_{a}P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(U_{b}P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}}^{\prime}\\
- & =U_{c}\sum_{a,b}\mathcal{M}_{c,ab}\left\{ \left(P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}}\\
+\mathrm{rhs} & =\sum_{a,b}\mathcal{M}_{c,ab}\left\{ U_{a}P_{X\to a}\mr{X}\left(g\right)X\otimes U_{b}P_{Y\to b}\mr{Y}\left(g\right)Y\right\} _{z_{c}^{\prime}}^{\prime}\\
+ & =U_{c}\sum_{a,b}\mathcal{M}_{c,ab}\left\{ P_{X\to a}\mr{X}\left(g\right)X\otimes P_{Y\to b}\mr{Y}\left(g\right)Y\right\} _{z_{c}}\\
  & =U_{c}P_{Z\to c}\mr{Z}\left(g\right)Z=\mathrm{lhs},
 \end{align*}
 
@@ -1472,7 +1451,7 @@ reference "eq:CG_Tran_II_UxUy"
 \end_inset
 
  in the second equality.
- Above calculation shows that eq.
+ Eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1480,7 +1459,7 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
- is invariant under the basis transformations 
+ is therefore invariant under the basis transformations 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CG_Tran_II"
@@ -1492,15 +1471,17 @@ reference "eq:CG_Tran_II"
 \end_layout
 
 \begin_layout Standard
-We have showed that SBCG coefficients are independent of basis of both the
+We have showed that SBCG coefficients are independent of bases of both the
  group and its subgroup.
  There are, however, still ambiguities in SBCG coefficients.
+ Since we can multiply a vector with a phase without changing its representation
+, the projection matrices, as well as the subgroup CG coefficients, have
+ phase ambiguities.
  Consider the 
 \begin_inset Formula $U\left(1\right)$
 \end_inset
 
- transformations on irreps and subgroup CG coefficients in the following
- forms
+ transformations on projection matrices and subgroup CG coefficients
 \begin_inset Formula 
 \begin{align}
 P_{X\to a} & \to e^{i\theta_{a}^{\left(X\right)}}P_{X\to a},\label{eq:U1_PXa}\\
@@ -1521,27 +1502,26 @@ Under these
 
 \end_inset
 
- We see that there are four phase ambiguities for each SBCG coefficient.
- These phase ambiguities stem from the phase ambiguity of irreps and CG
- coefficients.
- In general, they can be removed or reduced by appropriate phase conventions,
- which are usually basis dependent.
+ We see that there are in general four phase ambiguities for each SBCG coefficie
+nt.
+ They can be removed or reduced by appropriate phase conventions, which
+ are usually basis dependent.
  For example, for 
 \begin_inset Formula $SU\left(2\right)$
 \end_inset
 
- CG coefficients, it is conventional to choose first CG coefficient be real
- and positive.
+ CG coefficients, it is conventional to choose a particular CG coefficient
+ to be real and positive.
  In the following section, we introduce a basis independent convention,
- which can reduce these 
+ which can reduce the number of 
 \begin_inset Formula $U\left(1\right)$
 \end_inset
 
- ambiguities and, in some cases, reduce them to sign (
+ ambiguities and, in some cases, reduce the ambiguities to 
 \begin_inset Formula $Z_{2}$
 \end_inset
 
-) ambiguities.
+ ambiguities, i.e., ambiguities of sign factors.
 \end_layout
 
 \begin_layout Section
@@ -1580,6 +1560,13 @@ ions.
 \end_inset
 
  so that 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ramond:2010zz"
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \cp\rho\left(g\right)^{*}\left(\cp\right)^{\dagger}=\bar{\rho}\left(g\right),\quad\forall g\in G.\label{eq:CGSub_Gamma}
