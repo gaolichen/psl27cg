@@ -295,11 +295,11 @@ We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- are all real or pseudo-real or ii) 
+ are all real or pseudoreal or ii) 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- is real or pseudo-real and 
+ is real or pseudoreal and 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -1537,26 +1537,29 @@ Reducing phase ambiguities
 \begin_layout Standard
 To introduce the phase convention, we first discuss real and complex representat
 ions.
- A real (or pseudo-real) representation is a representation whose complex
- conjugate is equivalent to itself.
- While a complex representation is inequivalent to its complex conjugate.
- For convenience, we define a complex conjugate of a real (or pseudo-real)
- representation to be itself.
+ A real or pseudoreal representation is a representation whose complex conjugate
+ is equivalent to itself while a complex representation is a representation
+ that is inequivalent to its complex conjugate.
+ So we can define the complex conjugate of a real (or pseudoreal) representation
+ to be itself.
  Now if 
-\begin_inset Formula $\rho$
+\begin_inset Formula $\rho_{\rep{X}}$
 \end_inset
 
- is a matrix realization of a representation of group 
-\begin_inset Formula $G$
+ is a matrix realization of the representation 
+\begin_inset Formula $\rep{X}$
 \end_inset
 
  and 
-\begin_inset Formula $\bar{\rho}$
+\begin_inset Formula $\rho_{\rep{\bar{X}}}$
 \end_inset
 
- be the matrix realization of the complex conjugate representation, then
- there exists a unitary matrix 
-\begin_inset Formula $\cp$
+ be the matrix realization of the complex conjugate 
+\begin_inset Formula $\rep{\bar{X}}$
+\end_inset
+
+, then there exists a unitary matrix 
+\begin_inset Formula $\cpx{X}$
 \end_inset
 
  so that 
@@ -1569,48 +1572,72 @@ key "Ramond:2010zz"
 
 \begin_inset Formula 
 \begin{equation}
-\cp\rho\left(g\right)^{*}\left(\cp\right)^{\dagger}=\bar{\rho}\left(g\right),\quad\forall g\in G.\label{eq:CGSub_Gamma}
+\cpx{X}\rho_{\rep{X}}\left(g\right)^{*}\cpx{X}^{\dagger}=\rho_{\rep{\bar{X}}}\left(g\right),\quad\forall g\in G.\label{eq:CGSub_Gamma}
 \end{equation}
 
 \end_inset
 
-When the representation is complex, we can always choose 
-\begin_inset Formula $\bar{\rho}\left(g\right)=\rho\left(g\right)^{*}$
+When 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ is complex, we can always choose 
+\begin_inset Formula $\rho_{\rep{\bar{X}}}\left(g\right)=\rho_{\rep{X}}\left(g\right)^{*}$
 \end_inset
 
  so that 
-\begin_inset Formula $\cp$
+\begin_inset Formula $\cpx{X}$
 \end_inset
 
- is simplify the identity matrix.
- When the representation is real, then 
-\begin_inset Formula $\bar{\rho}$
+ is the identity matrix.
+ When 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ is real or pseudoreal, then 
+\begin_inset Formula $\rho_{\rep{\bar{X}}}$
 \end_inset
 
  should be the same as 
-\begin_inset Formula $\rho$
+\begin_inset Formula $\rho_{\rep{X}}$
 \end_inset
 
  and 
-\begin_inset Formula $\cp$
+\begin_inset Formula $\cpx{X}$
 \end_inset
 
  is in general a nontrivial unitary matrix depending on the basis of the
  representation.
- Particularly, for real representation, 
-\begin_inset Formula $\cp\cp^{*}=\pm I$
+ Particularly, for real or pseudoreal 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\cpx{X}\cpx{X}^{*}=\pm\mathbf{I}$
 \end_inset
 
 , where 
 \begin_inset Formula $+$
 \end_inset
 
- is for real representation and 
+ is for real 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ and 
 \begin_inset Formula $-$
 \end_inset
 
- is for pseudo-real representation.
- In the Hilbert space, eq.
+ for pseudoreal 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In the Hilbert space, eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1626,7 +1653,35 @@ reference "eq:CGSub_Gamma"
 
 \end_inset
 
-It is natural to impose constraints similar to 
+In the terminology of physics, the matrices 
+\begin_inset Formula $\cp$
+\end_inset
+
+ transform a particle to its antiparticle with opposite charge and parity.
+ In this sense, we shall refer 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon2"
+
+\end_inset
+
+ as charge-parity (CP) constraints and 
+\begin_inset Formula $\cpx{Z}$
+\end_inset
+
+ as CP transformation for irrep 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+.
+ It is natural to impose constraints similar to 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub-GammaX"
@@ -1679,34 +1734,6 @@ where the matrix
 
  to 
 \begin_inset Formula $z_{c}$
-\end_inset
-
-.
- In the terminology of physics, the matrices 
-\begin_inset Formula $\cp$
-\end_inset
-
- transform a particle to its antiparticle with opposite charge and parity.
- In this sense, we shall refer 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_GammaCon1"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_GammaCon2"
-
-\end_inset
-
- as charge-parity (CP) constraints and 
-\begin_inset Formula $\cpx{Z}$
-\end_inset
-
- as CP transformation for irrep 
-\begin_inset Formula $\rep{Z}$
 \end_inset
 
 .
@@ -1892,7 +1919,7 @@ We see that the relation between
 \begin_inset Formula $\rep{x_{a}}$
 \end_inset
 
- is real (not pseudo-real) and the irrep is in a basis that the matrices
+ is real (not pseudoreal) and the irrep is in a basis that the matrices
  of its generators are all real.
  The latter implies that, if all the three irreps real, there exist bases
  that the CG coefficients 
@@ -1929,15 +1956,15 @@ reference "eq:U1_subcg"
 \begin_inset Formula $\rep{z_{c}}$
 \end_inset
 
- are all real or pseudo-real irreps or that 
+ are all real or pseudoreal irreps or that 
 \begin_inset Formula $\rep{z_{a}}$
 \end_inset
 
- is (pseudo-)real and 
+ is real or pseudoreal and 
 \begin_inset Formula $\rep{x_{a}}$
 \end_inset
 
- is complex conjugate of 
+ is the complex conjugate of 
 \begin_inset Formula $\rep{y_{b}}$
 \end_inset
 
@@ -1993,7 +2020,7 @@ If both
 \end_inset
 
  are real, we have 
-\begin_inset Formula $\theta_{c}^{\left(Z\right)}$
+\begin_inset Formula $\theta_{a}^{\left(X\right)}$
 \end_inset
 
  is fixed to 
@@ -2013,14 +2040,14 @@ If both
 \end_inset
 
  ambiguity; if any of the irreps is complex, we have 
-\begin_inset Formula $\theta_{\bar{c}}^{\left(\bar{Z}\right)}=-\theta_{c}^{\left(Z\right)}$
+\begin_inset Formula $\theta_{\bar{a}}^{\left(\bar{X}\right)}=-\theta_{a}^{\left(X\right)}$
 \end_inset
 
 , which implies that the 
 \begin_inset Formula $U\left(1\right)\times U\left(1\right)$
 \end_inset
 
- ambiguity is reduced to single 
+ ambiguity is reduced to a single 
 \begin_inset Formula $U\left(1\right)$
 \end_inset
 
@@ -2115,7 +2142,7 @@ P_{\bar{Z}\to\bar{c}}\bar{Z}=\sum_{a,b}\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\le
 
 \end_inset
 
-Meanwhile, we can also write 
+On the other hand, we can also write 
 \begin_inset Formula $P_{\bar{Z}\to\bar{c}}\bar{Z}$
 \end_inset
 
@@ -2174,7 +2201,7 @@ reference "eq:CGSub_ckij"
 \end_layout
 
 \begin_layout Standard
-Note that eq.
+We stress that eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -2182,17 +2209,27 @@ reference "eq:CGSub_ckij"
 
 \end_inset
 
- holds only when the CG coefficients of the subgroup also obey the CP constraint.
- Unlike eq.
+ holds only when the CG coefficients of the subgroup obey the constraint
  
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon2"
+
+\end_inset
+
+.
+ Compare with the constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_CXYZ"
 
 \end_inset
 
-, eq.
- 
+ on CG coefficients 
+\begin_inset Formula $M$
+\end_inset
+
+, the constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_ckij"
@@ -2221,7 +2258,7 @@ reference "eq:CGSub_ckij"
 \end_inset
 
  represents the same contration, which occurs explicitly in the following
- two cases.
+ two cases:
 \end_layout
 
 \begin_layout Itemize
@@ -2237,7 +2274,7 @@ Case I: all of
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- irreps are real or pseudo-real.
+ irreps are real or pseudoreal.
  Particularly, if subgroup irreps 
 \begin_inset Formula $\rep{z_{c}}$
 \end_inset
@@ -2254,7 +2291,7 @@ Case I: all of
 \begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
- is a real number.
+ is a real number and fixed up to a sign factor.
 \end_layout
 
 \begin_layout Itemize
@@ -2262,7 +2299,7 @@ Case II:
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- is real or pseudo-real and 
+ is real or pseudoreal and 
 \begin_inset Formula $\rep{X}=\rep{\bar{Y}}$
 \end_inset
 
@@ -2270,28 +2307,28 @@ Case II:
 \end_layout
 
 \begin_layout Standard
-The CP constraint 
+The constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_GammaCon1"
 
 \end_inset
 
- implies similar constraints for contractions of more than two covariants.
+ implies similar constraints for contractions of more than two vectors.
  Consider a contraction of three vectors 
 \begin_inset Formula $\covlg{X}{\covlg{V}{W}{Y}}{Z}$
 \end_inset
 
- and its counterpart under CP transformation 
+ and its counterpart under complex conjugate 
 \begin_inset Formula $\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{\bar{Y}}}{\bar{Z}}$
 \end_inset
 
 .
  The relation between these two is
 \begin_inset Formula 
-\[
-\cpx{Z}\left(\covlg{X}{\covlg{V}{W}{Y}}{Z}\right)^{*}=\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{\bar{Y}}}{\bar{Z}}.
-\]
+\begin{equation}
+\cpx{Z}\left(\covlg{X}{\covlg{V}{W}{Y}}{Z}\right)^{*}=\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{\bar{Y}}}{\bar{Z}}.\label{eq:CGSub_XVW}
+\end{equation}
 
 \end_inset
 
@@ -2315,7 +2352,15 @@ reference "eq:CGSub_CXYZ"
 \end_inset
 
 .
- In general we have
+ We can generalize eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_XVW"
+
+\end_inset
+
+ to contractions involving arbitary number of vectors
 \begin_inset Formula 
 \[
 \cpx{Z}\left(\covlg{X\otimes Y\otimes\cdots}{W}{Z}\right)^{*}=\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{\bar{Z}},
@@ -2323,20 +2368,16 @@ reference "eq:CGSub_CXYZ"
 
 \end_inset
 
- where we have suppressed all the nesting structures and intermediate irreps
- and the 
+ where the 
 \begin_inset Formula $\mathrm{rhs}$
 \end_inset
 
- is the CP counterpart of 
-\begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{Z}$
-\end_inset
-
- on the 
+ is the complex conjugate counterpart of the term inside the round parentheses
+ of the 
 \begin_inset Formula $\mathrm{lhs}$
 \end_inset
 
-.
+ and we have suppressed all the nesting structures and intermediate irreps.
  When 
 \begin_inset Formula $\rep{Z}$
 \end_inset
@@ -2362,7 +2403,8 @@ reference "eq:CGSub_CXYZ"
 \begin_inset Formula $\rep{1}$
 \end_inset
 
- being the trivial singlet, is invariant under CP transformation, i.e.
+ being the trivial singlet, is invariant under complex conjugate operation
+ of irreps, i.e.
  
 \begin_inset Formula $\covlg{X\otimes Y\otimes\cdots}{W}{1}=\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{1}$
 \end_inset
@@ -2372,7 +2414,7 @@ reference "eq:CGSub_CXYZ"
 
 \begin_layout Standard
 The above property has an implication in flavor physics models with discrete
- symmetries.
+ flavor symmetries.
  For a unitary theory, the Lagrangian should be real.
  Therefore, for each term of the Lagrangian, one needs to add its complex
  conjugate to the Lagrangian.
@@ -2394,15 +2436,16 @@ The above property has an implication in flavor physics models with discrete
 \end_inset
 
  are not necessary complex conjugate to each other.
- To make these two terms complex conjugate, 
+ Therefore, the coupling constant 
 \begin_inset Formula $\lambda$
 \end_inset
 
- in general has to be a complex number with certain phase.
- With the SBCG coefficients defined under the CP constraint 
+ in general has to be a complex number with certain phase to make the Lagrangian
+ real.
+ With the SBCG coefficients defined under constraints 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CGSub_GammaCon1"
+reference "eq:CG_GammaCon"
 
 \end_inset
 
@@ -2412,74 +2455,6 @@ reference "eq:CGSub_GammaCon1"
 
  can always be a real number.
  
-\end_layout
-
-\begin_layout Standard
-Finally, let us remark on the relative phases among the SBCG coefficients.
- In general, the phase of an individual SBCG coefficients 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
-\end_inset
-
- depends on the overall phase of the subgroup CG coefficients 
-\begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{c}\right)}$
-\end_inset
-
-.
- We see that Eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_Def2"
-
-\end_inset
-
- is invariant under the following transformation 
-\begin_inset Formula 
-\begin{equation}
-\covsub{x_{a}}{y_{b}}{z_{c}}\to e^{i\theta}\covsub{x_{a}}{y_{b}}{z_{c}},\quad\mathcal{M}_{c,ab}\to e^{-i\theta}\mathcal{M}_{c,ab}.\label{eq:CGSub_Mcab_phase}
-\end{equation}
-
-\end_inset
-
- Such a transformation is allowed for all 
-\begin_inset Formula $0<\theta<2\pi$
-\end_inset
-
- if any of 
-\begin_inset Formula $\rep{x_{a}}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{y_{b}}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{z_{c}}$
-\end_inset
-
- is complex.
- Therefore, the relative phase among SBCG coefficients are in general not
- fixed.
- But if all of irreps are real or pseudo-real, then 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_Mcab_phase"
-
-\end_inset
-
- is allowed only for 
-\begin_inset Formula $\theta=\pi$
-\end_inset
-
-, meaning that 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
-\end_inset
-
- is fixed up to a sign factor.
- If the subgroup is an ambivalent group, a group whose irreps are either
- real or pseudo-real, then all the the relative phases among SBCG coefficients
- are fixed up to a sign factor.
- [TODO: remove the paragraph]
 \end_layout
 
 \begin_layout Section
@@ -2927,11 +2902,11 @@ reference "sec:CGCs-in-subgroup"
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- are real (or pseudo-real) irreps or when only 
+ are real (or pseudoreal) irreps or when only 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- is real (or pseudo-real) and 
+ is real (or pseudoreal) and 
 \begin_inset Formula $\rep{X}=\rep{\bar{Y}}$
 \end_inset
 
@@ -3434,7 +3409,7 @@ Since
 \begin_inset Formula $\subga$
 \end_inset
 
- is a ambivalent group, whose irreps all are real or pseudo-real, the overall
+ is a ambivalent group, whose irreps all are real or pseudoreal, the overall
  phases of 
 \begin_inset Formula $\subga$
 \end_inset
