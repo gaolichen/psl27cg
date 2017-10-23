@@ -2484,8 +2484,8 @@ reference "eq:CGSub_Def2"
 \end_layout
 
 \begin_layout Standard
-To find the SBCG coefficients, we need to first find CG coefficients of
- the subgroup.
+To find SBCG coefficients of the group, we need to first find CG coefficients
+ of the subgroup.
  Here, we assume that the matrix realizations, CP transformations of irreps,
  and CG coefficients of the subgroup 
 \begin_inset Formula $H$
@@ -2509,7 +2509,7 @@ Step I
 \end_layout
 
 \begin_layout Standard
-Find matrix realizations of all the irreps of 
+Find matrix realizations of irreps of 
 \begin_inset Formula $G$
 \end_inset
 
@@ -2557,11 +2557,11 @@ There is a special case that the projection matrix cannot be in the trivial
 
 .
  If we choose 
-\begin_inset Formula $P_{3\to3_{2}}$
+\begin_inset Formula $P_{3\to3_{2}}^{\left(\mathrm{nonzero}\right)}$
 \end_inset
 
  to be a identify matrix, then 
-\begin_inset Formula $P_{\bar{3}\to3_{2}}$
+\begin_inset Formula $P_{\bar{3}\to3_{2}}^{\left(\mathrm{nonzero}\right)}$
 \end_inset
 
  cannot be identity matrix simultaneously.
@@ -2631,7 +2631,7 @@ Write down the most general decomposition of a contraction
 \begin_inset Formula $\covlg{X}{Y}{Z}$
 \end_inset
 
- into subgroup contraction as eq.
+ into subgroup contractions, as eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -2639,7 +2639,7 @@ reference "eq:CGSub_Def"
 
 \end_inset
 
- with undetermined SBCG coefficients 
+, with undetermined SBCG coefficients 
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
@@ -2681,7 +2681,7 @@ reference "eq:CGSub_Def"
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CGSub_Def"
+reference "eq:CGSub_Def2"
 
 \end_inset
 
@@ -2694,6 +2694,20 @@ reference "eq:CGSub_Def"
 \end_inset
 
 .
+ If a generator is a member of the subgroup, then eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_Def2"
+
+\end_inset
+
+ is automatically satisified.
+ So we only need to substitute 
+\begin_inset Formula $g$
+\end_inset
+
+ with those generators that are not member of the subgroup.
  By matching of the coefficients of bilinear forms of 
 \begin_inset Formula $X$
 \end_inset
@@ -2727,12 +2741,17 @@ Alternatively, instead of matching coefficients of bilinear forms, we can
  with some constant vectors 
 \begin_inset Formula 
 \begin{equation}
-\left(X,Y\right)=\left(V^{\left(p\right)},W^{\left(p\right)}\right),\quad p=1,2,\cdots\label{eq:Proc_XY}
+\left\{ X=V^{\left(p\right)},Y=W^{\left(p\right)}\right\} ,\quad p=1,2,\cdots,\label{eq:Proc_XY}
 \end{equation}
 
 \end_inset
 
-There are different choices of the constant vectors 
+ with each 
+\begin_inset Formula $p$
+\end_inset
+
+ corresponding to one input.
+ There are different choices of the constant vectors 
 \begin_inset Formula $V^{\left(p\right)}$
 \end_inset
 
@@ -2790,7 +2809,7 @@ V_{k}^{\left(p\right)}=\delta_{k,i_{p}},\,W_{k}^{\left(p\right)}=\delta_{k,j_{p}
 \begin_inset Formula $N_{c}$
 \end_inset
 
- is number of the unknown variables 
+ is the number of the unknown variables 
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
@@ -2815,13 +2834,13 @@ The third step is to solve for the unknown variables
 \begin_inset Formula $N_{c}-\mu_{Z}$
 \end_inset
 
- variables can be expressed as linear combination of the free variables.
+ variables be expressed as linear combinations of the free variables.
  In principle, we could solve these linear equations using standard methods.
  However, as the coefficients of these linear equations are cyclotomic numbers,
  which come from the matrices of group generators, the exact solutions are
- usually involved unless we find a clever way to simplify the results.
- If we use program like Mathematica to do the work, it usually cannot simplify
- the solution to appropriate forms.
+ usually involved.
+ If we use Mathematica to solve the equations directly, it usually cannot
+ simplify the solution to appropriate forms.
  
 \end_layout
 
@@ -2830,10 +2849,10 @@ There are two ways to solve the issue.
  The first way is to use the calculation technique of cyclotomic numbers.
  We can apply Gaussian elimination algorithm with arithmetic operation of
  cyclotomic numbers to solve the equations.
- To be efficient, the Gaussian elimination procedure should only apply to
- a set of independent equations, which can be found by converting the coefficien
-ts of equations to float numbers and apply regular Gaussian elimination
- algorithm with certain error tolerance.
+ To be efficient, the Gaussian elimination procedure should apply to a set
+ of independent equations, which can be found by converting the coefficients
+ of equations to float numbers and apply regular Gaussian elimination algorithm
+ with certain error tolerance.
 \end_layout
 
 \begin_layout Standard
@@ -2859,7 +2878,7 @@ The document of the function can be found on http://reference.wolfram.com/langua
  before solving the equations.
  Again, this can be done by the Gaussian elimination algorithm with an appropria
 te error tolerance.
- The method is informal comparing to the first method.
+ The method is informal comparing to the first one.
  But we found it very effective in the calculation of 
 \begin_inset Formula $\group$
 \end_inset
@@ -2872,8 +2891,14 @@ Step IV
 \end_layout
 
 \begin_layout Standard
-The last step is to apply the CP and orthonormalization constraints on the
- SBCG coefficients.
+The last step is to apply the constraints of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ and orthonormalization on the SBCG coefficients.
  As discussed in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2910,7 +2935,7 @@ reference "sec:CGCs-in-subgroup"
 \begin_inset Formula $\rep{X}=\rep{\bar{Y}}$
 \end_inset
 
- is complex, the overall phases of the SBCG coefficients are fixed.
+, the overall phases of the SBCG coefficients are fixed.
  The CP constraints of these two cases can be solved as follows.
  Let 
 \begin_inset Formula $\left\{ \mathcal{M}_{A}\right\} $
