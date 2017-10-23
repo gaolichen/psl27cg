@@ -277,8 +277,8 @@ We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
 \begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
 \end_inset
 
- behave the same as an irrep under charge-parity (CP) like transformations.
- Such constraints restrict the overall phase of SBCG coefficients.
+ behave the same as an irrep under the action of taking complex conjugate.
+ Such a constraint restricts the overall phase of SBCG coefficients.
  Particularly, the overall phase of SBCG coefficients for 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
@@ -2486,13 +2486,13 @@ reference "eq:CGSub_Def2"
 \begin_layout Standard
 To find SBCG coefficients of the group, we need to first find CG coefficients
  of the subgroup.
- Here, we assume that the matrix realizations, CP transformations of irreps,
- and CG coefficients of the subgroup 
+ Here, we assume that the matrix realizations, and CG coefficients of the
+ subgroup 
 \begin_inset Formula $H$
 \end_inset
 
  are known or easy to find.
- Moreover, the CG coefficients of the subgroup should satisfy the CP constraints
+ Moreover, the CG coefficients of the subgroup should satisfy the constraints
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -2899,44 +2899,36 @@ reference "eq:CGSub_ckij"
 \end_inset
 
  and orthonormalization on the SBCG coefficients.
- As discussed in section 
+ The constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ simply means that the SBCG of 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+ are complex conjugate of those of 
+\begin_inset Formula $\covlg{\bar{X}}{\bar{Y}}{\bar{Z}}$
+\end_inset
+
+.
+ Thus, it needs to be taken care of only when 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+ is invariant under the complex conjugate transformation of irreps, i.e.,
+ the Case I and II of section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:CGCs-in-subgroup"
 
 \end_inset
 
-, the CP constraints require that SBCG coefficients of 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
-\end_inset
-
- and 
-\begin_inset Formula $\rep{\bar{X}}\otimes\rep{\bar{Y}}\to\rep{\bar{Z}}$
-\end_inset
-
- to be complex conjugate of each other.
- When all of 
-\begin_inset Formula $\rep{X}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{Y}$
-\end_inset
-
-, and 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- are real (or pseudoreal) irreps or when only 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- is real (or pseudoreal) and 
-\begin_inset Formula $\rep{X}=\rep{\bar{Y}}$
-\end_inset
-
-, the overall phases of the SBCG coefficients are fixed.
- The CP constraints of these two cases can be solved as follows.
+.
+ The constraint under these two cases can be solved as follows.
  Let 
 \begin_inset Formula $\left\{ \mathcal{M}_{A}\right\} $
 \end_inset
@@ -2949,31 +2941,30 @@ reference "sec:CGCs-in-subgroup"
 \begin_inset Formula $\left(c,ab\right)$
 \end_inset
 
-, then the CP constraints are translated into linear equations 
+, then the constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ are translated into equations of the form 
 \begin_inset Formula 
 \begin{equation}
-L_{1}\left(\left\{ \mathcal{M}_{A}\right\} \right)-L_{2}\left(\left\{ \mathcal{M}_{A}^{*}\right\} \right)=0,\label{eq:Proc_aPcP}
+\sum_{A}\alpha_{A}\mathcal{M}_{A}=\sum_{A}\beta_{A}\mathcal{M}_{A}^{*},\label{eq:Proc_aPcP}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $L_{1}$
+\begin_inset Formula $\left\{ \alpha_{A}\right\} $
 \end_inset
 
  and 
-\begin_inset Formula $L_{2}$
+\begin_inset Formula $\left\{ \beta_{A}\right\} $
 \end_inset
 
- are linear combinations of 
-\begin_inset Formula $\left\{ \mathcal{M}_{A}\right\} $
-\end_inset
-
- and 
-\begin_inset Formula $\left\{ \mathcal{M}_{A}^{*}\right\} $
-\end_inset
-
- respectively.
+ are constant c-numbers.
  These equations can be solve by expressing 
 \begin_inset Formula $\mathcal{M}_{A}$
 \end_inset
@@ -2983,8 +2974,7 @@ L_{1}\left(\left\{ \mathcal{M}_{A}\right\} \right)-L_{2}\left(\left\{ \mathcal{M
 \end_inset
 
 .
- We need apply the orthonormalization constraints to the SBCG coefficients.
- If 
+ Finally, if 
 \begin_inset Formula $\mu_{Z}>1$
 \end_inset
 
@@ -2992,7 +2982,7 @@ L_{1}\left(\left\{ \mathcal{M}_{A}\right\} \right)-L_{2}\left(\left\{ \mathcal{M
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
- sets of orthonormal CG coefficients.
+ sets of SBCG coefficients satisfying the orthonormalization constraints.
  
 \begin_inset Newline newline
 \end_inset
@@ -3001,19 +2991,9 @@ L_{1}\left(\left\{ \mathcal{M}_{A}\right\} \right)-L_{2}\left(\left\{ \mathcal{M
 \end_layout
 
 \begin_layout Standard
-Above are the procedures of finding SBCG coefficients for a discrete group.
+Above are the procedures to find SBCG coefficients.
  Let us now count the number of degrees of freedom (DOF) of SBCG coefficients.
- First consider the case I and II, in which overall phases of SBCG coefficients
- are fixed.
- If the multiplicity of 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
-\end_inset
-
- is 
-\begin_inset Formula $\mu_{Z}$
-\end_inset
-
-, then there will be 
+ There are 
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
@@ -3021,12 +3001,19 @@ Above are the procedures of finding SBCG coefficients for a discrete group.
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
- after solving the homogeneous linear equations.
- The CP constraints generate 
+ after solving the homogeneous linear equations in step III.
+ For case I and II, the constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ generates 
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
- independent equations of the form 
+ independent equations as 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Proc_aPcP"
@@ -3037,19 +3024,38 @@ reference "eq:Proc_aPcP"
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
- real DOF.
- The normalization condition reduces one more real DOF.
- Therefore, there will be 
+ complex DOF to 
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
- sets of independent SBCG coeffcients with 
+ real DOF.
+ The normalization condition reduces one real DOF.
+ Therefore, there are 
+\begin_inset Formula $\mu_{Z}$
+\end_inset
+
+ sets independent SBCG coeffcients with 
 \begin_inset Formula $\mu_{Z}-1$
 \end_inset
 
  real DOF.
- For other cases, in which overall phases of SBCG coefficients are not fixed,
- the homogeneous linear equations and CP contraints lead to 
+ For other cases, the constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_ckij"
+
+\end_inset
+
+ relates SBCG coefficients of 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+ to those of 
+\begin_inset Formula $\covlg{\bar{X}}{\bar{Y}}{\bar{Z}}$
+\end_inset
+
+.
+ Then there are 
 \begin_inset Formula $2\mu_{Z}$
 \end_inset
 
@@ -3058,30 +3064,16 @@ reference "eq:Proc_aPcP"
 \end_inset
 
  complex DOF.
- Applying the normalization condition, the 
+ Again, the normalization condition reduces one real DOF.
+ The 
 \begin_inset Formula $2\mu_{Z}$
 \end_inset
 
- sets of SBCG coefficients have 
+ sets of SBCG coefficients therefore have 
 \begin_inset Formula $2\mu_{Z}-1$
 \end_inset
 
  real DOF.
- 
-\end_layout
-
-\begin_layout Standard
-We implement the procedures in Mathematica package file, the source code
- can be found in ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chen:2017GitHub"
-
-\end_inset
-
-.
- The source code are designed to be reusable for different groups.
  
 \end_layout
 
@@ -3095,32 +3087,23 @@ In the following sections, we will demonstrate above procedures with the
 \begin_inset Formula $\subga$
 \end_inset
 
- and 
+,, and 
 \begin_inset Formula $\subgb$
 \end_inset
 
 .
- The group theory about these groups can be found in Appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Group-Theory"
+ We automate much of the procedures in Mathematica package files, which
+ can be found in ref.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2017GitHub"
 
 \end_inset
 
 .
- We will denote contractions of 
-\begin_inset Formula $\group$
-\end_inset
-
- by square brackets and those of 
-\begin_inset Formula $\subga$
-\end_inset
-
- and 
-\begin_inset Formula $\subgb$
-\end_inset
-
- by curly brackets.
+ We note that the source code are designed to be reusable for different
+ groups.
 \end_layout
 
 \begin_layout Section
@@ -3354,7 +3337,19 @@ We will first find the matrix realization in the
 
 , then build high-dimensional irreps from the tensor product of low-dimensional
  irreps.
- 
+ We will denote contractions of 
+\begin_inset Formula $\group$
+\end_inset
+
+ by square brackets and those of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ and 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ by curly brackets.
 \end_layout
 
 \begin_layout Subsection
