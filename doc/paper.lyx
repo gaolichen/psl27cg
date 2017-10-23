@@ -118,18 +118,19 @@ Subgroup-basis Clebsch-Gordan coefficients of discrete groups
 We study subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
  the Clebsch-Gordan coefficients of a discrete group in terms of irreducible
  representations of its subgroup.
- With projection matrices, which convert irreducible representations of
+ With projection matrices, which project irreducible representations of
  the group to those of its subgroup, SBCG coefficients can be defined in
- a way that is independent of basis of irreducible representations of both
+ a way that is independent of bases of irreducible representations of both
  the group and the subgroup.
- We then impose charge-parity like constraints on these coefficients, which
- restricts the overall phases of SBCG coefficients.
- We provide procedures to find SBCG coefficients and then apply them to
- calculation of the SBCG coefficients of the group 
+ We then impose on the SBCG coefficients constraints, which relate them
+ to their counterparts under complex conjugate and therefore restricts the
+ overall phases of SBCG coefficients.
+ We describe procedures to find SBCG coefficients and then calculate SBCG
+ coefficients of the group 
 \begin_inset Formula $\group$
 \end_inset
 
- in the basis of its subgroup 
+ in the bases of its subgroup 
 \begin_inset Formula $\subga$
 \end_inset
 
@@ -158,11 +159,11 @@ Discrete subgroups of
 \end_layout
 
 \begin_layout Standard
-CG coefficients invoving low-dimensional irreducible representations (irrep),
+CG coefficients involving low-dimensional irreducible representations (irrep),
  typically three-dimensional irreps, play important roles in flavor model
  buildings.
  These CG coefficients can be calculated in several methods, including but
- not limitted to the Mathematica package Discrete
+ not limit to the Mathematica package Discrete
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Holthausen:2011vd"
@@ -188,7 +189,7 @@ key "Ludl:2009ft"
  These methods works well for low-dimensional irreps or groups with small
  order, typically less than 100.
  However, when comes to CG coefficients of large discrete group or those
- involing irreps higher than three dimensions, they are usually not effective.
+ involving irreps higher than three dimensions, they are usually not effective.
  The calculation of CG coefficients involve complicated cyclotomic numbers,
  which consist of roots of unity 
 \begin_inset Formula $e^{2k\pi i/n}$
@@ -216,7 +217,7 @@ key "Chen:2014wiw"
 \begin_layout Standard
 Another issue of CG coefficients is that there are ambiguities.
  In general, CG coefficients depend on bases of irreps of the group.
- There are also phase ambiguities for CG coeffcients under fixed bases.
+ There are also phase ambiguities for CG coefficients under fixed bases.
  If 
 \begin_inset Formula $\rep{X}$
 \end_inset
@@ -272,13 +273,13 @@ We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
  which project irreps of the group to irreps of its subgroup.
  SBCG coefficients are therefore independent of bases of both the group
  and its subgroup.
- To reduce phase ambiguities, we impose constraints on SBCG, which requires
- that contractions of the form 
+ To reduce phase ambiguities, we impose on SBCG coefficients constraints
+ which require that contractions of the form 
 \begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
 \end_inset
 
  behave the same as an irrep under the action of taking complex conjugate.
- Such a constraint restricts the overall phase of SBCG coefficients.
+ Such constraints restrict the overall phase of SBCG coefficients.
  Particularly, the overall phase of SBCG coefficients for 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
@@ -325,13 +326,13 @@ We then describe the procedures to calculate SBCG coefficients.
  The crucial step is to solve linear equations with cyclotomic number coefficien
 ts.
  A Mathematica package is developed to perform arithmetic calculations of
- cyclotomic fields.
+ cyclotomic numbers.
  We next demonstrate these procedures by calculating the CG coefficients
  of the group 
 \begin_inset Formula $\group$
 \end_inset
 
- in the basis of its subgroups 
+ in the bases of its subgroups 
 \begin_inset Formula $\subga$
 \end_inset
 
@@ -358,7 +359,7 @@ We remark that a similar idea has been applied to continuous groups.
 \begin_inset Formula $SU\left(2\right)$
 \end_inset
 
- GG coefficients and the so called isoscalars
+ CG coefficients and the so called isoscalars
 \begin_inset CommandInset citation
 LatexCommand cite
 key "deSwart:1963pdg"
@@ -600,7 +601,7 @@ Some of the notations used in the main text are as follows.
 \begin_inset Formula $\covsub{x}{y}{z}$
 \end_inset
 
- represents a contration of 
+ represents a contraction of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -1243,7 +1244,7 @@ reference "eq:CGSub_Def2"
 
 \begin_layout Proof
 Now consider the basis transformation of the subgroup irreps.
- We can choose a special form for projection matrices since, without chaning
+ We can choose a special form for projection matrices since, without changing
  
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
@@ -2257,7 +2258,7 @@ reference "eq:CGSub_ckij"
 \begin_inset Formula $\covlg{\bar{X}}{\bar{Y}}{\bar{Z}}$
 \end_inset
 
- represents the same contration, which occurs explicitly in the following
+ represents the same contraction, which occurs explicitly in the following
  two cases:
 \end_layout
 
@@ -2360,7 +2361,7 @@ reference "eq:CGSub_XVW"
 
 \end_inset
 
- to contractions involving arbitary number of vectors
+ to contractions involving arbitrary number of vectors
 \begin_inset Formula 
 \[
 \cpx{Z}\left(\covlg{X\otimes Y\otimes\cdots}{W}{Z}\right)^{*}=\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{\bar{Z}},
@@ -2468,7 +2469,7 @@ Procedures to calculate SBCG coefficients
 \end_layout
 
 \begin_layout Standard
-In this section, we will describe the prcedures to find SBCG coefficients.
+In this section, we will describe the procedures to find SBCG coefficients.
  The procedures are straightforward and primarily based on the definition
  of SBCG coefficients, i.e.
  eq.
@@ -2486,7 +2487,7 @@ reference "eq:CGSub_Def2"
 \begin_layout Standard
 To find SBCG coefficients of the group, we need to first find CG coefficients
  of the subgroup.
- Here, we assume that the matrix realizations, and CG coefficients of the
+ Here, we assume that the matrix realizations and CG coefficients of the
  subgroup 
 \begin_inset Formula $H$
 \end_inset
@@ -2702,7 +2703,7 @@ reference "eq:CGSub_Def2"
 
 \end_inset
 
- is automatically satisified.
+ is automatically satisfied.
  So we only need to substitute 
 \begin_inset Formula $g$
 \end_inset
@@ -2933,7 +2934,7 @@ reference "sec:CGCs-in-subgroup"
 \begin_inset Formula $\left\{ \mathcal{M}_{A}\right\} $
 \end_inset
 
- be the sets of free parameters in the solution of setp III, where 
+ be the sets of free parameters in the solution of step III, where 
 \begin_inset Formula $A$
 \end_inset
 
@@ -3034,7 +3035,7 @@ reference "eq:Proc_aPcP"
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
- sets independent SBCG coeffcients with 
+ sets independent SBCG coefficients with 
 \begin_inset Formula $\mu_{Z}-1$
 \end_inset
 
@@ -3121,7 +3122,7 @@ Generators of
 \end_layout
 
 \begin_layout Standard
-In the following subsections, we will find the matrix realizations of 
+In this section, we will find the matrix realizations of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -3131,7 +3132,7 @@ In the following subsections, we will find the matrix realizations of
  its subgroups.
  Much of the group theories can be found in Appendix 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "sec:Group-Theory"
 
 \end_inset
@@ -6871,7 +6872,7 @@ reference "eq:A4-generators"
 \end_inset
 
 .
- To obtain these matrices, we use GAP to obtain an arbitary matrix realization
+ To obtain these matrices, we use GAP to obtain an arbitrary matrix realization
  of 
 \begin_inset Formula $S_{4}$
 \end_inset
@@ -8470,7 +8471,7 @@ CG Coefficients of
 \end_layout
 
 \begin_layout Standard
-The notations used in this appedix are as follows.
+The notations used in this appendix are as follows.
  If 
 \begin_inset Formula $\rep{X}$
 \end_inset
@@ -8511,7 +8512,7 @@ then the CG coefficients for
 \begin_inset Formula $\subcgs{x_{a}}{y_{b}}{z_{c}}$
 \end_inset
 
- are contrations of subgroup irreps.
+ are contractions of subgroup irreps.
  Note that, for each term 
 \begin_inset Formula $\subcgs{x_{a}}{y_{b}}{z_{c}}$
 \end_inset
