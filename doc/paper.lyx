@@ -6815,7 +6815,11 @@ end{subequations}
 
 \end_inset
 
- Their CP matrices, see eq.
+ Their 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ matrices, see eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -6896,9 +6900,9 @@ reference "eq:A4-generators"
 
  and then perform similarity transformations to transform them to the desired
  bases.
- Similar procedures are described in Section 
+ The procedures are described in Section 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "sec:Gen_PSL27"
 
 \end_inset
@@ -8199,21 +8203,12 @@ name "sec:Tech_Detail"
 
 \end_inset
 
-Algorithms
-\end_layout
-
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Cyclotomic-fields"
-
-\end_inset
-
-Cyclotomic field
+Cyclotomic Numbrs
 \end_layout
 
 \begin_layout Standard
-The 
+Cyclotomic numbers are elements of the cyclotomic field.
+ The 
 \begin_inset Formula $n$
 \end_inset
 
@@ -8235,40 +8230,32 @@ f=\sum_{k=0}^{n-1}q_{k}\exp\left(2k\pi i/n\right),\quad q_{k}\in\mathbb{Q}.\labe
 
 \end_inset
 
- Discrete group characters are usually expressed in terms of elements of
- such fields.
- In the calculation of this project, we need to perform calculation of these
- fields.
- Here we introduce the algorithm we used in the calculation of these fields.
- we note that the algorithm not only apply to cyclotomic fields but also
- to the numbers which can be written in the same form as eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CN_def"
-
-\end_inset
-
- with irrational coefficients 
-\begin_inset Formula $q_{k}$
+ Discrete group characters are usually cyclotomic numbers for fixed 
+\begin_inset Formula $n$
 \end_inset
 
 .
+ We therefore need to perform arithmetic operators over cyclotomic numbers
+ in order to calculate CG coefficients of discrete groups.
+ Here we introduce the algorithm we used for calculations involving cyclotomic
+ numbers.
 \end_layout
 
 \begin_layout Standard
 Cyclotomic fields are closed in the arithmetic of addition, multiplication,
  and division.
  The addition and multiplication operators are trivially the operators of
- polynomials and we only need to discuss the division.
- If we can find the reciprocal of 
+ polynomials.
+ So we only need to discuss the division.
+ If we can find the reciprocal of a cyclotomic number 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CN_def"
 
 \end_inset
 
-, then the problem is solved as the remaining step is simply a multiplication.
+, then the division operator becomes a multiplication operator and the problem
+ is solved.
 \end_layout
 
 \begin_layout Standard
@@ -8289,23 +8276,28 @@ reference "eq:CN_def"
 \end_inset
 
 .
- Suppose the reciprocal of 
-\begin_inset Formula $f$
-\end_inset
-
- is 
+ Let 
 \begin_inset Formula $g=\sum p_{k}r_{n}^{k}$
 \end_inset
 
-, then expanding 
-\begin_inset Formula $fg$
+ be the reciprocal of 
+\begin_inset Formula $f$
 \end_inset
 
- and collecting 
+.
+ Collecting 
 \begin_inset Formula $r_{n}^{k}$
 \end_inset
 
- terms, we have 
+ terms in the product of 
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $g$
+\end_inset
+
+, we have 
 \begin_inset ERT
 status open
 
@@ -8323,7 +8315,7 @@ label{eq:CN_equations}
 
 \begin_inset Formula 
 \begin{align*}
-0 & =\sum_{i}q_{\left[k\right]-i}p_{i},\quad k>0,\,\left[k\right]=k,\,n+k,\\
+0 & =\sum_{i}q_{\left[k\right]-i}p_{i},\quad k>0,\,\left[k\right]=k,\,\text{or }n+k,\\
 1 & =q_{0}p_{0}+\sum_{i}q_{n-i}p_{i}.
 \end{align*}
 
@@ -8342,7 +8334,7 @@ end{subequations}
 
 \end_inset
 
- We therefore setup 
+ We therefore have 
 \begin_inset Formula $n$
 \end_inset
 
@@ -8355,9 +8347,9 @@ end{subequations}
 \end_inset
 
 .
- Naively, we should be able to solve the equations.
- However, the equations are usually not independent and sometimes there
- is no solution.
+ It seems enough to solve the equations.
+ However, these equations are in general not independent and therefore have
+ no solution.
  The root cause is that the expression 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -8382,7 +8374,7 @@ One of the ambiguities comes from that
 
 \end_inset
 
-We therefore can always eliminate 
+We can always eliminate 
 \begin_inset Formula $r_{n}^{n-1}$
 \end_inset
 
@@ -8394,7 +8386,11 @@ reference "eq:CN_def"
 \end_inset
 
 .
- Is it the only dependent relation? The answer is no.
+ Is it the only dependent relation among 
+\begin_inset Formula $r_{n}^{k}$
+\end_inset
+
+? The answer is no.
  If 
 \begin_inset Formula $n$
 \end_inset
@@ -8405,9 +8401,9 @@ reference "eq:CN_def"
 
 , then
 \begin_inset Formula 
-\[
-\sum_{k=0}^{n/p}r_{n}^{kp}=0
-\]
+\begin{equation}
+\sum_{k=0}^{n/p}r_{n}^{kp}=0\label{eq:CN_dependent_Relation}
+\end{equation}
 
 \end_inset
 
@@ -8428,7 +8424,14 @@ is also a dependent relation.
 \begin_inset Formula $s$
 \end_inset
 
- equations and solve for 
+ equations in the form of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CN_dependent_Relation"
+
+\end_inset
+
+ and solve for 
 \begin_inset Formula $r_{n}^{k_{1}},\cdots,r_{n}^{k_{s}}$
 \end_inset
 
@@ -8436,16 +8439,16 @@ is also a dependent relation.
 \begin_inset Formula $n-s$
 \end_inset
 
- number of 
+ 
 \begin_inset Formula $n$
 \end_inset
 
-th root of unity.
+th root of unities.
  By doing this, there are at most 
 \begin_inset Formula $n-s$
 \end_inset
 
- nonvanishing terms in 
+ terms in 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CN_def"
