@@ -477,7 +477,7 @@ on of CG coefficients.
  Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:App_CGC_PSL27"
+reference "sec:App_CGC_PSL27_S4"
 
 \end_inset
 
@@ -5162,38 +5162,30 @@ name "sec:Calc_PSL27_CGC"
 
 \end_inset
 
-Finding 
+
 \begin_inset Formula $\group$
 \end_inset
 
- CG coefficients
+ SBCG coefficients
 \end_layout
 
 \begin_layout Standard
-With the generators, we can now find the SBCG coefficients of 
+With the generator matrices, we can now find the SBCG coefficients of 
 \begin_inset Formula $\group$
 \end_inset
 
 .
- In the following, we will give a few examples to illustrate the details.
-\end_layout
-
-\begin_layout Subsection
-Example I: 
+ To demonstrate the procedures, we will take the tensor products 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}^{\left(1\right)}\oplus\rep{6}_{s}^{\left(2\right)}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-We will find the SBCG coefficients for 
-\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}^{\left(1\right)}\oplus\rep{6}_{s}^{\left(2\right)}$
-\end_inset
-
- as an example to demonstrate the procedures.
+ as an example.
  Here the superscription indicates the multiplicity of irreps in the tensor
- product.
+ product and the subscript 
+\begin_inset Formula $s$
+\end_inset
+
+ indicates the symmetric part.
  
 \end_layout
 
@@ -5262,27 +5254,27 @@ end{subequations}
 \end_inset
 
  are SBCG coefficients to be determined.
- In the above equations, the notation 
+ In the above expressions, the notation 
 \begin_inset Formula $\covs{x}{y}{z}$
 \end_inset
 
- denotes the 
+ denotes the contraction of two 
 \begin_inset Formula $\subga$
 \end_inset
 
- group contraction of 
+ irreps, where 
 \begin_inset Formula $\rep{x}$
 \end_inset
 
- components of the first 
+ components is embedded in the first 
 \begin_inset Formula $\rep{6}$
 \end_inset
 
- with 
+ and 
 \begin_inset Formula $\rep{y}$
 \end_inset
 
- components of the second 
+ embedded in the second 
 \begin_inset Formula $\rep{6}$
 \end_inset
 
@@ -5301,15 +5293,15 @@ Since
 
 , we can setup seven homogeneous linear equations by feeding values into
  
-\begin_inset Formula $g$
-\end_inset
-
- and 
 \begin_inset Formula $X$
 \end_inset
 
 , 
 \begin_inset Formula $Y$
+\end_inset
+
+, and 
+\begin_inset Formula $g$
 \end_inset
 
  of eq.
@@ -5337,7 +5329,16 @@ reference "eq:CGSub_Def2"
 \begin_inset Formula $Y$
 \end_inset
 
- to be constant vectors, see eqs.
+ to be constant vectors, whose only one nonzero components are specified
+ by integer lists 
+\begin_inset Formula $\left\{ i_{p}\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ j_{p}\right\} $
+\end_inset
+
+, see eqs.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -5378,7 +5379,7 @@ reference "eq:Proc_VW"
 \begin_inset Formula $\mathcal{M}_{1,22}$
 \end_inset
 
-
+,
 \begin_inset Formula 
 \begin{align*}
 \mathcal{M}_{1,33} & =-\frac{\mathcal{M}_{1,11}}{\sqrt{3}}-\frac{2\mathcal{M}_{1,22}}{\sqrt{3}},\quad\mathcal{M}_{2,12}=\mathcal{M}_{1,22},\\
@@ -5395,11 +5396,8 @@ Since all the irreps of
 \begin_inset Formula $\subga$
 \end_inset
 
- are real representations, the CP constraints 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_ckij"
-
+ are real representations, the constraints 
+\begin_inset Formula $\mathcal{M}_{c,ab}=\mathcal{M}_{\bar{c},\bar{a}\bar{b}}$
 \end_inset
 
  are satisfied if 
@@ -5427,7 +5425,7 @@ reference "eq:CGSub_orthnormal"
 \begin_inset Formula $\left\{ \mathcal{M}_{1,11},\mathcal{M}_{1,22},\mathcal{M}_{1,33}\right\} $
 \end_inset
 
- corresponding to two solutions.
+ corresponding to two independent solutions.
  By the Gram–Schmidt process, we find the solutions 
 \begin_inset Formula $\left(\mathcal{M}_{1,11},\mathcal{M}_{1,22}\right)=\left(\frac{\sqrt{3}}{2},0\right)$
 \end_inset
@@ -5451,7 +5449,7 @@ reference "eq:Ex_SixSix2Six"
  shown in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:App_CGC_PSL27"
+reference "sec:App_CGC_PSL27_S4"
 
 \end_inset
 
@@ -5522,15 +5520,11 @@ The calculation is similar for
 
 \end_inset
 
-Now the CP constraints 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_ckij"
-
+Now the constraints 
+\begin_inset Formula $\mathcal{M}_{c,ab}=\mathcal{M}_{\bar{c},\bar{a}\bar{b}}$
 \end_inset
 
- are nontrivial.
- They can be solved by expressing 
+ can be solved by expressing 
 \begin_inset Formula $\mathcal{M}_{3,33}$
 \end_inset
 
@@ -5538,14 +5532,14 @@ reference "eq:CGSub_ckij"
 \begin_inset Formula $\mathcal{M}_{3,\bar{3}\bar{3}}$
 \end_inset
 
- in terms of their real and imaginary parts.
+ in terms of real and imaginary parts.
  It turns out that the solution is 
 \begin_inset Formula $\mathcal{M}_{3,\bar{3}\bar{3}}=\mathcal{M}_{3,33}^{*}$
 \end_inset
 
 .
- The orthonormalization condition then give rise to the SBCG coefficients
- shown in Appendix 
+ The Gram–Schmidt process then give rise to two sets of independent SBCG
+ coefficients shown in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:App_CGC_PSL27_T7"
@@ -8444,7 +8438,7 @@ reference "eq:CN_equations"
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:App_CGC_PSL27"
+name "sec:App_CGC_PSL27_S4"
 
 \end_inset
 
@@ -12344,7 +12338,7 @@ CG Coefficients of
 The notations used in this appendix are the same as those of Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:App_CGC_PSL27"
+reference "sec:App_CGC_PSL27_S4"
 
 \end_inset
 
