@@ -2578,7 +2578,8 @@ There is a special case that the projection matrix cannot be in the trivial
 
 \end_inset
 
-One can first find the matrix realization of low-dimensional irreps then
+.
+ One can first find the matrix realization of low-dimensional irreps then
  build the high-dimensional irreps from tensor products.
  Usually the low-dimensional irreps matrix realizations, in a certain basis,
  are already known in the literature or can be obtained from the GAP
@@ -3361,6 +3362,12 @@ We will first find the matrix realization in the
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:PSL27-Gen-S4"
+
+\end_inset
+
 In the 
 \begin_inset Formula $\subga$
 \end_inset
@@ -3447,41 +3454,76 @@ reference "sec:Group-Theory"
 \end_layout
 
 \begin_layout Standard
-Since 
-\begin_inset Formula $\subga$
-\end_inset
-
- is a ambivalent group, whose irreps all are real or pseudoreal, the overall
- phases of 
-\begin_inset Formula $\subga$
-\end_inset
-
- CG coefficients are fixed up to sign factors under our convention.
- Moreover, the 
-\begin_inset Formula $\rep{6}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{7}$
-\end_inset
-
-, 
-\begin_inset Formula $\rep{8}$
-\end_inset
-
- irreps of 
+Although we require the projection matrices to be the simplest form, there
+ are still ambiguities in the representation matrices of 
 \begin_inset Formula $\group$
 \end_inset
 
- are real.
- According to the results of Section 
+ because of the phase ambiguity of vectors in the subgroup representation
+ spaces.
+ For complex representations 
+\begin_inset Formula $\rep{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{\bar{x}}$
+\end_inset
+
+, if 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ are vectors in their representation spaces, then 
+\begin_inset Formula $e^{i\theta}x$
+\end_inset
+
+ and 
+\begin_inset Formula $e^{-i\theta}\bar{x}$
+\end_inset
+
+ are also in the representation spaces and satisfy the constraint 
+\begin_inset Formula $\Gamma_{x}x^{*}=\bar{x}$
+\end_inset
+
+; for real or pseudoreal representation 
+\begin_inset Formula $\rep{x}$
+\end_inset
+
+, the phase ambiguity becomes a sign ambiguity.
+ Since 
+\begin_inset Formula $\subga$
+\end_inset
+
+ is an ambivalent group, whose irreps all are real or pseudoreal, the vectors
+ of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ representation spaces have sign ambiguity.
+ It then implies that, consulting the embedding of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ irreps in 
+\begin_inset Formula $\group$
+\end_inset
+
+ irreps as table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:RedPhaseAmbiguity"
+reference "tab:PSL27-S4-T7"
 
 \end_inset
 
-, matrix realizations of 
+, representation matrices of 
+\begin_inset Formula $\group$
+\end_inset
+
+ irreps 
 \begin_inset Formula $\rep{6}$
 \end_inset
 
@@ -3528,7 +3570,14 @@ O^{[\rep{R}]}\to\mathcal{S}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{S}^{[\rep{R}]
 \begin_inset Formula $\rep{\bar{3}}=\rep{3_{2}}$
 \end_inset
 
-, their matrix realizations are completely fixed.
+, their representation matrices are fixed because a similarity transformation
+ of above form does not change the matrices.
+ In the following results, the 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+ matrices are choose to be identity matrices for convenience.
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -4286,13 +4335,30 @@ We then obtain matrices
  can be determined by the constraints 
 \begin_inset Formula 
 \begin{equation}
-\Gamma_{\rep{6}}O^{\left[\rep{6}\right]*}\Gamma_{\rep{6}}^{\dagger}=O^{\left[\rep{6}\right]},\quad O=A,B,\label{eq:Gen_Gamma6}
+\cpx{\rep{6}}O^{\left[\rep{6}\right]*}\cpx{\rep{6}}^{\dagger}=O^{\left[\rep{6}\right]},\quad O=A,B,\label{eq:Gen_Gamma6}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)}$
+\begin_inset Formula $\cpx{\rep{6}}$
+\end_inset
+
+ can be determined by eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon3"
+
+\end_inset
+
+ with the projection matrices in the simplest form.
+ It turns out that 
+\begin_inset Formula 
+\[
+\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)}
+\]
+
 \end_inset
 
  with 
@@ -4371,7 +4437,7 @@ B^{[\rep{6}]}=\\
 \end_layout
 
 \begin_layout Standard
-The matrix realization of 
+The representation matrices of 
 \begin_inset Formula $\rep{8}$
 \end_inset
 
@@ -4607,15 +4673,6 @@ end{widetext}
 
 \end_layout
 
-\begin_layout Standard
-We will see shortly that for the non-ambivalent subgroup 
-\begin_inset Formula $\subgb$
-\end_inset
-
-, the generator matrices are only fixed up to similarity transformations
- of diagonal matrices of pure phases.
-\end_layout
-
 \begin_layout Subsection
 In the 
 \begin_inset Formula $\subgb$
@@ -4625,7 +4682,7 @@ In the
 \end_layout
 
 \begin_layout Standard
-We now find the matrix realizations of 
+We now find the representation matrices of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -4642,15 +4699,15 @@ key "Luhn:2007yr"
 
 \end_inset
 
- has built matrix realizations of 
+ has built representation matrices of 
 \begin_inset Formula $\group$
 \end_inset
 
- generators from 
+ with those of 
 \begin_inset Formula $\subgb$
 \end_inset
 
- generators.
+.
  Our calculation is similar to the one of ref.
  
 \begin_inset CommandInset citation
@@ -4660,8 +4717,8 @@ key "Luhn:2007yr"
 \end_inset
 
  but with slightly different bases.
- We will take care of the phase ambiguities of the matrix realizations which
- is not covered in ref.
+ We will take care of the phase ambiguities of the matrices which is not
+ covered in ref.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4673,14 +4730,25 @@ key "Luhn:2007yr"
 \end_layout
 
 \begin_layout Standard
-Since the all of irreps are complex except the trivial singlet, the the
- matrices of 
+According to the discussion in the second paragraph of subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:PSL27-Gen-S4"
+
+\end_inset
+
+, since all the 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ irreps are complex except the trivial singlet, the representation matrices
+ of 
 \begin_inset Formula $\group$
 \end_inset
 
- generators have phase ambiguities.
- We can obtain different matrix realizations by performing similarity transforma
-tions with diagonal pure phase matrices,
+ irreps have phase ambiguities.
+ We can obtain new representation matrices by performing similarity transformati
+ons with diagonal pure phase matrices,
 \begin_inset Formula 
 \[
 O^{\left[\rep{R}\right]}\to\mathcal{U}^{\left[\rep{R}\right]}O^{\left[\rep{R}\right]}\left(\mathcal{U}^{\left[\rep{R}\right]}\right)^{\dagger},\quad O=A,\,B
@@ -4692,13 +4760,13 @@ O^{\left[\rep{R}\right]}\to\mathcal{U}^{\left[\rep{R}\right]}O^{\left[\rep{R}\ri
 \begin_inset Formula 
 \begin{align*}
 \mathcal{U}^{\left[\rep{6}\right]} & =\mathrm{diag}\left(e^{i\theta_{6}}\mathbf{I}_{3},e^{-i\theta_{6}}\mathbf{I}_{3}\right),\\
-\mathcal{U}^{\left[\rep{7}\right]} & =\mathrm{diag}\left(1,e^{i\theta_{7}}\mathbf{I}_{3},e^{-i\theta_{7}}\mathbf{I}_{3}\right),\\
+\mathcal{U}^{\left[\rep{7}\right]} & =\mathrm{diag}\left(\pm1,e^{i\theta_{7}}\mathbf{I}_{3},e^{-i\theta_{7}}\mathbf{I}_{3}\right),\\
 \mathcal{U}^{\left[\rep{8}\right]} & =\mathrm{diag}\left(e^{i\theta_{81}},e^{-i\theta_{81}},e^{i\theta_{83}}\mathbf{I}_{3},e^{-i\theta_{83}}\mathbf{I}_{3}\right).
 \end{align*}
 
 \end_inset
 
-The SBCG coefficients change according to eq.
+Under these transformations, the SBCG coefficients change according to eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
