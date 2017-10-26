@@ -8,13 +8,14 @@
 \begin_preamble
 \usepackage{babel}
 \usepackage{nccmath}
-\bibliographystyle{unsrt}
+\bibliographystyle{unsrtnat}
 
 \newcommand{\rep}[1]{\mathbf{#1}} 
 \newcommand{\ket}[1]{\left|{#1}\right\rangle }
 \newcommand{\group}{\mathcal{PSL}_{2}\left(7\right)} 
 \newcommand{\subga}{S_4}
 \newcommand{\subgb}{\mathcal{T}_7}
+\newcommand{\olcite}[1]{Ref. [\onlinecite{#1}]}
 
 % matrix realization
 \newcommand{\mr}[1]{\rho_{\rep{#1}}}
@@ -125,6 +126,7 @@ Institute for Fundamental Theory, Department of Physics, University of Florida,
 \end_layout
 
 \begin_layout Author Email
+
 gchen@ufl.edu
 \end_layout
 
@@ -176,26 +178,37 @@ Discrete subgroups of
 CG coefficients involving low-dimensional irreducible representations (irrep),
  typically three-dimensional irreps, play important roles in flavor model
  buildings.
- These CG coefficients can be calculated in several methods, including but
- not limit to the Mathematica package Discrete
+ These CG coefficients can be calculated in several methods, for example,
+ the Mathematica package Discrete
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Holthausen:2011vd"
 
 \end_inset
 
-, which implements the algorithm of ref 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "van1978clebsch"
+, which implements the algorithm of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{van1978clebsch}
+\end_layout
 
 \end_inset
 
-, and the method introduced by ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ludl:2009ft"
+, and the method introduced by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Ludl:2009ft}
+\end_layout
 
 \end_inset
 
@@ -211,11 +224,16 @@ key "Ludl:2009ft"
 
  and their polynomial, and hence it is difficult to obtain simplified results.
  Recently, high-dimensional irreps are also used in model buildings.
- For example, in ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chen:2014wiw"
+ For example, in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Chen:2014wiw}
+\end_layout
 
 \end_inset
 
@@ -405,6 +423,13 @@ While there are many flavor models based on the group
 \begin_inset Formula $\group$
 \end_inset
 
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw,PSL27Aliferis:2016blw"
+
+\end_inset
+
  and 
 \begin_inset Formula $\subgb$
 \end_inset
@@ -412,7 +437,7 @@ While there are many flavor models based on the group
  models
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Kile:2013gla,Chen:2014wiw,PSL27Aliferis:2016blw,T7Cao:2010mp,T7Cao:2011cp,T7Hagedorn:2008bc,T7Luhn:2007sy,T7Luhn:2012bc"
+key "Kile:2013gla,T7Cao:2010mp,T7Cao:2011cp,T7Hagedorn:2008bc,T7Luhn:2007sy,T7Luhn:2012bc"
 
 \end_inset
 
@@ -421,6 +446,52 @@ key "Kile:2013gla,Chen:2014wiw,PSL27Aliferis:2016blw,T7Cao:2010mp,T7Cao:2011cp,T
  through sponteneous symmetry breaking of large discrete groups into small
  groups.
  The idea SBCG coefficients can apply to other discrete groups.
+ A subgroup tree of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ discrete subgroups can be found in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Merle:2011vy}
+\end_layout
+
+\end_inset
+
+.
+ For systematic analysis of discrete groups used in flavor model buildings,
+ see 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Ishimori:2010au}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Ludl:2009ft}
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -801,7 +872,20 @@ status open
 
 \begin_layout Plain Layout
 While we define CG coefficients with vector spaces, there also exists equivalent
- definition with group elements.
+ definition with group elements, for example, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{van1978clebsch}
+\end_layout
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -855,9 +939,9 @@ reference "eq:CGC_Def"
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 There are, however, other ambiguities.
  Firstly, CG coefficients are basis dependent.
  Under basis transformations 
@@ -3116,11 +3200,16 @@ In the following sections, we will demonstrate above procedures with the
 
 .
  We automate much of the procedures in Mathematica package files, which
- can be found in ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chen:2017GitHub"
+ can be found in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Chen:2017GitHub}
+\end_layout
 
 \end_inset
 
@@ -3270,11 +3359,16 @@ c=AB,\quad d=AB\left(AB^{2}\right)^{2}\left(AB\right)^{2}\left(AB^{2}\right)^{2}
 \end_inset
 
  We note that these expression are not unique and they can be found by GAP.
- The example GAP code can be found in ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Chen:2017GitHub"
+ The example GAP code can be found in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Chen:2017GitHub}
+\end_layout
 
 \end_inset
 
@@ -3638,11 +3732,16 @@ Matrix realizations of
 \end_inset
 
  basis.
- In ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Luhn:2007yr"
+ In 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Luhn:2007yr}
+\end_layout
 
 \end_inset
 
@@ -4734,11 +4833,16 @@ We now find the representation matrices of
 \end_inset
 
  basis.
- In fact, ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Luhn:2007yr"
+ In fact, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Luhn:2007yr}
+\end_layout
 
 \end_inset
 
@@ -4751,21 +4855,31 @@ key "Luhn:2007yr"
 \end_inset
 
 .
- Our calculation is similar to the one of ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Luhn:2007yr"
+ Our calculation is similar to the one of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Luhn:2007yr}
+\end_layout
 
 \end_inset
 
  but with slightly different bases.
  We will take care of the phase ambiguities of the matrices which is not
- covered in ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Luhn:2007yr"
+ covered in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Luhn:2007yr}
+\end_layout
 
 \end_inset
 
@@ -5224,22 +5338,32 @@ end{widetext}
 
 \begin_layout Standard
 To conclude this section, let us discuss the relation between our bases
- with those of ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Luhn:2007yr"
+ with those of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Luhn:2007yr}
+\end_layout
 
 \end_inset
 
 .
  The triplet and antitriplet are the same.
  For the sextet, octet and septet irreps, the similarity transformations
- between our bases and those of ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Luhn:2007yr"
+ between our bases and those of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Luhn:2007yr}
+\end_layout
 
 \end_inset
 
@@ -5255,11 +5379,16 @@ key "Luhn:2007yr"
 \begin_inset Formula $\tilde{O}$
 \end_inset
 
- denotes the generators in the basis of ref.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Luhn:2007yr"
+ denotes the generators in the basis of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Luhn:2007yr}
+\end_layout
 
 \end_inset
 
@@ -5737,9 +5866,15 @@ The work can be extended in several directions.
 
 .
  More details of these groups can be found in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ludl:2009ft"
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Ludl:2009ft}
+\end_layout
 
 \end_inset
 
