@@ -16,6 +16,7 @@
 \newcommand{\subga}{S_4}
 \newcommand{\subgb}{\mathcal{T}_7}
 \newcommand{\olcite}[1]{Ref. [\onlinecite{#1}]}
+\newcommand{\olcitem}[1]{Refs. [\onlinecite{#1}]}
 
 % matrix realization
 \newcommand{\mr}[1]{\rho_{\rep{#1}}}
@@ -354,9 +355,8 @@ We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
 \end_layout
 
 \begin_layout Itemize
-We then describe the procedures to calculate SBCG coefficients.
- The crucial step is to solve linear equations with cyclotomic number coefficien
-ts.
+We then describe the procedure to calculate SBCG coefficients.
+ A crucial step is to solve linear equations with cyclotomic number coefficients.
  A Mathematica package is developed to perform arithmetic calculations of
  cyclotomic numbers.
  We next demonstrate these procedures by calculating the CG coefficients
@@ -445,7 +445,21 @@ key "Kile:2013gla,T7Cao:2010mp,T7Cao:2011cp,T7Hagedorn:2008bc,T7Luhn:2007sy,T7Lu
  Our work can be helpful for building connections among these models, typically,
  through sponteneous symmetry breaking of large discrete groups into small
  groups.
- The idea SBCG coefficients can apply to other discrete groups.
+ We automate much of the above procedure in Mathematica code in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Chen:2017GitHub}
+\end_layout
+
+\end_inset
+
+, which can be helpful for calculating SBCG coefficients of other discrete
+ groups.
  A subgroup tree of 
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
@@ -473,20 +487,7 @@ status open
 
 
 \backslash
-olcite{Ishimori:2010au}
-\end_layout
-
-\end_inset
-
- and 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-olcite{Ludl:2009ft}
+olcitem{Ishimori:2010au,Ludl:2009ft}
 \end_layout
 
 \end_inset
@@ -2574,12 +2575,12 @@ name "sec:Calc_CGC"
 
 \end_inset
 
-Procedures to calculate SBCG coefficients
+Procedure to calculate SBCG coefficients
 \end_layout
 
 \begin_layout Standard
-In this section, we will describe the procedures to find SBCG coefficients.
- The procedures are straightforward and primarily based on the definition
+In this section, we will describe the procedure to find SBCG coefficients.
+ The procedure are straightforward and primarily based on the definition
  of SBCG coefficients, i.e.
  eq.
  
@@ -2596,8 +2597,8 @@ reference "eq:CGSub_Def2"
 \begin_layout Standard
 To find SBCG coefficients of the group, we need to first find CG coefficients
  of the subgroup.
- Here, we assume that the matrix realizations and CG coefficients of the
- subgroup 
+ Here, we assume that the representation matrices and CG coefficients of
+ the subgroup 
 \begin_inset Formula $H$
 \end_inset
 
@@ -2619,7 +2620,7 @@ Step I
 \end_layout
 
 \begin_layout Standard
-Find matrix realizations of irreps of 
+Find representation matrices of 
 \begin_inset Formula $G$
 \end_inset
 
@@ -2681,9 +2682,9 @@ There is a special case that the projection matrix cannot be in the trivial
 \end_inset
 
 .
- One can first find the matrix realization of low-dimensional irreps then
- build the high-dimensional irreps from tensor products.
- Usually the low-dimensional irreps matrix realizations, in a certain basis,
+ One can first find the representation matrices of low-dimensional irreps
+ then build the high-dimensional irreps from tensor products.
+ Usually the low-dimensional representation matrices, in a certain basis,
  are already known in the literature or can be obtained from the GAP
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2697,8 +2698,8 @@ key "GAP4"
 \end_layout
 
 \begin_layout Standard
-To find the similarity transformation, we need to diagonalize the matrices
- of generators, see Section 
+To find the similarity transformation, we need to diagonalize the representation
+ matrices, see Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Gen_PSL27"
@@ -3098,7 +3099,7 @@ reference "eq:CGSub_ckij"
 \end_layout
 
 \begin_layout Standard
-Above are the procedures to find SBCG coefficients.
+We have shown the procedure to find SBCG coefficients.
  Let us now count the number of degrees of freedom (DOF) of SBCG coefficients.
  There are 
 \begin_inset Formula $\mu_{Z}$
@@ -3185,8 +3186,8 @@ reference "eq:CGSub_ckij"
 \end_layout
 
 \begin_layout Standard
-In the following sections, we will demonstrate above procedures with the
- group 
+In the following sections, we will demonstrate the above procedure with
+ the group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -5883,22 +5884,22 @@ olcite{Ludl:2009ft}
 \end_layout
 
 \begin_layout Standard
-Another possible direction is to simplify the procedures to find SBCG coefficien
-ts.
+Another possible direction is to simplify the procedure to find SBCG coefficient
+s.
  As we have shown, the coefficients 
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
  are basis independent and fixed up to a possible pure phase.
- It seems not necessary to find matrix realizations of the group and subgroups
- in order to calculate these coefficients.
+ It seems not necessary to find representation matrices of the group and
+ subgroups in order to calculate these coefficients.
  A natural guess is that 
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
  are determined by the coset structure of the group.
  It would be very helpful if there exists a method to determine these coefficien
-ts without knowing the matrix realizations and CG coefficients of subgroups.
+ts without knowing the representation matrices and CG coefficients of subgroups.
 \end_layout
 
 \begin_layout Acknowledgments
