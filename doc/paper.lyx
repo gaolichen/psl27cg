@@ -926,7 +926,8 @@ reference "eq:CGC_Def"
 
  also satisfy the equation.
  So it is then conventional to impose on CG coefficients, in addition to
- orthogonality, normalization constraints, which give rise to 
+ orthogonality, normalization constraints, which give rise to unitary CG
+ coefficients
 \begin_inset Formula 
 \begin{equation}
 \sum_{\alpha}M_{k\alpha}^{*}M_{l\alpha}=\delta_{kl}.\label{eq:CGC_Orthnormal}
@@ -934,12 +935,12 @@ reference "eq:CGC_Def"
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
 There are, however, other ambiguities.
- Firstly, CG coefficients are basis dependent.
+ Firstly, CG coefficients are basis-dependent.
  Under basis transformations 
 \begin_inset ERT
 status open
@@ -1034,7 +1035,8 @@ reference "eq:CGC_Orthnormal"
 \end_inset
 
 .
- The last ambiguity exists when there are nontrivial multiplicity
+ The last ambiguity exists when there are nontrivial multiplicity in a tensor
+ product
 \begin_inset Foot
 status open
 
@@ -1081,7 +1083,7 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 \begin_inset Formula $\sum_{i}\lambda_{i}^{*}\lambda_{i}=1$
 \end_inset
 
- also satisfy above constraints.
+ is also a set of unitary CG coefficients.
 \end_layout
 
 \begin_layout Standard
@@ -1109,7 +1111,7 @@ Let
 \begin_inset Formula $G$
 \end_inset
 
- and assume the irreps 
+ and assume that the irreps 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -1156,7 +1158,7 @@ reference "eq:CGSub_Embed"
 
 \begin_inset Formula 
 \begin{equation}
-\rep{X}=\bigoplus\rep{x_{a}},\quad\rep{Y}=\bigoplus\rep{y_{b}},\quad\rep{Z}=\bigoplus\rep{z_{c}},\label{eq:CGSub_Embed}
+\rep{X}=\bigoplus_{a}\rep{x_{a}},\quad\rep{Y}=\bigoplus_{b}\rep{y_{b}},\quad\rep{Z}=\bigoplus_{c}\rep{z_{c}},\label{eq:CGSub_Embed}
 \end{equation}
 
 \end_inset
@@ -1270,7 +1272,17 @@ reference "eq:CGSub_Def"
 \end_inset
 
 .
- In the following, we may write 
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: insert property about Projection matrices
+\end_layout
+
+\end_inset
+
+In the following, we may write 
 \begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
@@ -1294,7 +1306,7 @@ reference "eq:CGC_Orthnormal"
 
 \end_inset
 
-For the coefficients 
+For coefficients 
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
@@ -1363,7 +1375,16 @@ the vector
 \begin_inset Formula $\left(P_{X\to a}\mr{X}\left(g\right)X\right)$
 \end_inset
 
- are invariant, and hence, both sides of eq.
+ is invariant, so are 
+\begin_inset Formula $\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(P_{Z\to c}\mr{Z}\left(g\right)Z\right)$
+\end_inset
+
+ .
+ Hence, both sides of eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1375,19 +1396,15 @@ reference "eq:CGSub_Def2"
 \end_layout
 
 \begin_layout Proof
-Now consider the basis transformation of the subgroup irreps.
- We can choose a special form for projection matrices since, without changing
- 
+Now consider basis transformations of the subgroup irreps.
+ For simplicity, we can now fix projection matrices to special forms, since
+ we can always perform basis transformations to bring projection matrices
+ to desired forms without changing 
 \begin_inset Formula $\mathcal{M}_{c,ab}$
 \end_inset
 
- coefficients, they can always be obtained by basis transformations of the
- irreps of 
-\begin_inset Formula $G$
-\end_inset
-
-.
- So we choose a basis where elements of 
+ coefficients.
+ So we choose bases such that elements of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -1395,16 +1412,16 @@ Now consider the basis transformation of the subgroup irreps.
  the form 
 \begin_inset Formula 
 \begin{equation}
-P_{X\to a}=\begin{pmatrix}O_{1} & \cdots & O_{a-1} & P_{X\to a}^{\left(\mathrm{nonzero}\right)} & O_{a+1}\cdots\end{pmatrix},\label{eq:CG_PXj}
+P_{X\to a}=\begin{pmatrix}O_{1} & \cdots & O_{a-1} & P_{X\to a}^{\left(u\right)} & O_{a+1}\cdots\end{pmatrix},\label{eq:CG_PXj}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $P_{X\to a}^{\left(\mathrm{nonzero}\right)}$
+\begin_inset Formula $P_{X\to a}^{\left(\mathrm{u}\right)}$
 \end_inset
 
- is a nonzero matrix of dimension 
+ is a unitary matrix of dimension 
 \begin_inset Formula $\dim\rep{x_{a}}\times\dim\rep{x_{a}}$
 \end_inset
 
@@ -1494,7 +1511,7 @@ where we have used the primed brackets to indicate the new CG coefficients
  where 
 \begin_inset Formula 
 \begin{equation}
-U_{X}=\bigoplus_{\rep{x_{a}}\text{ in }\rep{X}}\left(P_{X\to a}^{\left(\mathrm{nonzero}\right)}\right)^{-1}U_{a}P_{X\to a}^{\left(\mathrm{nonzero}\right)}.
+U_{X}=\bigoplus_{\rep{x_{a}}\text{ in }\rep{X}}\left(P_{X\to a}^{\left(\mathrm{u}\right)}\right)^{-1}U_{a}P_{X\to a}^{\left(u\right)}.
 \end{equation}
 
 \end_inset
@@ -1521,7 +1538,7 @@ P_{X\to a}U_{X}=U_{a}P_{X\to a}.\label{eq:CG_PU}
 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:CG_Tran_II_UxUy"
+reference "eq:CG_Tran_II_X2"
 
 \end_inset
 
@@ -1532,7 +1549,7 @@ reference "eq:CG_PU"
 
 \end_inset
 
- implies that 
+ imply that 
 \begin_inset Formula $P_{X\to a}\mr{X}\left(g\right)X$
 \end_inset
 
@@ -1606,10 +1623,8 @@ reference "eq:CG_Tran_II"
 \begin_layout Standard
 We have showed that SBCG coefficients are independent of bases of both the
  group and its subgroup.
- There are, however, still ambiguities in SBCG coefficients.
- Since we can multiply a vector with a phase without changing its representation
-, the projection matrices, as well as the subgroup CG coefficients, have
- phase ambiguities.
+ There are, however, still ambiguities in SBCG coefficients due to phase
+ ambiguities of the projection matrices and subgroup CG coefficients.
  Consider the 
 \begin_inset Formula $U\left(1\right)$
 \end_inset
@@ -1638,14 +1653,14 @@ Under these
  We see that there are in general four phase ambiguities for each SBCG coefficie
 nt.
  They can be removed or reduced by appropriate phase conventions, which
- are usually basis dependent.
+ are usually basis-dependent.
  For example, for 
 \begin_inset Formula $SU\left(2\right)$
 \end_inset
 
  CG coefficients, it is conventional to choose a particular CG coefficient
  to be real and positive.
- In the following section, we introduce a basis independent convention,
+ In the following section, we introduce a basis-independent convention,
  which can reduce the number of 
 \begin_inset Formula $U\left(1\right)$
 \end_inset
@@ -1668,8 +1683,7 @@ Reducing phase ambiguities
 \end_layout
 
 \begin_layout Standard
-To introduce the phase convention, we first discuss real and complex representat
-ions.
+To introduce the convention, we first discuss real and complex representations.
  A real or pseudoreal representation is a representation whose complex conjugate
  is equivalent to itself while a complex representation is a representation
  that is inequivalent to its complex conjugate.
@@ -2622,7 +2636,7 @@ Find representation matrices of
  in the subgroup basis.
  For simplicity, we choose a basis that projection matrices are in the most
  simple form, meaning that 
-\begin_inset Formula $P_{X\to j}^{\left(\mathrm{nonzero}\right)}$
+\begin_inset Formula $P_{X\to j}^{\left(\mathrm{u}\right)}$
 \end_inset
 
  in 
@@ -2663,11 +2677,11 @@ There is a special case that the projection matrix cannot be in the trivial
 
 .
  If we choose 
-\begin_inset Formula $P_{3\to3_{2}}^{\left(\mathrm{nonzero}\right)}$
+\begin_inset Formula $P_{3\to3_{2}}^{\left(u\right)}$
 \end_inset
 
  to be a identify matrix, then 
-\begin_inset Formula $P_{\bar{3}\to3_{2}}^{\left(\mathrm{nonzero}\right)}$
+\begin_inset Formula $P_{\bar{3}\to3_{2}}^{\left(u\right)}$
 \end_inset
 
  cannot be identity matrix simultaneously.
@@ -3389,7 +3403,7 @@ reference "eq:CG_PXj"
 \end_inset
 
  with 
-\begin_inset Formula $P_{X\to a}^{\left(\mathrm{nonzero}\right)}$
+\begin_inset Formula $P_{X\to a}^{\left(\mathrm{u}\right)}$
 \end_inset
 
  being identity matrices, except for a special case that we will see shortly.
