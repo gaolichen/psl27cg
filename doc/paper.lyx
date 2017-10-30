@@ -177,7 +177,7 @@ Discrete subgroups of
 
 \begin_layout Standard
 CG coefficients involving low-dimensional irreducible representations (irrep),
- typically three-dimensional irreps, play important roles in flavor model
+ typically three-dimensional irreps, play an important role in flavor model
  buildings.
  These CG coefficients can be calculated in several methods, for example,
  the Mathematica package Discrete
@@ -214,16 +214,16 @@ olcite{Ludl:2009ft}
 \end_inset
 
 .
- These methods works well for low-dimensional irreps or groups with small
+ These methods work well for low-dimensional irreps and groups with small
  order, typically less than 100.
  However, when comes to CG coefficients of large discrete group or those
- involving irreps higher than three dimensions, they are usually not effective.
+ involving high-dimensional irreps, they are usually not effective.
  The calculation of CG coefficients involve complicated cyclotomic numbers,
- which consist of roots of unity 
-\begin_inset Formula $e^{2k\pi i/n}$
+ which are polynomials of roots of unity 
+\begin_inset Formula $e^{2\pi i/n}$
 \end_inset
 
- and their polynomial, and hence it is difficult to obtain simplified results.
+, and hence it is difficult to obtain simplified results.
  Recently, high-dimensional irreps are also used in model buildings.
  For example, in 
 \begin_inset ERT
@@ -243,42 +243,33 @@ olcite{Chen:2014wiw}
 \end_inset
 
  are used in the model building.
- Finding CG coefficients become a nontrivial task for model buildings involving
- high-dimensional irreps.
+ Finding CG coefficients become a nontrivial task in such a case.
 \end_layout
 
 \begin_layout Standard
-Another issue of CG coefficients is that there are ambiguities.
- In general, CG coefficients depend on bases of irreps of the group.
- There are also phase ambiguities for CG coefficients under fixed bases.
- If 
-\begin_inset Formula $\rep{X}$
+CG coefficients have several types of ambiguities.
+ They in general depend on bases of irreps of the group.
+ Even if these bases are fixed, it is free to multiply a set of CG coefficients
+ with an arbitrary overall phase.
+ In addition, the CG coefficients have 
+\begin_inset Formula $U\left(N\right)$
 \end_inset
 
-, 
-\begin_inset Formula $\rep{Y}$
-\end_inset
-
-, 
+ type ambiguity for a tensor product with nontrivial multiplicity.
+ For example, if an irrep 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- are irreps, one can multiply the CG coefficients for the tensor product
- 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+ is contained 
+\begin_inset Formula $\mu$
 \end_inset
 
- by an arbitrary overall phase.
- In addition, if a tensor product has nontrivial multiplicity, i.e, 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to m\rep{Z}$
-\end_inset
-
- for 
-\begin_inset Formula $m>1$
+ times in the tensor product 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}$
 \end_inset
 
 , then the CG coefficients have a 
-\begin_inset Formula $U\left(m\right)$
+\begin_inset Formula $U\left(\mu\right)$
 \end_inset
 
  ambiguity.
@@ -303,21 +294,21 @@ To reduce the ambiguities of CG coefficients and find a way to calculate
 We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
  CG coefficients of a discrete group in terms of irreps of its subgroup.
  In the definition of SBCG, basis information is carried in projection matrices,
- which project irreps of the group to irreps of its subgroup.
+ which project irreps of the group to those of its subgroup.
  SBCG coefficients are therefore independent of bases of both the group
  and its subgroup.
  To reduce phase ambiguities, we impose on SBCG coefficients constraints
- which require that contractions of the form 
+ which require that a contraction of two irreps, in the form 
 \begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
 \end_inset
 
- behave the same as an irrep under the action of taking complex conjugate.
+, behaves the same as a single irrep under the action of complex conjugate.
  Such constraints restrict the overall phase of SBCG coefficients.
  Particularly, the overall phase of SBCG coefficients for 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
- is fixed if i) 
+ is fixed up to a sign factor if i) 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -351,20 +342,22 @@ We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
 \end_inset
 
 .
- 
+ In case i), if the irreps can be deomposed into real or pseudoreal subgroup
+ irreps, then the corresponding SBCG coefficients are real numbers fixed
+ up to sign factors.
 \end_layout
 
 \begin_layout Itemize
 We then describe the procedure to calculate SBCG coefficients.
- A crucial step is to solve linear equations with cyclotomic number coefficients.
+ A crucial step of the procedure is to solve linear equations with cyclotomic
+ number coefficients.
  A Mathematica package is developed to perform arithmetic calculations of
  cyclotomic numbers.
- We next demonstrate these procedures by calculating the CG coefficients
- of the group 
+ We next demonstrate the procedure with the group 
 \begin_inset Formula $\group$
 \end_inset
 
- in the bases of its subgroups 
+ and its subgroups 
 \begin_inset Formula $\subga$
 \end_inset
 
@@ -373,21 +366,26 @@ We then describe the procedure to calculate SBCG coefficients.
 \end_inset
 
 .
+ We find representation matrices of 
+\begin_inset Formula $\group$
+\end_inset
+
+ in its subgroup bases, in which subgroup elements are block diagonal matrices.
  For both subgroups, we obtain a complete list of SBCG coefficients of the
  group 
 \begin_inset Formula $\group$
 \end_inset
 
 .
- We also find the SBCG coefficients of the 
+ We also find the SBCG coefficients of 
 \begin_inset Formula $\subga$
 \end_inset
 
- group in its 
+ in the basis of its subgroup 
 \begin_inset Formula $A_{4}$
 \end_inset
 
- subgroup basis.
+.
 \end_layout
 
 \begin_layout Standard
@@ -443,8 +441,7 @@ key "Kile:2013gla,T7Cao:2010mp,T7Cao:2011cp,T7Hagedorn:2008bc,T7Luhn:2007sy,T7Lu
 
  are rare known.
  Our work can be helpful for building connections among these models, typically,
- through sponteneous symmetry breaking of large discrete groups into small
- groups.
+ through sponteneous symmetry breaking of discrete groups into smaller ones.
  We automate much of the above procedure in Mathematica code in 
 \begin_inset ERT
 status open
@@ -458,7 +455,7 @@ olcite{Chen:2017GitHub}
 
 \end_inset
 
-, which can be helpful for calculating SBCG coefficients of other discrete
+, which can be reused for calculating SBCG coefficients of other discrete
  groups.
  A subgroup tree of 
 \begin_inset Formula $SU\left(3\right)$
@@ -529,7 +526,7 @@ reference "sec:Calc_CGC"
 
 \end_inset
 
-, we describe the procedures to calculate SBCG coefficients.
+, we describe the procedure to calculate SBCG coefficients.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -544,7 +541,7 @@ reference "sec:Calc_PSL27_CGC"
 
 \end_inset
 
-, we apply these procedures to the group 
+, we apply the procedure to the group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -564,12 +561,11 @@ reference "sec:Gen_PSL27"
 
 \end_inset
 
-, the matrix realizations of the 
+, the representation matrices of the 
 \begin_inset Formula $\group$
 \end_inset
 
- group are obtained in its subgroup bases, in which subgroup elements are
- block diagonal matrices.
+ group are obtained in its subgroup bases.
  In Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -598,8 +594,7 @@ reference "sec:Tech_Detail"
 
 \end_inset
 
-, we give some details of the Mathematica package we developed for the calculati
-on of CG coefficients.
+, we describe the algorithm for arithmetic calculations of cyclotomic numbers.
  Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -644,7 +639,7 @@ Some of the notations used in the main text are as follows.
 \end_inset
 
  is its subgroup.
- The bold letters 
+ The boldface letters 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -673,7 +668,7 @@ Some of the notations used in the main text are as follows.
 \end_inset
 
  are corresponding vectors in Hilbert spaces of these irreps.
- The bold letters 
+ The boldface letters 
 \begin_inset Formula $\rep{x}$
 \end_inset
 
@@ -736,7 +731,7 @@ Some of the notations used in the main text are as follows.
 \begin_inset Formula $i,\,j,\,k$
 \end_inset
 
- label a single component of a vector or matrix while 
+ label a single component of a vector while 
 \begin_inset Formula $a,\,b,\,c$
 \end_inset
 
