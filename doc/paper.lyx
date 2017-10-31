@@ -1686,14 +1686,21 @@ Reducing phase ambiguities
 To introduce the convention, we first discuss real and complex representations.
  A real or pseudoreal representation is a representation whose complex conjugate
  is equivalent to itself while a complex representation is a representation
- that is inequivalent to its complex conjugate.
+ that is inequivalent to its complex conjugate
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ramond:2010zz"
+
+\end_inset
+
+.
  So we can define the complex conjugate of a real (or pseudoreal) representation
  to be itself.
  Now if 
 \begin_inset Formula $\rho_{\rep{X}}$
 \end_inset
 
- is a matrix realization of the representation 
+ is a matrix realization of 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -1701,7 +1708,7 @@ To introduce the convention, we first discuss real and complex representations.
 \begin_inset Formula $\rho_{\rep{\bar{X}}}$
 \end_inset
 
- be the matrix realization of the complex conjugate 
+ the one of 
 \begin_inset Formula $\rep{\bar{X}}$
 \end_inset
 
@@ -1709,14 +1716,7 @@ To introduce the convention, we first discuss real and complex representations.
 \begin_inset Formula $\cpx{X}$
 \end_inset
 
- so that 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ramond:2010zz"
-
-\end_inset
-
-
+ such that
 \begin_inset Formula 
 \begin{equation}
 \cpx{X}\rho_{\rep{X}}\left(g\right)^{*}\cpx{X}^{\dagger}=\rho_{\rep{\bar{X}}}\left(g\right),\quad\forall g\in G.\label{eq:CGSub_Gamma}
@@ -1736,7 +1736,7 @@ When
 \begin_inset Formula $\cpx{X}$
 \end_inset
 
- is the identity matrix.
+ can be the identity matrix.
  When 
 \begin_inset Formula $\rep{X}$
 \end_inset
@@ -1745,7 +1745,7 @@ When
 \begin_inset Formula $\rho_{\rep{\bar{X}}}$
 \end_inset
 
- should be the same as 
+ is idential to 
 \begin_inset Formula $\rho_{\rep{X}}$
 \end_inset
 
@@ -1755,12 +1755,22 @@ When
 
  is in general a nontrivial unitary matrix depending on the basis of the
  representation.
- Particularly, for real or pseudoreal 
+ Particularly
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: cite
+\end_layout
+
+\end_inset
+
+, for real or pseudoreal 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
 , 
-\begin_inset Formula $\cpx{X}\cpx{X}^{*}=\pm\mathbf{I}$
+\begin_inset Formula $\cpx{X}\cpx{X}^{*}=\pm\mathbf{1}$
 \end_inset
 
 , where 
@@ -1784,7 +1794,7 @@ When
 \end_layout
 
 \begin_layout Standard
-In the Hilbert space, eq.
+Eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1792,15 +1802,28 @@ reference "eq:CGSub_Gamma"
 
 \end_inset
 
- implies 
+ implies that 
+\begin_inset Formula $\cpx{X}X^{*}$
+\end_inset
+
+ should transform as a vector in the representation space of 
+\begin_inset Formula $\rep{\bar{X}}$
+\end_inset
+
+.
+ We therefore can define a vector 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ to be
 \begin_inset Formula 
 \begin{equation}
-\cpx{X}X^{*}=\bar{X}.\label{eq:CGSub-GammaX}
+\bar{X}\equiv\cpx{X}X^{*}.\label{eq:CGSub-GammaX}
 \end{equation}
 
 \end_inset
 
-It is natural to impose similar constraints to contractions
+With such a definition, it is natural to impose the following constraints
 \begin_inset ERT
 status open
 
@@ -1845,11 +1868,25 @@ where the matrix
 \end_inset
 
  to 
-\begin_inset Formula $z_{c}$
+\begin_inset Formula $\bar{z}_{c}$
 \end_inset
 
 .
- The constraints imply that the contraction 
+ The constraints 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_GammaCon2"
+
+\end_inset
+
+ imply that contractions 
 \begin_inset Formula $\covlg{X}{Y}{Z}$
 \end_inset
 
@@ -1865,9 +1902,9 @@ where the matrix
 \begin_inset Formula $z_{c}$
 \end_inset
 
- under complex conjugate operation.
+ under the complex conjugate operation.
  It is also natural to impose similar constraints on subgroup irreps embedded
- in the large group irreps, meaning that 
+ in a large group irrep, meaning that 
 \begin_inset Formula $\cpx{c}$
 \end_inset
 
@@ -2031,32 +2068,29 @@ We see that the relation between
 \begin_inset Formula $\rep{x_{a}}$
 \end_inset
 
- is real (not pseudoreal) and the irrep is in a basis that the matrices
- of its generators are all real.
- The latter implies that, if all the three irreps real, there exist bases
- that the CG coefficients 
+ is real (not pseudoreal) irrep and is in a basis that the matrices of its
+ generators are all real.
+ The latter implies that, if all the three irreps are real, there exist
+ bases that the CG coefficients 
 \begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{c}\right)}$
 \end_inset
 
- are all real.
+ are all real
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Add notes about real CG coefficients
+\end_layout
+
+\end_inset
+
+.
  The overall phase of 
 \begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{c}\right)}$
 \end_inset
 
-, i.e.
- 
-\begin_inset Formula $\phi^{\left(ab\to c\right)}$
-\end_inset
-
- in eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:U1_subcg"
-
-\end_inset
-
-, is fixed up to a sign factor in the case that 
+ is fixed up to a sign factor in two cases: i) 
 \begin_inset Formula $\rep{x_{a}}$
 \end_inset
 
@@ -2068,7 +2102,7 @@ reference "eq:U1_subcg"
 \begin_inset Formula $\rep{z_{c}}$
 \end_inset
 
- are all real or pseudoreal irreps or that 
+ are all real or pseudoreal irreps; ii) 
 \begin_inset Formula $\rep{z_{a}}$
 \end_inset
 
@@ -2078,6 +2112,27 @@ reference "eq:U1_subcg"
 
  is the complex conjugate of 
 \begin_inset Formula $\rep{y_{b}}$
+\end_inset
+
+.
+ In these two cases, the phase 
+\begin_inset Formula $\phi^{\left(ab\to c\right)}$
+\end_inset
+
+ in eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_M_Transform"
+
+\end_inset
+
+ can only be 
+\begin_inset Formula $0$
+\end_inset
+
+ or 
+\begin_inset Formula $\pi$
 \end_inset
 
 .
@@ -2163,11 +2218,11 @@ If both
 \begin_inset Formula $\theta_{\bar{a}}^{\left(\bar{X}\right)}=-\theta_{a}^{\left(X\right)}$
 \end_inset
 
-, which implies that the 
-\begin_inset Formula $U\left(1\right)\times U\left(1\right)$
+, which implies that two 
+\begin_inset Formula $U\left(1\right)$
 \end_inset
 
- ambiguity is reduced to a single 
+ ambiguities are reduced to one 
 \begin_inset Formula $U\left(1\right)$
 \end_inset
 
@@ -2203,38 +2258,12 @@ The coefficients
 \begin_inset Formula $\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
- are defined as 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{subequations}
-\end_layout
-
-\end_inset
-
- 
+ are defined as
 \begin_inset Formula 
 \begin{align}
 P_{Z\to c}Z & =\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}},\label{eq:CGSub_PZ}\\
 P_{\bar{Z}\to\bar{c}}\bar{Z} & =\sum_{a,b}\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\covsub{P_{\bar{X}\to\bar{a}}\bar{X}}{P_{\bar{Y}\to\bar{b}}\bar{Y}}{\bar{z}_{c}}.\label{eq:CGSub_PZbar}
 \end{align}
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{subequations}
-\end_layout
 
 \end_inset
 
@@ -2321,7 +2350,7 @@ reference "eq:CGSub_ckij"
 \end_layout
 
 \begin_layout Standard
-We stress that eq.
+Note that eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -2338,25 +2367,30 @@ reference "eq:CGSub_GammaCon2"
 \end_inset
 
 .
- Compare with the constraint 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:CGSub_CXYZ"
-
-\end_inset
-
- on CG coefficients 
-\begin_inset Formula $M$
-\end_inset
-
-, the constraint 
+ The constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CGSub_ckij"
 
 \end_inset
 
- is independent of basis of irreps and 
+ on 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+ is much simpler than the constraint 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:CGSub_CXYZ"
+
+\end_inset
+
+ on 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ It is basis-independent and 
 \begin_inset Formula $\mathcal{M}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
@@ -2377,8 +2411,7 @@ reference "eq:CGSub_ckij"
 \begin_inset Formula $\covlg{\bar{X}}{\bar{Y}}{\bar{Z}}$
 \end_inset
 
- represents the same contraction, which occurs explicitly in the following
- two cases:
+ represents the same contraction, which occurs in the following two cases:
 \end_layout
 
 \begin_layout Itemize
