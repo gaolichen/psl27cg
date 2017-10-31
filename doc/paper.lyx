@@ -625,11 +625,11 @@ reference "sec:App_CGC_PSL27_T7"
 \end_layout
 
 \begin_layout Subsection*
-Notations
+Conventions
 \end_layout
 
 \begin_layout Standard
-Some of the notations used in the main text are as follows.
+Some of the conventions used in the main text are as follows.
  
 \begin_inset Formula $G$
 \end_inset
@@ -757,6 +757,20 @@ Some of the notations used in the main text are as follows.
 \end_inset
 
 .
+ A matrix realization ( representation matrix) of group element 
+\begin_inset Formula $g$
+\end_inset
+
+ in 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ irrep is denoted as 
+\begin_inset Formula $\mr{X}\left(g\right)$
+\end_inset
+
+.
+ Representation matrices are always unitary in this paper.
 \end_layout
 
 \begin_layout Section
@@ -1187,7 +1201,7 @@ reference "eq:SBCG_Embed"
 , we can write 
 \begin_inset Formula 
 \begin{equation}
-P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}X\right)\otimes\left(P_{Y\to b}Y\right)\right\} _{z_{c}}.\label{eq:SBCG_Def1}
+P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}X\right)\otimes\left(P_{Y\to b}Y\right)\right\} _{z_{c}},\label{eq:SBCG_Def1}
 \end{equation}
 
 \end_inset
@@ -1213,7 +1227,27 @@ P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{
 \end_inset
 
  are subgroup-basis Clebsch-Gordan coefficients.
- In analogy to eq.
+ The projection matrices act like similarity transformations on 
+\begin_inset Formula $H$
+\end_inset
+
+ elements between representation 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{x_{a}}$
+\end_inset
+
+, i.e., 
+\begin_inset Formula 
+\begin{equation}
+\left(P_{X\to a}\right)_{ik}\left[{\rm \mr{X}}\left(h\right)\right]_{kl}\left(P_{X\to b}^{\dagger}\right)_{lj}=\delta_{ab}\left[\mr{x_{a}}\left(h\right)\right]_{ij},\quad\forall h\in H.\label{eq:SBCG_Projection}
+\end{equation}
+
+\end_inset
+
+In analogy to eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1273,15 +1307,9 @@ reference "eq:SBCG_Def1"
 
 .
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: insert property about Projection matrices
 \end_layout
 
-\end_inset
-
+\begin_layout Standard
 In the following, we may write 
 \begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
@@ -1629,7 +1657,46 @@ We have showed that SBCG coefficients are independent of bases of both the
 \begin_inset Formula $U\left(1\right)$
 \end_inset
 
- transformations on projection matrices and subgroup CG coefficients
+ transformations on projection matrices and subgroup CG coefficients 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+According to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:SBCG_Projection"
+
+\end_inset
+
+, projection matrices can also transformation as 
+\begin_inset Formula 
+\[
+P_{X\to a}\to P_{X\to a}\mr{X}\left(h_{c}\right),
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $h_{c}$
+\end_inset
+
+ is an element of center of 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ But we will not consider such transformations since they depend on representati
+on matrices of 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{align}
 P_{X\to a} & \to e^{i\theta_{a}^{\left(X\right)}}P_{X\to a},\label{eq:SBCG_Tran_PXa}\\
@@ -2411,7 +2478,7 @@ reference "eq:Red_M_xaybzc"
 \begin_inset Formula $\covlg{\bar{X}}{\bar{Y}}{\bar{Z}}$
 \end_inset
 
- represents the same contraction, which occurs in the following two cases:
+ represent the same contraction, which occurs in the following two cases:
 \end_layout
 
 \begin_layout Itemize
@@ -2427,7 +2494,7 @@ Case I: all of
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- irreps are real or pseudoreal.
+ are real or pseudoreal.
  Particularly, if subgroup irreps 
 \begin_inset Formula $\rep{z_{c}}$
 \end_inset
@@ -2460,14 +2527,15 @@ Case II:
 \end_layout
 
 \begin_layout Standard
-The constraint 
+For contractions of more than two vectors, we have similar constraints as
+ 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Red_Gamma_Con1"
 
 \end_inset
 
- implies similar constraints for contractions of more than two vectors.
+.
  Consider a contraction of three vectors 
 \begin_inset Formula $\covlg{X}{\covlg{V}{W}{Y}}{Z}$
 \end_inset
@@ -2513,7 +2581,7 @@ reference "eq:Red_Gamma_XVW"
 
 \end_inset
 
- to contractions involving arbitrary number of vectors
+ to contractions of arbitrary number of vectors
 \begin_inset Formula 
 \[
 \cpx{Z}\left(\covlg{X\otimes Y\otimes\cdots}{W}{Z}\right)^{*}=\covlg{\bar{X}\otimes\bar{Y}\otimes\cdots}{\bar{W}}{\bar{Z}},
@@ -2568,7 +2636,7 @@ reference "eq:Red_Gamma_XVW"
 \begin_layout Standard
 The above property has an implication in flavor physics models with discrete
  flavor symmetries.
- For a unitary theory, the Lagrangian should be real.
+ For the sake of unitarity, the Lagrangian should be real.
  Therefore, for each term of the Lagrangian, one needs to add its complex
  conjugate to the Lagrangian.
  For example, if a term like 
@@ -2580,7 +2648,7 @@ The above property has an implication in flavor physics models with discrete
 \end_inset
 
  is presumably contained in the Lagrangian as well.
- However, for a general CG coefficients, 
+ However, for general CG coefficients, 
 \begin_inset Formula $\covlg{X}{\covlg{V}{W}{\bar{X}}}{1}$
 \end_inset
 
@@ -4660,8 +4728,8 @@ The generator
 
  has a simple form 
 \begin_inset Formula 
-\[
-A^{[\rep{8}]}=\left(\begin{array}{cccccccc}
+\begin{align*}
+A^{[\rep{8}]} & =\left(\begin{array}{cccccccc}
 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
 0 & 0 & -\frac{1}{3} & \frac{2\omega}{3} & \frac{2\omega^{2}}{3} & 0 & 0 & 0\\
@@ -4670,8 +4738,8 @@ A^{[\rep{8}]}=\left(\begin{array}{cccccccc}
 0 & 0 & 0 & 0 & 0 & -\frac{1}{3} & \frac{2\omega}{3} & \frac{2\omega^{2}}{3}\\
 0 & 0 & 0 & 0 & 0 & \frac{2\omega^{2}}{3} & -\frac{1}{3} & \frac{2\omega}{3}\\
 0 & 0 & 0 & 0 & 0 & \frac{2\omega}{3} & \frac{2\omega^{2}}{3} & -\frac{1}{3}
-\end{array}\right).
-\]
+\end{array}\right).\\
+\end{align*}
 
 \end_inset
 
@@ -5949,13 +6017,6 @@ We thank Pierre Ramond for helpful discussions and comments on this work.
  This research was supported in part by the Department of Energy under Grant
  No.
  DE-SC0010296.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
