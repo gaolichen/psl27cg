@@ -3764,9 +3764,9 @@ reference "tab:PSL27-S4-T7"
 
  are fixed up to similarity transformation of diagonal sign-factor matrices,
 \begin_inset Formula 
-\[
-O^{[\rep{R}]}\to\mathcal{S}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{S}^{[\rep{R}]}\right)^{\dagger},\quad O=A,\,B,\quad\rep{R}=\rep{6},\,\rep{7},\,\rep{8},
-\]
+\begin{equation}
+O^{[\rep{R}]}\to\mathcal{S}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{S}^{[\rep{R}]}\right)^{\dagger},\quad O=A,\,B,\quad\rep{R}=\rep{6},\,\rep{7},\,\rep{8},\label{eq:S4_SMatrix}
+\end{equation}
 
 \end_inset
 
@@ -3808,23 +3808,11 @@ reference "eq:SBCG_Tran_M"
 \end_inset
 
  with 
-\begin_inset Formula $\phi^{\left(ab\to c\right)}$
-\end_inset
-
- being 
-\begin_inset Formula $0$
+\begin_inset Formula $\phi^{\left(ab\to c\right)}=0$
 \end_inset
 
  and 
-\begin_inset Formula $\theta_{a,b,c}^{\left(X,Y,Z\right)}$
-\end_inset
-
- being 
-\begin_inset Formula $0$
-\end_inset
-
- or 
-\begin_inset Formula $\pi$
+\begin_inset Formula $\theta_{a,b,c}^{\left(X,Y,Z\right)}=0\text{ or }\pi$
 \end_inset
 
 .
@@ -4120,7 +4108,7 @@ Substituting above into eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:Unitary_Transform_Us"
+reference "eq:Unitary_Transform_Ut"
 
 \end_inset
 
@@ -4194,22 +4182,7 @@ reference "eq:Gen_AB3_old"
 
 \end_inset
 
-Repeating the calculation of eqs.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Gen_U1_U2"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Unitary_Transform_Ut2"
-
-\end_inset
-
- but replacing 
+Replacing 
 \begin_inset Formula $\tilde{a}$
 \end_inset
 
@@ -4225,7 +4198,15 @@ reference "eq:Unitary_Transform_Ut2"
 \begin_inset Formula $t$
 \end_inset
 
-, we find that 
+ in eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Gen_U1_U2"
+
+\end_inset
+
+ and repeating the calculation, we find that 
 \begin_inset Formula $U_{2}$
 \end_inset
 
@@ -4327,18 +4308,19 @@ reference "eq:Unitary_Transform_Ut2"
 \end_inset
 
  in a complicated expression.
- Fortunately, applying the unitary transformation of 
+ Fortunately, applying the unitary transformation with 
 \begin_inset Formula $U$
 \end_inset
 
  to 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Gen_AB3_old"
-
+\begin_inset Formula $\tilde{A}^{\left[\rep{3}\right]}$
 \end_inset
 
-, we get simple expressions of 
+ and 
+\begin_inset Formula $\tilde{B}^{\left[\rep{3}\right]}$
+\end_inset
+
+ , we get simple expressions of 
 \begin_inset Formula $A$
 \end_inset
 
@@ -4507,8 +4489,8 @@ Sextet, Octet, and Septet Representations
 \end_layout
 
 \begin_layout Standard
-We now find matrix realizations of high-dimensional irreps with the matrix
- realizations of 
+We now build representation matrices of high-dimensional irreps with those
+ of 
 \begin_inset Formula $\rep{3}$
 \end_inset
 
@@ -4537,7 +4519,7 @@ We now find matrix realizations of high-dimensional irreps with the matrix
  irreps 
 \begin_inset Formula 
 \begin{equation}
-\rep{6}=\rep{1}\oplus\rep{2}\oplus\rep{3_{1}},\quad\rep{3}=\rep{3_{2}},\label{eq:CGSub_embedding6}
+\rep{6}=\rep{1_{0}}\oplus\rep{2}\oplus\rep{3_{1}},\quad\rep{3}=\rep{3_{2}},\label{eq:CGSub_embedding6}
 \end{equation}
 
 \end_inset
@@ -4549,7 +4531,7 @@ and the tensor product of
  irreps
 \begin_inset Formula 
 \[
-\rep{3_{2}}\otimes\rep{3_{2}}\to\rep{1}\oplus\rep{2}\oplus\rep{3_{1}}
+\rep{3_{2}}\otimes\rep{3_{2}}\to\rep{1_{0}}\oplus\rep{2}\oplus\rep{3_{1}}
 \]
 
 \end_inset
@@ -4565,7 +4547,7 @@ determine the
  to be 
 \begin_inset Formula 
 \begin{equation}
-\covp{3}{3}{6}=\begin{pmatrix}e^{i\theta_{1}}\covs{3_{2}}{3_{2}}{1}\\
+\covp{3}{3}{6}=\begin{pmatrix}e^{i\theta_{1}}\covs{3_{2}}{3_{2}}{1_{0}}\\
 e^{i\theta_{2}}\covs{3_{3}}{3_{2}}{2}\\
 e^{i\theta_{3}}\covs{3_{2}}{3_{2}}{3_{1}}
 \end{pmatrix},\label{eq:Gen_CG336}
@@ -4627,7 +4609,7 @@ reference "eq:Red_Gamma_Con3"
  It turns out that 
 \begin_inset Formula 
 \[
-\Gamma_{\rep{6}}=\Gamma_{\rep{1}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)}
+\Gamma_{\rep{6}}=\left(1\right)\oplus\Gamma_{\rep{2}}^{\left(S_{4}\right)}\oplus\Gamma_{\rep{3_{1}}}^{\left(S_{4}\right)}
 \]
 
 \end_inset
@@ -4657,7 +4639,7 @@ reference "eq:S4_Gamma"
 \begin_inset Formula $\theta_{1}$
 \end_inset
 
- being a free unphysical overall phase.
+ being a free unphysical phase.
  Choosing 
 \begin_inset Formula $\theta_{1}=0$
 \end_inset
@@ -4822,7 +4804,7 @@ Finally, let us consider the
 \end_inset
 
  is determined up to phases solely by embedding relations and subgroup tensor
- products, the norm of the SBCG coefficients of 
+ products, the absolute values of the SBCG coefficients of 
 \begin_inset Formula $\covp{3}{6}{7}$
 \end_inset
 
@@ -4835,7 +4817,7 @@ Finally, let us consider the
 \begin_inset Formula $\covp{3}{6}{8}$
 \end_inset
 
- and obtain those of 
+, and then obtain those of 
 \begin_inset Formula $\covp{3}{6}{7}$
 \end_inset
 
@@ -4880,12 +4862,15 @@ e^{i\theta_{3}}\left(\frac{i}{3}\sqrt{\frac{7}{2}}b_{7}\covs{3_{2}}{1_{0}}{3_{2}
 \end_inset
 
  being unknown phases.
- Applying a constraint in analogy to eq.
- 
+ Applying a constraint in analogy to 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Gen_Gamma6"
 
+\end_inset
+
+ with 
+\begin_inset Formula $\cpx{\rep{7}}=\left(1\right)\oplus\cpx{\rep{3_{1}}}\oplus\cpx{\rep{3_{2}}}$
 \end_inset
 
 , we arrive at 
@@ -5016,19 +5001,20 @@ olcite{Luhn:2007yr}
 \end_layout
 
 \begin_layout Standard
-According to the discussion in the second paragraph of subsection 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:PSL27-Gen-S4"
-
-\end_inset
-
-, since all the 
+Since all the 
 \begin_inset Formula $\subgb$
 \end_inset
 
- irreps are complex except the trivial singlet, the representation matrices
- of 
+ irreps are complex except the trivial singlet, according to the same arguments
+ leading to eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:S4_SMatrix"
+
+\end_inset
+
+, the representation matrices of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -5061,11 +5047,7 @@ reference "eq:SBCG_Tran_M"
 \end_inset
 
  with 
-\begin_inset Formula $\phi^{\left(ab\to c\right)}$
-\end_inset
-
- being 
-\begin_inset Formula $0$
+\begin_inset Formula $\phi^{\left(ab\to c\right)}=0$
 \end_inset
 
  and 
@@ -5110,18 +5092,7 @@ reference "eq:Gen_AB3_old"
 
 \end_inset
 
-Consulting the character table of 
-\begin_inset Formula $\subgb$
-\end_inset
-
- shown as table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Character-T7"
-
-\end_inset
-
-, we see that 
+Since 
 \begin_inset Formula $\rep{3}$
 \end_inset
 
@@ -5134,11 +5105,6 @@ reference "tab:Character-T7"
 \end_inset
 
 , and in all singlets irreps, 
-\begin_inset Formula $c$
-\end_inset
-
- is simply one-dimensional identity matrix.
- It then follows that 
 \begin_inset Formula $AB$
 \end_inset
 
@@ -5165,11 +5131,7 @@ reference "tab:Character-T7"
 \end_inset
 
 .
- If matrices of 
-\begin_inset Formula $A$
-\end_inset
-
- are given, since 
+ Given since 
 \begin_inset Formula $A^{2}=e$
 \end_inset
 
@@ -5177,7 +5139,7 @@ reference "tab:Character-T7"
 \begin_inset Formula $B$
 \end_inset
 
- are then 
+ can be expressed as 
 \begin_inset Formula 
 \[
 B^{[\rep{R}]}=A^{[\rep{R}]}\left(AB\right)^{[\rep{R}]},\quad\rep{R}=\rep{3},\,\rep{\bar{3}},\,\rep{6},\,\rep{7},\,\rep{8}.
@@ -5185,7 +5147,7 @@ B^{[\rep{R}]}=A^{[\rep{R}]}\left(AB\right)^{[\rep{R}]},\quad\rep{R}=\rep{3},\,\r
 
 \end_inset
 
- We therefore only give the matrices of 
+ We therefore only need to find the matrices of 
 \begin_inset Formula $A$
 \end_inset
 
@@ -5279,7 +5241,7 @@ end{subequations}
 \end_inset
 
  with 
-\begin_inset Formula $c_{k}=\exp\left(i2k\pi/7\right)$
+\begin_inset Formula $c_{k}=\cos\frac{2k\pi}{7}$
 \end_inset
 
 .
