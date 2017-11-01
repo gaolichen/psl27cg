@@ -8,6 +8,7 @@
 \begin_preamble
 \usepackage{babel}
 \usepackage{nccmath}
+\usepackage{chngcntr}
 \bibliographystyle{unsrtnat}
 
 \newcommand{\rep}[1]{\mathbf{#1}} 
@@ -127,7 +128,6 @@ Institute for Fundamental Theory, Department of Physics, University of Florida,
 \end_layout
 
 \begin_layout Author Email
-
 gchen@ufl.edu
 \end_layout
 
@@ -5556,13 +5556,21 @@ With the generator matrices, we can now find the SBCG coefficients of
 \end_inset
 
 .
- To demonstrate the procedures, we will take the tensor products 
+ To demonstrate the procedure, we will take the tensor product 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}^{\left(1\right)}\oplus\rep{6}_{s}^{\left(2\right)}$
 \end_inset
 
  as an example.
- Here the superscription indicates the multiplicity of irreps in the tensor
- product and the subscript 
+ Here the superscripts 
+\begin_inset Formula $\left(1\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(2\right)$
+\end_inset
+
+ indicates the multiplicity of irreps in the tensor product and the subscript
+ 
 \begin_inset Formula $s$
 \end_inset
 
@@ -5672,8 +5680,8 @@ Since
 \begin_inset Formula $2$
 \end_inset
 
-, we can setup seven homogeneous linear equations by feeding values into
- 
+ and there are nine unknowns, we can setup seven homogeneous linear equations
+ by feeding values into 
 \begin_inset Formula $X$
 \end_inset
 
@@ -5761,15 +5769,43 @@ reference "eq:Proc_VW"
 \end_inset
 
 ,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{subequations}
+\backslash
+label{eq:Ex_sol_M}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \mathcal{M}_{1,33} & =-\frac{\mathcal{M}_{1,11}}{\sqrt{3}}-\frac{2\mathcal{M}_{1,22}}{\sqrt{3}},\quad\mathcal{M}_{2,12}=\mathcal{M}_{1,22},\\
 \mathcal{M}_{2,22} & =-\frac{2\mathcal{M}_{1,11}}{\sqrt{7}}-\frac{3\mathcal{M}_{1,22}}{\sqrt{14}},\\
 \mathcal{M}_{2,33} & =\frac{\mathcal{M}_{1,22}}{\sqrt{42}}-\frac{4\mathcal{M}_{1,11}}{\sqrt{21}},\\
 \mathcal{M}_{3,13} & =-\frac{\sqrt{2}}{3}\mathcal{M}_{1,11}-\frac{2\mathcal{M}_{1,22}}{3},\\
 \mathcal{M}_{3,23} & =\frac{1}{3}\sqrt{\frac{2}{7}}\mathcal{M}_{1,22}-\frac{8\mathcal{M}_{1,11}}{3\sqrt{7}},\\
 \mathcal{M}_{3,33} & =\sqrt{\frac{2}{21}}\mathcal{M}_{1,11}+\frac{5\mathcal{M}_{1,22}}{\sqrt{21}}.
-\end{align*}
+\end{align}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{subequations}
+\end_layout
 
 \end_inset
 
@@ -5777,7 +5813,7 @@ Since all the irreps of
 \begin_inset Formula $\subga$
 \end_inset
 
- are real representations, the constraints 
+ are real, the constraints 
 \begin_inset Formula $\mathcal{M}_{c,ab}=\mathcal{M}_{\bar{c},\bar{a}\bar{b}}$
 \end_inset
 
@@ -5790,14 +5826,8 @@ Since all the irreps of
 \end_inset
 
  are real.
- For the orthonormalization condition 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:SBCG_orthnorm"
-
-\end_inset
-
-, we consider the SBCG coefficients of the 
+ To build two orthonormal sets of SBCG coeffiients, we consider the SBCG
+ coefficients of the 
 \begin_inset Formula $\rep{1_{0}}$
 \end_inset
 
@@ -5819,6 +5849,13 @@ reference "eq:SBCG_orthnorm"
  Substituting the two solutions into 
 \begin_inset CommandInset ref
 LatexCommand eqref
+reference "eq:Ex_sol_M"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
 reference "eq:Ex_SixSix2Six"
 
 \end_inset
@@ -5838,11 +5875,11 @@ reference "sec:App_CGC_PSL27_S4"
 \end_layout
 
 \begin_layout Standard
-The calculation is similar for 
+The calculation of SBCG coefficients in 
 \begin_inset Formula $\subgb$
 \end_inset
 
- basis.
+ basis is similar.
  According to the decomposition 
 \begin_inset Formula $\rep{6}=\rep{3}\oplus\rep{\bar{3}}$
 \end_inset
@@ -5855,11 +5892,7 @@ The calculation is similar for
 \begin_inset Formula $\covp{6}{6}{6_{s}}$
 \end_inset
 
- in 
-\begin_inset Formula $\subgb$
-\end_inset
-
- basis can be written as
+ can be written as
 \begin_inset Formula 
 \begin{align*}
 \rep{3} & =\mathcal{M}_{3,33}\covt{3}{3}{3}+\mathcal{M}_{3,\bar{3}\bar{3}}\covt{\bar{3}}{\bar{3}}{3_{s}}\\
@@ -6009,6 +6042,13 @@ status open
 
 \backslash
 numberwithin{equation}{section}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+counterwithin{table}{section}
 \end_layout
 
 \end_inset
@@ -6790,7 +6830,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\rep{1}$
+\begin_inset Formula $\rep{1_{0}}$
 \end_inset
 
 
@@ -7328,13 +7368,13 @@ Using the CG coefficients of
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\rep{3_{1}}\otimes\rep{3_{1}}\to\left(\rep{1}+\rep{2}+\rep{3_{1}}\right)_{s}+\rep{3_{2}}_{a}$
+\begin_inset Formula $\rep{3_{1}}\otimes\rep{3_{1}}\to\left(\rep{1_{0}}+\rep{2}+\rep{3_{1}}\right)_{s}+\rep{3_{2}}_{a}$
 \end_inset
 
 :
 \begin_inset Formula 
 \begin{align*}
-\covs{x}{y}{1} & =\cova{x}{y}{1}\\
+\covs{x}{y}{1_{0}} & =\cova{x}{y}{1_{0}}\\
 \covs{x}{y}{2} & =\begin{pmatrix}\cova{x}{y}{1^{\prime}}\\
 \cova{x}{y}{\bar{1}^{\prime}}
 \end{pmatrix}\\
@@ -7348,13 +7388,13 @@ Using the CG coefficients of
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\rep{3_{2}}\otimes\rep{3_{2}}\to\left(\rep{1}+\rep{2}+\rep{3_{1}}\right)_{s}+\rep{3_{2}}_{a}$
+\begin_inset Formula $\rep{3_{2}}\otimes\rep{3_{2}}\to\left(\rep{1_{0}}+\rep{2}+\rep{3_{1}}\right)_{s}+\rep{3_{2}}_{a}$
 \end_inset
 
 :
 \begin_inset Formula 
 \begin{align*}
-\covs{x}{y}{1} & =\cova{x}{y}{1}\\
+\covs{x}{y}{1_{0}} & =\cova{x}{y}{1_{0}}\\
 \covs{x}{y}{2} & =\begin{pmatrix}\cova{x}{y}{1^{\prime}}\\
 \cova{x}{y}{\bar{1}^{\prime}}
 \end{pmatrix}\\
@@ -7420,13 +7460,13 @@ Using the CG coefficients of
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\rep{2}\otimes\rep{2}\to\left(\rep{1}+\rep{2}\right)_{s}+\rep{1_{1}}_{a}$
+\begin_inset Formula $\rep{2}\otimes\rep{2}\to\left(\rep{1_{0}}+\rep{2}\right)_{s}+\rep{1_{1}}_{a}$
 \end_inset
 
 : 
 \begin_inset Formula 
 \begin{align*}
-\covs{z}{w}{1} & =\frac{1}{\sqrt{2}}\cova{s_{z}^{\prime}}{\bar{s}_{w}^{\prime}}{1}+\frac{1}{\sqrt{2}}\cova{\bar{s}_{z}^{\prime}}{s_{w}^{\prime}}{1}\\
+\covs{z}{w}{1_{0}} & =\frac{1}{\sqrt{2}}\cova{s_{z}^{\prime}}{\bar{s}_{w}^{\prime}}{1}+\frac{1}{\sqrt{2}}\cova{\bar{s}_{z}^{\prime}}{s_{w}^{\prime}}{1}\\
 \covs{z}{w}{1_{1}} & =\frac{i}{\sqrt{2}}\cova{s_{z}^{\prime}}{\bar{s}_{w}^{\prime}}{1}-\frac{i}{\sqrt{2}}\cova{\bar{s}_{z}^{\prime}}{s_{w}^{\prime}}{1}\\
 \covs{z}{w}{2} & =\begin{pmatrix}\cova{\bar{s}_{z}^{\prime}}{\bar{s}_{w}^{\prime}}{1^{\prime}}\\
 \cova{s_{z}^{\prime}}{s_{w}^{\prime}}{\bar{1}^{\prime}}
@@ -7489,7 +7529,7 @@ The Frobenius group of order 21 is the smallest finite non-Abelian subgroup
  It contains elements of order three and seven, with the presentation 
 \begin_inset Formula 
 \begin{equation}
-\left\langle c,d\big|c^{7}=d^{3}=1,d^{-1}cd=c^{4}\right\rangle .\label{eq:Z7Z3-Generator}
+\left\langle c,d\big|c^{7}=d^{3}=1,d^{-1}cd=c^{4}\right\rangle .\label{eq:T7_presentation}
 \end{equation}
 
 \end_inset
@@ -7992,7 +8032,14 @@ The CG coefficients of
 \begin_inset Formula $\subgb$
 \end_inset
 
- are as follows.
+ are as follows
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kile:2013gla"
+
+\end_inset
+
+.
 \begin_inset Formula 
 \begin{align*}
 \covt{1^{\prime}}{\bar{3}}{3} & =\begin{pmatrix}\ket{1^{\prime}}\ket{1}\\
