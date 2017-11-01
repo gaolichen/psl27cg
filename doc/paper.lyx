@@ -128,12 +128,13 @@ Institute for Fundamental Theory, Department of Physics, University of Florida,
 \end_layout
 
 \begin_layout Author Email
+
 gchen@ufl.edu
 \end_layout
 
 \begin_layout Abstract
 We study subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
- the Clebsch-Gordan coefficients of a discrete group in terms of irreducible
+ Clebsch-Gordan coefficients of a discrete group in terms of irreducible
  representations of its subgroup.
  With projection matrices, which project irreducible representations of
  the group to those of its subgroup, SBCG coefficients can be defined in
@@ -141,13 +142,13 @@ We study subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
  the group and the subgroup.
  We then impose on the SBCG coefficients constraints, which relate them
  to their counterparts under complex conjugate and therefore restricts the
- overall phases of SBCG coefficients.
- We describe procedures to find SBCG coefficients and then calculate SBCG
- coefficients of the group 
+ phases of SBCG coefficients.
+ We describe the procedure to find SBCG coefficients and then calculate
+ SBCG coefficients of the group 
 \begin_inset Formula $\group$
 \end_inset
 
- in the bases of its subgroup 
+ in its subgroup 
 \begin_inset Formula $\subga$
 \end_inset
 
@@ -155,7 +156,7 @@ We study subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
 \begin_inset Formula $\subgb$
 \end_inset
 
-.
+ bases.
 \end_layout
 
 \begin_layout Section
@@ -1672,13 +1673,13 @@ reference "eq:SBCG_Projection"
 , projection matrices can also transformation as 
 \begin_inset Formula 
 \[
-P_{X\to a}\to P_{X\to a}\mr{X}\left(g_{c}\right),
+P_{X\to a}\to P_{X\to a}\mr{X}\left(g^{\prime}\right),
 \]
 
 \end_inset
 
  where 
-\begin_inset Formula $g_{c}$
+\begin_inset Formula $g^{\prime}$
 \end_inset
 
  is an element of center of 
@@ -1686,12 +1687,23 @@ P_{X\to a}\to P_{X\to a}\mr{X}\left(g_{c}\right),
 \end_inset
 
 .
- But we will not consider such transformations since they depend on representati
-on matrices of 
-\begin_inset Formula $G$
+ But we can see that it is equivalent to replacing 
+\begin_inset Formula $g$
 \end_inset
 
-.
+ with 
+\begin_inset Formula $g^{\prime}g$
+\end_inset
+
+ in eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:SBCG_Def2"
+
+\end_inset
+
+ and hence does not change SBCG coefficients.
 \end_layout
 
 \end_inset
@@ -2686,6 +2698,51 @@ Add comments about CP transformation
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The SBCG coefficients in our convention provides a natural realization of
+ flavor models with generalized charge-parity (CP) symmetry.
+ A generalized CP transformation is defined as, for a field 
+\begin_inset Formula $\phi$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{equation}
+\phi\stackrel{CP}{\longrightarrow}\mathcal{U}_{CP}\phi^{*},\label{eq:Red_CP_Tran}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\mathcal{U}_{CP}$
+\end_inset
+
+ is an automorphism transformation of the discrete group 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ A model with CP symmetry should invariant under such a transformation.
+ With SBCG coefficients in our convention, the generalized CP transformation
+ is simply realized by 
+\begin_inset Formula 
+\[
+X\leftrightarrow\bar{X}
+\]
+
+\end_inset
+
+ with 
+\begin_inset Formula $\Gamma_{X}$
+\end_inset
+
+ playing the role of 
+\begin_inset Formula $\mathcal{U}_{CP}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -5962,6 +6019,16 @@ reference "sec:App_CGC_PSL27_T7"
 \end_inset
 
 .
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: add comments about other methods.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
