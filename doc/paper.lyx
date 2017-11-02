@@ -2652,12 +2652,15 @@ reference "eq:Red_Gamma_XVW"
 , then the contraction is a real number.
 \end_layout
 
+\begin_layout Subsection
+Remarks
+\end_layout
+
 \begin_layout Standard
 The above property has an implication in flavor physics models with discrete
  flavor symmetries.
- For the sake of unitarity, the Lagrangian should be real.
- Therefore, for each term of the Lagrangian, one needs to add its complex
- conjugate to the Lagrangian.
+ To make the Lagrangian Hermitian, one needs to add its complex conjugate
+ to for each term of the Lagrangian.
  For example, if a term like 
 \begin_inset Formula $\lambda\covlg{X}{\covlg{V}{W}{\bar{X}}}{1}$
 \end_inset
@@ -2695,58 +2698,134 @@ reference "eq:CG_GammaCon"
 
  can always be a real number.
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Add comments about CP transformation
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-The SBCG coefficients in our convention provides a natural realization of
- flavor models with generalized charge-parity (CP) symmetry.
- A generalized CP transformation is defined as, for a field 
-\begin_inset Formula $\phi$
+One should not confuse the 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ matrices with the unitary matrix 
+\begin_inset Formula $\mathcal{U}$
+\end_inset
+
+ in the generalised charge-parity (CP) transformation
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CPChen:2014tpa,CPEcker:1981wv,CPEcker:1983hz,CPFeruglio:2012cw,CPHolthausen:2012dk,CPNeufeld:1987wa"
+
 \end_inset
 
 , 
 \begin_inset Formula 
 \begin{equation}
-\phi\stackrel{CP}{\longrightarrow}\mathcal{U}_{CP}\phi^{*},\label{eq:Red_CP_Tran}
+\mathcal{U}_{i}\rho_{\rep{R}_{i}}\left(g\right)^{*}\mathcal{U}_{i}^{-1}=\rho_{\rep{R}_{i}}\left(u\left(g\right)\right),\quad\forall g\in G,\,\forall i,\label{eq:Red_CP}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $\mathcal{U}_{CP}$
+\begin_inset Formula $u$
 \end_inset
 
- is an automorphism transformation of the discrete group 
-\begin_inset Formula $G$
+ is an automorphism of the group.
+ For physical CP transformation, 
+\begin_inset Formula $u$
+\end_inset
+
+ should be a class-inverting and involtury automorphism.
+ A model admitting CP symmetry should invariant under the transformation
+\begin_inset Formula 
+\begin{equation}
+\phi_{i}\stackrel{CP}{\longrightarrow}\mathcal{U}_{i}\phi_{i}^{*}.\label{eq:Red_CP_Tran}
+\end{equation}
+
+\end_inset
+
+ The SBCG coefficients provide a way to build real Lagrangians invariant
+ under the group action.
+ But the existance of CP symmetry dependets on whether or not there exists
+ a class-inverting involtury automorphism satisfying eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Red_CP"
+
 \end_inset
 
 .
- A model with CP symmetry should invariant under such a transformation.
- With SBCG coefficients in our convention, the generalized CP transformation
- is simply realized by 
+ If there exists such an automorphism, the matrices 
+\begin_inset Formula $\mathcal{U}_{i}$
+\end_inset
+
+ are in general different with the 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ matrices defined as 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Red_Gamma_rho"
+
+\end_inset
+
+.
+ In fact, under the transformation like 
+\begin_inset Formula $X\to\cpx{X}X^{*}$
+\end_inset
+
+, we have 
 \begin_inset Formula 
-\[
-X\leftrightarrow\bar{X}
-\]
+\begin{equation}
+X\to\bar{X},\quad\bar{X}\to\begin{cases}
+-X & \text{pseudoreal }\rep{X}\\
+X & \text{compex or real }\rep{X}
+\end{cases}\label{eq:Red_Gamma_Tran}
+\end{equation}
 
 \end_inset
 
- with 
-\begin_inset Formula $\Gamma_{X}$
+The Lagrangian is not invariant under 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Red_Gamma_Tran"
+
 \end_inset
 
- playing the role of 
-\begin_inset Formula $\mathcal{U}_{CP}$
+ if it contains contractions with odd number of pseudoreal irreps.
+ But there does exist group with pesudoreal irreps admitting a CP transformation.
+ For example, the group 
+\begin_inset Formula $Q_{8}$
+\end_inset
+
+, which has one 2-dimensional pseudoreal irrep, admits a CP symmetry
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CPChen:2014tpa"
+
+\end_inset
+
+.
+ Even if a group does not have pesudoreal irreps, the transformation 
+\begin_inset Formula $X\to\cpx{X}X^{*}$
+\end_inset
+
+ is not necessary a CP transformation, since the class-inverting involtury
+ automorphism for such a transformation might not exist.
+ For example, the group 
+\begin_inset Formula $\subgb$
+\end_inset
+
+, of which all irreps are complex except the real trivial singlet, does
+ not admit a physical CP transformation
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CPChen:2014tpa"
+
+\end_inset
+
+ but the Lagrangian is invariant under the transformation 
+\begin_inset Formula $X\to\cpx{X}X^{*}$
 \end_inset
 
 .
