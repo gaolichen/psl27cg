@@ -216,7 +216,9 @@ olcite{Ludl:2009ft}
 
 .
  These methods work well for low-dimensional irreps and groups with small
- order
+ order.
+ However, when comes to CG coefficients of large discrete group or those
+ involving high-dimensional irreps, they are usually not effective
 \begin_inset Foot
 status open
 
@@ -258,9 +260,7 @@ olcite{Ludl:2009ft}
 \end_inset
 
 .
- However, when comes to CG coefficients of large discrete group or those
- involving high-dimensional irreps, they are usually not effective.
- The calculation of CG coefficients involve complicated cyclotomic numbers,
+ The calculation of CG coefficients involves complicated cyclotomic numbers,
  which are polynomials of roots of unity 
 \begin_inset Formula $e^{2\pi i/n}$
 \end_inset
@@ -293,7 +293,7 @@ CG coefficients have several types of ambiguities.
  They in general depend on bases of irreps of the group.
  Even if these bases are fixed, it is free to multiply a set of CG coefficients
  with an arbitrary overall phase.
- In addition, the CG coefficients have 
+ In addition, CG coefficients have 
 \begin_inset Formula $U\left(N\right)$
 \end_inset
 
@@ -615,12 +615,15 @@ reference "sec:Calc_PSL27_CGC"
 
 \end_inset
 
-, we give examples of calculating SBCG coefficients for the tensor product
- 
-\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{7}$
+, we calculate SBCG coefficients of the tensor product 
+\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}$
 \end_inset
 
-.
+ of the group 
+\begin_inset Formula $\group$
+\end_inset
+
+ as an example.
  The group theories of relevant groups are given in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -923,8 +926,8 @@ The tensor product of two irreps of a group is in general reducible.
 status open
 
 \begin_layout Plain Layout
-While we define CG coefficients with vector spaces, there also exists equivalent
- definition with group elements, for example, 
+While we define CG coefficients with vector spaces, there also exists an
+ equivalent definition in terms of group elements, for example, 
 \begin_inset ERT
 status open
 
@@ -1099,11 +1102,11 @@ status open
 \begin_layout Plain Layout
 The tensor product of two identical irreps has symmetric and antisymmetric
  parts.
- If both parts contain the irrep 
+ If both parts contain a irrep 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- one time, then 
+, then 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
@@ -1121,7 +1124,7 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 \end_inset
 
  as two different irreps when calculating the CG coefficients.
- So in this paper, such a case is not considered as nontrivial multiplicity
+ So in this paper, such a case is not considered as a nontrivial multiplicity
  case.
 \end_layout
 
@@ -1396,7 +1399,7 @@ reference "eq:SBCG_Def2"
 
 \end_inset
 
- are invariant under basis transformations of both the group and subgroup.
+ are invariant under basis transformations of both the group and its subgroup.
 \end_layout
 
 \begin_layout Proof
