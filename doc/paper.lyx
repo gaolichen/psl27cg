@@ -134,16 +134,16 @@ gchen@ufl.edu
 
 \begin_layout Abstract
 We study subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
- Clebsch-Gordan coefficients of a discrete group in terms of irreducible
- representations of its subgroup.
- With projection matrices, which project irreducible representations of
- the group to those of its subgroup, SBCG coefficients can be defined in
- a way that is independent of bases of irreducible representations of both
- the group and the subgroup.
- We then impose on the SBCG coefficients constraints, which relate them
- to their counterparts under complex conjugate and therefore restricts the
- phases of SBCG coefficients.
- We describe the procedure to find SBCG coefficients and then calculate
+ Clebsch-Gordan coefficients of a discrete group in terms of its subgroup
+ irreducible representations (irrep).
+ SBCG coefficients are fixed up to phase ambiguities.
+ Particularly, they are invariant under regular basis transformations of
+ irreps of both the group and its subgroup.
+ We then impose on SBCG coefficients constraints, which relate SBCG coefficients
+ to their counterparts under complex conjugate and therefore restrict phases
+ of SBCG coefficients.
+ In some cases, the phases ambiguities are reduced to sign ambiguities.
+ We also describe the procedure to find SBCG coefficients and then calculate
  SBCG coefficients of the group 
 \begin_inset Formula $\group$
 \end_inset
@@ -216,7 +216,48 @@ olcite{Ludl:2009ft}
 
 .
  These methods work well for low-dimensional irreps and groups with small
- order, typically less than 100.
+ order
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We do not know the order of groups and the dimension of irreps, higher than
+ which these methods become ineffective.
+ Based on our testing, for the group 
+\begin_inset Formula $\group$
+\end_inset
+
+ of order 
+\begin_inset Formula $168$
+\end_inset
+
+, the Discrete package did not give any result for the calculation of CG
+ coefficients of two six-dimensional irreps, even after days of computation.
+ The method of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Ludl:2009ft}
+\end_layout
+
+\end_inset
+
+ requires diagonalization of representation matrices by Mathematica, which,
+ based on our testing, failed to give any result for the six-dimensional
+ representation matrices of the group 
+\begin_inset Formula $\group$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
  However, when comes to CG coefficients of large discrete group or those
  involving high-dimensional irreps, they are usually not effective.
  The calculation of CG coefficients involve complicated cyclotomic numbers,
@@ -343,7 +384,7 @@ We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
 \end_inset
 
 .
- In case i), if the irreps can be deomposed into real or pseudoreal subgroup
+ In case i), if the irreps can be decomposed into real or pseudoreal subgroup
  irreps, then the corresponding SBCG coefficients are real numbers fixed
  up to sign factors.
 \end_layout
@@ -442,7 +483,7 @@ key "Kile:2013gla,T7Cao:2010mp,T7Cao:2011cp,T7Hagedorn:2008bc,T7Luhn:2007sy,T7Lu
 
  are rare known.
  Our work can be helpful for building connections among these models, typically,
- through sponteneous symmetry breaking of discrete groups into smaller ones.
+ through spontaneous symmetry breaking of discrete groups into smaller ones.
  We automate much of the above procedure in Mathematica code in 
 \begin_inset ERT
 status open
@@ -1817,7 +1858,7 @@ When
 \begin_inset Formula $\rho_{\rep{\bar{X}}}$
 \end_inset
 
- is idential to 
+ is identical to 
 \begin_inset Formula $\rho_{\rep{X}}$
 \end_inset
 
@@ -2709,7 +2750,7 @@ One should not confuse the
 \begin_inset Formula $\mathcal{U}$
 \end_inset
 
- in the generalised charge-parity (CP) transformation
+ of generalized charge-parity (CP) transformations
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CPChen:2014tpa,CPEcker:1981wv,CPEcker:1983hz,CPFeruglio:2012cw,CPHolthausen:2012dk,CPNeufeld:1987wa"
@@ -2717,6 +2758,14 @@ key "CPChen:2014tpa,CPEcker:1981wv,CPEcker:1983hz,CPFeruglio:2012cw,CPHolthausen
 \end_inset
 
 , 
+\begin_inset Formula 
+\begin{equation}
+\phi_{i}\stackrel{CP}{\longrightarrow}\mathcal{U}_{i}\phi_{i}^{*}.\label{eq:Red_CP_Tran}
+\end{equation}
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \mathcal{U}_{i}\rho_{\rep{R}_{i}}\left(g\right)^{*}\mathcal{U}_{i}^{-1}=\rho_{\rep{R}_{i}}\left(u\left(g\right)\right),\quad\forall g\in G,\,\forall i,\label{eq:Red_CP}
@@ -2729,32 +2778,28 @@ key "CPChen:2014tpa,CPEcker:1981wv,CPEcker:1983hz,CPFeruglio:2012cw,CPHolthausen
 \end_inset
 
  is an automorphism of the group.
- For physical CP transformation, 
+ For a physical CP transformation, 
 \begin_inset Formula $u$
 \end_inset
 
- should be a class-inverting and involtury automorphism.
- A model admitting CP symmetry should invariant under the transformation
-\begin_inset Formula 
-\begin{equation}
-\phi_{i}\stackrel{CP}{\longrightarrow}\mathcal{U}_{i}\phi_{i}^{*}.\label{eq:Red_CP_Tran}
-\end{equation}
-
+ should be a class-inverting and involutory.
+ If such 
+\begin_inset Formula $u$
 \end_inset
 
- The SBCG coefficients provide a way to build real Lagrangians invariant
- under the group action.
- But the existance of CP symmetry dependets on whether or not there exists
- a class-inverting involtury automorphism satisfying eq.
- 
+ exists, a model employing the group 
+\begin_inset Formula $G$
+\end_inset
+
+ as flavor symmetry can be invariant under transformation 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Red_CP"
+LatexCommand eqref
+reference "eq:Red_CP_Tran"
 
 \end_inset
 
 .
- If there exists such an automorphism, the matrices 
+ The matrices 
 \begin_inset Formula $\mathcal{U}_{i}$
 \end_inset
 
@@ -2793,7 +2838,7 @@ reference "eq:Red_Gamma_Tran"
 \end_inset
 
  if it contains contractions with odd number of pseudoreal irreps.
- But there does exist group with pesudoreal irreps admitting a CP transformation.
+ But there exist groups with pseudoreal irreps admitting a CP symmetry.
  For example, the group 
 \begin_inset Formula $Q_{8}$
 \end_inset
@@ -2806,11 +2851,11 @@ key "CPChen:2014tpa"
 \end_inset
 
 .
- Even if a group does not have pesudoreal irreps, the transformation 
+ Even if a group does not have pseudoreal irreps, the transformation 
 \begin_inset Formula $X\to\cpx{X}X^{*}$
 \end_inset
 
- is not necessary a CP transformation, since the class-inverting involtury
+ is not necessary a CP transformation, since the class-inverting involutory
  automorphism for such a transformation might not exist.
  For example, the group 
 \begin_inset Formula $\subgb$
@@ -3691,7 +3736,7 @@ reference "tab:PSL27-S4-T7"
 \begin_inset Formula $\subgb$
 \end_inset
 
- antitriplet.
+ anti-triplet.
  
 \end_layout
 
@@ -3932,7 +3977,7 @@ O^{[\rep{R}]}\to\mathcal{S}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{S}^{[\rep{R}]
 \end_inset
 
  identity matrix.
- Since the triplet and antitriplet decomposition are 
+ Since the triplet and anti triplet decomposition are 
 \begin_inset Formula $\rep{3}=\rep{3_{2}}$
 \end_inset
 
@@ -5586,7 +5631,7 @@ olcite{Luhn:2007yr}
 \end_inset
 
 .
- The triplet and antitriplet are the same.
+ The triplet and anti-triplet are the same.
  For the sextet, octet and septet irreps, the similarity transformations
  between our bases and those of 
 \begin_inset ERT
@@ -5969,7 +6014,7 @@ Since all the irreps of
 \end_inset
 
  are real.
- To build two orthonormal sets of SBCG coeffiients, we consider the SBCG
+ To build two orthonormal sets of SBCG coefficients, we consider the SBCG
  coefficients of the 
 \begin_inset Formula $\rep{1_{0}}$
 \end_inset
@@ -8767,7 +8812,7 @@ name "sec:Tech_Detail"
 
 \end_inset
 
-Cyclotomic Numbrs
+Cyclotomic Numbers
 \end_layout
 
 \begin_layout Standard
