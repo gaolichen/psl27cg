@@ -135,16 +135,16 @@ gchen@ufl.edu
 \begin_layout Abstract
 We study subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
  Clebsch-Gordan coefficients of a discrete group in terms of its subgroup
- irreducible representations (irrep).
+ irreducible representations (irreps).
  SBCG coefficients are fixed up to phase ambiguities.
  Particularly, they are invariant under regular basis transformations of
  irreps of both the group and its subgroup.
  We then impose on SBCG coefficients constraints, which relate SBCG coefficients
  to their counterparts under complex conjugate and therefore restrict phases
  of SBCG coefficients.
- In some cases, the phases ambiguities are reduced to sign ambiguities.
- We also describe the procedure to find SBCG coefficients and then calculate
- SBCG coefficients of the group 
+ In some cases, the phase ambiguities are reduced to sign ambiguities.
+ We also describe the procedure of obtaining SBCG coefficients and then
+ calculate SBCG coefficients of the group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -168,7 +168,7 @@ Discrete subgroups of
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
 
- are widely used in flavor models.
+ are widely used in flavor model building in particle physics.
  In a model building, one needs to study the mathematical properties of
  the selected group.
  An important step is to find Clebsch-Gordan (CG) coefficients of the group,
@@ -177,7 +177,7 @@ Discrete subgroups of
 \end_layout
 
 \begin_layout Standard
-CG coefficients involving low-dimensional irreducible representations (irrep),
+CG coefficients involving low-dimensional irreducible representations (irreps),
  typically three-dimensional irreps, play an important role in flavor model
  buildings.
  These CG coefficients can be calculated in several methods, for example,
@@ -223,8 +223,8 @@ olcite{Ludl:2009ft}
 status open
 
 \begin_layout Plain Layout
-We do not know the order of groups and the dimension of irreps, higher than
- which these methods become ineffective.
+We do not know the order of groups or the dimension of irreps, beyond which
+ these methods become ineffective.
  Based on our testing, for the group 
 \begin_inset Formula $\group$
 \end_inset
@@ -285,7 +285,7 @@ olcite{Chen:2014wiw}
 \end_inset
 
  are used in the model building.
- Finding CG coefficients become a nontrivial task in such a case.
+ Finding CG coefficients becomes a nontrivial task in such a case.
 \end_layout
 
 \begin_layout Standard
@@ -297,7 +297,11 @@ CG coefficients have several types of ambiguities.
 \begin_inset Formula $U\left(N\right)$
 \end_inset
 
- type ambiguity for a tensor product with nontrivial multiplicity.
+ type ambiguity for a tensor product with nontrivial multiplicity 
+\begin_inset Formula $N$
+\end_inset
+
+.
  For example, if an irrep 
 \begin_inset Formula $\rep{Z}$
 \end_inset
@@ -344,7 +348,11 @@ We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
 \begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
 \end_inset
 
-, behaves the same as a single irrep under the action of complex conjugate.
+, behaves the same as the correspoinding irrep 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ under the action of complex conjugate.
  Such constraints restrict the overall phase of SBCG coefficients.
  Particularly, the overall phase of SBCG coefficients for 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
@@ -358,7 +366,7 @@ We introduce subgroup-basis Clebsch-Gordan (SBCG) coefficients, which express
 \begin_inset Formula $\rep{Y}$
 \end_inset
 
-, 
+, and 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
@@ -408,13 +416,13 @@ We then describe the procedure to calculate SBCG coefficients.
 \end_inset
 
 .
- We find representation matrices of 
+ We obtain representation matrices of 
 \begin_inset Formula $\group$
 \end_inset
 
- in its subgroup bases, in which subgroup elements are block diagonal matrices.
- For both subgroups, we obtain a complete list of SBCG coefficients of the
- group 
+ in its subgroup bases, in which subgroup elements are block diagonal.
+ For both subgroups, we acquire a complete list of SBCG coefficients of
+ the group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -432,11 +440,11 @@ We then describe the procedure to calculate SBCG coefficients.
 
 \begin_layout Standard
 We remark that a similar idea has been applied to continuous groups.
- For example, 
+ For example, CG coefficients of 
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
 
- CG coefficients are expressed as linear combinations of products of 
+ are expressed as linear combinations of products of 
 \begin_inset Formula $SU\left(2\right)$
 \end_inset
 
@@ -481,7 +489,7 @@ key "Kile:2013gla,T7Cao:2010mp,T7Cao:2011cp,T7Hagedorn:2008bc,T7Luhn:2007sy,T7Lu
 
 \end_inset
 
- are rare known.
+ are rarely known.
  Our work can be helpful for building connections among these models, typically,
  through spontaneous symmetry breaking of discrete groups into smaller ones.
  We automate much of the above procedure in Mathematica code in 
@@ -497,8 +505,8 @@ olcite{Chen:2017GitHub}
 
 \end_inset
 
-, which can be reused for calculating SBCG coefficients of other discrete
- groups.
+, which can be easily adjusted for calculating SBCG coefficients of other
+ discrete groups.
  A subgroup tree of 
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
@@ -624,7 +632,7 @@ reference "sec:Calc_PSL27_CGC"
 \end_inset
 
  as an example.
- The group theories of relevant groups are given in Appendix 
+ The group theory properties of relevant groups are given in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Group-Theory"
@@ -684,7 +692,7 @@ Some of the conventions used in the main text are as follows.
 \end_inset
 
  is its subgroup.
- The boldface letters 
+ The boldface and capitalized letters 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -692,7 +700,7 @@ Some of the conventions used in the main text are as follows.
 \begin_inset Formula $\rep{Y}$
 \end_inset
 
-, 
+, and 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
@@ -713,7 +721,7 @@ Some of the conventions used in the main text are as follows.
 \end_inset
 
  are corresponding vectors in Hilbert spaces of these irreps.
- The boldface letters 
+ The boldface and lowercase letters 
 \begin_inset Formula $\rep{x}$
 \end_inset
 
@@ -781,11 +789,11 @@ Some of the conventions used in the main text are as follows.
 \end_inset
 
  label an irrep of the subgroup.
- For example 
+ For example, 
 \begin_inset Formula $x_{i}$
 \end_inset
 
- mean the 
+ means the 
 \begin_inset Formula $i$
 \end_inset
 
@@ -891,7 +899,7 @@ The tensor product of two irreps of a group is in general reducible.
 , 
 \begin_inset Formula 
 \begin{equation}
-\left(\mr{Z}\left(g\right)Z\right)_{k}=\sum_{l}M_{k\alpha}^{\left(XY\to Z\right)}\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\alpha},\label{eq:Amb_CG_Def}
+\left(\mr{Z}\left(g\right)Z\right)_{k}=\sum_{\alpha}M_{k\alpha}^{\left(XY\to Z\right)}\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\alpha},\label{eq:Amb_CG_Def}
 \end{equation}
 
 \end_inset
@@ -1094,15 +1102,15 @@ reference "eq:Amb_CG_Orthnorm"
 \end_inset
 
 .
- The last ambiguity exists when there are nontrivial multiplicity in a tensor
- product
+ The last ambiguity exists when there are nontrivial multiplicities in a
+ tensor product
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
 The tensor product of two identical irreps has symmetric and antisymmetric
  parts.
- If both parts contain a irrep 
+ If both parts contain an irrep 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
@@ -1115,7 +1123,7 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 \end_inset
 
  conceptually.
- But in practical, we can treat the symmetric 
+ But in practice, we can treat the symmetric 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
@@ -2016,7 +2024,7 @@ reference "eq:Red_Gamma_Con2"
 
 \end_inset
 
- imply that contractions 
+ imply that the contractions 
 \begin_inset Formula $\covlg{X}{Y}{Z}$
 \end_inset
 
@@ -2928,8 +2936,8 @@ Find representation matrices of
 \end_inset
 
  in the subgroup basis.
- For simplicity, we choose a basis that projection matrices are in the most
- simple form, meaning that 
+ For simplicity, we choose a basis that projection matrices are in the simplest
+ form, meaning that 
 \begin_inset Formula $P_{X\to j}^{\left(\mathrm{u}\right)}$
 \end_inset
 
@@ -3034,7 +3042,7 @@ reference "sec:Tech_Detail"
 .
  With the algorithm, we can find the eigenvector of a matrix for a given
  eigenvalue, which, for low-dimensional irreps, usually can be calculated
- directly from Mathematica.
+ directly by Mathematica.
 \end_layout
 
 \begin_layout Itemize
@@ -3135,7 +3143,7 @@ reference "eq:SBCG_Def2"
 .
  In this way, the number of equations we obtained are usually much more
  than the number of unknown variables.
- Many of the equations are dependent to others and hence redundant.
+ Many of the equations are dependent on others and hence redundant.
  
 \end_layout
 
@@ -3145,7 +3153,7 @@ Alternatively, instead of matching coefficients of bilinear forms, we can
 \begin_inset Formula $X$
 \end_inset
 
-, 
+ and 
 \begin_inset Formula $Y$
 \end_inset
 
@@ -3262,14 +3270,14 @@ There are two ways to solve the issue.
  cyclotomic numbers to solve the equations.
  To be efficient, the Gaussian elimination procedure should apply to a set
  of independent equations, which can be found by converting the coefficients
- of equations to float numbers and apply regular Gaussian elimination algorithm
- with certain error tolerance.
+ of equations to floating numbers and apply regular Gaussian elimination
+ algorithm with certain error tolerance.
 \end_layout
 
 \begin_layout Standard
 The second way to solve the issue is to use a Mathematica programming trick.
  Instead of solving the equations directly, we convert all the coefficients
- to float numbers and solve the equation numerically.
+ to floating numbers and solve the equation numerically.
  We then convert the float numbers back into exact numbers using the Mathematica
  function RootApproximant
 \begin_inset CommandInset citation
@@ -3285,7 +3293,7 @@ key "Mathematica"
  before solving the equations.
  Again, this can be done by the Gaussian elimination algorithm with an appropria
 te error tolerance.
- The method is informal comparing to the first one.
+ The method is less rigorous comparing to the first one.
  But we found it very effective in the calculation of 
 \begin_inset Formula $\group$
 \end_inset
@@ -3322,7 +3330,7 @@ reference "eq:Red_M_cab"
 \end_inset
 
 .
- Thus, it needs to be taken care when 
+ Thus, care should be taken when 
 \begin_inset Formula $\covlg{X}{Y}{Z}$
 \end_inset
 
@@ -3376,7 +3384,7 @@ reference "eq:Red_M_cab"
 \begin_inset Formula $\mathcal{M}_{A}$
 \end_inset
 
- in terms of real and imaginary parts, i.e, 
+ in terms of real and imaginary parts, i.e., 
 \begin_inset Formula $\mathcal{M}_{A}=\mathcal{M}_{A}^{\left(r\right)}+i\mathcal{M}_{A}^{\left(i\right)}$
 \end_inset
 
@@ -3409,7 +3417,7 @@ We have shown the procedure to find SBCG coefficients.
 \end_inset
 
  after solving the homogeneous linear equations in step III.
- For case I and II, the constraint 
+ For Case I and II, the constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Red_M_cab"
@@ -3514,8 +3522,7 @@ olcite{Chen:2017GitHub}
 \end_inset
 
 .
- We note that the source code are designed to be reusable for different
- groups.
+ We note that the source code can be adapted for different groups.
 \end_layout
 
 \begin_layout Section
@@ -3665,7 +3672,7 @@ key "GAP4"
 \end_inset
 
 .
- The example GAP code to find such relations can be found in 
+ An example GAP code to find such relations can be found in 
 \begin_inset ERT
 status open
 
@@ -3946,7 +3953,7 @@ reference "tab:PSL27-S4-T7"
 \begin_inset Formula $\rep{7}$
 \end_inset
 
-, 
+, and 
 \begin_inset Formula $\rep{8}$
 \end_inset
 
@@ -3977,7 +3984,7 @@ O^{[\rep{R}]}\to\mathcal{S}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{S}^{[\rep{R}]
 \end_inset
 
  identity matrix.
- Since the triplet and anti triplet decomposition are 
+ Since the triplet and anti-triplet decomposition are 
 \begin_inset Formula $\rep{3}=\rep{3_{2}}$
 \end_inset
 
@@ -4008,7 +4015,7 @@ reference "eq:SBCG_Tran_M"
 \begin_inset Formula $\mathcal{S}$
 \end_inset
 
- matrices are choose to be identity matrices for simplicity.
+ matrices are chosen to be identity matrices for simplicity.
  
 \end_layout
 
@@ -6150,16 +6157,6 @@ reference "sec:App_CGC_PSL27_T7"
 \end_inset
 
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: add comments about other methods.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -6167,6 +6164,15 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: Briefly review what we have done.
+\end_layout
+
+\end_inset
+
 The work can be extended in several directions.
  One direction is to apply the method to other discrete groups.
  To give a few examples, the group 
@@ -6223,9 +6229,8 @@ Another possible direction is to simplify the procedure to find SBCG coefficient
 s.
  As we have shown, SBCG coefficients are basis independent and fixed up
  to possible phases.
- It seems not necessary to find representation matrices of the group and
- subgroups in order to calculate these coefficients, at least for their
- absolute values.
+ It seems unnecessary to find representation matrices of the group and subgroups
+ in order to calculate these coefficients, at least for their absolute values.
  A natural guess is that SBCG coefficients have something to do with the
  coset structure of the group.
  The procedure to calculate these coefficients would be much simpler if
