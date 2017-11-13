@@ -10,6 +10,33 @@
 \setbeamertemplate{background}{\includegraphics[width=1.0\paperwidth,height=1.0\paperheight]{Vintage.png}}
 
 \usepackage{graphicx}
+
+\usepackage{babel}
+\usepackage{nccmath}
+\usepackage{chngcntr}
+\bibliographystyle{unsrtnat}
+
+\newcommand{\rep}[1]{\mathbf{#1}} 
+\newcommand{\ket}[1]{\left|{#1}\right\rangle }
+\newcommand{\group}{\mathcal{PSL}_{2}\left(7\right)} 
+\newcommand{\subga}{S_4}
+\newcommand{\subgb}{\mathcal{T}_7}
+\newcommand{\olcite}[1]{Ref. [\onlinecite{#1}]}
+\newcommand{\olcitem}[1]{Refs. [\onlinecite{#1}]}
+
+% matrix realization
+\newcommand{\mr}[1]{\rho_{\rep{#1}}}
+% complex conjugate transformation matrices
+\newcommand{\cpx}[1]{\Gamma_{#1}}
+
+% contractions
+\newcommand{\tsprod}[2]{\rep{#1}\otimes\rep{#2}}
+\newcommand{\covp}[3]{\left[\tsprod{#1}{#2}\right]^{}_{\rep{#3}}}
+\newcommand{\cova}[3]{\left(\tsprod{#1}{#2}\right)^{}_{\rep{#3}}}
+\newcommand{\covs}[3]{\big\{\tsprod{#1}{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\covt}[3]{\big\{\tsprod{#1}{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\covsub}[3]{\big\{{#1}\otimes{#2}\big\}^{}_{{#3}}}
+\newcommand{\covlg}[3]{\left[{#1}\otimes{#2}\right]^{}_{{#3}}}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -120,7 +147,7 @@ Introduction
 status open
 
 \begin_layout Plain Layout
-Introduction
+What is CG coefficients
 \end_layout
 
 \end_inset
@@ -128,11 +155,316 @@ Introduction
 
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-Intro
+\begin_layout Definition
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ are irreducible representations of the group 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ For tensor product 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+\end_inset
+
+, there exist a set of coefficients 
+\begin_inset Formula $M_{k\alpha}^{\left(XY\to Z\right)}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\mr{Z}\left(g\right)Z\right)_{k}=\sum_{\alpha}M_{k\alpha}^{\left(XY\to Z\right)}\left(\mr{X}\left(g\right)X\otimes\mr{Y}\left(g\right)Y\right)_{\alpha},\quad\forall g\in G
+\]
+
+\end_inset
+
+
 \end_layout
 
-\end_deeper
+\begin_layout Definition
+\begin_inset Formula $M_{k\alpha}^{\left(XY\to Z\right)}$
+\end_inset
+
+ is the CG coefficients for 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+
+\end_layout
+
+\begin_layout Definition
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ambiguities of CG coefficients
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Basis-dependence
+\begin_inset Formula 
+\[
+X\to X^{\prime}=U_{X}X,\quad\mr{X}\left(g\right)\to U_{X}\mr{X}\left(g\right)U_{X}^{-1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+M\to M^{\prime}=U_{Z}M\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Phase ambiguity: 
+\begin_inset Formula $M\to e^{i\theta}M$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Multiplicity ambiguity: If 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(\mu\right)}$
+\end_inset
+
+, then 
+\begin_inset Formula $\lambda_{1}M^{\left(1\right)}+\cdots+\lambda_{n}M^{\left(\mu\right)}$
+\end_inset
+
+ with 
+\begin_inset Formula $\sum_{i}\lambda_{i}^{*}\lambda_{i}=1$
+\end_inset
+
+ is also a set of CG coefficients.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Subgroup-basis CG coefficients
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Formula 
+\[
+\rep{X}=\bigoplus_{a}\rep{x_{a}},\quad\rep{Y}=\bigoplus_{b}\rep{y_{b}},\quad\rep{Z}=\bigoplus_{c}\rep{z_{c}}
+\]
+
+\end_inset
+
+ where where 
+\begin_inset Formula $\rep{x_{a}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{y_{b}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{z_{c}}$
+\end_inset
+
+ are irreps of 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Basis-independence Proof
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+TODO
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Real and Complex Representations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+TODO
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Phase Convention
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+TODO
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Procedure to calculate SBCG coefficients
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+TODO
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Thank you
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+TODO
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
 \end_body
 \end_document
