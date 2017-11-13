@@ -123,3 +123,53 @@ CheckSmallGroupCGFixedAll:=function(minN, maxN)
     Print("All groups of order less than ", maxN, " are CG-fixed.");
 end;;
 
+FSIndicator:=function(G)
+    local elG,tbl,irr,fsList;
+    elG:=Elements(G);
+    tbl:=CharacterTable(G);
+    irr:=Irr(tbl);
+    fsList:=List(elG,x->x*x);
+    return List(irr,y->Sum(fsList,x->x^y))/Size(G);
+end;
+
+CountPseudoReal:=function(G)
+    local list, i, ret;
+    ret := 0;
+    list := FSIndicator(G);
+    for i in [1..Length(list)] do
+        if list[i] = -1 then
+            ret := ret + 1;
+        fi;
+    od;
+    
+    return ret;
+end;;
+
+# check if small groups has pseudo real irrs.
+CheckSmallGroupHasPR:=function(n)
+    local i, glist, cnt, ind, irr;
+    glist := AllSmallGroups(n);
+    for i in [1..Length(glist)] do
+        cnt := CountPseudoReal(glist[i]);
+        if cnt > 0 then
+            ind := FSIndicator(glist[i]);
+            Print("The group [", n, ", ", i, "] {", StructureDescription(glist[i]), "} has ", cnt, " pseudo real irrs.\n");
+            Print("\tindicator: ", ind, "\n");
+            irr := Irr(glist[i]);
+	        Print("\tCharacter table: \n");
+        	for i in [1..Length(irr)] do
+                if ind[i] = -1 then
+            		Print("\t\tRow ", i, ": ", List(irr[i]), "\n");
+                fi;
+        	od;
+        fi;
+    od;
+end;;
+
+CheckSmallGroupHasPRAll := function(minN, maxN)
+        local i;
+    for i in [minN..maxN] do
+        CheckSmallGroupHasPR(i);
+    od;
+end;;
+
