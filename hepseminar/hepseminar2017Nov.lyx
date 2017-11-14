@@ -16,7 +16,9 @@
 \usepackage{chngcntr}
 \bibliographystyle{unsrtnat}
 
-\newcommand{\rep}[1]{\mathbf{#1}} 
+\newcommand{\rep}[1]{\mathbf{#1}}
+\newcommand{\repb}[1]{\bar{\mathbf{#1}}}
+
 \newcommand{\ket}[1]{\left|{#1}\right\rangle }
 \newcommand{\group}{\mathcal{PSL}_{2}\left(7\right)} 
 \newcommand{\subga}{S_4}
@@ -106,6 +108,17 @@
 
 \begin_layout Title
 Subgroup-basis Clebsch-Gordan coefficients of discrete groups
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Based on paper: Gaoli Chen.
+ arXiv:1711.02272
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Author
@@ -131,9 +144,365 @@ Outlines
 
 \begin_deeper
 \begin_layout Itemize
-Introduction
+Motivation
 \end_layout
 
+\begin_layout Itemize
+Notations
+\end_layout
+
+\begin_layout Itemize
+What are Clebsch-Gordan coefficients
+\end_layout
+
+\begin_layout Itemize
+Ambiguities of CG coefficients
+\end_layout
+
+\begin_layout Itemize
+Subgroup-basis CG coefficients
+\end_layout
+
+\begin_layout Itemize
+Properties of SBCG coefficients
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Motivation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In model building of particle physics, Clebsch-Gordan (CG) coefficients
+ determines how fields couple to each other
+\end_layout
+
+\begin_layout Itemize
+No efficient method to calculate CG coefficients involving high-dimensional
+ irreducible representations and group of high order.
+\end_layout
+
+\begin_layout Itemize
+CG coefficients has ambiguities.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Notations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+1.0
+\backslash
+textwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Group
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $G$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $H\subset G$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Irrep
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{x}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{y}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{z}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vector
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $Y$
+\end_inset
+
+, 
+\begin_inset Formula $Z$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+, 
+\begin_inset Formula $z$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Contraction
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\covsub{x}{y}{z}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $i,\,j,\,k$
+\end_inset
+
+ label a single component: 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ is the 
+\begin_inset Formula $i$
+\end_inset
+
+-th component of 
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $a,\,b,\,c$
+\end_inset
+
+ label an irrep of 
+\begin_inset Formula $H$
+\end_inset
+
+: 
+\begin_inset Formula $x_{a}$
+\end_inset
+
+ is a vector of the irrep 
+\begin_inset Formula $\rep{x_{a}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\begin_inset Formula $i$
+\end_inset
+
+-th component of 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\left(\covlg{X}{Y}{Z}\right)_{i}=\sum_{\alpha}M_{i\alpha}^{\left(XY\to Z\right)}\left(X\otimes Y\right)_{\alpha}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $M_{i\alpha}^{\left(XY\to Z\right)}$
+\end_inset
+
+ are the CG coefficients and
+\begin_inset Formula 
+\[
+\left(X\otimes Y\right)=\left(X_{1}Y_{1},X_{1}Y_{2},\cdots,X_{2}Y_{1},X_{2}Y_{2},\cdots\right)^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -155,28 +524,29 @@ What is CG coefficients
 
 \end_layout
 
-\begin_layout Definition
-\begin_inset Formula $\rep{X}$
+\begin_deeper
+\begin_layout Itemize
+Tensor product of irreps are reducible: 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}=\rep{Z}\oplus\rep{W}\oplus\cdots$
 \end_inset
 
-, 
-\begin_inset Formula $\rep{Y}$
+
+\end_layout
+
+\begin_layout Itemize
+For vectors 
+\begin_inset Formula $X$
 \end_inset
 
-, 
-\begin_inset Formula $\rep{Z}$
+ and 
+\begin_inset Formula $Y$
 \end_inset
 
- are irreducible representations of the group 
-\begin_inset Formula $G$
+, there exists 
+\begin_inset Formula $Z$
 \end_inset
 
-.
- For tensor product 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
-\end_inset
-
-, there exist a set of coefficients 
+ and coefficients 
 \begin_inset Formula $M_{k\alpha}^{\left(XY\to Z\right)}$
 \end_inset
 
@@ -188,28 +558,34 @@ What is CG coefficients
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset Formula $M_{k\alpha}^{\left(XY\to Z\right)}$
+ where 
+\begin_inset Formula $\mr{X}\left(g\right)$
 \end_inset
 
- is the CG coefficients for 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+ is a (unitary) matrix representation of group element 
+\begin_inset Formula $g$
 \end_inset
 
-.
+ in 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ irrep.
 \end_layout
 
-\begin_layout Definition
+\begin_layout Itemize
+Unitary CG coefficients:
+\begin_inset Formula 
+\[
+\sum_{\alpha}M_{k\alpha}^{*}M_{l\alpha}=\delta_{kl}
+\]
+
+\end_inset
+
 
 \end_layout
 
-\begin_layout Definition
-
-\end_layout
-
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -230,19 +606,24 @@ Ambiguities of CG coefficients
 
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
-Basis-dependence
-\begin_inset Formula 
-\[
-X\to X^{\prime}=U_{X}X,\quad\mr{X}\left(g\right)\to U_{X}\mr{X}\left(g\right)U_{X}^{-1}
-\]
-
+Basis ambiguity: For unitary transformations 
+\begin_inset Formula $X\to X^{\prime}=U_{X}X$
 \end_inset
 
+, 
+\begin_inset Formula $\mr{X}\left(g\right)\to U_{X}\mr{X}\left(g\right)U_{X}^{-1}$
+\end_inset
 
+ , 
+\begin_inset Formula $M$
+\end_inset
+
+ transforms as
 \begin_inset Formula 
 \[
-M\to M^{\prime}=U_{Z}M\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right)
+M^{\left(XY\to Z\right)}\to U_{Z}M^{\left(XY\to Z\right)}\left(U_{X}^{-1}\otimes U_{Y}^{-1}\right)
 \]
 
 \end_inset
@@ -260,7 +641,7 @@ Phase ambiguity:
 
 \begin_layout Itemize
 Multiplicity ambiguity: If 
-\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(\mu\right)}$
+\begin_inset Formula $\rep{X}\otimes\rep{Y}=\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(\mu\right)}\oplus\cdots$
 \end_inset
 
 , then 
@@ -271,7 +652,115 @@ Multiplicity ambiguity: If
 \begin_inset Formula $\sum_{i}\lambda_{i}^{*}\lambda_{i}=1$
 \end_inset
 
- is also a set of CG coefficients.
+ is also a set of unitary CG coefficients.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+Subgroup-basis CG coefficients
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\rep{x_{a}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{y_{b}}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{z_{a}}$
+\end_inset
+
+ be irreps of 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ decomposed as
+\begin_inset Formula 
+\[
+\rep{X}=\bigoplus_{a}\rep{x_{a}},\quad\rep{Y}=\bigoplus_{b}\rep{y_{b}},\quad\rep{Z}=\bigoplus_{c}\rep{z_{c}},
+\]
+
+\end_inset
+
+then Subgroup-basis CG coefficients 
+\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
+\end_inset
+
+ are defined as
+\begin_inset Formula 
+\begin{multline*}
+P_{Z\to c}\mr{Z}\left(g\right)Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\times\\
+\left\{ \left(P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}},\quad\forall g\in G,
+\end{multline*}
+
+\end_inset
+
+where projection matrices 
+\begin_inset Formula $P_{X\to a}$
+\end_inset
+
+ satisfy
+\begin_inset Formula 
+\[
+\sum_{kl}\left(P_{X\to a}\right)_{ik}\left[{\rm \mr{X}}\left(h\right)\right]_{kl}\left(P_{X\to b}^{\dagger}\right)_{lj}=\delta_{ab}\left[\mr{x_{a}}\left(h\right)\right]_{ij},\quad\forall h\in H
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For 
+\begin_inset Formula $g=e$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}X\right)\otimes\left(P_{Y\to b}Y\right)\right\} _{z_{c}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
 \end_layout
 
 \begin_layout Standard
@@ -286,23 +775,347 @@ Multiplicity ambiguity: If
 status open
 
 \begin_layout Plain Layout
-Subgroup-basis CG coefficients
+Properties of SBCG coefficients
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
+\end_inset
+
+ are invariant under basis transformations
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Basis transformations of irreps of 
+\begin_inset Formula $G$
+\end_inset
+
+: 
+\begin_inset Formula $\left(X,Y,Z\right)\to\left(U_{X}X,U_{Y}Y,U_{Z}Z\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Basis transformations of irreps of 
+\begin_inset Formula $H$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(x_{a},y_{b},z_{c}\right) & \to\left(U_{a}x_{a},U_{b}y_{b},U_{c}z_{c}\right),\\
+M^{\left(x_{a}y_{b}\to z_{c}\right)} & \to U_{c}M^{\left(x_{a}y_{b}\to z_{c}\right)}\left(U_{a}^{-1}\otimes U_{b}^{-1}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+But there are still phase ambiguities.
+ If 
+\begin_inset Formula 
+\[
+P_{X\to a}\to e^{i\theta_{a}^{\left(X\right)}}P_{X\to a}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\covsub{x_{a}}{y_{b}}{z_{c}}\to e^{i\phi^{\left(ab\to c\right)}}\covsub{x_{a}}{y_{b}}{z_{c}},
+\]
+
+\end_inset
+
+ then 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ change by a phase
+\begin_inset Formula 
+\[
+\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\to e^{i\left(\theta_{a}^{\left(X\right)}+\theta_{b}^{\left(Y\right)}-\theta_{c}^{\left(Z\right)}+\phi^{\left(ab\to c\right)}\right)}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+ are fixed up to pure phases.
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
 \end_layout
 
 \begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+(Pseudo-)Real and Complex Representations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ is a (pseudo-)real representation if it is equivalent to its complex conjugates
+, i.e., 
 \begin_inset Formula 
 \[
-\rep{X}=\bigoplus_{a}\rep{x_{a}},\quad\rep{Y}=\bigoplus_{b}\rep{y_{b}},\quad\rep{Z}=\bigoplus_{c}\rep{z_{c}}
+\cpx{X}\rho_{\rep{X}}\left(g\right)^{*}\cpx{X}^{\dagger}=\rho_{\rep{X}}\left(g\right),\quad\forall g\in G
 \]
 
 \end_inset
 
- where where 
+ for some unitary matrix 
+\begin_inset Formula $\cpx{X}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Otherwise, 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ is a complex representation.
+ 
+\end_layout
+
+\begin_layout Itemize
+For convenience, define 
+\begin_inset Formula $\repb{X}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+\repb{X}\equiv\begin{cases}
+\rep{X} & \text{(pseudo-)real }\rep{X}\\
+\rep{X}^{*} & \text{complex }\rep{X}
+\end{cases}
+\]
+
+\end_inset
+
+then one can always write
+\begin_inset Formula 
+\[
+\cpx{X}\rho_{\rep{X}}\left(g\right)^{*}\cpx{X}^{\dagger}=\rho_{\repb{X}}\left(g\right),\quad\forall g\in G
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $X$
+\end_inset
+
+ transforms as 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, then 
+\begin_inset Formula $\Gamma_{X}X^{*}$
+\end_inset
+
+ transforms as 
+\begin_inset Formula $\repb{X}$
+\end_inset
+
+.
+ So in representation space, we define
+\begin_inset Formula 
+\[
+\bar{X}\equiv\Gamma_{X}X^{*}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Phase Conventions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Contractions should behave like an irrep under complex conjugate
+\begin_inset Formula 
+\[
+\cpx{Z}\left(\covlg{X}{Y}{Z}\right)^{*}=\covlg{\bar{X}}{\bar{Y}}{\bar{Z}},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\cpx{c}\left(\covsub{x_{a}}{y_{b}}{z_{c}}\right)^{*}=\covsub{\bar{x}_{a}}{\bar{y}_{b}}{\bar{z}_{c}},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\cpx{c}$
+\end_inset
+
+ should transform the complex conjugate of 
+\begin_inset Formula $z_{c}$
+\end_inset
+
+ components of 
+\begin_inset Formula $Z$
+\end_inset
+
+ to 
+\begin_inset Formula $\bar{z}_{c}$
+\end_inset
+
+ components of 
+\begin_inset Formula $\bar{Z}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\cpx{c}\left(z_{c}\text{ of }Z\right)^{*}=\left(\bar{z}_{c}\text{ of }\bar{Z}\right)\quad\Rightarrow\quad\cpx{c}P_{Z\to c}^{*}=P_{\bar{Z}\to\bar{c}}\cpx{Z}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Consequences of the phase conventions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Relation between 
+\begin_inset Formula $\mathcal{M}^{\left(XY\to Z\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{M}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\left(\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\right)^{*}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ are (pseudo-)real, overall phase of 
+\begin_inset Formula $\mathcal{M}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\end_inset
+
+ is fixed
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
 \begin_inset Formula $\rep{x_{a}}$
 \end_inset
 
@@ -314,106 +1127,42 @@ Subgroup-basis CG coefficients
 \begin_inset Formula $\rep{z_{c}}$
 \end_inset
 
- are irreps of 
-\begin_inset Formula $H$
+ are (pseudo-)real, 
+\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
-.
- 
+ is real and fixed up to a sign factor
 \end_layout
 
-\begin_layout Frame
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $\rep{Z}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Basis-independence Proof
-\end_layout
-
+ is (pseudo-)real and 
+\begin_inset Formula $\rep{X}=\repb{Y}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Frame
-TODO
-\end_layout
-
-\begin_layout Frame
-
-\end_layout
-
-\begin_layout Frame
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
+ are complex, overall phase of 
+\begin_inset Formula $\mathcal{M}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
-
+ is also fixed
 \end_layout
 
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Real and Complex Representations
-\end_layout
+\begin_layout Itemize
+Implies similar relation for contraction of more than two vectors: 
+\begin_inset Formula 
+\[
+\cpx{Z}\left(\covlg{X}{\covlg{V}{W}{Y}}{Z}\right)^{*}=\covlg{\bar{X}}{\covlg{\bar{V}}{\bar{W}}{\bar{Y}}}{\bar{Z}}
+\]
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Frame
-TODO
-\end_layout
-
-\begin_layout Frame
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Phase Convention
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-TODO
-\end_layout
-
-\begin_layout Frame
-
-\end_layout
-
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -434,8 +1183,145 @@ Procedure to calculate SBCG coefficients
 
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+Assume we know matrix representations and CG coefficients of 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Find matrix representations of 
+\begin_inset Formula $G$
+\end_inset
+
+ such that projection matrices 
+\begin_inset Formula $P_{X\to a}$
+\end_inset
+
+ are identity matrices.
+\end_layout
+
+\begin_layout Itemize
+Write down the most general expression of 
+\begin_inset Formula $\covlg{X}{Y}{Z}$
+\end_inset
+
+ in terms of subgroup contractions with unknown 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+ coefficients.
+ 
+\end_layout
+
+\begin_layout Itemize
+Then setup homogeneous linear equations for unknown 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Solve for the unknown variables 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Apply phase convensions and orthonormalize 
+\begin_inset Formula $\mathcal{M}_{c,ab}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Frame
-TODO
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Cyclotomic Numbers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Matrix of group elements contain numbers of the form
+\begin_inset Formula 
+\[
+f=\sum_{k=0}^{n-1}q_{k}\exp\left(2k\pi i/n\right),\quad q_{k}\in\mathbb{Q}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ExampleBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+A 
+\begin_inset Formula $\group$
+\end_inset
+
+ generator
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExampleBlock
+
+\end_layout
+
+\begin_layout ExampleBlock
+\begin_inset Formula $\quad A=\frac{i}{\sqrt{7}}\begin{pmatrix}\eta^{2}-\eta^{5} & \eta-\eta^{6} & \eta^{4}-\eta^{3}\\
+\eta-\eta^{6} & \eta^{4}-\eta^{3} & \eta^{2}-\eta^{5}\\
+\eta^{4}-\eta^{3} & \eta^{2}-\eta^{5} & \eta-\eta^{6}
+\end{pmatrix},\quad\eta=e^{2\pi i/7}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+We need to do arithmetic operators over cyclotomic numbers.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Addition and multiplication operators are trivial.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Frame
+
 \end_layout
 
 \begin_layout Standard
@@ -450,7 +1336,7 @@ TODO
 status open
 
 \begin_layout Plain Layout
-Thank you
+Cyclotomic Numbers - Division
 \end_layout
 
 \end_inset
@@ -458,12 +1344,20 @@ Thank you
 
 \end_layout
 
-\begin_layout Frame
-TODO
-\end_layout
+\begin_layout Itemize
+To 
+\begin_inset Formula $g=1/f$
+\end_inset
 
-\begin_layout Frame
+ and
+\begin_inset Formula 
+\[
+g=\sum p_{k}r_{n}^{k},\quad r_{n}=\exp\left(2\pi i/n\right)
+\]
 
+\end_inset
+
+ 
 \end_layout
 
 \end_body
