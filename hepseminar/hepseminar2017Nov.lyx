@@ -1315,7 +1315,10 @@ We need to do arithmetic operators over cyclotomic numbers.
 \begin_deeper
 \begin_layout Itemize
 Addition and multiplication operators are trivial.
- 
+\end_layout
+
+\begin_layout Itemize
+We only need to find a method to calculate recipocal
 \end_layout
 
 \end_deeper
@@ -1336,8 +1339,42 @@ Addition and multiplication operators are trivial.
 status open
 
 \begin_layout Plain Layout
-Cyclotomic Numbers - Division
+Cyclotomic Numbers - Find reciprocal
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $g=1/f=\sum p_{k}r_{n}^{k}$
+\end_inset
+
+, where 
+\begin_inset Formula $r_{n}=\exp\left(2\pi i/n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+From 
+\begin_inset Formula $gf=1$
+\end_inset
+
+, collecting terms of 
+\begin_inset Formula $r_{n}^{k}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+0 & =\sum_{i}q_{k-i}p_{i},\quad0<k<n\\
+1 & =q_{0}p_{0}+\sum_{i}q_{n-i}p_{i}.
+\end{align*}
 
 \end_inset
 
@@ -1345,20 +1382,300 @@ Cyclotomic Numbers - Division
 \end_layout
 
 \begin_layout Itemize
-To 
-\begin_inset Formula $g=1/f$
+These equations in general have no solution.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r_{n}^{k}$
 \end_inset
 
- and
-\begin_inset Formula 
-\[
-g=\sum p_{k}r_{n}^{k},\quad r_{n}=\exp\left(2\pi i/n\right)
-\]
+ are not independent: 
+\begin_inset Formula $\sum_{k=0}^{n-1}r_{n}^{k}=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+For each factor 
+\begin_inset Formula $p$
+\end_inset
+
+ of 
+\begin_inset Formula $n$
+\end_inset
+
+, we have 
+\begin_inset Formula $\sum_{k=0}^{n/p}r_{n}^{kp}=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Examples: 
+\begin_inset Formula $\group\supset\subga\supset A_{4},\,\group\supset\subgb$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We find complete sets of SBCG coefficients of 
+\begin_inset Formula $\group$
+\end_inset
+
+ in the bases of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ and 
+\begin_inset Formula $\subgb$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\group\supset\subga$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{3}=\rep{3_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\repb{3}=\rep{3_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{6}=\rep{1}+\rep{2}+\rep{3_{1}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{7}=\rep{1_{1}}+\rep{3_{1}}+\rep{3_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{8}=\rep{2}+\rep{3_{1}}+\rep{3_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\group\supset\subgb$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{3}=\rep{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\repb{3}=\repb{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{6}=\rep{3}+\repb{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{7}=\rep{1}+\rep{3}+\repb{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rep{8}=\rep{1^{\prime}}+\repb{1^{\prime}}+\rep{3}+\repb{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
  
 \end_layout
 
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Conclusion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+TODO
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
