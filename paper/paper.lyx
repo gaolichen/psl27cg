@@ -174,7 +174,8 @@ Discrete subgroups of
  selected group.
  An important step is to find Clebsch-Gordan (CG) coefficients of the group,
  which determines how fields are coupled in the model.
- 
+ In this paper we will discuss the relation between CG coefficients of a
+ discrete group and those of its subgroup.
 \end_layout
 
 \begin_layout Standard
@@ -201,11 +202,11 @@ The aim of this paper is to investigate the relation between CG coefficients
 \end_layout
 
 \begin_layout Standard
-It is well known that, under appropriate bases, a 
+It is well known that an 
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
 
- CG coefficient can be expressed as a product of a 
+ CG coefficient can be expressed as a product of an 
 \begin_inset Formula $SU\left(2\right)$
 \end_inset
 
@@ -217,9 +218,89 @@ key "deSwart:1963pdg"
 \end_inset
 
 .
- Are there similar relation for discrete group? Apprently, the answer is
- yes.
- For a discrete group 
+ With the notations of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{deSwart:1963pdg}
+\end_layout
+
+\end_inset
+
+, the CG coefficients for 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ tensfor product 
+\begin_inset Formula $\mu_{1}\otimes\mu_{2}=\mu_{3}\oplus\cdots$
+\end_inset
+
+, with 
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ being irreps, can be written as 
+\begin_inset Formula 
+\begin{equation}
+\left(\begin{array}{ccc}
+\mu_{1} & \mu_{2} & \mu_{3}\\
+\nu_{1} & \nu_{2} & \nu_{3}
+\end{array}\right)=C_{I_{1z}I_{2z}I_{3z}}^{I_{1}I_{2}I_{3}}\left(\begin{array}{cc}
+\mu_{1} & \mu_{2}\\
+I_{1}Y_{1} & I_{2}Y_{2}
+\end{array}\Bigg|\begin{array}{c}
+\mu_{3}\\
+I_{3}Y_{3}
+\end{array}\right),\label{eq:Intro_mumumu}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\nu_{i}=\left(I_{i},Y_{i},I_{iz}\right)$
+\end_inset
+
+ is a collection of indices labelling isospin, hypercharge, and 
+\begin_inset Formula $z$
+\end_inset
+
+ component of isospin.
+ The l.h.s of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro_mumumu"
+
+\end_inset
+
+ represents an 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ CG coefficient; 
+\begin_inset Formula $C_{I_{1z}I_{2z}I_{3z}}^{I_{1}I_{2}I_{3}}$
+\end_inset
+
+ on r.h.s represents an 
+\begin_inset Formula $SU\left(2\right)$
+\end_inset
+
+ CG coefficient and the remaining part of r.h.s is an isoscalar factor.
+\end_layout
+
+\begin_layout Standard
+In this paper, we will investigate the similar relation for discrete groups.
+ In analogy to the isoscalar factors, we will define embedding factors:
+ a CG coefficients equals the product of a subgroup CG coefficient and a
+ embedding factor.
+ 
+\end_layout
+
+\begin_layout Standard
+Are there similar relation for discrete groups? For a discrete group 
 \begin_inset Formula $G$
 \end_inset
 
@@ -227,8 +308,8 @@ key "deSwart:1963pdg"
 \begin_inset Formula $H$
 \end_inset
 
-, presumabaly, there exists relations between their CG coefficients, denoted
- as
+, presumabaly, there exists a similar relation between their CG coefficients,
+ denoted as 
 \begin_inset Formula $M^{\left(G\right)}$
 \end_inset
 
@@ -236,33 +317,90 @@ key "deSwart:1963pdg"
 \begin_inset Formula $M^{\left(H\right)}$
 \end_inset
 
-, like
+,
 \begin_inset Formula 
 \begin{equation}
-M_{AB}^{\left(G\right)}=\mathcal{M}_{A}M_{B}^{\left(H\right)},\label{eq:Intro_MMM}
+M_{AB}^{\left(G\right)}=\mathcal{E}_{A}M_{B}^{\left(H\right)},\label{eq:Intro_MMM}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $B$
-\end_inset
-
- is a collection of indices to specify subgroup CG coefficients and 
 \begin_inset Formula $A$
 \end_inset
 
- a collection of indicies represent how irreducible representations of 
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are collections of indices to specify subgroup CG coefficients and 
+\begin_inset Formula $A$
+\end_inset
+
+ a collection of indicies carrying information of how irreps of 
 \begin_inset Formula $H$
 \end_inset
 
- are embeded in those of 
+ are embeded in irreps of 
 \begin_inset Formula $G$
 \end_inset
 
 .
- However, one can ask a few questions about the relation: First, since CG
- coefficients depend on representations (or bases), are the factors in 
+ Care need to be taken for Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro_MMM"
+
+\end_inset
+
+.
+ First, it is basis-dependent since CG coefficients depend on bases.
+ Second, are embedding factors unique for any CG coefficients in any bases?
+ Note that, in matrix representations, Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro_MMM"
+
+\end_inset
+
+ makes sense only when ireps of 
+\begin_inset Formula $G$
+\end_inset
+
+ are in bases such that 
+\end_layout
+
+\begin_layout Standard
+to clarify that, in Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro_MMM"
+
+\end_inset
+
+, we assumed the matrix representations of 
+\begin_inset Formula $G$
+\end_inset
+
+ are in bases such that elements of 
+\begin_inset Formula $H$
+\end_inset
+
+ are direct sum of matrices of representations of 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Since CG coefficients are basis-dependent, it is natural to ask is 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ fixed for all subgroup CG coefficients in any basis? However, one can ask
+ a few questions about the relation: First, since CG coefficients depend
+ on representations (or bases), are the factors in 
 \begin_inset Formula $\mathcal{M}$
 \end_inset
 
@@ -270,7 +408,15 @@ M_{AB}^{\left(G\right)}=\mathcal{M}_{A}M_{B}^{\left(H\right)},\label{eq:Intro_MM
 \begin_inset Formula $H$
 \end_inset
 
-? When we write down the equation 
+? Are the 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ coefficients unique for any CG coefficients of 
+\begin_inset Formula $H$
+\end_inset
+
+ in any representation? When we write down the equation 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:Intro_MMM"
@@ -314,11 +460,16 @@ reference "eq:Intro_MMM"
 \end_layout
 
 \begin_layout Itemize
-Define the factors 
-\begin_inset Formula $\mathcal{M}$
+We will define the factors 
+\begin_inset Formula $\mathcal{E}$
 \end_inset
 
- for general representations of 
+ without refer to speicic bases.
+ More importantly, we will show that 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ are invariant under basis transformations of irreps of 
 \begin_inset Formula $G$
 \end_inset
 
@@ -327,15 +478,7 @@ Define the factors
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Itemize
-We then show that 
-\begin_inset Formula $\mathcal{M}$
-\end_inset
-
- are independent of representations, meaning that, changing bases of irreps
- of 
+ It implies that there exist a set of embeding factors for 
 \begin_inset Formula $G$
 \end_inset
 
@@ -343,20 +486,17 @@ We then show that
 \begin_inset Formula $H$
 \end_inset
 
- does not change 
-\begin_inset Formula $\mathcal{M}$
-\end_inset
-
-.
+ in any basis.
 \end_layout
 
 \begin_layout Itemize
-For different subgroup CG coefficients, 
-\begin_inset Formula $\mathcal{M}$
+However, 
+\begin_inset Formula $\mathcal{E}$
 \end_inset
 
- are fixed up to phases.
- These phases stem from the phase ambiguity of the subgroup CG coefficients.
+ are not unique, but only fixed up to phases.
+ The phase ambiguities stem from the phase ambiguity of the subgroup CG
+ coefficients.
 \end_layout
 
 \begin_layout Standard
