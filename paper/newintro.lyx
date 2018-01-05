@@ -1,0 +1,767 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4-1
+\begin_preamble
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{babel}
+\usepackage{nccmath}
+\usepackage{chngcntr}
+\bibliographystyle{unsrtnat}
+
+\newcommand{\rep}[1]{\mathbf{#1}} 
+\newcommand{\ket}[1]{\left|{#1}\right\rangle }
+\newcommand{\group}{\mathcal{PSL}_{2}\left(7\right)} 
+\newcommand{\subga}{S_4}
+\newcommand{\subgb}{\mathcal{T}_7}
+\newcommand{\olcite}[1]{Ref. [\onlinecite{#1}]}
+\newcommand{\olcitem}[1]{Refs. [\onlinecite{#1}]}
+
+% matrix realization
+\newcommand{\mr}[1]{\rho_{\rep{#1}}}
+% complex conjugate transformation matrices
+\newcommand{\cpx}[1]{\Gamma_{#1}}
+
+% contractions
+\newcommand{\tsprod}[2]{\rep{#1}\otimes\rep{#2}}
+\newcommand{\covp}[3]{\left[\tsprod{#1}{#2}\right]^{}_{\rep{#3}}}
+\newcommand{\cova}[3]{\left(\tsprod{#1}{#2}\right)^{}_{\rep{#3}}}
+\newcommand{\covs}[3]{\big\{\tsprod{#1}{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\covt}[3]{\big\{\tsprod{#1}{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\covsub}[3]{\big\{{#1}\otimes{#2}\big\}^{}_{{#3}}}
+\newcommand{\covlg}[3]{\left[{#1}\otimes{#2}\right]^{}_{{#3}}}
+
+% commands used in appendix
+\newcommand{\cgEqFontsize}{\large}
+\newcommand{\repx}[2]{{}_{#2}\mathbf{#1}}
+%\newcommand{\tsprodx}[2]{\repx{#1}{x}\otimes\repx{#2}{y}}
+\newcommand{\tsprodx}[2]{\rep{#1}\otimes\rep{#2}}
+\newcommand{\subcgs}[3]{\big\{ \tsprod{#1}{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\subcgt}[3]{\big\{ \tsprod{#1}{#2}\big\}^{}_{\rep{#3}}}
+\newcommand{\bfl}{\begin{fleqn}[25pt]}
+\newcommand{\efl}{\end{fleqn}}
+\end_preamble
+\options aip,reprint,nofootinbib
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Title
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Discrete subgroups of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ are widely used in flavor model building in particle physics.
+ In model building, one needs to study the mathematical properties of the
+ selected group.
+ An important step is to find Clebsch-Gordan (CG) coefficients of the group,
+ which determines how fields are coupled in the model.
+ In this paper we will discuss the relation between CG coefficients of a
+ discrete group and those of its subgroup.
+\end_layout
+
+\begin_layout Standard
+It is well known that an 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ CG coefficient can be expressed as a product of an 
+\begin_inset Formula $SU\left(2\right)$
+\end_inset
+
+ CG coefficient and a so called isoscalar factor
+\begin_inset CommandInset citation
+LatexCommand cite
+key "deSwart:1963pdg"
+
+\end_inset
+
+.
+ With the notations of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{deSwart:1963pdg}
+\end_layout
+
+\end_inset
+
+, the 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ CG coefficients for the tensfor product 
+\begin_inset Formula $\rep{\mu_{1}}\otimes\rep{\mu_{2}}=\rep{\mu_{3}}\oplus\cdots$
+\end_inset
+
+, with 
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ being irreps, can be written as 
+\begin_inset Formula 
+\begin{equation}
+\left(\begin{array}{ccc}
+\mu_{1} & \mu_{2} & \mu_{3}\\
+\nu_{1} & \nu_{2} & \nu_{3}
+\end{array}\right)=\left(\begin{array}{cc}
+\mu_{1} & \mu_{2}\\
+I_{1}Y_{1} & I_{2}Y_{2}
+\end{array}\Bigg|\begin{array}{c}
+\mu_{3}\\
+I_{3}Y_{3}
+\end{array}\right)C_{I_{1z}I_{2z}I_{3z}}^{I_{1}I_{2}I_{3}},\label{eq:Intro_mumumu}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $\nu_{i}=\left(I_{i},Y_{i},I_{iz}\right)$
+\end_inset
+
+ is a collection of indices labelling isospin, hypercharge, and 
+\begin_inset Formula $z$
+\end_inset
+
+ component of isospin of irrep 
+\begin_inset Formula $\rep{\mu_{i}}$
+\end_inset
+
+.
+ The l.h.s of Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro_mumumu"
+
+\end_inset
+
+ represents an 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ CG coefficient, 
+\begin_inset Formula $C_{I_{1z}I_{2z}I_{3z}}^{I_{1}I_{2}I_{3}}$
+\end_inset
+
+ represents an 
+\begin_inset Formula $SU\left(2\right)$
+\end_inset
+
+ CG coefficient, and the remaining part of r.h.s is an isoscalar factor.
+ Such expressions are convenient because the number of isoscalar factors
+ is smaller than the number of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ coefficients.
+ 
+\end_layout
+
+\begin_layout Standard
+For a discrete group 
+\begin_inset Formula $G$
+\end_inset
+
+ with subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+, presumabaly, there exists a similar relation between their CG coefficients,
+ denoted as 
+\begin_inset Formula $M^{\left(G\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $M^{\left(H\right)}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+M_{AB}^{\left(G\right)}=\mathcal{E}_{A}M_{B}^{\left(H\right)},\label{eq:Intro_MMM}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $B$
+\end_inset
+
+ is a collection of indices to specify the subgroup CG coefficients and
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ a collection of indicies carrying information of how irreps of 
+\begin_inset Formula $H$
+\end_inset
+
+ are embeded in irreps of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ In analogy to the isoscalar factors, we call the coefficients in 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ the embedding factors.
+ Since CG coefficients are basis-dependent, the equation is also basis-dependent.
+ Then one may ask the following questions: 1) how can we define 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ independent of basis? 2) are the coefficients in 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ unique for all CG coefficients 
+\begin_inset Formula $M^{\left(H\right)}$
+\end_inset
+
+ in all bases? To answer the questions, we will do the following: 
+\end_layout
+
+\begin_layout Itemize
+We will show that embedding factors 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ can be defined in a way that is invariant under basis transformations of
+ irreps of 
+\begin_inset Formula $G$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ It implies that there does exist a set of embeding factors for all bases
+ of irreps of 
+\begin_inset Formula $G$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+We will, however, also show that 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ are not unique.
+ Coefficients of 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ have at least phase ambiguities, which stem from the phase ambiguities
+ of the subgroup CG coefficients.
+\end_layout
+
+\begin_layout Standard
+One can introduce some conventions to remove these ambiguities.
+ Usually, these conventions are different for different groups or bases.
+ We will introduce a convention that is independent of bases and groups:
+ we impose on CG coefficients constraints which require that a contraction
+ of two irreps, in the form 
+\begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
+\end_inset
+
+, behaves the same as the correspoinding irrep 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ under the action of complex conjugate.
+ Such constraints lead to the following consequences:
+\end_layout
+
+\begin_layout Itemize
+If all of 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+, 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, and 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ are real or pseudoreal, the overall phases of embedding facotrs is fixed
+ up to a sign factor.
+ In particular, if the irreps can be decomposed into real or pseudoreal
+ subgroup irreps, then the corresponding embedding factors are real numbers
+ fixed up to sign factors.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ is real or pseudoreal and 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ is complex conjugate of 
+\begin_inset Formula $\rep{Y}$
+\end_inset
+
+, the overall phase of embedding factors is also fixed up to a sign factor.
+ 
+\end_layout
+
+\begin_layout Itemize
+In other cases, the embedding factors for 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rep{\bar{X}}\otimes\rep{\bar{Y}}\to\rep{\bar{Z}}$
+\end_inset
+
+ are complex conjugate to each other.
+ Here, 
+\begin_inset Formula $\rep{\bar{X}}$
+\end_inset
+
+ represents conjugate of 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ if it is complex, or 
+\begin_inset Formula $\rep{X}$
+\end_inset
+
+ itself otherwise.
+ This statement looks trivial and one may think that CG coefficients always
+ have such property.
+ But actually such relation not always holds for CG coefficients (See Propositio
+n 2 of Section 3).
+ This is another advantage of embedding factors compare with CG coefficients.
+ 
+\end_layout
+
+\begin_layout Standard
+There is another type of ambiguity of 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+.
+ If an irrep 
+\begin_inset Formula $\rep{Z}$
+\end_inset
+
+ is contained 
+\begin_inset Formula $m$
+\end_inset
+
+ times in the tensor product 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}$
+\end_inset
+
+, then the embedding factors for 
+\begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
+\end_inset
+
+ have a 
+\begin_inset Formula $U\left(m\right)$
+\end_inset
+
+ ambiguity.
+ In the first two cases, the multiplicity ambiguities of such cases are
+ reduced from 
+\begin_inset Formula $U\left(m\right)$
+\end_inset
+
+ to 
+\begin_inset Formula $O\left(m\right)$
+\end_inset
+
+.
+ Unfortunately, to complete eliminate all these ambiguities, we need to
+ find other conventions, which may depend on irreps and groups.
+ Such conventions are out of scope of this paper.
+\end_layout
+
+\begin_layout Standard
+We then introduce a prcocedure to calculate the embedding factors.
+ The calculation involves complicated cyclotomic numbers, which are polynomials
+ of roots of unity 
+\begin_inset Formula $e^{2\pi i/n}$
+\end_inset
+
+, and hence it is difficult to obtain simplified results.
+ We therefore implement an algorithm to perform arithmetic calculations
+ of cyclotomic numbers.
+\end_layout
+
+\begin_layout Standard
+We demonstrate the procedure with the group 
+\begin_inset Formula $\group$
+\end_inset
+
+ and its subgroups 
+\begin_inset Formula $\subga$
+\end_inset
+
+ and 
+\begin_inset Formula $\subgb$
+\end_inset
+
+.
+ We obtain representation matrices of 
+\begin_inset Formula $\group$
+\end_inset
+
+ in its subgroup bases, in which subgroup elements are block diagonal matrices.
+ For both subgroups, we acquire a complete list of embedding factors of
+ the group 
+\begin_inset Formula $\group$
+\end_inset
+
+.
+ We also find the embedding factors for 
+\begin_inset Formula $\subga$
+\end_inset
+
+ and its subgroup 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+.
+ We automate much of the procedure in the Mathematica code in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Chen:2017GitHub}
+\end_layout
+
+\end_inset
+
+, which can be easily adjusted for calculating embedding factors of other
+ discrete groups.
+ 
+\end_layout
+
+\begin_layout Standard
+The complete list of 
+\begin_inset Formula $\group$
+\end_inset
+
+ CG coefficients and the presentation matrices of 
+\begin_inset Formula $\group$
+\end_inset
+
+ in 
+\begin_inset Formula $\subga$
+\end_inset
+
+ basis are new results, which could be helpful for flavor model building
+ based on 
+\begin_inset Formula $\group$
+\end_inset
+
+, or studying connections among 
+\begin_inset Formula $\group$
+\end_inset
+
+ models
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen:2014wiw,PSL27Aliferis:2016blw"
+
+\end_inset
+
+, 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ models 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kile:2013gla,T7Cao:2010mp,T7Cao:2011cp,T7Hagedorn:2008bc,T7Luhn:2007sy,T7Luhn:2012bc"
+
+\end_inset
+
+, and 
+\begin_inset Formula $\subga$
+\end_inset
+
+ models (for a review of 
+\begin_inset Formula $\subga$
+\end_inset
+
+ models, see 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{S4Bazzocchi:2012st}
+\end_layout
+
+\end_inset
+
+).
+ A subgroup tree of 
+\begin_inset Formula $SU\left(3\right)$
+\end_inset
+
+ discrete subgroups can be found in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Merle:2011vy}
+\end_layout
+
+\end_inset
+
+.
+ For systematic analysis of discrete groups used in flavor model buildings,
+ see 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcitem{Ishimori:2010au,Ludl:2009ft}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The remainder of the paper is organized as follows.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Amb_CGC"
+
+\end_inset
+
+, we analyze the ambiguities of CG coefficients.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:CGCs-in-subgroup"
+
+\end_inset
+
+, we define the embedding factors and then show that they are basis independent
+ but still have phase ambiguities.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:RedPhaseAmbiguity"
+
+\end_inset
+
+, phase conventions are introduce to reduce the phases ambiguities of embedding
+ factors.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Calc_CGC"
+
+\end_inset
+
+, we describe the procedure of calculating the embedding factors.
+ The procedure is then applied to the group 
+\begin_inset Formula $\group$
+\end_inset
+
+ and its subgroups 
+\begin_inset Formula $\subga$
+\end_inset
+
+ and 
+\begin_inset Formula $\subgb$
+\end_inset
+
+.
+ Specifically, in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Gen_PSL27"
+
+\end_inset
+
+, the representation matrices of the 
+\begin_inset Formula $\group$
+\end_inset
+
+ group are obtained in its subgroup bases.
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Calc_PSL27_CGC"
+
+\end_inset
+
+, we calculate embedding factors of the tensor product 
+\begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}$
+\end_inset
+
+ of the group 
+\begin_inset Formula $\group$
+\end_inset
+
+ as an example.
+ The group theory properties of relevant groups are given in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Group-Theory"
+
+\end_inset
+
+.
+ In Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Tech_Detail"
+
+\end_inset
+
+, we describe the algorithm for arithmetic calculations of cyclotomic numbers.
+ Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:App_CGC_PSL27_S4"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:App_CGC_PSL27_T7"
+
+\end_inset
+
+ list complete sets of SBCG coefficients of 
+\begin_inset Formula $\group$
+\end_inset
+
+ in 
+\begin_inset Formula $\subga$
+\end_inset
+
+ and 
+\begin_inset Formula $\subgb$
+\end_inset
+
+ bases.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "rp"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
