@@ -116,7 +116,8 @@ theorems-ams
 \begin_body
 
 \begin_layout Title
-Subgroup-basis Clebsch-Gordan coefficients of discrete groups
+Clebsch-Gordan coefficients of discrete groups in terms of Clebsch-Gordan
+ coefficients of subgroups
 \end_layout
 
 \begin_layout Author
@@ -129,6 +130,7 @@ Institute for Fundamental Theory, Department of Physics, University of Florida,
 \end_layout
 
 \begin_layout Author Email
+
 gchen@ufl.edu
 \end_layout
 
@@ -780,7 +782,7 @@ reference "sec:App_CGC_PSL27_T7"
 
 \end_inset
 
- list complete sets of SBCG coefficients of 
+ list complete sets of CG coefficients of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -951,7 +953,7 @@ name "sec:Amb_CGC"
 
 \end_inset
 
-Ambiguities of Clebsch-Gordan coefficients
+Clebsch-Gordan coefficients and its ambiguities
 \end_layout
 
 \begin_layout Standard
@@ -1052,8 +1054,15 @@ The tensor product of two irreps of a group is in general reducible.
 status open
 
 \begin_layout Plain Layout
-While we define CG coefficients with vector spaces, there also exists an
- equivalent definition in terms of group elements, for example, 
+While we define CG coefficients with vector spaces, 
+\end_layout
+
+\end_inset
+
+.
+ Note that CG coefficients can also be defined as a unitary transformation
+ between the tensor products of group elements and the direct sum of their
+ irreps, e.g, 
 \begin_inset ERT
 status open
 
@@ -1067,17 +1076,13 @@ olcite{van1978clebsch}
 \end_inset
 
 .
- 
-\end_layout
-
-\end_inset
-
-.
- For convenience, we may suppress the superscript 
+ In this paper, it is more convenient to define CG coefficients with vector
+ spaces.
+ In the remainder of this paper, we may suppress the superscript 
 \begin_inset Formula $\left(XY\to Z\right)$
 \end_inset
 
- if there is no danger of confusion.
+ if there is no chance of confusion.
 \end_layout
 
 \begin_layout Standard
@@ -1271,12 +1276,6 @@ The tensor product of two identical irreps has symmetric and antisymmetric
  is also a set of unitary CG coefficients.
 \end_layout
 
-\begin_layout Standard
-To reduce the ambiguities of CG coefficients, we introduce subgroup-basis
- CG coefficients in the following section.
- 
-\end_layout
-
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -1284,7 +1283,7 @@ name "sec:CGCs-in-subgroup"
 
 \end_inset
 
-Subgroup-basis Clebsch-Gordan coefficients
+Embedding factors
 \end_layout
 
 \begin_layout Standard
@@ -1334,7 +1333,7 @@ reference "eq:SBCG_Embed"
 \end_inset
 
 .
- So we only consider the case that no irrep is contained twice in a irrep
+ So we only consider the case that no irrep is contained twice in an irrep
  of the large group.
 \end_layout
 
@@ -1372,7 +1371,7 @@ reference "eq:SBCG_Embed"
 , we can write 
 \begin_inset Formula 
 \begin{equation}
-P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}X\right)\otimes\left(P_{Y\to b}Y\right)\right\} _{z_{c}},\label{eq:SBCG_Def1}
+P_{Z\to c}Z=\sum_{a,b}\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}X\right)\otimes\left(P_{Y\to b}Y\right)\right\} _{z_{c}},\label{eq:SBCG_Def1}
 \end{equation}
 
 \end_inset
@@ -1394,10 +1393,10 @@ P_{Z\to c}Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{
 \end_inset
 
  and 
-\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
+\begin_inset Formula $\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
- are subgroup-basis Clebsch-Gordan coefficients.
+ are the embedding factors.
  The projection matrices act like similarity transformations on 
 \begin_inset Formula $H$
 \end_inset
@@ -1427,7 +1426,7 @@ reference "eq:Amb_CG_Def"
 \end_inset
 
 , the coefficients 
-\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
+\begin_inset Formula $\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
  should actually satisfy a stronger constraint 
@@ -1446,7 +1445,7 @@ begin{widetext}
 
 \begin_inset Formula 
 \begin{equation}
-P_{Z\to c}\mr{Z}\left(g\right)Z=\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}},\quad\forall g\in G,\label{eq:SBCG_Def2}
+P_{Z\to c}\mr{Z}\left(g\right)Z=\sum_{a,b}\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}},\quad\forall g\in G,\label{eq:SBCG_Def2}
 \end{equation}
 
 \end_inset
@@ -1482,11 +1481,11 @@ reference "eq:SBCG_Def1"
 
 \begin_layout Standard
 In the following, we may write 
-\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
+\begin_inset Formula $\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
  simply as 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{E}_{c,ab}$
 \end_inset
 
  for convenience.
@@ -1500,21 +1499,17 @@ reference "eq:Amb_CG_Orthnorm"
  now become
 \begin_inset Formula 
 \begin{equation}
-\sum_{ab}\mathcal{M}_{c,ab}^{*}\mathcal{M}_{d,ab}=\delta_{cd}.\label{eq:SBCG_orthnorm}
+\sum_{ab}\mathcal{E}_{c,ab}^{*}\mathcal{E}_{d,ab}=\delta_{cd}.\label{eq:SBCG_orthnorm}
 \end{equation}
 
 \end_inset
 
-For coefficients 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
-\end_inset
-
- we have the following proposition.
+For embedding factors, we have the following proposition.
 \end_layout
 
 \begin_layout Proposition
 The coefficients 
-\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
+\begin_inset Formula $\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
  defined as eq.
@@ -1525,7 +1520,8 @@ reference "eq:SBCG_Def2"
 
 \end_inset
 
- are invariant under basis transformations of both the group and its subgroup.
+ are invariant under basis transformations of irreps of both the group and
+ its subgroup.
 \end_layout
 
 \begin_layout Proof
@@ -1784,8 +1780,8 @@ reference "eq:SBCG_Def2"
  becomes 
 \begin_inset Formula 
 \begin{align*}
-\mathrm{rhs} & =\sum_{a,b}\mathcal{M}_{c,ab}\left\{ U_{a}P_{X\to a}\mr{X}\left(g\right)X\otimes U_{b}P_{Y\to b}\mr{Y}\left(g\right)Y\right\} _{z_{c}^{\prime}}^{\prime}\\
- & =U_{c}\sum_{a,b}\mathcal{M}_{c,ab}\left\{ P_{X\to a}\mr{X}\left(g\right)X\otimes P_{Y\to b}\mr{Y}\left(g\right)Y\right\} _{z_{c}}\\
+\mathrm{rhs} & =\sum_{a,b}\mathcal{E}_{c,ab}\left\{ U_{a}P_{X\to a}\mr{X}\left(g\right)X\otimes U_{b}P_{Y\to b}\mr{Y}\left(g\right)Y\right\} _{z_{c}^{\prime}}^{\prime}\\
+ & =U_{c}\sum_{a,b}\mathcal{E}_{c,ab}\left\{ P_{X\to a}\mr{X}\left(g\right)X\otimes P_{Y\to b}\mr{Y}\left(g\right)Y\right\} _{z_{c}}\\
  & =U_{c}P_{Z\to c}\mr{Z}\left(g\right)Z=\mathrm{lhs},
 \end{align*}
 
@@ -1820,9 +1816,9 @@ reference "eq:SBCG_Tran_sub"
 \end_layout
 
 \begin_layout Standard
-We have showed that SBCG coefficients are independent of bases of both the
+We have showed that embedding factors are independent of bases of both the
  group and its subgroup.
- There are, however, still ambiguities in SBCG coefficients due to phase
+ There are, however, still ambiguities in embedding factors due to phase
  ambiguities of the projection matrices and subgroup CG coefficients.
  Consider the 
 \begin_inset Formula $U\left(1\right)$
@@ -1873,7 +1869,7 @@ reference "eq:SBCG_Def2"
 
 \end_inset
 
- and hence does not change SBCG coefficients.
+ and hence does not change embedding factors.
 \end_layout
 
 \end_inset
@@ -1891,16 +1887,16 @@ Under these
 \begin_inset Formula $U\left(1\right)$
 \end_inset
 
- transformations, the SBCG coefficients transform as 
+ transformations, the embedding factors transform as 
 \begin_inset Formula 
 \begin{equation}
-\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\to e^{i\left(\theta_{a}^{\left(X\right)}+\theta_{b}^{\left(Y\right)}-\theta_{c}^{\left(Z\right)}+\phi^{\left(ab\to c\right)}\right)}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}.\label{eq:SBCG_Tran_M}
+\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}\to e^{i\left(\theta_{a}^{\left(X\right)}+\theta_{b}^{\left(Y\right)}-\theta_{c}^{\left(Z\right)}+\phi^{\left(ab\to c\right)}\right)}\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}.\label{eq:SBCG_Tran_M}
 \end{equation}
 
 \end_inset
 
- We see that there are in general four phase ambiguities for each SBCG coefficie
-nt.
+ We see that there are in general four phase ambiguities for each embedding
+ factor.
  They can be removed or reduced by appropriate phase conventions, which
  are usually basis-dependent.
  For example, for 
@@ -2486,18 +2482,18 @@ If both
 \end_layout
 
 \begin_layout Proposition
-The SBCG coefficients 
-\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
+The embedding factors 
+\begin_inset Formula $\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
  and 
-\begin_inset Formula $\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\begin_inset Formula $\mathcal{E}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
  satisfy
 \begin_inset Formula 
 \begin{equation}
-\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\left(\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\right)^{*}.\label{eq:Red_M_cab}
+\mathcal{E}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}=\left(\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}\right)^{*}.\label{eq:Red_M_cab}
 \end{equation}
 
 \end_inset
@@ -2507,18 +2503,18 @@ The SBCG coefficients
 
 \begin_layout Proof
 The coefficients 
-\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
+\begin_inset Formula $\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
  and 
-\begin_inset Formula $\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\begin_inset Formula $\mathcal{E}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
  are defined as
 \begin_inset Formula 
 \begin{align}
-P_{Z\to c}Z & =\sum_{a,b}\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}},\label{eq:Red_PZc_Z}\\
-P_{\bar{Z}\to\bar{c}}\bar{Z} & =\sum_{a,b}\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\covsub{P_{\bar{X}\to\bar{a}}\bar{X}}{P_{\bar{Y}\to\bar{b}}\bar{Y}}{\bar{z}_{c}}.\label{eq:Red_PZc_Zb}
+P_{Z\to c}Z & =\sum_{a,b}\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}},\label{eq:Red_PZc_Z}\\
+P_{\bar{Z}\to\bar{c}}\bar{Z} & =\sum_{a,b}\mathcal{E}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\covsub{P_{\bar{X}\to\bar{a}}\bar{X}}{P_{\bar{Y}\to\bar{b}}\bar{Y}}{\bar{z}_{c}}.\label{eq:Red_PZc_Zb}
 \end{align}
 
 \end_inset
@@ -2542,7 +2538,7 @@ reference "eq:Red_PZc_Zb"
  yields
 \begin_inset Formula 
 \begin{equation}
-P_{\bar{Z}\to\bar{c}}\bar{Z}=\sum_{a,b}\mathcal{M}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\Gamma_{c}\left(\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}}\right)^{*}.\label{eq:Red_PZc_Zb2}
+P_{\bar{Z}\to\bar{c}}\bar{Z}=\sum_{a,b}\mathcal{E}_{\bar{c},\bar{a}\bar{b}}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}\Gamma_{c}\left(\covsub{P_{X\to a}X}{P_{Y\to b}Y}{z_{c}}\right)^{*}.\label{eq:Red_PZc_Zb2}
 \end{equation}
 
 \end_inset
@@ -2631,7 +2627,7 @@ reference "eq:Red_M_cab"
 \end_inset
 
  on 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{E}_{c,ab}$
 \end_inset
 
  is much simpler than the constraint 
@@ -2647,16 +2643,16 @@ reference "eq:Red_M_xaybzc"
 
 .
  It is basis-independent and 
-\begin_inset Formula $\mathcal{M}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
+\begin_inset Formula $\mathcal{E}^{\left(\bar{X}\bar{Y}\to\bar{Z}\right)}$
 \end_inset
 
  is simply the complex conjugate of 
-\begin_inset Formula $\mathcal{M}^{\left(XY\to Z\right)}$
+\begin_inset Formula $\mathcal{E}^{\left(XY\to Z\right)}$
 \end_inset
 
 .
  The overall phase of 
-\begin_inset Formula $\mathcal{M}^{\left(XY\to Z\right)}$
+\begin_inset Formula $\mathcal{E}^{\left(XY\to Z\right)}$
 \end_inset
 
  is fixed up to a sign factor when 
@@ -2697,7 +2693,7 @@ Case I: all of
 \end_inset
 
  are also real or pseudo real, then the coefficient 
-\begin_inset Formula $\mathcal{M}_{c,ab}^{\left(XY\to Z\right)}$
+\begin_inset Formula $\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}$
 \end_inset
 
  is a real number and fixed up to a sign factor.
@@ -2855,7 +2851,7 @@ The above property has an implication in flavor physics models with discrete
 
  in general has to be a complex number with certain phase to make the Lagrangian
  real.
- With the SBCG coefficients defined under constraints 
+ With the embedding factors defined under constraints 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:CG_GammaCon"
@@ -3009,22 +3005,93 @@ name "sec:Calc_CGC"
 
 \end_inset
 
-Procedure to calculate SBCG coefficients
+Procedure to calculate embedding factors
 \end_layout
 
 \begin_layout Standard
-In this section, we will describe the procedure to find SBCG coefficients.
- The procedure is straightforward and primarily based on the definition
- of SBCG coefficients, i.e.
- eq.
- 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:SBCG_Def2"
+In this section, we will describe the procedure to calculate embedding factors.
+ First, we remark that there are some existing methods to calculate CG coefficie
+nts, for example, the Mathematica package Discrete
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Holthausen:2011vd"
+
+\end_inset
+
+, which implements the algorithm of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{van1978clebsch}
+\end_layout
+
+\end_inset
+
+, and the method introduced by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Ludl:2009ft}
+\end_layout
 
 \end_inset
 
 .
+ These methods work well for low-dimensional irreps and groups with small
+ order.
+ However, when it comes to CG coefficients of large discrete group or those
+ involving high-dimensional irreps, they are usually not effective
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We do not know the order of groups or the dimension of irreps, beyond which
+ these methods become ineffective.
+ Based on our testing, for the group 
+\begin_inset Formula $\group$
+\end_inset
+
+ of order 
+\begin_inset Formula $168$
+\end_inset
+
+, the Discrete package did not give any result for the calculation of CG
+ coefficients of two six-dimensional irreps, even after days of computation.
+ The method of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+olcite{Ludl:2009ft}
+\end_layout
+
+\end_inset
+
+ requires diagonalization of representation matrices by Mathematica, which,
+ based on our testing, failed to give any result for the six-dimensional
+ representation matrices of the group 
+\begin_inset Formula $\group$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ Furthermore, our goal is to calculate the embedding factors, we therefore
+ introduce the following procedure.
  
 \end_layout
 
@@ -3180,8 +3247,8 @@ reference "eq:SBCG_Def1"
 
 \end_inset
 
-, with undetermined SBCG coefficients 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+, with undetermined embedding factors 
+\begin_inset Formula $\mathcal{E}_{c,ab}$
 \end_inset
 
  and then setup equations for these coefficients.
@@ -3198,7 +3265,7 @@ reference "eq:SBCG_Def1"
 \end_inset
 
  in terms of 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{E}_{c,ab}$
 \end_inset
 
  and bilinear forms of 
@@ -3255,7 +3322,7 @@ reference "eq:SBCG_Def2"
 
 , we obtain homogeneous equations with respect to the unknown variables
  
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{E}_{c,ab}$
 \end_inset
 
 .
@@ -3359,7 +3426,7 @@ Step III
 
 \begin_layout Standard
 The third step is to solve for the unknown variables 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{E}_{c,ab}$
 \end_inset
 
 .
@@ -3431,7 +3498,7 @@ reference "eq:Red_M_cab"
 
 \end_inset
 
- and orthonormalize the SBCG coefficients.
+ and orthonormalize the embedding factors.
  The constraint 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -3439,7 +3506,7 @@ reference "eq:Red_M_cab"
 
 \end_inset
 
- simply means that the SBCG of 
+ simply means that the embedding factors of 
 \begin_inset Formula $\covlg{X}{Y}{Z}$
 \end_inset
 
@@ -3463,7 +3530,7 @@ reference "sec:CGCs-in-subgroup"
 .
  The constraint under these two cases can be solved as follows.
  Let 
-\begin_inset Formula $\left\{ \mathcal{M}_{A}\right\} $
+\begin_inset Formula $\left\{ \mathcal{E}_{A}\right\} $
 \end_inset
 
  be the sets of free parameters in the solution of step III, where 
@@ -3484,7 +3551,7 @@ reference "eq:Red_M_cab"
  is translated into equations of the form 
 \begin_inset Formula 
 \begin{equation}
-\sum_{A}\alpha_{A}\mathcal{M}_{A}=\sum_{A}\beta_{A}\mathcal{M}_{A}^{*},\label{eq:Proc_aPcP}
+\sum_{A}\alpha_{A}\mathcal{E}_{A}=\sum_{A}\beta_{A}\mathcal{E}_{A}^{*},\label{eq:Proc_aPcP}
 \end{equation}
 
 \end_inset
@@ -3499,11 +3566,11 @@ reference "eq:Red_M_cab"
 
  are constant c-numbers.
  These equations can be solved by expressing 
-\begin_inset Formula $\mathcal{M}_{A}$
+\begin_inset Formula $\mathcal{E}_{A}$
 \end_inset
 
  in terms of real and imaginary parts, i.e., 
-\begin_inset Formula $\mathcal{M}_{A}=\mathcal{M}_{A}^{\left(r\right)}+i\mathcal{M}_{A}^{\left(i\right)}$
+\begin_inset Formula $\mathcal{E}_{A}=\mathcal{E}_{A}^{\left(r\right)}+i\mathcal{E}_{A}^{\left(i\right)}$
 \end_inset
 
 .
@@ -3515,7 +3582,7 @@ reference "eq:Red_M_cab"
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
- sets of orthonormal SBCG coefficients.
+ sets of orthonormal embedding factors.
  
 \begin_inset Newline newline
 \end_inset
@@ -3524,14 +3591,14 @@ reference "eq:Red_M_cab"
 \end_layout
 
 \begin_layout Standard
-We have shown the procedure to find SBCG coefficients.
- Let us now count the number of degrees of freedom (DOF) of SBCG coefficients.
+We have shown the procedure to find embedding factors.
+ Let us now count the number of degrees of freedom (DOF) of embedding factors.
  There are 
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
  free complex coefficients 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{E}_{c,ab}$
 \end_inset
 
  after solving the homogeneous linear equations in step III.
@@ -3567,7 +3634,7 @@ reference "eq:Proc_aPcP"
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
- sets of independent SBCG coefficients with 
+ sets of independent embedding factors with 
 \begin_inset Formula $\mu_{Z}-1$
 \end_inset
 
@@ -3579,7 +3646,7 @@ reference "eq:Red_M_cab"
 
 \end_inset
 
- relates SBCG coefficients of 
+ relates embedding factors of 
 \begin_inset Formula $\covlg{X}{Y}{Z}$
 \end_inset
 
@@ -3592,7 +3659,7 @@ reference "eq:Red_M_cab"
 \begin_inset Formula $2\mu_{Z}$
 \end_inset
 
- sets of SBCG coefficients with 
+ sets of embedding factors with 
 \begin_inset Formula $\mu_{Z}$
 \end_inset
 
@@ -3602,7 +3669,7 @@ reference "eq:Red_M_cab"
 \begin_inset Formula $2\mu_{Z}$
 \end_inset
 
- sets of SBCG coefficients therefore have 
+ sets of embedding factors therefore have 
 \begin_inset Formula $2\mu_{Z}-1$
 \end_inset
 
@@ -4112,7 +4179,7 @@ O^{[\rep{R}]}\to\mathcal{S}^{[\rep{R}]}O^{[\rep{R}]}\left(\mathcal{S}^{[\rep{R}]
 
 , their representation matrices are fixed because a similarity transformation
  of the above form does not change the matrices.
- Under above transformations, the SBCG coefficients transform as eq.
+ Under above transformations, the embedding factors transform as eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -5117,12 +5184,12 @@ Finally, let us consider the
 \end_inset
 
  is determined up to phases solely by embedding relations and subgroup tensor
- products, the absolute values of the SBCG coefficients of 
+ products, the absolute values of the embedding factors of 
 \begin_inset Formula $\covp{3}{6}{7}$
 \end_inset
 
  cannot be determined now.
- Instead, we have to first determine the SBCG coefficients of 
+ Instead, we have to first determine the embedding factors of 
 \begin_inset Formula $\covp{3}{6}{\bar{3}}$
 \end_inset
 
@@ -5155,7 +5222,7 @@ P_{\rep{\bar{3}}\to\rep{3_{2}}}\covp{3}{6}{\bar{3}}=\frac{1}{\sqrt{6}}\covs{3_{2
 \end_inset
 
  up to overall phases.
- The orthogonality of SBCG coefficients determines 
+ The orthogonality of embedding factors determines 
 \begin_inset Formula $\covp{3}{6}{7}$
 \end_inset
 
@@ -5351,7 +5418,7 @@ O^{\left[\rep{R}\right]}\to\mathcal{U}^{\left[\rep{R}\right]}O^{\left[\rep{R}\ri
 
 \end_inset
 
-Under these transformations, the SBCG coefficients change according to eq.
+Under these transformations, the embedding factors change according to eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -5679,7 +5746,7 @@ The
 \end_inset
 
 .
- We first find the SBCG coefficients of 
+ We first find the embedding factors of 
 \begin_inset Formula $\rep{3}\otimes\rep{6}\to\rep{\bar{3}}$
 \end_inset
 
@@ -5687,7 +5754,7 @@ The
 \begin_inset Formula $\rep{3}\otimes\rep{6}\to\rep{8}$
 \end_inset
 
-, then SBCG coefficients of 
+, then embedding factors of 
 \begin_inset Formula $\rep{3}\otimes\rep{6}\to\rep{7}$
 \end_inset
 
@@ -5860,11 +5927,11 @@ name "sec:Calc_PSL27_CGC"
 \begin_inset Formula $\group$
 \end_inset
 
- SBCG coefficients
+ embedding factors
 \end_layout
 
 \begin_layout Standard
-With the generator matrices, we can now find the SBCG coefficients of 
+With the generator matrices, we can now find the embedding factors of 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -5892,11 +5959,15 @@ With the generator matrices, we can now find the SBCG coefficients of
 \end_layout
 
 \begin_layout Standard
-We first consider the SBCG coefficients in the 
+We first consider the embedding factors for 
+\begin_inset Formula $\group$
+\end_inset
+
+ and the 
 \begin_inset Formula $\subga$
 \end_inset
 
- basis.
+ subgroup.
  Using the embedding relation 
 \begin_inset Formula $\rep{6}=\rep{1_{0}}\oplus\rep{2}\oplus\rep{3_{1}}$
 \end_inset
@@ -5927,13 +5998,13 @@ label{eq:Ex_SixSix2Six}
 
 \begin_inset Formula 
 \begin{align}
-\rep{1_{0}} & =\mathcal{M}_{1,11}\covs{1_{0}}{1_{0}}{1_{0}}+\mathcal{M}_{1,22}\covs{2}{2}{1_{0}}\nonumber \\
- & +\mathcal{M}_{1,33}\covs{3_{1}}{3_{1}}{1_{0}},\\
-\rep{2} & =\frac{\mathcal{M}_{2,12}}{\sqrt{2}}\left(\covs{1_{0}}{2}{2}+\covs{2}{1_{0}}{2}\right)\nonumber \\
- & +\mathcal{M}_{2,22}\covs{2}{2}{2}+\mathcal{M}_{2,33}\covs{3_{1}}{3_{1}}{2},\\
-\rep{3_{1}} & =\frac{\mathcal{M}_{3,13}}{\sqrt{2}}\left(\covs{1_{0}}{3_{1}}{3_{1}}+\covs{3_{1}}{1_{0}}{3_{1}}\right)\nonumber \\
- & +\frac{\mathcal{M}_{3,23}}{\sqrt{2}}\left(\covs{2}{3_{1}}{3_{1}}+\covs{3_{1}}{2}{3_{1}}\right)\nonumber \\
- & +\mathcal{M}_{3,33}\covs{3_{1}}{3_{1}}{3_{1}},
+\rep{1_{0}} & =\mathcal{E}_{1,11}\covs{1_{0}}{1_{0}}{1_{0}}+\mathcal{E}_{1,22}\covs{2}{2}{1_{0}}\nonumber \\
+ & +\mathcal{E}_{1,33}\covs{3_{1}}{3_{1}}{1_{0}},\\
+\rep{2} & =\frac{\mathcal{E}_{2,12}}{\sqrt{2}}\left(\covs{1_{0}}{2}{2}+\covs{2}{1_{0}}{2}\right)\nonumber \\
+ & +\mathcal{E}_{2,22}\covs{2}{2}{2}+\mathcal{E}_{2,33}\covs{3_{1}}{3_{1}}{2},\\
+\rep{3_{1}} & =\frac{\mathcal{E}_{3,13}}{\sqrt{2}}\left(\covs{1_{0}}{3_{1}}{3_{1}}+\covs{3_{1}}{1_{0}}{3_{1}}\right)\nonumber \\
+ & +\frac{\mathcal{E}_{3,23}}{\sqrt{2}}\left(\covs{2}{3_{1}}{3_{1}}+\covs{3_{1}}{2}{3_{1}}\right)\nonumber \\
+ & +\mathcal{E}_{3,33}\covs{3_{1}}{3_{1}}{3_{1}},
 \end{align}
 
 \end_inset
@@ -5952,10 +6023,10 @@ end{subequations}
 \end_inset
 
  where 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{E}_{c,ab}$
 \end_inset
 
- are SBCG coefficients to be determined.
+ are embedding factors to be determined.
  In the above expressions, the notation 
 \begin_inset Formula $\covs{x}{y}{z}$
 \end_inset
@@ -6074,7 +6145,7 @@ reference "eq:Proc_VW"
 
  is enough to generate the equations.
  By solving these equations, we express all coefficients in terms of 
-\begin_inset Formula $\mathcal{M}_{1,11}$
+\begin_inset Formula $\mathcal{E}_{1,11}$
 \end_inset
 
  and 
@@ -6099,12 +6170,12 @@ label{eq:Ex_sol_M}
 
 \begin_inset Formula 
 \begin{align}
-\mathcal{M}_{1,33} & =-\frac{\mathcal{M}_{1,11}}{\sqrt{3}}-\frac{2\mathcal{M}_{1,22}}{\sqrt{3}},\quad\mathcal{M}_{2,12}=\mathcal{M}_{1,22},\\
-\mathcal{M}_{2,22} & =-\frac{2\mathcal{M}_{1,11}}{\sqrt{7}}-\frac{3\mathcal{M}_{1,22}}{\sqrt{14}},\\
-\mathcal{M}_{2,33} & =\frac{\mathcal{M}_{1,22}}{\sqrt{42}}-\frac{4\mathcal{M}_{1,11}}{\sqrt{21}},\\
-\mathcal{M}_{3,13} & =-\frac{\sqrt{2}}{3}\mathcal{M}_{1,11}-\frac{2\mathcal{M}_{1,22}}{3},\\
-\mathcal{M}_{3,23} & =\frac{1}{3}\sqrt{\frac{2}{7}}\mathcal{M}_{1,22}-\frac{8\mathcal{M}_{1,11}}{3\sqrt{7}},\\
-\mathcal{M}_{3,33} & =\sqrt{\frac{2}{21}}\mathcal{M}_{1,11}+\frac{5\mathcal{M}_{1,22}}{\sqrt{21}}.
+\mathcal{E}_{1,33} & =-\frac{\mathcal{E}_{1,11}}{\sqrt{3}}-\frac{2\mathcal{E}_{1,22}}{\sqrt{3}},\quad\mathcal{E}_{2,12}=\mathcal{E}_{1,22},\\
+\mathcal{E}_{2,22} & =-\frac{2\mathcal{E}_{1,11}}{\sqrt{7}}-\frac{3\mathcal{E}_{1,22}}{\sqrt{14}},\\
+\mathcal{E}_{2,33} & =\frac{\mathcal{E}_{1,22}}{\sqrt{42}}-\frac{4\mathcal{E}_{1,11}}{\sqrt{21}},\\
+\mathcal{E}_{3,13} & =-\frac{\sqrt{2}}{3}\mathcal{E}_{1,11}-\frac{2\mathcal{E}_{1,22}}{3},\\
+\mathcal{E}_{3,23} & =\frac{1}{3}\sqrt{\frac{2}{7}}\mathcal{E}_{1,22}-\frac{8\mathcal{E}_{1,11}}{3\sqrt{7}},\\
+\mathcal{E}_{3,33} & =\sqrt{\frac{2}{21}}\mathcal{E}_{1,11}+\frac{5\mathcal{E}_{1,22}}{\sqrt{21}}.
 \end{align}
 
 \end_inset
@@ -6127,35 +6198,35 @@ Since all the irreps of
 \end_inset
 
  are real, the constraints 
-\begin_inset Formula $\mathcal{M}_{c,ab}=\mathcal{M}_{\bar{c},\bar{a}\bar{b}}$
+\begin_inset Formula $\mathcal{E}_{c,ab}=\mathcal{E}_{\bar{c},\bar{a}\bar{b}}$
 \end_inset
 
  are satisfied if 
-\begin_inset Formula $\mathcal{M}_{1,11}$
+\begin_inset Formula $\mathcal{E}_{1,11}$
 \end_inset
 
  and 
-\begin_inset Formula $\mathcal{M}_{1,22}$
+\begin_inset Formula $\mathcal{E}_{1,22}$
 \end_inset
 
  are real.
- To build two orthonormal sets of SBCG coefficients, we consider the SBCG
- coefficients of the 
+ To build two orthonormal sets of embedding factors, we consider the embedding
+ factors of the 
 \begin_inset Formula $\rep{1_{0}}$
 \end_inset
 
  component.
  We need to find two orthonormal vectors 
-\begin_inset Formula $\left\{ \mathcal{M}_{1,11},\mathcal{M}_{1,22},\mathcal{M}_{1,33}\right\} $
+\begin_inset Formula $\left\{ \mathcal{E}_{1,11},\mathcal{E}_{1,22},\mathcal{E}_{1,33}\right\} $
 \end_inset
 
  corresponding to two independent solutions.
  By the Gram–Schmidt process, we find the solutions 
-\begin_inset Formula $\left(\mathcal{M}_{1,11},\mathcal{M}_{1,22}\right)=\left(\frac{\sqrt{3}}{2},0\right)$
+\begin_inset Formula $\left(\mathcal{E}_{1,11},\mathcal{E}_{1,22}\right)=\left(\frac{\sqrt{3}}{2},0\right)$
 \end_inset
 
  and 
-\begin_inset Formula $\left(\mathcal{M}_{1,11},\mathcal{M}_{1,22}\right)=\left(-\frac{1}{2\sqrt{3}},\sqrt{\frac{2}{3}}\right)$
+\begin_inset Formula $\left(\mathcal{E}_{1,11},\mathcal{E}_{1,22}\right)=\left(-\frac{1}{2\sqrt{3}},\sqrt{\frac{2}{3}}\right)$
 \end_inset
 
  can generate such two vectors.
@@ -6173,7 +6244,7 @@ reference "eq:Ex_SixSix2Six"
 
 \end_inset
 
-, we obtain the SBCG coefficients of 
+, we obtain the embedding factors of 
 \begin_inset Formula $\rep{6}\otimes\rep{6}\to\rep{6}_{s}^{\left(1\right)}\oplus\rep{6}_{s}^{\left(2\right)}$
 \end_inset
 
@@ -6188,7 +6259,7 @@ reference "sec:App_CGC_PSL27_S4"
 \end_layout
 
 \begin_layout Standard
-The calculation of SBCG coefficients in 
+The calculation of embedding factors in 
 \begin_inset Formula $\subgb$
 \end_inset
 
@@ -6208,10 +6279,10 @@ The calculation of SBCG coefficients in
  can be written as
 \begin_inset Formula 
 \begin{align*}
-\rep{3} & =\mathcal{M}_{3,33}\covt{3}{3}{3}+\mathcal{M}_{3,\bar{3}\bar{3}}\covt{\bar{3}}{\bar{3}}{3_{s}}\\
- & +\frac{\mathcal{M}_{3,3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{3}+\covt{\bar{3}}{3}{3}\right),\\
-\rep{\bar{3}} & =\mathcal{M}_{\bar{3},33}\covt{3}{3}{\bar{3}_{s}}+\mathcal{M}_{\bar{3},\bar{3}\bar{3}}\covt{\bar{3}_{s}}{\bar{3}}{\bar{3}}\\
- & +\frac{\mathcal{M}_{\bar{3},3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{\bar{3}}+\covt{\bar{3}}{3}{\bar{3}}\right),
+\rep{3} & =\mathcal{E}_{3,33}\covt{3}{3}{3}+\mathcal{E}_{3,\bar{3}\bar{3}}\covt{\bar{3}}{\bar{3}}{3_{s}}\\
+ & +\frac{\mathcal{E}_{3,3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{3}+\covt{\bar{3}}{3}{3}\right),\\
+\rep{\bar{3}} & =\mathcal{E}_{\bar{3},33}\covt{3}{3}{\bar{3}_{s}}+\mathcal{E}_{\bar{3},\bar{3}\bar{3}}\covt{\bar{3}_{s}}{\bar{3}}{\bar{3}}\\
+ & +\frac{\mathcal{E}_{\bar{3},3\bar{3}}}{\sqrt{2}}\left(\covt{3}{\bar{3}}{\bar{3}}+\covt{\bar{3}}{3}{\bar{3}}\right),
 \end{align*}
 
 \end_inset
@@ -6241,33 +6312,33 @@ The calculation of SBCG coefficients in
  Solving the linear equations yields
 \begin_inset Formula 
 \begin{align*}
-\mathcal{M}_{3,\bar{3}\bar{3}} & =-\sqrt{2}\mathcal{M}_{3,33}-\frac{\mathcal{M}_{3,\bar{3}\bar{3}}}{\sqrt{2}},\\
-\mathcal{M}_{\bar{3},33} & =-\mathcal{M}_{3,33}-\mathcal{M}_{3,\bar{3}\bar{3}},\\
-\mathcal{M}_{\bar{3},\bar{3}\bar{3}} & =\sqrt{2}\mathcal{M}_{3,33},\quad\mathcal{M}_{\bar{3},\bar{3}\bar{3}}=\frac{1}{\sqrt{2}}\mathcal{M}_{3,\bar{3}\bar{3}}.
+\mathcal{E}_{3,\bar{3}\bar{3}} & =-\sqrt{2}\mathcal{E}_{3,33}-\frac{\mathcal{E}_{3,\bar{3}\bar{3}}}{\sqrt{2}},\\
+\mathcal{E}_{\bar{3},33} & =-\mathcal{E}_{3,33}-\mathcal{E}_{3,\bar{3}\bar{3}},\\
+\mathcal{E}_{\bar{3},\bar{3}\bar{3}} & =\sqrt{2}\mathcal{E}_{3,33},\quad\mathcal{E}_{\bar{3},\bar{3}\bar{3}}=\frac{1}{\sqrt{2}}\mathcal{E}_{3,\bar{3}\bar{3}}.
 \end{align*}
 
 \end_inset
 
 Now the constraints 
-\begin_inset Formula $\mathcal{M}_{c,ab}=\mathcal{M}_{\bar{c},\bar{a}\bar{b}}$
+\begin_inset Formula $\mathcal{E}_{c,ab}=\mathcal{E}_{\bar{c},\bar{a}\bar{b}}$
 \end_inset
 
  can be solved by expressing 
-\begin_inset Formula $\mathcal{M}_{3,33}$
+\begin_inset Formula $\mathcal{E}_{3,33}$
 \end_inset
 
  and 
-\begin_inset Formula $\mathcal{M}_{3,\bar{3}\bar{3}}$
+\begin_inset Formula $\mathcal{E}_{3,\bar{3}\bar{3}}$
 \end_inset
 
  in terms of real and imaginary parts.
  It turns out that the solution is 
-\begin_inset Formula $\mathcal{M}_{3,\bar{3}\bar{3}}=\mathcal{M}_{3,33}^{*}$
+\begin_inset Formula $\mathcal{E}_{3,\bar{3}\bar{3}}=\mathcal{E}_{3,33}^{*}$
 \end_inset
 
 .
- The Gram–Schmidt process then give rise to two sets of independent SBCG
- coefficients shown in Appendix 
+ The Gram–Schmidt process then give rise to two sets of independent embedding
+ factors shown in Appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:App_CGC_PSL27_T7"
@@ -6282,9 +6353,9 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-We have introduced the SBCG coefficients, which express CG coefficients
- of a discrete group in terms of irreps of its subgroup.
- SBCG coefficients are fixed up to phase ambiguities and invariant under
+We have introduced the embedding factors, which express CG coefficients
+ of a discrete group in terms of CG coefficients of its subgroup.
+ embedding factors are fixed up to phase ambiguities and invariant under
  basis transformations of irreps of the group and the subgroup.
  Their phase ambiguities are reduced by a phase convention defined as 
 \begin_inset CommandInset ref
@@ -6303,7 +6374,7 @@ reference "sec:RedPhaseAmbiguity"
 \end_inset
 
 .
- We also obtained complete sets of SBCG coefficients of the group 
+ We also obtained complete sets of embedding factors of the group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -6371,13 +6442,13 @@ olcite{Merle:2011vy}
 \end_layout
 
 \begin_layout Standard
-Another possible direction is to simplify the procedure to find SBCG coefficient
-s.
- As we have shown, SBCG coefficients are basis independent and fixed up
+Another possible direction is to simplify the procedure to find embedding
+ factors.
+ As we have shown, embedding factors are basis independent and fixed up
  to possible phases.
  It seems unnecessary to find representation matrices of the group and subgroups
  in order to calculate these coefficients, at least for their absolute values.
- A natural guess is that SBCG coefficients have something to do with the
+ A natural guess is that embedding factors have something to do with the
  coset structure of the group.
  The procedure to calculate these coefficients would be much simpler if
  there exists a method to determine them without knowing the representation
@@ -9291,16 +9362,16 @@ then the CG coefficients for
  will be written as a list of expressions of the form 
 \begin_inset Formula 
 \begin{equation}
-\rep{z_{c}}=\sum_{a,b}\mathcal{M}_{c,ab}\subcgs{x_{a}}{y_{b}}{z_{c}},\label{eq:App_CGList}
+\rep{z_{c}}=\sum_{a,b}\mathcal{E}_{c,ab}\subcgs{x_{a}}{y_{b}}{z_{c}},\label{eq:App_CGList}
 \end{equation}
 
 \end_inset
 
  where 
-\begin_inset Formula $\mathcal{M}_{c,ab}$
+\begin_inset Formula $\mathcal{E}_{c,ab}$
 \end_inset
 
- are Subgroup-basis CG coefficients and 
+ are embedding factors and 
 \begin_inset Formula $\subcgs{x_{a}}{y_{b}}{z_{c}}$
 \end_inset
 
