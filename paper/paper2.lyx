@@ -219,7 +219,7 @@ olcite{deSwart:1963pdg}
 \begin_inset Formula $\mu_{i}$
 \end_inset
 
- being irreps, can be written as 
+ being irreducible representations (irreps), can be written as 
 \begin_inset Formula 
 \begin{equation}
 \left(\begin{array}{ccc}
@@ -244,24 +244,12 @@ I_{3}Y_{3}
 \begin_inset Formula $z$
 \end_inset
 
- component of isospin of irrep 
+ component of isospin of the irrep 
 \begin_inset Formula $\rep{\mu_{i}}$
 \end_inset
 
 .
- The l.h.s of Eq.
  
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Intro_mumumu"
-
-\end_inset
-
- represents an 
-\begin_inset Formula $SU\left(3\right)$
-\end_inset
-
- CG coefficient, 
 \begin_inset Formula $C_{I_{1z}I_{2z}I_{3z}}^{I_{1}I_{2}I_{3}}$
 \end_inset
 
@@ -269,13 +257,13 @@ reference "eq:Intro_mumumu"
 \begin_inset Formula $SU\left(2\right)$
 \end_inset
 
- CG coefficient, and the remaining part of r.h.s is an isoscalar factor.
+ CG coefficient and the remaining part of r.h.s is the isoscalar factor.
  Such expressions are convenient because the number of isoscalar factors
  is smaller than the number of 
 \begin_inset Formula $SU\left(3\right)$
 \end_inset
 
- coefficients.
+ CG coefficients.
  
 \end_layout
 
@@ -288,8 +276,8 @@ For a discrete group
 \begin_inset Formula $H$
 \end_inset
 
-, presumably, there exists a similar relation between their CG coefficients,
- denoted as 
+, there exists a similar relation between their CG coefficients, denoted
+ as 
 \begin_inset Formula $M^{\left(G\right)}$
 \end_inset
 
@@ -314,7 +302,7 @@ M_{AB}^{\left(G\right)}=\mathcal{E}_{A}M_{B}^{\left(H\right)},\label{eq:Intro_MM
 \begin_inset Formula $A$
 \end_inset
 
- a collection of indices carrying information of how irreps of 
+ a collection of indices carrying the information of how irreps of 
 \begin_inset Formula $H$
 \end_inset
 
@@ -328,12 +316,20 @@ M_{AB}^{\left(G\right)}=\mathcal{E}_{A}M_{B}^{\left(H\right)},\label{eq:Intro_MM
 \end_inset
 
  the embedding factors.
- Since CG coefficients are basis-dependent, the equation is also basis-dependent.
+ Since CG coefficients are basis-dependent, Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Intro_MMM"
+
+\end_inset
+
+ is also basis-dependent.
  Then one may ask the following questions: 1) how can we define 
 \begin_inset Formula $\mathcal{E}$
 \end_inset
 
- independent of basis? 2) are the coefficients in 
+ independent of bases? 2) are the coefficients in 
 \begin_inset Formula $\mathcal{E}$
 \end_inset
 
@@ -389,7 +385,7 @@ We will, however, also show that
 One can introduce some conventions to remove these ambiguities.
  Usually, these conventions are different for different groups or bases.
  We will introduce a convention that is independent of bases and groups:
- we impose on CG coefficients constraints which require that a contraction
+ we impose on embedding factors constraints which require that a contraction
  of two irreps, in the form 
 \begin_inset Formula $\left(\rep{X}\otimes\rep{Y}\right)_{\rep{Z}}$
 \end_inset
@@ -403,7 +399,7 @@ One can introduce some conventions to remove these ambiguities.
 \end_layout
 
 \begin_layout Itemize
-If all of 
+Case I: If all of 
 \begin_inset Formula $\rep{X}$
 \end_inset
 
@@ -415,15 +411,15 @@ If all of
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
- are real or pseudoreal, the overall phases of embedding factors is fixed
- up to a sign factor.
+ are real or pseudoreal irreps, the overall phases of embedding factors
+ is fixed up to a sign factor.
  In particular, if the irreps can be decomposed into real or pseudoreal
  subgroup irreps, then the corresponding embedding factors are real numbers
  fixed up to sign factors.
 \end_layout
 
 \begin_layout Itemize
-If 
+Case II: If 
 \begin_inset Formula $\rep{Z}$
 \end_inset
 
@@ -440,7 +436,7 @@ If
 \end_layout
 
 \begin_layout Itemize
-In other cases, the embedding factors for 
+Case III: In other cases, the embedding factors for 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}$
 \end_inset
 
@@ -463,10 +459,24 @@ In other cases, the embedding factors for
 
  itself otherwise.
  This statement looks trivial and one may think that CG coefficients always
- have such property.
+ have such a property.
  But actually such relation not always holds for CG coefficients (See Propositio
-n 2 of Section 3).
- This is another advantage of embedding factors compare with CG coefficients.
+n 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:CG_phase"
+
+\end_inset
+
+ of Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:RedPhaseAmbiguity"
+
+\end_inset
+
+).
+ This is another advantage of embedding factors compared with CG coefficients.
  
 \end_layout
 
@@ -497,8 +507,8 @@ There is another type of ambiguity of
 \end_inset
 
  ambiguity.
- In the first two cases, the multiplicity ambiguities of such cases are
- reduced from 
+ With our phase convention, in the Case I and II, the multiplicity ambiguities
+ of such cases are reduced from 
 \begin_inset Formula $U\left(m\right)$
 \end_inset
 
@@ -509,11 +519,11 @@ There is another type of ambiguity of
 .
  Unfortunately, to complete eliminate all these ambiguities, we need to
  find other conventions, which may depend on irreps and groups.
- Such conventions are out of scope of this paper.
+ Such conventions are out of the scope of this paper.
 \end_layout
 
 \begin_layout Standard
-We then introduce a procedure to calculate the embedding factors.
+We introduce a procedure to calculate the embedding factors.
  The calculation involves complicated cyclotomic numbers, which are polynomials
  of roots of unity 
 \begin_inset Formula $e^{2\pi i/n}$
@@ -525,7 +535,7 @@ We then introduce a procedure to calculate the embedding factors.
 \end_layout
 
 \begin_layout Standard
-We demonstrate the procedure with the group 
+We then demonstrate the procedure with the group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -543,8 +553,8 @@ We demonstrate the procedure with the group
 \end_inset
 
  in its subgroup bases, in which subgroup elements are block diagonal matrices.
- For both subgroups, we acquire a complete list of embedding factors of
- the group 
+ For both the subgroups, we acquire a complete list of embedding factors
+ of the group 
 \begin_inset Formula $\group$
 \end_inset
 
@@ -2211,6 +2221,12 @@ These constraints lead to the following consequences.
 \end_layout
 
 \begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:CG_phase"
+
+\end_inset
+
 The CG coefficients 
 \begin_inset Formula $M^{\left(x_{a}y_{b}\to z_{a}\right)}$
 \end_inset
