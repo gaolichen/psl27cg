@@ -1177,42 +1177,7 @@ reference "eq:Amb_CG_Orthnorm"
 
 .
  The last ambiguity exists when there are nontrivial multiplicities in a
- tensor product
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-The tensor product of two identical irreps has symmetric and antisymmetric
- parts.
- If both parts contain an irrep 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
-, then 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- has multiplicity of 
-\begin_inset Formula $2$
-\end_inset
-
- conceptually.
- But in practice, we can treat the symmetric 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- and antisymmetric 
-\begin_inset Formula $\rep{Z}$
-\end_inset
-
- as two different irreps when calculating the CG coefficients.
- So in this paper, such a case is not considered as a nontrivial multiplicity
- case.
-\end_layout
-
-\end_inset
-
-, i.e., 
+ tensor product, i.e., 
 \begin_inset Formula $\rep{X}\otimes\rep{Y}\to\rep{Z}^{\left(1\right)}\oplus\cdots\oplus\rep{Z}^{\left(\mu\right)}$
 \end_inset
 
@@ -1225,6 +1190,7 @@ The tensor product of two identical irreps has symmetric and antisymmetric
 \end_inset
 
  is also a set of unitary CG coefficients.
+ 
 \end_layout
 
 \begin_layout Section
@@ -1263,34 +1229,6 @@ Let
 \end_inset
 
  as 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-The 
-\begin_inset Formula $\mathrm{rhs}$
-\end_inset
-
- of each equations of 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:SBCG_Embed"
-
-\end_inset
-
- may contain duplicated irreps, which introduces additional complexity.
- Such a case can be avoided by choosing a large enough subgroup 
-\begin_inset Formula $H$
-\end_inset
-
-.
- So we only consider the case that no irrep is contained twice in an irrep
- of the large group.
-\end_layout
-
-\end_inset
-
-
 \begin_inset Formula 
 \begin{equation}
 \rep{X}=\bigoplus_{a}\rep{x_{a}},\quad\rep{Y}=\bigoplus_{b}\rep{y_{b}},\quad\rep{Z}=\bigoplus_{c}\rep{z_{c}},\label{eq:SBCG_Embed}
@@ -1298,7 +1236,7 @@ reference "eq:SBCG_Embed"
 
 \end_inset
 
- where 
+where 
 \begin_inset Formula $\rep{x_{a}}$
 \end_inset
 
@@ -1327,7 +1265,7 @@ P_{Z\to c}Z=\sum_{a,b}\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{
 
 \end_inset
 
- where 
+where 
 \begin_inset Formula $P_{X\to a}$
 \end_inset
 
@@ -1393,7 +1331,7 @@ begin{widetext}
 
 \end_inset
 
-
+ 
 \begin_inset Formula 
 \begin{equation}
 P_{Z\to c}\mr{Z}\left(g\right)Z=\sum_{a,b}\mathcal{E}_{c,ab}^{\left(XY\to Z\right)}\left\{ \left(P_{X\to a}\mr{X}\left(g\right)X\right)\otimes\left(P_{Y\to b}\mr{Y}\left(g\right)Y\right)\right\} _{z_{c}},\quad\forall g\in G,\label{eq:SBCG_Def2}
@@ -1414,7 +1352,7 @@ end{widetext}
 
 \end_inset
 
-which reduces to eq.
+ which reduces to eq.
  
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -1455,7 +1393,26 @@ reference "eq:Amb_CG_Orthnorm"
 
 \end_inset
 
-For embedding factors, we have the following proposition.
+ We remark that the 
+\begin_inset Formula $\mathrm{rhs}$
+\end_inset
+
+ of each equations of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:SBCG_Embed"
+
+\end_inset
+
+ may contain duplicated irreps.
+ Such a case can be avoided by choosing a large enough subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Therefore, for simplicify, we only consider the case that no irrep is contained
+ twice in an irrep of the large group.
+ 
 \end_layout
 
 \begin_layout Proposition
@@ -5911,7 +5868,11 @@ With the generator matrices, we can now find the embedding factors of
 \begin_inset Formula $s$
 \end_inset
 
- indicates the symmetric part.
+ (
+\begin_inset Formula $a$
+\end_inset
+
+) indicates the symmetric (antisymmetric) part.
  
 \end_layout
 
